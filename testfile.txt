@@ -1,3 +1,0 @@
-my awesome file now pushing with ssh
-
-Adding second line
