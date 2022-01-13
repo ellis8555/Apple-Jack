@@ -1,0 +1,69 @@
+﻿{
+  "s01RegularSeasonFinalStandings": [
+    {
+      "Team": "Mooney",
+      "GP": "8",
+      "Wins": "8",
+      "Loss": "0",
+      "Draw": "0",
+      "Points": "24",
+      "GoalsFor": "53",
+      "GoalsAgainst": "15",
+      "GoalDifference": "38",
+      "GoalsforAvg": "6.625",
+      "GoalsagainstAvg": "1.875"
+    },
+    {
+      "Team": "Haxual Chocolate",
+      "GP": "8",
+      "Wins": "6",
+      "Loss": "2",
+      "Draw": "0",
+      "Points": "18",
+      "GoalsFor": "36",
+      "GoalsAgainst": "16",
+      "GoalDifference": "20",
+      "GoalsforAvg": "4.5",
+      "GoalsagainstAvg": "2"
+    },
+    {
+      "Team": "C.E.G. United",
+      "GP": "8",
+      "Wins": "3",
+      "Loss": "4",
+      "Draw": "1",
+      "Points": "10",
+      "GoalsFor": "28",
+      "GoalsAgainst": "36",
+      "GoalDifference": "-8",
+      "GoalsforAvg": "3.5",
+      "GoalsagainstAvg": "4.5"
+    },
+    {
+      "Team": ".hax",
+      "GP": "8",
+      "Wins": "1",
+      "Loss": "6",
+      "Draw": "1",
+      "Points": "4",
+      "GoalsFor": "18",
+      "GoalsAgainst": "39",
+      "GoalDifference": "-21",
+      "GoalsforAvg": "2.25",
+      "GoalsagainstAvg": "4.875"
+    },
+    {
+      "Team": "S.A.D.",
+      "GP": "8",
+      "Wins": "1",
+      "Loss": "7",
+      "Draw": "0",
+      "Points": "3",
+      "GoalsFor": "16",
+      "GoalsAgainst": "42",
+      "GoalDifference": "-26",
+      "GoalsforAvg": "2",
+      "GoalsagainstAvg": "5.25"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+@media screen and (max-width: 1200px) {
+  #championsCard {
+    position: relative;
+  }
+
+  table {
+    font-size: 1.1em;
+  }
+}

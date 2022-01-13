@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hax94</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css\w3.css" />
+    <link rel="stylesheet" href="css\general.css" />
+    <link rel="stylesheet" href="css\large.css" />
+    <link rel="stylesheet" href="css\medium.css" />
+    <link rel="stylesheet" href="css\mobileLandscape.css" />
+    <link rel="stylesheet" href="css\mobile.css" />
+
+    <script src="./javascripts/hax94.js"></script>
+    <script src="./javascripts/class.js"></script>
+  </head>
+
+  <!--END OF <HEAD>-->
+
+  <body class="w3-blue">
+    <!--nav Sidbebar-->
+    <div
+      class="w3-sidebar w3-bar-block w3-border-right w3-blue"
+      style="display: none"
+      id="sidebar"
+    >
+      <button class="w3-bar-item w3-large w3-yellow" id="closeSidebar">
+        Close &times;
+      </button>
+      <div href="#" class="w3-bar-item w3-button w3-text-black" id="homeTable">
+        Home
+      </div>
+      <a
+        href="#"
+        class="w3-bar-item w3-button w3-text-black"
+        id="s01PlayerSeasonStats"
+        >Season Player Stats</a
+      >
+      <a
+        href="#"
+        class="w3-bar-item w3-button w3-text-black"
+        id="s01PlayerPlayoffStats"
+        >Playoffs Player Stats</a
+      >
+      <a href="#" class="w3-bar-item w3-button w3-text-black" id="s01FullTable"
+        >Full Table</a
+      >
+      <a
+        href="#"
+        onclick="displaySlides();"
+        class="w3-bar-item w3-button w3-text-black"
+        >Other Stats</a
+      >
+    </div>
+    <!--header-->
+
+    <header class="w3-center w3-row w3-container">
+      <!--nav Icon-->
+      <div class="w3-button w3-yellow w3-large w3-round-large" id="openSidebar">
+        &#9776;
+      </div>
+
+      <!--header image-->
+      <div class="w3-container" id="headerImg">
+        <img src="img/haxball-big-min.svg" alt="Haxball!" class="w3-image" />
+      </div>
+      <!--champions card-->
+      <div class="w3-container" id="championsCard">
+        <div
+          class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section w3-container"
+        >
+          <img
+            src="img/teamLogos/haxualChocolateHomeS01.svg"
+            alt="Haxual Chocolate HC"
+            class="w3-image"
+          />
+
+          <div class="w3-container">
+            <i class="fa fa-trophy trophy"></i>
+          </div>
+          Haxual Chocolate
+        </div>
+      </div>
+    </header>
+
+    <div class="w3-container w3-center w3-text-black"><h1>Teams</h1></div>
+    <!--Teams navbar-->
+    <div class="w3-container w3-center" id="teamsNavbar">
+      <script>
+        displayTeamNavbar();
+      </script>
+    </div>
+    <!--end navbar-->
+    <!--display standings table-->
+    <div class="w3-container w3-section w3-center">
+      <div style="display: flex; justify-content: center" id="tablesDiv">
+        <script>
+          CLASSsetHomePageTableS01FinalStandings.fetchData();
+        </script>
+      </div>
+    </div>
+    <!--end display standings table-->
+
+    <script src="./javascripts/hax94Listeners.js"></script>
+  </body>
+</html>

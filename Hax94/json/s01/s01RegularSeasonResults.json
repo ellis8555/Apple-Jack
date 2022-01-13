@@ -1,0 +1,244 @@
+﻿{
+    "s01RegularSeasonGameResults": [
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "7",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "7"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "1",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "2",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "4"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "1",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "11"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "1",
+            "Team 2": "Mooney",
+            "Team2 Score": "8"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "1",
+            "Team 2": "Mooney",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "2",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": ".hax",
+            "Team1 Score": "3",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "7",
+            "Team 2": ".hax",
+            "Team2 Score": "7"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "2",
+            "Team 2": ".hax",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "2",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "6"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "2",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "4"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "1",
+            "Team 2": "Mooney",
+            "Team2 Score": "5"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "3",
+            "Team 2": "Mooney",
+            "Team2 Score": "10"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "7",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "4"
+        },
+        {
+            "Team 1": "C.E.G. United",
+            "Team1 Score": "4",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "4",
+            "Team 2": ".hax",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "11",
+            "Team 2": ".hax",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "6",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "4",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "2",
+            "Team 2": "Mooney",
+            "Team2 Score": "6"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "1",
+            "Team 2": "Mooney",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "2",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "0"
+        },
+        {
+            "Team 1": "Haxual Chocolate",
+            "Team1 Score": "6",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "0"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "8",
+            "Team 2": ".hax",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "3",
+            "Team 2": ".hax",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "5",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "10",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "6",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "3",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "1"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "10",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": "Mooney",
+            "Team1 Score": "8",
+            "Team 2": "S.A.D.",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "3",
+            "Team 2": ".hax",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "1",
+            "Team 2": ".hax",
+            "Team2 Score": "3"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "2",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "4"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "4",
+            "Team 2": "C.E.G. United",
+            "Team2 Score": "7"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "0",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "6"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "0",
+            "Team 2": "Haxual Chocolate",
+            "Team2 Score": "2"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "3",
+            "Team 2": "Mooney",
+            "Team2 Score": "10"
+        },
+        {
+            "Team 1": "S.A.D.",
+            "Team1 Score": "3",
+            "Team 2": "Mooney",
+            "Team2 Score": "8"
+        }
+    ]
+}
