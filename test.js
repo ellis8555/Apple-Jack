@@ -7,4 +7,7 @@
 function myTest(six) {
   console.log(six);
   // This is my first test
+  console.log(
+    "This is newly added in branch master before being merged with first."
+  );
 }
