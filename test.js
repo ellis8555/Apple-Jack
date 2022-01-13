@@ -7,7 +7,5 @@
 function myTest(second) {
   console.log(second);
   // This is my first test
-  console.log(
-    "This message has been modified in master branch for potential conflict..."
-  );
+  console.log("This message has been modified in SECOND BRANCH!");
 }
