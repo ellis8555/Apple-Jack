@@ -1,1 +1,7 @@
 This line edited in branch four!
+
+I will edit this line in the fifth branch!
+
+function myTest(master){
+	print(master);
+}
