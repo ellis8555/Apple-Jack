@@ -4,8 +4,8 @@
 // The above line was edited in branch six and used to say,
 // "I will edit this line in the fifth branch!"
 
-function myTest(master) {
-  console.log(master);
+function myTest(CHANGE) {
+  console.log(CHANGE);
   // This is my first test
   console.log("This message has been configured in SECOND for MASTER BRANCH!");
 }
