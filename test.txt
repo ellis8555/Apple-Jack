@@ -1,7 +1,9 @@
-This line edited in branch four!
+This line edited in branch four! Now its been edited in five.
 
-I will edit this line in the fifth branch!
+This line was edited so how will this merge?
+The above line was edited in branch five and used to say,
+"I will edit this line in the fifth branch!"
 
-function myTest(master){
-	print(master);
+function myTest(five){
+	print(five);
 }
