@@ -5,5 +5,5 @@ The above line was edited in branch six and used to say,
 "I will edit this line in the fifth branch!"
 
 function myTest(six){
-	print(six);
+	console.log("six and six");
 }
