@@ -7,5 +7,5 @@
 function myTest(Master) {
   console.log(Master);
   // This is my first test
-  console.log("This message has been EDITED in SECOND BRANCH!");
+  console.log("This message is in MASTER branch!");
 }
