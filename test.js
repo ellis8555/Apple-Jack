@@ -8,6 +8,6 @@ function myTest(second) {
   console.log(second);
   // This is my first test
   console.log(
-    "This message has been modified AGAIN in master to reflect master branch!"
+    "This message has been modified for the THIRD TIME in SECOND BRANCH!"
   );
 }

@@ -3,5 +3,5 @@ body {
 }
 
 p {
-  font-size: 1em;
+  font-size: 4em; /*incremented by 3 in SECOND BRANCH*/
 }
