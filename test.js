@@ -7,5 +7,5 @@
 function myTest(second) {
   console.log(second);
   // This is my first test
-  console.log("This message has been modified in SECOND BRANCH!");
+  console.log("This message has been modified AGAIN in SECOND BRANCH!");
 }
