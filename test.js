@@ -7,5 +7,5 @@
 function myTest(master) {
   console.log(master);
   // This is my first test
-  console.log("This message has been configured in SECOND for MASTER BRANCH!");
+  console.log("This message has been EDITED in SECOND BRANCH!");
 }
