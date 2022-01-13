@@ -3,5 +3,9 @@ body {
 }
 
 p {
+<<<<<<< HEAD
   font-size: 1em; /*reduced by one in master*/
+=======
+  font-size: 4em; /*incremented by 2 in SECOND BRANCH*/
+>>>>>>> second
 }
