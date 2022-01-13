@@ -3,5 +3,5 @@ body {
 }
 
 p {
-  font-size: 2em;
+  font-size: 1em; /*reduced by one in master*/
 }

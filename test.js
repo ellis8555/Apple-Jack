@@ -7,5 +7,7 @@
 function myTest(master) {
   console.log(master);
   // This is my first test
-  console.log("This message is within master branch");
+  console.log(
+    "This message has been modified in master branch for potential conflict..."
+  );
 }
