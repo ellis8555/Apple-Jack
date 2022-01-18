@@ -102,7 +102,7 @@ let supportVars = {
   statsType: ["CombinedStats", "SeasonStats", "PlayoffStats"],
 };
 
-let {
+export let {
   seasonMode,
   teamStatsFieldsAbbreviated,
   teamStatsFieldNamesMAP,

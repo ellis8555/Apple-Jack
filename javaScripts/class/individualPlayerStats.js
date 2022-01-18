@@ -84,7 +84,7 @@ let supportVars = {
   perSeasonCatMAPS: ["CombinedStatsMAP", "SeasonStatsMAP", "PlayoffStatsMAP"],
 };
 
-let {
+export let {
   seasonMode,
   playerStatsFields,
   allTimeStatsArray,
