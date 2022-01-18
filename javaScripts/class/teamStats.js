@@ -115,7 +115,7 @@ let {
 
 // End of destructured vars //
 
-class TeamStats {
+export class TeamStats {
   constructor(name) {
     // players name
     this.name = name;
