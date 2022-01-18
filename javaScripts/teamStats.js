@@ -18,7 +18,7 @@
 //   "Losses" // change sort category here
 // );
 
-import { haxBallData } from "./gameRecords.js";
+import { haxBallData } from "./masterRecords.js";
 
 function print(data) {
   console.log(data);
