@@ -22,57 +22,31 @@
 //   "Points" // change sort category here
 // );
 
-import { haxBallData } from "./gameRecords.js";
+// destructured vars that are both in this class file and teamStats.js class file
+// arrays from masterRecords.js
+import {
+  teams,
+  players,
+  gameType,
+  teamPlayers,
+  gameResults,
+  gamePlayerStats,
+} from "../masterVars.js";
+// lengths of the above arrays
+import {
+  teamsLength,
+  playersLength,
+  gameTypeLength,
+  teamPlayersLength,
+  gameResultsLength,
+  seasonCountLength,
+  gamePlayerStatsLength,
+} from "../masterVars.js";
+// maps
+import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
+import { seasonCount } from "../masterVars.js";
 
-////////////////////// destructed variables
-// 1. TEAMS - has map
-// 2. PLAYERS - has map
-// 3. GAME TYPE - has map
-// 4. TEAM PLAYERS
-// 5. GAME RESULTS
-// 6. GAME PLAYER STATS
-
-// TEAMS //
-let { Teams: teams } = haxBallData; // List of all teams
-let teamsLength = teams.length;
-let teamsMAP = new Map();
-for (let i = 0; i < teamsLength; i++) {
-  // map a list of teams
-  teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
-}
-// PLAYERS //
-let { Players: players } = haxBallData; // list of all players
-let playersLength = players.length;
-let playersMAP = new Map();
-for (let i = 0; i < playersLength; i++) {
-  // map a list of players
-  playersMAP.set(Number(players[i].PlayerID), players[i].Players);
-}
-// GAME TYPE //
-let { GameType: gameType } = haxBallData; // game type either season or playoff
-let gameTypeLength = gameType.length;
-let gameTypeMAP = new Map();
-for (let i = 0; i < gameTypeLength; i++) {
-  // map a list of players
-  gameTypeMAP.set(Number(gameType[i].GameTypeID), gameType[i].GameType);
-}
-// TEAM PLAYERS //
-let { TeamPlayers: teamPlayers } = haxBallData; // list of who plays on what team
-let teamPlayersPLength = teamPlayers.length;
-
-// GAME RESULTS //
-let { GameResults: gameResults } = haxBallData; // list of game scores
-let gameResultsLength = gameResults.length;
-let seasonCount = Array.from(
-  //get count of how many seasons in order to create arrays for each season
-  new Set(gameResults.map((item) => item.SeasonNumber))
-);
-let seasonCountLength = seasonCount.length;
-seasonCount.sort((a, b) => a - b);
-
-// GAME PLAYER STATS //
-let { GamePlayerStats: gamePlayerStats } = haxBallData; // list of individual game player stats
-let gamePlayerStatsLength = gamePlayerStats.length;
+import print from "../print.js";
 
 // Vars for destructuring //
 
@@ -400,6 +374,6 @@ if (seasonCount.length > 1) {
 
 // console out
 
-//console.log("All time stats: ");
-//console.log(IndividualPlayerStats.groupPlayersAllTimeStats);
-// console.log(IndividualPlayerStats.allPlayersStats["Ellis"]);
+//print("All time stats: ");
+//print(IndividualPlayerStats.groupPlayersAllTimeStats);
+// print(IndividualPlayerStats.allPlayersStats["Ellis"]);

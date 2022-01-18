@@ -18,40 +18,31 @@
 //   "Losses" // change sort category here
 // );
 
-import { haxBallData } from "./masterRecords.js";
+// destructured vars that are both in this class file and individualPlayerStats.js class file
+// arrays from masterRecords.js
+import {
+  teams,
+  players,
+  gameType,
+  teamPlayers,
+  gameResults,
+  gamePlayerStats,
+} from "../masterVars.js";
+// lengths of the above arrays
+import {
+  teamsLength,
+  playersLength,
+  gameTypeLength,
+  teamPlayersLength,
+  gameResultsLength,
+  seasonCountLength,
+  gamePlayerStatsLength,
+} from "../masterVars.js";
+// maps
+import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
+import { seasonCount } from "../masterVars.js";
 
-function print(data) {
-  console.log(data);
-}
-
-// TEAMS //
-let { Teams: teams } = haxBallData; // List of all teams
-let teamsLength = teams.length;
-let teamsMAP = new Map();
-for (let i = 0; i < teamsLength; i++) {
-  // map a list of teams
-  teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
-}
-// GAME TYPE //
-let { GameType: gameType } = haxBallData; // game type either season or playoff
-let gameTypeLength = gameType.length;
-let gameTypeMAP = new Map();
-for (let i = 0; i < gameTypeLength; i++) {
-  // map a list of players
-  gameTypeMAP.set(Number(gameType[i].GameTypeID), gameType[i].GameType);
-}
-// TEAM PLAYERS //
-let { TeamPlayers: teamPlayers } = haxBallData; // list of who plays on what team
-let teamPlayersPLength = teamPlayers.length;
-// GAME RESULTS //
-let { GameResults: gameResults } = haxBallData; // list of game scores
-let gameResultsLength = gameResults.length;
-let seasonCount = Array.from(
-  //get count of how many seasons in order to create arrays for each season
-  new Set(gameResults.map((item) => item.SeasonNumber))
-);
-let seasonCountLength = seasonCount.length;
-seasonCount.sort((a, b) => a - b);
+import print from "../print.js";
 
 // Vars for destructuring //
 
@@ -829,7 +820,7 @@ for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
   // groupedAllTimeTeamStats is destructured naming array
   sortGroupedTeamStats(
     TeamStats[groupedAllTimeTeamStats[i]],
-    "Losses" // change sort category here
+    "Wins" // change sort category here
   );
 }
 
@@ -842,4 +833,39 @@ print(teamsMAP);
 // for (let i = 1; i <= teamsMAP.size; i++) {
 //   print(TeamStats.allTeamStats[teamsMAP.get(i)].allTimeSeasonStatsMAP);
 // }
+
 print(TeamStats.groupTeamsAllTimeSeasonStats);
+let playerStats = "";
+let fields = [
+  "Team",
+  "GP",
+  "Wins",
+  "Losses",
+  "Draws",
+  "Points",
+  "GF",
+  "GFA",
+  "GA",
+  "GAA",
+  "GD",
+];
+let fieldLength = fields.length;
+playerStats = "<table>";
+playerStats += "<caption>Season Standings</caption>";
+playerStats += "<thead><tr>";
+for (let i = 0; i < fieldLength; i++) {
+  playerStats += "<th>" + fields[i] + "</th>";
+}
+playerStats += "</tr></thead>";
+
+TeamStats.groupTeamsAllTimeSeasonStats.forEach((item) => {
+  playerStats += "<tr>";
+  for (let i = 0; i < fieldLength; i++) {
+    playerStats += "<td>" + item.get(fields[i]) + "</td>";
+  }
+  playerStats += "</tr>";
+});
+playerStats += "</table>";
+
+let x = document.getElementById("test");
+x.innerHTML = playerStats;
