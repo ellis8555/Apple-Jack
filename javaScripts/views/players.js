@@ -24,6 +24,32 @@ import { seasonCount } from "../masterVars.js";
 
 import print from "../print.js";
 
+// IndividualPlayerStats is the class each players' object creation
+// allPLayersStats (object) is the container holding each players' object
+// IndividualPlayerStats.allPlayersStats(<playerName>) is how to get within any players' own object
+// --------------------
+//    "groupPlayersAllTimeStats", "groupPlayersAllTimeSeasonStats",
+// "groupPlayersAllTimePlayoffStats", are static arrays for the class which hold each players'
+// MAPS that have each players' all time stats reduced and ready for table display
+// --------------------
+//    "groupPlayersSeason<number> followed with either <CombinedStats>,<SeasonStats> or <PlayoffStats>,
+// are static arrays for the class which hold each players'
+// MAPS that have each players' all time stats reduced and ready for table display
+// --------------------
+// Each players' own object contains various arrays and MAPS that are both "allTime" and "per season"
+// which the array holds each record that the player is directly in and MAPS which reduce the arrays
+// into single totals ready to be displayed in table form
+// --------------------
+// sortGroupedPlayerStats(<arrayName>, <fieldName>) is function to sort the static class arrays containing
+// each players' MAPS by category.
+// SORT EXAMPLE
+// sortGroupedPlayerStats(
+//   IndividualPlayerStats[groupedAllTimePlayerStats[i]],
+//   "Points" // change sort category here
+// );
+
+// Vars for destructuring //
+
 let supportVars = {
   seasonMode: ["Season", "Playoff"],
   playerStatsFields: [
