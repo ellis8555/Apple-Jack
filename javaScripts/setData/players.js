@@ -21,6 +21,7 @@ import {
 // maps
 import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
 import { seasonCount } from "../masterVars.js";
+import { sortGroupedStats } from "../sort.js";
 
 import print from "../print.js";
 
@@ -266,15 +267,12 @@ if (seasonCount.length > 1) {
   }
 }
 
+// sorts are using imported function
 //sort all time tables
-
-function sortGroupedPlayerStats(inputArray, category) {
-  inputArray.sort((a, b) => b.get(category) - a.get(category));
-}
 
 for (let i = 0; i < groupedAllTimePlayerStats.length; i++) {
   // groupedAllTimePlayerStats is destructured naming array
-  sortGroupedPlayerStats(
+  sortGroupedStats(
     IndividualPlayerStats[groupedAllTimePlayerStats[i]],
     "Points" // change sort category here
   );
@@ -285,7 +283,7 @@ for (let i = 0; i < groupedAllTimePlayerStats.length; i++) {
 if (seasonCount.length > 1) {
   for (let j = 0; j < seasonCount.length; j++) {
     for (let k = 0; k < perSeasonCats.length; k++) {
-      sortGroupedPlayerStats(
+      sortGroupedStats(
         IndividualPlayerStats[
           "groupPlayersSeason" + seasonCount[j] + perSeasonCats[k]
         ],

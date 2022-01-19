@@ -23,6 +23,7 @@ import {
 // maps
 import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
 import { seasonCount } from "../masterVars.js";
+import { sortGroupedStats } from "../sort.js";
 
 import print from "../print.js";
 
@@ -138,17 +139,12 @@ if (seasonCount.length > 1) {
     }
   }
 }
-// SORTING FUNCTION
-//sort function for sorting class' grouped arrays containing all team's MAPS
 
-function sortGroupedTeamStats(inputArray, category) {
-  inputArray.sort((a, b) => b.get(category) - a.get(category));
-}
-
+// sorts are using imported function
 // this sorts the all time MAPS by entered field marked below
 for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
   // groupedAllTimeTeamStats is destructured naming array
-  sortGroupedTeamStats(
+  sortGroupedStats(
     TeamStats[groupedAllTimeTeamStats[i]],
     "Wins" // change sort category here
   );
