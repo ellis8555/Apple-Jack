@@ -19,6 +19,7 @@ import {
   seasonCountLength,
   // gamePlayerStatsLength,
 } from "../../importJSON/masterVars.js";
+import print from "../../print.js";
 
 // sorts are using imported function
 //sort all time tables
@@ -48,6 +49,6 @@ if (seasonCountLength > 1) {
 
 // console out
 
-//print("All time stats: ");
-//print(IndividualPlayerStats.groupPlayersAllTimeStats);
+// print("All time stats: ");
+// print(IndividualPlayerStats.groupPlayersAllTimeStats);
 // print(IndividualPlayerStats.allPlayersStats["Ellis"]);
