@@ -1,4 +1,4 @@
-import { TeamStats } from "../teams.js";
+import { TeamStats } from "../createTeams.js";
 import { teamsMAP } from "../../importJSON/masterVars.js";
 import { sortGroupedStats } from "../../sort.js";
 import {

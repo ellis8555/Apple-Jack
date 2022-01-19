@@ -1,4 +1,4 @@
-import { IndividualPlayerStats } from "../players.js";
+import { IndividualPlayerStats } from "../createPlayers.js";
 import { sortGroupedStats } from "../../sort.js";
 import {
   //   seasonMode,
@@ -9,7 +9,7 @@ import {
   //   allTimeMapNames,
   perSeasonCats,
   //   perSeasonCatMAPS,
-} from "../players.js";
+} from "../createPlayers.js";
 import {
   // teamsLength,
   // playersLength,
