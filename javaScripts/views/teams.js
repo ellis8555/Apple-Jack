@@ -1,10 +1,10 @@
 import { TeamStats } from "../class/teamStats.js";
 
 import {
-  seasonMode,
-  teamStatsFieldsAbbreviated,
-  teamStatsFieldNamesMAP,
-  teamStatsFields,
+  // seasonMode,
+  // teamStatsFieldsAbbreviated,
+  // teamStatsFieldNamesMAP,
+  // teamStatsFields,
   allTimeStatsArray,
   allTimeStatsMAPS,
   groupedAllTimeTeamStats,
@@ -12,13 +12,13 @@ import {
 } from "../class/teamStats.js";
 
 import {
-  teamsLength,
-  playersLength,
-  gameTypeLength,
-  teamPlayersLength,
-  gameResultsLength,
+  // teamsLength,
+  // playersLength,
+  // gameTypeLength,
+  // teamPlayersLength,
+  // gameResultsLength,
   seasonCountLength,
-  gamePlayerStatsLength,
+  // gamePlayerStatsLength,
 } from "../masterVars.js";
 // maps
 import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";

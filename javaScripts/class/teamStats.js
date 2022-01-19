@@ -1,25 +1,25 @@
 // destructured vars that are both in this class file and individualPlayerStats.js class file
 // arrays from masterRecords.js
 import {
-  teams,
-  players,
-  gameType,
-  teamPlayers,
+  // teams,
+  // players,
+  // gameType,
+  // teamPlayers,
   gameResults,
-  gamePlayerStats,
+  // gamePlayerStats,
 } from "../masterVars.js";
 // lengths of the above arrays
 import {
-  teamsLength,
-  playersLength,
-  gameTypeLength,
-  teamPlayersLength,
+  // teamsLength,
+  // playersLength,
+  // gameTypeLength,
+  // teamPlayersLength,
   gameResultsLength,
   seasonCountLength,
-  gamePlayerStatsLength,
+  // gamePlayerStatsLength,
 } from "../masterVars.js";
 // maps
-import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
+import { teamsMAP, gameTypeMAP } from "../masterVars.js"; // playersMAP not included
 import { seasonCount } from "../masterVars.js";
 
 import print from "../print.js";

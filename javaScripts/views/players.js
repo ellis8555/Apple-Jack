@@ -1,22 +1,22 @@
 import { IndividualPlayerStats } from "../class/individualPlayerStats.js";
 
 import {
-  teams,
-  players,
-  gameType,
-  teamPlayers,
+  // teams,
+  // players,
+  // gameType,
+  // teamPlayers,
   gameResults,
-  gamePlayerStats,
+  // gamePlayerStats,
 } from "../masterVars.js";
 // lengths of the above arrays
 import {
-  teamsLength,
-  playersLength,
-  gameTypeLength,
-  teamPlayersLength,
+  // teamsLength,
+  // playersLength,
+  // gameTypeLength,
+  // teamPlayersLength,
   gameResultsLength,
   seasonCountLength,
-  gamePlayerStatsLength,
+  // gamePlayerStatsLength,
 } from "../masterVars.js";
 // maps
 import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
