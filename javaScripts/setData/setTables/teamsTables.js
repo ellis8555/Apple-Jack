@@ -48,7 +48,7 @@ for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
 
 function createTable(tableName, dataSource, sortBy = "Points") {
   sortGroupedStats(dataSource, sortBy);
-  let fieldLength = fullTable.length;
+  let fieldLength = fullTable.length; // named array of fields previously made
   let playerStats = "";
   // html table begin
   playerStats = "<table>";
