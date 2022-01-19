@@ -1,5 +1,5 @@
 import { IndividualPlayerStats } from "../createPlayers.js";
-import { sortGroupedStats } from "../../sort.js";
+import sortGroupedStats from "../../sort.js";
 import {
   //   seasonMode,
   //   playerStatsFields,
