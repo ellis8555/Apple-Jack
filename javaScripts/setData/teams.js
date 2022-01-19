@@ -1,4 +1,4 @@
-import { TeamStats } from "../class/teamStats.js";
+import { TeamStats } from "../classFiles/teamStats.js";
 
 import {
   // seasonMode,
@@ -9,7 +9,7 @@ import {
   allTimeStatsMAPS,
   groupedAllTimeTeamStats,
   statsType,
-} from "../class/teamStats.js";
+} from "../classFiles/teamStats.js";
 
 import {
   // teamsLength,

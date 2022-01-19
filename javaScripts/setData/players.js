@@ -1,4 +1,4 @@
-import { IndividualPlayerStats } from "../class/individualPlayerStats.js";
+import { IndividualPlayerStats } from "../classFiles/individualPlayerStats.js";
 
 import {
   // teams,
