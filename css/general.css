@@ -1,0 +1,82 @@
+header {
+  position: relative;
+  margin-top: 5px;
+}
+
+.trophy {
+  color: yellow;
+  font-size: 2em;
+}
+
+#openSidebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 10px;
+}
+
+#championsCard {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#tablesDiv {
+  overflow-x: auto;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  display: table;
+  border: 1px solid #ccc;
+  color: black;
+  font-size: 1.2em;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table th:hover {
+  cursor: pointer;
+  background-color: #ffeb3b;
+}
+
+table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+table tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+table td,
+table th {
+  padding: 8px 8px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: top;
+}
+
+table th:first-child,
+table td:first-child {
+  padding-left: 16px;
+}
