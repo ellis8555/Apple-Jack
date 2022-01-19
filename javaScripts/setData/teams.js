@@ -19,10 +19,10 @@ import {
   // gameResultsLength,
   seasonCountLength,
   // gamePlayerStatsLength,
-} from "../masterVars.js";
+} from "../importJSON/masterVars.js";
 // maps
-import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
-import { seasonCount } from "../masterVars.js";
+import { teamsMAP, playersMAP, gameTypeMAP } from "../importJSON/masterVars.js";
+import { seasonCount } from "../importJSON/masterVars.js";
 import { sortGroupedStats } from "../sort.js";
 
 import print from "../print.js";
