@@ -1,17 +1,6 @@
 import { IndividualPlayerStats } from "../class/individualPlayerStats.js";
 
 import {
-  seasonMode,
-  playerStatsFields,
-  allTimeStatsArray,
-  allTimeStatsMAPS,
-  groupedAllTimePlayerStats,
-  allTimeMapNames,
-  perSeasonCats,
-  perSeasonCatMAPS,
-} from "../class/individualPlayerStats.js";
-
-import {
   teams,
   players,
   gameType,
@@ -34,6 +23,51 @@ import { teamsMAP, playersMAP, gameTypeMAP } from "../masterVars.js";
 import { seasonCount } from "../masterVars.js";
 
 import print from "../print.js";
+
+let supportVars = {
+  seasonMode: ["Season", "Playoff"],
+  playerStatsFields: [
+    "Assists",
+    "Goals",
+    "Points",
+    "Kicks",
+    "Passes",
+    "ShotsOnGoal",
+  ],
+  allTimeStatsArray: [
+    "allTimeStats",
+    "allTimeSeasonStats",
+    "allTimePlayoffStats",
+  ],
+  allTimeStatsMAPS: [
+    "allTimeStatsMAP",
+    "allTimeSeasonStatsMAP",
+    "allTimePlayoffStatsMAP",
+  ],
+  groupedAllTimePlayerStats: [
+    "groupPlayersAllTimeStats",
+    "groupPlayersAllTimeSeasonStats",
+    "groupPlayersAllTimePlayoffStats",
+  ],
+  allTimeMapNames: [
+    "groupPlayersAllTimeStatsMAP",
+    "groupPlayersAllTimeSeasonStatsMAP",
+    "groupPlayersAllTimePlayoffStatsMAP",
+  ],
+  perSeasonCats: ["CombinedStats", "SeasonStats", "PlayoffStats"],
+  perSeasonCatMAPS: ["CombinedStatsMAP", "SeasonStatsMAP", "PlayoffStatsMAP"],
+};
+
+let {
+  seasonMode,
+  playerStatsFields,
+  allTimeStatsArray,
+  allTimeStatsMAPS,
+  groupedAllTimePlayerStats,
+  allTimeMapNames,
+  perSeasonCats,
+  perSeasonCatMAPS,
+} = supportVars;
 
 // instantiating the class and all related objects
 

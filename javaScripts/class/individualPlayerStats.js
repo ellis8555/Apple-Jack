@@ -48,55 +48,6 @@ import { seasonCount } from "../masterVars.js";
 
 import print from "../print.js";
 
-// Vars for destructuring //
-
-let supportVars = {
-  seasonMode: ["Season", "Playoff"],
-  playerStatsFields: [
-    "Assists",
-    "Goals",
-    "Points",
-    "Kicks",
-    "Passes",
-    "ShotsOnGoal",
-  ],
-  allTimeStatsArray: [
-    "allTimeStats",
-    "allTimeSeasonStats",
-    "allTimePlayoffStats",
-  ],
-  allTimeStatsMAPS: [
-    "allTimeStatsMAP",
-    "allTimeSeasonStatsMAP",
-    "allTimePlayoffStatsMAP",
-  ],
-  groupedAllTimePlayerStats: [
-    "groupPlayersAllTimeStats",
-    "groupPlayersAllTimeSeasonStats",
-    "groupPlayersAllTimePlayoffStats",
-  ],
-  allTimeMapNames: [
-    "groupPlayersAllTimeStatsMAP",
-    "groupPlayersAllTimeSeasonStatsMAP",
-    "groupPlayersAllTimePlayoffStatsMAP",
-  ],
-  perSeasonCats: ["CombinedStats", "SeasonStats", "PlayoffStats"],
-  perSeasonCatMAPS: ["CombinedStatsMAP", "SeasonStatsMAP", "PlayoffStatsMAP"],
-};
-
-export let {
-  seasonMode,
-  playerStatsFields,
-  allTimeStatsArray,
-  allTimeStatsMAPS,
-  groupedAllTimePlayerStats,
-  allTimeMapNames,
-  perSeasonCats,
-  perSeasonCatMAPS,
-} = supportVars;
-
-// End of destructured vars //
-
 export class IndividualPlayerStats {
   constructor(name) {
     // players name
