@@ -26,6 +26,26 @@ import { seasonCount } from "../masterVars.js";
 
 import print from "../print.js";
 
+// TeamStats is the class for team object creation
+// allTeamStats (object) is the container holding each teams' object
+// TeamStats.allTeamStats(<teamName>) is how to get within any teams' own object
+// --------------------
+//    "groupTeamsAllTimeStats", "groupTeamsAllTimeSeasonStats",
+// "groupTeamsAllTimePlayoffStats", are static arrays for the class which hold each teams'
+// MAPS that have each teams' all time stats reduced and ready for table display
+// --------------------
+// "groupTeamsSeason<seasonNumber>" followed either <CombinedStats>,<SeasonStats> or <PlayoffStats>
+// are static arrays for the class which hold each teams' MAPS
+// that have each teams' stats reduced per each season which is ready for table display
+// --------------------
+// sortGroupedTeamStats(<arrayName>, <fieldName>) is function to sort the static class arrays containing
+// each teams' MAPS by category.
+// SORT EXAMPLE
+// sortGroupedTeamStats(
+//   TeamStats[groupedAllTimeTeamStats[i]], // [groupedAllTimeTeamStats[i]] is a destructed array variable
+//   "Losses" // change sort category here
+// );
+
 // create proper arrays and MAPS for when more than one season is played
 TeamStats.setPerSeasonAllTimeContainers(seasonCountLength);
 
