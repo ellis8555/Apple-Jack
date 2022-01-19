@@ -21,9 +21,6 @@ import {
 // maps
 import { teamsMAP, playersMAP, gameTypeMAP } from "../importJSON/masterVars.js";
 import { seasonCount } from "../importJSON/masterVars.js";
-import { sortGroupedStats } from "../sort.js";
-
-import print from "../print.js";
 
 // IndividualPlayerStats is the class each players' object creation
 // allPLayersStats (object) is the container holding each players' object
@@ -85,7 +82,7 @@ let supportVars = {
   perSeasonCatMAPS: ["CombinedStatsMAP", "SeasonStatsMAP", "PlayoffStatsMAP"],
 };
 
-let {
+export let {
   seasonMode,
   playerStatsFields,
   allTimeStatsArray,
@@ -267,38 +264,6 @@ if (seasonCount.length > 1) {
   }
 }
 
-// sorts are using imported function
-//sort all time tables
-
-for (let i = 0; i < groupedAllTimePlayerStats.length; i++) {
-  // groupedAllTimePlayerStats is destructured naming array
-  sortGroupedStats(
-    IndividualPlayerStats[groupedAllTimePlayerStats[i]],
-    "Points" // change sort category here
-  );
-}
-
-// sort per season tables
-
-if (seasonCount.length > 1) {
-  for (let j = 0; j < seasonCount.length; j++) {
-    for (let k = 0; k < perSeasonCats.length; k++) {
-      sortGroupedStats(
-        IndividualPlayerStats[
-          "groupPlayersSeason" + seasonCount[j] + perSeasonCats[k]
-        ],
-        "Points" // change sort category here
-      );
-    }
-  }
-}
-
 // EXPORTS
 
 export { IndividualPlayerStats };
-
-// console out
-
-//print("All time stats: ");
-//print(IndividualPlayerStats.groupPlayersAllTimeStats);
-// print(IndividualPlayerStats.allPlayersStats["Ellis"]);

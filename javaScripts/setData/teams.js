@@ -23,9 +23,6 @@ import {
 // maps
 import { teamsMAP, playersMAP, gameTypeMAP } from "../importJSON/masterVars.js";
 import { seasonCount } from "../importJSON/masterVars.js";
-import { sortGroupedStats } from "../sort.js";
-
-import print from "../print.js";
 
 // TeamStats is the class for team object creation
 // allTeamStats (object) is the container holding each teams' object
@@ -140,62 +137,6 @@ if (seasonCount.length > 1) {
   }
 }
 
-// sorts are using imported function
-// this sorts the all time MAPS by entered field marked below
-for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
-  // groupedAllTimeTeamStats is destructured naming array
-  sortGroupedStats(
-    TeamStats[groupedAllTimeTeamStats[i]],
-    "Wins" // change sort category here
-  );
-}
-
-// END SORTING
-
 // EXPORTS
 
 export { TeamStats };
-
-// CONSOLE LOG
-
-print("Team stats: ");
-print(teamsMAP);
-// for (let i = 1; i <= teamsMAP.size; i++) {
-//   print(TeamStats.allTeamStats[teamsMAP.get(i)].allTimeSeasonStatsMAP);
-// }
-
-print(TeamStats.groupTeamsAllTimeSeasonStats);
-let playerStats = "";
-let fields = [
-  "Team",
-  "GP",
-  "Wins",
-  "Losses",
-  "Draws",
-  "Points",
-  "GF",
-  "GFA",
-  "GA",
-  "GAA",
-  "GD",
-];
-let fieldLength = fields.length;
-playerStats = "<table>";
-playerStats += "<caption>Season Standings</caption>";
-playerStats += "<thead><tr>";
-for (let i = 0; i < fieldLength; i++) {
-  playerStats += "<th>" + fields[i] + "</th>";
-}
-playerStats += "</tr></thead>";
-
-TeamStats.groupTeamsAllTimeSeasonStats.forEach((item) => {
-  playerStats += "<tr>";
-  for (let i = 0; i < fieldLength; i++) {
-    playerStats += "<td>" + item.get(fields[i]) + "</td>";
-  }
-  playerStats += "</tr>";
-});
-playerStats += "</table>";
-
-let x = document.getElementById("test");
-x.innerHTML = playerStats;
