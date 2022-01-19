@@ -156,6 +156,10 @@ for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
 
 // END SORTING
 
+// EXPORTS
+
+export { TeamStats };
+
 // CONSOLE LOG
 
 print("Team stats: ");

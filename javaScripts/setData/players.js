@@ -295,6 +295,10 @@ if (seasonCount.length > 1) {
   }
 }
 
+// EXPORTS
+
+export { IndividualPlayerStats };
+
 // console out
 
 //print("All time stats: ");
