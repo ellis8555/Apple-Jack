@@ -19,6 +19,7 @@ import {
   seasonCountLength,
   // gamePlayerStatsLength,
 } from "../../importJSON/masterVars.js";
+import { seasonCount } from "../../importJSON/masterVars.js";
 import print from "../../print.js";
 
 // sorts are using imported function

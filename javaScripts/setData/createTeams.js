@@ -44,7 +44,7 @@ import { seasonCount } from "../importJSON/masterVars.js";
 //   "Losses" // change sort category here
 // );
 
-// create proper arrays and MAPS for when more than one season is played
+// create proper arrays for holding team MAPS for when more than one season is played
 TeamStats.setPerSeasonAllTimeContainers(seasonCountLength);
 
 // INSTANTIATE team objects
@@ -131,6 +131,22 @@ if (seasonCount.length > 1) {
           `teamsSeason${j}${statsType[k]}`, // input array
           `teamsSeason${j}${statsType[k]}MAP`, // output MAP
           j // season number
+        );
+      }
+    }
+  }
+}
+
+// loop that fills static arrays containing per season team stats for tabular data as per season
+
+if (seasonCount.length > 1) {
+  for (let i = 1; i <= teamsMAP.size; i++) {
+    for (let j = 1; j <= seasonCountLength; j++) {
+      for (let k = 0; k < statsType.length; k++) {
+        TeamStats["groupTeamsSeason" + j + statsType[k]].push(
+          TeamStats.allTeamStats[teamsMAP.get(i)][
+            "teamsSeason" + j + statsType[k] + "MAP"
+          ]
         );
       }
     }
