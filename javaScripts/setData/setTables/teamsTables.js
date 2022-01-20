@@ -1,6 +1,7 @@
 import { TeamStats } from "../createTeams.js";
 import { teamsMAP } from "../../importJSON/masterVars.js";
 import sortGroupedStats from "../../sort.js";
+import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
 import {
   // seasonMode,
   // teamStatsFieldsAbbreviated,
@@ -52,10 +53,7 @@ export function sortTable(event) {
   let arrayName = event.target.dataset.arraySource;
   let arraySource = tableFields.get(arrayName);
   createTable(tableName, dataName, data, color, sortBy, arrayName, arraySource);
-  let tableContainer = document.getElementById("tablesDiv");
-  let getFieldNames = tableContainer.querySelectorAll("table th");
-  let headers = Array.from(getFieldNames);
-  headers.forEach((field) => field.addEventListener("click", sortTable));
+  setTableListeners();
 }
 
 // TABLE CREATION
