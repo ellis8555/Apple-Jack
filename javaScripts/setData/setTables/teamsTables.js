@@ -154,8 +154,6 @@ createTable(
   TeamStats.groupTeamsAllTimeSeasonStats,
   "w3-yellow",
   "Points",
-  "fullTable",
-  fullTable
+  "homePageStandings",
+  homePageStandings
 );
-
-print("test");
