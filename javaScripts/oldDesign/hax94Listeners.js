@@ -1,10 +1,14 @@
 // listeners on table headers for sorting table on larger screens
 import { sortTable } from "../setData/setTables/teamsTables.js";
 export function setTableListeners() {
-  let tableContainer = document.getElementById("tablesDiv");
-  let getFieldNames = tableContainer.querySelectorAll("table th");
-  let headers = Array.from(getFieldNames);
-  headers.forEach((field) => field.addEventListener("click", sortTable));
+  let browserWidth = window.innerWidth;
+  if (browserWidth < 982) {
+  } else {
+    let tableContainer = document.getElementById("tablesDiv");
+    let getFieldNames = tableContainer.querySelectorAll("table th");
+    let headers = Array.from(getFieldNames);
+    headers.forEach((field) => field.addEventListener("click", sortTable));
+  }
 }
 setTableListeners();
 // listeners for sidebar links. functions located in class.js
