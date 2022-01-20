@@ -46,9 +46,15 @@ for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
 
 // TABLE CREATION
 
-function createTable(tableName, dataSource, color, sortBy = "Points") {
+function createTable(
+  tableName,
+  dataSource,
+  color,
+  sortBy = "Points",
+  ...fieldsArray
+) {
   sortGroupedStats(dataSource, sortBy);
-  let fieldLength = fullTable.length; // named array of fields previously made
+  let fieldsLength = fieldsArray.length; // named array of fields previously made
   let browserWidth = window.innerWidth;
   let playerStats = "";
   // html table begin
@@ -57,12 +63,12 @@ function createTable(tableName, dataSource, color, sortBy = "Points") {
   playerStats += `<caption><h1>${tableName}</h1></caption>`;
   // html table thead
   playerStats += "<thead><tr>";
-  for (let i = 0; i < fieldLength; i++) {
+  for (let i = 0; i < fieldsLength; i++) {
     playerStats +=
       `<th data-field-name=` + //data-fieldNames required for mobile layout
-      fullTable[i] +
+      fieldsArray[i] +
       " >" +
-      fullTable[i] +
+      fieldsArray[i] +
       "</th>";
   }
   playerStats += "</tr></thead>";
@@ -73,40 +79,40 @@ function createTable(tableName, dataSource, color, sortBy = "Points") {
     playerStats += "<tr>";
     if (browserWidth < 982) {
       playerStats += "<tr>";
-      for (let j = 0; j < fieldLength; j++) {
-        if (fullTable[j] == sortBy) {
+      for (let j = 0; j < fieldsLength; j++) {
+        if (fieldsArray[j] == sortBy) {
           playerStats +=
             `<td  class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            fullTable[j] +
+            fieldsArray[j] +
             " >" +
-            item.get(fullTable[j]) +
+            item.get(ieldsfieldsArraye[j]) +
             "</td>";
         } else {
           playerStats +=
             `<td  data-field-name=` + //data-fieldNames required for mobile layout
-            fullTable[j] +
+            fieldsArray[j] +
             " >" +
-            item.get(fullTable[j]) +
+            item.get(fieldsArray[j]) +
             "</td>";
         }
       }
       playerStats += "</tr>";
     } else {
       playerStats += "<tr>";
-      for (let j = 0; j < fieldLength; j++) {
-        if (fullTable[j] == sortBy) {
+      for (let j = 0; j < fieldsLength; j++) {
+        if (fieldsArray[j] == sortBy) {
           playerStats +=
             `<td class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            fullTable[j] +
+            fieldsArray[j] +
             " >" +
-            item.get(fullTable[j]) +
+            item.get(fieldsArray[j]) +
             "</td>";
         } else {
           playerStats +=
             "<td data-field-name=" + //data-fieldNames required for mobile layout
-            fullTable[j] +
+            fieldsArray[j] +
             " >" +
-            item.get(fullTable[j]) +
+            item.get(fieldsArray[j]) +
             "</td>";
         }
       }
@@ -132,5 +138,6 @@ createTable(
   "Season 1 Standings",
   TeamStats.groupTeamsAllTimeSeasonStats,
   "w3-yellow",
-  "Points"
+  "Points",
+  fullTable
 );
