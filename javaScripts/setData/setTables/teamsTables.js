@@ -53,7 +53,7 @@ function createTable(tableName, dataSource, sortBy = "Points") {
   // html table begin
   playerStats = "<table>";
   // html table caption
-  playerStats += `<caption>${tableName}</caption>`;
+  playerStats += `<caption><h1>${tableName}</h1></caption>`;
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldLength; i++) {
