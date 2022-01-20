@@ -79,14 +79,13 @@ function createTable(
     // table data begins for each field
     playerStats += "<tr>";
     if (browserWidth < 982) {
-      playerStats += "<tr>";
       for (let j = 0; j < fieldsLength; j++) {
         if (tableHeaders[j] == sortBy) {
           playerStats +=
             `<td  class=${color} data-field-name=` + //data-fieldNames required for mobile layout
             tableHeaders[j] +
             " >" +
-            item.get(ieldsfieldsArraye[j]) +
+            item.get(tableHeaders[j]) +
             "</td>";
         } else {
           playerStats +=
@@ -140,5 +139,5 @@ createTable(
   TeamStats.groupTeamsAllTimeSeasonStats,
   "w3-yellow",
   "Points",
-  homePageStandings
+  fullTable
 );
