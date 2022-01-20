@@ -30,27 +30,43 @@ let fullTable = [
   "GAA",
   "GD",
 ];
+// PLACE ARRAYS IN A MAP IN ORDER FOR "sortTable" METHOD TO PROPERLY RETRIEVE DATA ATTRIBUTES
+let tableFields = new Map();
+tableFields
+  .set("fullTable", fullTable)
+  .set("homePageStandings", homePageStandings);
 
-// SORTING OF TABLES BEGIN
-// sorts are using imported function
-// this sorts the all time MAPS by entered field marked below
-for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
-  // groupedAllTimeTeamStats is destructured naming array
-  sortGroupedStats(
-    TeamStats[groupedAllTimeTeamStats[i]],
-    "Points" // change sort category here
-  );
+let tableDataSource = new Map();
+tableDataSource.set(
+  "TeamStats.groupTeamsAllTimeSeasonStats",
+  TeamStats.groupTeamsAllTimeSeasonStats
+);
+
+export function sortTable(event) {
+  let caption = document.querySelector("table caption > h1");
+  let tableName = caption.textContent;
+  let dataName = event.target.dataset.dataSource;
+  let data = tableDataSource.get(dataName);
+  let color = "w3-yellow";
+  let sortBy = event.target.dataset.fieldName;
+  let arrayName = event.target.dataset.arraySource;
+  let arraySource = tableFields.get(arrayName);
+  createTable(tableName, dataName, data, color, sortBy, arrayName, arraySource);
+  let tableContainer = document.getElementById("tablesDiv");
+  let getFieldNames = tableContainer.querySelectorAll("table th");
+  let headers = Array.from(getFieldNames);
+  headers.forEach((field) => field.addEventListener("click", sortTable));
 }
-
-// END SORTING
 
 // TABLE CREATION
 
 function createTable(
   tableName,
+  dataSourceName,
   dataSource,
   color,
   sortBy = "Points",
+  fieldsArrayName,
   ...fieldsArray
 ) {
   sortGroupedStats(dataSource, sortBy);
@@ -66,7 +82,7 @@ function createTable(
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
     playerStats +=
-      `<th data-field-name=` + //data-fieldNames required for mobile layout
+      `<th data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
       tableHeaders[i] +
       " >" +
       tableHeaders[i] +
@@ -82,7 +98,7 @@ function createTable(
       for (let j = 0; j < fieldsLength; j++) {
         if (tableHeaders[j] == sortBy) {
           playerStats +=
-            `<td  class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+            `<td class=${color} data-field-name=` + //data-fieldNames required for mobile layout
             tableHeaders[j] +
             " >" +
             item.get(tableHeaders[j]) +
@@ -132,12 +148,14 @@ function createTable(
 // END TABLE CREATION
 // CONSOLE LOG
 
-print("Team stats: ");
-
 createTable(
   "Season 1 Standings",
+  "TeamStats.groupTeamsAllTimeSeasonStats",
   TeamStats.groupTeamsAllTimeSeasonStats,
   "w3-yellow",
   "Points",
+  "fullTable",
   fullTable
 );
+
+print("test");
