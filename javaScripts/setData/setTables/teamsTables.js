@@ -54,7 +54,8 @@ function createTable(
   ...fieldsArray
 ) {
   sortGroupedStats(dataSource, sortBy);
-  let fieldsLength = fieldsArray.length; // named array of fields previously made
+  let tableHeaders = fieldsArray[0];
+  let fieldsLength = fieldsArray[0].length; // named array of fields previously made
   let browserWidth = window.innerWidth;
   let playerStats = "";
   // html table begin
@@ -66,9 +67,9 @@ function createTable(
   for (let i = 0; i < fieldsLength; i++) {
     playerStats +=
       `<th data-field-name=` + //data-fieldNames required for mobile layout
-      fieldsArray[i] +
+      tableHeaders[i] +
       " >" +
-      fieldsArray[i] +
+      tableHeaders[i] +
       "</th>";
   }
   playerStats += "</tr></thead>";
@@ -80,19 +81,19 @@ function createTable(
     if (browserWidth < 982) {
       playerStats += "<tr>";
       for (let j = 0; j < fieldsLength; j++) {
-        if (fieldsArray[j] == sortBy) {
+        if (tableHeaders[j] == sortBy) {
           playerStats +=
             `<td  class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            fieldsArray[j] +
+            tableHeaders[j] +
             " >" +
             item.get(ieldsfieldsArraye[j]) +
             "</td>";
         } else {
           playerStats +=
             `<td  data-field-name=` + //data-fieldNames required for mobile layout
-            fieldsArray[j] +
+            tableHeaders[j] +
             " >" +
-            item.get(fieldsArray[j]) +
+            item.get(tableHeaders[j]) +
             "</td>";
         }
       }
@@ -100,19 +101,19 @@ function createTable(
     } else {
       playerStats += "<tr>";
       for (let j = 0; j < fieldsLength; j++) {
-        if (fieldsArray[j] == sortBy) {
+        if (tableHeaders[j] == sortBy) {
           playerStats +=
             `<td class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            fieldsArray[j] +
+            tableHeaders[j] +
             " >" +
-            item.get(fieldsArray[j]) +
+            item.get(tableHeaders[j]) +
             "</td>";
         } else {
           playerStats +=
             "<td data-field-name=" + //data-fieldNames required for mobile layout
-            fieldsArray[j] +
+            tableHeaders[j] +
             " >" +
-            item.get(fieldsArray[j]) +
+            item.get(tableHeaders[j]) +
             "</td>";
         }
       }
