@@ -46,9 +46,10 @@ for (let i = 0; i < groupedAllTimeTeamStats.length; i++) {
 
 // TABLE CREATION
 
-function createTable(tableName, dataSource, sortBy = "Points") {
+function createTable(tableName, dataSource, color, sortBy = "Points") {
   sortGroupedStats(dataSource, sortBy);
   let fieldLength = fullTable.length; // named array of fields previously made
+  let browserWidth = window.innerWidth;
   let playerStats = "";
   // html table begin
   playerStats = "<table>";
@@ -57,18 +58,63 @@ function createTable(tableName, dataSource, sortBy = "Points") {
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldLength; i++) {
-    playerStats += "<th>" + fullTable[i] + "</th>";
+    playerStats +=
+      `<th data-field-name=` + //data-fieldNames required for mobile layout
+      fullTable[i] +
+      " >" +
+      fullTable[i] +
+      "</th>";
   }
   playerStats += "</tr></thead>";
   // end of html table header fields row
+
   dataSource.forEach((item) => {
     // table data begins for each field
     playerStats += "<tr>";
-    for (let i = 0; i < fieldLength; i++) {
-      playerStats += "<td>" + item.get(fullTable[i]) + "</td>";
+    if (browserWidth < 982) {
+      playerStats += "<tr>";
+      for (let j = 0; j < fieldLength; j++) {
+        if (fullTable[j] == sortBy) {
+          playerStats +=
+            `<td  class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+            fullTable[j] +
+            " >" +
+            item.get(fullTable[j]) +
+            "</td>";
+        } else {
+          playerStats +=
+            `<td  data-field-name=` + //data-fieldNames required for mobile layout
+            fullTable[j] +
+            " >" +
+            item.get(fullTable[j]) +
+            "</td>";
+        }
+      }
+      playerStats += "</tr>";
+    } else {
+      playerStats += "<tr>";
+      for (let j = 0; j < fieldLength; j++) {
+        if (fullTable[j] == sortBy) {
+          playerStats +=
+            `<td class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+            fullTable[j] +
+            " >" +
+            item.get(fullTable[j]) +
+            "</td>";
+        } else {
+          playerStats +=
+            "<td data-field-name=" + //data-fieldNames required for mobile layout
+            fullTable[j] +
+            " >" +
+            item.get(fullTable[j]) +
+            "</td>";
+        }
+      }
+      playerStats += "</tr>";
     }
     playerStats += "</tr>";
   });
+
   // html table ends
   playerStats += "</table>";
 
@@ -85,5 +131,6 @@ print("Team stats: ");
 createTable(
   "Season 1 Standings",
   TeamStats.groupTeamsAllTimeSeasonStats,
+  "w3-yellow",
   "Points"
 );
