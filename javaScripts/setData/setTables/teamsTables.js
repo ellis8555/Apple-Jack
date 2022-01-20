@@ -16,7 +16,7 @@ import print from "../../print.js";
 // END OF IMPORTS
 
 // SET FIELDS FOR TABLES
-let finalStandings = ["GP", "Wins", "Losses", "Draws", "Points"];
+let homePageStandings = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 let fullTable = [
   "Team",
   "GP",
@@ -140,5 +140,5 @@ createTable(
   TeamStats.groupTeamsAllTimeSeasonStats,
   "w3-yellow",
   "Points",
-  fullTable
+  homePageStandings
 );
