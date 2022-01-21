@@ -3,6 +3,11 @@ import {
   setHomeTable,
   setPlayoffTable,
 } from "../setData/setTables/teamsTables.js";
+import {
+  setPlayerS01Season,
+  setPlayerS01Playoff,
+  setPlayerS01Combined,
+} from "../setData/setTables/playersTables.js";
 import screenResize from "../resize.js";
 
 // listeners on table headers for sorting table on larger screens
@@ -19,12 +24,22 @@ export function setTableListeners() {
   }
 }
 setTableListeners();
+
 // listeners for sidebar links. functions located in class.js
 
 document.getElementById("homeTable").addEventListener("click", setHomeTable);
 document
   .getElementById("s01PlayoffTable")
   .addEventListener("click", setPlayoffTable);
+document
+  .getElementById("s01PlayerSeasonTable")
+  .addEventListener("click", setPlayerS01Season);
+document
+  .getElementById("s01PlayerPlayoffTable")
+  .addEventListener("click", setPlayerS01Playoff);
+document
+  .getElementById("s01PlayerCombinedTable")
+  .addEventListener("click", setPlayerS01Combined);
 
 // mobile open/close sidebar navbar. functions located in has94.js
 

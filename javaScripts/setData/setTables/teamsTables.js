@@ -61,7 +61,7 @@ export function sortTable(event) {
 
 // TABLE DESIGN
 
-function createTable(
+export function createTable(
   tableName,
   dataSourceName,
   dataSource,

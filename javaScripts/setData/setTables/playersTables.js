@@ -1,4 +1,6 @@
 import { IndividualPlayerStats } from "../createPlayers.js";
+import { sortTable, createTable } from "./teamsTables.js";
+import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
 import sortGroupedStats from "../../sort.js";
 import {
   //   seasonMode,
@@ -20,35 +22,87 @@ import {
   // gamePlayerStatsLength,
 } from "../../importJSON/masterVars.js";
 import { seasonCount } from "../../importJSON/masterVars.js";
+// END OF IMPORTS
 
-// sorts are using imported function
-//sort all time tables
+// SET FIELDS FOR TABLES
+let playersTable = [
+  "Name",
+  "Goals",
+  "Points",
+  "Kicks",
+  "Passes",
+  "ShotsOngoal",
+];
 
-for (let i = 0; i < groupedAllTimePlayerStats.length; i++) {
-  // groupedAllTimePlayerStats is destructured naming array
-  sortGroupedStats(
-    IndividualPlayerStats[groupedAllTimePlayerStats[i]],
-    "Points" // change sort category here
+// PLACE ARRAYS IN A MAP IN ORDER FOR "sortTable" METHOD TO PROPERLY RETRIEVE DATA ATTRIBUTES
+let tableFields = new Map();
+tableFields.set("playersTable", playersTable);
+
+let tableDataSource = new Map();
+tableDataSource
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
+    IndividualPlayerStats.groupPlayersAllTimeSeasonStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
+    IndividualPlayerStats.groupPlayersAllTimePlayoffStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimeStats",
+    IndividualPlayerStats.groupPlayersAllTimeStats
   );
+
+// TABLE CREATION
+// update the tableDataSource MAP up above!!
+// be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
+
+// S01 regular season
+export function setPlayerS01Season() {
+  createTable(
+    "S01 Regular Season",
+    "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
+    IndividualPlayerStats.groupPlayersAllTimeSeasonStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
 }
 
-// sort per season tables
+// S01 Playoff
+export function setPlayerS01Playoff() {
+  createTable(
+    "S01 Playoffs",
+    "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
+    IndividualPlayerStats.groupPlayersAllTimePlayoffStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+}
 
-if (seasonCountLength > 1) {
-  for (let j = 0; j < seasonCountLength; j++) {
-    for (let k = 0; k < perSeasonCats.length; k++) {
-      sortGroupedStats(
-        IndividualPlayerStats[
-          "groupPlayersSeason" + seasonCount[j] + perSeasonCats[k]
-        ],
-        "Points" // change sort category here
-      );
-    }
-  }
+// S01 Combined
+
+export function setPlayerS01Combined() {
+  createTable(
+    "S01 All Points",
+    "IndividualPlayerStats.groupPlayersAllTimeStats",
+    IndividualPlayerStats.groupPlayersAllTimeStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
 }
 
 // console out
 
 // console.log("All time stats: ");
+// console.log(IndividualPlayerStats);
 // console.log(IndividualPlayerStats.groupPlayersAllTimeStats);
 // console.log(IndividualPlayerStats.allPlayersStats["Ellis"]);
