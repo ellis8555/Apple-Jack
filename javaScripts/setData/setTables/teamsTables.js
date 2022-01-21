@@ -40,7 +40,7 @@ tableDataSource.set(
   TeamStats.groupTeamsAllTimeSeasonStats
 );
 
-// TH,TD OF TABLE ONLICK SORTING
+// TH,TD OF TABLE ONCLICK SORTING
 export function sortTable(event) {
   let caption = document.querySelector("table caption > h1");
   let tableName = caption.textContent;
@@ -54,7 +54,7 @@ export function sortTable(event) {
   setTableListeners();
 }
 
-// TABLE CREATION
+// TABLE DESIGN
 
 function createTable(
   tableName,
@@ -140,8 +140,10 @@ function createTable(
   x.innerHTML = playerStats;
 }
 
-// END TABLE CREATION
-// CONSOLE LOG
+// END TABLE DESIGN
+
+// TABLE CREATION
+// be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
 
 export function setHomeTable() {
   createTable(
