@@ -1,4 +1,8 @@
-import { setHomeTable, sortTable } from "../setData/setTables/teamsTables.js";
+import {
+  sortTable,
+  setHomeTable,
+  setPlayoffTable,
+} from "../setData/setTables/teamsTables.js";
 import screenResize from "../resize.js";
 
 // listeners on table headers for sorting table on larger screens
@@ -18,6 +22,9 @@ setTableListeners();
 // listeners for sidebar links. functions located in class.js
 
 document.getElementById("homeTable").addEventListener("click", setHomeTable);
+document
+  .getElementById("s01PlayoffTable")
+  .addEventListener("click", setPlayoffTable);
 
 // mobile open/close sidebar navbar. functions located in has94.js
 

@@ -35,10 +35,15 @@ let tableFields = new Map();
 tableFields.set("fullTable", fullTable).set("homePageFields", homePageFields);
 
 let tableDataSource = new Map();
-tableDataSource.set(
-  "TeamStats.groupTeamsAllTimeSeasonStats",
-  TeamStats.groupTeamsAllTimeSeasonStats
-);
+tableDataSource
+  .set(
+    "TeamStats.groupTeamsAllTimeSeasonStats",
+    TeamStats.groupTeamsAllTimeSeasonStats
+  )
+  .set(
+    "TeamStats.groupTeamsAllTimePlayoffStats",
+    TeamStats.groupTeamsAllTimePlayoffStats
+  );
 
 // TH,TD OF TABLE ONCLICK SORTING
 export function sortTable(event) {
@@ -143,18 +148,37 @@ function createTable(
 // END TABLE DESIGN
 
 // TABLE CREATION
+// update the tableDataSource MAP up above!!
 // be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
 
+// S01 regular season
 export function setHomeTable() {
   createTable(
-    "Season 1 Standings",
+    "S01 Regular Season",
     "TeamStats.groupTeamsAllTimeSeasonStats",
     TeamStats.groupTeamsAllTimeSeasonStats,
     "w3-yellow",
     "Points",
-    "homePageFields",
-    homePageFields
+    "fullTable",
+    fullTable
   );
   setTableListeners();
 }
+
+// S01 Playoff
+export function setPlayoffTable() {
+  createTable(
+    "S01 Playoffs",
+    "TeamStats.groupTeamsAllTimePlayoffStats",
+    TeamStats.groupTeamsAllTimePlayoffStats,
+    "w3-yellow",
+    "Points",
+    "fullTable",
+    fullTable
+  );
+  setTableListeners();
+}
+
 setHomeTable();
+
+// END TABLE CREATION
