@@ -145,12 +145,15 @@ function createTable(
 // END TABLE CREATION
 // CONSOLE LOG
 
-createTable(
-  "Season 1 Standings",
-  "TeamStats.groupTeamsAllTimeSeasonStats",
-  TeamStats.groupTeamsAllTimeSeasonStats,
-  "w3-yellow",
-  "Points",
-  "homePageStandings",
-  homePageStandings
-);
+export function setHomeTable() {
+  createTable(
+    "Season 1 Standings",
+    "TeamStats.groupTeamsAllTimeSeasonStats",
+    TeamStats.groupTeamsAllTimeSeasonStats,
+    "w3-yellow",
+    "Points",
+    "homePageStandings",
+    homePageStandings
+  );
+}
+setHomeTable();
