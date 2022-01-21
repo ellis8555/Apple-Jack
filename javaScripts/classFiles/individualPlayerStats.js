@@ -22,8 +22,6 @@ import {
 import { playersMAP, gameTypeMAP } from "../importJSON/masterVars.js"; // teamsMAP not included
 import { seasonCount } from "../importJSON/masterVars.js";
 
-import print from "../print.js";
-
 export class IndividualPlayerStats {
   constructor(name) {
     // players name

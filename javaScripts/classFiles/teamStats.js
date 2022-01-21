@@ -22,8 +22,6 @@ import {
 import { teamsMAP, gameTypeMAP } from "../importJSON/masterVars.js"; // playersMAP not included
 import { seasonCount } from "../importJSON/masterVars.js";
 
-import print from "../print.js";
-
 // Vars for destructuring //
 
 let supportVars = {
