@@ -12,7 +12,6 @@ import {
   groupedAllTimeTeamStats,
   //   statsType,
 } from "../../classFiles/teamStats.js";
-import print from "../../print.js";
 
 // END OF IMPORTS
 
@@ -43,6 +42,7 @@ tableDataSource.set(
   TeamStats.groupTeamsAllTimeSeasonStats
 );
 
+// TH,TD OF TABLE ONLICK SORTING
 export function sortTable(event) {
   let caption = document.querySelector("table caption > h1");
   let tableName = caption.textContent;
@@ -96,14 +96,14 @@ function createTable(
       for (let j = 0; j < fieldsLength; j++) {
         if (tableHeaders[j] == sortBy) {
           playerStats +=
-            `<td class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+            `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
             tableHeaders[j] +
             " >" +
             item.get(tableHeaders[j]) +
             "</td>";
         } else {
           playerStats +=
-            `<td  data-field-name=` + //data-fieldNames required for mobile layout
+            `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
             tableHeaders[j] +
             " >" +
             item.get(tableHeaders[j]) +
@@ -112,18 +112,17 @@ function createTable(
       }
       playerStats += "</tr>";
     } else {
-      playerStats += "<tr>";
       for (let j = 0; j < fieldsLength; j++) {
         if (tableHeaders[j] == sortBy) {
           playerStats +=
-            `<td class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+            `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
             tableHeaders[j] +
             " >" +
             item.get(tableHeaders[j]) +
             "</td>";
         } else {
           playerStats +=
-            "<td data-field-name=" + //data-fieldNames required for mobile layout
+            `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
             tableHeaders[j] +
             " >" +
             item.get(tableHeaders[j]) +

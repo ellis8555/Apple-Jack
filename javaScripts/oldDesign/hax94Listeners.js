@@ -1,8 +1,14 @@
-// listeners on table headers for sorting table on larger screens
 import { sortTable } from "../setData/setTables/teamsTables.js";
+import screenResize from "../resize.js";
+
+// listeners on table headers for sorting table on larger screens
 export function setTableListeners() {
   let browserWidth = window.innerWidth;
   if (browserWidth < 982) {
+    let tableContainer = document.getElementById("tablesDiv");
+    let mobileCells = tableContainer.querySelectorAll("table td");
+    let eachCell = Array.from(mobileCells);
+    eachCell.forEach((field) => field.addEventListener("click", sortTable));
   } else {
     let tableContainer = document.getElementById("tablesDiv");
     let getFieldNames = tableContainer.querySelectorAll("table th");
@@ -22,7 +28,7 @@ document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
 
 // responsive function for live resizing of screen
 
-// window.onresize = Stats.screenResize; // enables sorting data when switching to mobile view
+window.onresize = screenResize; // enables sorting data when switching to mobile view
 
 ///////////////////// USED IN OLD DESIGN //////////////////////
 
