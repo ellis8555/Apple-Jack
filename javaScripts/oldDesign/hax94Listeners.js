@@ -5,13 +5,11 @@ import screenResize from "../resize.js";
 export function setTableListeners() {
   let browserWidth = window.innerWidth;
   if (browserWidth < 982) {
-    let tableContainer = document.getElementById("tablesDiv");
-    let mobileCells = tableContainer.querySelectorAll("table td");
-    let eachCell = Array.from(mobileCells);
+    let mobileTableCells = document.querySelectorAll("#tablesDiv td");
+    let eachCell = Array.from(mobileTableCells);
     eachCell.forEach((field) => field.addEventListener("click", sortTable));
   } else {
-    let tableContainer = document.getElementById("tablesDiv");
-    let getFieldNames = tableContainer.querySelectorAll("table th");
+    let getFieldNames = document.querySelectorAll("#tablesDiv th");
     let headers = Array.from(getFieldNames);
     headers.forEach((field) => field.addEventListener("click", sortTable));
   }
