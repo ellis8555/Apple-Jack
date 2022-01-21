@@ -16,7 +16,7 @@ import {
 // END OF IMPORTS
 
 // SET FIELDS FOR TABLES
-let homePageStandings = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
+let homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 let fullTable = [
   "Team",
   "GP",
@@ -32,9 +32,7 @@ let fullTable = [
 ];
 // PLACE ARRAYS IN A MAP IN ORDER FOR "sortTable" METHOD TO PROPERLY RETRIEVE DATA ATTRIBUTES
 let tableFields = new Map();
-tableFields
-  .set("fullTable", fullTable)
-  .set("homePageStandings", homePageStandings);
+tableFields.set("fullTable", fullTable).set("homePageFields", homePageFields);
 
 let tableDataSource = new Map();
 tableDataSource.set(
@@ -152,8 +150,9 @@ export function setHomeTable() {
     TeamStats.groupTeamsAllTimeSeasonStats,
     "w3-yellow",
     "Points",
-    "homePageStandings",
-    homePageStandings
+    "homePageFields",
+    homePageFields
   );
+  setTableListeners();
 }
 setHomeTable();
