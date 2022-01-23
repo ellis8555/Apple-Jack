@@ -13,9 +13,7 @@ import {
   groupedAllTimeTeamStats,
   //   statsType,
 } from "../../classFiles/teamStats.js";
-
 // END OF IMPORTS
-
 // SET FIELDS FOR TEAMS TABLES
 let homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 let fullTable = [
@@ -36,10 +34,11 @@ let fullTable = [
 let playersTable = [
   "Name",
   "Goals",
+  "Assists",
   "Points",
   "Kicks",
   "Passes",
-  "ShotsOngoal",
+  "ShotsOnGoal",
 ];
 // PLACE ARRAYS IN A MAP IN ORDER FOR "sortTable" METHOD TO PROPERLY RETRIEVE DATA ATTRIBUTES
 let tableFields = new Map();
