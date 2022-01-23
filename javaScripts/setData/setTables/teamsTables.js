@@ -1,4 +1,5 @@
 import { TeamStats } from "../createTeams.js";
+import { IndividualPlayerStats } from "../createPlayers.js";
 import { teamsMAP } from "../../importJSON/masterVars.js";
 import sortGroupedStats from "../../sort.js";
 import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
@@ -15,7 +16,7 @@ import {
 
 // END OF IMPORTS
 
-// SET FIELDS FOR TABLES
+// SET FIELDS FOR TEAMS TABLES
 let homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 let fullTable = [
   "Team",
@@ -30,9 +31,22 @@ let fullTable = [
   "GAA",
   "GD",
 ];
+
+// SET FIELDS FOR PLAYERS TABLES
+let playersTable = [
+  "Name",
+  "Goals",
+  "Points",
+  "Kicks",
+  "Passes",
+  "ShotsOngoal",
+];
 // PLACE ARRAYS IN A MAP IN ORDER FOR "sortTable" METHOD TO PROPERLY RETRIEVE DATA ATTRIBUTES
 let tableFields = new Map();
-tableFields.set("fullTable", fullTable).set("homePageFields", homePageFields);
+tableFields
+  .set("fullTable", fullTable)
+  .set("homePageFields", homePageFields)
+  .set("playersTable", playersTable);
 
 let tableDataSource = new Map();
 tableDataSource
@@ -43,6 +57,18 @@ tableDataSource
   .set(
     "TeamStats.groupTeamsAllTimePlayoffStats",
     TeamStats.groupTeamsAllTimePlayoffStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
+    IndividualPlayerStats.groupPlayersAllTimeSeasonStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
+    IndividualPlayerStats.groupPlayersAllTimePlayoffStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimeStats",
+    IndividualPlayerStats.groupPlayersAllTimeStats
   );
 
 // TH,TD OF TABLE ONCLICK SORTING
@@ -151,6 +177,7 @@ export function createTable(
 // update the tableDataSource MAP up above!!
 // be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
 
+// TEAMS
 // S01 regular season
 export function setHomeTable() {
   createTable(
@@ -178,7 +205,50 @@ export function setPlayoffTable() {
   );
   setTableListeners();
 }
+// PLAYERS
+// S01 regular season
+export function setPlayerS01Season() {
+  createTable(
+    "S01 Regular Season",
+    "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
+    IndividualPlayerStats.groupPlayersAllTimeSeasonStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+}
 
+// S01 Playoff
+export function setPlayerS01Playoff() {
+  createTable(
+    "S01 Playoffs",
+    "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
+    IndividualPlayerStats.groupPlayersAllTimePlayoffStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+}
+
+// S01 Combined
+
+export function setPlayerS01Combined() {
+  createTable(
+    "S01 All Points",
+    "IndividualPlayerStats.groupPlayersAllTimeStats",
+    IndividualPlayerStats.groupPlayersAllTimeStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+}
+// set home page table
 setHomeTable();
 
 // END TABLE CREATION

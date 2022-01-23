@@ -2,12 +2,15 @@ import {
   sortTable,
   setHomeTable,
   setPlayoffTable,
-} from "../setData/setTables/teamsTables.js";
-import {
   setPlayerS01Season,
   setPlayerS01Playoff,
   setPlayerS01Combined,
-} from "../setData/setTables/playersTables.js";
+} from "../setData/setTables/teamsTables.js";
+// import {
+//   setPlayerS01Season,
+//   setPlayerS01Playoff,
+//   setPlayerS01Combined,
+// } from "../setData/setTables/playersTables.js";
 import screenResize from "../resize.js";
 
 // listeners on table headers for sorting table on larger screens
