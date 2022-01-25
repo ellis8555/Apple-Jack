@@ -165,6 +165,7 @@ export function createTable(
 
   // html table ends
   playerStats += "</table>";
+  closeSidebar();
 
   // display table on web page
   let x = document.getElementById("tablesDiv");
@@ -190,7 +191,6 @@ export function setHomeTable() {
     fullTable
   );
   setTableListeners();
-  closeSidebar();
 }
 
 // S01 Playoff
@@ -205,7 +205,6 @@ export function setPlayoffTable() {
     fullTable
   );
   setTableListeners();
-  closeSidebar();
 }
 // PLAYERS
 // S01 regular season
@@ -220,7 +219,6 @@ export function setPlayerS01Season() {
     playersTable
   );
   setTableListeners();
-  closeSidebar();
 }
 
 // S01 Playoff
@@ -235,7 +233,6 @@ export function setPlayerS01Playoff() {
     playersTable
   );
   setTableListeners();
-  closeSidebar();
 }
 
 // S01 Combined
@@ -251,7 +248,6 @@ export function setPlayerS01Combined() {
     playersTable
   );
   setTableListeners();
-  closeSidebar();
 }
 // set home page table
 setHomeTable();
