@@ -77,13 +77,13 @@ export function displaySlides() {
 
 <button
   class="w3-button w3-black w3-display-left w3-opacity"
-  onclick="plusDivs(-1)"
+  onclick="${plusDivs(-1)}"
 >
   &#10094;
 </button>
 <button
   class="w3-button w3-black w3-display-right w3-opacity"
-  onclick="plusDivs(1)"
+  onclick="${plusDivs(1)}"
 >
   &#10095;
 </button>
