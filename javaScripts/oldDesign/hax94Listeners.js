@@ -7,7 +7,7 @@ import {
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
 
-import { openSidebar, closeSidebar } from "/hax94.js";
+import { openSidebar, closeSidebar, displaySlides } from "./hax94.js";
 
 // import {
 //   setPlayerS01Season,
@@ -46,6 +46,7 @@ document
 document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", setPlayerS01Combined);
+document.getElementById("otherStats").addEventListener("click", displaySlides);
 
 // mobile open/close sidebar navbar. functions located in hax94.js
 
