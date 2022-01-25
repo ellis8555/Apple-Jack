@@ -8,26 +8,6 @@ export function closeSidebar() {
 
 // this code for sidebar "other stats" link
 
-export function plusDivs(n) {
-  showDivs((slideIndex += n));
-}
-export function showDivs(n) {
-  let i;
-  let x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = x.length;
-  }
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  x[slideIndex - 1].style.display = "block";
-}
-
-let slideIndex = 1;
-
 export function displaySlides() {
   let displayArea = document.getElementById("tablesDiv");
 
@@ -74,20 +54,7 @@ export function displaySlides() {
   </div>
 </div>
 
-<button
-  class="w3-button w3-black w3-display-left w3-opacity"
-  onclick="plusDivs(-1)"
->
-  &#10094;
-</button>
-<button
-  class="w3-button w3-black w3-display-right w3-opacity"
-  onclick="plusDivs(1)"
->
-  &#10095;
-</button>
+
 </div>
 <!--end of slides-->`;
-
-  showDivs(slideIndex);
 }
