@@ -6,11 +6,6 @@ function closeSidebar() {
   document.getElementById("sidebar").style.display = "none";
 }
 
-document.getElementById("openSidebar").addEventListener("click", openSidebar);
-document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
-// mobile navbar listeners
-document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
-
 // this code for sidebar "other stats" link
 
 function plusDivs(n) {
@@ -97,3 +92,8 @@ let displaySlides = function () {
 
   showDivs(slideIndex);
 };
+
+document.getElementById("openSidebar").addEventListener("click", openSidebar);
+document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
+// mobile navbar listeners
+document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
