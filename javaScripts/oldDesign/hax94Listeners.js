@@ -7,6 +7,8 @@ import {
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
 
+import { openSidebar, closeSidebar } from "hax94.js";
+
 // import {
 //   setPlayerS01Season,
 //   setPlayerS01Playoff,
@@ -28,14 +30,6 @@ export function setTableListeners() {
   }
 }
 setTableListeners();
-
-function openSidebar() {
-  document.getElementById("sidebar").style.display = "block";
-}
-
-function closeSidebar() {
-  document.getElementById("sidebar").style.display = "none";
-}
 
 // listeners for sidebar links. functions located in class.js
 
