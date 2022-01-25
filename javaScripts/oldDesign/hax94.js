@@ -7,6 +7,7 @@ export function closeSidebar() {
 }
 
 // this code for sidebar "other stats" link
+let slideIndex = 1;
 
 export function plusDivs(n) {
   showDivs((slideIndex += n));
@@ -26,8 +27,6 @@ export function showDivs(n) {
   }
   x[slideIndex - 1].style.display = "block";
 }
-
-let slideIndex = 1;
 
 export function displaySlides() {
   let displayArea = document.getElementById("tablesDiv");
