@@ -251,3 +251,19 @@ export function setPlayerS01Combined() {
 setHomeTable();
 
 // END TABLE CREATION
+
+// listeners for sidebar links. functions located in class.js
+
+document.getElementById("homeTable").addEventListener("click", setHomeTable);
+document
+  .getElementById("s01PlayoffTable")
+  .addEventListener("click", setPlayoffTable);
+document
+  .getElementById("s01PlayerSeasonTable")
+  .addEventListener("click", setPlayerS01Season);
+document
+  .getElementById("s01PlayerPlayoffTable")
+  .addEventListener("click", setPlayerS01Playoff);
+document
+  .getElementById("s01PlayerCombinedTable")
+  .addEventListener("click", setPlayerS01Combined);

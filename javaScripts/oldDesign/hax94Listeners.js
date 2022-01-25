@@ -1,11 +1,12 @@
 import {
   sortTable,
-  setHomeTable,
-  setPlayoffTable,
-  setPlayerS01Season,
-  setPlayerS01Playoff,
-  setPlayerS01Combined,
+  // setHomeTable,
+  // setPlayoffTable,
+  // setPlayerS01Season,
+  // setPlayerS01Playoff,
+  // setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
+
 // import {
 //   setPlayerS01Season,
 //   setPlayerS01Playoff,
@@ -30,26 +31,26 @@ setTableListeners();
 
 // listeners for sidebar links. functions located in class.js
 
-document.getElementById("homeTable").addEventListener("click", setHomeTable);
-document
-  .getElementById("s01PlayoffTable")
-  .addEventListener("click", setPlayoffTable);
-document
-  .getElementById("s01PlayerSeasonTable")
-  .addEventListener("click", setPlayerS01Season);
-document
-  .getElementById("s01PlayerPlayoffTable")
-  .addEventListener("click", setPlayerS01Playoff);
-document
-  .getElementById("s01PlayerCombinedTable")
-  .addEventListener("click", setPlayerS01Combined);
+// document.getElementById("homeTable").addEventListener("click", setHomeTable);
+// document
+//   .getElementById("s01PlayoffTable")
+//   .addEventListener("click", setPlayoffTable);
+// document
+//   .getElementById("s01PlayerSeasonTable")
+//   .addEventListener("click", setPlayerS01Season);
+// document
+//   .getElementById("s01PlayerPlayoffTable")
+//   .addEventListener("click", setPlayerS01Playoff);
+// document
+//   .getElementById("s01PlayerCombinedTable")
+//   .addEventListener("click", setPlayerS01Combined);
 
 // mobile open/close sidebar navbar. functions located in has94.js
 
-document.getElementById("openSidebar").addEventListener("click", openSidebar);
-document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
-// mobile navbar listeners
-document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
+// document.getElementById("openSidebar").addEventListener("click", openSidebar);
+// document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
+// // mobile navbar listeners
+// document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
 
 // responsive function for live resizing of screen
 
