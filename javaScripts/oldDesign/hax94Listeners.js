@@ -47,7 +47,7 @@ document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", setPlayerS01Combined);
 
-// mobile open/close sidebar navbar. functions located in has94.js
+// mobile open/close sidebar navbar. functions located in hax94.js
 
 document.getElementById("openSidebar").addEventListener("click", openSidebar);
 document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
