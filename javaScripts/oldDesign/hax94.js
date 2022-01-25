@@ -92,8 +92,3 @@ let displaySlides = function () {
 
   showDivs(slideIndex);
 };
-
-document.getElementById("openSidebar").addEventListener("click", openSidebar);
-document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
-// mobile navbar listeners
-document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
