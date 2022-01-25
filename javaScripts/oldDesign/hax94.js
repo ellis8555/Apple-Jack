@@ -35,7 +35,7 @@ export function displaySlides() {
 <div class="w3-display-container mySlides">
   <img
     class="w3-image"
-    src="img/S01_Stats/S01_Season_Results.svg"
+    src="img/S01_Stats/S01_Season_Results.JPG"
     alt="Season game results"
     style="width: 100%"
   />
@@ -56,7 +56,7 @@ export function displaySlides() {
 <div class="w3-display-container mySlides">
   <img
     class="w3-image"
-    src="img/S01_Stats/S01_Playoff_Bracket.svg"
+    src="img/S01_Stats/S01_Playoff_Bracket.JPG"
     alt="Playoff bracket"
     style="width: 100%"
   />
