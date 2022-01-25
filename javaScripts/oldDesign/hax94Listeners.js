@@ -29,6 +29,14 @@ export function setTableListeners() {
 }
 setTableListeners();
 
+function openSidebar() {
+  document.getElementById("sidebar").style.display = "block";
+}
+
+function closeSidebar() {
+  document.getElementById("sidebar").style.display = "none";
+}
+
 // listeners for sidebar links. functions located in class.js
 
 document.getElementById("homeTable").addEventListener("click", setHomeTable);

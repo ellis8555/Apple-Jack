@@ -1,10 +1,10 @@
-function openSidebar() {
-  document.getElementById("sidebar").style.display = "block";
-}
+// function openSidebar() {
+//   document.getElementById("sidebar").style.display = "block";
+// }
 
-function closeSidebar() {
-  document.getElementById("sidebar").style.display = "none";
-}
+// function closeSidebar() {
+//   document.getElementById("sidebar").style.display = "none";
+// }
 
 // this code for sidebar "other stats" link
 
