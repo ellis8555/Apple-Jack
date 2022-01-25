@@ -7,7 +7,13 @@ import {
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
 
-import { openSidebar, closeSidebar, displaySlides } from "./hax94.js";
+import {
+  openSidebar,
+  closeSidebar,
+  displaySlides,
+  plusDivs,
+  showDivs,
+} from "./hax94.js";
 
 // import {
 //   setPlayerS01Season,

@@ -8,11 +8,11 @@ export function closeSidebar() {
 
 // this code for sidebar "other stats" link
 
-function plusDivs(n) {
+export function plusDivs(n) {
   showDivs((slideIndex += n));
 }
 
-function showDivs(n) {
+export function showDivs(n) {
   let i;
   let x = document.getElementsByClassName("mySlides");
   if (n > x.length) {
