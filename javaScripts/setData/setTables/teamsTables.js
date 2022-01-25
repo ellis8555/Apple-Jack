@@ -3,6 +3,7 @@ import { IndividualPlayerStats } from "../createPlayers.js";
 import { teamsMAP } from "../../importJSON/masterVars.js";
 import sortGroupedStats from "../../sort.js";
 import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
+import { closeSidebar } from "../../oldDesign/hax94.js";
 import {
   // seasonMode,
   // teamStatsFieldsAbbreviated,
@@ -189,6 +190,7 @@ export function setHomeTable() {
     fullTable
   );
   setTableListeners();
+  closeSidebar();
 }
 
 // S01 Playoff
@@ -203,6 +205,7 @@ export function setPlayoffTable() {
     fullTable
   );
   setTableListeners();
+  closeSidebar();
 }
 // PLAYERS
 // S01 regular season
@@ -217,6 +220,7 @@ export function setPlayerS01Season() {
     playersTable
   );
   setTableListeners();
+  closeSidebar();
 }
 
 // S01 Playoff
@@ -231,6 +235,7 @@ export function setPlayerS01Playoff() {
     playersTable
   );
   setTableListeners();
+  closeSidebar();
 }
 
 // S01 Combined
@@ -246,24 +251,9 @@ export function setPlayerS01Combined() {
     playersTable
   );
   setTableListeners();
+  closeSidebar();
 }
 // set home page table
 setHomeTable();
 
 // END TABLE CREATION
-
-// listeners for sidebar links. functions located in class.js
-
-document.getElementById("homeTable").addEventListener("click", setHomeTable);
-document
-  .getElementById("s01PlayoffTable")
-  .addEventListener("click", setPlayoffTable);
-document
-  .getElementById("s01PlayerSeasonTable")
-  .addEventListener("click", setPlayerS01Season);
-document
-  .getElementById("s01PlayerPlayoffTable")
-  .addEventListener("click", setPlayerS01Playoff);
-document
-  .getElementById("s01PlayerCombinedTable")
-  .addEventListener("click", setPlayerS01Combined);
