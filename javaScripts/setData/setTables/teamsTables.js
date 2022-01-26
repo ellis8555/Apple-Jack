@@ -121,44 +121,23 @@ export function createTable(
   dataSource.forEach((item) => {
     // table data begins for each field
     playerStats += "<tr>";
-    if (browserWidth < 982) {
-      for (let j = 0; j < fieldsLength; j++) {
-        if (tableHeaders[j] == sortBy) {
-          playerStats +=
-            `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            tableHeaders[j] +
-            " >" +
-            item.get(tableHeaders[j]) +
-            "</td>";
-        } else {
-          playerStats +=
-            `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
-            tableHeaders[j] +
-            " >" +
-            item.get(tableHeaders[j]) +
-            "</td>";
-        }
+
+    for (let j = 0; j < fieldsLength; j++) {
+      if (tableHeaders[j] == sortBy) {
+        playerStats +=
+          `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+          tableHeaders[j] +
+          " >" +
+          item.get(tableHeaders[j]) +
+          "</td>";
+      } else {
+        playerStats +=
+          `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
+          tableHeaders[j] +
+          " >" +
+          item.get(tableHeaders[j]) +
+          "</td>";
       }
-      playerStats += "</tr>";
-    } else {
-      for (let j = 0; j < fieldsLength; j++) {
-        if (tableHeaders[j] == sortBy) {
-          playerStats +=
-            `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            tableHeaders[j] +
-            " >" +
-            item.get(tableHeaders[j]) +
-            "</td>";
-        } else {
-          playerStats +=
-            `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
-            tableHeaders[j] +
-            " >" +
-            item.get(tableHeaders[j]) +
-            "</td>";
-        }
-      }
-      playerStats += "</tr>";
     }
     playerStats += "</tr>";
   });
