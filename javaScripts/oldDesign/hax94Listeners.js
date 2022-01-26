@@ -105,7 +105,6 @@ document.getElementById("otherStats").addEventListener("click", displaySlides);
 document
   .getElementById("siteTaskList")
   .addEventListener("click", displayTaskList);
-siteTaskList;
 
 // mobile open/close sidebar navbar. functions located in hax94.js
 
