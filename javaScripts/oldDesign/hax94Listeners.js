@@ -53,7 +53,6 @@ document.getElementById("otherStats").addEventListener("click", displaySlides);
 document.getElementById("openSidebar").addEventListener("click", openSidebar);
 document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
 // mobile navbar listeners
-document.getElementById("closeSidebar").addEventListener("click", closeSidebar);
 
 // responsive function for live resizing of screen
 
