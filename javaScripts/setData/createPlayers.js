@@ -129,6 +129,14 @@ for (let i = 1; i <= playersMAP.size; i++) {
     IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
       allTimeStatsMAPS[j]
     ].set(
+      "GP",
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        allTimeStatsArray[j]
+      ].length
+    );
+    IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+      allTimeStatsMAPS[j]
+    ].set(
       "Points",
       IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
         allTimeStatsMAPS[j]
@@ -139,7 +147,6 @@ for (let i = 1; i <= playersMAP.size; i++) {
     );
   }
 }
-
 // loop that fills each players seasons stats per each season
 // array for specific season, that seasons playoff and also combined season and playoffs
 
