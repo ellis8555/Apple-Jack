@@ -34,6 +34,7 @@ let fullTable = [
 // SET FIELDS FOR PLAYERS TABLES
 let playersTable = [
   "Name",
+  "GP",
   "Goals",
   "Assists",
   "Points",

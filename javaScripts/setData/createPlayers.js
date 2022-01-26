@@ -219,6 +219,14 @@ if (seasonCount.length > 1) {
         IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
           "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
         ].set(
+          "GP",
+          IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+            "playersSeason" + seasonCount[j] + [perSeasonCatMAPS[l]]
+          ]
+        );
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
+        ].set(
           "Points",
           IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
             "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
@@ -231,7 +239,6 @@ if (seasonCount.length > 1) {
     }
   }
 } // end of if season is greater than 1
-
 ////////////BEGIN of populating arrays for tabular style data. All time and per season with varying modes. (alltime, season and playoffs)
 // copying allPlayerStats objects contents into array form in order to use array functionality
 for (let i = 1; i <= playersMAP.size; i++) {
