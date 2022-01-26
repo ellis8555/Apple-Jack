@@ -31,6 +31,60 @@ export function setTableListeners() {
 }
 setTableListeners();
 
+// for toggling the sub menus within sidebar menu
+
+let teamsTables = document.querySelectorAll(".teamTable");
+let playersTables = document.querySelectorAll(".playerTable");
+
+function hideTeamSubMenu() {
+  teamsTables.forEach((item) => item.classList.add("w3-hide"));
+}
+
+function hidePlayerSubMenu() {
+  playersTables.forEach((item) => item.classList.add("w3-hide"));
+}
+
+function hideAllSubMenus() {
+  hideTeamSubMenu();
+  hidePlayerSubMenu();
+}
+
+function displayTeamSubMenu() {
+  if (teamsTables[0].classList.contains("w3-hide")) {
+    teamsTables.forEach((item) => {
+      item.classList.remove("w3-hide");
+      item.classList.add("w3-yellow");
+    });
+  }
+}
+
+// teams sub menus
+document
+  .getElementById("teamSidebar")
+  .addEventListener("click", displayTeamSubMenu);
+document
+  .getElementById("teamSidebar")
+  .addEventListener("click", hidePlayerSubMenu);
+
+// players table sub menus
+
+function displayPlayerSubMenu() {
+  if (playersTables[0].classList.contains("w3-hide")) {
+    playersTables.forEach((item) => {
+      item.classList.remove("w3-hide");
+      item.classList.add("w3-yellow");
+    });
+  }
+}
+
+document
+  .getElementById("playerSidebar")
+  .addEventListener("click", displayPlayerSubMenu);
+document
+  .getElementById("playerSidebar")
+  .addEventListener("click", hideTeamSubMenu);
+
+// end sub menus toggling
 // listeners for sidebar links. functions located in class.js
 
 document.getElementById("homeTable").addEventListener("click", setHomeTable);
@@ -52,6 +106,9 @@ document.getElementById("otherStats").addEventListener("click", displaySlides);
 
 document.getElementById("openSidebar").addEventListener("click", openSidebar);
 document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
+document
+  .getElementById("sidebar")
+  .addEventListener("mouseleave", hideAllSubMenus);
 // mobile navbar listeners
 
 // responsive function for live resizing of screen

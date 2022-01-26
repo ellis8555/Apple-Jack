@@ -34,37 +34,53 @@
       style="display: none"
       id="sidebar"
     >
-      <div href="#" class="w3-bar-item w3-button w3-text-black" id="homeTable">
+      <!-- Teams sidebar -->
+      <div id="teamSidebar" class="w3-bar-item w3-button w3-text-black">
+        Standings
+      </div>
+      <div
+        href="#"
+        class="teamTable w3-bar-item w3-button w3-text-black w3-hide"
+        id="homeTable"
+      >
         S01 Regular Season
       </div>
       <div
         href="#"
-        class="w3-bar-item w3-button w3-text-black"
+        class="teamTable w3-bar-item w3-button w3-text-black w3-hide"
         id="s01PlayoffTable"
       >
         S01 Playoffs
       </div>
+      <!-- end teams sidebar -->
+      <!-- Player stats sidebar -->
+      <div id="playerSidebar" class="w3-bar-item w3-button w3-text-black">
+        Player Stats
+      </div>
       <div
         href="#"
-        class="w3-bar-item w3-button w3-text-black"
+        class="playerTable w3-bar-item w3-button w3-text-black w3-hide"
         id="s01PlayerSeasonTable"
       >
         S01 Player Season
       </div>
+
       <div
         href="#"
-        class="w3-bar-item w3-button w3-text-black"
+        class="playerTable w3-bar-item w3-button w3-text-black w3-hide"
         id="s01PlayerPlayoffTable"
       >
         S01 Player Playoffs
       </div>
       <div
         href="#"
-        class="w3-bar-item w3-button w3-text-black"
+        class="playerTable w3-bar-item w3-button w3-text-black w3-hide"
         id="s01PlayerCombinedTable"
       >
         S01 Players Total Points
       </div>
+
+      <!--end player stats sidebar -->
       <a href="#" class="w3-bar-item w3-button w3-text-black" id="otherStats"
         >Other Stats</a
       >
