@@ -13,11 +13,12 @@ export function displayTaskList() {
       testing but my patience has run out with myself so I just wanna get this
       up!
     </p>
-    <p>The stats that have been logged have been changed as in a games replay these are the stats that are recorded by the game. Also I evenly distributed remaining stats as they simply did not add up. Goals, assists and points were logged not in line with how the replay keeps them so they were off!</p>
+    <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have "own goals" or "saves". Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. This is where I evenly distributed missing tallies.</p>
     <h3>List of site improvements</h3>
     <p>1. Team icons to display team data. Game results first</p>
     <p>2. Other team related stats</p>
     <p>In no particular order..</p>
+    <p>A little logo for the site. Used in bookmarks/tabs.</p>
     <p>
       Have beside a particular game result a "highlights" button leading to gifs
       from that particular match.
@@ -29,7 +30,7 @@ export function displayTaskList() {
     <p>Develop a particular players own stats page</p>
     <p>
       Have particular highlights associated with a player on that players own
-      page.
+      page. Gifs of that players goals on there own page.
     </p>
     <p>Logging game stats via the site.</p>
   </div>`;
