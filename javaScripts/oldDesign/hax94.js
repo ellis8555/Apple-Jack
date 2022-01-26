@@ -57,4 +57,5 @@ export function displaySlides() {
 
 </div>
 <!--end of slides-->`;
+  closeSidebar();
 }
