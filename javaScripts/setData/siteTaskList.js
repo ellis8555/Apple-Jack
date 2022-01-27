@@ -18,7 +18,7 @@ export function displayTaskList() {
     <p>1. Team icons to display team data. Game results first</p>
     <p>2. Other team related stats</p>
     <p>In no particular order..</p>
-    <p>A little logo for the site. Used in bookmarks/tabs.</p>
+    <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
     <p>
       Have beside a particular game result a "highlights" button leading to gifs
       from that particular match.
