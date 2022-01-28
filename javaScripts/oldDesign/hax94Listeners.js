@@ -109,10 +109,11 @@ document
 // mobile open/close sidebar navbar. functions located in hax94.js
 
 document.getElementById("openSidebar").addEventListener("click", openSidebar);
-document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
 document
   .getElementById("sidebar")
   .addEventListener("mouseleave", hideAllSubMenus);
+document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
+
 // mobile navbar listeners
 
 // responsive function for live resizing of screen
