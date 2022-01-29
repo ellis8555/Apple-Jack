@@ -1,5 +1,6 @@
 import {
   sortTable,
+  getTeamsGameResults,
   setHomeTable,
   setPlayoffTable,
   setPlayerS01Season,
@@ -77,6 +78,8 @@ function displayPlayerSubMenu() {
     });
   }
 }
+
+document.body.addEventListener("click", getTeamsGameResults);
 
 document
   .getElementById("playerSidebar")

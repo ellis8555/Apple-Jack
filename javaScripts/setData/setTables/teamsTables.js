@@ -1,6 +1,6 @@
 import { TeamStats } from "../createTeams.js";
 import { IndividualPlayerStats } from "../createPlayers.js";
-import { teamsMAP } from "../../importJSON/masterVars.js";
+import { teamsMAP, seasonCountLength } from "../../importJSON/masterVars.js";
 import sortGroupedStats from "../../sort.js";
 import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
 import { closeSidebar } from "../../oldDesign/hax94.js";
@@ -73,6 +73,8 @@ tableDataSource
   );
 
 // TH,TD OF TABLE ONCLICK SORTING
+// used within hax94Listeners setTableListeners function
+
 export function sortTable(event) {
   let caption = document.querySelector("table caption > h1");
   let tableName = caption.textContent;
@@ -86,8 +88,9 @@ export function sortTable(event) {
   setTableListeners();
 }
 
-// TABLE DESIGN
+/////////////////// TABLE DESIGN
 
+// create table for all teams and players overall standings
 export function createTable(
   tableName,
   dataSourceName,
@@ -151,8 +154,39 @@ export function createTable(
   let x = document.getElementById("tablesDiv");
   x.innerHTML = playerStats;
 }
+// END overall table leaders
 
-// END TABLE DESIGN
+// game results table
+
+export function getTeamsGameResults(seasonCountLength) {
+  let team = TeamStats.allTeamStats[teamsMAP.get(4)].name;
+  let teamsGames;
+  let gameResults = "";
+  if (seasonCountLength > 1) {
+    teamsGames =
+      TeamStats.allTeamStats[team]["teamsSeason" + "1" + "CombinedStats"];
+  } else {
+    teamsGames = TeamStats.allTeamStats[team].allTimeSeasonStats;
+  }
+  let gamesLength = teamsGames.length;
+  for (let i = 0; i < gamesLength; i++) {
+    gameResults += `<div  style="color:white;" class="w3-panel w3-card-4 w3-round w3-text-black">Game ${
+      i + 1
+    }: ${teamsMAP.get(+teamsGames[i].TeamOne)} ${+teamsGames[i]
+      .TeamOneScore}  ${teamsMAP.get(+teamsGames[i].TeamTwo)} ${+teamsGames[i]
+      .TeamTwoScore} </div> </br>\n `;
+  }
+
+  // also delete listener on body tag that tests this function
+  // edit below this once completed
+  console.log(gameResults);
+  let x = document.getElementById("tablesDiv");
+  x.innerHTML = gameResults;
+}
+
+getTeamsGameResults();
+
+///////// END TABLE DESIGN
 
 // TABLE CREATION
 // update the tableDataSource MAP up above!!
