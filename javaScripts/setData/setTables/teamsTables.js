@@ -169,22 +169,39 @@ export function getTeamsGameResults(seasonCountLength) {
     teamsGames = TeamStats.allTeamStats[team].allTimeSeasonStats;
   }
   let gamesLength = teamsGames.length;
+
   for (let i = 0; i < gamesLength; i++) {
-    gameResults += `<div  style="color:white;" class="w3-panel w3-card-4 w3-round w3-text-black">Game ${
-      i + 1
-    }: ${teamsMAP.get(+teamsGames[i].TeamOne)} ${+teamsGames[i]
-      .TeamOneScore}  ${teamsMAP.get(+teamsGames[i].TeamTwo)} ${+teamsGames[i]
-      .TeamTwoScore} </div> </br>\n `;
+    gameResults += `<table>`;
+    gameResults += `<tr>`;
+    gameResults += `<td>`;
+    gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamOne)}`;
+    gameResults += `</td>`;
+    gameResults += `<td>`;
+    gameResults += `${+teamsGames[i].TeamOneScore}`;
+    gameResults += `</td>`;
+    gameResults += `</tr>`;
+    gameResults += `<tr>`;
+    gameResults += `<td>`;
+    gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+    gameResults += `</td>`;
+    gameResults += `<td>`;
+    gameResults += `${+teamsGames[i].TeamTwoScore}`;
+    gameResults += `</td>`;
+    gameResults += `</tr>`;
+    gameResults += `</table>`;
+    gameResults += `<br>`;
+    //gameResults += `<br>`;
+    // `${teamsMAP.get(+teamsGames[i].TeamTwo)} ${+teamsGames[i]
+    //   .TeamTwoScore} </div> </br>\n `;
   }
 
   // also delete listener on body tag that tests this function
   // edit below this once completed
   console.log(gameResults);
   let x = document.getElementById("tablesDiv");
+  x.style.display = "";
   x.innerHTML = gameResults;
 }
-
-getTeamsGameResults();
 
 ///////// END TABLE DESIGN
 
