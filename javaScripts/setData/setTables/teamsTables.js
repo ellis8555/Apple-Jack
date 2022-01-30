@@ -171,6 +171,7 @@ export function getTeamsGameResults(seasonCountLength) {
   let gamesLength = teamsGames.length;
 
   for (let i = 0; i < gamesLength; i++) {
+    gameResults += `<div style="width: 50%;">`;
     gameResults += `<table>`;
     gameResults += `<tr>`;
     gameResults += `<td>`;
@@ -189,7 +190,7 @@ export function getTeamsGameResults(seasonCountLength) {
     gameResults += `</td>`;
     gameResults += `</tr>`;
     gameResults += `</table>`;
-    gameResults += `<br>`;
+    gameResults += `</div>`;
     //gameResults += `<br>`;
     // `${teamsMAP.get(+teamsGames[i].TeamTwo)} ${+teamsGames[i]
     //   .TeamTwoScore} </div> </br>\n `;
@@ -199,7 +200,7 @@ export function getTeamsGameResults(seasonCountLength) {
   // edit below this once completed
   console.log(gameResults);
   let x = document.getElementById("tablesDiv");
-  x.style.display = "";
+  x.style.flexDirection = "Column";
   x.innerHTML = gameResults;
 }
 
