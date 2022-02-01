@@ -1,3 +1,7 @@
+body {
+  background-color: #2196f3;
+}
+
 header {
   position: relative;
   margin-top: 5px;
@@ -79,6 +83,19 @@ table th {
 table th:first-child,
 table td:first-child {
   padding-left: 16px;
+}
+
+/* classes for game results display */
+.navLogo:hover {
+  cursor: pointer;
+}
+
+.gameResults {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 50% 50%;
+  grid-gap: 2px;
+  width: 25%;
 }
 
 .homeTeam {

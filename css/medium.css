@@ -55,4 +55,11 @@
   tbody {
     line-height: 0.3 !important;
   }
+
+  .gameResults {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 50% 50%;
+    width: 50%;
+  }
 }

@@ -8,7 +8,7 @@ import {
 } from "../../importJSON/masterVars.js";
 import sortGroupedStats from "../../sort.js";
 import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
-import { closeSidebar } from "../../oldDesign/hax94.js";
+import { closeSidebar, clearScoreboardDiv } from "../../oldDesign/hax94.js";
 import {
   // seasonMode,
   // teamStatsFieldsAbbreviated,
@@ -154,6 +154,7 @@ export function createTable(
   // html table ends
   playerStats += "</table>";
   closeSidebar();
+  clearScoreboardDiv();
 
   // display table on web page
   let standings = document.getElementById("tablesDiv");
@@ -164,11 +165,10 @@ export function createTable(
 // game results table
 
 export function getTeamsGameResults(e, seasonCountLength) {
-  // console.log(TeamStats.allTeamStats[e.target.dataset.teamName]);
+  // console.log(e.target.src);
   // console.log(teamsColorMAP.get(".Hax"));
   //let team = TeamStats.allTeamStats[teamsMAP.get(4)].name;
   let team = e.target.dataset.teamName;
-  let otherTeamsBackgroundColor = "#f1f1f1";
 
   let teamsGames;
   let gameResults = "";
@@ -182,22 +182,17 @@ export function getTeamsGameResults(e, seasonCountLength) {
 
   for (let i = 0; i < gamesLength; i++) {
     gameResults += `<div style="display: flex; justify-content: center">`;
-    gameResults += `<div
-      style="
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-        grid-template-rows: 50% 50%;
-        width: 50%;
-      "
-      class="w3-container w3-margin"
-    >`;
+    gameResults += `<div class="w3-container w3-margin gameResults">`;
     gameResults += `<div class="homeTeam"`;
     if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
       gameResults += `style="background-color: #${teamsColorMAP.get(
         team
       )}; color: #ffffff;">`;
     } else {
-      gameResults += `style="background-color: ${otherTeamsBackgroundColor}; color: #000000;">`;
+      let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
+      gameResults += `style="background-color: #${teamsColorMAP.get(
+        otherTeam
+      )}; color: #ffffff;">`;
     }
     gameResults += `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
     gameResults += `</div>`;
@@ -218,7 +213,10 @@ export function getTeamsGameResults(e, seasonCountLength) {
         team
       )}; color: #ffffff;">`;
     } else {
-      gameResults += `style="background-color: ${otherTeamsBackgroundColor}; color: #000000;">`;
+      let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+      gameResults += `style="background-color: #${teamsColorMAP.get(
+        otherTeam
+      )}; color: #ffffff;">`;
     }
     gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
     gameResults += `</div>`;
@@ -238,8 +236,25 @@ export function getTeamsGameResults(e, seasonCountLength) {
     gameResults += `</div>`;
   }
 
-  // also delete listener on body tag that tests this function
-  // edit below this once completed
+  // change header banner when team is selected from navbar
+
+  let headerImage = document.querySelector("#championsCard>div>img");
+  headerImage.src = e.target.src;
+  let header = document.getElementById("headerTeamName");
+  let headerChildren = header.childNodes;
+  headerChildren[4].textContent = team;
+  // add champions name here to display trophy icon when champion team selected
+  let trophy = document.querySelector("i");
+  if (team == "Haxual Chocolate") {
+    trophy.classList.add("fa-trophy");
+  } else {
+    trophy.classList.remove("fa-trophy");
+  }
+
+  // change bodies background color to that of team selected
+  document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
+
+  // display data in correct div and clear previous data
   let previousData = document.getElementById("tablesDiv");
   previousData.innerHTML = "";
   let scores = document.getElementById("scoreboardDiv");

@@ -1,6 +1,7 @@
-import { closeSidebar } from "../oldDesign/hax94.js";
+import { closeSidebar, clearScoreboardDiv } from "../oldDesign/hax94.js";
 
 export function displayTaskList() {
+  clearScoreboardDiv();
   let displayArea = document.getElementById("tablesDiv");
 
   displayArea.innerHTML = `<div class="w3-content w3-margin w3-padding w3-round-large w3-display-container w3-margin-top w3-card-4 w3-text-black">

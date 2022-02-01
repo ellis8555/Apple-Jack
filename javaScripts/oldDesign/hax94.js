@@ -6,9 +6,15 @@ export function closeSidebar() {
   document.getElementById("sidebar").style.display = "none";
 }
 
+export function clearScoreboardDiv() {
+  let scoreboardDiv = document.getElementById("scoreboardDiv");
+  scoreboardDiv.innerHTML = "";
+}
+
 // this code for sidebar "other stats" link
 
 export function displaySlides() {
+  clearScoreboardDiv();
   let displayArea = document.getElementById("tablesDiv");
 
   displayArea.innerHTML = `<div class="w3-content w3-display-container w3-margin-top w3-card-4">

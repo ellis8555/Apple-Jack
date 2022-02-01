@@ -51,4 +51,8 @@
   tbody {
     line-height: 0.3 !important;
   }
+
+  .gameResults {
+    width: 90%;
+  }
 }
