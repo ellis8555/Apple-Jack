@@ -165,9 +165,10 @@ export function createTable(
 
 export function getTeamsGameResults(e, seasonCountLength) {
   // console.log(TeamStats.allTeamStats[e.target.dataset.teamName]);
-  console.log(teamsColorMAP);
+  // console.log(teamsColorMAP.get(".Hax"));
   //let team = TeamStats.allTeamStats[teamsMAP.get(4)].name;
   let team = e.target.dataset.teamName;
+  let otherTeamsBackgroundColor = "#f1f1f1";
 
   let teamsGames;
   let gameResults = "";
@@ -190,21 +191,51 @@ export function getTeamsGameResults(e, seasonCountLength) {
       "
       class="w3-container w3-margin"
     >`;
-    gameResults += `<div class="homeTeam" style="background-color: #000000; color: #ffffff;">`;
+    gameResults += `<div class="homeTeam"`;
+    if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
+      gameResults += `style="background-color: #${teamsColorMAP.get(
+        team
+      )}; color: #ffffff;">`;
+    } else {
+      gameResults += `style="background-color: ${otherTeamsBackgroundColor}; color: #000000;">`;
+    }
     gameResults += `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
     gameResults += `</div>`;
-    gameResults += `<div class="homeScore w3-aqua">`;
+    if (`${+teamsGames[i].TeamOneScore}` > `${+teamsGames[i].TeamTwoScore}`) {
+      gameResults += `<div class="homeScore w3-green">`;
+    } else if (
+      `${+teamsGames[i].TeamOneScore}` == `${+teamsGames[i].TeamTwoScore}`
+    ) {
+      gameResults += `<div class="homeScore w3-dark-grey">`;
+    } else {
+      gameResults += `<div class="homeScore w3-red">`;
+    }
     gameResults += `${+teamsGames[i].TeamOneScore}`;
     gameResults += `</div>`;
-    gameResults += `<div class="awayTeam w3-purple">`;
+    gameResults += `<div class="awayTeam"`;
+    if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
+      gameResults += `style="background-color: #${teamsColorMAP.get(
+        team
+      )}; color: #ffffff;">`;
+    } else {
+      gameResults += `style="background-color: ${otherTeamsBackgroundColor}; color: #000000;">`;
+    }
     gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
     gameResults += `</div>`;
-    gameResults += `<div class="awayScore w3-pink">`;
+
+    if (`${+teamsGames[i].TeamOneScore}` < `${+teamsGames[i].TeamTwoScore}`) {
+      gameResults += `<div class="awayScore w3-green">`;
+    } else if (
+      `${+teamsGames[i].TeamTwoScore}` == `${+teamsGames[i].TeamOneScore}`
+    ) {
+      gameResults += `<div class="awayScore w3-dark-grey">`;
+    } else {
+      gameResults += `<div class="awayScore w3-red">`;
+    }
     gameResults += `${+teamsGames[i].TeamTwoScore}`;
     gameResults += `</div>`;
     gameResults += `</div>`;
     gameResults += `</div>`;
-    // x.append(gameResults);
   }
 
   // also delete listener on body tag that tests this function
