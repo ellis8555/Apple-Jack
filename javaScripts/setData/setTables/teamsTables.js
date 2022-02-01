@@ -151,8 +151,8 @@ export function createTable(
   closeSidebar();
 
   // display table on web page
-  let x = document.getElementById("tablesDiv");
-  x.innerHTML = playerStats;
+  let standings = document.getElementById("tablesDiv");
+  standings.innerHTML = playerStats;
 }
 // END overall table leaders
 
@@ -171,37 +171,39 @@ export function getTeamsGameResults(seasonCountLength) {
   let gamesLength = teamsGames.length;
 
   for (let i = 0; i < gamesLength; i++) {
-    gameResults += `<div style="width: 50%;">`;
-    gameResults += `<table>`;
-    gameResults += `<tr>`;
-    gameResults += `<td>`;
-    gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamOne)}`;
-    gameResults += `</td>`;
-    gameResults += `<td>`;
-    gameResults += `${+teamsGames[i].TeamOneScore}`;
-    gameResults += `</td>`;
-    gameResults += `</tr>`;
-    gameResults += `<tr>`;
-    gameResults += `<td>`;
-    gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-    gameResults += `</td>`;
-    gameResults += `<td>`;
-    gameResults += `${+teamsGames[i].TeamTwoScore}`;
-    gameResults += `</td>`;
-    gameResults += `</tr>`;
-    gameResults += `</table>`;
+    gameResults += `<div style="display: flex; justify-content: center">`;
+    gameResults += `<div
+      style="
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: 50% 50%;
+        width: 50%;
+      "
+      class="w3-container w3-margin"
+    >`;
+    gameResults += `<div class="homeTeam" style="background-color: #000000; color: #ffffff;">`;
+    gameResults += `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
     gameResults += `</div>`;
-    //gameResults += `<br>`;
-    // `${teamsMAP.get(+teamsGames[i].TeamTwo)} ${+teamsGames[i]
-    //   .TeamTwoScore} </div> </br>\n `;
+    gameResults += `<div class="homeScore w3-aqua">`;
+    gameResults += `${+teamsGames[i].TeamOneScore}`;
+    gameResults += `</div>`;
+    gameResults += `<div class="awayTeam w3-purple">`;
+    gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+    gameResults += `</div>`;
+    gameResults += `<div class="awayScore w3-pink">`;
+    gameResults += `${+teamsGames[i].TeamTwoScore}`;
+    gameResults += `</div>`;
+    gameResults += `</div>`;
+    gameResults += `</div>`;
+    // x.append(gameResults);
   }
 
   // also delete listener on body tag that tests this function
   // edit below this once completed
-  console.log(gameResults);
-  let x = document.getElementById("tablesDiv");
-  x.style.flexDirection = "Column";
-  x.innerHTML = gameResults;
+  let previousData = document.getElementById("tablesDiv");
+  previousData.innerHTML = "";
+  let scores = document.getElementById("scoreboardDiv");
+  scores.innerHTML = gameResults;
 }
 
 ///////// END TABLE DESIGN

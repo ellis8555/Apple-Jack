@@ -80,3 +80,23 @@ table th:first-child,
 table td:first-child {
   padding-left: 16px;
 }
+
+.homeTeam {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.awayTeam {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.homeScore {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.awayScore {
+  grid-column: 2;
+  grid-row: 2;
+}
