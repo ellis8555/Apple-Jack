@@ -179,7 +179,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
     teamsGames = TeamStats.allTeamStats[team].allTimeSeasonStats;
   }
   let gamesLength = teamsGames.length;
-
+  gameResults = `<h1>${team}</h1>`;
   for (let i = 0; i < gamesLength; i++) {
     gameResults += `<div style="display: flex; justify-content: center">`;
     gameResults += `<div class="w3-container w3-margin gameResults">`;
