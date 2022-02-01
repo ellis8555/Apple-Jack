@@ -79,8 +79,6 @@ function displayPlayerSubMenu() {
   }
 }
 
-document.body.addEventListener("click", getTeamsGameResults);
-
 document
   .getElementById("playerSidebar")
   .addEventListener("click", displayPlayerSubMenu);
@@ -116,6 +114,14 @@ document
   .getElementById("sidebar")
   .addEventListener("mouseleave", hideAllSubMenus);
 document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
+
+// display team data
+
+// document.body.addEventListener("click", getTeamsGameResults);
+let getTeamsFromNavBar = document.querySelectorAll("img[data-team-name]");
+getTeamsFromNavBar.forEach((item) =>
+  item.addEventListener("click", getTeamsGameResults)
+);
 
 // mobile navbar listeners
 

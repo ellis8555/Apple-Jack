@@ -1,6 +1,11 @@
 import { TeamStats } from "../createTeams.js";
 import { IndividualPlayerStats } from "../createPlayers.js";
-import { teamsMAP, seasonCountLength } from "../../importJSON/masterVars.js";
+import {
+  teams,
+  teamsMAP,
+  teamsColorMAP,
+  seasonCountLength,
+} from "../../importJSON/masterVars.js";
 import sortGroupedStats from "../../sort.js";
 import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
 import { closeSidebar } from "../../oldDesign/hax94.js";
@@ -158,8 +163,12 @@ export function createTable(
 
 // game results table
 
-export function getTeamsGameResults(seasonCountLength) {
-  let team = TeamStats.allTeamStats[teamsMAP.get(4)].name;
+export function getTeamsGameResults(e, seasonCountLength) {
+  // console.log(TeamStats.allTeamStats[e.target.dataset.teamName]);
+  console.log(teamsColorMAP);
+  //let team = TeamStats.allTeamStats[teamsMAP.get(4)].name;
+  let team = e.target.dataset.teamName;
+
   let teamsGames;
   let gameResults = "";
   if (seasonCountLength > 1) {

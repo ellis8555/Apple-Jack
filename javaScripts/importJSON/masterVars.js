@@ -23,6 +23,11 @@ for (let i = 0; i < teamsLength; i++) {
   // map a list of teams
   teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
 }
+export let teamsColorMAP = new Map();
+for (let i = 0; i < teamsMAP.size; i++) {
+  teamsColorMAP.set(teamsMAP.get(i + 1), teams[i].MainColor);
+}
+
 // PLAYERS //
 // let { Players: players } = haxBallData; // list of all players
 let playersLength = players.length;
