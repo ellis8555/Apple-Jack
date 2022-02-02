@@ -9,14 +9,11 @@ export function displayTaskList() {
   
     <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have "own goals" or "saves". Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. This is where I evenly distributed missing tallies.</p>
     <h3>List of site improvements</h3>
-    <p>1. Improve team data page</p>
-    <p>2. Other team related stats</p>
+    <p>1. Improve team data page.</p>
+    <p>2. Gif highlights. Somewhere located near a game result have access to that games giffy highlights.</p>
     <p>In no particular order..</p>
+    <p>For each game result have all that games data appear if clicked on.</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
-    <p>
-      Have beside a particular game result a "highlights" button leading to gifs
-      from that particular match.
-    </p>
     <p>
       Have beside a particular game result a "replay" button that if possible
       links to a haxball site that loads replays for recorded games.
