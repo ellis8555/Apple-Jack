@@ -7,15 +7,12 @@ export function displayTaskList() {
   displayArea.innerHTML = `<div class="w3-content w3-margin w3-padding w3-round-large w3-display-container w3-margin-top w3-card-4 w3-text-black">
   <h1 class="w3-red">* Current number one priority is to get gifs going to possibly help out in getting some new players! *</h1>
   <p>** HaxBall main logo is a link back to home settings of the page. **</p>
-  
-  <h3>Message</h3>  
-  
-  
-    <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have "own goals" or "saves". Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. This is where I evenly distributed missing tallies.</p>
+  <p>*** Tables are sortable via clicking the field header. On mobile click on any row ***</p>
+ 
     <h3>List of site improvements</h3>
     <p>1. Improve team data page.</p>
     <p>2. Gif highlights. Somewhere located near a game result have access to that games giffy highlights.</p>
-    <p>In no particular order..</p>
+    <h3>In no particular order..</h3>
     <p>playoffs page of some sort.</p>
     <p>For each game result have all that games data appear if clicked on.</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
@@ -29,6 +26,10 @@ export function displayTaskList() {
       page. Gifs of that players goals on there own page.
     </p>
     <p>Logging game stats via the site.</p>
+    <h3>Message</h3>  
+  
+  
+    <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have "own goals" or "saves". Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. This is where I evenly distributed missing tallies.</p>
   </div>`;
   closeSidebar();
 }
