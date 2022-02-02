@@ -283,6 +283,7 @@ export function setHomeTable() {
     fullTable
   );
   setTableListeners();
+  document.body.style.backgroundColor = "#2196f3";
 }
 
 // S01 Playoff

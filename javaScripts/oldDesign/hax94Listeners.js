@@ -33,6 +33,11 @@ export function setTableListeners() {
 }
 setTableListeners();
 
+// set home on header haxball logo
+
+let headerLogo = document.querySelector("img[alt*='Haxball']");
+headerLogo.addEventListener("click", setHomeTable);
+
 // for toggling the sub menus within sidebar menu
 
 let teamsTables = document.querySelectorAll(".teamTable");
@@ -128,25 +133,3 @@ getTeamsFromNavBar.forEach((item) =>
 // responsive function for live resizing of screen
 
 window.onresize = screenResize; // enables sorting data when switching to mobile view
-
-///////////////////// USED IN OLD DESIGN //////////////////////
-
-// document.getElementById("homeTable").addEventListener("click", function () {
-//   CLASSsetHomePageTableS01FinalStandings.fetchData();
-// });
-
-// document
-//   .getElementById("s01PlayerSeasonStats")
-//   .addEventListener("click", function () {
-//     CLASSs01PlayerStats.fetchData();
-//   });
-
-// document
-//   .getElementById("s01PlayerPlayoffStats")
-//   .addEventListener("click", function () {
-//     CLASSs01PlayoffPlayerStats.fetchData();
-//   });
-
-// document.getElementById("s01FullTable").addEventListener("click", function () {
-//   CLASSsetFullTableS01FinalStandings.fetchData();
-// });
