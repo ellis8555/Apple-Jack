@@ -17,51 +17,13 @@ export function displaySlides() {
   clearScoreboardDiv();
   let displayArea = document.getElementById("tablesDiv");
 
-  displayArea.innerHTML = `<div class="w3-content w3-display-container w3-margin-top w3-card-4">
-<div class="w3-display-container mySlides">
-  <img
-    class="w3-image"
-    src="img/S01_Stats/S01_Season_Results.JPG"
-    alt="Season game results"
-    style="width: 100%"
-  />
-  <div
-    class="
-      w3-display-bottommiddle
-      w3-large
-      w3-panel
-      w3-padding-16
-      w3-black
-      w3-opacity-max
-    "
-  >
-    S01 game results
-  </div>
-</div>
-
-<div class="w3-display-container mySlides">
+  displayArea.innerHTML = `
   <img
     class="w3-image"
     src="img/S01_Stats/S01_Playoff_Bracket.JPG"
     alt="Playoff bracket"
     style="width: 100%"
   />
-  <div
-    class="
-      w3-display-bottommiddle
-      w3-large
-      w3-container
-      w3-padding-16
-      w3-black
-      w3-opacity-max
-    "
-  >
-    S01 Playoff bracket
-  </div>
-</div>
-
-
-</div>
 <!--end of slides-->`;
   closeSidebar();
 }
