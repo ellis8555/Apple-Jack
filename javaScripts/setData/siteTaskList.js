@@ -12,6 +12,7 @@ export function displayTaskList() {
     <p>1. Improve team data page.</p>
     <p>2. Gif highlights. Somewhere located near a game result have access to that games giffy highlights.</p>
     <p>In no particular order..</p>
+    <p>playoffs page of some sort.</p>
     <p>For each game result have all that games data appear if clicked on.</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
     <p>

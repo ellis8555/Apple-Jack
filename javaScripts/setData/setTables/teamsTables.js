@@ -183,6 +183,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
   for (let i = 0; i < gamesLength; i++) {
     gameResults += `<div style="display: flex; justify-content: center">`;
     gameResults += `<div class="w3-container w3-margin gameResults">`;
+    // homeTeam name
     gameResults += `<div class="homeTeam"`;
     if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
       gameResults += `style="background-color: #${teamsColorMAP.get(
@@ -196,17 +197,19 @@ export function getTeamsGameResults(e, seasonCountLength) {
     }
     gameResults += `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
     gameResults += `</div>`;
-    if (`${+teamsGames[i].TeamOneScore}` > `${+teamsGames[i].TeamTwoScore}`) {
+    // homeScore
+    if (+`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}`) {
       gameResults += `<div class="homeScore w3-green">`;
     } else if (
-      `${+teamsGames[i].TeamOneScore}` == `${+teamsGames[i].TeamTwoScore}`
+      +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
     ) {
-      gameResults += `<div class="homeScore w3-dark-grey">`;
+      gameResults += `<div class="homeScore w3-dark-gray">`;
     } else {
       gameResults += `<div class="homeScore w3-red">`;
     }
     gameResults += `${+teamsGames[i].TeamOneScore}`;
     gameResults += `</div>`;
+    // awayTeam
     gameResults += `<div class="awayTeam"`;
     if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
       gameResults += `style="background-color: #${teamsColorMAP.get(
@@ -220,13 +223,13 @@ export function getTeamsGameResults(e, seasonCountLength) {
     }
     gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
     gameResults += `</div>`;
-
-    if (`${+teamsGames[i].TeamOneScore}` < `${+teamsGames[i].TeamTwoScore}`) {
+    // awayTeam score
+    if (+`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}`) {
       gameResults += `<div class="awayScore w3-green">`;
     } else if (
-      `${+teamsGames[i].TeamTwoScore}` == `${+teamsGames[i].TeamOneScore}`
+      +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
     ) {
-      gameResults += `<div class="awayScore w3-dark-grey">`;
+      gameResults += `<div class="awayScore w3-dark-gray">`;
     } else {
       gameResults += `<div class="awayScore w3-red">`;
     }
