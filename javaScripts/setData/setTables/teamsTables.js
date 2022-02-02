@@ -285,6 +285,13 @@ export function setHomeTable() {
   );
   setTableListeners();
   document.body.style.backgroundColor = "#2196f3";
+  let headerImage = document.querySelector("#championsCard>div>img");
+  headerImage.src = "img/teamLogos/haxualChocolateHomeS01.svg";
+  let header = document.getElementById("headerTeamName");
+  let headerChildren = header.childNodes;
+  headerChildren[4].textContent = "Haxual Chocolate";
+  let trophy = document.querySelector("i");
+  trophy.classList.add("fa-trophy");
 }
 
 // S01 Playoff
