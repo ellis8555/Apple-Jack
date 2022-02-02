@@ -180,6 +180,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
   }
   let gamesLength = teamsGames.length;
   gameResults = `<h1>${team}</h1>`;
+  gameResults += `<h4>S01 Regular Season</h4>`;
   for (let i = 0; i < gamesLength; i++) {
     gameResults += `<div style="display: flex; justify-content: center">`;
     gameResults += `<div class="w3-container w3-margin gameResults">`;
