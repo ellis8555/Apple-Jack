@@ -52,6 +52,8 @@
     line-height: 0.3 !important;
   }
 
+  /* CLASSES FOR TEAM PAGE LAYOUT */
+
   .teamsLayout {
     grid-template-rows: 80% 20%;
     grid-gap: 10px;
@@ -62,4 +64,6 @@
   .gameResults {
     width: 90%;
   }
+
+  /* END TEAMS PAGE LAYOUT */
 }
