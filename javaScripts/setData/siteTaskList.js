@@ -1,7 +1,7 @@
 import {
   closeSidebar,
   clearScoreboardDiv,
-} from "../oldDesign/variousFunctions.js";
+} from "../functions/variousFunctions.js";
 
 export function displayTaskList() {
   clearScoreboardDiv();
