@@ -8,7 +8,11 @@ import {
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
 
-import { openSidebar, closeSidebar, displaySlides } from "./hax94.js";
+import {
+  openSidebar,
+  closeSidebar,
+  displaySlides,
+} from "./variousFunctions.js";
 import { displayTaskList } from "../setData/siteTaskList.js";
 
 // import {
@@ -16,7 +20,7 @@ import { displayTaskList } from "../setData/siteTaskList.js";
 //   setPlayerS01Playoff,
 //   setPlayerS01Combined,
 // } from "../setData/setTables/playersTables.js";
-import screenResize from "../resize.js";
+import screenResize from "./resize.js";
 
 // listeners on table headers for sorting table on larger screens
 export function setTableListeners() {

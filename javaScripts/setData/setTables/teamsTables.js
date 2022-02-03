@@ -6,9 +6,12 @@ import {
   teamsColorMAP,
   seasonCountLength,
 } from "../../../json/masterVars.js";
-import sortGroupedStats from "../../sort.js";
-import { setTableListeners } from "../../oldDesign/hax94Listeners.js";
-import { closeSidebar, clearScoreboardDiv } from "../../oldDesign/hax94.js";
+import sortGroupedStats from "../../oldDesign/sort.js";
+import { setTableListeners } from "../../oldDesign/listeners.js";
+import {
+  closeSidebar,
+  clearScoreboardDiv,
+} from "../../oldDesign/variousFunctions.js";
 import {
   // seasonMode,
   // teamStatsFieldsAbbreviated,

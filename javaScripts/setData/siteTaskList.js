@@ -1,4 +1,7 @@
-import { closeSidebar, clearScoreboardDiv } from "../oldDesign/hax94.js";
+import {
+  closeSidebar,
+  clearScoreboardDiv,
+} from "../oldDesign/variousFunctions.js";
 
 export function displayTaskList() {
   clearScoreboardDiv();

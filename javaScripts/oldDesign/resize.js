@@ -1,4 +1,4 @@
-import { sortTable } from "./setData/setTables/teamsTables.js";
+import { sortTable } from "../setData/setTables/teamsTables.js";
 
 export default function screenResize() {
   // insert fetch data function onto <TD> elements in mobile view
