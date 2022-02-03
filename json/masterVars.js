@@ -9,7 +9,6 @@ let haxBallData = await fetchHaxBallData.json();
 // 5. GAME RESULTS
 // 6. GAME PLAYER STATS
 
-// import { haxBallData } from "./masterRecords.js";
 export let {
   Teams: teams,
   Players: players,

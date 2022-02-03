@@ -19,10 +19,10 @@ import {
   // gameResultsLength,
   seasonCountLength,
   // gamePlayerStatsLength,
-} from "../importJSON/masterVars.js";
+} from "../../json/masterVars.js";
 // maps
-import { teamsMAP, playersMAP, gameTypeMAP } from "../importJSON/masterVars.js";
-import { seasonCount } from "../importJSON/masterVars.js";
+import { teamsMAP, playersMAP, gameTypeMAP } from "../../json/masterVars.js";
+import { seasonCount } from "../../json/masterVars.js";
 
 // TeamStats is the class for team object creation
 // allTeamStats (object) is the container holding each teams' object

@@ -7,7 +7,7 @@ import {
   // teamPlayers,
   gameResults,
   gamePlayerStats,
-} from "../importJSON/masterVars.js";
+} from "../../json/masterVars.js";
 // lengths of the above arrays
 import {
   // teamsLength,
@@ -17,10 +17,10 @@ import {
   gameResultsLength,
   seasonCountLength,
   // gamePlayerStatsLength,
-} from "../importJSON/masterVars.js";
+} from "../../json/masterVars.js";
 // maps
-import { playersMAP, gameTypeMAP } from "../importJSON/masterVars.js"; // teamsMAP not included
-import { seasonCount } from "../importJSON/masterVars.js";
+import { playersMAP, gameTypeMAP } from "../../json/masterVars.js"; // teamsMAP not included
+import { seasonCount } from "../../json/masterVars.js";
 
 export class IndividualPlayerStats {
   constructor(name) {

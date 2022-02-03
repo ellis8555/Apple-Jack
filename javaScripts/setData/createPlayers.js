@@ -7,7 +7,7 @@ import {
   // teamPlayers,
   gameResults,
   // gamePlayerStats,
-} from "../importJSON/masterVars.js";
+} from "../../json/masterVars.js";
 // lengths of the above arrays
 import {
   // teamsLength,
@@ -17,10 +17,10 @@ import {
   gameResultsLength,
   seasonCountLength,
   // gamePlayerStatsLength,
-} from "../importJSON/masterVars.js";
+} from "../../json/masterVars.js";
 // maps
-import { teamsMAP, playersMAP, gameTypeMAP } from "../importJSON/masterVars.js";
-import { seasonCount } from "../importJSON/masterVars.js";
+import { teamsMAP, playersMAP, gameTypeMAP } from "../../json/masterVars.js";
+import { seasonCount } from "../../json/masterVars.js";
 
 // IndividualPlayerStats is the class each players' object creation
 // allPLayersStats (object) is the container holding each players' object
