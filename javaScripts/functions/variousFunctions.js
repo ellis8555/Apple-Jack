@@ -11,6 +11,11 @@ export function clearScoreboardDiv() {
   scoreboardDiv.innerHTML = "";
 }
 
+export function clearTablesDiv() {
+  let previousData = document.getElementById("tablesDiv");
+  previousData.innerHTML = "";
+}
+
 // this code for sidebar "other stats" link
 
 export function displaySlides() {

@@ -11,6 +11,7 @@ import { setTableListeners } from "../../functions/listeners.js";
 import {
   closeSidebar,
   clearScoreboardDiv,
+  clearTablesDiv,
 } from "../../functions/variousFunctions.js";
 import {
   // seasonMode,
@@ -262,8 +263,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
   document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
 
   // display data in correct div and clear previous data
-  let previousData = document.getElementById("tablesDiv");
-  previousData.innerHTML = "";
+  clearTablesDiv();
   let scores = document.getElementById("scoreboardDiv");
   scores.innerHTML = gameResults;
 }
