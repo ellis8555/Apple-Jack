@@ -1,3 +1,6 @@
+let fetchHaxBallData = await fetch("../json/haxData.json");
+let haxBallData = await fetchHaxBallData.json();
+
 ////////////////////// destructed variables
 // 1. TEAMS - has map
 // 2. PLAYERS - has map
@@ -6,7 +9,7 @@
 // 5. GAME RESULTS
 // 6. GAME PLAYER STATS
 
-import { haxBallData } from "./masterRecords.js";
+// import { haxBallData } from "./masterRecords.js";
 export let {
   Teams: teams,
   Players: players,
