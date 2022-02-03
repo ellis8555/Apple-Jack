@@ -53,6 +53,7 @@
   }
 
   .teamsLayout {
+    grid-template-rows: 80% 20%;
     grid-gap: 10px;
     width: 90%;
     height: auto;
