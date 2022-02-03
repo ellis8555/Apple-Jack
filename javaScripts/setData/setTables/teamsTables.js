@@ -11,6 +11,7 @@ import { setTableListeners } from "../../functions/listeners.js";
 import {
   closeSidebar,
   clearScoreboardDiv,
+  getTablesDiv,
   clearTablesDiv,
 } from "../../functions/variousFunctions.js";
 import {
@@ -24,6 +25,7 @@ import {
   //   statsType,
 } from "../../classFiles/teamStats.js";
 // END OF IMPORTS
+
 // SET FIELDS FOR TEAMS TABLES
 let homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 let fullTable = [
@@ -161,17 +163,14 @@ export function createTable(
   clearScoreboardDiv();
 
   // display table on web page
-  let standings = document.getElementById("tablesDiv");
-  standings.innerHTML = playerStats;
+  getTablesDiv(); // import function
+  tablesDiv.innerHTML = playerStats;
 }
 // END overall table leaders
 
 // game results table
 
 export function getTeamsGameResults(e, seasonCountLength) {
-  // console.log(e.target.src);
-  // console.log(teamsColorMAP.get(".Hax"));
-  //let team = TeamStats.allTeamStats[teamsMAP.get(4)].name;
   let team = e.target.dataset.teamName;
 
   let teamsGames;
@@ -247,7 +246,8 @@ export function getTeamsGameResults(e, seasonCountLength) {
   // change header banner when team is selected from navbar
 
   let headerImage = document.querySelector("#championsCard>div>img");
-  headerImage.src = e.target.src;
+  // headerImage.src = e.target.src; *** this src can change depending on link routes
+  headerImage.src = e.target.dataset.teamLogo;
   let header = document.getElementById("headerTeamName");
   let headerChildren = header.childNodes;
   headerChildren[4].textContent = team;
@@ -269,6 +269,57 @@ export function getTeamsGameResults(e, seasonCountLength) {
 }
 
 ///////// END TABLE DESIGN
+
+// CREATE LAYOUT FOR TEAMS PAGE
+
+//remember to remove this function from document.body listener for testing purposes
+export function setTeamsPageLayout(e) {
+  clearTablesDiv();
+  clearScoreboardDiv();
+  getTablesDiv();
+  let team = e.target.dataset.teamName;
+  let teamLogoSrc = e.target.src;
+  let teamsLayout;
+  teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
+  teamsLayout += `<div class="notes"><p>
+  * Game results link will in the future lead to game results for differing
+  seasons as well as regular season or playoff games *
+</p>
+<p>** Team colors going to have a copy to clipboard of that teams color scheme for easy pasting into game chat for color changes **</p>
+</div>`;
+  teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">Game Results</div>`;
+  teamsLayout += `<div `;
+  teamsLayout += `style="background-color: #${teamsColorMAP.get(team)}"`;
+  teamsLayout += `class="w3-round teamColors">`;
+  teamsLayout += `Team Colors`;
+  teamsLayout += `</div>`;
+  teamsLayout += `</div>`;
+  tablesDiv.innerHTML = teamsLayout;
+
+  // change header banner when team is selected from navbar
+
+  let headerImage = document.querySelector("#championsCard>div>img");
+  headerImage.src = e.target.src;
+  let header = document.getElementById("headerTeamName");
+  let headerChildren = header.childNodes;
+  headerChildren[4].textContent = team;
+  // add champions name here to display trophy icon when champion team selected
+  let trophy = document.querySelector("i");
+  if (team == "Haxual Chocolate") {
+    trophy.classList.add("fa-trophy");
+  } else {
+    trophy.classList.remove("fa-trophy");
+  }
+  // change bodies background color to that of team selected
+  document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
+  let teamColorsArea = document.querySelector(".teamColors");
+  teamColorsArea.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
+  let gamesResultsArea = document.querySelector(".scoreboard");
+  gamesResultsArea.addEventListener("click", getTeamsGameResults);
+  // console.log("test");
+}
+
+// END TEAMS PAGE LAYOUT
 
 // TABLE CREATION
 // update the tableDataSource MAP up above!!

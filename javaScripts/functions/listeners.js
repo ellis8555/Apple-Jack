@@ -1,6 +1,7 @@
 import {
   sortTable,
   getTeamsGameResults,
+  setTeamsPageLayout,
   setHomeTable,
   setPlayoffTable,
   setPlayerS01Season,
@@ -129,10 +130,13 @@ document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
 // document.body.addEventListener("click", getTeamsGameResults);
 let getTeamsFromNavBar = document.querySelectorAll("img[data-team-name]");
 getTeamsFromNavBar.forEach((item) =>
-  item.addEventListener("click", getTeamsGameResults)
+  // item.addEventListener("click", getTeamsGameResults)
+  item.addEventListener("click", setTeamsPageLayout)
 );
 
-// mobile navbar listeners
+// testing
+
+// document.body.addEventListener("click", setTeamsPageLayout);
 
 // responsive function for live resizing of screen
 

@@ -11,6 +11,11 @@ export function clearScoreboardDiv() {
   scoreboardDiv.innerHTML = "";
 }
 
+export function getTablesDiv() {
+  let tablesDiv = document.getElementById("tablesDiv");
+  return tablesDiv;
+}
+
 export function clearTablesDiv() {
   let previousData = document.getElementById("tablesDiv");
   previousData.innerHTML = "";
