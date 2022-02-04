@@ -8,16 +8,16 @@ export function displayTaskList() {
   let displayArea = document.getElementById("tablesDiv");
 
   displayArea.innerHTML = `<div class="w3-content w3-margin w3-padding w3-round-large w3-display-container w3-margin-top w3-card-4 w3-text-black">
-  <h1 class="w3-red">* Current number one priority is to get gifs going to possibly help out in getting some new players! *</h1>
-  <p>** HaxBall main logo is a link back to home settings of the page. **</p>
-  <p>*** Tables are sortable via clicking the field header. On mobile click on any row ***</p>
+  <p><b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b></p>
+  <p><b>**</b> Tables are sortable via clicking the field header. On mobile click on any row <b>**</b></p>
  
     <h3>List of site improvements</h3>
     <p>1. Improve team data page.</p>
     <p>2. Gif highlights. Somewhere located near a game result have access to that games giffy highlights.</p>
     <h3>In no particular order..</h3>
-    <p>playoffs page of some sort.</p>
+    <p>Playoffs page of some sort.</p>
     <p>For each game result have all that games data appear if clicked on.</p>
+    <p>Sidebar improvement</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
     <p>
       Have beside a particular game result a "replay" button that if possible
