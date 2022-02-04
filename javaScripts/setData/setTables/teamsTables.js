@@ -282,10 +282,10 @@ export function setTeamsPageLayout(e) {
   let teamsLayout;
   teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
   teamsLayout += `<div class="notes"><p>
-  * Game results link will in the future lead to game results for differing
-  seasons as well as regular season or playoff games *
+  <b>*</b> Game results link will in the future lead to game results for differing
+  seasons as well as regular season or playoff games <b>*</b>
 </p>
-<p>** Team colors going to have a copy to clipboard of that teams color scheme for easy pasting into game chat for color changes **</p>
+<p><b>*</b> Team colors going to have a copy to clipboard of that teams color scheme for easy pasting into game chat for color changes <b>**</b></p>
 </div>`;
   teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">Game Results</div>`;
   teamsLayout += `<div `;
@@ -316,7 +316,6 @@ export function setTeamsPageLayout(e) {
   teamColorsArea.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
   let gamesResultsArea = document.querySelector(".scoreboard");
   gamesResultsArea.addEventListener("click", getTeamsGameResults);
-  // console.log("test");
 }
 
 // END TEAMS PAGE LAYOUT
