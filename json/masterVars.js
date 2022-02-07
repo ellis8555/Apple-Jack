@@ -8,7 +8,6 @@ let haxBallData = await fetchHaxBallData.json();
 // 4. TEAM PLAYERS
 // 5. GAME RESULTS
 // 6. GAME PLAYER STATS
-
 export let {
   Teams: teams,
   Players: players,
@@ -25,11 +24,10 @@ for (let i = 0; i < teamsLength; i++) {
   // map a list of teams
   teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
 }
-export let teamsColorMAP = new Map();
+let teamsColorMAP = new Map();
 for (let i = 0; i < teamsMAP.size; i++) {
   teamsColorMAP.set(teamsMAP.get(i + 1), teams[i].MainColor);
 }
-
 // PLAYERS //
 // let { Players: players } = haxBallData; // list of all players
 let playersLength = players.length;
@@ -65,7 +63,7 @@ seasonCount.sort((a, b) => a - b);
 let gamePlayerStatsLength = gamePlayerStats.length;
 
 // maps
-export { teamsMAP, playersMAP, gameTypeMAP };
+export { teamsMAP, teamsColorMAP, playersMAP, gameTypeMAP };
 // var lengths
 export {
   teamsLength,

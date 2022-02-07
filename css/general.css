@@ -90,10 +90,9 @@ table td:first-child {
 .teamsLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 50px auto;
   grid-gap: 10px;
   width: 50%;
-  height: auto;
 }
 
 .scoreboard {
