@@ -260,10 +260,13 @@ export function getTeamsGameResults(e, seasonCountLength) {
 }
 
 // create teams color layout from button click within teams layout div
-function teamColorsPage() {
+function teamColorsPage(e) {
   clearTablesDiv();
   clearScoreboardDiv();
   getTablesDiv();
+  let team = e.target.dataset.teamName;
+  console.log(team);
+  let teamLogosLayout;
 
   tablesDiv.innerHTML = `<p><h3>Coming soon</h3></p>`;
 }
@@ -296,7 +299,9 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div `;
-  teamsLayout += `style="background-color: #${teamsColorMAP.get(team)}"`;
+  teamsLayout += ` data-team-name="${team}" style="background-color: #${teamsColorMAP.get(
+    team
+  )}"`;
   teamsLayout += `class="w3-round teamColors">`;
   teamsLayout += `Team Colors`;
   teamsLayout += `</div>`;
@@ -310,7 +315,7 @@ export function setTeamsPageLayout(e) {
   document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
   let teamColorsArea = document.querySelector(".teamColors");
   teamColorsArea.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
-  // set listeners on newly created elements once entering teams layout page
+  // set listeners on newly created elements (buttons) once entering teams layout page
   let gamesResultsArea = document.querySelector(".scoreboard");
   gamesResultsArea.addEventListener("click", getTeamsGameResults);
   teamColorsArea.addEventListener("click", teamColorsPage);
