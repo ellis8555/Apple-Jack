@@ -125,9 +125,8 @@ document
   .addEventListener("mouseleave", hideAllSubMenus);
 document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
 
-// display team data
+// TEAMS LAYOUT PAGE
 
-// document.body.addEventListener("click", getTeamsGameResults);
 let getTeamsFromNavBar = document.querySelectorAll("img[data-team-name]");
 getTeamsFromNavBar.forEach((item) =>
   // item.addEventListener("click", getTeamsGameResults)

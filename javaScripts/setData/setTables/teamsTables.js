@@ -259,6 +259,13 @@ export function getTeamsGameResults(e, seasonCountLength) {
   scores.innerHTML = gameResults;
 }
 
+// create teams color layout from button click within teams layout div
+function teamColorsPage() {
+  clearTablesDiv();
+  clearScoreboardDiv();
+  getTablesDiv();
+}
+
 // CREATE LAYOUT FOR TEAMS PAGE
 
 export function setTeamsPageLayout(e) {
@@ -299,8 +306,10 @@ export function setTeamsPageLayout(e) {
   document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
   let teamColorsArea = document.querySelector(".teamColors");
   teamColorsArea.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
+  // set listeners on newly created elements once entering teams layout page
   let gamesResultsArea = document.querySelector(".scoreboard");
   gamesResultsArea.addEventListener("click", getTeamsGameResults);
+  teamColorsArea.addEventListener("click", teamColorsPage);
 }
 
 // END TEAMS PAGE LAYOUT
