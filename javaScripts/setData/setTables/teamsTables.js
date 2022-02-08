@@ -169,6 +169,8 @@ export function createTable(
 }
 // END overall table leaders
 
+///////// END TABLE DESIGN
+
 // button for game results table within teams layout page
 
 export function getTeamsGameResults(e, seasonCountLength) {
@@ -257,8 +259,6 @@ export function getTeamsGameResults(e, seasonCountLength) {
   scores.innerHTML = gameResults;
 }
 
-///////// END TABLE DESIGN
-
 // CREATE LAYOUT FOR TEAMS PAGE
 
 export function setTeamsPageLayout(e) {
@@ -272,15 +272,18 @@ export function setTeamsPageLayout(e) {
   // class teamsLayout is grid container
   // 3 divs make up the grid. (notes, scoreboard and teamColors)
   teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
+  // notes grid area
   teamsLayout += `<div class="notes"><p>
   <b>*</b> Game results link will in the future lead to game results for differing
   seasons as well as regular season or playoff games <b>*</b>
 </p>
 <p><b>*</b> Team colors going to have a copy to clipboard of that teams color scheme for easy pasting into game chat for color changes <b>**</b></p>
 </div>`;
+  // scoreboard grid area
   teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">`;
   teamsLayout += `Game Results`;
   teamsLayout += `</div>`;
+  // teamColors grid area
   teamsLayout += `<div `;
   teamsLayout += `style="background-color: #${teamsColorMAP.get(team)}"`;
   teamsLayout += `class="w3-round teamColors">`;

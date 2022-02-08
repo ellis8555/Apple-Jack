@@ -136,8 +136,6 @@ getTeamsFromNavBar.forEach((item) =>
 
 // testing
 
-// document.body.addEventListener("click", setTeamsPageLayout);
-
 // responsive function for live resizing of screen
 
 window.onresize = screenResize; // enables sorting data when switching to mobile view
