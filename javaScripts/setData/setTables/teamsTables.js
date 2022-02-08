@@ -169,7 +169,7 @@ export function createTable(
 }
 // END overall table leaders
 
-// game results table
+// button for game results table within teams layout page
 
 export function getTeamsGameResults(e, seasonCountLength) {
   let team = e.target.dataset.teamName;
@@ -261,7 +261,6 @@ export function getTeamsGameResults(e, seasonCountLength) {
 
 // CREATE LAYOUT FOR TEAMS PAGE
 
-//remember to remove this function from document.body listener for testing purposes
 export function setTeamsPageLayout(e) {
   clearTablesDiv();
   clearScoreboardDiv();
@@ -269,6 +268,9 @@ export function setTeamsPageLayout(e) {
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.src;
   let teamsLayout;
+
+  // class teamsLayout is grid container
+  // 3 divs make up the grid. (notes, scoreboard and teamColors)
   teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
   teamsLayout += `<div class="notes"><p>
   <b>*</b> Game results link will in the future lead to game results for differing
@@ -276,7 +278,9 @@ export function setTeamsPageLayout(e) {
 </p>
 <p><b>*</b> Team colors going to have a copy to clipboard of that teams color scheme for easy pasting into game chat for color changes <b>**</b></p>
 </div>`;
-  teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">Game Results</div>`;
+  teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">`;
+  teamsLayout += `Game Results`;
+  teamsLayout += `</div>`;
   teamsLayout += `<div `;
   teamsLayout += `style="background-color: #${teamsColorMAP.get(team)}"`;
   teamsLayout += `class="w3-round teamColors">`;
