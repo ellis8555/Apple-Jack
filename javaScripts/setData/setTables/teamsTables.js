@@ -264,6 +264,8 @@ function teamColorsPage() {
   clearTablesDiv();
   clearScoreboardDiv();
   getTablesDiv();
+
+  tablesDiv.innerHTML = `<p><h3>Coming soon</h3></p>`;
 }
 
 // CREATE LAYOUT FOR TEAMS PAGE
@@ -280,12 +282,9 @@ export function setTeamsPageLayout(e) {
   // 3 divs make up the grid. (notes, scoreboard and teamColors)
   teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
   // notes grid area
-  teamsLayout += `<div class="notes"><p>
-  <b>*</b> Game results link will in the future lead to game results for differing
-  seasons as well as regular season or playoff games <b>*</b>
-</p>
-<p><b>*</b> Team colors going to have a copy to clipboard of that teams color scheme for easy pasting into game chat for color changes <b>**</b></p>
-</div>`;
+  teamsLayout += `<div class="notes">`;
+  teamsLayout += `<h3>More options in the future will be placed here</h3>`;
+  teamsLayout += `</div>`;
   // scoreboard grid area
   teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">`;
   teamsLayout += `Game Results`;
