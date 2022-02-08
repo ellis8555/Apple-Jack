@@ -55,7 +55,7 @@
   /* CLASSES FOR TEAM PAGE LAYOUT */
 
   .teamsLayout {
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 30px auto;
     grid-gap: 10px;
     width: 90%;
     height: auto;
