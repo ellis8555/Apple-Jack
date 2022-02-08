@@ -265,7 +265,6 @@ function teamColorsPage(e) {
   clearScoreboardDiv();
   getTablesDiv();
   let team = e.target.dataset.teamName;
-  console.log(team);
   let teamLogosLayout;
 
   tablesDiv.innerHTML = `<p><h3>Coming soon</h3></p>`;

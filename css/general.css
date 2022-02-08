@@ -7,6 +7,10 @@ header {
   margin-top: 5px;
 }
 
+img[src*="-big-"] {
+  cursor: pointer;
+}
+
 .trophy {
   color: yellow;
   font-size: 2em;
