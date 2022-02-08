@@ -1,24 +1,10 @@
+// SIDEBAR RELATED
 export function openSidebar() {
   document.getElementById("sidebar").style.display = "block";
 }
 
 export function closeSidebar() {
   document.getElementById("sidebar").style.display = "none";
-}
-
-export function clearScoreboardDiv() {
-  let scoreboardDiv = document.getElementById("scoreboardDiv");
-  scoreboardDiv.innerHTML = "";
-}
-
-export function getTablesDiv() {
-  let tablesDiv = document.getElementById("tablesDiv");
-  return tablesDiv;
-}
-
-export function clearTablesDiv() {
-  let previousData = document.getElementById("tablesDiv");
-  previousData.innerHTML = "";
 }
 
 // this code for sidebar "other stats" link
@@ -36,4 +22,21 @@ export function displaySlides() {
   />
 <!--end of slides-->`;
   closeSidebar();
+}
+
+// MAIN CONTENT DIVS
+
+export function clearScoreboardDiv() {
+  let scoreboardDiv = document.getElementById("scoreboardDiv");
+  scoreboardDiv.innerHTML = "";
+}
+
+export function getTablesDiv() {
+  let tablesDiv = document.getElementById("tablesDiv");
+  return tablesDiv;
+}
+
+export function clearTablesDiv() {
+  let previousData = document.getElementById("tablesDiv");
+  previousData.innerHTML = "";
 }
