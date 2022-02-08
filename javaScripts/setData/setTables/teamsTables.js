@@ -13,6 +13,7 @@ import {
   clearScoreboardDiv,
   getTablesDiv,
   clearTablesDiv,
+  setHeaderBanner,
 } from "../../functions/variousFunctions.js";
 import {
   // seasonMode,
@@ -172,6 +173,7 @@ export function createTable(
 
 export function getTeamsGameResults(e, seasonCountLength) {
   let team = e.target.dataset.teamName;
+  let teamImage = e.target.dataset.teamLogo;
 
   let teamsGames;
   let gameResults = "";
@@ -244,20 +246,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
   }
 
   // change header banner when team is selected from navbar
-
-  let headerImage = document.querySelector("#championsCard>div>img");
-  // headerImage.src = e.target.src; *** this src can change depending on link routes
-  headerImage.src = e.target.dataset.teamLogo;
-  let header = document.getElementById("headerTeamName");
-  let headerChildren = header.childNodes;
-  headerChildren[4].textContent = team;
-  // add champions name here to display trophy icon when champion team selected
-  let trophy = document.querySelector("i");
-  if (team == "Haxual Chocolate") {
-    trophy.classList.add("fa-trophy");
-  } else {
-    trophy.classList.remove("fa-trophy");
-  }
+  setHeaderBanner(teamImage, team);
 
   // change bodies background color to that of team selected
   document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
@@ -297,19 +286,8 @@ export function setTeamsPageLayout(e) {
   tablesDiv.innerHTML = teamsLayout;
 
   // change header banner when team is selected from navbar
+  setHeaderBanner(teamLogoSrc, team);
 
-  let headerImage = document.querySelector("#championsCard>div>img");
-  headerImage.src = e.target.src;
-  let header = document.getElementById("headerTeamName");
-  let headerChildren = header.childNodes;
-  headerChildren[4].textContent = team;
-  // add champions name here to display trophy icon when champion team selected
-  let trophy = document.querySelector("i");
-  if (team == "Haxual Chocolate") {
-    trophy.classList.add("fa-trophy");
-  } else {
-    trophy.classList.remove("fa-trophy");
-  }
   // change bodies background color to that of team selected
   document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
   let teamColorsArea = document.querySelector(".teamColors");

@@ -17,6 +17,7 @@ export let {
   GamePlayerStats: gamePlayerStats,
 } = haxBallData;
 // TEAMS //
+let defendingChamps = "Haxual Chocolate";
 // let { Teams: teams } = haxBallData; // List of all teams
 let teamsLength = teams.length;
 let teamsMAP = new Map();
@@ -75,4 +76,4 @@ export {
   gamePlayerStatsLength,
 };
 // arrays
-export { seasonCount };
+export { defendingChamps, seasonCount };
