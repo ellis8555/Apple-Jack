@@ -270,7 +270,9 @@ export function teamColorsPage(e) {
   getTablesDiv();
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.dataset.teamLogo;
+  let homeColorScheme = eachTeamObjectMAP.get(team).S01Home;
   let awayTeamLogo = e.target.dataset.awayLogo;
+  let awayColorScheme = eachTeamObjectMAP.get(team).S01Away;
   let teamLogosLayout;
   let tLL = teamLogosLayout;
   // teamsColorsLayout is grid containing class
@@ -288,12 +290,16 @@ export function teamColorsPage(e) {
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
   // red button container
-  tLL += `<div class="w3-padding w3-round w3-center w3-red red">`;
+  tLL += `<div data-home-scheme="${
+    "/colors red" + " " + homeColorScheme
+  }" class="w3-padding w3-round w3-center w3-red red">`;
   tLL += `red`;
   // closing red button container
   tLL += `</div>`;
   // blue button container
-  tLL += `<div class="w3-padding w3-round w3-center w3-blue blue">`;
+  tLL += `<div data-home-scheme="${
+    "/colors blue" + " " + homeColorScheme
+  }" class="w3-padding w3-round w3-center w3-blue blue">`;
   tLL += `blue`;
   // closing blue button container
   tLL += `</div>`;
@@ -310,12 +316,16 @@ export function teamColorsPage(e) {
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
   // red button container
-  tLL += `<div class="w3-padding w3-round w3-center w3-red red">`;
+  tLL += `<div data-away-scheme="${
+    "/colors red" + " " + awayColorScheme
+  }" class="w3-padding w3-round w3-center w3-red red">`;
   tLL += `red`;
   // closing red button container
   tLL += `</div>`;
   // blue button container
-  tLL += `<div class="w3-padding w3-round w3-center w3-blue blue">`;
+  tLL += `<div data-away-scheme="${
+    "/colors blue" + " " + awayColorScheme
+  }" class="w3-padding w3-round w3-center w3-blue blue">`;
   tLL += `blue`;
   // closing blue button container
   tLL += `</div>`;
