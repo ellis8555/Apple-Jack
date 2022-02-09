@@ -3,6 +3,7 @@ import { IndividualPlayerStats } from "../createPlayers.js";
 import {
   teams,
   teamsMAP,
+  eachTeamObjectMAP,
   teamsNumMAP,
   teamsColorMAP,
   seasonCountLength,
@@ -263,7 +264,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
 }
 
 // create TEAMS COLOR layout from button click within teams layout div
-function teamColorsPage(e) {
+export function teamColorsPage(e) {
   clearTablesDiv();
   clearScoreboardDiv();
   getTablesDiv();

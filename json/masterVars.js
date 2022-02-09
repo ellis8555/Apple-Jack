@@ -20,8 +20,14 @@ export let {
 let defendingChamps = "Haxual Chocolate";
 // let { Teams: teams } = haxBallData; // List of all teams
 let teamsLength = teams.length;
+let teamNames = [];
+let eachTeamObjectMAP = new Map(); // maps out each teams basic info. ID, Color, logo file path, etc...
 let teamsMAP = new Map();
 let teamsNumMAP = new Map();
+for (let i = 0; i < teamsLength; i++) {
+  teamNames[i] = teams[i].TeamName;
+  eachTeamObjectMAP.set(teamNames[i], teams[i]);
+}
 for (let i = 0; i < teamsLength; i++) {
   // map a list of teams
   teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
@@ -66,7 +72,14 @@ seasonCount.sort((a, b) => a - b);
 let gamePlayerStatsLength = gamePlayerStats.length;
 
 // maps
-export { teamsMAP, teamsNumMAP, teamsColorMAP, playersMAP, gameTypeMAP };
+export {
+  teamsMAP,
+  eachTeamObjectMAP,
+  teamsNumMAP,
+  teamsColorMAP,
+  playersMAP,
+  gameTypeMAP,
+};
 // var lengths
 export {
   teamsLength,
