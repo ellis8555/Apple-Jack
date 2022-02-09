@@ -53,6 +53,11 @@ export function clearScoreboardDiv() {
   scoreboardDiv.innerHTML = "";
 }
 
+export function getScoreboardDiv() {
+  let scoreboardDiv = document.getElementById("scoreboardDiv");
+  return scoreboardDiv;
+}
+
 export function getTablesDiv() {
   let tablesDiv = document.getElementById("tablesDiv");
   return tablesDiv;

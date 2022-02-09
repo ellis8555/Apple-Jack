@@ -3,6 +3,7 @@ import { IndividualPlayerStats } from "../createPlayers.js";
 import {
   teams,
   teamsMAP,
+  teamsNumMAP,
   teamsColorMAP,
   seasonCountLength,
 } from "../../../json/masterVars.js";
@@ -11,6 +12,7 @@ import { setTableListeners } from "../../functions/listeners.js";
 import {
   closeSidebar,
   clearScoreboardDiv,
+  getScoreboardDiv,
   getTablesDiv,
   clearTablesDiv,
   setHeaderBanner,
@@ -190,6 +192,7 @@ export function getTeamsGameResults(e, seasonCountLength) {
   gameResults += `<h4>S01 Regular Season</h4>`;
   for (let i = 0; i < gamesLength; i++) {
     gameResults += `<div style="display: flex; justify-content: center">`;
+    // class gameResults is containing grid
     gameResults += `<div class="w3-container w3-margin gameResults">`;
     // homeTeam name
     gameResults += `<div class="homeTeam"`;
@@ -259,15 +262,71 @@ export function getTeamsGameResults(e, seasonCountLength) {
   scores.innerHTML = gameResults;
 }
 
-// create teams color layout from button click within teams layout div
+// create TEAMS COLOR layout from button click within teams layout div
 function teamColorsPage(e) {
   clearTablesDiv();
   clearScoreboardDiv();
   getTablesDiv();
   let team = e.target.dataset.teamName;
+  let teamLogoSrc = e.target.dataset.teamLogo;
   let teamLogosLayout;
+  let tLL = teamLogosLayout;
+  // teamsColorsLayout is grid containing class
+  tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
+  // teamColorsLayout class that contains the title in colors layout
+  tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
+  tLL += `<h3>Coming soon</h3>`;
+  tLL += `</div>`;
+  // teamColorsLayout body of layout containing team logos
+  // begin flex items containing team logo cards
+  // opening teamColorsHomeContent
+  tLL += `<div class="teamColorsHomeContent w3-container w3-padding w3-blue w3-round-large">`;
+  tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
+  tLL += `<img src="${teamLogoSrc}">`;
+  // container holding red blue buttons
+  tLL += `<div class="w3-container w3-padding redBlue">`;
+  // red button container
+  tLL += `<div class="w3-padding w3-round w3-center w3-red red">`;
+  tLL += `red`;
+  // closing red button container
+  tLL += `</div>`;
+  // blue button container
+  tLL += `<div class="w3-padding w3-round w3-center w3-blue blue">`;
+  tLL += `blue`;
+  // closing blue button container
+  tLL += `</div>`;
+  // closing red blue container
+  tLL += `</div>`;
+  // closing card containing logo
+  tLL += `</div>`;
+  //closing teamColorsHomeContent
+  tLL += `</div>`;
+  // opening teamColorsAwayContent
+  tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large">`;
+  tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
+  tLL += `<img src="${teamLogoSrc}">`;
+  // container holding red blue buttons
+  tLL += `<div class="w3-container w3-padding redBlue">`;
+  // red button container
+  tLL += `<div class="w3-padding w3-round w3-center w3-red red">`;
+  tLL += `red`;
+  // closing red button container
+  tLL += `</div>`;
+  // blue button container
+  tLL += `<div class="w3-padding w3-round w3-center w3-blue blue">`;
+  tLL += `blue`;
+  // closing blue button container
+  tLL += `</div>`;
+  // closing red blue container
+  tLL += `</div>`;
+  // closing card containing logo
+  tLL += `</div>`;
+  //closing teamColorsAwayContent
+  tLL += `</div>`;
+  //closing teamColorsLayout
+  tLL += `</div>`;
 
-  tablesDiv.innerHTML = `<p><h3>Coming soon</h3></p>`;
+  tablesDiv.innerHTML += `${tLL}`;
 }
 
 // CREATE LAYOUT FOR TEAMS PAGE
@@ -298,7 +357,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div `;
-  teamsLayout += ` data-team-name="${team}" style="background-color: #${teamsColorMAP.get(
+  teamsLayout += ` data-team-name="${team}" data-team-logo="${teamLogoSrc}" style="background-color: #${teamsColorMAP.get(
     team
   )}"`;
   teamsLayout += `class="w3-round teamColors">`;
