@@ -286,6 +286,7 @@ export function teamColorsPage(e) {
   // opening teamColorsHomeContent
   tLL += `<div class="teamColorsHomeContent w3-container w3-padding w3-blue w3-round-large">`;
   tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
+  tLL += `<div><h5>Main</h5></div>`;
   tLL += `<img src="${teamLogoSrc}">`;
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
@@ -312,6 +313,7 @@ export function teamColorsPage(e) {
   // opening teamColorsAwayContent
   tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large">`;
   tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
+  tLL += `<div><h5>Alternate</h5></div>`;
   tLL += `<img src="${awayTeamLogo}">`;
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
