@@ -277,7 +277,7 @@ export function teamColorsPage(e) {
   tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
   // teamColorsLayout class that contains the title in colors layout
   tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
-  tLL += `<h3>Coming soon</h3>`;
+  tLL += `<h5 class="w3-text-black">Red/Blue buttons not functiong yet</h5>`;
   tLL += `</div>`;
   // teamColorsLayout body of layout containing team logos
   // begin flex items containing team logo cards
