@@ -270,6 +270,7 @@ export function teamColorsPage(e) {
   getTablesDiv();
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.dataset.teamLogo;
+  let awayTeamLogo = e.target.dataset.awayLogo;
   let teamLogosLayout;
   let tLL = teamLogosLayout;
   // teamsColorsLayout is grid containing class
@@ -305,7 +306,7 @@ export function teamColorsPage(e) {
   // opening teamColorsAwayContent
   tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large">`;
   tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
-  tLL += `<img src="${teamLogoSrc}">`;
+  tLL += `<img src="${awayTeamLogo}">`;
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
   // red button container
@@ -338,6 +339,7 @@ export function setTeamsPageLayout(e) {
   getTablesDiv();
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.src;
+  let awayTeamLogo = eachTeamObjectMAP.get(team).S01AwayFilePath;
   let teamsLayout;
 
   // class teamsLayout is grid container
@@ -358,7 +360,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div `;
-  teamsLayout += ` data-team-name="${team}" data-team-logo="${teamLogoSrc}" style="background-color: #${teamsColorMAP.get(
+  teamsLayout += ` data-team-name="${team}" data-team-logo="${teamLogoSrc}" data-away-logo="${awayTeamLogo}" style="background-color: #${teamsColorMAP.get(
     team
   )}"`;
   teamsLayout += `class="w3-round teamColors">`;
