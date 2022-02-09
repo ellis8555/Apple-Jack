@@ -290,14 +290,14 @@ export function teamColorsPage(e) {
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
   // red button container
-  tLL += `<div data-home-scheme="${
+  tLL += `<div data-color-scheme="${
     "/colors red" + " " + homeColorScheme
   }" class="w3-padding w3-round w3-center w3-red red">`;
   tLL += `red`;
   // closing red button container
   tLL += `</div>`;
   // blue button container
-  tLL += `<div data-home-scheme="${
+  tLL += `<div data-color-scheme="${
     "/colors blue" + " " + homeColorScheme
   }" class="w3-padding w3-round w3-center w3-blue blue">`;
   tLL += `blue`;
@@ -316,14 +316,14 @@ export function teamColorsPage(e) {
   // container holding red blue buttons
   tLL += `<div class="w3-container w3-padding redBlue">`;
   // red button container
-  tLL += `<div data-away-scheme="${
+  tLL += `<div data-color-scheme="${
     "/colors red" + " " + awayColorScheme
   }" class="w3-padding w3-round w3-center w3-red red">`;
   tLL += `red`;
   // closing red button container
   tLL += `</div>`;
   // blue button container
-  tLL += `<div data-away-scheme="${
+  tLL += `<div data-color-scheme="${
     "/colors blue" + " " + awayColorScheme
   }" class="w3-padding w3-round w3-center w3-blue blue">`;
   tLL += `blue`;
@@ -339,7 +339,25 @@ export function teamColorsPage(e) {
   tLL += `</div>`;
 
   tablesDiv.innerHTML += `${tLL}`;
+
+  // create function to copy color red/blue scheme
+
+  function getColorScheme(e) {
+    let scheme = e.target.dataset.colorScheme;
+    navigator.clipboard.writeText(scheme);
+    console.log("after clipboard!");
+  }
+
+  // set listeners on newly created red/blue button elements
+  let redBlueButtons = document.querySelectorAll("div[data-color-scheme]");
+  redBlueButtons.forEach((item) =>
+    item.addEventListener("click", getColorScheme)
+  );
 }
+
+// listener function for selecting red/blue color scheme
+
+// END TEAMS COLOR layout button clicks
 
 // CREATE LAYOUT FOR TEAMS PAGE
 
