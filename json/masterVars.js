@@ -16,7 +16,7 @@ export let {
   GameResults: gameResults,
   GamePlayerStats: gamePlayerStats,
 } = haxBallData;
-// TEAMS //
+//**** TEAMS ****//
 let defendingChamps = "Haxual Chocolate";
 let teamsLength = teams.length;
 let teamNames = [teamsLength];
@@ -36,28 +36,24 @@ let teamsColorMAP = new Map(); // maps teams main color with ID number
 for (let i = 0; i < teamsMAP.size; i++) {
   teamsColorMAP.set(teamsMAP.get(i + 1), teams[i].MainColor);
 }
-// PLAYERS //
-// let { Players: players } = haxBallData; // list of all players
+//**** PLAYERS ****//
 let playersLength = players.length;
 let playersMAP = new Map();
 for (let i = 0; i < playersLength; i++) {
   // map a list of players
   playersMAP.set(Number(players[i].PlayerID), players[i].Players);
 }
-// GAME TYPE //
-// let { GameType: gameType } = haxBallData; // game type either season or playoff
+//**** GAME TYPE ****//
 let gameTypeLength = gameType.length;
 let gameTypeMAP = new Map();
 for (let i = 0; i < gameTypeLength; i++) {
   // map a list of players
   gameTypeMAP.set(Number(gameType[i].GameTypeID), gameType[i].GameType);
 }
-// TEAM PLAYERS //
-// let { TeamPlayers: teamPlayers } = haxBallData; // list of who plays on what team
+//**** TEAM PLAYERS ****//
 let teamPlayersLength = teamPlayers.length;
 
-// GAME RESULTS //
-// let { GameResults: gameResults } = haxBallData; // list of game scores
+//**** GAME RESULTS ****//
 let gameResultsLength = gameResults.length;
 let seasonCount = Array.from(
   //get count of how many seasons in order to create arrays for each season
@@ -66,8 +62,7 @@ let seasonCount = Array.from(
 let seasonCountLength = seasonCount.length;
 seasonCount.sort((a, b) => a - b);
 
-// GAME PLAYER STATS //
-// let { GamePlayerStats: gamePlayerStats } = haxBallData; // list of individual game player stats
+//**** GAME PLAYER STATS ****//
 let gamePlayerStatsLength = gamePlayerStats.length;
 
 // maps
