@@ -16,6 +16,10 @@ export let {
   GameResults: gameResults,
   GamePlayerStats: gamePlayerStats,
 } = haxBallData;
+//**** MISC ****//
+let currentSeason = Math.max(
+  Array.from(new Set(teamPlayers.map((item) => +item.SeasonNumber)))
+);
 //**** TEAMS ****//
 let defendingChamps = "Haxual Chocolate";
 let teamsLength = teams.length;
@@ -98,4 +102,4 @@ export {
   gamePlayerStatsLength,
 };
 // arrays
-export { defendingChamps, seasonCount };
+export { defendingChamps, seasonCount, currentSeason };
