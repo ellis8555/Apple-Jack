@@ -153,6 +153,11 @@ if (seasonCount.length > 1) {
   }
 }
 
+// TESTING
+
+// let x = TeamStats.allTeamStats;
+// console.log(x);
+
 // EXPORTS
 
 export { TeamStats };

@@ -95,11 +95,12 @@ export let {
 } = supportVars;
 
 // End of destructured vars //
-
 export class TeamStats {
   constructor(name) {
     // players name
     this.name = name;
+    this.seasonsPlayed = teamsSeasonsMAP.get(this.name);
+    this.seasonsPlayedLength = teamsSeasonsMAP.get(this.name).length;
     // all time team stats per object (team)
     this.allTimeStats = []; // collects from gameResults JSON
     this.allTimeSeasonStats = []; // gameResults JSON filtered to seasonType is "Season"
@@ -108,16 +109,15 @@ export class TeamStats {
     this.allTimeStatsMAP = new Map();
     this.allTimeSeasonStatsMAP = new Map();
     this.allTimePlayoffStatsMAP = new Map();
-    if (seasonCountLength > 1) {
-      seasonCount.forEach((item) => {
-        this["teamsSeason" + item + "CombinedStats"] = [];
-        this["teamsSeason" + item + "SeasonStats"] = [];
-        this["teamsSeason" + item + "PlayoffStats"] = [];
-        this["teamsSeason" + item + "CombinedStatsMAP"] = new Map();
-        this["teamsSeason" + item + "SeasonStatsMAP"] = new Map();
-        this["teamsSeason" + item + "PlayoffStatsMAP"] = new Map();
-      });
-    }
+
+    this.seasonsPlayed.forEach((item) => {
+      this["teamsSeason" + item + "CombinedStats"] = [];
+      this["teamsSeason" + item + "SeasonStats"] = [];
+      this["teamsSeason" + item + "PlayoffStats"] = [];
+      this["teamsSeason" + item + "CombinedStatsMAP"] = new Map();
+      this["teamsSeason" + item + "SeasonStatsMAP"] = new Map();
+      this["teamsSeason" + item + "PlayoffStatsMAP"] = new Map();
+    });
   }
 
   // static properties and methods
@@ -140,14 +140,12 @@ export class TeamStats {
     }
   }
 
-  static setPerSeasonAllTimeContainers(seasonCountLength) {
-    if (seasonCountLength > 1) {
-      seasonCount.forEach((item) => {
-        this["groupTeamsSeason" + item + "CombinedStats"] = [];
-        this["groupTeamsSeason" + item + "SeasonStats"] = [];
-        this["groupTeamsSeason" + item + "PlayoffStats"] = [];
-      });
-    }
+  static setPerSeasonAllTimeContainers() {
+    [this.seasonsPlayed].forEach((item) => {
+      this["groupTeamsSeason" + item + "CombinedStats"] = [];
+      this["groupTeamsSeason" + item + "SeasonStats"] = [];
+      this["groupTeamsSeason" + item + "PlayoffStats"] = [];
+    });
   }
 
   // set teams all time stats arrays
