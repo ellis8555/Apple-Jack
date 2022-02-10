@@ -92,49 +92,63 @@ TeamStats.setGroupedAllTimeArrays(); // populates the class arrays with team MAP
 //*****************************************UNCOMMENT PORTION ABOVE ********************/
 //array for combined season and playoffs
 for (let i = 1; i <= teamsMAP.size; i++) {
+  //     for (let j = 0; j < seasonCountLength; j++) { THIS WAS OLD FOR
   for (
     let j = 0;
     j < TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayedLength;
     j++
   ) {
     TeamStats.allTeamStats[teamsMAP.get(i)][
-      "teamsSeason" + seasonCount[j] + "CombinedStats"
+      "teamsSeason" +
+        TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed[j] +
+        "CombinedStats"
     ].push(
       TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
-        (item) => item.SeasonNumber == seasonCount[j]
+        (item) =>
+          item.SeasonNumber ==
+          TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed[j]
       )
     );
   }
 }
 
 // loop that fills each team's seasons regular season and playoff stats array
-if (seasonCount.length > 1) {
-  // arrays for regular season and playoffs per each season
-  for (let i = 1; i <= teamsMAP.size; i++) {
-    for (let j = 0; j < seasonCountLength; j++) {
-      // teamsSeason # SeasonStats poulation
-      TeamStats.allTeamStats[teamsMAP.get(i)][
-        "teamsSeason" + seasonCount[j] + "SeasonStats"
-      ].push(
-        TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
-          // filter the teams all time array
-          (item) =>
-            item.SeasonNumber == seasonCount[j] &&
-            gameTypeMAP.get(Number(item.GameTypeID)) == "Season"
-        )
-      );
-      // teamsSeason # PlayoffStats poulation
-      TeamStats.allTeamStats[teamsMAP.get(i)][
-        "teamsSeason" + seasonCount[j] + "PlayoffStats"
-      ].push(
-        TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
-          // filter the teams all time array
-          (item) =>
-            item.SeasonNumber == seasonCount[j] &&
-            gameTypeMAP.get(Number(item.GameTypeID)) == "Playoff"
-        )
-      );
-    }
+
+// arrays for regular season and playoffs per each season
+for (let i = 1; i <= teamsMAP.size; i++) {
+  for (
+    let j = 0;
+    j < TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayedLength;
+    j++
+  ) {
+    // teamsSeason # SeasonStats poulation
+    TeamStats.allTeamStats[teamsMAP.get(i)][
+      "teamsSeason" +
+        TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed[j] +
+        "SeasonStats"
+    ].push(
+      TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
+        // filter the teams all time array
+        (item) =>
+          item.SeasonNumber ==
+            TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed[j] &&
+          gameTypeMAP.get(Number(item.GameTypeID)) == "Season"
+      )
+    );
+    // teamsSeason # PlayoffStats poulation
+    TeamStats.allTeamStats[teamsMAP.get(i)][
+      "teamsSeason" +
+        TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed[j] +
+        "PlayoffStats"
+    ].push(
+      TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
+        // filter the teams all time array
+        (item) =>
+          item.SeasonNumber ==
+            TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed[j] &&
+          gameTypeMAP.get(Number(item.GameTypeID)) == "Playoff"
+      )
+    );
   }
 }
 
