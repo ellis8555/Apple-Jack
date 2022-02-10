@@ -73,18 +73,37 @@ for (let i = 1; i <= teamsMAP.size; i++) {
 TeamStats.setGroupedAllTimeArrays(); // populates the class arrays with team MAPS grouping for display of data in tabular form
 
 // loop that fills each team's seasons combined stats array per each season number
-if (seasonCount.length > 1) {
-  //array for combined season and playoffs
-  for (let i = 1; i <= teamsMAP.size; i++) {
-    for (let j = 0; j < seasonCountLength; j++) {
-      TeamStats.allTeamStats[teamsMAP.get(i)][
-        "teamsSeason" + seasonCount[j] + "CombinedStats"
-      ].push(
-        TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
-          (item) => item.SeasonNumber == seasonCount[j]
-        )
-      );
-    }
+
+//*****************************************UNCOMMENT THIS PORTION ********************/
+// if (seasonCount.length > 1) {
+//   //array for combined season and playoffs
+//   for (let i = 1; i <= teamsMAP.size; i++) {
+//     for (let j = 0; j < seasonCountLength; j++) {
+//       TeamStats.allTeamStats[teamsMAP.get(i)][
+//         "teamsSeason" + seasonCount[j] + "CombinedStats"
+//       ].push(
+//         TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
+//           (item) => item.SeasonNumber == seasonCount[j]
+//         )
+//       );
+//     }
+//   }
+// }
+//*****************************************UNCOMMENT PORTION ABOVE ********************/
+//array for combined season and playoffs
+for (let i = 1; i <= teamsMAP.size; i++) {
+  for (
+    let j = 0;
+    j < TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayedLength;
+    j++
+  ) {
+    TeamStats.allTeamStats[teamsMAP.get(i)][
+      "teamsSeason" + seasonCount[j] + "CombinedStats"
+    ].push(
+      TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
+        (item) => item.SeasonNumber == seasonCount[j]
+      )
+    );
   }
 }
 
@@ -155,8 +174,8 @@ if (seasonCount.length > 1) {
 
 // TESTING
 
-// let x = TeamStats.allTeamStats;
-// console.log(x);
+let x = TeamStats.allTeamStats.Mooney;
+console.log(x);
 
 // EXPORTS
 
