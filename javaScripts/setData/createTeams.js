@@ -74,22 +74,6 @@ TeamStats.setGroupedAllTimeArrays(); // populates the class arrays with team MAP
 
 // loop that fills each team's seasons combined stats array per each season number
 
-//*****************************************UNCOMMENT THIS PORTION ********************/
-// if (seasonCount.length > 1) {
-//   //array for combined season and playoffs
-//   for (let i = 1; i <= teamsMAP.size; i++) {
-//     for (let j = 0; j < seasonCountLength; j++) {
-//       TeamStats.allTeamStats[teamsMAP.get(i)][
-//         "teamsSeason" + seasonCount[j] + "CombinedStats"
-//       ].push(
-//         TeamStats.allTeamStats[teamsMAP.get(i)].allTimeStats.filter(
-//           (item) => item.SeasonNumber == seasonCount[j]
-//         )
-//       );
-//     }
-//   }
-// }
-//*****************************************UNCOMMENT PORTION ABOVE ********************/
 //array for combined season and playoffs
 for (let i = 1; i <= teamsMAP.size; i++) {
   //     for (let j = 0; j < seasonCountLength; j++) { THIS WAS OLD FOR
@@ -154,18 +138,20 @@ for (let i = 1; i <= teamsMAP.size; i++) {
 
 // loop that fills each teams individual seasons MAPS
 
-if (seasonCount.length > 1) {
-  for (let i = 1; i <= teamsMAP.size; i++) {
-    for (let j = 1; j <= seasonCountLength; j++) {
-      for (let k = 0; k < statsType.length; k++) {
-        TeamStats.allTeamStats[
-          teamsMAP.get(i)
-        ].setTeamsIndividualSeasonsStatsMAPS(
-          `teamsSeason${j}${statsType[k]}`, // input array
-          `teamsSeason${j}${statsType[k]}MAP`, // output MAP
-          j // season number
-        );
-      }
+for (let i = 1; i <= teamsMAP.size; i++) {
+  for (
+    let j = 1;
+    j <= TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayedLength;
+    j++
+  ) {
+    for (let k = 0; k < statsType.length; k++) {
+      TeamStats.allTeamStats[
+        teamsMAP.get(i)
+      ].setTeamsIndividualSeasonsStatsMAPS(
+        `teamsSeason${j}${statsType[k]}`, // input array
+        `teamsSeason${j}${statsType[k]}MAP`, // output MAP
+        j // season number
+      );
     }
   }
 }
