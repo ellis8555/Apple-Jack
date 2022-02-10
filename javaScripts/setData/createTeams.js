@@ -158,9 +158,11 @@ for (let i = 1; i <= teamsMAP.size; i++) {
 
 // loop that fills static arrays containing per season team stats for tabular data as per season
 
-if (seasonCount.length > 1) {
-  for (let i = 1; i <= teamsMAP.size; i++) {
-    for (let j = 1; j <= seasonCountLength; j++) {
+for (let i = 1; i <= teamsMAP.size; i++) {
+  for (let j = 1; j <= seasonCountLength; j++) {
+    if (
+      TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed.includes(String(j))
+    ) {
       for (let k = 0; k < statsType.length; k++) {
         TeamStats["groupTeamsSeason" + j + statsType[k]].push(
           TeamStats.allTeamStats[teamsMAP.get(i)][
@@ -173,9 +175,6 @@ if (seasonCount.length > 1) {
 }
 
 // TESTING
-
-let x = TeamStats.allTeamStats.Mooney;
-console.log(x);
 
 // EXPORTS
 

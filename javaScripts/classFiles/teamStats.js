@@ -141,7 +141,7 @@ export class TeamStats {
   }
 
   static setPerSeasonAllTimeContainers() {
-    [this.seasonsPlayed].forEach((item) => {
+    seasonCount.forEach((item) => {
       this["groupTeamsSeason" + item + "CombinedStats"] = [];
       this["groupTeamsSeason" + item + "SeasonStats"] = [];
       this["groupTeamsSeason" + item + "PlayoffStats"] = [];
