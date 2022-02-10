@@ -23,6 +23,7 @@ let teamNames = [teamsLength];
 let eachTeamObjectMAP = new Map(); // maps out each teams basic info. ID, Color, logo file path, etc...
 let teamsMAP = new Map();
 let teamsNumMAP = new Map();
+let teamsSeasonsMAP = new Map();
 for (let i = 0; i < teamsLength; i++) {
   teamNames[i] = teams[i].TeamName;
   eachTeamObjectMAP.set(teamNames[i], teams[i]);
@@ -31,6 +32,18 @@ for (let i = 0; i < teamsLength; i++) {
   // map a list of teams with ID number to name
   teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
   teamsNumMAP.set(teams[i].TeamName, Number(teams[i].TeamID));
+}
+for (let i = 1; i <= teamsMAP.size; i++) {
+  teamsSeasonsMAP.set(
+    teamsMAP.get(i),
+    Array.from(
+      new Set(
+        teamPlayers
+          .filter((item) => item.TeamID == teamsNumMAP.get(teamsMAP.get(i)))
+          .map((item) => item.SeasonNumber)
+      )
+    )
+  );
 }
 let teamsColorMAP = new Map(); // maps teams main color with ID number
 for (let i = 0; i < teamsMAP.size; i++) {
@@ -61,7 +74,6 @@ let seasonCount = Array.from(
 );
 let seasonCountLength = seasonCount.length;
 seasonCount.sort((a, b) => a - b);
-
 //**** GAME PLAYER STATS ****//
 let gamePlayerStatsLength = gamePlayerStats.length;
 
@@ -70,6 +82,7 @@ export {
   teamsMAP,
   eachTeamObjectMAP,
   teamsNumMAP,
+  teamsSeasonsMAP,
   teamsColorMAP,
   playersMAP,
   gameTypeMAP,

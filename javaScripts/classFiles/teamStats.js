@@ -4,7 +4,7 @@ import {
   // teams,
   // players,
   // gameType,
-  // teamPlayers,
+  teamPlayers,
   gameResults,
   // gamePlayerStats,
 } from "../../json/masterVars.js";
@@ -19,11 +19,14 @@ import {
   // gamePlayerStatsLength,
 } from "../../json/masterVars.js";
 // maps
-import { teamsMAP, gameTypeMAP } from "../../json/masterVars.js"; // playersMAP not included
+import {
+  teamsMAP,
+  teamsSeasonsMAP,
+  gameTypeMAP,
+} from "../../json/masterVars.js"; // playersMAP not included
 import { seasonCount } from "../../json/masterVars.js";
 
 // Vars for destructuring //
-
 let supportVars = {
   seasonMode: ["Combined", "Season", "Playoff"],
   teamStatsFieldsAbbreviated: [
@@ -101,6 +104,7 @@ export class TeamStats {
     this.allTimeStats = []; // collects from gameResults JSON
     this.allTimeSeasonStats = []; // gameResults JSON filtered to seasonType is "Season"
     this.allTimePlayoffStats = []; // gameResults JSON filtered to seasonType is "Playoff"
+    this.teamsSeasonsPlayed = []; // unique list of which seasons this team played in
     this.allTimeStatsMAP = new Map();
     this.allTimeSeasonStatsMAP = new Map();
     this.allTimePlayoffStatsMAP = new Map();
