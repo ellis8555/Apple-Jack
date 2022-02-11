@@ -20,14 +20,22 @@ export let {
 let currentSeason = Math.max(
   Array.from(new Set(teamPlayers.map((item) => +item.SeasonNumber)))
 );
-//**** TEAMS ****//
+let seasonCount = Array.from(
+  //get count of how many seasons in order to create arrays for each season
+  new Set(gameResults.map((item) => item.SeasonNumber))
+);
+let seasonCountLength = seasonCount.length;
+seasonCount.sort((a, b) => a - b);
 let defendingChamps = "Haxual Chocolate";
+//**** TEAMS ****//
+
 let teamsLength = teams.length;
 let teamNames = [teamsLength];
 let eachTeamObjectMAP = new Map(); // maps out each teams basic info. ID, Color, logo file path, etc...
 let teamsMAP = new Map();
 let teamsNumMAP = new Map();
 let teamsSeasonsMAP = new Map();
+let eachSeasonsTeamsMAP = new Map();
 for (let i = 0; i < teamsLength; i++) {
   teamNames[i] = teams[i].TeamName;
   eachTeamObjectMAP.set(teamNames[i], teams[i]);
@@ -49,7 +57,22 @@ for (let i = 1; i <= teamsMAP.size; i++) {
     )
   );
 }
-let teamsColorMAP = new Map(); // maps teams main color with ID number
+// list of each team in any given season
+for (let i = 1; i <= seasonCountLength; i++) {
+  eachSeasonsTeamsMAP.set(
+    i,
+    Array.from(
+      new Set(
+        teamPlayers
+          .filter((item) => item.SeasonNumber == i)
+          .map((item) => teamsMAP.get(+item.TeamID))
+      )
+    )
+  );
+}
+
+// maps teams main color with ID number
+let teamsColorMAP = new Map();
 for (let i = 0; i < teamsMAP.size; i++) {
   teamsColorMAP.set(teamsMAP.get(i + 1), teams[i].MainColor);
 }
@@ -72,20 +95,16 @@ let teamPlayersLength = teamPlayers.length;
 
 //**** GAME RESULTS ****//
 let gameResultsLength = gameResults.length;
-let seasonCount = Array.from(
-  //get count of how many seasons in order to create arrays for each season
-  new Set(gameResults.map((item) => item.SeasonNumber))
-);
-let seasonCountLength = seasonCount.length;
-seasonCount.sort((a, b) => a - b);
+
 //**** GAME PLAYER STATS ****//
 let gamePlayerStatsLength = gamePlayerStats.length;
-
+console.log(teamsSeasonsMAP);
 // maps
 export {
   teamsMAP,
   eachTeamObjectMAP,
   teamsNumMAP,
+  eachSeasonsTeamsMAP,
   teamsSeasonsMAP,
   teamsColorMAP,
   playersMAP,
