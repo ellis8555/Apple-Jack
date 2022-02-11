@@ -45,6 +45,7 @@ for (let i = 0; i < teamsLength; i++) {
   teamsMAP.set(Number(teams[i].TeamID), teams[i].TeamName);
   teamsNumMAP.set(teams[i].TeamName, Number(teams[i].TeamID));
 }
+// lists which seasons each team participated in
 for (let i = 1; i <= teamsMAP.size; i++) {
   teamsSeasonsMAP.set(
     teamsMAP.get(i),
@@ -57,7 +58,7 @@ for (let i = 1; i <= teamsMAP.size; i++) {
     )
   );
 }
-// list of each team in any given season
+// list of teams playing in any given season
 for (let i = 1; i <= seasonCountLength; i++) {
   eachSeasonsTeamsMAP.set(
     i,
@@ -70,7 +71,6 @@ for (let i = 1; i <= seasonCountLength; i++) {
     )
   );
 }
-
 // maps teams main color with ID number
 let teamsColorMAP = new Map();
 for (let i = 0; i < teamsMAP.size; i++) {
@@ -98,7 +98,6 @@ let gameResultsLength = gameResults.length;
 
 //**** GAME PLAYER STATS ****//
 let gamePlayerStatsLength = gamePlayerStats.length;
-console.log(teamsSeasonsMAP);
 // maps
 export {
   teamsMAP,
