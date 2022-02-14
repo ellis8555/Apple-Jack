@@ -378,8 +378,16 @@ export function setTeamsPageLayout(e) {
   // class teamsLayout is grid container
   // 3 divs make up the grid. (notes, scoreboard and teamColors)
   teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
-  // notes grid area
   let screenSize = window.innerWidth;
+  // header grid area
+  teamsLayout += `<div class="teamsPageHeader">`;
+  if (screenSize > 993) {
+    teamsLayout += `<h3>Season ${seasonNum}</h3>`;
+  } else {
+    teamsLayout += `<b>Season ${seasonNum}</b>`;
+  }
+  teamsLayout += `</div>`;
+  // notes grid area
   teamsLayout += `<div class="notes">`;
   if (screenSize > 993) {
     teamsLayout += `<h3>More options will be placed here</h3>`;
