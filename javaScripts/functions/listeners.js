@@ -16,7 +16,7 @@ import {
 } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/siteTaskList.js";
 import { setMainNavbar } from "./mainNavbar.js";
-
+setMainNavbar();
 // import {
 //   setPlayerS01Season,
 //   setPlayerS01Playoff,
@@ -135,7 +135,7 @@ getTeamsFromNavBar.forEach((item) =>
 );
 
 // testing
-window.onload = setMainNavbar();
+
 // responsive function for live resizing of screen
 
 window.onresize = screenResize; // enables sorting data when switching to mobile view
