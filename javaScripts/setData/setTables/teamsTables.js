@@ -269,11 +269,13 @@ export function teamColorsPage(e) {
   clearScoreboardDiv();
   getTablesDiv();
   let team = e.target.dataset.teamName;
-  let seasonNum = "01";
-  let teamLogoSrc = eachTeamObjectMAP.get(team)[`S${seasonNum}HomeFilePath`];
-  let homeColorScheme = eachTeamObjectMAP.get(team)[`S${seasonNum}Home`];
-  let awayTeamLogo = eachTeamObjectMAP.get(team)[`S${seasonNum}AwayFilePath`];
-  let awayColorScheme = eachTeamObjectMAP.get(team)[`S${seasonNum}Away`];
+  // let seasonNum = "01";
+  let seasonNum = e.target.dataset.seasonNum;
+  console.log(seasonNum);
+  let teamLogoSrc = eachTeamObjectMAP.get(team)[`S0${seasonNum}HomeFilePath`];
+  let homeColorScheme = eachTeamObjectMAP.get(team)[`S0${seasonNum}Home`];
+  let awayTeamLogo = eachTeamObjectMAP.get(team)[`S0${seasonNum}AwayFilePath`];
+  let awayColorScheme = eachTeamObjectMAP.get(team)[`S0${seasonNum}Away`];
   let teamLogosLayout;
   let tLL = teamLogosLayout;
   // teamsColorsLayout is grid containing class
@@ -370,6 +372,7 @@ export function setTeamsPageLayout(e) {
   getTablesDiv();
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.src;
+  let seasonNum = e.target.dataset.seasonNum;
   let teamsLayout;
 
   // class teamsLayout is grid container
@@ -390,7 +393,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div `;
-  teamsLayout += ` data-team-name="${team}" style="background-color: #${teamsColorMAP.get(
+  teamsLayout += ` data-team-name="${team}" data-season-num="${seasonNum}" style="background-color: #${teamsColorMAP.get(
     team
   )}"`;
   teamsLayout += `class="w3-round teamColors">`;

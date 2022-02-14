@@ -28,7 +28,6 @@ let seasonCountLength = seasonCount.length;
 seasonCount.sort((a, b) => a - b);
 let defendingChamps = "Haxual Chocolate";
 //**** TEAMS ****//
-
 let teamsLength = teams.length;
 let teamNames = [teamsLength];
 let eachTeamObjectMAP = new Map(); // maps out each teams basic info. ID, Color, logo file path, etc...
@@ -76,6 +75,32 @@ let teamsColorMAP = new Map();
 for (let i = 0; i < teamsMAP.size; i++) {
   teamsColorMAP.set(teamsMAP.get(i + 1), teams[i].MainColor);
 }
+
+(function setMainNavbar() {
+  let navbarContent = document.querySelector("#teamsNavbar > section");
+
+  for (let i = 0; i < eachSeasonsTeamsMAP.get(currentSeason).length; i++) {
+    let firstDiv = document.createElement("DIV");
+    let secondDiv = document.createElement("DIV");
+    let thirdDiv = document.createElement("DIV");
+    let imgDiv = document.createElement("IMG");
+    firstDiv.className = "w3-container w3-cell w3-cell-middle";
+    secondDiv.className =
+      "w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section";
+    let imageSource = teams[i].S01HomeFilePath;
+    imgDiv.src = imageSource;
+    imgDiv.alt = `${eachSeasonsTeamsMAP.get(currentSeason)[i]}`;
+    imgDiv.className = "w3-image navLogo";
+    imgDiv.dataset.teamName = eachSeasonsTeamsMAP.get(currentSeason)[i];
+    imgDiv.dataset.seasonNum = currentSeason;
+    navbarContent.append(firstDiv);
+    firstDiv.append(secondDiv);
+    secondDiv.append(thirdDiv);
+    thirdDiv.append(imgDiv);
+  }
+})();
+
+// setMainNavbar();
 //**** PLAYERS ****//
 let playersLength = players.length;
 let playersMAP = new Map();
