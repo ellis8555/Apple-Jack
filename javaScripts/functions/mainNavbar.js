@@ -1,3 +1,5 @@
+// this function is run in listeners.js
+
 import {
   eachSeasonsTeamsMAP,
   currentSeason,
@@ -29,6 +31,3 @@ export function setMainNavbar() {
 
   navbarContainer.innerHTML = navbarContent;
 }
-
-//     imgDiv.dataset.teamName = eachSeasonsTeamsMAP.get(currentSeason)[i];
-//     imgDiv.dataset.seasonNum = currentSeason;
