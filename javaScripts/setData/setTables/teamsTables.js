@@ -177,6 +177,7 @@ export function createTable(
 // button for game results table within teams layout page
 
 export function getTeamsGameResults(e, seasonCountLength) {
+  console.log(seasonCountLength);
   let team = e.target.dataset.teamName;
   let teamImage = e.target.dataset.teamLogo;
 
@@ -397,7 +398,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // scoreboard grid area
   teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">`;
-  teamsLayout += `Game Results`;
+  teamsLayout += `Season Results`;
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div `;
