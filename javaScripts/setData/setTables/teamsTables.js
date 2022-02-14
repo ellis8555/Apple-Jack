@@ -269,10 +269,11 @@ export function teamColorsPage(e) {
   clearScoreboardDiv();
   getTablesDiv();
   let team = e.target.dataset.teamName;
-  let teamLogoSrc = eachTeamObjectMAP.get(team).S01HomeFilePath;
-  let homeColorScheme = eachTeamObjectMAP.get(team).S01Home;
-  let awayTeamLogo = eachTeamObjectMAP.get(team).S01AwayFilePath;
-  let awayColorScheme = eachTeamObjectMAP.get(team).S01Away;
+  let seasonNum = "01";
+  let teamLogoSrc = eachTeamObjectMAP.get(team)[`S${seasonNum}HomeFilePath`];
+  let homeColorScheme = eachTeamObjectMAP.get(team)[`S${seasonNum}Home`];
+  let awayTeamLogo = eachTeamObjectMAP.get(team)[`S${seasonNum}AwayFilePath`];
+  let awayColorScheme = eachTeamObjectMAP.get(team)[`S${seasonNum}Away`];
   let teamLogosLayout;
   let tLL = teamLogosLayout;
   // teamsColorsLayout is grid containing class
