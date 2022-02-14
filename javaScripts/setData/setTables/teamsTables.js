@@ -369,7 +369,6 @@ export function setTeamsPageLayout(e) {
   getTablesDiv();
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.src;
-  let awayTeamLogo = eachTeamObjectMAP.get(team).S01AwayFilePath;
   let teamsLayout;
 
   // class teamsLayout is grid container
