@@ -269,9 +269,9 @@ export function teamColorsPage(e) {
   clearScoreboardDiv();
   getTablesDiv();
   let team = e.target.dataset.teamName;
-  let teamLogoSrc = e.target.dataset.teamLogo;
+  let teamLogoSrc = eachTeamObjectMAP.get(team).S01HomeFilePath;
   let homeColorScheme = eachTeamObjectMAP.get(team).S01Home;
-  let awayTeamLogo = e.target.dataset.awayLogo;
+  let awayTeamLogo = eachTeamObjectMAP.get(team).S01AwayFilePath;
   let awayColorScheme = eachTeamObjectMAP.get(team).S01Away;
   let teamLogosLayout;
   let tLL = teamLogosLayout;
@@ -390,7 +390,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div `;
-  teamsLayout += ` data-team-name="${team}" data-team-logo="${teamLogoSrc}" data-away-logo="${awayTeamLogo}" style="background-color: #${teamsColorMAP.get(
+  teamsLayout += ` data-team-name="${team}" style="background-color: #${teamsColorMAP.get(
     team
   )}"`;
   teamsLayout += `class="w3-round teamColors">`;
