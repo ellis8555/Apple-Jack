@@ -169,7 +169,7 @@ export function getTeamsPlayersPerSeason(e) {
   // html table playoff stats begin
   playerStats += "<table>";
   // html table caption
-  playerStats += `<caption><h3>All Stats</h3></caption>`;
+  playerStats += `<caption><h3>Combined Stats</h3></caption>`;
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
