@@ -71,7 +71,7 @@ export function getTeamsPlayersPerSeason(e) {
       playerStats +=
         `<th data-field-name=` + //data-fieldNames required for mobile layout
         playersTable[i] +
-        ` class="w3-yellow">` +
+        ` class="w3-orange">` +
         playersTable[i] +
         "</th>";
     } else {
@@ -124,7 +124,7 @@ export function getTeamsPlayersPerSeason(e) {
       playerStats +=
         `<th data-field-name=` + //data-fieldNames required for mobile layout
         playersTable[i] +
-        ` class="w3-yellow">` +
+        ` class="w3-orange">` +
         playersTable[i] +
         "</th>";
     } else {
@@ -177,7 +177,7 @@ export function getTeamsPlayersPerSeason(e) {
       playerStats +=
         `<th data-field-name=` + //data-fieldNames required for mobile layout
         playersTable[i] +
-        ` class="w3-yellow">` +
+        ` class="w3-orange">` +
         playersTable[i] +
         "</th>";
     } else {
