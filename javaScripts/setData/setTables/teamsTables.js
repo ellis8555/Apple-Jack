@@ -20,16 +20,8 @@ import {
   clearTablesDiv,
   setHeaderBanner,
 } from "../../functions/variousFunctions.js";
-import {
-  // seasonMode,
-  // teamStatsFieldsAbbreviated,
-  // teamStatsFieldNamesMAP,
-  // teamStatsFields,
-  //   allTimeStatsArray,
-  //   allTimeStatsMAPS,
-  groupedAllTimeTeamStats,
-  //   statsType,
-} from "../../classFiles/teamStats.js";
+import { getTeamsPlayersPerSeason } from "../../functions/teamPlayerList.js";
+
 // END OF IMPORTS
 
 // SET FIELDS FOR TEAMS TABLES
@@ -392,6 +384,16 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `<div class="gameType">`;
   teamsLayout += `<h3>Season ${seasonNum}</h3>`;
   teamsLayout += `</div>`;
+  // players grid area
+  teamsLayout += `<div
+   data-team-name="${team}"
+   data-team-logo="${teamLogoSrc}"
+   data-season-num="${seasonNum}"
+   data-game-type="Season"
+   class="w3-round w3-green players"
+   >`;
+  teamsLayout += `Players`;
+  teamsLayout += `</div>`;
   // notes grid area **bottom of webpage**
   teamsLayout += `<div class="notes">`;
   teamsLayout += `<h5>More options will be placed here</h5>`;
@@ -433,6 +435,9 @@ export function setTeamsPageLayout(e) {
 
   // change bodies background color to that of team selected
   document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
+  // sets tables for that teams players stats for that season
+  let playersArea = document.querySelector(".players");
+  playersArea.addEventListener("click", getTeamsPlayersPerSeason);
   let teamColorsArea = document.querySelector(".teamColors");
   teamColorsArea.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
   // set listeners on newly created elements (buttons) once entering teams layout page
