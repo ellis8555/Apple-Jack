@@ -53,22 +53,31 @@ export function getTeamsPlayersPerSeason(e) {
     )
   );
   sortGroupedStats(playerCombinedObjects, "Points");
+  // var containing the innerHTML of tables
   let playerStats = "";
   playerStats = `<h1>Season ${seasonNum}</h1>`;
   // html table season stats begin
-
   playerStats += "<table>";
   // html table caption
   playerStats += `<caption><h3>Regular Season</h3></caption>`;
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
-    playerStats +=
-      `<th data-field-name=` + //data-fieldNames required for mobile layout
-      playersTable[i] +
-      " >" +
-      playersTable[i] +
-      "</th>";
+    if (playersTable[i] == "Points") {
+      playerStats +=
+        `<th data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[i] +
+        ` class="w3-yellow">` +
+        playersTable[i] +
+        "</th>";
+    } else {
+      playerStats +=
+        `<th data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[i] +
+        " >" +
+        playersTable[i] +
+        "</th>";
+    }
   }
   playerStats += "</tr></thead>";
   // end of html table header fields row
@@ -78,12 +87,21 @@ export function getTeamsPlayersPerSeason(e) {
     playerStats += "<tr>";
 
     for (let j = 0; j < fieldsLength; j++) {
-      playerStats +=
-        `<td data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[j] +
-        " >" +
-        item.get(playersTable[j]) +
-        "</td>";
+      if (playersTable[j] == "Points") {
+        playerStats +=
+          `<td data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[j] +
+          ` class="w3-yellow">` + // add yellow background for sorted column points
+          item.get(playersTable[j]) +
+          "</td>";
+      } else {
+        playerStats +=
+          `<td data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[j] +
+          " >" +
+          item.get(playersTable[j]) +
+          "</td>";
+      }
     }
     playerStats += "</tr>";
   });
@@ -98,12 +116,21 @@ export function getTeamsPlayersPerSeason(e) {
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
-    playerStats +=
-      `<th data-field-name=` + //data-fieldNames required for mobile layout
-      playersTable[i] +
-      " >" +
-      playersTable[i] +
-      "</th>";
+    if (playersTable[i] == "Points") {
+      playerStats +=
+        `<th data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[i] +
+        ` class="w3-yellow">` +
+        playersTable[i] +
+        "</th>";
+    } else {
+      playerStats +=
+        `<th data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[i] +
+        " >" +
+        playersTable[i] +
+        "</th>";
+    }
   }
   playerStats += "</tr></thead>";
   // end of html table header fields row
@@ -113,12 +140,21 @@ export function getTeamsPlayersPerSeason(e) {
     playerStats += "<tr>";
 
     for (let j = 0; j < fieldsLength; j++) {
-      playerStats +=
-        `<td data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[j] +
-        " >" +
-        item.get(playersTable[j]) +
-        "</td>";
+      if (playersTable[j] == "Points") {
+        playerStats +=
+          `<td data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[j] +
+          ` class="w3-yellow">` + // add yellow background for sorted column points
+          item.get(playersTable[j]) +
+          "</td>";
+      } else {
+        playerStats +=
+          `<td data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[j] +
+          " >" +
+          item.get(playersTable[j]) +
+          "</td>";
+      }
     }
     playerStats += "</tr>";
   });
@@ -133,12 +169,21 @@ export function getTeamsPlayersPerSeason(e) {
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
-    playerStats +=
-      `<th data-field-name=` + //data-fieldNames required for mobile layout
-      playersTable[i] +
-      " >" +
-      playersTable[i] +
-      "</th>";
+    if (playersTable[i] == "Points") {
+      playerStats +=
+        `<th data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[i] +
+        ` class="w3-yellow">` +
+        playersTable[i] +
+        "</th>";
+    } else {
+      playerStats +=
+        `<th data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[i] +
+        " >" +
+        playersTable[i] +
+        "</th>";
+    }
   }
   playerStats += "</tr></thead>";
   // end of html table header fields row
@@ -148,12 +193,21 @@ export function getTeamsPlayersPerSeason(e) {
     playerStats += "<tr>";
 
     for (let j = 0; j < fieldsLength; j++) {
-      playerStats +=
-        `<td data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[j] +
-        " >" +
-        item.get(playersTable[j]) +
-        "</td>";
+      if (playersTable[j] == "Points") {
+        playerStats +=
+          `<td data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[j] +
+          ` class="w3-yellow">` + // add yellow background for sorted column points
+          item.get(playersTable[j]) +
+          "</td>";
+      } else {
+        playerStats +=
+          `<td data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[j] +
+          " >" +
+          item.get(playersTable[j]) +
+          "</td>";
+      }
     }
     playerStats += "</tr>";
   });
