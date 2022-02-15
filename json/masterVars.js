@@ -86,9 +86,14 @@ for (let i = 0; i < playersLength; i++) {
 //**** GAME TYPE ****//
 let gameTypeLength = gameType.length;
 let gameTypeMAP = new Map();
+let gameTypeNumMAP = new Map();
 for (let i = 0; i < gameTypeLength; i++) {
-  // map a list of players
+  // map a list of season modes by Number to name (Season or Playoff)
   gameTypeMAP.set(Number(gameType[i].GameTypeID), gameType[i].GameType);
+}
+for (let i = 0; i < gameTypeLength; i++) {
+  // map a list of season modes by Name to number (Season or Playoff)
+  gameTypeNumMAP.set(gameType[i].GameType, Number(gameType[i].GameTypeID));
 }
 //**** TEAM PLAYERS ****//
 let teamPlayersLength = teamPlayers.length;
@@ -108,6 +113,7 @@ export {
   teamsColorMAP,
   playersMAP,
   gameTypeMAP,
+  gameTypeNumMAP,
 };
 // var lengths
 export {

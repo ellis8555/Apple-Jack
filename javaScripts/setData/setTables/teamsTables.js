@@ -6,6 +6,8 @@ import {
   eachTeamObjectMAP,
   teamsNumMAP,
   teamsColorMAP,
+  gameTypeMAP,
+  gameTypeNumMAP,
   seasonCountLength,
 } from "../../../json/masterVars.js";
 import sortGroupedStats from "../../functions/sort.js";
@@ -176,22 +178,23 @@ export function createTable(
 
 // button for game results table within teams layout page
 
-export function getTeamsGameResults(e, seasonCountLength) {
-  console.log(seasonCountLength);
+export function getTeamsGameResults(e) {
   let team = e.target.dataset.teamName;
   let teamImage = e.target.dataset.teamLogo;
+  let seasonNum = e.target.dataset.seasonNum;
+  let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
 
   let teamsGames;
   let gameResults = "";
-  if (seasonCountLength > 1) {
-    teamsGames =
-      TeamStats.allTeamStats[team]["teamsSeason" + "1" + "CombinedStats"];
-  } else {
-    teamsGames = TeamStats.allTeamStats[team].allTimeSeasonStats;
-  }
+
+  teamsGames =
+    TeamStats.allTeamStats[team][
+      "teamsSeason" + seasonNum + gameType + "Stats"
+    ][0];
+
   let gamesLength = teamsGames.length;
   gameResults = `<h1>${team}</h1>`;
-  gameResults += `<h4>S01 Regular Season</h4>`;
+  gameResults += `<h4>S0${seasonNum} Regular Season</h4>`;
   for (let i = 0; i < gamesLength; i++) {
     gameResults += `<div style="display: flex; justify-content: center">`;
     // class gameResults is containing grid
@@ -397,15 +400,22 @@ export function setTeamsPageLayout(e) {
   }
   teamsLayout += `</div>`;
   // scoreboard grid area
-  teamsLayout += `<div  data-team-name="${team}" data-team-logo="${teamLogoSrc}" class="w3-round scoreboard">`;
+  teamsLayout += `<div
+    data-team-name="${team}"
+    data-team-logo="${teamLogoSrc}"
+    data-season-num="${seasonNum}"
+    data-game-type="Season"
+    class="w3-round scoreboard"
+    >`;
   teamsLayout += `Season Results`;
   teamsLayout += `</div>`;
   // teamColors grid area
-  teamsLayout += `<div `;
-  teamsLayout += ` data-team-name="${team}" data-season-num="${seasonNum}" style="background-color: #${teamsColorMAP.get(
-    team
-  )}"`;
-  teamsLayout += `class="w3-round teamColors">`;
+  teamsLayout += `<div
+    data-team-name="${team}"
+    data-season-num="${seasonNum}"
+    style="background-color: #${teamsColorMAP.get(team)}"
+    class="w3-round teamColors"
+  >`;
   teamsLayout += `Team Colors`;
   teamsLayout += `</div>`;
   teamsLayout += `</div>`;
