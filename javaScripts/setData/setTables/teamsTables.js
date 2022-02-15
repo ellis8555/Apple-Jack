@@ -405,7 +405,7 @@ export function setTeamsPageLayout(e) {
     data-team-logo="${teamLogoSrc}"
     data-season-num="${seasonNum}"
     data-game-type="Season"
-    class="w3-round scoreboard"
+    class="w3-round seasonScoreboard"
     >`;
   teamsLayout += `Season Results`;
   teamsLayout += `</div>`;
@@ -429,8 +429,8 @@ export function setTeamsPageLayout(e) {
   let teamColorsArea = document.querySelector(".teamColors");
   teamColorsArea.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
   // set listeners on newly created elements (buttons) once entering teams layout page
-  let gamesResultsArea = document.querySelector(".scoreboard");
-  gamesResultsArea.addEventListener("click", getTeamsGameResults);
+  let seasonGamesResultsArea = document.querySelector(".seasonScoreboard");
+  seasonGamesResultsArea.addEventListener("click", getTeamsGameResults);
   teamColorsArea.addEventListener("click", teamColorsPage);
 }
 
