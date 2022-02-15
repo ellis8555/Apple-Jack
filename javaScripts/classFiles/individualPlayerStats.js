@@ -29,6 +29,7 @@ export class IndividualPlayerStats {
   constructor(name) {
     // players name
     this.name = name;
+    this.seasonsPlayed = playerSeasonsMAP.get(this.name);
     // all time player stats per object (player)
     this.allTimeStats = []; // collects from gamePlayerStats JSON
     this.allTimeSeasonStats = []; // gameResults JSON filtered to seasonType is "Season"
@@ -36,16 +37,14 @@ export class IndividualPlayerStats {
     this.allTimeStatsMAP = new Map();
     this.allTimeSeasonStatsMAP = new Map();
     this.allTimePlayoffStatsMAP = new Map();
-    if (seasonCountLength > 1) {
-      seasonCount.forEach((item) => {
-        this["playersSeason" + item + "CombinedStats"] = [];
-        this["playersSeason" + item + "SeasonStats"] = [];
-        this["playersSeason" + item + "PlayoffStats"] = [];
-        this["playersSeason" + item + "CombinedStatsMAP"] = new Map();
-        this["playersSeason" + item + "SeasonStatsMAP"] = new Map();
-        this["playersSeason" + item + "PlayoffStatsMAP"] = new Map();
-      });
-    }
+    this.seasonsPlayed.forEach((item) => {
+      this["playersSeason" + item + "CombinedStats"] = [];
+      this["playersSeason" + item + "SeasonStats"] = [];
+      this["playersSeason" + item + "PlayoffStats"] = [];
+      this["playersSeason" + item + "CombinedStatsMAP"] = new Map();
+      this["playersSeason" + item + "SeasonStatsMAP"] = new Map();
+      this["playersSeason" + item + "PlayoffStatsMAP"] = new Map();
+    });
   }
 
   // static properties and methods
