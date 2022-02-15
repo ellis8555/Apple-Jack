@@ -45,11 +45,21 @@ export function getTeamsPlayersPerSeason(e) {
     )
   );
   sortGroupedStats(playerPlayoffObjects, "Points");
-  // html table season stats begin
+  // push those players full season combined stats into team array and sort by points
+  let playerCombinedObjects = [];
+  playersArray.forEach((item) =>
+    playerCombinedObjects.push(
+      IndividualPlayerStats.allPlayersStats[item].allTimeStatsMAP
+    )
+  );
+  sortGroupedStats(playerCombinedObjects, "Points");
   let playerStats = "";
+  playerStats = `<h1>Season ${seasonNum}</h1>`;
+  // html table season stats begin
+
   playerStats += "<table>";
   // html table caption
-  playerStats += `<caption><h1>Regular Season ${seasonNum}</h1></caption>`;
+  playerStats += `<caption><h3>Regular Season</h3></caption>`;
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
@@ -84,7 +94,7 @@ export function getTeamsPlayersPerSeason(e) {
   // html table playoff stats begin
   playerStats += "<table>";
   // html table caption
-  playerStats += `<caption><h1>Playoffs Season ${seasonNum}</h1></caption>`;
+  playerStats += `<caption><h3>Playoffs</h3></caption>`;
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
@@ -99,6 +109,41 @@ export function getTeamsPlayersPerSeason(e) {
   // end of html table header fields row
 
   playerPlayoffObjects.forEach((item) => {
+    // table data begins for each field
+    playerStats += "<tr>";
+
+    for (let j = 0; j < fieldsLength; j++) {
+      playerStats +=
+        `<td data-field-name=` + //data-fieldNames required for mobile layout
+        playersTable[j] +
+        " >" +
+        item.get(playersTable[j]) +
+        "</td>";
+    }
+    playerStats += "</tr>";
+  });
+
+  // html table ends
+  playerStats += "</table>";
+
+  // html table playoff stats begin
+  playerStats += "<table>";
+  // html table caption
+  playerStats += `<caption><h3>All Stats</h3></caption>`;
+  // html table thead
+  playerStats += "<thead><tr>";
+  for (let i = 0; i < fieldsLength; i++) {
+    playerStats +=
+      `<th data-field-name=` + //data-fieldNames required for mobile layout
+      playersTable[i] +
+      " >" +
+      playersTable[i] +
+      "</th>";
+  }
+  playerStats += "</tr></thead>";
+  // end of html table header fields row
+
+  playerCombinedObjects.forEach((item) => {
     // table data begins for each field
     playerStats += "<tr>";
 
