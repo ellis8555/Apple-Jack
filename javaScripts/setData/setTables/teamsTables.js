@@ -191,68 +191,71 @@ export function getTeamsGameResults(e) {
     TeamStats.allTeamStats[team][
       "teamsSeason" + seasonNum + gameType + "Stats"
     ][0];
-
   let gamesLength = teamsGames.length;
   gameResults = `<h1>${team}</h1>`;
-  gameResults += `<h4>S0${seasonNum} Regular Season</h4>`;
-  for (let i = 0; i < gamesLength; i++) {
-    gameResults += `<div style="display: flex; justify-content: center">`;
-    // class gameResults is containing grid
-    gameResults += `<div class="w3-container w3-margin gameResults">`;
-    // homeTeam name
-    gameResults += `<div class="homeTeam"`;
-    if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-      gameResults += `style="background-color: #${teamsColorMAP.get(
-        team
-      )}; color: #ffffff;">`;
-    } else {
-      let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
-      gameResults += `style="background-color: #${teamsColorMAP.get(
-        otherTeam
-      )}; color: #ffffff;">`;
+  gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
+  if (gamesLength > 0) {
+    for (let i = 0; i < gamesLength; i++) {
+      gameResults += `<div style="display: flex; justify-content: center">`;
+      // class gameResults is containing grid
+      gameResults += `<div class="w3-container w3-margin gameResults">`;
+      // homeTeam name
+      gameResults += `<div class="homeTeam"`;
+      if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
+        gameResults += `style="background-color: #${teamsColorMAP.get(
+          team
+        )}; color: #ffffff;">`;
+      } else {
+        let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
+        gameResults += `style="background-color: #${teamsColorMAP.get(
+          otherTeam
+        )}; color: #ffffff;">`;
+      }
+      gameResults += `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
+      gameResults += `</div>`;
+      // homeScore
+      if (+`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}`) {
+        gameResults += `<div class="homeScore w3-green">`;
+      } else if (
+        +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
+      ) {
+        gameResults += `<div class="homeScore w3-dark-gray">`;
+      } else {
+        gameResults += `<div class="homeScore w3-red">`;
+      }
+      gameResults += `${+teamsGames[i].TeamOneScore}`;
+      gameResults += `</div>`;
+      // awayTeam
+      gameResults += `<div class="awayTeam"`;
+      if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
+        gameResults += `style="background-color: #${teamsColorMAP.get(
+          team
+        )}; color: #ffffff;">`;
+      } else {
+        let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+        gameResults += `style="background-color: #${teamsColorMAP.get(
+          otherTeam
+        )}; color: #ffffff;">`;
+      }
+      gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+      gameResults += `</div>`;
+      // awayTeam score
+      if (+`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}`) {
+        gameResults += `<div class="awayScore w3-green">`;
+      } else if (
+        +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
+      ) {
+        gameResults += `<div class="awayScore w3-dark-gray">`;
+      } else {
+        gameResults += `<div class="awayScore w3-red">`;
+      }
+      gameResults += `${+teamsGames[i].TeamTwoScore}`;
+      gameResults += `</div>`;
+      gameResults += `</div>`;
+      gameResults += `</div>`;
     }
-    gameResults += `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
-    gameResults += `</div>`;
-    // homeScore
-    if (+`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}`) {
-      gameResults += `<div class="homeScore w3-green">`;
-    } else if (
-      +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
-    ) {
-      gameResults += `<div class="homeScore w3-dark-gray">`;
-    } else {
-      gameResults += `<div class="homeScore w3-red">`;
-    }
-    gameResults += `${+teamsGames[i].TeamOneScore}`;
-    gameResults += `</div>`;
-    // awayTeam
-    gameResults += `<div class="awayTeam"`;
-    if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-      gameResults += `style="background-color: #${teamsColorMAP.get(
-        team
-      )}; color: #ffffff;">`;
-    } else {
-      let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-      gameResults += `style="background-color: #${teamsColorMAP.get(
-        otherTeam
-      )}; color: #ffffff;">`;
-    }
-    gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-    gameResults += `</div>`;
-    // awayTeam score
-    if (+`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}`) {
-      gameResults += `<div class="awayScore w3-green">`;
-    } else if (
-      +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
-    ) {
-      gameResults += `<div class="awayScore w3-dark-gray">`;
-    } else {
-      gameResults += `<div class="awayScore w3-red">`;
-    }
-    gameResults += `${+teamsGames[i].TeamTwoScore}`;
-    gameResults += `</div>`;
-    gameResults += `</div>`;
-    gameResults += `</div>`;
+  } else {
+    gameResults += `<h4>No games played</h4>`;
   }
 
   // change header banner when team is selected from navbar
@@ -275,7 +278,6 @@ export function teamColorsPage(e) {
   let team = e.target.dataset.teamName;
   // let seasonNum = "01";
   let seasonNum = e.target.dataset.seasonNum;
-  console.log(seasonNum);
   let teamLogoSrc = eachTeamObjectMAP.get(team)[`S0${seasonNum}HomeFilePath`];
   let homeColorScheme = eachTeamObjectMAP.get(team)[`S0${seasonNum}Home`];
   let awayTeamLogo = eachTeamObjectMAP.get(team)[`S0${seasonNum}AwayFilePath`];
@@ -390,11 +392,11 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `<div class="gameType">`;
   teamsLayout += `<h3>Season ${seasonNum}</h3>`;
   teamsLayout += `</div>`;
-  // notes grid area
+  // notes grid area **bottom of webpage**
   teamsLayout += `<div class="notes">`;
   teamsLayout += `<h5>More options will be placed here</h5>`;
   teamsLayout += `</div>`;
-  // scoreboard grid area
+  // season scoreboard grid area
   teamsLayout += `<div
     data-team-name="${team}"
     data-team-logo="${teamLogoSrc}"
@@ -403,6 +405,16 @@ export function setTeamsPageLayout(e) {
     class="w3-round seasonScoreboard"
     >`;
   teamsLayout += `Season Results`;
+  teamsLayout += `</div>`;
+  // playoff scoreboard grid area
+  teamsLayout += `<div
+    data-team-name="${team}"
+    data-team-logo="${teamLogoSrc}"
+    data-season-num="${seasonNum}"
+    data-game-type="Playoff"
+    class="w3-round playoffScoreboard"
+    >`;
+  teamsLayout += `Playoff Results`;
   teamsLayout += `</div>`;
   // teamColors grid area
   teamsLayout += `<div
@@ -426,6 +438,8 @@ export function setTeamsPageLayout(e) {
   // set listeners on newly created elements (buttons) once entering teams layout page
   let seasonGamesResultsArea = document.querySelector(".seasonScoreboard");
   seasonGamesResultsArea.addEventListener("click", getTeamsGameResults);
+  let playoffGamesResultsArea = document.querySelector(".playoffScoreboard");
+  playoffGamesResultsArea.addEventListener("click", getTeamsGameResults);
   teamColorsArea.addEventListener("click", teamColorsPage);
 }
 
