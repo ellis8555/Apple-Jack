@@ -371,9 +371,14 @@ export function setTeamsPageLayout(e) {
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.src;
   let seasonNum = e.target.dataset.seasonNum;
-  let teamsLayout;
+  let teamsSeasonObject =
+    TeamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
+  let wins = teamsSeasonObject.get("Wins");
+  let losses = teamsSeasonObject.get("Losses");
+  let draws = teamsSeasonObject.get("Draws");
 
   // class teamsLayout is grid container
+  let teamsLayout;
   // 4 divs make up the grid. (teamName, gameType, notes, scoreboard and teamColors)
   teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
   // team name grid area
@@ -384,6 +389,11 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `<div class="gameType">`;
   teamsLayout += `<h3>Season ${seasonNum}</h3>`;
   teamsLayout += `</div>`;
+  // teams season record grid area
+  teamsLayout += `<div class="teamRecord">`;
+  teamsLayout += `<h3>(${wins} - ${losses} - ${draws})</h3>`;
+  teamsLayout += `</div>`;
+
   // players grid area
   teamsLayout += `<div
    data-team-name="${team}"
