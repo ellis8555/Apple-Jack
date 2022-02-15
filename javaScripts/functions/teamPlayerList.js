@@ -55,7 +55,11 @@ export function getTeamsPlayersPerSeason(e) {
   sortGroupedStats(playerCombinedObjects, "Points");
   // var containing the innerHTML of tables
   let playerStats = "";
-  playerStats = `<h1>Season ${seasonNum}</h1>`;
+
+  playerStats += `<h1>Season ${seasonNum}</h1>`;
+  playersArray.forEach(
+    (item) => (playerStats += `<span style="font-size: 1.2em;">${item}</span> `)
+  );
   // html table season stats begin
   playerStats += "<table>";
   // html table caption
