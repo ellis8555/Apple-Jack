@@ -17,9 +17,12 @@ import {
   gameResultsLength,
   seasonCountLength,
   // gamePlayerStatsLength,
+  playersMAP,
+  playersNumMAP,
+  playerSeasonsMAP,
+  gameTypeMAP,
 } from "../../json/masterVars.js";
 // maps
-import { playersMAP, gameTypeMAP } from "../../json/masterVars.js"; // teamsMAP not included
 import { seasonCount } from "../../json/masterVars.js";
 
 export class IndividualPlayerStats {
