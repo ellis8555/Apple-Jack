@@ -191,6 +191,18 @@ export function getTeamsGameResults(e) {
       gameResults += `<div style="display: flex; justify-content: center">`;
       // class gameResults is containing grid
       gameResults += `<div class="w3-container w3-margin gameResults">`;
+      // homeTeam logo
+      gameResults += `<div class="homeTeamLogo">`;
+      if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
+        gameResults += `<img src=${teamImage} style="width:25px;height:25px;">`;
+      } else {
+        let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
+        let otherTeamsObject = teams.filter(
+          (item) => item.TeamName == otherTeam
+        );
+        gameResults += `<img src=${otherTeamsObject[0].S01HomeFilePath} style="width:25px;height:25px;">`;
+      }
+      gameResults += `</div>`;
       // homeTeam name
       gameResults += `<div class="homeTeam"`;
       if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
@@ -230,6 +242,18 @@ export function getTeamsGameResults(e) {
         )}; color: #ffffff;">`;
       }
       gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+      gameResults += `</div>`;
+      // awayTeam logo
+      gameResults += `<div class="awayTeamLogo">`;
+      if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
+        gameResults += `<img src=${teamImage} style="width:25px;height:25px;">`;
+      } else {
+        let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+        let otherTeamsObject = teams.filter(
+          (item) => item.TeamName == otherTeam
+        );
+        gameResults += `<img src=${otherTeamsObject[0].S01HomeFilePath} style="width:25px;height:25px;">`;
+      }
       gameResults += `</div>`;
       // awayTeam score
       if (+`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}`) {

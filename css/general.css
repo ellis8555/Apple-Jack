@@ -90,6 +90,11 @@ table td:first-child {
   padding-left: 16px;
 }
 
+/*navbar*/
+.navLogo:hover {
+  cursor: pointer;
+}
+
 /*classes for teams page layout*/
 
 .teamsLayout {
@@ -174,36 +179,45 @@ table td:first-child {
 /*end teams page layout*/
 
 /* classes for game results display */
-.navLogo:hover {
-  cursor: pointer;
-}
 
 .gameResults {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 2px;
-  width: 25%;
+  width: 30%;
+}
+
+.homeTeamLogo {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background-color: rgb(60, 92, 233);
 }
 
 .homeTeam {
-  grid-column: 1;
-  grid-row: 1;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.awayTeamLogo {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  background-color: rgb(60, 92, 233);
 }
 
 .awayTeam {
-  grid-column: 1;
-  grid-row: 2;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 
 .homeScore {
-  grid-column: 2;
-  grid-row: 1;
+  grid-column: 3/4;
+  grid-row: 1/2;
 }
 
 .awayScore {
-  grid-column: 2;
-  grid-row: 2;
+  grid-column: 3/4;
+  grid-row: 2/3;
 }
 
 /*end game results layout*/

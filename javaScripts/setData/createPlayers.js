@@ -150,95 +150,96 @@ for (let i = 1; i <= playersMAP.size; i++) {
 // loop that fills each players seasons stats per each season
 // array for specific season, that seasons playoff and also combined season and playoffs
 
-if (seasonCount.length > 1) {
-  //array for combined season and playoffs
-  for (let i = 1; i <= playersMAP.size; i++) {
-    for (let j = 0; j < seasonCountLength; j++) {
-      IndividualPlayerStats.allPlayersStats[
-        playersMAP.get(i)
-      ].allTimeStats.forEach((item) => {
-        for (let k = 0; k < gameResultsLength; k++) {
-          if (
-            item.GameID == gameResults[k].GameID &&
-            gameResults[k].SeasonNumber == seasonCount[j]
-          )
-            IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-              "playersSeason" + seasonCount[j] + "CombinedStats"
-            ].push(item);
-        }
-      });
-    }
-  }
-
-  // array for specific for season and seperately playoff
-
-  for (let i = 1; i <= playersMAP.size; i++) {
-    for (let j = 0; j < seasonCountLength; j++) {
-      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-        "playersSeason" + seasonCount[j] + "CombinedStats"
-      ].forEach((item) => {
-        for (let k = 0; k < gameResultsLength; k++) {
-          if (
-            item.GameID == gameResults[k].GameID &&
-            gameResults[k].SeasonNumber == seasonCount[j] &&
-            gameTypeMAP.get(Number(gameResults[k].GameTypeID)) == "Playoff"
-          )
-            IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-              "playersSeason" + seasonCount[j] + "PlayoffStats"
-            ].push(item);
-          if (
-            item.GameID == gameResults[k].GameID &&
-            gameResults[k].SeasonNumber == seasonCount[j] &&
-            gameTypeMAP.get(Number(gameResults[k].GameTypeID)) == "Season"
-          )
-            IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-              "playersSeason" + seasonCount[j] + "SeasonStats"
-            ].push(item);
-        }
-      });
-    }
-  }
-
-  // // //////////////////Individual player season MAPS
-
-  for (let i = 1; i <= playersMAP.size; i++) {
-    for (let j = 0; j < seasonCount.length; j++) {
-      for (let l = 0; l < perSeasonCatMAPS.length; l++) {
-        for (let k = 0; k < playerStatsFields.length; k++) {
+// if (seasonCount.length > 1) {
+//array for combined season and playoffs
+for (let i = 1; i <= playersMAP.size; i++) {
+  for (let j = 0; j < seasonCount; j++) {
+    IndividualPlayerStats.allPlayersStats[
+      playersMAP.get(i)
+    ].allTimeStats.forEach((item) => {
+      for (let k = 0; k < gameResultsLength; k++) {
+        if (
+          item.GameID == gameResults[k].GameID &&
+          gameResults[k].SeasonNumber == seasonCount[j]
+        )
           IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-            "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
-          ].set(
-            playerStatsFields[k],
-            IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-              "playersSeason" + seasonCount[j] + perSeasonCats[l]
-            ]
-              .map((item) => Number(item[playerStatsFields[k]]))
-              .reduce((current, adjusted) => current + adjusted, 0)
-          );
-        }
+            "playersSeason" + seasonCount[j] + "CombinedStats"
+          ].push(item);
+      }
+    });
+  }
+}
+
+// array for specific for season and seperately playoff
+
+for (let i = 1; i <= playersMAP.size; i++) {
+  for (let j = 0; j < seasonCountLength; j++) {
+    IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+      "playersSeason" + seasonCount[j] + "CombinedStats"
+    ].forEach((item) => {
+      for (let k = 0; k < gameResultsLength; k++) {
+        if (
+          item.GameID == gameResults[k].GameID &&
+          gameResults[k].SeasonNumber == seasonCount[j] &&
+          gameTypeMAP.get(Number(gameResults[k].GameTypeID)) == "Playoff"
+        )
+          IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+            "playersSeason" + seasonCount[j] + "PlayoffStats"
+          ].push(item);
+        if (
+          item.GameID == gameResults[k].GameID &&
+          gameResults[k].SeasonNumber == seasonCount[j] &&
+          gameTypeMAP.get(Number(gameResults[k].GameTypeID)) == "Season"
+        )
+          IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+            "playersSeason" + seasonCount[j] + "SeasonStats"
+          ].push(item);
+      }
+    });
+  }
+}
+
+//////////////////////Individual player season MAPS
+for (let i = 1; i <= playersMAP.size; i++) {
+  let seasonsPlayedIn =
+    IndividualPlayerStats.allPlayersStats[playersMAP.get(i)].seasonsPlayed;
+  for (let j = 0; j < seasonsPlayedIn.length; j++) {
+    for (let l = 0; l < perSeasonCatMAPS.length; l++) {
+      for (let k = 0; k < playerStatsFields.length; k++) {
         IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-          "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
         ].set(
-          "GP",
+          playerStatsFields[k],
           IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-            "playersSeason" + seasonCount[j] + [perSeasonCatMAPS[l]]
+            "playersSeason" + seasonsPlayedIn[j] + perSeasonCats[l]
           ]
-        );
-        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-          "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
-        ].set(
-          "Points",
-          IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-            "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
-          ].get("Assists") +
-            IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
-              "playersSeason" + seasonCount[j] + perSeasonCatMAPS[l]
-            ].get("Goals")
+            .map((item) => Number(item[playerStatsFields[k]]))
+            .reduce((current, adjusted) => current + adjusted, 0)
         );
       }
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+      ].set(
+        "GP",
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + [perSeasonCats[l]]
+        ].length
+      );
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+      ].set(
+        "Points",
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].get("Assists") +
+          IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+            "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+          ].get("Goals")
+      );
     }
   }
-} // end of if season is greater than 1
+}
+// } // end of if season is greater than 1
 ////////////BEGIN of populating arrays for tabular style data. All time and per season with varying modes. (alltime, season and playoffs)
 // copying allPlayerStats objects contents into array form in order to use array functionality
 for (let i = 1; i <= playersMAP.size; i++) {
@@ -277,6 +278,8 @@ if (seasonCount.length > 1) {
     }
   }
 }
+
+// TESTING
 
 // EXPORTS
 

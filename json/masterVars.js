@@ -28,13 +28,13 @@ let seasonCountLength = seasonCount.length;
 seasonCount.sort((a, b) => a - b);
 let defendingChamps = "Haxual Chocolate";
 //**** TEAMS ****//
-let teamsLength = teams.length;
-let teamNames = [teamsLength];
+let teamsLength = teams.length; // counts all teams ever competed
+let teamNames = [teamsLength]; // array of all team names ever compted
 let eachTeamObjectMAP = new Map(); // maps out each teams basic info. ID, Color, logo file path, etc...
-let teamsMAP = new Map();
-let teamsNumMAP = new Map();
-let teamsSeasonsMAP = new Map();
-let eachSeasonsTeamsMAP = new Map();
+let teamsMAP = new Map(); // maps teams via key is teamID number to textual name as value
+let teamsNumMAP = new Map(); // maps teams via key as textual name to teamID number
+let teamsSeasonsMAP = new Map(); // maps via key as textual name to array of which seasons team competed in
+let eachSeasonsTeamsMAP = new Map(); // maps via key as number representing season to array value of which teams competed that season
 for (let i = 0; i < teamsLength; i++) {
   teamNames[i] = teams[i].TeamName;
   eachTeamObjectMAP.set(teamNames[i], teams[i]);
@@ -78,10 +78,27 @@ for (let i = 0; i < teamsMAP.size; i++) {
 
 //**** PLAYERS ****//
 let playersLength = players.length;
-let playersMAP = new Map();
+let playersMAP = new Map(); // maps key as playerID to textual value of players name
+let playersNumMAP = new Map(); // maps key as textual name key to playerID value
+let playerSeasonsMAP = new Map();
 for (let i = 0; i < playersLength; i++) {
-  // map a list of players
+  // map a list of players number key to textual value
   playersMAP.set(Number(players[i].PlayerID), players[i].Players);
+}
+for (let i = 0; i < playersLength; i++) {
+  // map a list of players textual key to number value nameID
+  playersNumMAP.set(players[i].Players, Number(players[i].PlayerID));
+}
+for (let i = 0; i < playersLength; i++) {
+  // map a list what seasons each player played in
+  playerSeasonsMAP.set(
+    playersMAP.get(i + 1),
+    Array.from(
+      teamPlayers
+        .filter((item) => item.PlayerID == i + 1)
+        .map((item) => item.SeasonNumber)
+    )
+  );
 }
 //**** GAME TYPE ****//
 let gameTypeLength = gameType.length;
@@ -112,6 +129,8 @@ export {
   teamsSeasonsMAP,
   teamsColorMAP,
   playersMAP,
+  playersNumMAP,
+  playerSeasonsMAP,
   gameTypeMAP,
   gameTypeNumMAP,
 };
