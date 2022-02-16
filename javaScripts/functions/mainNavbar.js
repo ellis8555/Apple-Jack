@@ -6,11 +6,11 @@ import {
   teams,
 } from "../../json/masterVars.js";
 
-export function setMainNavbar() {
+export function setMainNavbar(season = currentSeason) {
   let navbarContainer = document.querySelector("#teamsNavbar > section");
   let navbarContent = "";
 
-  for (let i = 0; i < eachSeasonsTeamsMAP.get(currentSeason).length; i++) {
+  for (let i = 0; i < eachSeasonsTeamsMAP.get(season).length; i++) {
     let imageSource = teams[i].S01HomeFilePath;
     navbarContent += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
     navbarContent += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
@@ -18,9 +18,9 @@ export function setMainNavbar() {
 
     navbarContent += `<img 
         src="${imageSource}" 
-        alt="${eachSeasonsTeamsMAP.get(currentSeason)[i]}" 
-        data-team-name="${eachSeasonsTeamsMAP.get(currentSeason)[i]}" 
-        data-season-num="${currentSeason}"
+        alt="${eachSeasonsTeamsMAP.get(season)[i]}" 
+        data-team-name="${eachSeasonsTeamsMAP.get(season)[i]}" 
+        data-season-num="${season}"
         class="w3-image navLogo"
         >`;
 
