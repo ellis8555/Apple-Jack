@@ -191,7 +191,6 @@ table td:first-child {
 .homeTeamLogo {
   grid-column: 1/2;
   grid-row: 1/2;
-  background-color: rgb(60, 92, 233);
 }
 
 .homeTeam {
@@ -202,7 +201,7 @@ table td:first-child {
 .awayTeamLogo {
   grid-column: 1/2;
   grid-row: 2/3;
-  background-color: rgb(60, 92, 233);
+  background-color: rgb(102, 121, 206);
 }
 
 .awayTeam {
