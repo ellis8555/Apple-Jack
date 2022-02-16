@@ -192,7 +192,7 @@ export function getTeamsGameResults(e) {
       // class gameResults is containing grid
       gameResults += `<div class="w3-container w3-margin gameResults">`;
       // homeTeam logo
-      gameResults += `<div class="homeTeamLogo">`;
+      gameResults += `<div class="homeTeamLogo w3-card w3-blue">`;
       if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
         gameResults += `<img src=${teamImage} style="width:25px;height:25px;">`;
       } else {
@@ -244,7 +244,7 @@ export function getTeamsGameResults(e) {
       gameResults += ` ${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
       gameResults += `</div>`;
       // awayTeam logo
-      gameResults += `<div class="awayTeamLogo">`;
+      gameResults += `<div class="awayTeamLogo w3-card w3-blue">`;
       if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
         gameResults += `<img src=${teamImage} style="width:25px;height:25px;">`;
       } else {
