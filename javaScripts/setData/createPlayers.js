@@ -57,6 +57,7 @@ let supportVars = {
     "Kicks",
     "Passes",
     "ShotsOnGoal",
+    "OwnGoals",
   ],
   allTimeStatsArray: [
     "allTimeStats",

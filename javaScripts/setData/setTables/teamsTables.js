@@ -50,6 +50,7 @@ let playersTable = [
   "Kicks",
   "Passes",
   "ShotsOnGoal",
+  "OwnGoals",
 ];
 // PLACE ARRAYS IN A MAP IN ORDER FOR "sortTable" METHOD TO PROPERLY RETRIEVE DATA ATTRIBUTES
 let tableFields = new Map();
