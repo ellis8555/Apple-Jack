@@ -99,7 +99,7 @@ export class TeamStats {
   constructor(name) {
     // players name
     this.name = name;
-    this.seasonsPlayed = teamsSeasonsMAP.get(this.name);
+    this.seasonsPlayed = teamsSeasonsMAP.get(this.name); // this MAP is key by team name with array value listing seasonNums
     this.seasonsPlayedLength = teamsSeasonsMAP.get(this.name).length;
     // all time team stats per object (team)
     this.allTimeStats = []; // collects from gameResults JSON

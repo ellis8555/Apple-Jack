@@ -18,11 +18,11 @@ export let {
 } = haxBallData;
 //**** MISC ****//
 let currentSeason = Math.max(
-  Array.from(new Set(teamPlayers.map((item) => +item.SeasonNumber)))
+  ...Array.from(new Set(teamPlayers.map((item) => +item.SeasonNumber)))
 );
 let seasonCount = Array.from(
   //get count of how many seasons in order to create arrays for each season
-  new Set(gameResults.map((item) => item.SeasonNumber))
+  new Set(teamPlayers.map((item) => item.SeasonNumber))
 );
 let seasonCountLength = seasonCount.length;
 seasonCount.sort((a, b) => a - b);
@@ -75,7 +75,6 @@ let teamsColorMAP = new Map();
 for (let i = 0; i < teamsMAP.size; i++) {
   teamsColorMAP.set(teamsMAP.get(i + 1), teams[i].MainColor);
 }
-
 //**** PLAYERS ****//
 let playersLength = players.length;
 let playersMAP = new Map(); // maps key as playerID to textual value of players name
