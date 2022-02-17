@@ -547,8 +547,6 @@ export function setTeamsPageLayout(e) {
 // update the tableDataSource MAP up above!!
 // be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
 // be sure to add "setMainNavbar" function to update navbar for correct season
-console.log(TeamStats);
-console.log(IndividualPlayerStats);
 // TEAMS
 // S02 regular season
 export function setHomeTable() {
