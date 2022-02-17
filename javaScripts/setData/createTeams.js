@@ -175,3 +175,4 @@ for (let i = 1; i <= teamsMAP.size; i++) {
 // EXPORTS
 
 export { TeamStats };
+console.log(TeamStats.allTeamStats["Mooney"]);
