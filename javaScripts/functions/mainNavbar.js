@@ -6,8 +6,9 @@ import {
   currentSeason,
   teams,
 } from "../../json/masterVars.js";
+import { setListenersMainNavbar } from "./listeners.js";
 
-export function setMainNavbar(season = currentSeason) {
+export default function setMainNavbar(season = currentSeason) {
   let navbarContainer = document.querySelector("#teamsNavbar > section");
   let navbarContent = "";
   for (let i = 0; i < eachSeasonsTeamsMAP.get(season).length; i++) {
@@ -30,6 +31,6 @@ export function setMainNavbar(season = currentSeason) {
     navbarContent += `</div>`; // end second div
     navbarContent += `</div>`; // end first div
   }
-
   navbarContainer.innerHTML = navbarContent;
+  setListenersMainNavbar();
 }

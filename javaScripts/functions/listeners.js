@@ -3,7 +3,13 @@ import {
   getTeamsGameResults,
   setTeamsPageLayout,
   setHomeTable,
-  setPlayoffTable,
+  setPlayerAllTimeSeason,
+  setPlayerAllTimePlayoff,
+  setPlayerAllTimePoints,
+  setPlayerS02Season,
+  setS01RegularSeason,
+  setS01PlayoffTable,
+  setS01CombinedTable,
   setPlayerS01Season,
   setPlayerS01Playoff,
   setPlayerS01Combined,
@@ -15,7 +21,7 @@ import {
   displaySlides,
 } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/siteTaskList.js";
-import { setMainNavbar } from "./mainNavbar.js";
+import setMainNavbar from "./mainNavbar.js";
 setMainNavbar();
 // import {
 //   setPlayerS01Season,
@@ -99,11 +105,37 @@ document
 
 // end sub menus toggling
 // listeners for sidebar links. functions located in ./setData/setTables/teamsTables.js
-
-document.getElementById("homeTable").addEventListener("click", setHomeTable);
+//CURRENT SEASON STATS
+//current teams table
+document.getElementById("currentTable").addEventListener("click", setHomeTable);
+// current players table
+document
+  .getElementById("s02PlayerSeasonTable")
+  .addEventListener("click", setPlayerS02Season);
+// TEAMS TABLES (no all time as teams probably change every season?)
+document
+  .getElementById("S01RegularSeason")
+  .addEventListener("click", setS01RegularSeason);
 document
   .getElementById("s01PlayoffTable")
-  .addEventListener("click", setPlayoffTable);
+  .addEventListener("click", setS01PlayoffTable);
+document
+  .getElementById("s01CombinedTable")
+  .addEventListener("click", setS01CombinedTable);
+// PLAYERS TALBES
+// all time
+allTimePlayerPointsTable;
+document
+  .getElementById("allTimePlayerPointsTable")
+  .addEventListener("click", setPlayerAllTimePoints);
+document
+  .getElementById("allTimePlayerSeasonTable")
+  .addEventListener("click", setPlayerAllTimeSeason);
+document
+  .getElementById("allTimePlayerPlayoffTable")
+  .addEventListener("click", setPlayerAllTimePlayoff);
+
+// season 1
 document
   .getElementById("s01PlayerSeasonTable")
   .addEventListener("click", setPlayerS01Season);
@@ -114,6 +146,7 @@ document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", setPlayerS01Combined);
 document.getElementById("otherStats").addEventListener("click", displaySlides);
+// tasks list page
 document
   .getElementById("siteTaskList")
   .addEventListener("click", displayTaskList);
@@ -128,11 +161,14 @@ document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
 
 // TEAMS LAYOUT PAGE
 
-let getTeamsFromNavBar = document.querySelectorAll("img[data-team-name]");
-getTeamsFromNavBar.forEach((item) =>
-  // item.addEventListener("click", getTeamsGameResults)
-  item.addEventListener("click", setTeamsPageLayout)
-);
+export function setListenersMainNavbar() {
+  let getTeamsFromNavBar = document.querySelectorAll("img[data-team-name]");
+  getTeamsFromNavBar.forEach((item) =>
+    // item.addEventListener("click", getTeamsGameResults)
+    item.addEventListener("click", setTeamsPageLayout)
+  );
+}
+setListenersMainNavbar();
 
 // testing
 

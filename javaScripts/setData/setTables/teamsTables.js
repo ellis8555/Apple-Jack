@@ -1,5 +1,6 @@
 import { TeamStats } from "../createTeams.js";
 import { IndividualPlayerStats } from "../createPlayers.js";
+import setMainNavbar from "../../functions/mainNavbar.js";
 import {
   teams,
   teamsMAP,
@@ -61,6 +62,8 @@ tableFields
 
 let tableDataSource = new Map();
 tableDataSource
+  // TEAMS GROUPINGS
+  // ALL TIME
   .set(
     "TeamStats.groupTeamsAllTimeSeasonStats",
     TeamStats.groupTeamsAllTimeSeasonStats
@@ -70,6 +73,34 @@ tableDataSource
     TeamStats.groupTeamsAllTimePlayoffStats
   )
   .set("TeamStats.groupTeamsAllTimeStats", TeamStats.groupTeamsAllTimeStats)
+  // SEASON 2
+  .set(
+    "TeamStats.groupTeamsSeason2SeasonStats",
+    TeamStats.groupTeamsSeason2SeasonStats
+  )
+  .set(
+    "TeamStats.groupTeamsSeason2PlayoffStats",
+    TeamStats.groupTeamsSeason2PlayoffStats
+  )
+  .set(
+    "TeamStats.groupTeamsSeason2CombinedStats",
+    TeamStats.groupTeamsSeason2CombinedStats
+  )
+  // SEASON 1
+  .set(
+    "TeamStats.groupTeamsSeason1SeasonStats",
+    TeamStats.groupTeamsSeason1SeasonStats
+  )
+  .set(
+    "TeamStats.groupTeamsSeason1PlayoffStats",
+    TeamStats.groupTeamsSeason1PlayoffStats
+  )
+  .set(
+    "TeamStats.groupTeamsSeason1CombinedStats",
+    TeamStats.groupTeamsSeason1CombinedStats
+  )
+  // PLAYERS GROUPINGS
+  // ALL TIME
   .set(
     "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
     IndividualPlayerStats.groupPlayersAllTimeSeasonStats
@@ -82,6 +113,7 @@ tableDataSource
     "IndividualPlayerStats.groupPlayersAllTimeStats",
     IndividualPlayerStats.groupPlayersAllTimeStats
   )
+  // SEASON 1
   .set(
     "IndividualPlayerStats.groupPlayersSeason1SeasonStats",
     IndividualPlayerStats.groupPlayersSeason1SeasonStats
@@ -94,6 +126,7 @@ tableDataSource
     "IndividualPlayerStats.groupPlayersSeason1CombinedStats",
     IndividualPlayerStats.groupPlayersSeason1CombinedStats
   )
+  // SEASON 2
   .set(
     "IndividualPlayerStats.groupPlayersSeason2SeasonStats",
     IndividualPlayerStats.groupPlayersSeason2SeasonStats
@@ -513,21 +546,23 @@ export function setTeamsPageLayout(e) {
 // TABLE CREATION
 // update the tableDataSource MAP up above!!
 // be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
+// be sure to add "setMainNavbar" function to update navbar for correct season
 console.log(TeamStats);
 console.log(IndividualPlayerStats);
 // TEAMS
-// S01 regular season
+// S02 regular season
 export function setHomeTable() {
   createTable(
-    "S01 Regular Season",
-    "TeamStats.groupTeamsAllTimeSeasonStats",
-    TeamStats.groupTeamsAllTimeSeasonStats,
+    "Current Season",
+    "TeamStats.groupTeamsSeason2SeasonStats",
+    TeamStats.groupTeamsSeason2SeasonStats,
     "w3-yellow",
     "Points",
     "fullTable",
     fullTable
   );
   setTableListeners();
+  setMainNavbar();
   document.body.style.backgroundColor = "#2196f3";
   let headerImage = document.querySelector("#championsCard>div>img");
   headerImage.src = "img/teamLogos/haxualChocolateHomeS01.svg";
@@ -537,25 +572,82 @@ export function setHomeTable() {
   let trophy = document.querySelector("i");
   trophy.classList.add("fa-trophy");
 }
-
-// S01 Playoff
-export function setPlayoffTable() {
+// S01 regular season
+export function setS01RegularSeason() {
   createTable(
-    "S01 Playoffs",
-    "TeamStats.groupTeamsAllTimePlayoffStats",
-    TeamStats.groupTeamsAllTimePlayoffStats,
+    "S01 Regular Season",
+    "TeamStats.groupTeamsSeason1SeasonStats",
+    TeamStats.groupTeamsSeason1SeasonStats,
     "w3-yellow",
     "Points",
     "fullTable",
     fullTable
   );
   setTableListeners();
+  setMainNavbar(1);
+}
+
+// S01 Playoff
+export function setS01PlayoffTable() {
+  createTable(
+    "S01 Playoffs",
+    "TeamStats.groupTeamsSeason1PlayoffStats",
+    TeamStats.groupTeamsSeason1PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "fullTable",
+    fullTable
+  );
+  setTableListeners();
+  setMainNavbar(1);
+}
+// S01 COMBINED
+export function setS01CombinedTable() {
+  createTable(
+    "S01 Playoffs",
+    "TeamStats.groupTeamsSeason1CombinedStats",
+    TeamStats.groupTeamsSeason1CombinedStats,
+    "w3-yellow",
+    "Points",
+    "fullTable",
+    fullTable
+  );
+  setTableListeners();
+  setMainNavbar(1);
 }
 // PLAYERS
-// S01 regular season
-export function setPlayerS01Season() {
+// S02 regular season (CURRENT SEASON)
+export function setPlayerS02Season() {
   createTable(
-    "S01 Regular Season",
+    "Current",
+    "IndividualPlayerStats.groupPlayersSeason2SeasonStats",
+    IndividualPlayerStats.groupPlayersSeason2SeasonStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
+// all time player grand totals
+export function setPlayerAllTimePoints() {
+  createTable(
+    "All Time Points",
+    "IndividualPlayerStats.groupPlayersAllTimeStats",
+    IndividualPlayerStats.groupPlayersAllTimeStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
+// all time player season
+export function setPlayerAllTimeSeason() {
+  createTable(
+    "All Time Season",
     "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
     IndividualPlayerStats.groupPlayersAllTimeSeasonStats,
     "w3-yellow",
@@ -564,12 +656,12 @@ export function setPlayerS01Season() {
     playersTable
   );
   setTableListeners();
+  setMainNavbar();
 }
-
-// S01 Playoff
-export function setPlayerS01Playoff() {
+// all time player playoff
+export function setPlayerAllTimePlayoff() {
   createTable(
-    "S01 Playoffs",
+    "All Time Playoffs",
     "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
     IndividualPlayerStats.groupPlayersAllTimePlayoffStats,
     "w3-yellow",
@@ -578,9 +670,38 @@ export function setPlayerS01Playoff() {
     playersTable
   );
   setTableListeners();
+  setMainNavbar();
+}
+// S01 player regular season
+export function setPlayerS01Season() {
+  createTable(
+    "S01 Season",
+    "IndividualPlayerStats.groupPlayersSeason1SeasonStats",
+    IndividualPlayerStats.groupPlayersSeason1SeasonStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar(1);
+}
+// S01 player Playoff
+export function setPlayerS01Playoff() {
+  createTable(
+    "S01 Playoffs",
+    "IndividualPlayerStats.groupPlayersSeason1PlayoffStats",
+    IndividualPlayerStats.groupPlayersSeason1PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar(1);
 }
 
-// S01 Combined
+// S01 player Combined
 
 export function setPlayerS01Combined() {
   createTable(
@@ -593,6 +714,7 @@ export function setPlayerS01Combined() {
     playersTable
   );
   setTableListeners();
+  setMainNavbar(1);
 }
 // set home page table
 setHomeTable();
