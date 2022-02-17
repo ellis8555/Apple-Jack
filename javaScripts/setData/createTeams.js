@@ -45,7 +45,7 @@ import { seasonCount } from "../../json/masterVars.js";
 // );
 
 // create proper arrays for holding team MAPS for when more than one season is played
-TeamStats.setPerSeasonAllTimeContainers(seasonCountLength);
+TeamStats.setPerSeasonAllTimeContainers();
 
 // INSTANTIATE team objects
 // create objects for each team
@@ -139,21 +139,17 @@ for (let i = 1; i <= teamsMAP.size; i++) {
 // loop that fills each teams individual seasons MAPS
 
 for (let i = 1; i <= teamsMAP.size; i++) {
-  for (
-    let j = 1;
-    j <= TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayedLength;
-    j++
-  ) {
+  TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed.forEach((item) => {
     for (let k = 0; k < statsType.length; k++) {
       TeamStats.allTeamStats[
         teamsMAP.get(i)
       ].setTeamsIndividualSeasonsStatsMAPS(
-        `teamsSeason${j}${statsType[k]}`, // input array
-        `teamsSeason${j}${statsType[k]}MAP`, // output MAP
-        j // season number
+        `teamsSeason${item}${statsType[k]}`, // input array
+        `teamsSeason${item}${statsType[k]}MAP`, // output MAP
+        item // season number
       );
     }
-  }
+  });
 }
 
 // loop that fills static arrays containing per season team stats for tabular data as per season

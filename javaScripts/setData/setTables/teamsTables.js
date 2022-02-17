@@ -69,6 +69,7 @@ tableDataSource
     "TeamStats.groupTeamsAllTimePlayoffStats",
     TeamStats.groupTeamsAllTimePlayoffStats
   )
+  .set("TeamStats.groupTeamsAllTimeStats", TeamStats.groupTeamsAllTimeStats)
   .set(
     "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
     IndividualPlayerStats.groupPlayersAllTimeSeasonStats
@@ -80,6 +81,30 @@ tableDataSource
   .set(
     "IndividualPlayerStats.groupPlayersAllTimeStats",
     IndividualPlayerStats.groupPlayersAllTimeStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersSeason1SeasonStats",
+    IndividualPlayerStats.groupPlayersSeason1SeasonStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersSeason1PlayoffStats",
+    IndividualPlayerStats.groupPlayersSeason1PlayoffStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersSeason1CombinedStats",
+    IndividualPlayerStats.groupPlayersSeason1CombinedStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersSeason2SeasonStats",
+    IndividualPlayerStats.groupPlayersSeason2SeasonStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersSeason2PlayoffStats",
+    IndividualPlayerStats.groupPlayersSeason2PlayoffStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersSeason2CombinedStats",
+    IndividualPlayerStats.groupPlayersSeason2CombinedStats
   );
 
 // TH,TD OF TABLE ONCLICK SORTING
@@ -488,7 +513,8 @@ export function setTeamsPageLayout(e) {
 // TABLE CREATION
 // update the tableDataSource MAP up above!!
 // be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
-
+console.log(TeamStats);
+console.log(IndividualPlayerStats);
 // TEAMS
 // S01 regular season
 export function setHomeTable() {

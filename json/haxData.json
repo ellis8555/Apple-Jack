@@ -350,6 +350,32 @@
       "TeamTwoPossession": "0",
       "TeamTwoScore": "5",
       "ExtraTime": "No"
+    },
+    {
+      "GameID": "28",
+      "SeasonNumber": "2",
+      "GameTypeID": "1",
+      "Round": "0",
+      "TeamOne": "3",
+      "TeamOnePossession": "0",
+      "TeamOneScore": "2",
+      "TeamTwo": "7",
+      "TeamTwoPossession": "0",
+      "TeamTwoScore": "3",
+      "ExtraTime": "No"
+    },
+    {
+      "GameID": "29",
+      "SeasonNumber": "2",
+      "GameTypeID": "1",
+      "Round": "0",
+      "TeamOne": "6",
+      "TeamOnePossession": "0",
+      "TeamOneScore": "2",
+      "TeamTwo": "4",
+      "TeamTwoPossession": "0",
+      "TeamTwoScore": "3",
+      "ExtraTime": "No"
     }
   ],
   "GamePlayerStats": [
@@ -378,7 +404,7 @@
     {
       "GameID": "1",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "3",
       "Assists": "1",
       "Kicks": "0",
@@ -466,7 +492,7 @@
     {
       "GameID": "2",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -521,7 +547,7 @@
     {
       "GameID": "3",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -609,7 +635,7 @@
     {
       "GameID": "4",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -642,7 +668,7 @@
     {
       "GameID": "5",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "3",
       "Assists": "1",
       "Kicks": "0",
@@ -675,7 +701,7 @@
     {
       "GameID": "5",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -708,41 +734,41 @@
     {
       "GameID": "6",
       "TeamID": "4",
+      "PlayerID": "15",
+      "Goals": "1",
+      "Assists": "1",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "6",
+      "TeamID": "1",
+      "PlayerID": "9",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "6",
+      "TeamID": "1",
+      "PlayerID": "12",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "6",
+      "TeamID": "1",
       "PlayerID": "14",
       "Goals": "1",
-      "Assists": "1",
-      "Kicks": "0",
-      "Passes": "0",
-      "ShotsOnGoal": "0",
-      "OwnGoals": "0"
-    },
-    {
-      "GameID": "6",
-      "TeamID": "1",
-      "PlayerID": "9",
-      "Goals": "0",
-      "Assists": "0",
-      "Kicks": "0",
-      "Passes": "0",
-      "ShotsOnGoal": "0",
-      "OwnGoals": "0"
-    },
-    {
-      "GameID": "6",
-      "TeamID": "1",
-      "PlayerID": "12",
-      "Goals": "0",
-      "Assists": "0",
-      "Kicks": "0",
-      "Passes": "0",
-      "ShotsOnGoal": "0",
-      "OwnGoals": "0"
-    },
-    {
-      "GameID": "6",
-      "TeamID": "1",
-      "PlayerID": "15",
-      "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
       "Passes": "0",
@@ -807,7 +833,7 @@
     {
       "GameID": "7",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -873,7 +899,7 @@
     {
       "GameID": "8",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -1038,7 +1064,7 @@
     {
       "GameID": "11",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "3",
       "Assists": "1",
       "Kicks": "0",
@@ -1104,7 +1130,7 @@
     {
       "GameID": "12",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "5",
       "Assists": "1",
       "Kicks": "0",
@@ -1335,7 +1361,7 @@
     {
       "GameID": "15",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "4",
       "Assists": "1",
       "Kicks": "0",
@@ -1401,7 +1427,7 @@
     {
       "GameID": "16",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "3",
       "Assists": "0",
       "Kicks": "0",
@@ -1467,7 +1493,7 @@
     {
       "GameID": "17",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "4",
       "Assists": "0",
       "Kicks": "0",
@@ -1533,7 +1559,7 @@
     {
       "GameID": "18",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "3",
       "Assists": "0",
       "Kicks": "0",
@@ -1698,7 +1724,7 @@
     {
       "GameID": "21",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "2",
       "Assists": "1",
       "Kicks": "0",
@@ -1731,7 +1757,7 @@
     {
       "GameID": "21",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "2",
       "Assists": "1",
       "Kicks": "0",
@@ -1764,7 +1790,7 @@
     {
       "GameID": "22",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "2",
       "Assists": "0",
       "Kicks": "0",
@@ -1797,7 +1823,7 @@
     {
       "GameID": "22",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "0",
       "Assists": "0",
       "Kicks": "0",
@@ -1830,7 +1856,7 @@
     {
       "GameID": "23",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "0",
@@ -1863,7 +1889,7 @@
     {
       "GameID": "23",
       "TeamID": "4",
-      "PlayerID": "14",
+      "PlayerID": "15",
       "Goals": "2",
       "Assists": "0",
       "Kicks": "0",
@@ -2028,7 +2054,7 @@
     {
       "GameID": "26",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "2",
       "Assists": "0",
       "Kicks": "0",
@@ -2094,7 +2120,7 @@
     {
       "GameID": "27",
       "TeamID": "1",
-      "PlayerID": "15",
+      "PlayerID": "14",
       "Goals": "2",
       "Assists": "0",
       "Kicks": "0",
@@ -2129,6 +2155,138 @@
       "TeamID": "3",
       "PlayerID": "10",
       "Goals": "4",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "28",
+      "TeamID": "7",
+      "PlayerID": "6",
+      "Goals": "3",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "28",
+      "TeamID": "7",
+      "PlayerID": "3",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "28",
+      "TeamID": "7",
+      "PlayerID": "12",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "28",
+      "TeamID": "3",
+      "PlayerID": "10",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "28",
+      "TeamID": "3",
+      "PlayerID": "4",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "28",
+      "TeamID": "3",
+      "PlayerID": "14",
+      "Goals": "2",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "29",
+      "TeamID": "4",
+      "PlayerID": "15",
+      "Goals": "3",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "29",
+      "TeamID": "4",
+      "PlayerID": "2",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "29",
+      "TeamID": "4",
+      "PlayerID": "1",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "29",
+      "TeamID": "6",
+      "PlayerID": "13",
+      "Goals": "2",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "29",
+      "TeamID": "6",
+      "PlayerID": "11",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "0",
+      "Passes": "0",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "29",
+      "TeamID": "6",
+      "PlayerID": "16",
+      "Goals": "0",
       "Assists": "0",
       "Kicks": "0",
       "Passes": "0",
@@ -2142,17 +2300,17 @@
       "TeamName": ".Hax",
       "MainColor": "388C38",
       "S01Home": "0 FFFFFF 388C38 EDEDED D6991E",
-      "S01HomeFilePath": "img/teamLogos/S01/haxHomeS01.svg",
       "S01Away": "0 FFFFFF 388C38 EDEDED D6991E",
+      "S01HomeFilePath": "img/teamLogos/S01/haxHomeS01.svg",
       "S01AwayFilePath": "img/teamLogos/S01/haxHomeS01.svg"
     },
     {
       "TeamID": "2",
       "TeamName": "C.E.G United",
       "MainColor": "5BD1FC",
-      "S01Home": "60 FFFFFF 3C8CA8 4CB0D4 5BD1FC",
+      "S01Home": "60 4D1563 5BD1FC FFFFFF",
+      "S01Away": "60 000000 5BD1FC 4D1563",
       "S01HomeFilePath": "img/teamLogos/S01/cegHomeS01.svg",
-      "S01Away": "60 5BD1FC 4D1563",
       "S01AwayFilePath": "img/teamLogos/S01/cegAwayS01.svg"
     },
     {
@@ -2160,27 +2318,53 @@
       "TeamName": "Haxual Chocolate",
       "MainColor": "572317",
       "S01Home": "138 FFFFFF 572317 82E66E 572317",
-      "S01HomeFilePath": "img/teamLogos/S01/haxualChocolateHomeS01.svg",
       "S01Away": "138 FFFFFF 82E66E 572317 82E66E",
-      "S01AwayFilePath": "img/teamLogos/S01/haxualChocolateAwayS01.svg"
+      "S01HomeFilePath": "img/teamLogos/S01/haxualChocolateHomeS01.svg",
+      "S01AwayFilePath": "img/teamLogos/S01/haxualChocolateAwayS01.svg",
+      "S02Home": "138 FFFFFF 572317 82E66E 572317",
+      "S02Away": "138 FFFFFF 82E66E 572317 82E66E",
+      "S02HomeFilePath": "img/teamLogos/S02/haxualChocolateHomeS02.svg",
+      "S02AwayFilePath": "img/teamLogos/S02/haxualChocolateAwayS02.svg"
     },
     {
       "TeamID": "4",
       "TeamName": "Mooney",
       "MainColor": "C117FF",
       "S01Home": "20 FFA1FC C117FF 773C75 271833",
-      "S01HomeFilePath": "img/teamLogos/S01/MooneyHomeS01.svg",
       "S01Away": "340 FFA1FC 271833 773C75 C117FF",
-      "S01AwayFilePath": "img/teamLogos/S01/MooneyAwayS01.svg"
+      "S01HomeFilePath": "img/teamLogos/S01/MooneyHomeS01.svg",
+      "S01AwayFilePath": "img/teamLogos/S01/MooneyAwayS01.svg",
+      "S02Home": "20 FFA1FC C117FF 773C75 271833",
+      "S02Away": "340 FFA1FC 271833 773C75 C117FF",
+      "S02HomeFilePath": "img/teamLogos/S02/MooneyHomeS02.svg",
+      "S02AwayFilePath": "img/teamLogos/S02/MooneyAwayS02.svg"
     },
     {
       "TeamID": "5",
       "TeamName": "S.A.D",
       "MainColor": "0671D1",
       "S01Home": "60 FFFFFF 0671D1 0671D1 F79E08",
-      "S01HomeFilePath": "img/teamLogos/S01/sadHomeS01.svg",
       "S01Away": "60 FFFFFF 0671D1 F79E08 F79E08",
+      "S01HomeFilePath": "img/teamLogos/S01/sadHomeS01.svg",
       "S01AwayFilePath": "img/teamLogos/S01/sadAwayS01.svg"
+    },
+    {
+      "TeamID": "6",
+      "TeamName": "Haxel Rose",
+      "MainColor": "388C38",
+      "S02Home": "0 FFFFFF 388C38 EDEDED D6991E",
+      "S02Away": "0 FFFFFF 388C38 EDEDED D6991E",
+      "S02HomeFilePath": "img/teamLogos/S02/haxHomeS02.svg",
+      "S02AwayFilePath": "img/teamLogos/S02/haxHomeS02.svg"
+    },
+    {
+      "TeamID": "7",
+      "TeamName": "CES Pool",
+      "MainColor": "000000",
+      "S02Home": "60 FF615C 000000",
+      "S02Away": "60 FF615C FFFFFF",
+      "S02HomeFilePath": "img/teamLogos/S02/cesPoolHomeS02.svg",
+      "S02AwayFilePath": "img/teamLogos/S02/cesPoolAwayS02.svg"
     }
   ],
   "Players": [
@@ -2238,11 +2422,15 @@
     },
     {
       "PlayerID": "14",
-      "Players": "Tickenest"
+      "Players": "thatDrizzle"
     },
     {
       "PlayerID": "15",
-      "Players": "thatDrizzle"
+      "Players": "Tickenest"
+    },
+    {
+      "PlayerID": "16",
+      "Players": "Lupz27"
     }
   ],
   "TeamPlayers": [
@@ -2259,7 +2447,7 @@
     {
       "SeasonNumber": "1",
       "TeamID": "1",
-      "PlayerID": "15"
+      "PlayerID": "14"
     },
     {
       "SeasonNumber": "1",
@@ -2292,6 +2480,21 @@
       "PlayerID": "10"
     },
     {
+      "SeasonNumber": "2",
+      "TeamID": "3",
+      "PlayerID": "4"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "3",
+      "PlayerID": "14"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "3",
+      "PlayerID": "10"
+    },
+    {
       "SeasonNumber": "1",
       "TeamID": "4",
       "PlayerID": "2"
@@ -2304,7 +2507,22 @@
     {
       "SeasonNumber": "1",
       "TeamID": "4",
-      "PlayerID": "14"
+      "PlayerID": "15"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "4",
+      "PlayerID": "2"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "4",
+      "PlayerID": "1"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "4",
+      "PlayerID": "15"
     },
     {
       "SeasonNumber": "1",
@@ -2320,6 +2538,36 @@
       "SeasonNumber": "1",
       "TeamID": "5",
       "PlayerID": "13"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "6",
+      "PlayerID": "13"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "6",
+      "PlayerID": "11"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "6",
+      "PlayerID": "16"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "7",
+      "PlayerID": "3"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "7",
+      "PlayerID": "6"
+    },
+    {
+      "SeasonNumber": "2",
+      "TeamID": "7",
+      "PlayerID": "12"
     }
   ],
   "GameType": [

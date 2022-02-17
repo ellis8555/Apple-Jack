@@ -98,7 +98,7 @@ document
   .addEventListener("click", hideTeamSubMenu);
 
 // end sub menus toggling
-// listeners for sidebar links. functions located in class.js
+// listeners for sidebar links. functions located in ./setData/setTables/teamsTables.js
 
 document.getElementById("homeTable").addEventListener("click", setHomeTable);
 document
