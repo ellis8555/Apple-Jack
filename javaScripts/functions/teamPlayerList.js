@@ -33,7 +33,9 @@ export function getTeamsPlayersPerSeason(e) {
   let playerSeasonObjects = [];
   playersArray.forEach((item) =>
     playerSeasonObjects.push(
-      IndividualPlayerStats.allPlayersStats[item].allTimeSeasonStatsMAP
+      IndividualPlayerStats.allPlayersStats[item][
+        `playersSeason${seasonNum}SeasonStatsMAP`
+      ]
     )
   );
   sortGroupedStats(playerSeasonObjects, "Points");
@@ -41,7 +43,9 @@ export function getTeamsPlayersPerSeason(e) {
   let playerPlayoffObjects = [];
   playersArray.forEach((item) =>
     playerPlayoffObjects.push(
-      IndividualPlayerStats.allPlayersStats[item].allTimePlayoffStatsMAP
+      IndividualPlayerStats.allPlayersStats[item][
+        `playersSeason${seasonNum}PlayoffStatsMAP`
+      ]
     )
   );
   sortGroupedStats(playerPlayoffObjects, "Points");
@@ -49,7 +53,9 @@ export function getTeamsPlayersPerSeason(e) {
   let playerCombinedObjects = [];
   playersArray.forEach((item) =>
     playerCombinedObjects.push(
-      IndividualPlayerStats.allPlayersStats[item].allTimeStatsMAP
+      IndividualPlayerStats.allPlayersStats[item][
+        `playersSeason${seasonNum}CombinedStatsMAP`
+      ]
     )
   );
   sortGroupedStats(playerCombinedObjects, "Points");
