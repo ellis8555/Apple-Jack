@@ -1,15 +1,14 @@
 // destructured vars that are both in this class file and individualPlayerStats.js class file
 // arrays from masterRecords.js
 import {
+  currentSeason,
   // teams,
   // players,
   // gameType,
   teamPlayers,
   gameResults,
   // gamePlayerStats,
-} from "../../json/masterVars.js";
-// lengths of the above arrays
-import {
+  // ARRAY LENGTHS
   // teamsLength,
   // playersLength,
   // gameTypeLength,
@@ -25,7 +24,6 @@ import {
   gameTypeMAP,
 } from "../../json/masterVars.js"; // playersMAP not included
 import { seasonCount } from "../../json/masterVars.js";
-
 // Vars for destructuring //
 let supportVars = {
   seasonMode: ["Combined", "Season", "Playoff"],
