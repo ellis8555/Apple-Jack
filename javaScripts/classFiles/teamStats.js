@@ -1,15 +1,15 @@
 // destructured vars that are both in this class file and individualPlayerStats.js class file
 // arrays from masterRecords.js
 import {
+  currentSeason,
   // teams,
   // players,
   // gameType,
   teamPlayers,
   gameResults,
   // gamePlayerStats,
-} from "../../json/masterVars.js";
-// lengths of the above arrays
-import {
+  seasonsWithTieGames,
+  // ARRAY LENGTHS
   // teamsLength,
   // playersLength,
   // gameTypeLength,
@@ -25,7 +25,6 @@ import {
   gameTypeMAP,
 } from "../../json/masterVars.js"; // playersMAP not included
 import { seasonCount } from "../../json/masterVars.js";
-
 // Vars for destructuring //
 let supportVars = {
   seasonMode: ["Combined", "Season", "Playoff"],
@@ -433,7 +432,11 @@ export class TeamStats {
     }
   }
 
-  setTeamsIndividualSeasonsStatsMAPS(inputArray, writeToMAP, seasonNumber) {
+  setTeamsIndividualSeasonsStatsMAPS(
+    inputArray,
+    writeToMAP,
+    seasonNumber = currentSeason
+  ) {
     // mode argument is either "combined season and playoffs", "season", "playoff"
     for (let i = 1; i <= teamsMAP.size; i++) {
       if (this.name == teamsMAP.get(i)) {
@@ -476,6 +479,19 @@ export class TeamStats {
               (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
             )
         );
+        // this seasons OT wins
+        if (!seasonsWithTieGames.includes(seasonNumber)) {
+          //season withOUT ties
+          this[writeToMAP].set(
+            "OTW",
+            this[writeToMAP]
+              .get(`season${seasonNumber}HomeWins`)
+              .filter((item) => item.ExtraTime == "Yes").length +
+              this[writeToMAP]
+                .get(`season${seasonNumber}AwayWins`)
+                .filter((item) => item.ExtraTime == "Yes").length
+          );
+        }
         // this seasons Wins
         this[writeToMAP].set(
           "Wins",
@@ -491,17 +507,70 @@ export class TeamStats {
         );
         // this  seasons Draws
         this[writeToMAP].set("Draws", this[writeToMAP].get("drawGames").length);
+        // this seasons home Losses
+        this[writeToMAP].set(
+          `season${seasonNumber}HomeLosses`,
+          this[writeToMAP]
+            .get(`season${seasonNumber}HomeGames`)
+            .filter(
+              (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
+            )
+        );
+        // this seasons away Losses
+        this[writeToMAP].set(
+          `season${seasonNumber}AwayLosses`,
+          this[writeToMAP]
+            .get(`season${seasonNumber}AwayGames`)
+            .filter(
+              (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
+            )
+        );
+        // this seasons OT Losses
+        if (!seasonsWithTieGames.includes(seasonNumber)) {
+          // season withOUT ties
+          this[writeToMAP].set(
+            "OTL",
+            this[writeToMAP]
+              .get(`season${seasonNumber}HomeLosses`)
+              .filter((item) => item.ExtraTime == "Yes").length +
+              this[writeToMAP]
+                .get(`season${seasonNumber}AwayLosses`)
+                .filter((item) => item.ExtraTime == "Yes").length
+          );
+        }
         // this seasons Losses
-        this[writeToMAP].set(
-          "Losses",
-          this[writeToMAP].get("GP") -
-            (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
-        );
+        if (!seasonsWithTieGames.includes(seasonNumber)) {
+          // season with NO ties
+          this[writeToMAP].set(
+            "Losses",
+            this[writeToMAP].get("GP") -
+              (this[writeToMAP].get("Wins") + this[writeToMAP].get("OTL"))
+          );
+        } else {
+          // season WITH ties
+          this[writeToMAP].set(
+            "Losses",
+            this[writeToMAP].get("GP") -
+              (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
+          );
+        }
+
         // this seasons Points
-        this[writeToMAP].set(
-          "Points",
-          this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
-        );
+        if (!seasonsWithTieGames.includes(seasonNumber)) {
+          // season withOUT ties
+          this[writeToMAP].set(
+            "Points",
+            (this[writeToMAP].get("Wins") - this[writeToMAP].get("OTL")) * 3 +
+              this[writeToMAP].get("OTW") * 2 +
+              this[writeToMAP].get("OTL")
+          );
+        } else {
+          // season WITH ties
+          this[writeToMAP].set(
+            "Points",
+            this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
+          );
+        }
         // this seasons Home Goals For
         if (
           this[writeToMAP].get(`season${seasonNumber}HomeGames`).length != 0
