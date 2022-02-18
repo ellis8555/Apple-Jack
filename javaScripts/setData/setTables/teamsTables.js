@@ -9,7 +9,9 @@ import {
   teamsColorMAP,
   gameTypeMAP,
   gameTypeNumMAP,
+  seasonCount,
   seasonCountLength,
+  seasonsWithTieGames,
 } from "../../../json/masterVars.js";
 import sortGroupedStats from "../../functions/sort.js";
 import { setTableListeners } from "../../functions/listeners.js";
@@ -25,7 +27,8 @@ import { getTeamsPlayersPerSeason } from "../../functions/teamPlayerList.js";
 
 // END OF IMPORTS
 
-// SET FIELDS FOR TEAMS TABLES
+// SET FIELDS FOR TEAMS TABLES WITH TIE GAMES
+
 let homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 let fullTable = [
   "Team",
@@ -41,6 +44,21 @@ let fullTable = [
   "GD",
 ];
 
+// SET FIELDS FOR TEAMS TABLES IN SEASONS THAT DON'T HAVE TIE GAMES
+let homePageFieldsNoTies = ["Team", "GP", "Wins", "Losses", "OTL", "Points"];
+let fullTableNoTies = [
+  "Team",
+  "GP",
+  "Wins",
+  "Losses",
+  "OTL",
+  "Points",
+  "GF",
+  "GFA",
+  "GA",
+  "GAA",
+  "GD",
+];
 // SET FIELDS FOR PLAYERS TABLES
 let playersTable = [
   "Name",
@@ -58,7 +76,9 @@ let tableFields = new Map();
 tableFields
   .set("fullTable", fullTable)
   .set("homePageFields", homePageFields)
-  .set("playersTable", playersTable);
+  .set("playersTable", playersTable)
+  .set("fullTableNoTies")
+  .set("homePageFieldsNoTies");
 
 let tableDataSource = new Map();
 tableDataSource
@@ -458,8 +478,12 @@ export function setTeamsPageLayout(e) {
     TeamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
   let wins = teamsSeasonObject.get("Wins");
   let losses = teamsSeasonObject.get("Losses");
-  let draws = teamsSeasonObject.get("Draws");
-
+  let draws = "";
+  if (seasonsWithTieGames.includes(+seasonNum)) {
+    draws = teamsSeasonObject.get("Draws");
+  } else {
+    draws = teamsSeasonObject.get("OTL");
+  }
   // class teamsLayout is grid container
   let teamsLayout;
   // 4 divs make up the grid. (teamName, gameType, notes, scoreboard and teamColors)
@@ -474,6 +498,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // teams season record grid area
   teamsLayout += `<div class="teamRecord">`;
+  // draws will refer to either a tie or OTL depending on that season if it has ties or not
   teamsLayout += `<h3>(${wins} - ${losses} - ${draws})</h3>`;
   teamsLayout += `</div>`;
 
@@ -556,8 +581,8 @@ export function setHomeTable() {
     TeamStats.groupTeamsSeason2SeasonStats,
     "w3-yellow",
     "Points",
-    "fullTable",
-    fullTable
+    "fullTableNoTies",
+    fullTableNoTies
   );
   setTableListeners();
   setMainNavbar();
