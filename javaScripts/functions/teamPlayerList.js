@@ -11,6 +11,7 @@ let playersTable = [
   "Kicks",
   "Passes",
   "ShotsOnGoal",
+  "OwnGoals",
 ];
 let fieldsLength = playersTable.length;
 
