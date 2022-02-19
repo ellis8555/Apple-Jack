@@ -588,7 +588,7 @@ export function setHomeTable() {
   setMainNavbar();
   document.body.style.backgroundColor = "#2196f3";
   let headerImage = document.querySelector("#championsCard>div>img");
-  headerImage.src = "img/teamLogos/haxualChocolateHomeS01.svg";
+  headerImage.src = "img/teamLogos/S01/haxualChocolateHomeS01.svg";
   let header = document.getElementById("headerTeamName");
   let headerChildren = header.childNodes;
   headerChildren[4].textContent = "Haxual Chocolate";
