@@ -77,8 +77,8 @@ tableFields
   .set("fullTable", fullTable)
   .set("homePageFields", homePageFields)
   .set("playersTable", playersTable)
-  .set("fullTableNoTies")
-  .set("homePageFieldsNoTies");
+  .set("fullTableNoTies", fullTableNoTies)
+  .set("homePageFieldsNoTies", homePageFieldsNoTies);
 
 let tableDataSource = new Map();
 tableDataSource
