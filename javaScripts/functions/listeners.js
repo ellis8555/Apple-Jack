@@ -3,6 +3,7 @@ import {
   getTeamsGameResults,
   setTeamsPageLayout,
   setHomeTable,
+  setS02SeasonFullTable,
   setPlayerAllTimeSeason,
   setPlayerAllTimePlayoff,
   setPlayerAllTimePoints,
@@ -108,6 +109,9 @@ document
 //CURRENT SEASON STATS
 //current teams table
 document.getElementById("currentTable").addEventListener("click", setHomeTable);
+document
+  .getElementById("fullTable")
+  .addEventListener("click", setS02SeasonFullTable);
 // current players table
 document
   .getElementById("s02PlayerSeasonTable")

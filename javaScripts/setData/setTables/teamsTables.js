@@ -42,6 +42,10 @@ let fullTable = [
   "GA",
   "GAA",
   "GD",
+  "PF",
+  "PFA",
+  "PA",
+  "PAA",
 ];
 
 // SET FIELDS FOR TEAMS TABLES IN SEASONS THAT DON'T HAVE TIE GAMES
@@ -50,6 +54,7 @@ let fullTableNoTies = [
   "Team",
   "GP",
   "Wins",
+  "OTW",
   "Losses",
   "OTL",
   "Points",
@@ -58,6 +63,10 @@ let fullTableNoTies = [
   "GA",
   "GAA",
   "GD",
+  "PF",
+  "PFA",
+  "PA",
+  "PAA",
 ];
 // SET FIELDS FOR PLAYERS TABLES
 let playersTable = [
@@ -574,6 +583,7 @@ export function setTeamsPageLayout(e) {
 // be sure to add "setMainNavbar" function to update navbar for correct season
 // TEAMS
 // S02 regular season
+// home table
 export function setHomeTable() {
   createTable(
     "Current Season",
@@ -581,8 +591,8 @@ export function setHomeTable() {
     TeamStats.groupTeamsSeason2SeasonStats,
     "w3-yellow",
     "Points",
-    "fullTableNoTies",
-    fullTableNoTies
+    "homePageFieldsNoTies",
+    homePageFieldsNoTies
   );
   setTableListeners();
   setMainNavbar();
@@ -594,6 +604,20 @@ export function setHomeTable() {
   headerChildren[4].textContent = "Haxual Chocolate";
   let trophy = document.querySelector("i");
   trophy.classList.add("fa-trophy");
+}
+// full table
+export function setS02SeasonFullTable() {
+  createTable(
+    "Current Full Table",
+    "TeamStats.groupTeamsSeason2SeasonStats",
+    TeamStats.groupTeamsSeason2SeasonStats,
+    "w3-yellow",
+    "Points",
+    "fullTable",
+    fullTable
+  );
+  setTableListeners();
+  setMainNavbar();
 }
 // S01 regular season
 export function setS01RegularSeason() {
