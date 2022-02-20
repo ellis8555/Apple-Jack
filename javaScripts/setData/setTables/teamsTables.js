@@ -460,7 +460,6 @@ export function teamColorsPage(e) {
   function getColorScheme(e) {
     let scheme = e.target.dataset.colorScheme;
     navigator.clipboard.writeText(scheme);
-    console.log("after clipboard!");
   }
 
   // set listeners on newly created red/blue button elements
