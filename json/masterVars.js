@@ -15,6 +15,7 @@ export let {
   TeamPlayers: teamPlayers,
   GameResults: gameResults,
   GamePlayerStats: gamePlayerStats,
+  Gifs: gifs,
 } = haxBallData;
 //**** MISC ****//
 let currentSeason = Math.max(
