@@ -293,7 +293,9 @@ export function getTeamsGameResults(e) {
         let otherTeamsObject = teams.filter(
           (item) => item.TeamName == otherTeam
         );
-        gameResults += `<img src=${otherTeamsObject[0].S01HomeFilePath} style="width:25px;height:25px;">`;
+        let otherTeamsLogo =
+          eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
+        gameResults += `<img src=${otherTeamsLogo} style="width:25px;height:25px;">`;
       }
       gameResults += `</div>`;
       // homeTeam name
@@ -345,7 +347,9 @@ export function getTeamsGameResults(e) {
         let otherTeamsObject = teams.filter(
           (item) => item.TeamName == otherTeam
         );
-        gameResults += `<img src=${otherTeamsObject[0].S01HomeFilePath} style="width:25px;height:25px;">`;
+        let otherTeamsLogo =
+          eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
+        gameResults += `<img src=${otherTeamsLogo} style="width:25px;height:25px;">`;
       }
       gameResults += `</div>`;
       // awayTeam score
