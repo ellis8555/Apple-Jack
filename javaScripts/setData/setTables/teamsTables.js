@@ -266,6 +266,12 @@ export function getTeamsGameResults(e) {
 
   let teamsGames;
   let gameResults = "";
+  let gameResultsBoxResult = "";
+  let win = "W";
+  let loss = "L";
+  let draw = "D";
+  let overtimeWin = "OTW";
+  let overtimeLoss = "OTL";
 
   teamsGames =
     TeamStats.allTeamStats[team][
@@ -355,6 +361,44 @@ export function getTeamsGameResults(e) {
       }
       gameResults += `${+teamsGames[i].TeamTwoScore}`;
       gameResults += `</div>`;
+      // gameResult div
+      if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
+        if (
+          +`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}`
+        ) {
+          gameResults += `<div class="gameResultsBox w3-green">`;
+          gameResultsBoxResult = win;
+        } else if (
+          +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
+        ) {
+          gameResults += `<div class="gameResultsBox w3-grey">`;
+          gameResultsBoxResult = draw;
+        } else {
+          gameResults += `<div class="gameResultsBox w3-red">`;
+          gameResultsBoxResult = loss;
+        }
+      } else {
+        if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
+          if (
+            +`${teamsGames[i].TeamTwoScore}` > +`${teamsGames[i].TeamOneScore}`
+          ) {
+            gameResults += `<div class="gameResultsBox w3-green">`;
+            gameResultsBoxResult = win;
+          } else if (
+            +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
+          ) {
+            gameResults += `<div class="gameResultsBox w3-grey">`;
+            gameResultsBoxResult = draw;
+          } else {
+            gameResults += `<div class="gameResultsBox w3-red">`;
+            gameResultsBoxResult = loss;
+          }
+        }
+      }
+      gameResults += gameResultsBoxResult;
+      gameResults += `</div>`;
+      // end gameResult div
+
       gameResults += `</div>`;
       gameResults += `</div>`;
     }

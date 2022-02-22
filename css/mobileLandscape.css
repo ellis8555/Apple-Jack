@@ -64,10 +64,10 @@
 
   .gameResults {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
     grid-template-rows: 50% 50%;
     grid-gap: 2px;
-    width: 100%;
+    width: 60%;
   }
 
   /* END TEAMS PAGE LAYOUT */
