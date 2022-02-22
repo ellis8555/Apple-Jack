@@ -12,9 +12,10 @@ export function displayTaskList() {
   <p><b>**</b> Tables are sortable via clicking the field header. On mobile click on any row <b>**</b></p>
   <p><b>***</b> Team pages player stats are NOT sortable at this point <b>***</b></p>
  
-    <h3>List of site improvements</h3>
-    <p>1. Improve teams game results page. Add logos/game stats/gifs</p> 
+    <h3>List of site improvements</h3> 
     <h3>In no particular order..</h3>
+    <p>Add statistics for each game</p>
+    <p>Gifs!</p>
     <p>Sidebar improvement</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
     <p>
@@ -30,7 +31,9 @@ export function displayTaskList() {
     <h3>Message</h3>  
   
   
-    <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have "own goals" or "saves". Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. This is where I evenly distributed missing tallies.</p>
+    <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have <del>"own goals"</del> or "saves".
+    <b>Edit</b>: The replay analyzer does in fact record own goals! <del>Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. 
+    This is where I evenly distributed missing tallies</del>. This will be adjusted back due to own goals actually being a game stat!</p>
   </div>`;
   closeSidebar();
 }
