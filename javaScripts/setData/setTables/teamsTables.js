@@ -659,8 +659,8 @@ export function setS02SeasonFullTable() {
     TeamStats.groupTeamsSeason2SeasonStats,
     "w3-yellow",
     "Points",
-    "fullTable",
-    fullTable
+    "fullTableNoTies",
+    fullTableNoTies
   );
   setTableListeners();
   setMainNavbar();
