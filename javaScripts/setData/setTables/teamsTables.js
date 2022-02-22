@@ -24,7 +24,6 @@ import {
   setHeaderBanner,
 } from "../../functions/variousFunctions.js";
 import { getTeamsPlayersPerSeason } from "../../functions/teamPlayerList.js";
-
 // END OF IMPORTS
 
 // SET FIELDS FOR TEAMS TABLES WITH TIE GAMES
