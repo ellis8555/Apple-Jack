@@ -186,39 +186,36 @@ table td:first-child {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "homeTeamLogo homeTeam homeScore"
+    "awayTeamLogo awayTeam awayScore";
   grid-gap: 2px;
   width: 30%;
 }
 
 .homeTeamLogo {
-  grid-column: 1/2;
-  grid-row: 1/2;
+  grid-area: homeTeamLogo;
 }
 
 .homeTeam {
-  grid-column: 2/3;
-  grid-row: 1/2;
+  grid-area: homeTeam;
 }
 
 .awayTeamLogo {
-  grid-column: 1/2;
-  grid-row: 2/3;
   background-color: rgb(102, 121, 206);
+  grid-area: awayTeamLogo;
 }
 
 .awayTeam {
-  grid-column: 2/3;
-  grid-row: 2/3;
+  grid-area: awayTeam;
 }
 
 .homeScore {
-  grid-column: 3/4;
-  grid-row: 1/2;
+  grid-area: homeScore;
 }
 
 .awayScore {
-  grid-column: 3/4;
-  grid-row: 2/3;
+  grid-area: awayScore;
 }
 
 /*end game results layout*/
