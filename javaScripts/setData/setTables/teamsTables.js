@@ -12,6 +12,7 @@ import {
   seasonCount,
   seasonCountLength,
   seasonsWithTieGames,
+  gifs,
 } from "../../../json/masterVars.js";
 import sortGroupedStats from "../../functions/sort.js";
 import { setTableListeners } from "../../functions/listeners.js";
@@ -24,6 +25,7 @@ import {
   setHeaderBanner,
 } from "../../functions/variousFunctions.js";
 import { getTeamsPlayersPerSeason } from "../../functions/teamPlayerList.js";
+import setGifs from "../../functions/setGifs.js";
 // END OF IMPORTS
 
 // SET FIELDS FOR TEAMS TABLES WITH TIE GAMES
@@ -271,7 +273,6 @@ export function getTeamsGameResults(e) {
   let draw = "D";
   let overtimeWin = "OTW";
   let overtimeLoss = "OTL";
-
   teamsGames =
     TeamStats.allTeamStats[team][
       "teamsSeason" + seasonNum + gameType + "Stats"
@@ -401,6 +402,16 @@ export function getTeamsGameResults(e) {
       gameResults += gameResultsBoxResult;
       gameResults += `</div>`;
       // end gameResult div
+      // this games highlight gifs div
+      gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameHighlights">`;
+      gameResults += `Game Highlights`;
+      gameResults += `</div>`;
+      // end hightlights gif div
+      // this games stats
+      gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameStats">`;
+      gameResults += `Stats`;
+      gameResults += `</div>`;
+      // end this games stats
 
       gameResults += `</div>`;
       gameResults += `</div>`;
@@ -419,6 +430,11 @@ export function getTeamsGameResults(e) {
   clearTablesDiv();
   let scores = document.getElementById("scoreboardDiv");
   scores.innerHTML = gameResults;
+  // highlight divs
+  let gameHighlightDivs = Array.from(
+    document.querySelectorAll("div[data-game-highlights]")
+  );
+  gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
 }
 
 // create TEAMS COLOR layout from button click within teams layout div
@@ -811,5 +827,4 @@ export function setPlayerS01Combined() {
 }
 // set home page table
 setHomeTable();
-
 // END TABLE CREATION

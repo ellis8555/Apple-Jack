@@ -15,7 +15,6 @@ import {
   setPlayerS01Playoff,
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
-
 import {
   openSidebar,
   closeSidebar,

@@ -65,7 +65,10 @@
   /* END TEAMS PAGE LAYOUT */
 
   /* classes for game results*/
-
+  #scoreboardDiv > img {
+    width: 90%;
+    height: 60%;
+  }
   .gameResults {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 1fr;
