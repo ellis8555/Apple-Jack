@@ -48,8 +48,16 @@ export default function setGamesData(e) {
   let thisGamesAwayTeamKicks = thisGamesResult[0].TeamTwoKicks;
   // end away team
 
-  let gameCategories = ["Score", "Possession", "SOG", "Passes", "Kicks"];
+  let gameCategories = [
+    "Team",
+    "Score",
+    "Possession",
+    "SOG",
+    "Passes",
+    "Kicks",
+  ];
   let thisGamesHomeTeamStats = [
+    thisGamesHomeTeam,
     thisGamesHomeTeamScore,
     thisGamesHomeTeamPossession,
     thisGamesHomeTeamShotsOnGoal,
@@ -57,6 +65,7 @@ export default function setGamesData(e) {
     thisGamesHomeTeamKicks,
   ];
   let thisGamesAwayTeamStats = [
+    thisGamesAwayTeam,
     thisGamesAwayTeamScore,
     thisGamesAwayTeamPossession,
     thisGamesAwayTeamShotsOnGoal,
