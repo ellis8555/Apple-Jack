@@ -1,4 +1,9 @@
-import { gameResults, gifs, teamsMAP } from "../../json/masterVars.js";
+import {
+  gameResults,
+  gifs,
+  teamsMAP,
+  eachTeamObjectMAP,
+} from "../../json/masterVars.js";
 import {
   clearScoreboardDiv,
   clearTablesDiv,

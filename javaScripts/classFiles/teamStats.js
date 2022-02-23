@@ -522,7 +522,7 @@ export class TeamStats {
           this[writeToMAP]
             .get(`season${seasonNumber}AwayGames`)
             .filter(
-              (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
+              (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
             )
         );
         // this seasons OT Losses
@@ -560,7 +560,7 @@ export class TeamStats {
           // season withOUT ties
           this[writeToMAP].set(
             "Points",
-            (this[writeToMAP].get("Wins") - this[writeToMAP].get("OTL")) * 3 +
+            (this[writeToMAP].get("Wins") - this[writeToMAP].get("OTW")) * 3 +
               this[writeToMAP].get("OTW") * 2 +
               this[writeToMAP].get("OTL")
           );
