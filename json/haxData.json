@@ -402,6 +402,32 @@
             "TeamTwoPossession": "53",
             "TeamTwoScore": "2",
             "ExtraTime": "Yes"
+        },
+        {
+            "GameID": "32",
+            "SeasonNumber": "2",
+            "GameTypeID": "1",
+            "Round": "0",
+            "TeamOne": "4",
+            "TeamOnePossession": "48",
+            "TeamOneScore": "5",
+            "TeamTwo": "6",
+            "TeamTwoPossession": "52",
+            "TeamTwoScore": "3",
+            "ExtraTime": "No"
+        },
+        {
+            "GameID": "33",
+            "SeasonNumber": "2",
+            "GameTypeID": "1",
+            "Round": "0",
+            "TeamOne": "6",
+            "TeamOnePossession": "50",
+            "TeamOneScore": "2",
+            "TeamTwo": "4",
+            "TeamTwoPossession": "50",
+            "TeamTwoScore": "5",
+            "ExtraTime": "No"
         }
     ],
     "GamePlayerStats": [
@@ -2450,6 +2476,138 @@
             "Passes": "22",
             "ShotsOnGoal": "3",
             "OwnGoals": "1"
+        },
+        {
+            "GameID": "32",
+            "TeamID": "6",
+            "PlayerID": "16",
+            "Goals": "3",
+            "Assists": "0",
+            "Kicks": "52",
+            "Passes": "8",
+            "ShotsOnGoal": "5",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "32",
+            "TeamID": "6",
+            "PlayerID": "11",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "67",
+            "Passes": "10",
+            "ShotsOnGoal": "3",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "32",
+            "TeamID": "6",
+            "PlayerID": "13",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "49",
+            "Passes": "11",
+            "ShotsOnGoal": "2",
+            "OwnGoals": "1"
+        },
+        {
+            "GameID": "32",
+            "TeamID": "4",
+            "PlayerID": "2",
+            "Goals": "1",
+            "Assists": "1",
+            "Kicks": "41",
+            "Passes": "11",
+            "ShotsOnGoal": "2",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "32",
+            "TeamID": "4",
+            "PlayerID": "1",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "49",
+            "Passes": "10",
+            "ShotsOnGoal": "5",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "32",
+            "TeamID": "4",
+            "PlayerID": "15",
+            "Goals": "2",
+            "Assists": "0",
+            "Kicks": "73",
+            "Passes": "13",
+            "ShotsOnGoal": "7",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "33",
+            "TeamID": "6",
+            "PlayerID": "16",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "0",
+            "Passes": "0",
+            "ShotsOnGoal": "0",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "33",
+            "TeamID": "6",
+            "PlayerID": "11",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "0",
+            "Passes": "0",
+            "ShotsOnGoal": "0",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "33",
+            "TeamID": "6",
+            "PlayerID": "13",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "0",
+            "Passes": "0",
+            "ShotsOnGoal": "0",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "33",
+            "TeamID": "4",
+            "PlayerID": "2",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "0",
+            "Passes": "0",
+            "ShotsOnGoal": "0",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "33",
+            "TeamID": "4",
+            "PlayerID": "1",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "0",
+            "Passes": "0",
+            "ShotsOnGoal": "0",
+            "OwnGoals": "0"
+        },
+        {
+            "GameID": "33",
+            "TeamID": "4",
+            "PlayerID": "15",
+            "Goals": "0",
+            "Assists": "0",
+            "Kicks": "0",
+            "Passes": "0",
+            "ShotsOnGoal": "0",
+            "OwnGoals": "0"
         }
     ],
     "Teams": [
