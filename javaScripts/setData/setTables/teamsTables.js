@@ -267,6 +267,7 @@ export function getTeamsGameResults(e) {
   let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
 
   let teamsGames;
+  let thisGamesGifs;
   let gameResults = "";
   let gameResultsBoxResult = "";
   let win = "W";
@@ -433,8 +434,11 @@ export function getTeamsGameResults(e) {
       gameResults += `</div>`;
       // end gameResult div
       // this games highlight gifs div
+      thisGamesGifs = gifs.filter(
+        (gifItem) => gifItem.GameID == teamsGames[i].GameID
+      );
       gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameHighlights">`;
-      gameResults += `Game Highlights`;
+      gameResults += `Game Highlights (${thisGamesGifs.length})`;
       gameResults += `</div>`;
       // end hightlights gif div
       // this games stats
