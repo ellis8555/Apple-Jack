@@ -90,7 +90,7 @@
     cursor: pointer;
     grid-area: gameStats;
     margin: 5px 0px;
-
+  }
   /* classes for team colors display */
 
   .teamColorsLayout {
