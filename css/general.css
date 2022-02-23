@@ -301,6 +301,66 @@ table td:first-child {
 
 /*end gifs page*/
 
+/* classes for boxscore page*/
+
+.boxscoreContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 30px);
+  grid-template-areas: "boxscoreHomeTeamLogo boxscoreHomeTeamStats boxscoreSeperator boxscoreAwayStats boxscoreAwayLogo";
+  grid-gap: 5px;
+  width: 75%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.boxscoreHomeTeamLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 87, 83);
+  color: white;
+  cursor: pointer;
+}
+
+.boxscoreHomeTeamStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 87, 83);
+  color: white;
+  cursor: pointer;
+}
+
+.boxscoreSeperator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 87, 83);
+  color: white;
+  cursor: pointer;
+}
+
+.boxscoreAwayStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 87, 83);
+  color: white;
+  cursor: pointer;
+}
+
+.boxscoreAwayLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 87, 83);
+  color: white;
+  cursor: pointer;
+}
+
+/* end boxscore page*/
+
 /* classes for team colors display */
 
 .teamColorsLayout {
