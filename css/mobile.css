@@ -97,35 +97,37 @@
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "teamColorsHeader"
+      "teamColorsHomeContent"
+      "teamColorsAwayContent";
     grid-gap: 5px;
     width: 90%;
     height: auto;
   }
 
   .teamColorsHeader {
-    grid-row: 1/2;
-    grid-column: 1/2;
     text-align: center;
+    grid-area: teamColorsHeader;
   }
 
   .teamColorsHomeContent {
     display: flex;
     justify-content: center;
-    grid-row: 2/3;
-    grid-column: 1/2;
+    grid-area: teamColorsHomeContent;
   }
 
   .teamColorsAwayContent {
     display: flex;
     justify-content: center;
-    grid-row: 3/4;
-    grid-column: 1/2;
+    grid-area: teamColorsAwayContent;
   }
 
   .redBlue {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: "red blue";
     grid-gap: 2px;
     width: 85%;
     height: auto;
@@ -135,12 +137,10 @@
   }
 
   .redBlue > .red {
-    grid-row: 1/2;
-    grid-column: 1/2;
+    grid-area: red;
   }
 
   .redBlue > .blue {
-    grid-row: 1/2;
-    grid-column: 2/3;
+    grid-area: blue;
   }
 }
