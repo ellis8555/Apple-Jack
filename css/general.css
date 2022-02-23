@@ -189,7 +189,7 @@ table td:first-child {
 .gameResults {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
     "homeTeamLogo homeTeam homeScore gameResultsBox"
     "awayTeamLogo awayTeam awayScore gameResultsBox"
