@@ -75,5 +75,21 @@
     width: 60%;
   }
 
+  .gameHighlights {
+    background-color: rgb(21, 87, 83);
+    color: white;
+    cursor: pointer;
+    grid-area: gameHighlights;
+    margin: 5px 0px;
+  }
+
+  .gameStats {
+    background-color: rgb(21, 87, 83);
+    color: white;
+    cursor: pointer;
+    grid-area: gameStats;
+    margin: 5px 0px;
+  }
+
   /* END TEAMS PAGE LAYOUT */
 }

@@ -81,7 +81,7 @@
     color: white;
     cursor: pointer;
     grid-area: gameHighlights;
-    margin-top: 5px;
+    margin: 5px 0px;
   }
 
   .gameStats {
@@ -89,8 +89,7 @@
     color: white;
     cursor: pointer;
     grid-area: gameStats;
-    margin-top: 5px;
-  }
+    margin: 5px 0px;
 
   /* classes for team colors display */
 
