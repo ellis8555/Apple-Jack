@@ -26,6 +26,7 @@ import {
 } from "../../functions/variousFunctions.js";
 import { getTeamsPlayersPerSeason } from "../../functions/teamPlayerList.js";
 import setGifs from "../../functions/setGifs.js";
+import setGamesData from "../../functions/singleGameStats.js";
 // END OF IMPORTS
 
 // SET FIELDS FOR TEAMS TABLES WITH TIE GAMES
@@ -408,7 +409,7 @@ export function getTeamsGameResults(e) {
       gameResults += `</div>`;
       // end hightlights gif div
       // this games stats
-      gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameStats">`;
+      gameResults += `<div data-game-stats data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameStats">`;
       gameResults += `Stats`;
       gameResults += `</div>`;
       // end this games stats
@@ -435,6 +436,15 @@ export function getTeamsGameResults(e) {
     document.querySelectorAll("div[data-game-highlights]")
   );
   gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
+  //end highlights div
+  // single games result div
+  let gameResultsDataDiv = Array.from(
+    document.querySelectorAll("div[data-game-stats]")
+  );
+  gameResultsDataDiv.forEach((item) =>
+    item.addEventListener("click", setGamesData)
+  );
+  //end single games results div
 }
 
 // create TEAMS COLOR layout from button click within teams layout div
