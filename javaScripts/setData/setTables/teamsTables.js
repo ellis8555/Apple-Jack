@@ -272,8 +272,8 @@ export function getTeamsGameResults(e) {
   let win = "W";
   let loss = "L";
   let draw = "D";
-  let overtimeWin = "OTW";
-  let overtimeLoss = "OTL";
+  let overTimeWin = "OTW";
+  let overTimeLoss = "OTL";
   teamsGames =
     TeamStats.allTeamStats[team][
       "teamsSeason" + seasonNum + gameType + "Stats"
@@ -369,15 +369,28 @@ export function getTeamsGameResults(e) {
       // gameResult div
       if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
         if (
-          +`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}`
+          +`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}` &&
+          `${teamsGames[i].ExtraTime}` == "No"
         ) {
           gameResults += `<div class="gameResultsBox w3-green">`;
           gameResultsBoxResult = win;
+        } else if (
+          +`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}` &&
+          `${teamsGames[i].ExtraTime}` == "Yes"
+        ) {
+          gameResults += `<div class="gameResultsBox w3-blue">`;
+          gameResultsBoxResult = overTimeWin;
         } else if (
           +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
         ) {
           gameResults += `<div class="gameResultsBox w3-grey">`;
           gameResultsBoxResult = draw;
+        } else if (
+          +`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}` &&
+          `${teamsGames[i].ExtraTime}` == "Yes"
+        ) {
+          gameResults += `<div class="gameResultsBox w3-grey">`;
+          gameResultsBoxResult = overTimeLoss;
         } else {
           gameResults += `<div class="gameResultsBox w3-red">`;
           gameResultsBoxResult = loss;
@@ -385,15 +398,31 @@ export function getTeamsGameResults(e) {
       } else {
         if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
           if (
-            +`${teamsGames[i].TeamTwoScore}` > +`${teamsGames[i].TeamOneScore}`
+            +`${teamsGames[i].TeamTwoScore}` >
+              +`${teamsGames[i].TeamOneScore}` &&
+            `${teamsGames[i].ExtraTime}` == "No"
           ) {
             gameResults += `<div class="gameResultsBox w3-green">`;
             gameResultsBoxResult = win;
+          } else if (
+            +`${teamsGames[i].TeamTwoScore}` >
+              +`${teamsGames[i].TeamOneScore}` &&
+            `${teamsGames[i].ExtraTime}` == "Yes"
+          ) {
+            gameResults += `<div class="gameResultsBox w3-blue">`;
+            gameResultsBoxResult = overTimeWin;
           } else if (
             +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
           ) {
             gameResults += `<div class="gameResultsBox w3-grey">`;
             gameResultsBoxResult = draw;
+          } else if (
+            +`${teamsGames[i].TeamTwoScore}` <
+              +`${teamsGames[i].TeamOneScore}` &&
+            `${teamsGames[i].ExtraTime}` == "Yes"
+          ) {
+            gameResults += `<div class="gameResultsBox w3-grey">`;
+            gameResultsBoxResult = overTimeLoss;
           } else {
             gameResults += `<div class="gameResultsBox w3-red">`;
             gameResultsBoxResult = loss;
