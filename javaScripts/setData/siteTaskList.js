@@ -14,14 +14,10 @@ export function displayTaskList() {
  
     <h3>List of site improvements</h3> 
     <h3>In no particular order..</h3>
-    <p>Add statistics for each game</p>
-    <p>Gifs!</p>
+    <p>Add statistics for each game.</p>
+    <p>League records. ex. Most goals scored in a game etc...</p>
     <p>Sidebar improvement</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
-    <p>
-      Have beside a particular game result a "replay" button that if possible
-      links to a haxball site that loads replays for recorded games.
-    </p>
     <p>Develop a particular players own stats page</p>
     <p>
       Have particular highlights associated with a player on that players own
