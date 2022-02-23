@@ -10,13 +10,13 @@ export default function setGamesData(e) {
   clearTablesDiv();
   getScoreboardDiv();
   let displayGameData = "";
-  let gameNumber = e.target.dataset.gameId;
-  let thisGamesResult = gameResults.filter((item) => item.GameID == gameNumber);
-  let thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
-  let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
-  let thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
-  let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
-  let thisGamesHighlights = gifs.filter((item) => item.GameID == gameNumber);
+  // let gameNumber = e.target.dataset.gameId;
+  // let thisGamesResult = gameResults.filter((item) => item.GameID == gameNumber);
+  // let thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
+  // let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
+  // let thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
+  // let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
+  // let thisGamesHighlights = gifs.filter((item) => item.GameID == gameNumber);
   //   if (thisGamesHighlights.length > 0) {
   // displayGameData = `<h3>${thisGamesHomeTeam} ${thisGamesHomeTeamScore}</h3>
   // vs
