@@ -17,7 +17,6 @@ export let {
   GamePlayerStats: gamePlayerStats,
   Gifs: gifs,
 } = haxBallData;
-console.log(gifs);
 //**** MISC ****//
 let currentSeason = Math.max(
   ...Array.from(new Set(teamPlayers.map((item) => +item.SeasonNumber)))
