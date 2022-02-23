@@ -409,7 +409,7 @@ export function getTeamsGameResults(e) {
       gameResults += `</div>`;
       // end hightlights gif div
       // this games stats
-      gameResults += `<div data-game-stats data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameStats">`;
+      gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameStats">`;
       gameResults += `Stats`;
       gameResults += `</div>`;
       // end this games stats
