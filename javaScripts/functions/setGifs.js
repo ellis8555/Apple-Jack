@@ -32,7 +32,6 @@ export default function setGifs(e) {
     eachTeamObjectMAP.get(thisGamesAwayTeam)[
       `S0${thisGifsSeasonNum}HomeFilePath`
     ];
-  console.log(thisGamesAwayTeamLogo);
   let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
   let thisGamesHighlights = gifs.filter((item) => item.GameID == gameNumber);
   if (thisGamesHighlights.length > 0) {
@@ -57,6 +56,7 @@ export default function setGifs(e) {
     displayGifsHeader += `</div>`;
     //end of gifs page title
     thisGamesHighlights.forEach((item) => {
+      displayGifs += `<h4>${item.Comment}</h4>`;
       displayGifs += `<img src="${item.Filepath}">`;
       tablesDiv.innerHTML = displayGifsHeader;
       scoreboardDiv.innerHTML = displayGifs;
