@@ -72,6 +72,7 @@ for (let i = 1; i <= seasonCountLength; i++) {
     )
   );
 }
+console.log(eachTeamObjectMAP);
 // maps teams main color with ID number
 let teamsColorMAP = new Map();
 for (let i = 0; i < teamsMAP.size; i++) {
