@@ -274,8 +274,10 @@ table td:first-child {
 .gifsHeaderContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 40px;
   align-items: center;
   grid-template-areas: "gifsHomeTeam gifsHomeTeamScore gifsVsHeader gifsAwayTeamScore gifsAwayTeam";
+  overflow: hidden;
 }
 
 .gifsHomeTeam {

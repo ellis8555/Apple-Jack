@@ -91,6 +91,11 @@
     grid-area: gameStats;
     margin: 5px 0px;
   }
+  /* gifs page */
+  .gifsHeaderContainer {
+    grid-template-rows: 30px;
+  }
+  /*end gifs page*/
   /* classes for team colors display */
 
   .teamColorsLayout {
