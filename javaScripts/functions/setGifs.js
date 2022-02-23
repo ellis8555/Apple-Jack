@@ -8,12 +8,15 @@ import {
   clearScoreboardDiv,
   clearTablesDiv,
   getScoreboardDiv,
+  getTablesDiv,
 } from "./variousFunctions.js";
 
 export default function setGifs(e) {
   clearScoreboardDiv();
   clearTablesDiv();
+  getTablesDiv();
   getScoreboardDiv();
+  let displayGifsHeader = "";
   let displayGifs = "";
   let gameNumber = e.target.dataset.gameId;
   let thisGamesResult = gameResults.filter((item) => item.GameID == gameNumber);
@@ -33,11 +36,29 @@ export default function setGifs(e) {
   let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
   let thisGamesHighlights = gifs.filter((item) => item.GameID == gameNumber);
   if (thisGamesHighlights.length > 0) {
-    displayGifs = `<h3>${thisGamesHomeTeam} ${thisGamesHomeTeamScore}</h3>
-    vs 
-    <h3>${thisGamesAwayTeam} ${thisGamesAwayTeamScore}</h3>`;
+    // begin title for gifs page
+    displayGifsHeader = `<div class="gifsHeaderContainer">`;
+    displayGifsHeader += `<div class="gifsHomeTeam">`;
+    displayGifsHeader += `<img src="${thisGamesHomeTeamLogo}">`;
+    displayGifsHeader += `</div>`;
+    displayGifsHeader += `<div class="gifsHomeTeamScore">`;
+    displayGifsHeader += thisGamesHomeTeamScore;
+    displayGifsHeader += `</div>`;
+    displayGifsHeader += `<div class="gifsVsHeader">`;
+    displayGifsHeader += ` vs `;
+    displayGifsHeader += `</div>`;
+    displayGifsHeader += `<div class="gifsAwayTeam">`;
+    displayGifsHeader += `<img src="${thisGamesAwayTeamLogo}">`;
+    displayGifsHeader += `</div>`;
+    displayGifsHeader += `<div class="gifsAwayTeamScore">`;
+    displayGifsHeader += thisGamesAwayTeamScore;
+    displayGifsHeader += `</div>`;
+    //end div for header container
+    displayGifsHeader += `</div>`;
+    //end of gifs page title
     thisGamesHighlights.forEach((item) => {
       displayGifs += `<img src="${item.Filepath}">`;
+      tablesDiv.innerHTML = displayGifsHeader;
       scoreboardDiv.innerHTML = displayGifs;
     });
   } else {

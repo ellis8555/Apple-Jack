@@ -245,6 +245,35 @@ table td:first-child {
 
 /*end game results layout*/
 
+/* gifs page */
+.gifsHeaderContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  grid-template-areas: "gifsHomeTeam gifsHomeTeamScore gifsVsHeader gifsAwayTeamScore gifsAwayTeam";
+}
+
+.gifsHomeTeam {
+  grid-area: gifsHomeTeam;
+}
+.gifsHomeTeamScore {
+  grid-area: gifsHomeTeamScore;
+  font-size: 2em;
+}
+.gifsVsHeader {
+  grid-area: gifsVsHeader;
+  font-size: 1.5em;
+}
+.gifsAwayTeamScore {
+  grid-area: gifsAwayTeamScore;
+  font-size: 2em;
+}
+.gifsAwayTeam {
+  grid-area: gifsAwayTeam;
+}
+
+/*end gifs page*/
+
 /* classes for team colors display */
 
 .teamColorsLayout {
