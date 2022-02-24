@@ -184,7 +184,8 @@ table td:first-child {
 
 #scoreboardDiv > img {
   width: min(60%, 700px);
-  height: 40%;
+  max-height: 450px;
+  object-fit: scale-down;
 }
 
 .gameResults {
