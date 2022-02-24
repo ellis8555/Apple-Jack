@@ -181,8 +181,9 @@ table td:first-child {
 /*end teams page layout*/
 
 /* classes for game results display */
+
 #scoreboardDiv > img {
-  width: 60%;
+  width: min(60%, 700px);
   height: 40%;
 }
 
