@@ -3097,6 +3097,12 @@
     "Gifs": [
         {
             "GameID": "28",
+            "OwnGoal": "16",
+            "Comment": "Pressure in the corner.",
+            "Filepath": "img/gifs/S02/S02-ID28-03.gif"
+        },
+        {
+            "GameID": "28",
             "ScoredBy": "16",
             "AssistedBy": "11",
             "Comment": "Nice team play ending with a beautiful goal by Lupz27!",
@@ -3107,6 +3113,18 @@
             "ScoredBy": "1",
             "Comment": "Nice goal to win the game in overtime by Angryjay93!",
             "Filepath": "img/gifs/S02/S02-ID29-01.gif"
+        },
+        {
+            "GameID": "28",
+            "ScoredBy": "11",
+            "Comment": "Bounces don't go Ces Pool's way capped off by Mooney.",
+            "Filepath": "img/gifs/S02/S02-ID28-02.gif"
+        },
+        {
+            "GameID": "28",
+            "ScoredBy": "16",
+            "Comment": "Corbettk feeling the power in Lupz27's kick!",
+            "Filepath": "img/gifs/S02/S02-ID28-04.gif"
         }
     ]
 }
