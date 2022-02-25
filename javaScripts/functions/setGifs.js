@@ -56,7 +56,7 @@ export default function setGifs(e) {
     displayGifsHeader += `</div>`;
     //end of gifs page title
     thisGamesHighlights.forEach((item) => {
-      displayGifs += `<h4>${item.Comment}</h4>`;
+      displayGifs += `<h5>${item.Comment}</h5>`;
       displayGifs += `<img src="${item.Filepath}">`;
       tablesDiv.innerHTML = displayGifsHeader;
       scoreboardDiv.innerHTML = displayGifs;

@@ -280,6 +280,8 @@ table td:first-child {
   align-items: center;
   grid-template-areas: "gifsHomeTeam gifsHomeTeamScore gifsVsHeader gifsAwayTeamScore gifsAwayTeam";
   overflow: hidden;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .gifsHomeTeam {
