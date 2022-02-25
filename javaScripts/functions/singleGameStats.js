@@ -73,6 +73,17 @@ export default function setGamesData(e) {
     thisGamesAwayTeamKicks,
   ];
   // boxscore div container
+  // team logos
+
+  displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
+  displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
+  displayTeamLogos += `<img src="${thisGamesHomeTeamLogo}">`;
+  displayTeamLogos += `</div>`;
+  displayTeamLogos += `<div class="w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreAwayTeamLogo">`;
+  displayTeamLogos += `<img src="${thisGamesAwayTeamLogo}">`;
+  displayTeamLogos += `</div>`;
+  displayTeamLogos += `</div>`;
+
   displayGameData += `<div class="boxscoreContainer">`;
   // begin data containers
 
@@ -94,15 +105,6 @@ export default function setGamesData(e) {
   //end data containers
   // end boxscore container div
   displayGameData += `</div>`;
-  // team logos
-  displayTeamLogos += `<div class="boxscoreTeamLogosContainer">`;
-  displayTeamLogos += `<div class="boxscoreHomeTeamLogo">`;
-  displayTeamLogos += `<img src="${thisGamesHomeTeamLogo}">`;
-  displayTeamLogos += `</div>`;
-  displayTeamLogos += `<div class="boxscoreAwayTeamLogo">`;
-  displayTeamLogos += `<img src="${thisGamesAwayTeamLogo}">`;
-  displayTeamLogos += `</div>`;
-  displayTeamLogos += `</div>`;
 
   tablesDiv.innerHTML = displayTeamLogos;
   scoreboardDiv.innerHTML = displayGameData;

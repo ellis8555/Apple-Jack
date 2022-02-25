@@ -309,8 +309,9 @@ table td:first-child {
 /* boxscore header (team logos) */
 .boxscoreTeamLogosContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  width: 75%;
 }
 
 .boxscoreHomeTeamLogo {

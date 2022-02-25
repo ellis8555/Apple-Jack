@@ -98,6 +98,13 @@
   /*end gifs page*/
 
   /* boxscore page */
+  .boxscoreTeamLogosContainer {
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+    width: 90%;
+  }
+
   .boxscoreContainer {
     width: 100%;
     margin: auto;
