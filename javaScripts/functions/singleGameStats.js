@@ -75,9 +75,7 @@ export default function setGamesData(e) {
   // boxscore div container
   displayGameData += `<div class="boxscoreContainer">`;
   // begin data containers
-  // displayGameData += `<div class="boxscoreHomeTeamLogo">`;
-  // displayGameData += `<img src="${thisGamesHomeTeamLogo}">`;
-  // displayGameData += `</div>`;
+
   for (let i = 0; i < gameCategories.length; i++) {
     displayGameData += `<div class="boxscoreHomeStats">`;
     displayGameData += `${thisGamesHomeTeamStats[i]}`;
@@ -93,9 +91,6 @@ export default function setGamesData(e) {
     displayGameData += `</div>`;
   }
 
-  // displayGameData += `<div class="boxscoreAwayLogo">`;
-  // displayGameData += `<img src="${thisGamesAwayTeamLogo}">`;
-  // displayGameData += `</div>`;
   //end data containers
   // end boxscore container div
   displayGameData += `</div>`;
