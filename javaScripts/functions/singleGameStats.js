@@ -25,6 +25,9 @@ export default function setGamesData(e) {
   let thisGamesResult = gameResults.filter((item) => item.GameID == gameNumber);
   // begin home team
   let thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
+  let thisGamesHomeTeamColor = `#${
+    eachTeamObjectMAP.get(thisGamesHomeTeam).MainColor
+  }`;
   let thisGamesHomeTeamLogo =
     eachTeamObjectMAP.get(thisGamesHomeTeam)[
       `S0${thisSeasonNumber}HomeFilePath`
@@ -37,6 +40,9 @@ export default function setGamesData(e) {
   // end home team
   // begin away team
   let thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
+  let thisGamesAwayTeamColor = `#${
+    eachTeamObjectMAP.get(thisGamesAwayTeam).MainColor
+  }`;
   let thisGamesAwayTeamLogo =
     eachTeamObjectMAP.get(thisGamesAwayTeam)[
       `S0${thisSeasonNumber}HomeFilePath`
@@ -88,8 +94,13 @@ export default function setGamesData(e) {
 
   for (let i = 0; i < gameCategories.length; i++) {
     displayGameData += `<div class="boxscoreContainer w3-center">`;
-
-    displayGameData += `<div class="boxscoreHomeStats">`;
+    // set first rows home teams cell to teams main color
+    if (i == 0) {
+      displayGameData += `<div class="boxscoreHomeStats" style="background-color:${thisGamesHomeTeamColor}">`;
+    } else {
+      displayGameData += `<div class="boxscoreHomeStats">`;
+    }
+    // onto next rows
     displayGameData += `${thisGamesHomeTeamStats[i]}`;
     displayGameData += `</div>`;
 
@@ -98,7 +109,13 @@ export default function setGamesData(e) {
 
     displayGameData += `</div>`;
 
-    displayGameData += `<div class="boxscoreAwayStats">`;
+    // set first rows home teams cell to teams main color
+    if (i == 0) {
+      displayGameData += `<div class="boxscoreAwayStats" style="background-color:${thisGamesAwayTeamColor}">`;
+    } else {
+      displayGameData += `<div class="boxscoreAwayStats">`;
+    }
+    // onto next rows
     displayGameData += `${thisGamesAwayTeamStats[i]}`;
     displayGameData += `</div>`;
     // end boxscore container div
