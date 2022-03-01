@@ -13,16 +13,15 @@ export function displayTaskList() {
   <p><b>***</b> Team pages player stats are NOT sortable at this point <b>***</b></p>
  
     <h3>List of site improvements</h3> 
-    <h3>In no particular order..</h3>
-    <p>Add statistics for each game.</p>
+    <h4>In no particular order..</h4>
+    <p>Develop a particular players own stats page</p>
+    <p>
+    Have particular highlights associated with a player on that players own
+    page. Gifs of that players goals on there own page.
+  </p>
     <p>League records. ex. Most goals scored in a game etc...</p>
     <p>Sidebar improvement</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
-    <p>Develop a particular players own stats page</p>
-    <p>
-      Have particular highlights associated with a player on that players own
-      page. Gifs of that players goals on there own page.
-    </p>
     <p>Logging game stats via the site.</p>
     <h3>Message</h3>  
   
