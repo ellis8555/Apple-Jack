@@ -295,7 +295,7 @@ export function getTeamsGameResults(e) {
       // homeTeam logo
       gameResults += `<div class="homeTeamLogo w3-card w3-blue">`;
       if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-        gameResults += `<img src=${teamImage} style="width:25px;height:25px;">`;
+        gameResults += `<img src=${teamImage} style="width:85%;height:85%;">`;
       } else {
         let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
         let otherTeamsObject = teams.filter(
@@ -303,7 +303,7 @@ export function getTeamsGameResults(e) {
         );
         let otherTeamsLogo =
           eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-        gameResults += `<img src=${otherTeamsLogo} style="width:25px;height:25px;">`;
+        gameResults += `<img src=${otherTeamsLogo} style="width:85%;height:85%;">`;
       }
       gameResults += `</div>`;
       // homeTeam name
@@ -349,7 +349,7 @@ export function getTeamsGameResults(e) {
       // awayTeam logo
       gameResults += `<div class="awayTeamLogo w3-card w3-blue">`;
       if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-        gameResults += `<img src=${teamImage} style="width:25px;height:25px;">`;
+        gameResults += `<img src=${teamImage} style="width:85%;height:85%;">`;
       } else {
         let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
         let otherTeamsObject = teams.filter(
@@ -357,7 +357,7 @@ export function getTeamsGameResults(e) {
         );
         let otherTeamsLogo =
           eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-        gameResults += `<img src=${otherTeamsLogo} style="width:25px;height:25px;">`;
+        gameResults += `<img src=${otherTeamsLogo} style="width:85%;height:85%;">`;
       }
       gameResults += `</div>`;
       // awayTeam score
