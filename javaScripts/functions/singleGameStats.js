@@ -84,10 +84,11 @@ export default function setGamesData(e) {
   displayTeamLogos += `</div>`;
   displayTeamLogos += `</div>`;
 
-  displayGameData += `<div class="boxscoreContainer">`;
   // begin data containers
 
   for (let i = 0; i < gameCategories.length; i++) {
+    displayGameData += `<div class="boxscoreContainer w3-center">`;
+
     displayGameData += `<div class="boxscoreHomeStats">`;
     displayGameData += `${thisGamesHomeTeamStats[i]}`;
     displayGameData += `</div>`;
@@ -100,11 +101,11 @@ export default function setGamesData(e) {
     displayGameData += `<div class="boxscoreAwayStats">`;
     displayGameData += `${thisGamesAwayTeamStats[i]}`;
     displayGameData += `</div>`;
+    // end boxscore container div
+    displayGameData += `</div>`;
   }
 
   //end data containers
-  // end boxscore container div
-  displayGameData += `</div>`;
 
   tablesDiv.innerHTML = displayTeamLogos;
   scoreboardDiv.innerHTML = displayGameData;

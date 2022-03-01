@@ -1,3 +1,9 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #2196f3;
 }
@@ -306,6 +312,7 @@ table td:first-child {
 /*end gifs page*/
 
 /* classes for boxscore page*/
+
 /* boxscore header (team logos) */
 .boxscoreTeamLogosContainer {
   display: flex;
@@ -326,46 +333,23 @@ table td:first-child {
   align-items: center;
 }
 /* end boxscore header */
+
 /*  boxscore stats */
 .boxscoreContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 75%;
   margin: auto;
-  margin-top: 25px;
-  margin-bottom: 50px;
 }
 
-.boxscoreContainer > div {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(21, 87, 83);
-  width: 33%;
-}
-
-.boxscoreHomeStats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-  float: left;
-}
-
-.boxscoreSeperator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-}
-
+.boxscoreHomeStats,
+.boxscoreSeperator,
 .boxscoreAwayStats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgb(21, 87, 83);
   color: white;
-  cursor: pointer;
-  float: right;
+  width: 33%;
+  margin: 1px;
 }
 
 /* end boxscore page*/
