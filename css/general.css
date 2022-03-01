@@ -1,3 +1,9 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #2196f3;
 }
@@ -331,21 +337,19 @@ table td:first-child {
 /*  boxscore stats */
 .boxscoreContainer {
   display: flex;
-
+  justify-content: center;
   align-items: center;
-  align-content: space-between;
   width: 75%;
   margin: auto;
-  margin-top: 25px;
-  margin-bottom: 50px;
 }
 
 .boxscoreHomeStats,
 .boxscoreSeperator,
 .boxscoreAwayStats {
-  text-align: center;
+  background-color: rgb(21, 87, 83);
   color: white;
-  cursor: pointer;
+  width: 33%;
+  margin: 1px;
 }
 
 /* end boxscore page*/

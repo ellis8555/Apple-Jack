@@ -87,7 +87,7 @@ export default function setGamesData(e) {
   // begin data containers
 
   for (let i = 0; i < gameCategories.length; i++) {
-    displayGameData += `<div class="boxscoreContainer">`;
+    displayGameData += `<div class="boxscoreContainer w3-center">`;
 
     displayGameData += `<div class="boxscoreHomeStats">`;
     displayGameData += `${thisGamesHomeTeamStats[i]}`;
