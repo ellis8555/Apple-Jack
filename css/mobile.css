@@ -34,10 +34,11 @@
     background-color: #f1f1f1;
   }
 
+  /*
   table tr td:first-child {
     background-color: hsl(12, 62%, 67%);
   }
-
+*/
   table td:last-child {
     border-bottom: 0;
   }

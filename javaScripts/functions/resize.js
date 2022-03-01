@@ -1,4 +1,5 @@
 import { sortTable } from "../setData/setTables/teamsTables.js";
+import setTeamsTableBgColor from "./teamTableBgColor.js";
 
 export default function screenResize() {
   // insert fetch data function onto <TD> elements in mobile view
@@ -9,6 +10,7 @@ export default function screenResize() {
     mobileTableData.forEach((item) =>
       item.addEventListener("click", sortTable)
     );
+    setTeamsTableBgColor();
   } else {
     regularScreen.forEach((item) => item.addEventListener("click", sortTable));
   }

@@ -1,6 +1,7 @@
 import { TeamStats } from "../createTeams.js";
 import { IndividualPlayerStats } from "../createPlayers.js";
 import setMainNavbar from "../../functions/mainNavbar.js";
+import setTeamsTableBgColor from "../../functions/teamTableBgColor.js";
 import {
   teams,
   teamsMAP,
@@ -202,7 +203,7 @@ export function createTable(
   sortGroupedStats(dataSource, sortBy);
   let tableHeaders = fieldsArray[0];
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-  let browserWidth = window.innerWidth;
+
   let playerStats = "";
   // html table begin
   playerStats = "<table>";
@@ -247,12 +248,16 @@ export function createTable(
 
   // html table ends
   playerStats += "</table>";
+
   closeSidebar();
   clearScoreboardDiv();
 
   // display table on web page
   getTablesDiv(); // import function
   tablesDiv.innerHTML = playerStats;
+
+  // function to change background-color on team row viewed on smaller screens
+  setTeamsTableBgColor();
 }
 // END overall table leaders
 
