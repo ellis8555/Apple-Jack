@@ -197,7 +197,7 @@ table td:first-child {
 .gameResults {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 50px);
   grid-template-areas:
     "homeTeamLogo homeTeam homeScore gameResultsBox"
     "awayTeamLogo awayTeam awayScore gameResultsBox"
@@ -206,60 +206,51 @@ table td:first-child {
   width: 50%;
 }
 
-.homeTeamLogo {
+.homeTeamLogo,
+.homeTeam,
+.awayTeamLogo,
+.awayTeam,
+.homeScore,
+.awayScore,
+.gameResultsBox,
+.gameHighlights,
+.gameStats {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.homeTeamLogo {
+  background-color: rgb(102, 121, 206);
   grid-area: homeTeamLogo;
 }
 
 .homeTeam {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: homeTeam;
 }
 
 .awayTeamLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(102, 121, 206);
   grid-area: awayTeamLogo;
 }
 
 .awayTeam {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: awayTeam;
 }
 
 .homeScore {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: homeScore;
 }
 
 .awayScore {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: awayScore;
 }
 
 .gameResultsBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: gameResultsBox;
 }
 
 .gameHighlights {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(21, 87, 83);
   color: white;
   cursor: pointer;
@@ -267,9 +258,6 @@ table td:first-child {
 }
 
 .gameStats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(21, 87, 83);
   color: white;
   cursor: pointer;
