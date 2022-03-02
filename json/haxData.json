@@ -690,7 +690,7 @@
             "Round": "0",
             "GameTypeID": "1",
             "TeamOne": "4",
-            "TeamOneScore": "4",
+            "TeamOneScore": "3",
             "TeamOnePossession": "53",
             "TeamOneShotsOnGoal": "9",
             "TeamOnePasses": "38",
@@ -3123,7 +3123,7 @@
             "GameID": "37",
             "TeamID": "4",
             "PlayerID": "2",
-            "Goals": "2",
+            "Goals": "1",
             "Assists": "1",
             "Kicks": "49",
             "Passes": "11",
@@ -3656,7 +3656,7 @@
         {
             "GameID": "1",
             "ScoredBy": "12",
-            "Comment": "Skills working in the corner and picks the far corner",
+            "Comment": "Skills 1 on 3….not a problem!",
             "Filepath": "img/gifs/S01/S01-ID01-11.gif"
         },
         {
@@ -3984,6 +3984,211 @@
             "AssistedBy": "2",
             "Comment": "Hull and Oates..nah its Tick and Chaos again!",
             "Filepath": "img/gifs/S02/S02-ID33-05.gif"
+        },
+        {
+            "GameID": "34",
+            "ScoredBy": "2",
+            "Comment": "Sharp angle shot by Chaos from yeah you know who! Tickenest!",
+            "Filepath": "img/gifs/S02/S02-ID34-01.gif"
+        },
+        {
+            "GameID": "34",
+            "ScoredBy": "1",
+            "AssistedBy": "2",
+            "Comment": "Angryjay93 collecting some Chaos starting from an errant back pass from Ellis!",
+            "Filepath": "img/gifs/S02/S02-ID34-02.gif"
+        },
+        {
+            "GameID": "34",
+            "ScoredBy": "6",
+            "AssistedBy": "12",
+            "Comment": "Skills selflessly elects to make this a highlight real goal!",
+            "Filepath": "img/gifs/S02/S02-ID34-03.gif"
+        },
+        {
+            "GameID": "34",
+            "ScoredBy": "2",
+            "AssistedBy": "1",
+            "Comment": "If only 2 assists were a thing in haxball! Team play at it's peak!",
+            "Filepath": "img/gifs/S02/S02-ID34-04.gif"
+        },
+        {
+            "GameID": "35",
+            "ScoredBy": "1",
+            "Comment": "Master class on positioning by Angryjay93! ",
+            "Filepath": "img/gifs/S02/S02-ID35-01.gif"
+        },
+        {
+            "GameID": "35",
+            "ScoredBy": "2",
+            "Comment": "A series of unfortunate events for Haxel Rose! Chaos doesn't mind at all",
+            "Filepath": "img/gifs/S02/S02-ID35-02.gif"
+        },
+        {
+            "GameID": "35",
+            "ScoredBy": "15",
+            "AssistedBy": "1",
+            "Comment": "Don't argue with the analyzer! Tick threads a needle for a perplexed Angryjay93 at how easy this game is!",
+            "Filepath": "img/gifs/S02/S02-ID35-03.gif"
+        },
+        {
+            "GameID": "35",
+            "ScoredBy": "2",
+            "Comment": "This is fucking \"Chaotic\"!",
+            "Filepath": "img/gifs/S02/S02-ID35-04.gif"
+        },
+        {
+            "GameID": "36",
+            "ScoredBy": "11",
+            "Comment": "Mooney decides to take things into his own hands! Not team Mooney either, the player!!",
+            "Filepath": "img/gifs/S02/S02-ID36-01.gif"
+        },
+        {
+            "GameID": "36",
+            "ScoredBy": "15",
+            "Comment": "Tickenest with the sharp angle cap",
+            "Filepath": "img/gifs/S02/S02-ID36-02.gif"
+        },
+        {
+            "GameID": "36",
+            "ScoredBy": "16",
+            "Comment": "One name, Lupz",
+            "Filepath": "img/gifs/S02/S02-ID36-03.gif"
+        },
+        {
+            "GameID": "36",
+            "ScoredBy": "16",
+            "Comment": "Lupz and hax == Tick and Chaos….GGOOOAAAALLLLL",
+            "Filepath": "img/gifs/S02/S02-ID36-04.gif"
+        },
+        {
+            "GameID": "36",
+            "ScoredBy": "11",
+            "AssistedBy": "16",
+            "Comment": "Mooney caps one on a goal best described as persistence by Haxel Rose!",
+            "Filepath": "img/gifs/S02/S02-ID36-05.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "2",
+            "Comment": "Nice pass from Angryjay93 to setup Chaos to dump it in for CES Pool to cap one off for Mooney!",
+            "Filepath": "img/gifs/S02/S02-ID37-01.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "3",
+            "AssistedBy": "12",
+            "Comment": "Corbettkb with a BLAST from skills out of the corner",
+            "Filepath": "img/gifs/S02/S02-ID37-02.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "1",
+            "Comment": "Angryjay93 leaving no room for the clearance resulting in a goal",
+            "Filepath": "img/gifs/S02/S02-ID37-03.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "3",
+            "Comment": "This ones all Corbettkb",
+            "Filepath": "img/gifs/S02/S02-ID37-04.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "1",
+            "Comment": "Another team effort capped by Angryjay93",
+            "Filepath": "img/gifs/S02/S02-ID37-05.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "2",
+            "Comment": "Patience Chaos…more goals that count will come your way. Times up bud!",
+            "Filepath": "img/gifs/S02/S02-ID37-06.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "11",
+            "AssistedBy": "13",
+            "Comment": "Mooney with the interception and set up to Hardcore Will for the hardcore corner shot!",
+            "Filepath": "img/gifs/S02/S02-ID38-01.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "12",
+            "Comment": "Why crease cut when you can just send it into the crease?",
+            "Filepath": "img/gifs/S02/S02-ID38-02.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "12",
+            "AssistedBy": "6",
+            "Comment": "CES Pool teaming up as one big pile of beautiful goal by Skills324",
+            "Filepath": "img/gifs/S02/S02-ID38-03.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "16",
+            "Comment": "A howitzer of a shot by Tennessee Williams collected up by rookie sensation Lupz27",
+            "Filepath": "img/gifs/S02/S02-ID38-04.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "3",
+            "Comment": "Only Corbettkb picks this shot!",
+            "Filepath": "img/gifs/S02/S02-ID38-05.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "16",
+            "AssistedBy": "11",
+            "Comment": "Lupz27 finds the keyhole after a nice pass from Mooney",
+            "Filepath": "img/gifs/S02/S02-ID38-06.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "3",
+            "AssistedBy": "12",
+            "Comment": "Corbettkb performing some Texan ritual before the draw allowing Skills324 to work his passing magic",
+            "Filepath": "img/gifs/S02/S02-ID38-07.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "3",
+            "AssistedBy": "6",
+            "Comment": "Score clock needed on this goal from Corbettkb just for kicks",
+            "Filepath": "img/gifs/S02/S02-ID38-08.gif"
+        },
+        {
+            "GameID": "39",
+            "ScoredBy": "3",
+            "Comment": "Corbettkb putting on the ritz",
+            "Filepath": "img/gifs/S02/S02-ID39-01.gif"
+        },
+        {
+            "GameID": "39",
+            "ScoredBy": "16",
+            "AssistedBy": "13",
+            "Comment": "If you are in the Vancouver region then Lupz27 and Tennessee Williams acting like the Sedin twins on this one!",
+            "Filepath": "img/gifs/S02/S02-ID39-02.gif"
+        },
+        {
+            "GameID": "39",
+            "ScoredBy": "6",
+            "AssistedBy": "3",
+            "Comment": "Ellis capping a forward ball courtesy of Corbettkb",
+            "Filepath": "img/gifs/S02/S02-ID39-03.gif"
+        },
+        {
+            "GameID": "39",
+            "ScoredBy": "6",
+            "Comment": "Ellis jumps on a hestitant Haxel Rose off the kick off",
+            "Filepath": "img/gifs/S02/S02-ID39-04.gif"
+        },
+        {
+            "GameID": "39",
+            "ScoredBy": "3",
+            "Comment": "Skills elects to let the official analyzer stats credit this to corbettkb via not pulling the trigger",
+            "Filepath": "img/gifs/S02/S02-ID39-05.gif"
         }
     ]
 }
