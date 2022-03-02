@@ -633,7 +633,7 @@ export function setTeamsPageLayout(e) {
   teamsLayout += `</div>`;
   // notes grid area **bottom of webpage**
   teamsLayout += `<div class="notes">`;
-  teamsLayout += `<h5>More options will be placed here</h5>`;
+  // teamsLayout += `<h5>More options will be placed here</h5>`;
   teamsLayout += `</div>`;
   // season scoreboard grid area
   teamsLayout += `<div
