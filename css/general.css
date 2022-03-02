@@ -29,6 +29,7 @@ img[src*="-big-"] {
   top: 0px;
   left: 0px;
   margin: 10px;
+  overflow: visible;
 }
 
 #championsCard {
