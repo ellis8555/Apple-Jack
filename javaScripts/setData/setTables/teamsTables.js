@@ -203,7 +203,7 @@ export function createTable(
   sortGroupedStats(dataSource, sortBy);
   let tableHeaders = fieldsArray[0];
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-
+  let isFullTable = tableName == "Current Full Table" ? true : false;
   let playerStats = "";
   // html table begin
   playerStats = "<table>";
@@ -228,19 +228,30 @@ export function createTable(
 
     for (let j = 0; j < fieldsLength; j++) {
       if (tableHeaders[j] == sortBy) {
+        // this if part adds highlight to sorted column
         playerStats +=
           `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
           tableHeaders[j] +
-          " >" +
-          item.get(tableHeaders[j]) +
-          "</td>";
+          " >";
+        // this if correctly outputs wins - OTW in full table view
+        if (isFullTable && tableHeaders[j] == "Wins") {
+          playerStats += item.get(tableHeaders[j]) - item.get("OTW");
+        } else {
+          playerStats += item.get(tableHeaders[j]);
+        }
+        ("</td>");
       } else {
         playerStats +=
           `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
           tableHeaders[j] +
-          " >" +
-          item.get(tableHeaders[j]) +
-          "</td>";
+          " >";
+        // this if correctly outputs wins - OTW in full table view
+        if (isFullTable && tableHeaders[j] == "Wins") {
+          playerStats += item.get(tableHeaders[j]) - item.get("OTW");
+        } else {
+          playerStats += item.get(tableHeaders[j]);
+        }
+        ("</td>");
       }
     }
     playerStats += "</tr>";
