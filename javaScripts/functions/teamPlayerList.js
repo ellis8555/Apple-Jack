@@ -1,4 +1,10 @@
-import { teamPlayers, playersMAP, teamsNumMAP } from "../../json/masterVars.js";
+import {
+  teamPlayers,
+  playersMAP,
+  teamsMAP,
+  teamsNumMAP,
+  eachTeamObjectMAP,
+} from "../../json/masterVars.js";
 import { IndividualPlayerStats } from "../classFiles/individualPlayerStats.js";
 import { clearScoreboardDiv, clearTablesDiv } from "./variousFunctions.js";
 import sortGroupedStats from "./sort.js";
@@ -19,7 +25,7 @@ export function getTeamsPlayersPerSeason(e) {
   clearTablesDiv();
   clearScoreboardDiv();
   let team = teamsNumMAP.get(e.target.dataset.teamName);
-  // let seasonMode = e.target.dataset.gameType;
+  let teamColor = `#${eachTeamObjectMAP.get(teamsMAP.get(team)).MainColor}`;
   let seasonNum = e.target.dataset.seasonNum;
   // grab players who played on this team
   let playersFiltered = teamPlayers.filter(
@@ -64,9 +70,13 @@ export function getTeamsPlayersPerSeason(e) {
   let playerStats = "";
 
   playerStats += `<h1>Season ${seasonNum}</h1>`;
+  playerStats += `<div class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
   playersArray.forEach(
-    (item) => (playerStats += `<span style="font-size: 1.2em;">${item}</span> `)
+    (item) =>
+      (playerStats += `
+    <div style="font-size: 1.2em;">${item}</div>`)
   );
+  playerStats += `</div>`;
   // html table season stats begin
   playerStats += "<table>";
   // html table caption
