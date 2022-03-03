@@ -146,7 +146,7 @@ for (let i = 1; i <= teamsMAP.size; i++) {
       ].setTeamsIndividualSeasonsStatsMAPS(
         `teamsSeason${item}${statsType[k]}`, // input array
         `teamsSeason${item}${statsType[k]}MAP`, // output MAP
-        item // season number
+        Number(item) // season number
       );
     }
   });

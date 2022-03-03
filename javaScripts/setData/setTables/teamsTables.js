@@ -203,7 +203,7 @@ export function createTable(
   sortGroupedStats(dataSource, sortBy);
   let tableHeaders = fieldsArray[0];
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-  let isFullTable = tableName == "Current Full Table" ? true : false;
+  let isFullTable = tableHeaders.includes("OTW");
   let playerStats = "";
   // html table begin
   playerStats = "<table>";
@@ -239,7 +239,7 @@ export function createTable(
         } else {
           playerStats += item.get(tableHeaders[j]);
         }
-        ("</td>");
+        playerStats += "</td>";
       } else {
         playerStats +=
           `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
@@ -251,7 +251,7 @@ export function createTable(
         } else {
           playerStats += item.get(tableHeaders[j]);
         }
-        ("</td>");
+        playerStats += "</td>";
       }
     }
     playerStats += "</tr>";
