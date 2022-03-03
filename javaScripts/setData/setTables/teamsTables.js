@@ -874,8 +874,8 @@ export function setPlayerS01Playoff() {
 export function setPlayerS01Combined() {
   createTable(
     "S01 All Points",
-    "IndividualPlayerStats.groupPlayersAllTimeStats",
-    IndividualPlayerStats.groupPlayersAllTimeStats,
+    "IndividualPlayerStats.groupPlayersSeason1CombinedStats",
+    IndividualPlayerStats.groupPlayersSeason1CombinedStats,
     "w3-yellow",
     "Points",
     "playersTable",
