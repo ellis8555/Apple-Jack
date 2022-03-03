@@ -772,7 +772,7 @@ export function setS01PlayoffTable() {
 // S01 COMBINED
 export function setS01CombinedTable() {
   createTable(
-    "S01 Playoffs",
+    "S01 Combined",
     "TeamStats.groupTeamsSeason1CombinedStats",
     TeamStats.groupTeamsSeason1CombinedStats,
     "w3-yellow",
