@@ -32,6 +32,10 @@ img[src*="-big-"] {
   overflow: visible;
 }
 
+#sidebar {
+  left: 0vh;
+}
+
 #championsCard {
   position: absolute;
   top: 0px;

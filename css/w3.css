@@ -1,5 +1,5 @@
 ﻿/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
-w3-medium w3-sidebar html {
+w3-sidebar w3-medium w3-sidebar html {
   box-sizing: border-box;
 }
 *,
@@ -426,8 +426,6 @@ a {
   width: fit-content;
   background-color: #fff;
   position: fixed !important;
-  top: 5vh;
-  left: -1vw;
   z-index: 1;
   overflow: auto;
 }
