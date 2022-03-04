@@ -204,7 +204,16 @@ export function createTable(
   let tableHeaders = fieldsArray[0];
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
   let isOTW = tableHeaders.includes("OTW");
+  let screenedDataSource;
   let playerStats = "";
+  // check if dataSource is team Playoff table
+  let isTeamTable = dataSourceName.includes("TeamStats");
+  let isPlayoffTable = dataSourceName.includes("Playoff");
+  if (isTeamTable && isPlayoffTable) {
+    screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
+  } else {
+    screenedDataSource = dataSource;
+  }
   // html table begin
   playerStats = "<table>";
   // html table caption
@@ -222,7 +231,7 @@ export function createTable(
   playerStats += "</tr></thead>";
   // end of html table header fields row
 
-  dataSource.forEach((item) => {
+  screenedDataSource.forEach((item) => {
     // table data begins for each field
     playerStats += "<tr>";
 
