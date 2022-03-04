@@ -77,6 +77,7 @@ export function getTeamsPlayersPerSeason(e) {
     <div style="font-size: 1.2em;">${item}</div>`)
   );
   playerStats += `</div>`;
+  playerStats += `<h6>*These tables are currently not sortable*</h6>`;
   // html table season stats begin
   playerStats += "<table>";
   // html table caption

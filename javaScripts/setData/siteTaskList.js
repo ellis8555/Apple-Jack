@@ -10,17 +10,17 @@ export function displayTaskList() {
   displayArea.innerHTML = `<div class="w3-content w3-margin w3-padding w3-round-large w3-display-container w3-margin-top w3-card-4 w3-text-black">
   <p><b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b></p>
   <p><b>**</b> Tables are sortable via clicking the field header. On mobile click on any row <b>**</b></p>
-  <p><b>***</b> Team pages player stats are NOT sortable at this point <b>***</b></p>
  
     <h3>List of site improvements</h3> 
     <h4>In no particular order..</h4>
+    <p>Some kind of playoff tree visual</p>
     <p>Develop a particular players own stats page</p>
     <p>
     Have particular highlights associated with a player on that players own
     page. Gifs of that players goals on there own page.
   </p>
     <p>League records. ex. Most goals scored in a game etc...</p>
-    <p>Sidebar improvement</p>
+    <p>More sidebar improvement</p>
     <p>Improve the little logo for the site. Used in bookmarks/tabs.</p>
     <p>Logging game stats via the site.</p>
     <h3>Message</h3>  
