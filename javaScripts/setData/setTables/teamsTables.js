@@ -203,7 +203,7 @@ export function createTable(
   sortGroupedStats(dataSource, sortBy);
   let tableHeaders = fieldsArray[0];
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-  let isFullTable = tableHeaders.includes("OTW");
+  let isOTW = tableHeaders.includes("OTW");
   let playerStats = "";
   // html table begin
   playerStats = "<table>";
@@ -234,7 +234,7 @@ export function createTable(
           tableHeaders[j] +
           " >";
         // this if correctly outputs wins - OTW in full table view
-        if (isFullTable && tableHeaders[j] == "Wins") {
+        if (isOTW && tableHeaders[j] == "Wins") {
           playerStats += item.get(tableHeaders[j]) - item.get("OTW");
         } else {
           playerStats += item.get(tableHeaders[j]);
@@ -246,7 +246,7 @@ export function createTable(
           tableHeaders[j] +
           " >";
         // this if correctly outputs wins - OTW in full table view
-        if (isFullTable && tableHeaders[j] == "Wins") {
+        if (isOTW && tableHeaders[j] == "Wins") {
           playerStats += item.get(tableHeaders[j]) - item.get("OTW");
         } else {
           playerStats += item.get(tableHeaders[j]);
