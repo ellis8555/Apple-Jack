@@ -55,14 +55,28 @@ export default function setGifs(e) {
     //end div for header container
     displayGifsHeader += `</div>`;
     //end of gifs page title
-    thisGamesHighlights.forEach((item) => {
-      displayGifs += `<h5>${item.Comment}</h5>`;
-      displayGifs += `<img src="${item.Filepath}">`;
-      tablesDiv.innerHTML = displayGifsHeader;
-      scoreboardDiv.innerHTML = displayGifs;
-    });
-  } else {
-    displayGifs = "<h3>No highlights for this game</h3>";
+    tablesDiv.innerHTML = displayGifsHeader;
+    for (let i = 0; i < thisGamesHighlights.length; i++) {
+      let thisGamesFinalPath;
+      let theseGifsSubSet = thisGamesHighlights[0].Filepath;
+      let thisGifsSubPath = theseGifsSubSet.slice(
+        0,
+        theseGifsSubSet.length - 6
+      );
+      if (i < 9) {
+        thisGamesFinalPath = `${thisGifsSubPath}0${i + 1}.gif`;
+      } else {
+        thisGamesFinalPath = `${thisGifsSubPath}${i + 1}.gif`;
+      }
+      let thisGif = thisGamesHighlights.filter(
+        (item) => thisGamesFinalPath == item.Filepath
+      );
+      displayGifs += `<h5>${thisGif[0].Comment}</h5>`;
+      displayGifs += `<img src="${thisGamesFinalPath}">`;
+    }
     scoreboardDiv.innerHTML = displayGifs;
+  } else {
+    let noGifs = "<h3>No highlights for this game</h3>";
+    scoreboardDiv.innerHTML = noGifs;
   }
 }
