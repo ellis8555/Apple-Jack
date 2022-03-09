@@ -68,10 +68,10 @@ export default function setGifs(e) {
       } else {
         thisGamesFinalPath = `${thisGifsSubPath}${i + 1}.gif`;
       }
-      let thisGif = thisGamesHighlights.filter(
-        (item) => thisGamesFinalPath == item.Filepath
+      let thisGif = thisGamesHighlights.find(
+        (item) => item.Filepath == thisGamesFinalPath
       );
-      displayGifs += `<h5>${thisGif[0].Comment}</h5>`;
+      displayGifs += `<h5>${thisGif.Comment}</h5>`;
       displayGifs += `<img src="${thisGamesFinalPath}">`;
     }
     scoreboardDiv.innerHTML = displayGifs;
