@@ -332,7 +332,7 @@ table td:first-child {
 .boxscoreContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   width: 50%;
   margin: auto;
 }
