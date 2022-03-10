@@ -4143,12 +4143,6 @@
         },
         {
             "GameID": "23",
-            "ScoredBy": "11",
-            "Comment": "Mooney sends the ball up long and catches it himself to put team Mooney up by 3!",
-            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-03.gif"
-        },
-        {
-            "GameID": "23",
             "ScoredBy": "15",
             "Comment": "Tickenest puts team Mooney up by 2 in this series deciding game",
             "Filepath": "img/gifs/S01/Playoffs/S01-ID23-02.gif"
@@ -4159,6 +4153,12 @@
             "AssistedBy": "15",
             "Comment": "Mooney begins this play ending with nice pass from Tick to Chaos who completes the play",
             "Filepath": "img/gifs/S01/Playoffs/S01-ID23-01.gif"
+        },
+        {
+            "GameID": "23",
+            "ScoredBy": "11",
+            "Comment": "Mooney sends the ball up long and catches it himself to put team Mooney up by 3!",
+            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-03.gif"
         },
         {
             "GameID": "23",
@@ -4205,16 +4205,16 @@
         },
         {
             "GameID": "28",
+            "ScoredBy": "16",
+            "Comment": "Lupz27 in the right spot!",
+            "Filepath": "img/gifs/S02/S02-ID28-09.gif"
+        },
+        {
+            "GameID": "28",
             "ScoredBy": "6",
             "AssistedBy": "3",
             "Comment": "Corbettk with the long bank pass off the wall for Ellis.",
             "Filepath": "img/gifs/S02/S02-ID28-10.gif"
-        },
-        {
-            "GameID": "28",
-            "ScoredBy": "16",
-            "Comment": "Lupz27 in the right spot!",
-            "Filepath": "img/gifs/S02/S02-ID28-09.gif"
         },
         {
             "GameID": "28",
@@ -4225,21 +4225,15 @@
         {
             "GameID": "28",
             "ScoredBy": "16",
-            "AssistedBy": "11",
-            "Comment": "Nice team play ending with a beautiful goal by Lupz27!",
-            "Filepath": "img/gifs/S02/S02-ID28-01.gif"
-        },
-        {
-            "GameID": "28",
-            "ScoredBy": "16",
             "Comment": "Lupz27 given an open net break from Ellis!",
             "Filepath": "img/gifs/S02/S02-ID28-11.gif"
         },
         {
             "GameID": "28",
-            "OwnGoal": "16",
-            "Comment": "Pressure in the corner",
-            "Filepath": "img/gifs/S02/S02-ID28-03.gif"
+            "ScoredBy": "16",
+            "AssistedBy": "11",
+            "Comment": "Nice team play ending with a beautiful goal by Lupz27!",
+            "Filepath": "img/gifs/S02/S02-ID28-01.gif"
         },
         {
             "GameID": "28",
@@ -4256,9 +4250,21 @@
         },
         {
             "GameID": "28",
+            "OwnGoal": "16",
+            "Comment": "Pressure in the corner",
+            "Filepath": "img/gifs/S02/S02-ID28-03.gif"
+        },
+        {
+            "GameID": "28",
             "ScoredBy": "16",
             "Comment": "Corbettk feeling the power in Lupz27's kick!",
             "Filepath": "img/gifs/S02/S02-ID28-04.gif"
+        },
+        {
+            "GameID": "29",
+            "OwnGoal": "11",
+            "Comment": "Corbettb last to touch for the offense on this one.",
+            "Filepath": "img/gifs/S02/S02-ID29-02.gif"
         },
         {
             "GameID": "29",
@@ -4268,9 +4274,9 @@
         },
         {
             "GameID": "29",
-            "OwnGoal": "11",
-            "Comment": "Corbettb last to touch for the offense on this one.",
-            "Filepath": "img/gifs/S02/S02-ID29-02.gif"
+            "ScoredBy": "12",
+            "Comment": "Skills324 pressuring the D",
+            "Filepath": "img/gifs/S02/S02-ID29-05.gif"
         },
         {
             "GameID": "29",
@@ -4286,10 +4292,11 @@
             "Filepath": "img/gifs/S02/S02-ID29-03.gif"
         },
         {
-            "GameID": "29",
-            "ScoredBy": "12",
-            "Comment": "Skills324 pressuring the D",
-            "Filepath": "img/gifs/S02/S02-ID29-05.gif"
+            "GameID": "30",
+            "ScoredBy": "3",
+            "AssistedBy": "6",
+            "Comment": "Late game goal by Corbettkb to send this one to overtime!",
+            "Filepath": "img/gifs/S02/S02-ID30-10.gif"
         },
         {
             "GameID": "30",
@@ -4313,35 +4320,10 @@
         },
         {
             "GameID": "30",
-            "OwnGoal": "3",
-            "Comment": "Shit happens",
-            "Filepath": "img/gifs/S02/S02-ID30-07.gif"
-        },
-        {
-            "GameID": "30",
-            "ScoredBy": "3",
-            "AssistedBy": "6",
-            "Comment": "Late game goal by Corbettkb to send this one to overtime!",
-            "Filepath": "img/gifs/S02/S02-ID30-10.gif"
-        },
-        {
-            "GameID": "30",
             "ScoredBy": "3",
             "AssistedBy": "6",
             "Comment": "Corbettkb with a nice one timer!",
             "Filepath": "img/gifs/S02/S02-ID30-09.gif"
-        },
-        {
-            "GameID": "30",
-            "ScoredBy": "6",
-            "Comment": "Ellis takes advantage of a miscue by Angryjay93",
-            "Filepath": "img/gifs/S02/S02-ID30-04.gif"
-        },
-        {
-            "GameID": "30",
-            "ScoredBy": "6",
-            "Comment": "Ellis stalking Angryjay93 along the wall",
-            "Filepath": "img/gifs/S02/S02-ID30-01.gif"
         },
         {
             "GameID": "30",
@@ -4351,10 +4333,21 @@
         },
         {
             "GameID": "30",
-            "ScoredBy": "15",
-            "AssistedBy": "1",
-            "Comment": "Tickenest picking his shot on a nice pass from Angryjay93",
-            "Filepath": "img/gifs/S02/S02-ID30-02.gif"
+            "ScoredBy": "6",
+            "Comment": "Ellis takes advantage of a miscue by Angryjay93",
+            "Filepath": "img/gifs/S02/S02-ID30-04.gif"
+        },
+        {
+            "GameID": "30",
+            "OwnGoal": "3",
+            "Comment": "Shit happens",
+            "Filepath": "img/gifs/S02/S02-ID30-07.gif"
+        },
+        {
+            "GameID": "30",
+            "ScoredBy": "6",
+            "Comment": "Ellis stalking Angryjay93 along the wall",
+            "Filepath": "img/gifs/S02/S02-ID30-01.gif"
         },
         {
             "GameID": "30",
@@ -4363,11 +4356,17 @@
             "Filepath": "img/gifs/S02/S02-ID30-03.gif"
         },
         {
+            "GameID": "30",
+            "ScoredBy": "15",
+            "AssistedBy": "1",
+            "Comment": "Tickenest picking his shot on a nice pass from Angryjay93",
+            "Filepath": "img/gifs/S02/S02-ID30-02.gif"
+        },
+        {
             "GameID": "31",
-            "ScoredBy": "3",
-            "AssistedBy": "6",
-            "Comment": "Offensive pressure capped off by Corbettkb",
-            "Filepath": "img/gifs/S02/S02-ID31-02.gif"
+            "ScoredBy": "6",
+            "Comment": "Ellis gives Ces Pool the lead",
+            "Filepath": "img/gifs/S02/S02-ID31-03.gif"
         },
         {
             "GameID": "31",
@@ -4378,9 +4377,10 @@
         },
         {
             "GameID": "31",
-            "ScoredBy": "6",
-            "Comment": "Ellis gives Ces Pool the lead",
-            "Filepath": "img/gifs/S02/S02-ID31-03.gif"
+            "ScoredBy": "3",
+            "AssistedBy": "6",
+            "Comment": "Offensive pressure capped off by Corbettkb",
+            "Filepath": "img/gifs/S02/S02-ID31-02.gif"
         },
         {
             "GameID": "31",
@@ -4396,44 +4396,10 @@
         },
         {
             "GameID": "32",
-            "ScoredBy": "2",
-            "Comment": "Chaos with long range shot ",
-            "Filepath": "img/gifs/S02/S02-ID32-06.gif"
-        },
-        {
-            "GameID": "32",
-            "ScoredBy": "15",
-            "AssistedBy": "2",
-            "Comment": "Tickenest with nice shot on a setup from Chaos. Capped by Angryjay93",
-            "Filepath": "img/gifs/S02/S02-ID32-04.gif"
-        },
-        {
-            "GameID": "32",
-            "ScoredBy": "16",
-            "AssistedBy": "13",
-            "Comment": "Lupz27 capatilizes on ball being sent forward from Tennessee",
-            "Filepath": "img/gifs/S02/S02-ID32-05.gif"
-        },
-        {
-            "GameID": "32",
             "ScoredBy": "15",
             "AssistedBy": "2",
             "Comment": "Tickenest and Chaos playing like it's season 1 again",
             "Filepath": "img/gifs/S02/S02-ID32-08.gif"
-        },
-        {
-            "GameID": "32",
-            "ScoredBy": "16",
-            "AssistedBy": "13",
-            "Comment": "Lupz27 nice move around the defender and scores",
-            "Filepath": "img/gifs/S02/S02-ID32-03.gif"
-        },
-        {
-            "GameID": "32",
-            "ScoredBy": "2",
-            "AssistedBy": "1",
-            "Comment": "Everybody's in on this one!",
-            "Filepath": "img/gifs/S02/S02-ID32-07.gif"
         },
         {
             "GameID": "32",
@@ -4444,27 +4410,48 @@
         {
             "GameID": "32",
             "ScoredBy": "16",
+            "AssistedBy": "13",
+            "Comment": "Lupz27 capatilizes on ball being sent forward from Tennessee",
+            "Filepath": "img/gifs/S02/S02-ID32-05.gif"
+        },
+        {
+            "GameID": "32",
+            "ScoredBy": "2",
+            "Comment": "Chaos with long range shot ",
+            "Filepath": "img/gifs/S02/S02-ID32-06.gif"
+        },
+        {
+            "GameID": "32",
+            "ScoredBy": "2",
+            "AssistedBy": "1",
+            "Comment": "Everybody's in on this one!",
+            "Filepath": "img/gifs/S02/S02-ID32-07.gif"
+        },
+        {
+            "GameID": "32",
+            "ScoredBy": "16",
             "Comment": "Lupz27 blasts one close range",
             "Filepath": "img/gifs/S02/S02-ID32-02.gif"
         },
         {
-            "GameID": "33",
-            "ScoredBy": "2",
-            "Comment": "Chaos living up to his name on this one",
-            "Filepath": "img/gifs/S02/S02-ID33-01.gif"
+            "GameID": "32",
+            "ScoredBy": "16",
+            "AssistedBy": "13",
+            "Comment": "Lupz27 nice move around the defender and scores",
+            "Filepath": "img/gifs/S02/S02-ID32-03.gif"
+        },
+        {
+            "GameID": "32",
+            "ScoredBy": "15",
+            "AssistedBy": "2",
+            "Comment": "Tickenest with nice shot on a setup from Chaos. Capped by Angryjay93",
+            "Filepath": "img/gifs/S02/S02-ID32-04.gif"
         },
         {
             "GameID": "33",
             "OwnGoal": "16",
             "Comment": "Angryjay93 cuts off angle to force an OG!",
             "Filepath": "img/gifs/S02/S02-ID33-04.gif"
-        },
-        {
-            "GameID": "33",
-            "ScoredBy": "16",
-            "AssistedBy": "13",
-            "Comment": "Lupz27 getting used to this",
-            "Filepath": "img/gifs/S02/S02-ID33-02.gif"
         },
         {
             "GameID": "33",
@@ -4481,6 +4468,19 @@
             "Filepath": "img/gifs/S02/S02-ID33-03.gif"
         },
         {
+            "GameID": "33",
+            "ScoredBy": "16",
+            "AssistedBy": "13",
+            "Comment": "Lupz27 getting used to this",
+            "Filepath": "img/gifs/S02/S02-ID33-02.gif"
+        },
+        {
+            "GameID": "33",
+            "ScoredBy": "2",
+            "Comment": "Chaos living up to his name on this one",
+            "Filepath": "img/gifs/S02/S02-ID33-01.gif"
+        },
+        {
             "GameID": "34",
             "ScoredBy": "1",
             "AssistedBy": "2",
@@ -4489,17 +4489,17 @@
         },
         {
             "GameID": "34",
-            "ScoredBy": "6",
-            "AssistedBy": "12",
-            "Comment": "Skills selflessly elects to make this a highlight real goal!",
-            "Filepath": "img/gifs/S02/S02-ID34-03.gif"
-        },
-        {
-            "GameID": "34",
             "ScoredBy": "2",
             "AssistedBy": "1",
             "Comment": "If only 2 assists were a thing in haxball! Team play at it's peak!",
             "Filepath": "img/gifs/S02/S02-ID34-04.gif"
+        },
+        {
+            "GameID": "34",
+            "ScoredBy": "6",
+            "AssistedBy": "12",
+            "Comment": "Skills selflessly elects to make this a highlight real goal!",
+            "Filepath": "img/gifs/S02/S02-ID34-03.gif"
         },
         {
             "GameID": "34",
@@ -4535,6 +4535,12 @@
         {
             "GameID": "36",
             "ScoredBy": "16",
+            "Comment": "One name, Lupz",
+            "Filepath": "img/gifs/S02/S02-ID36-03.gif"
+        },
+        {
+            "GameID": "36",
+            "ScoredBy": "16",
             "Comment": "Lupz and hax == Tick and Chaos….GGOOOAAAALLLLL",
             "Filepath": "img/gifs/S02/S02-ID36-04.gif"
         },
@@ -4547,40 +4553,15 @@
         },
         {
             "GameID": "36",
-            "ScoredBy": "15",
-            "Comment": "Tickenest with the sharp angle cap",
-            "Filepath": "img/gifs/S02/S02-ID36-02.gif"
-        },
-        {
-            "GameID": "36",
             "ScoredBy": "11",
             "Comment": "Mooney decides to take things into his own hands! Not team Mooney either, the player!!",
             "Filepath": "img/gifs/S02/S02-ID36-01.gif"
         },
         {
             "GameID": "36",
-            "ScoredBy": "16",
-            "Comment": "One name, Lupz",
-            "Filepath": "img/gifs/S02/S02-ID36-03.gif"
-        },
-        {
-            "GameID": "37",
-            "ScoredBy": "1",
-            "Comment": "Angryjay93 leaving no room for the clearance resulting in a goal",
-            "Filepath": "img/gifs/S02/S02-ID37-03.gif"
-        },
-        {
-            "GameID": "37",
-            "ScoredBy": "3",
-            "AssistedBy": "12",
-            "Comment": "Corbettkb with a BLAST from skills out of the corner",
-            "Filepath": "img/gifs/S02/S02-ID37-02.gif"
-        },
-        {
-            "GameID": "37",
-            "ScoredBy": "2",
-            "Comment": "Nice pass from Angryjay93 to setup Chaos to dump it in for CES Pool to cap one off for Mooney!",
-            "Filepath": "img/gifs/S02/S02-ID37-01.gif"
+            "ScoredBy": "15",
+            "Comment": "Tickenest with the sharp angle cap",
+            "Filepath": "img/gifs/S02/S02-ID36-02.gif"
         },
         {
             "GameID": "37",
@@ -4601,11 +4582,23 @@
             "Filepath": "img/gifs/S02/S02-ID37-04.gif"
         },
         {
-            "GameID": "38",
-            "ScoredBy": "12",
-            "AssistedBy": "6",
-            "Comment": "CES Pool teaming up as one big pile of beautiful goal by Skills324",
-            "Filepath": "img/gifs/S02/S02-ID38-03.gif"
+            "GameID": "37",
+            "ScoredBy": "1",
+            "Comment": "Angryjay93 leaving no room for the clearance resulting in a goal",
+            "Filepath": "img/gifs/S02/S02-ID37-03.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "2",
+            "Comment": "Nice pass from Angryjay93 to setup Chaos to dump it in for CES Pool to cap one off for Mooney!",
+            "Filepath": "img/gifs/S02/S02-ID37-01.gif"
+        },
+        {
+            "GameID": "37",
+            "ScoredBy": "3",
+            "AssistedBy": "12",
+            "Comment": "Corbettkb with a BLAST from skills out of the corner",
+            "Filepath": "img/gifs/S02/S02-ID37-02.gif"
         },
         {
             "GameID": "38",
@@ -4617,9 +4610,8 @@
         {
             "GameID": "38",
             "ScoredBy": "3",
-            "AssistedBy": "6",
-            "Comment": "Score clock needed on this goal from Corbettkb just for kicks",
-            "Filepath": "img/gifs/S02/S02-ID38-08.gif"
+            "Comment": "Only Corbettkb picks this shot!",
+            "Filepath": "img/gifs/S02/S02-ID38-05.gif"
         },
         {
             "GameID": "38",
@@ -4630,21 +4622,16 @@
         },
         {
             "GameID": "38",
+            "ScoredBy": "3",
+            "AssistedBy": "6",
+            "Comment": "Score clock needed on this goal from Corbettkb just for kicks",
+            "Filepath": "img/gifs/S02/S02-ID38-08.gif"
+        },
+        {
+            "GameID": "38",
             "ScoredBy": "16",
             "Comment": "A howitzer of a shot by Tennessee Williams collected up by rookie sensation Lupz27",
             "Filepath": "img/gifs/S02/S02-ID38-04.gif"
-        },
-        {
-            "GameID": "38",
-            "ScoredBy": "3",
-            "Comment": "Only Corbettkb picks this shot!",
-            "Filepath": "img/gifs/S02/S02-ID38-05.gif"
-        },
-        {
-            "GameID": "38",
-            "ScoredBy": "12",
-            "Comment": "Why crease cut when you can just send it into the crease?",
-            "Filepath": "img/gifs/S02/S02-ID38-02.gif"
         },
         {
             "GameID": "38",
@@ -4654,10 +4641,17 @@
             "Filepath": "img/gifs/S02/S02-ID38-01.gif"
         },
         {
-            "GameID": "39",
-            "ScoredBy": "3",
-            "Comment": "Skills elects to let the official analyzer stats credit this to corbettkb via not pulling the trigger",
-            "Filepath": "img/gifs/S02/S02-ID39-05.gif"
+            "GameID": "38",
+            "ScoredBy": "12",
+            "Comment": "Why crease cut when you can just send it into the crease?",
+            "Filepath": "img/gifs/S02/S02-ID38-02.gif"
+        },
+        {
+            "GameID": "38",
+            "ScoredBy": "12",
+            "AssistedBy": "6",
+            "Comment": "CES Pool teaming up as one big pile of beautiful goal by Skills324",
+            "Filepath": "img/gifs/S02/S02-ID38-03.gif"
         },
         {
             "GameID": "39",
@@ -4674,16 +4668,22 @@
         },
         {
             "GameID": "39",
-            "ScoredBy": "6",
-            "AssistedBy": "3",
-            "Comment": "Ellis capping a forward ball courtesy of Corbettkb",
-            "Filepath": "img/gifs/S02/S02-ID39-03.gif"
+            "ScoredBy": "3",
+            "Comment": "Skills elects to let the official analyzer stats credit this to corbettkb via not pulling the trigger",
+            "Filepath": "img/gifs/S02/S02-ID39-05.gif"
         },
         {
             "GameID": "39",
             "ScoredBy": "6",
             "Comment": "Ellis jumps on a hestitant Haxel Rose off the kick off",
             "Filepath": "img/gifs/S02/S02-ID39-04.gif"
+        },
+        {
+            "GameID": "39",
+            "ScoredBy": "6",
+            "AssistedBy": "3",
+            "Comment": "Ellis capping a forward ball courtesy of Corbettkb",
+            "Filepath": "img/gifs/S02/S02-ID39-03.gif"
         },
         {
             "GameID": "40",
@@ -4757,6 +4757,68 @@
             "OwnGoal": "6",
             "Comment": "Dangler rips a shot off of the end board and rebounds onto an unfortunate Ellis for an own goal",
             "Filepath": "img/gifs/S02/S02-ID40-04.gif"
+        },
+        {
+            "GameID": "41",
+            "Comment": "Corbettkb with a deflected shot that rings off of the post. ",
+            "Filepath": "img/gifs/S02/S02-ID41-07.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "10",
+            "AssistedBy": "14",
+            "Comment": "Kingraph with a upper corner snipe!",
+            "Filepath": "img/gifs/S02/S02-ID41-06.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "12",
+            "AssistedBy": "6",
+            "Comment": "Skills dances around thatDrizzle towards an empty net and brings CES Pool to within a goal. Now 3-2",
+            "Filepath": "img/gifs/S02/S02-ID41-08.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "4",
+            "AssistedBy": "14",
+            "Comment": "Dangler taps one in thanks to thatDrizzle keeping the ball in the offensive zone. 5-2 Hax Chocolate will be the final",
+            "Filepath": "img/gifs/S02/S02-ID41-10.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "4",
+            "AssistedBy": "10",
+            "Comment": "Kingraph with the fade away pass out front to Dangler who nicely picks the bottom net to put Hax Chocolate back up by 2.",
+            "Filepath": "img/gifs/S02/S02-ID41-09.gif"
+        },
+        {
+            "GameID": "41",
+            "Comment": "Skills and thatDrizzle catching up on how things are going on their new teams…",
+            "Filepath": "img/gifs/S02/S02-ID41-02.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "10",
+            "Comment": "Kingraph opens the scoring on one of those gift pass goals courtesy of Ellis. 1-0 Hax Chocolate",
+            "Filepath": "img/gifs/S02/S02-ID41-01.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "14",
+            "Comment": "Skills banks one off of Skills to put Hax Chocolate up 2-0 late in the first half",
+            "Filepath": "img/gifs/S02/S02-ID41-03.gif"
+        },
+        {
+            "GameID": "41",
+            "ScoredBy": "3",
+            "AssistedBy": "12",
+            "Comment": "Corbettkb puts CES Pool on the board now down a goal 2-1",
+            "Filepath": "img/gifs/S02/S02-ID41-05.gif"
+        },
+        {
+            "GameID": "41",
+            "Comment": "Kingraph with a huge save in the closing seconds of the first half to keep Hax Chocolate up 2-0",
+            "Filepath": "img/gifs/S02/S02-ID41-04.gif"
         }
     ]
 }
