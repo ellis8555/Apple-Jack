@@ -110,6 +110,12 @@
     margin: auto;
   }
 
+  .boxscoreHomeStats,
+  .boxscoreSeperator,
+  .boxscoreAwayStats {
+    padding: 3px;
+  }
+
   /* end boxscore */
   /* classes for team colors display */
 

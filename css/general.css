@@ -340,10 +340,14 @@ table td:first-child {
 .boxscoreHomeStats,
 .boxscoreSeperator,
 .boxscoreAwayStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(21, 87, 83);
   color: white;
   width: 33%;
   margin: 1px;
+  padding: 5px;
 }
 
 /* end boxscore page*/
