@@ -4483,9 +4483,9 @@
         },
         {
             "GameID": "23",
-            "ScoredBy": "11",
-            "Comment": "Mooney sends the ball up long and catches it himself to put team Mooney up by 3!",
-            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-03.gif"
+            "ScoredBy": "15",
+            "Comment": "Tickenest puts team Mooney up by 2 in this series deciding game",
+            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-02.gif"
         },
         {
             "GameID": "23",
@@ -4496,9 +4496,14 @@
         },
         {
             "GameID": "23",
-            "ScoredBy": "15",
-            "Comment": "Tickenest puts team Mooney up by 2 in this series deciding game",
-            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-02.gif"
+            "Comment": "He shoots great save from Drizzle in the last 45 seconds of this thrilling series! Comeback complete!",
+            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-08.gif"
+        },
+        {
+            "GameID": "23",
+            "ScoredBy": "11",
+            "Comment": "Mooney sends the ball up long and catches it himself to put team Mooney up by 3!",
+            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-03.gif"
         },
         {
             "GameID": "23",
@@ -4511,11 +4516,6 @@
             "ScoredBy": "12",
             "Comment": ".HAX has scored in extra time of game 3 to take the lead after originally trailing by 3! Skills with the move and scores!",
             "Filepath": "img/gifs/S01/Playoffs/S01-ID23-07.gif"
-        },
-        {
-            "GameID": "23",
-            "Comment": "He shoots great save from Drizzle in the last 45 seconds of this thrilling series! Comeback complete!",
-            "Filepath": "img/gifs/S01/Playoffs/S01-ID23-08.gif"
         },
         {
             "GameID": "23",
@@ -5485,6 +5485,74 @@
             "GameID": "46",
             "Comment": "Haxual Chocolate just barely miss going up by two goals on this nice play that is just shy of a sure goal",
             "Filepath": "img/gifs/S02/S02-ID46-04.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "1",
+            "Comment": "Angryjay makes this one look easier than it actually is angling team Mooney to within  three at the half",
+            "Filepath": "img/gifs/S02/S02-ID47-08.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "10",
+            "AssistedBy": "14",
+            "Comment": "An extremely patient Kingraph caps Hax Chocolates 5th of the half",
+            "Filepath": "img/gifs/S02/S02-ID47-07.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "10",
+            "AssistedBy": "4",
+            "Comment": "Dangler reads the play early on this one and sets up wide open Kingraph who widens the lead now to 6-2",
+            "Filepath": "img/gifs/S02/S02-ID47-09.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "2",
+            "AssistedBy": "1",
+            "Comment": "To little too late on a decent goal from all members of team Mooney. Final is 7-3 HC ",
+            "Filepath": "img/gifs/S02/S02-ID47-11.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "10",
+            "Comment": "Kingraph solos HC into a 7-2 lead with the game winding down",
+            "Filepath": "img/gifs/S02/S02-ID47-10.gif"
+        },
+        {
+            "GameID": "47",
+            "Comment": "thatDrizzle showing his hax moves!! 4-1 HC with time remaining in this first half",
+            "Filepath": "img/gifs/S02/S02-ID47-06.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "14",
+            "Comment": "thatDrizzle capatilizes on what appears to be a very jet \"lag\" ged  Tickenest?",
+            "Filepath": "img/gifs/S02/S02-ID47-02.gif"
+        },
+        {
+            "GameID": "47",
+            "Comment": "Haxual Chocolate barely miss on this very nice play and the game remains scoreless",
+            "Filepath": "img/gifs/S02/S02-ID47-01.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "10",
+            "Comment": "Kingraph double bounces Chocolate into a two goal lead. 2-0",
+            "Filepath": "img/gifs/S02/S02-ID47-03.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "1",
+            "AssistedBy": "15",
+            "Comment": "Angryjay puts team Mooney on the board on a forward ball via Tickenest. ",
+            "Filepath": "img/gifs/S02/S02-ID47-05.gif"
+        },
+        {
+            "GameID": "47",
+            "ScoredBy": "14",
+            "Comment": "thatDrizzle also demonstrating the double bounce technique. 3-0 Hax Chocolate early on in this one",
+            "Filepath": "img/gifs/S02/S02-ID47-04.gif"
         }
     ]
 }
