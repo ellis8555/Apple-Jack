@@ -6132,6 +6132,96 @@
             "ScoredBy": "14",
             "Comment": "thatDrizzle pestering the defence and puts away Haxual Chocolates third goal of the game",
             "Filepath": "img/gifs/S02/S02-ID50-03.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "13",
+            "AssistedBy": "16",
+            "Comment": "Haxel Rose finally catch a break and get one from distance. 6-3 HC",
+            "Filepath": "img/gifs/S02/S02-ID51-10.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "16",
+            "AssistedBy": "13",
+            "Comment": "Haxel Rose take advantage of a confident HC and in particular Kingraph showing how bad he wants to lead the league in \"kicks\". Tick will take this category afterall",
+            "Filepath": "img/gifs/S02/S02-ID51-09.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "4",
+            "AssistedBy": "10",
+            "Comment": "Dangler dangles like he does in snes nhl94 and gets the hat trick in the closing seconds of the first half",
+            "Filepath": "img/gifs/S02/S02-ID51-08.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "4",
+            "Comment": "Dangler nets his fourth of the game and puts HC up by four. 7-3 HC",
+            "Filepath": "img/gifs/S02/S02-ID51-11.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "10",
+            "Comment": "Dangler just misses from a sharp angle but Kingraph puts the ball towards nets center and that'll make the final 10-3",
+            "Filepath": "img/gifs/S02/S02-ID51-14.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "10",
+            "Comment": "Kingraph gets another hat trick and reminds everyone there is no mercy rule in hax94! 9-3",
+            "Filepath": "img/gifs/S02/S02-ID51-13.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "4",
+            "AssistedBy": "14",
+            "Comment": "Dangler again digging Rose's grave even deeper. His fifth of the game putting HC up 8-3",
+            "Filepath": "img/gifs/S02/S02-ID51-12.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "4",
+            "AssistedBy": "10",
+            "Comment": "Everything is going Haxual Chocolates way as Dangler gets HC's third goal of the game",
+            "Filepath": "img/gifs/S02/S02-ID51-03.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "10",
+            "Comment": "Haxel Rose just can't catch a break as they fall behind 2-0",
+            "Filepath": "img/gifs/S02/S02-ID51-02.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "10",
+            "Comment": "Haxual Chocolate open the scoring on a rare three on none break. 1-0 HC in this final game of the regular season",
+            "Filepath": "img/gifs/S02/S02-ID51-01.gif"
+        },
+        {
+            "GameID": "51",
+            "Comment": "Kingraph with the save on a point blank shot from Lupz27 who knows how to score. Denied this time",
+            "Filepath": "img/gifs/S02/S02-ID51-04.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "4",
+            "AssistedBy": "10",
+            "Comment": "Dangler picks the top corner on a nice cross from Kingraph putting HC up 5-1",
+            "Filepath": "img/gifs/S02/S02-ID51-07.gif"
+        },
+        {
+            "GameID": "51",
+            "OwnGoal": "13",
+            "Comment": "Kingraph steps out of the way ensuring a Rose goal against",
+            "Filepath": "img/gifs/S02/S02-ID51-06.gif"
+        },
+        {
+            "GameID": "51",
+            "ScoredBy": "13",
+            "AssistedBy": "16",
+            "Comment": "A nice little give and go ending with Trefizoh putting Haxel on the board. 3-1 is now the score",
+            "Filepath": "img/gifs/S02/S02-ID51-05.gif"
         }
     ]
 }
