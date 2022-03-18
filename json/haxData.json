@@ -6094,6 +6094,44 @@
             "ScoredBy": "4",
             "Comment": "Dangler brings this game into the beginning of an ominous state. 5-1 and things will not improve for team Rose",
             "Filepath": "img/gifs/S02/S02-ID49-06.gif"
+        },
+        {
+            "GameID": "50",
+            "ScoredBy": "10",
+            "AssistedBy": "14",
+            "Comment": "Kingraph set up by thatDrizzle to make this game 4-0 HC with still remaining in this game",
+            "Filepath": "img/gifs/S02/S02-ID50-04.gif"
+        },
+        {
+            "GameID": "50",
+            "ScoredBy": "10",
+            "AssistedBy": "14",
+            "Comment": "Kingraph and Drizz again make this a five goal game",
+            "Filepath": "img/gifs/S02/S02-ID50-05.gif"
+        },
+        {
+            "GameID": "50",
+            "Comment": "Trefizoh sums out how this nights events have turned out for Haxel Rose.",
+            "Filepath": "img/gifs/S02/S02-ID50-06.gif"
+        },
+        {
+            "GameID": "50",
+            "ScoredBy": "10",
+            "Comment": "Kingraph puts Haxual Chocolate up 1-0 in this third game of the season between these two teams",
+            "Filepath": "img/gifs/S02/S02-ID50-01.gif"
+        },
+        {
+            "GameID": "50",
+            "ScoredBy": "14",
+            "AssistedBy": "4",
+            "Comment": "Dangler puts in the all the work allowing a tap in for thatDrizzle. 2-0 HC",
+            "Filepath": "img/gifs/S02/S02-ID50-02.gif"
+        },
+        {
+            "GameID": "50",
+            "ScoredBy": "14",
+            "Comment": "thatDrizzle pestering the defence and puts away Haxual Chocolates third goal of the game",
+            "Filepath": "img/gifs/S02/S02-ID50-03.gif"
         }
     ]
 }
