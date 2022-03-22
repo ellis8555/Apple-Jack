@@ -821,6 +821,20 @@ export function setPlayerS02Season() {
   setTableListeners();
   setMainNavbar();
 }
+// S02 all stats combined
+export function setPlayerS02Combined() {
+  createTable(
+    "S02 All Stats",
+    "IndividualPlayerStats.groupPlayersSeason2CombinedStats",
+    IndividualPlayerStats.groupPlayersSeason2CombinedStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
 // all time player grand totals
 export function setPlayerAllTimePoints() {
   createTable(
@@ -896,7 +910,7 @@ export function setPlayerS01Playoff() {
 
 export function setPlayerS01Combined() {
   createTable(
-    "S01 All Points",
+    "S01 All Stats",
     "IndividualPlayerStats.groupPlayersSeason1CombinedStats",
     IndividualPlayerStats.groupPlayersSeason1CombinedStats,
     "w3-yellow",

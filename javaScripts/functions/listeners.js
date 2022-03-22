@@ -9,6 +9,7 @@ import {
   setPlayerAllTimePoints,
   setPlayerS02Playoff,
   setPlayerS02Season,
+  setPlayerS02Combined,
   setS01RegularSeason,
   setS01PlayoffTable,
   setS01CombinedTable,
@@ -119,6 +120,9 @@ document
 document
   .getElementById("s02PlayerSeasonTable")
   .addEventListener("click", setPlayerS02Season);
+document
+  .getElementById("s02PlayerCombinedTable")
+  .addEventListener("click", setPlayerS02Combined);
 // TEAMS TABLES (no all time as teams probably change every season?)
 document
   .getElementById("S01RegularSeason")
