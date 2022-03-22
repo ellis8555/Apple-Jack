@@ -28,7 +28,7 @@ export function displayTaskList() {
   
     <p>The player stats that have been logged have been changed as in a games replay there are different stats that are recorded by the game. For instance the game does not have <del>"own goals"</del> or "saves".
     <b>Edit</b>: The replay analyzer does in fact record own goals! <del>Also when totals rang up for a teams total goals for the season these numbers did not match the total goals from the players on that team. 
-    This is where I evenly distributed missing tallies</del>. This will be adjusted back due to own goals actually being a game stat!</p>
+    This is where I evenly distributed missing tallies</del>. <del>This will be adjusted back due to own goals actually being a game stat!</del>For now I'll leave it as is. Not sure what to do with season one stats at this point?</p>
   </div>`;
   closeSidebar();
 }
