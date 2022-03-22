@@ -7,6 +7,7 @@ import {
   setPlayerAllTimeSeason,
   setPlayerAllTimePlayoff,
   setPlayerAllTimePoints,
+  setPlayerS02Playoff,
   setPlayerS02Season,
   setS01RegularSeason,
   setS01PlayoffTable,
@@ -112,6 +113,9 @@ document
   .getElementById("fullTable")
   .addEventListener("click", setS02SeasonFullTable);
 // current players table
+document
+  .getElementById("s02PlayerPlayoffTable")
+  .addEventListener("click", setPlayerS02Playoff);
 document
   .getElementById("s02PlayerSeasonTable")
   .addEventListener("click", setPlayerS02Season);

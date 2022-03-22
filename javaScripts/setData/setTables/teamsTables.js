@@ -793,10 +793,24 @@ export function setS01CombinedTable() {
   setMainNavbar(1);
 }
 // PLAYERS
+// S02 playoffs (CURRENT PLAYOFFS)
+export function setPlayerS02Playoff() {
+  createTable(
+    "Current Playoffs",
+    "IndividualPlayerStats.groupPlayersSeason2PlayoffStats",
+    IndividualPlayerStats.groupPlayersSeason2PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
 // S02 regular season (CURRENT SEASON)
 export function setPlayerS02Season() {
   createTable(
-    "Current",
+    "S02 Regular Season",
     "IndividualPlayerStats.groupPlayersSeason2SeasonStats",
     IndividualPlayerStats.groupPlayersSeason2SeasonStats,
     "w3-yellow",
