@@ -6465,6 +6465,41 @@
             "ScoredBy": "15",
             "Comment": "Tickenest's periscope has locked onto the target from an unheard of depth evening this game up at 1-1! What a shot!",
             "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-04.gif"
+        },
+        {
+            "GameID": "53",
+            "ScoredBy": "2",
+            "AssistedBy": "1",
+            "Comment": "Team Mooney brilliantly using wall passes resulting in what will be the series clinching goal by Chaos. 2-1 team Mooney",
+            "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-04.gif"
+        },
+        {
+            "GameID": "53",
+            "Comment": "Ellis sends the ball up to Skills who narrowly misses this potential game tying shot",
+            "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-05.gif"
+        },
+        {
+            "GameID": "53",
+            "Comment": "CES Pool applying pressure and Ellis also sends what would be a game tying shot wide. Team Mooney takes this game 2-1 and the series 2-0",
+            "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-06.gif"
+        },
+        {
+            "GameID": "53",
+            "OwnGoal": "1",
+            "Comment": "Angryjay spins and fires a shot into the top corner of his own net! 1-0 CES Pool in this game two",
+            "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-01.gif"
+        },
+        {
+            "GameID": "53",
+            "Comment": "Chaos just misses on a very nice passing play from team Mooney. Mooney still down a goal",
+            "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-02.gif"
+        },
+        {
+            "GameID": "53",
+            "ScoredBy": "2",
+            "AssistedBy": "1",
+            "Comment": "Chaos blasts a shot from angle and the ball finds the back of the net short side. Game is all tied up at 1-1",
+            "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-03.gif"
         }
     ]
 }
