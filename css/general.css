@@ -350,6 +350,12 @@ table td:first-child {
   padding: 5px;
 }
 
+/* boxscore players table*/
+
+#boxscorePlayerStats {
+  margin: auto;
+}
+
 /* end boxscore page*/
 
 /* classes for team colors display */

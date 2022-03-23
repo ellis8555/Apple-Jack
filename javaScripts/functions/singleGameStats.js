@@ -121,11 +121,8 @@ export default function setGamesData(e) {
         +thisGamesPlayerStatMAPS[i].get("Assists")
     );
   }
-  sortGroupedStats(thisGamesPlayerStatMAPS, "Points");
-
   // END TESTING
   // begin data containers
-
   for (let i = 0; i < gameCategories.length; i++) {
     displayGameData += `<div class="boxscoreContainer w3-center">`;
     // set first rows home teams cell to teams main color
@@ -160,64 +157,65 @@ export default function setGamesData(e) {
   // begin players game stats table
   displayGameData += `<table id="boxscorePlayerStats">`;
   // html table caption
-  displayGameData += `<caption><h3>Player Stats</h3></caption>`;
+  // displayGameData += `<caption><h3>Player Stats</h3></caption>`;
   // html table thead
-  displayGameData += "<thead><tr>";
-  for (let i = 0; i < fieldsLength; i++) {
-    if (playersTable[i] == "Points") {
-      displayGameData +=
-        `<th data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[i] +
-        ` class="w3-orange">` +
-        playersTable[i] +
-        "</th>";
-    } else {
-      displayGameData +=
-        `<th data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[i] +
-        " >" +
-        playersTable[i] +
-        "</th>";
-    }
-  }
-  displayGameData += "</tr></thead>";
-  // end of html table header fields row
-  thisGamesPlayerStatMAPS.forEach((item) => {
-    // table data begins for each field
-    displayGameData += "<tr>";
-
-    for (let j = 0; j < fieldsLength; j++) {
-      if (playersTable[j] == "Points") {
+  (function setPlayersBoxscoreTable(sortBy = "Points") {
+    sortGroupedStats(thisGamesPlayerStatMAPS, sortBy);
+    displayGameData += "<thead><tr>";
+    for (let i = 0; i < fieldsLength; i++) {
+      if (playersTable[i] == sortBy) {
         displayGameData +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
-          ` class="w3-yellow">` + // add yellow background for sorted column points
-          item.get(playersTable[j]) +
-          "</td>";
-      } else if (playersTable[j] == "Name") {
-        displayGameData +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
-          " >" +
-          playersMAP.get(+item.get("PlayerID")) +
-          "</td>";
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[i] +
+          ` class="w3-orange">` +
+          playersTable[i] +
+          "</th>";
       } else {
         displayGameData +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[i] +
           " >" +
-          item.get(playersTable[j]) +
-          "</td>";
+          playersTable[i] +
+          "</th>";
       }
     }
+    displayGameData += "</tr></thead>";
+    // end of html table header fields row
+    thisGamesPlayerStatMAPS.forEach((item) => {
+      // table data begins for each field
+      displayGameData += "<tr>";
 
-    displayGameData += "</tr>";
-  });
+      for (let j = 0; j < fieldsLength; j++) {
+        if (playersTable[j] == sortBy) {
+          displayGameData +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            ` class="w3-yellow">` + // add yellow background for sorted column points
+            item.get(playersTable[j]) +
+            "</td>";
+        } else if (playersTable[j] == "Name") {
+          displayGameData +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            " >" +
+            playersMAP.get(+item.get("PlayerID")) +
+            "</td>";
+        } else {
+          displayGameData +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            " >" +
+            item.get(playersTable[j]) +
+            "</td>";
+        }
+      }
+
+      displayGameData += "</tr>";
+    });
+  })();
   // end players game stats table
   displayGameData += `</table>`;
-
   //end data containers
-
   tablesDiv.innerHTML = displayTeamLogos;
   scoreboardDiv.innerHTML = displayGameData;
 }
