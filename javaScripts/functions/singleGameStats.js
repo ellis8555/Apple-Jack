@@ -154,6 +154,8 @@ export default function setGamesData(e) {
   }
 
   displayGameData += `<br>`;
+  displayGameData += `<h4>Table currently ordered by points but not sortable at the moment</h4>`;
+  displayGameData += `<br>`;
   // begin players game stats table
   displayGameData += `<table id="boxscorePlayerStats">`;
   // html table caption
