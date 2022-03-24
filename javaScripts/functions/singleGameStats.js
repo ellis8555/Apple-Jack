@@ -189,7 +189,6 @@ export default function setGamesData(e) {
         +thisGamesPlayerStatMAPS[i].get("Assists")
     );
   }
-  console.log(thisGamesPlayerStatMAPS);
   // END TESTING
 
   function setPlayersBoxscoreTable(e) {
