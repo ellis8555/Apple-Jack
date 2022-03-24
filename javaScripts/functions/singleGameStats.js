@@ -1,8 +1,10 @@
 import {
   gameResults,
   gamePlayerStats,
+  teamPlayers,
   playersMAP,
   teamsMAP,
+  teamsNumMAP,
   eachTeamObjectMAP,
 } from "../../json/masterVars.js";
 import {
@@ -34,6 +36,19 @@ export default function setGamesData(e) {
     eachTeamObjectMAP.get(thisGamesHomeTeam)[
       `S0${thisSeasonNumber}HomeFilePath`
     ];
+  //***************************** */
+  console.log(teamPlayers);
+  let thisGamesHomeTeamsPlayerRecords = teamPlayers.filter(
+    (item) =>
+      item.SeasonNumber == thisSeasonNumber &&
+      item.TeamID == String(teamsNumMAP.get(thisGamesHomeTeam))
+  );
+  let thisGamesHomeTeamPlayerNames = [];
+  thisGamesHomeTeamsPlayerRecords.forEach((item) =>
+    thisGamesHomeTeamPlayerNames.push(playersMAP.get(+item.PlayerID))
+  );
+  //**************************************** */
+  console.log(thisGamesHomeTeamPlayerNames);
   let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
   let thisGamesHomeTeamPossession = thisGamesResult[0].TeamOnePossession;
   let thisGamesHomeTeamShotsOnGoal = thisGamesResult[0].TeamOneShotsOnGoal;
@@ -213,7 +228,7 @@ export default function setGamesData(e) {
           playersData +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
             playersTable[j] +
-            " >" +
+            ` >` +
             playersMAP.get(+item.get("PlayerID")) +
             "</td>";
         } else {
