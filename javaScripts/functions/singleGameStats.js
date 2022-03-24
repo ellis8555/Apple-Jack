@@ -177,7 +177,6 @@ export default function setGamesData(e) {
     "OwnGoals",
   ];
   let fieldsLength = playersTable.length;
-  //TESTING
   let thisGamesPlayerStatMAPS = [];
   for (let i = 0; i < thisGamesPlayerStats.length; i++) {
     thisGamesPlayerStatMAPS.push(
@@ -189,8 +188,6 @@ export default function setGamesData(e) {
         +thisGamesPlayerStatMAPS[i].get("Assists")
     );
   }
-  // END TESTING
-
   function setPlayersBoxscoreTable(e) {
     let sortBy;
     if (e) {
