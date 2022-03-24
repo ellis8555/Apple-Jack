@@ -4,6 +4,8 @@ import {
   setTeamsPageLayout,
   setHomeTable,
   setS02SeasonFullTable,
+  setS02PlayoffTable,
+  setS02CombinedTable,
   setPlayerAllTimeSeason,
   setPlayerAllTimePlayoff,
   setPlayerAllTimePoints,
@@ -157,6 +159,13 @@ document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", setPlayerS01Combined);
 document.getElementById("otherStats").addEventListener("click", displaySlides);
+// season 2
+document
+  .getElementById("s02PlayoffTable")
+  .addEventListener("click", setS02PlayoffTable);
+document
+  .getElementById("s02CombinedTable")
+  .addEventListener("click", setS02CombinedTable);
 // tasks list page
 document
   .getElementById("siteTaskList")

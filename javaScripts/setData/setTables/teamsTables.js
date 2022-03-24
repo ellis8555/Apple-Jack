@@ -738,7 +738,7 @@ export function setHomeTable() {
 // full table
 export function setS02SeasonFullTable() {
   createTable(
-    "Current Full Table",
+    "S02 Full Table",
     "TeamStats.groupTeamsSeason2SeasonStats",
     TeamStats.groupTeamsSeason2SeasonStats,
     "w3-yellow",
@@ -747,7 +747,35 @@ export function setS02SeasonFullTable() {
     fullTableNoTies
   );
   setTableListeners();
-  setMainNavbar();
+  setMainNavbar(2);
+}
+// S02 playoffs
+export function setS02PlayoffTable() {
+  createTable(
+    "S02 Playoffs",
+    "TeamStats.groupTeamsSeason2PlayoffStats",
+    TeamStats.groupTeamsSeason2PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(2);
+}
+// S02 Combined
+export function setS02CombinedTable() {
+  createTable(
+    "S02 Combined",
+    "TeamStats.groupTeamsSeason2CombinedStats",
+    TeamStats.groupTeamsSeason2CombinedStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(2);
 }
 // S01 regular season
 export function setS01RegularSeason() {
