@@ -203,12 +203,14 @@ export function createTable(
   sortGroupedStats(dataSource, sortBy);
   let tableHeaders = fieldsArray[0];
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-  let isOTW = tableHeaders.includes("OTW");
+  let isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
   let screenedDataSource;
-  let tableStats = "";
-  // check if dataSource is team Playoff table
+  let tableStats;
+  // check if dataSource is a teams table
   let isTeamTable = dataSourceName.includes("TeamStats");
+  // check if dataSource is a player table
   let isPlayerTable = dataSourceName.includes("Individual");
+  // check if dataSource is team Playoff table
   let isPlayoffTable = dataSourceName.includes("Playoff");
   if ((isTeamTable || isPlayerTable) && isPlayoffTable) {
     screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
