@@ -208,8 +208,11 @@ export function createTable(
   let playerStats = "";
   // check if dataSource is team Playoff table
   let isTeamTable = dataSourceName.includes("TeamStats");
+  let isPlayerTable = dataSourceName.includes("Individual");
   let isPlayoffTable = dataSourceName.includes("Playoff");
   if (isTeamTable && isPlayoffTable) {
+    screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
+  } else if (isPlayerTable && isPlayoffTable) {
     screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
   } else {
     screenedDataSource = dataSource;
