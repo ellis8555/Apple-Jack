@@ -205,79 +205,77 @@ export function createTable(
   let fieldsLength = fieldsArray[0].length; // named array of fields previously made
   let isOTW = tableHeaders.includes("OTW");
   let screenedDataSource;
-  let playerStats = "";
+  let tableStats = "";
   // check if dataSource is team Playoff table
   let isTeamTable = dataSourceName.includes("TeamStats");
   let isPlayerTable = dataSourceName.includes("Individual");
   let isPlayoffTable = dataSourceName.includes("Playoff");
-  if (isTeamTable && isPlayoffTable) {
-    screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
-  } else if (isPlayerTable && isPlayoffTable) {
+  if ((isTeamTable || isPlayerTable) && isPlayoffTable) {
     screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
   } else {
     screenedDataSource = dataSource;
   }
   // html table begin
-  playerStats = "<table>";
+  tableStats = "<table>";
   // html table caption
-  playerStats += `<caption><h1>${tableName}</h1></caption>`;
+  tableStats += `<caption><h1>${tableName}</h1></caption>`;
   // html table thead
-  playerStats += "<thead><tr>";
+  tableStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
-    playerStats +=
+    tableStats +=
       `<th data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
       tableHeaders[i] +
       " >" +
       tableHeaders[i] +
       "</th>";
   }
-  playerStats += "</tr></thead>";
+  tableStats += "</tr></thead>";
   // end of html table header fields row
 
   screenedDataSource.forEach((item) => {
     // table data begins for each field
-    playerStats += "<tr>";
+    tableStats += "<tr>";
 
     for (let j = 0; j < fieldsLength; j++) {
       if (tableHeaders[j] == sortBy) {
         // this if part adds highlight to sorted column
-        playerStats +=
+        tableStats +=
           `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
           tableHeaders[j] +
           " >";
         // this if correctly outputs wins - OTW in full table view
         if (isOTW && tableHeaders[j] == "Wins") {
-          playerStats += item.get(tableHeaders[j]) - item.get("OTW");
+          tableStats += item.get(tableHeaders[j]) - item.get("OTW");
         } else {
-          playerStats += item.get(tableHeaders[j]);
+          tableStats += item.get(tableHeaders[j]);
         }
-        playerStats += "</td>";
+        tableStats += "</td>";
       } else {
-        playerStats +=
+        tableStats +=
           `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
           tableHeaders[j] +
           " >";
         // this if correctly outputs wins - OTW in full table view
         if (isOTW && tableHeaders[j] == "Wins") {
-          playerStats += item.get(tableHeaders[j]) - item.get("OTW");
+          tableStats += item.get(tableHeaders[j]) - item.get("OTW");
         } else {
-          playerStats += item.get(tableHeaders[j]);
+          tableStats += item.get(tableHeaders[j]);
         }
-        playerStats += "</td>";
+        tableStats += "</td>";
       }
     }
-    playerStats += "</tr>";
+    tableStats += "</tr>";
   });
 
   // html table ends
-  playerStats += "</table>";
+  tableStats += "</table>";
 
   closeSidebar();
   clearScoreboardDiv();
 
   // display table on web page
   getTablesDiv(); // import function
-  tablesDiv.innerHTML = playerStats;
+  tablesDiv.innerHTML = tableStats;
 
   // function to change background-color on team row viewed on smaller screens
   setTeamsTableBgColor();
