@@ -824,7 +824,7 @@ export function setS01CombinedTable() {
 // S02 playoffs (CURRENT PLAYOFFS)
 export function setPlayerS02Playoff() {
   createTable(
-    "Current Playoffs",
+    "S02 Playoffs",
     "IndividualPlayerStats.groupPlayersSeason2PlayoffStats",
     IndividualPlayerStats.groupPlayersSeason2PlayoffStats,
     "w3-yellow",
