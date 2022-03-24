@@ -352,7 +352,7 @@ table td:first-child {
 
 /* boxscore players table*/
 
-#boxscorePlayerStats {
+#boxscorePlayerStats table {
   margin: auto;
 }
 

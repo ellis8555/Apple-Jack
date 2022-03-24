@@ -91,37 +91,10 @@ export default function setGamesData(e) {
   displayTeamLogos += `<img src="${thisGamesAwayTeamLogo}">`;
   displayTeamLogos += `</div>`;
   displayTeamLogos += `</div>`;
-
+  // display team logos
+  tablesDiv.innerHTML = displayTeamLogos;
   // end team logos
-  // begin player stats data
 
-  let thisGamesPlayerStats = gamePlayerStats.filter(
-    (item) => item.GameID == gameNumber
-  );
-  let playersTable = [
-    "Name",
-    "Goals",
-    "Assists",
-    "Points",
-    "Kicks",
-    "Passes",
-    "ShotsOnGoal",
-    "OwnGoals",
-  ];
-  let fieldsLength = playersTable.length;
-  //TESTING
-  let thisGamesPlayerStatMAPS = [];
-  for (let i = 0; i < thisGamesPlayerStats.length; i++) {
-    thisGamesPlayerStatMAPS.push(
-      new Map(Object.entries(thisGamesPlayerStats[i]))
-    );
-    thisGamesPlayerStatMAPS[i].set(
-      "Points",
-      +thisGamesPlayerStatMAPS[i].get("Goals") +
-        +thisGamesPlayerStatMAPS[i].get("Assists")
-    );
-  }
-  // END TESTING
   // begin data containers
   for (let i = 0; i < gameCategories.length; i++) {
     displayGameData += `<div class="boxscoreContainer w3-center">`;
@@ -154,26 +127,68 @@ export default function setGamesData(e) {
   }
 
   displayGameData += `<br>`;
-  displayGameData += `<h4>Table currently ordered by points but not sortable at the moment</h4>`;
+
   displayGameData += `<br>`;
-  // begin players game stats table
-  displayGameData += `<table id="boxscorePlayerStats">`;
-  // html table caption
-  // displayGameData += `<caption><h3>Player Stats</h3></caption>`;
-  // html table thead
-  (function setPlayersBoxscoreTable(sortBy = "Points") {
+
+  // div holding the players table
+  displayGameData += `<div id="boxscorePlayerStats"></div>`;
+
+  // display team stats below team logos
+  scoreboardDiv.innerHTML = displayGameData;
+
+  // begin player stats data
+  let thisGamesPlayerStats = gamePlayerStats.filter(
+    (item) => item.GameID == gameNumber
+  );
+  let playersTable = [
+    "Name",
+    "Goals",
+    "Assists",
+    "Points",
+    "Kicks",
+    "Passes",
+    "ShotsOnGoal",
+    "OwnGoals",
+  ];
+  let fieldsLength = playersTable.length;
+  //TESTING
+  let thisGamesPlayerStatMAPS = [];
+  for (let i = 0; i < thisGamesPlayerStats.length; i++) {
+    thisGamesPlayerStatMAPS.push(
+      new Map(Object.entries(thisGamesPlayerStats[i]))
+    );
+    thisGamesPlayerStatMAPS[i].set(
+      "Points",
+      +thisGamesPlayerStatMAPS[i].get("Goals") +
+        +thisGamesPlayerStatMAPS[i].get("Assists")
+    );
+  }
+  // END TESTING
+
+  function setPlayersBoxscoreTable(e) {
+    let sortBy;
+    if (e) {
+      sortBy = e.target.dataset.fieldName;
+    } else {
+      sortBy = "Points";
+    }
     sortGroupedStats(thisGamesPlayerStatMAPS, sortBy);
-    displayGameData += "<thead><tr>";
+    let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
+    let playersData = "";
+    // begin players game stats table
+    playersData += `<table>`;
+    // html table thead
+    playersData += "<thead><tr>";
     for (let i = 0; i < fieldsLength; i++) {
       if (playersTable[i] == sortBy) {
-        displayGameData +=
+        playersData +=
           `<th data-field-name=` + //data-fieldNames required for mobile layout
           playersTable[i] +
           ` class="w3-orange">` +
           playersTable[i] +
           "</th>";
       } else {
-        displayGameData +=
+        playersData +=
           `<th data-field-name=` + //data-fieldNames required for mobile layout
           playersTable[i] +
           " >" +
@@ -181,29 +196,28 @@ export default function setGamesData(e) {
           "</th>";
       }
     }
-    displayGameData += "</tr></thead>";
+    playersData += "</tr></thead>";
     // end of html table header fields row
     thisGamesPlayerStatMAPS.forEach((item) => {
       // table data begins for each field
-      displayGameData += "<tr>";
-
+      playersData += "<tr>";
       for (let j = 0; j < fieldsLength; j++) {
         if (playersTable[j] == sortBy) {
-          displayGameData +=
+          playersData +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
             playersTable[j] +
             ` class="w3-yellow">` + // add yellow background for sorted column points
             item.get(playersTable[j]) +
             "</td>";
         } else if (playersTable[j] == "Name") {
-          displayGameData +=
+          playersData +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
             playersTable[j] +
             " >" +
             playersMAP.get(+item.get("PlayerID")) +
             "</td>";
         } else {
-          displayGameData +=
+          playersData +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
             playersTable[j] +
             " >" +
@@ -212,12 +226,29 @@ export default function setGamesData(e) {
         }
       }
 
-      displayGameData += "</tr>";
+      playersData += "</tr>";
     });
-  })();
+    playersData += `</table>`;
+    playerStatsContainer.innerHTML = playersData;
+    let browserWidth = window.innerWidth;
+    if (browserWidth < 982) {
+      let mobileTableCells = document.querySelectorAll(
+        "#boxscorePlayerStats td"
+      );
+      let eachCell = Array.from(mobileTableCells);
+      eachCell.forEach((field) =>
+        field.addEventListener("click", setPlayersBoxscoreTable)
+      );
+    } else {
+      let getFieldNames = document.querySelectorAll("#boxscorePlayerStats th");
+      let headers = Array.from(getFieldNames);
+      headers.forEach((field) =>
+        field.addEventListener("click", setPlayersBoxscoreTable)
+      );
+    }
+  }
+  setPlayersBoxscoreTable();
   // end players game stats table
-  displayGameData += `</table>`;
-  //end data containers
-  tablesDiv.innerHTML = displayTeamLogos;
-  scoreboardDiv.innerHTML = displayGameData;
 }
+
+//end data containers
