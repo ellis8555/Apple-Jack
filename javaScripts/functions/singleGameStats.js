@@ -37,7 +37,7 @@ export default function setGamesData(e) {
       `S0${thisSeasonNumber}HomeFilePath`
     ];
   //***************************** */
-  console.log(teamPlayers);
+
   let thisGamesHomeTeamsPlayerRecords = teamPlayers.filter(
     (item) =>
       item.SeasonNumber == thisSeasonNumber &&
@@ -47,8 +47,8 @@ export default function setGamesData(e) {
   thisGamesHomeTeamsPlayerRecords.forEach((item) =>
     thisGamesHomeTeamPlayerNames.push(playersMAP.get(+item.PlayerID))
   );
+
   //**************************************** */
-  console.log(thisGamesHomeTeamPlayerNames);
   let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
   let thisGamesHomeTeamPossession = thisGamesResult[0].TeamOnePossession;
   let thisGamesHomeTeamShotsOnGoal = thisGamesResult[0].TeamOneShotsOnGoal;
@@ -64,6 +64,17 @@ export default function setGamesData(e) {
     eachTeamObjectMAP.get(thisGamesAwayTeam)[
       `S0${thisSeasonNumber}HomeFilePath`
     ];
+  //***************************** */
+  let thisGamesAwayTeamsPlayerRecords = teamPlayers.filter(
+    (item) =>
+      item.SeasonNumber == thisSeasonNumber &&
+      item.TeamID == String(teamsNumMAP.get(thisGamesAwayTeam))
+  );
+  let thisGamesAwayTeamPlayerNames = [];
+  thisGamesAwayTeamsPlayerRecords.forEach((item) =>
+    thisGamesAwayTeamPlayerNames.push(playersMAP.get(+item.PlayerID))
+  );
+  //***************************************** */
   let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
   let thisGamesAwayTeamPossession = thisGamesResult[0].TeamTwoPossession;
   let thisGamesAwayTeamShotsOnGoal = thisGamesResult[0].TeamTwoShotsOnGoal;
@@ -178,6 +189,7 @@ export default function setGamesData(e) {
         +thisGamesPlayerStatMAPS[i].get("Assists")
     );
   }
+  console.log(thisGamesPlayerStatMAPS);
   // END TESTING
 
   function setPlayersBoxscoreTable(e) {
@@ -225,12 +237,25 @@ export default function setGamesData(e) {
             item.get(playersTable[j]) +
             "</td>";
         } else if (playersTable[j] == "Name") {
-          playersData +=
-            `<td data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[j] +
-            ` >` +
-            playersMAP.get(+item.get("PlayerID")) +
-            "</td>";
+          if (
+            thisGamesHomeTeamPlayerNames.includes(
+              playersMAP.get(+item.get("PlayerID"))
+            )
+          ) {
+            playersData +=
+              `<td data-field-name=` + //data-fieldNames required for mobile layout
+              playersTable[j] +
+              ` style="background-color:${thisGamesHomeTeamColor};color:#fff">` +
+              playersMAP.get(+item.get("PlayerID")) +
+              "</td>";
+          } else {
+            playersData +=
+              `<td data-field-name=` + //data-fieldNames required for mobile layout
+              playersTable[j] +
+              ` style="background-color:${thisGamesAwayTeamColor};color:#fff">` +
+              playersMAP.get(+item.get("PlayerID")) +
+              "</td>";
+          }
         } else {
           playersData +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
