@@ -2,6 +2,7 @@ import { TeamStats } from "../createTeams.js";
 import { IndividualPlayerStats } from "../createPlayers.js";
 import setMainNavbar from "../../functions/mainNavbar.js";
 import setTeamsTableBgColor from "../../functions/teamTableBgColor.js";
+import setPlayersTableBgColor from "../../functions/playerTableBgColor.js";
 import {
   teams,
   teamsMAP,
@@ -280,7 +281,11 @@ export function createTable(
   tablesDiv.innerHTML = tableStats;
 
   // function to change background-color on team row viewed on smaller screens
-  setTeamsTableBgColor();
+  if (isTeamTable) {
+    setTeamsTableBgColor();
+  } else {
+    setPlayersTableBgColor();
+  }
 }
 // END overall table leaders
 
