@@ -178,6 +178,7 @@ tableDataSource
 // used within hax94Listeners setTableListeners function
 
 export function sortTable(event) {
+  let seasonNumber = event.target.dataset.seasonNumber;
   let caption = document.querySelector("table caption > h1");
   let tableName = caption.textContent;
   let dataName = event.target.dataset.dataSource;
@@ -186,7 +187,16 @@ export function sortTable(event) {
   let sortBy = event.target.dataset.fieldName;
   let arrayName = event.target.dataset.arraySource;
   let arraySource = tableFields.get(arrayName);
-  createTable(tableName, dataName, data, color, sortBy, arrayName, arraySource);
+  createTable(
+    seasonNumber,
+    tableName,
+    dataName,
+    data,
+    color,
+    sortBy,
+    arrayName,
+    arraySource
+  );
   setTableListeners();
 }
 
@@ -228,7 +238,7 @@ export function createTable(
   tableStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
     tableStats +=
-      `<th data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
+      `<th data-season-Number=${seasonNumber} data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
       tableHeaders[i] +
       " >" +
       tableHeaders[i] +
@@ -245,7 +255,7 @@ export function createTable(
       if (tableHeaders[j] == sortBy) {
         // this if part adds highlight to sorted column
         tableStats +=
-          `<td data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
+          `<td data-season-Number=${seasonNumber} data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
           tableHeaders[j] +
           " >";
         // this if correctly outputs wins - OTW in full table view
@@ -257,7 +267,7 @@ export function createTable(
         tableStats += "</td>";
       } else {
         tableStats +=
-          `<td  data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
+          `<td  data-season-Number=${seasonNumber} data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
           tableHeaders[j] +
           " >";
         // this if correctly outputs wins - OTW in full table view
