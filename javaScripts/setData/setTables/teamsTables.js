@@ -15,6 +15,7 @@ import {
   seasonCountLength,
   seasonsWithTieGames,
   gifs,
+  currentSeason,
 } from "../../../json/masterVars.js";
 import sortGroupedStats from "../../functions/sort.js";
 import { setTableListeners } from "../../functions/listeners.js";
@@ -193,6 +194,7 @@ export function sortTable(event) {
 
 // create table for all teams and players overall standings
 export function createTable(
+  seasonNumber,
   tableName,
   dataSourceName,
   dataSource,
@@ -284,7 +286,7 @@ export function createTable(
   if (isTeamTable) {
     setTeamsTableBgColor();
   } else {
-    setPlayersTableBgColor();
+    setPlayersTableBgColor(seasonNumber);
   }
 }
 // END overall table leaders
@@ -724,6 +726,7 @@ export function setTeamsPageLayout(e) {
 // home table
 export function setHomeTable() {
   createTable(
+    currentSeason,
     "Season 2 Final Standings",
     "TeamStats.groupTeamsSeason2SeasonStats",
     TeamStats.groupTeamsSeason2SeasonStats,
@@ -746,6 +749,7 @@ export function setHomeTable() {
 // full table
 export function setS02SeasonFullTable() {
   createTable(
+    2,
     "S02 Full Table",
     "TeamStats.groupTeamsSeason2SeasonStats",
     TeamStats.groupTeamsSeason2SeasonStats,
@@ -760,6 +764,7 @@ export function setS02SeasonFullTable() {
 // S02 playoffs
 export function setS02PlayoffTable() {
   createTable(
+    2,
     "S02 Playoffs",
     "TeamStats.groupTeamsSeason2PlayoffStats",
     TeamStats.groupTeamsSeason2PlayoffStats,
@@ -774,6 +779,7 @@ export function setS02PlayoffTable() {
 // S02 Combined
 export function setS02CombinedTable() {
   createTable(
+    2,
     "S02 Combined",
     "TeamStats.groupTeamsSeason2CombinedStats",
     TeamStats.groupTeamsSeason2CombinedStats,
@@ -788,6 +794,7 @@ export function setS02CombinedTable() {
 // S01 regular season
 export function setS01RegularSeason() {
   createTable(
+    1,
     "S01 Regular Season",
     "TeamStats.groupTeamsSeason1SeasonStats",
     TeamStats.groupTeamsSeason1SeasonStats,
@@ -803,6 +810,7 @@ export function setS01RegularSeason() {
 // S01 Playoff
 export function setS01PlayoffTable() {
   createTable(
+    1,
     "S01 Playoffs",
     "TeamStats.groupTeamsSeason1PlayoffStats",
     TeamStats.groupTeamsSeason1PlayoffStats,
@@ -817,6 +825,7 @@ export function setS01PlayoffTable() {
 // S01 COMBINED
 export function setS01CombinedTable() {
   createTable(
+    1,
     "S01 Combined",
     "TeamStats.groupTeamsSeason1CombinedStats",
     TeamStats.groupTeamsSeason1CombinedStats,
@@ -832,6 +841,7 @@ export function setS01CombinedTable() {
 // S02 playoffs (CURRENT PLAYOFFS)
 export function setPlayerS02Playoff() {
   createTable(
+    2,
     "S02 Playoffs",
     "IndividualPlayerStats.groupPlayersSeason2PlayoffStats",
     IndividualPlayerStats.groupPlayersSeason2PlayoffStats,
@@ -846,6 +856,7 @@ export function setPlayerS02Playoff() {
 // S02 regular season (CURRENT SEASON)
 export function setPlayerS02Season() {
   createTable(
+    2,
     "S02 Regular Season",
     "IndividualPlayerStats.groupPlayersSeason2SeasonStats",
     IndividualPlayerStats.groupPlayersSeason2SeasonStats,
@@ -860,6 +871,7 @@ export function setPlayerS02Season() {
 // S02 all stats combined
 export function setPlayerS02Combined() {
   createTable(
+    2,
     "S02 All Stats",
     "IndividualPlayerStats.groupPlayersSeason2CombinedStats",
     IndividualPlayerStats.groupPlayersSeason2CombinedStats,
@@ -874,6 +886,7 @@ export function setPlayerS02Combined() {
 // all time player grand totals
 export function setPlayerAllTimePoints() {
   createTable(
+    0,
     "All Time Points",
     "IndividualPlayerStats.groupPlayersAllTimeStats",
     IndividualPlayerStats.groupPlayersAllTimeStats,
@@ -888,6 +901,7 @@ export function setPlayerAllTimePoints() {
 // all time player season
 export function setPlayerAllTimeSeason() {
   createTable(
+    0,
     "All Time Season",
     "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
     IndividualPlayerStats.groupPlayersAllTimeSeasonStats,
@@ -902,6 +916,7 @@ export function setPlayerAllTimeSeason() {
 // all time player playoff
 export function setPlayerAllTimePlayoff() {
   createTable(
+    0,
     "All Time Playoffs",
     "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
     IndividualPlayerStats.groupPlayersAllTimePlayoffStats,
@@ -916,6 +931,7 @@ export function setPlayerAllTimePlayoff() {
 // S01 player regular season
 export function setPlayerS01Season() {
   createTable(
+    1,
     "S01 Season",
     "IndividualPlayerStats.groupPlayersSeason1SeasonStats",
     IndividualPlayerStats.groupPlayersSeason1SeasonStats,
@@ -930,6 +946,7 @@ export function setPlayerS01Season() {
 // S01 player Playoff
 export function setPlayerS01Playoff() {
   createTable(
+    1,
     "S01 Playoffs",
     "IndividualPlayerStats.groupPlayersSeason1PlayoffStats",
     IndividualPlayerStats.groupPlayersSeason1PlayoffStats,
@@ -946,6 +963,7 @@ export function setPlayerS01Playoff() {
 
 export function setPlayerS01Combined() {
   createTable(
+    1,
     "S01 All Stats",
     "IndividualPlayerStats.groupPlayersSeason1CombinedStats",
     IndividualPlayerStats.groupPlayersSeason1CombinedStats,
