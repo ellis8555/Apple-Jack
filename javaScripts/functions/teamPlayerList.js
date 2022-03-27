@@ -242,4 +242,10 @@ export function getTeamsPlayersPerSeason(e) {
   playerStatsTable.style.flexDirection = "column";
   playerStatsTable.style.alignItems = "center";
   playerStatsTable.innerHTML = playerStats;
+
+  let playerNameCells = document.querySelectorAll("td[data-field-name='Name']");
+  playerNameCells.forEach((item) => {
+    item.style.color = "#fff";
+    item.style.backgroundColor = teamColor;
+  });
 }
