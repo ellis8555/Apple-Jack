@@ -11,8 +11,12 @@ export function displayTaskList() {
   <p><b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b></p>
   <p><b>**</b> Tables are sortable via clicking the field header. On mobile click on any row <b>**</b></p>
  
+
     <h3>List of site improvements</h3> 
     <h4>In no particular order..</h4>
+    <p>Adjust correct champions logo when clicking on previous seasons tables</p>
+    <p>More stats for tables. ex. shooting percentage, clean sheets, points per game average, etc....</p>
+    <p>Sortable tables within a teams players' list of players</p>
     <p>Some kind of playoff tree visual</p>
     <p>Develop a particular players own stats page</p>
     <p>
