@@ -11,6 +11,7 @@ import sortGroupedStats from "./sort.js";
 
 let playersTable = [
   "Name",
+  "GP",
   "Goals",
   "Assists",
   "Points",
