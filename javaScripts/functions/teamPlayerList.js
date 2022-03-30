@@ -133,110 +133,114 @@ export function getTeamsPlayersPerSeason(e) {
   playerStats += "</table>";
 
   // html table playoff stats begin
-  playerStats += "<table>";
-  // html table caption
-  playerStats += `<caption><h3>Playoffs</h3></caption>`;
-  // html table thead
-  playerStats += "<thead><tr>";
-  for (let i = 0; i < fieldsLength; i++) {
-    if (playersTable[i] == "Points") {
-      playerStats +=
-        `<th data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[i] +
-        ` class="w3-orange">` +
-        playersTable[i] +
-        "</th>";
-    } else {
-      playerStats +=
-        `<th data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[i] +
-        " >" +
-        playersTable[i] +
-        "</th>";
-    }
-  }
-  playerStats += "</tr></thead>";
-  // end of html table header fields row
-
-  playerPlayoffObjects.forEach((item) => {
-    // table data begins for each field
-    playerStats += "<tr>";
-
-    for (let j = 0; j < fieldsLength; j++) {
-      if (playersTable[j] == "Points") {
+  if (playerPlayoffObjects[0].get("GP") > 0) {
+    playerStats += "<table>";
+    // html table caption
+    playerStats += `<caption><h3>Playoffs</h3></caption>`;
+    // html table thead
+    playerStats += "<thead><tr>";
+    for (let i = 0; i < fieldsLength; i++) {
+      if (playersTable[i] == "Points") {
         playerStats +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
-          ` class="w3-yellow">` + // add yellow background for sorted column points
-          item.get(playersTable[j]) +
-          "</td>";
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[i] +
+          ` class="w3-orange">` +
+          playersTable[i] +
+          "</th>";
       } else {
         playerStats +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[i] +
           " >" +
-          item.get(playersTable[j]) +
-          "</td>";
+          playersTable[i] +
+          "</th>";
       }
     }
-    playerStats += "</tr>";
-  });
+    playerStats += "</tr></thead>";
+    // end of html table header fields row
 
-  // html table ends
-  playerStats += "</table>";
+    playerPlayoffObjects.forEach((item) => {
+      // table data begins for each field
+      playerStats += "<tr>";
 
-  // html table playoff stats begin
-  playerStats += "<table>";
-  // html table caption
-  playerStats += `<caption><h3>Combined Stats</h3></caption>`;
-  // html table thead
-  playerStats += "<thead><tr>";
-  for (let i = 0; i < fieldsLength; i++) {
-    if (playersTable[i] == "Points") {
-      playerStats +=
-        `<th data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[i] +
-        ` class="w3-orange">` +
-        playersTable[i] +
-        "</th>";
-    } else {
-      playerStats +=
-        `<th data-field-name=` + //data-fieldNames required for mobile layout
-        playersTable[i] +
-        " >" +
-        playersTable[i] +
-        "</th>";
-    }
-  }
-  playerStats += "</tr></thead>";
-  // end of html table header fields row
+      for (let j = 0; j < fieldsLength; j++) {
+        if (playersTable[j] == "Points") {
+          playerStats +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            ` class="w3-yellow">` + // add yellow background for sorted column points
+            item.get(playersTable[j]) +
+            "</td>";
+        } else {
+          playerStats +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            " >" +
+            item.get(playersTable[j]) +
+            "</td>";
+        }
+      }
+      playerStats += "</tr>";
+    });
 
-  playerCombinedObjects.forEach((item) => {
-    // table data begins for each field
-    playerStats += "<tr>";
+    // html table ends
+    playerStats += "</table>";
 
-    for (let j = 0; j < fieldsLength; j++) {
-      if (playersTable[j] == "Points") {
+    // html table combined stats begin
+    playerStats += "<table>";
+    // html table caption
+    playerStats += `<caption><h3>Combined Stats</h3></caption>`;
+    // html table thead
+    playerStats += "<thead><tr>";
+    for (let i = 0; i < fieldsLength; i++) {
+      if (playersTable[i] == "Points") {
         playerStats +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
-          ` class="w3-yellow">` + // add yellow background for sorted column points
-          item.get(playersTable[j]) +
-          "</td>";
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[i] +
+          ` class="w3-orange">` +
+          playersTable[i] +
+          "</th>";
       } else {
         playerStats +=
-          `<td data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[j] +
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          playersTable[i] +
           " >" +
-          item.get(playersTable[j]) +
-          "</td>";
+          playersTable[i] +
+          "</th>";
       }
     }
-    playerStats += "</tr>";
-  });
+    playerStats += "</tr></thead>";
+    // end of html table header fields row
 
-  // html table ends
-  playerStats += "</table>";
+    playerCombinedObjects.forEach((item) => {
+      // table data begins for each field
+      playerStats += "<tr>";
+
+      for (let j = 0; j < fieldsLength; j++) {
+        if (playersTable[j] == "Points") {
+          playerStats +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            ` class="w3-yellow">` + // add yellow background for sorted column points
+            item.get(playersTable[j]) +
+            "</td>";
+        } else {
+          playerStats +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            playersTable[j] +
+            " >" +
+            item.get(playersTable[j]) +
+            "</td>";
+        }
+      }
+      playerStats += "</tr>";
+    });
+
+    // html table ends
+    playerStats += "</table>";
+  } else {
+    playerStats += "<h3>Did not make the playoffs</h3>";
+  }
 
   let playerStatsTable = document.getElementById("scoreboardDiv");
   playerStatsTable.style.display = "flex";
