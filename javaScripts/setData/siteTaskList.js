@@ -8,6 +8,7 @@ export function displayTaskList() {
   let displayArea = document.getElementById("tablesDiv");
 
   displayArea.innerHTML = `<div class="w3-content w3-margin w3-padding w3-round-large w3-display-container w3-margin-top w3-card-4 w3-text-black">
+  <p style="background-color:red;">This information will be deleted in the near future. The site has been established and Discord provides for good messaging!</p>
   <p><b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b></p>
   <p><b>**</b> Tables are sortable via clicking the field header. On mobile click on any row <b>**</b></p>
  
