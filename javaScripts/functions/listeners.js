@@ -107,7 +107,6 @@ document
 // listeners for sidebar links. functions located in ./setData/setTables/teamsTables.js
 //CURRENT SEASON STATS
 //current teams table
-document.getElementById("currentTable").addEventListener("click", setHomeTable);
 document
   .getElementById("fullTable")
   .addEventListener("click", setS02SeasonFullTable);

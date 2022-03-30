@@ -760,7 +760,7 @@ export function setHomeTable() {
 export function setS02SeasonFullTable() {
   createTable(
     2,
-    "S02 Full Table",
+    "S02 Regular Season",
     "TeamStats.groupTeamsSeason2SeasonStats",
     TeamStats.groupTeamsSeason2SeasonStats,
     "w3-yellow",
