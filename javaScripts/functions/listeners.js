@@ -19,11 +19,7 @@ import {
   setPlayerS01Playoff,
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
-import {
-  openSidebar,
-  closeSidebar,
-  displaySlides,
-} from "./variousFunctions.js";
+import { openSidebar, closeSidebar } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/siteTaskList.js";
 import setMainNavbar from "./mainNavbar.js";
 setMainNavbar();
@@ -158,7 +154,6 @@ document
 document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", setPlayerS01Combined);
-document.getElementById("otherStats").addEventListener("click", displaySlides);
 // season 2
 document
   .getElementById("s02PlayoffTable")
