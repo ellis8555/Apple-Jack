@@ -20,8 +20,8 @@ export default function setGamesData(e) {
   clearTablesDiv();
   getScoreboardDiv();
   getTablesDiv();
-  let displayGameData = "";
-  let displayTeamLogos = "";
+  let displayGameData;
+  let displayTeamLogos;
   let gameNumber = e.target.dataset.gameId;
   let thisSeasonNumber = gameResults.filter(
     (item) => item.GameID == gameNumber

@@ -14,8 +14,8 @@ export function closeSidebar() {
 // change header banner when team is selected from navbar
 
 export function setHeaderBanner(imgSource, team) {
+  // note this is not the champions banner
   let headerImage = document.querySelector("#championsCard>div>img");
-  // headerImage.src = e.target.src; *** this src can change depending on link routes
   headerImage.src = imgSource;
   let header = document.getElementById("headerTeamName");
   let headerChildren = header.childNodes;
