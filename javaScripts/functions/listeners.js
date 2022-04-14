@@ -20,7 +20,7 @@ import {
   setPlayerS01Combined,
 } from "../setData/setTables/teamsTables.js";
 import { openSidebar, closeSidebar } from "./variousFunctions.js";
-import { displayTaskList } from "../setData/siteTaskList.js";
+import { displayTaskList } from "../setData/announcements.js";
 import setMainNavbar from "./mainNavbar.js";
 setMainNavbar();
 // import {
@@ -162,7 +162,7 @@ document
   .addEventListener("click", setS02CombinedTable);
 // tasks list page
 document
-  .getElementById("siteTaskList")
+  .getElementById("announcements")
   .addEventListener("click", displayTaskList);
 
 // mobile open/close sidebar navbar. functions located in hax94.js
