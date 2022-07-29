@@ -629,6 +629,7 @@ export function teamColorsPage(e) {
 export function setTeamsPageLayout(e) {
   clearTablesDiv();
   clearScoreboardDiv();
+  closeSidebar();
   getTablesDiv();
   let team = e.target.dataset.teamName;
   let teamLogoSrc = e.target.src;
