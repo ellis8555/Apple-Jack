@@ -170,8 +170,10 @@ document
 document.getElementById("openSidebar").addEventListener("click", openSidebar);
 document
   .getElementById("sidebar")
-  .addEventListener("mouseleave", hideAllSubMenus);
-document.getElementById("sidebar").addEventListener("mouseleave", closeSidebar);
+  .addEventListener("pointerleave", hideAllSubMenus);
+document
+  .getElementById("sidebar")
+  .addEventListener("pointerleave", closeSidebar);
 
 // TEAMS LAYOUT PAGE
 
