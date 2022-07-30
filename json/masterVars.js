@@ -30,8 +30,8 @@ seasonCount.sort((a, b) => a - b);
 let defendingChamps = "Mooney";
 let seasonsWithTieGames = [1];
 //**** TEAMS ****//
-let teamsLength = teams.length; // counts all teams ever competed
-let teamNames = [teamsLength]; // array of all team names ever compted
+let teamsLength = teams.length; // counts and returns how many there have been all time
+let teamNames = [teamsLength]; // array of fixed length of all teams competed. This gets filled for loop MAP'ing below
 let eachTeamObjectMAP = new Map(); // maps out each teams basic info. ID, Color, logo file path, etc...
 let teamsMAP = new Map(); // maps teams via key is teamID number to textual name as value
 let teamsNumMAP = new Map(); // maps teams via key as textual name to teamID number
@@ -81,7 +81,7 @@ for (let i = 0; i < teamsMAP.size; i++) {
 let playersLength = players.length;
 let playersMAP = new Map(); // maps key as playerID to textual value of players name
 let playersNumMAP = new Map(); // maps key as textual name key to playerID value
-let playerSeasonsMAP = new Map();
+let playerSeasonsMAP = new Map(); // map a list what seasons each player played in
 for (let i = 0; i < playersLength; i++) {
   // map a list of players number key to textual value
   playersMAP.set(Number(players[i].PlayerID), players[i].Players);
@@ -98,9 +98,10 @@ for (let i = 0; i < playersLength; i++) {
       teamPlayers
         .filter((item) => item.PlayerID == i + 1)
         .map((item) => item.SeasonNumber)
-    )
+    ).sort()
   );
 }
+console.log(playerSeasonsMAP);
 //**** GAME TYPE ****//
 let gameTypeLength = gameType.length;
 let gameTypeMAP = new Map();
