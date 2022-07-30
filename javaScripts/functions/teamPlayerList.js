@@ -8,6 +8,7 @@ import {
 import { IndividualPlayerStats } from "../classFiles/individualPlayerStats.js";
 import { clearScoreboardDiv, clearTablesDiv } from "./variousFunctions.js";
 import sortGroupedStats from "./sort.js";
+import { setTeamsPageLayout } from "../setData/setTables/teamsTables.js";
 
 let playersTable = [
   "Name",
@@ -26,8 +27,10 @@ export function getTeamsPlayersPerSeason(e) {
   clearTablesDiv();
   clearScoreboardDiv();
   let team = teamsNumMAP.get(e.target.dataset.teamName);
+  let teamName = teamsMAP.get(+team);
   let teamColor = `#${eachTeamObjectMAP.get(teamsMAP.get(team)).MainColor}`;
   let seasonNum = e.target.dataset.seasonNum;
+  let teamImage = e.target.dataset.teamLogo; // used for the back button
   // grab players who played on this team
   let playersFiltered = teamPlayers.filter(
     (item) => item.TeamID == team && item.SeasonNumber == seasonNum
@@ -69,7 +72,7 @@ export function getTeamsPlayersPerSeason(e) {
   sortGroupedStats(playerCombinedObjects, "Points");
   // var containing the innerHTML of tables
   let playerStats = "";
-
+  playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
   playerStats += `<h1>Season ${seasonNum}</h1>`;
   playerStats += `<div class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
   playersArray.forEach(
@@ -253,4 +256,10 @@ export function getTeamsPlayersPerSeason(e) {
     item.style.color = "#fff";
     item.style.backgroundColor = teamColor;
   });
+
+  // listener for the back button back to teams layout Page
+  document
+    .getElementById("playerStatsBackButton")
+    .addEventListener("click", setTeamsPageLayout);
+  // end back button
 }
