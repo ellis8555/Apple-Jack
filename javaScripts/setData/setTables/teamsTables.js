@@ -325,7 +325,10 @@ export function getTeamsGameResults(e) {
       "teamsSeason" + seasonNum + gameType + "Stats"
     ][0];
   let gamesLength = teamsGames.length;
-  gameResults = `<h1>${team}</h1>`;
+  gameResults = `<button id="gameResultsBackButton" class="w3-btn w3-round-large" style="background-color:#${teamsColorMAP.get(
+    team
+  )}; color: #ffffff;" data-team-name="${team}" data-src="${teamImage}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
+  gameResults += `<h1>${team}</h1>`;
   gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
   if (gamesLength > 0) {
     for (let i = 0; i < gamesLength; i++) {
@@ -509,10 +512,16 @@ export function getTeamsGameResults(e) {
   clearTablesDiv();
   let scores = document.getElementById("scoreboardDiv");
   scores.innerHTML = gameResults;
+  // listener for the back button back to teams layout Page
+  document
+    .getElementById("gameResultsBackButton")
+    .addEventListener("click", setTeamsPageLayout);
+  // end back button
   // highlight divs
   let gameHighlightDivs = Array.from(
     document.querySelectorAll("div[data-game-highlights]")
   );
+
   gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
   //end highlights div
   // single games result div
@@ -632,7 +641,12 @@ export function setTeamsPageLayout(e) {
   closeSidebar();
   getTablesDiv();
   let team = e.target.dataset.teamName;
-  let teamLogoSrc = e.target.src;
+  let teamLogoSrc;
+  if (e.target.src) {
+    teamLogoSrc = e.target.src;
+  } else {
+    teamLogoSrc = e.target.dataset.teamLogo;
+  }
   let seasonNum = e.target.dataset.seasonNum;
   let teamsSeasonObject =
     TeamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
