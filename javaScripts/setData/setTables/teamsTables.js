@@ -327,7 +327,7 @@ export function getTeamsGameResults(e) {
   let gamesLength = teamsGames.length;
   gameResults = `<button id="gameResultsBackButton" class="w3-btn w3-round-large" style="background-color:#${teamsColorMAP.get(
     team
-  )}; color: #ffffff;" data-team-name="${team}" data-src="${teamImage}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
+  )}; color: #ffffff;" data-team-name="${team}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
   gameResults += `<h1>${team}</h1>`;
   gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
   if (gamesLength > 0) {
