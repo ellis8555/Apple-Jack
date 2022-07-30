@@ -303,7 +303,7 @@ export function createTable(
 
 ///////// END TABLE DESIGN
 
-// button for game results table within teams layout page
+// buttons ("Season/Playoff results") for game results table within teams layout page
 
 export function getTeamsGameResults(e) {
   let team = e.target.dataset.teamName;

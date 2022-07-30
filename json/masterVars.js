@@ -101,7 +101,6 @@ for (let i = 0; i < playersLength; i++) {
     ).sort()
   );
 }
-console.log(playerSeasonsMAP);
 //**** GAME TYPE ****//
 let gameTypeLength = gameType.length;
 let gameTypeMAP = new Map();
