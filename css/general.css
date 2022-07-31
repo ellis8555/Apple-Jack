@@ -275,12 +275,20 @@ table td:first-child {
 /* gifs page */
 .gifsHeaderContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 40px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
   align-items: center;
-  grid-template-areas: "gifsHomeTeam gifsHomeTeamScore gifsVsHeader gifsAwayTeamScore gifsAwayTeam";
+  grid-template-areas: "gifsBackButton gifsBackButton gifsBackButton gifsBackButton gifsBackButton"
+                        "gifsHomeTeam gifsHomeTeamScore gifsVsHeader gifsAwayTeamScore gifsAwayTeam";
   overflow: hidden;
   margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.gifsBackButton{
+  grid-area: gifsBackButton;
+  width:fit-content;
+  margin: auto;
   margin-bottom: 25px;
 }
 
@@ -290,14 +298,17 @@ table td:first-child {
 .gifsHomeTeamScore {
   grid-area: gifsHomeTeamScore;
   font-size: 2em;
+  overflow: hidden;
 }
 .gifsVsHeader {
   grid-area: gifsVsHeader;
   font-size: 1.5em;
+  overflow: hidden;
 }
 .gifsAwayTeamScore {
   grid-area: gifsAwayTeamScore;
   font-size: 2em;
+  overflow: hidden;
 }
 .gifsAwayTeam {
   grid-area: gifsAwayTeam;
