@@ -489,8 +489,8 @@ export function getTeamsGameResults(e) {
       gameResults += `Game Highlights (${thisGamesGifs.length})`;
       gameResults += `</div>`;
       // end hightlights gif div
-      // this games stats
-      gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameStats">`;
+      // this games stats **NOTE data-game-stats="" used to grab element by attribute by CSS
+      gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-team-logo="${teamImage}" data-season-number="${seasonNum}" data-game-type=${gameType}" class="gameStats">`;
       gameResults += `Stats`;
       gameResults += `</div>`;
       // end this games stats

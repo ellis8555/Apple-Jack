@@ -310,7 +310,7 @@ table td:first-child {
 /* boxscore header (team logos) */
 .boxscoreTeamLogosContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   overflow: hidden;
   width: 75%;
 }
