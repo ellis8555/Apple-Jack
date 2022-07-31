@@ -485,7 +485,7 @@ export function getTeamsGameResults(e) {
       thisGamesGifs = gifs.filter(
         (gifItem) => gifItem.GameID == teamsGames[i].GameID
       );
-      gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" class="gameHighlights">`;
+      gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-game-type="${gameType}" data-team-logo="${teamImage}" class="gameHighlights">`;
       gameResults += `Game Highlights (${thisGamesGifs.length})`;
       gameResults += `</div>`;
       // end hightlights gif div
