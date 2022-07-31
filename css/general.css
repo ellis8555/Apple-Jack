@@ -309,22 +309,34 @@ table td:first-child {
 
 /* boxscore header (team logos) */
 .boxscoreTeamLogosContainer {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  grid-template-areas: "boxscoreBackButton boxscoreBackButton "
+                        "boxscoreHomeTeamLogo boxscoreAwayTeamLogo "
+  ;
   overflow: hidden;
   width: 75%;
 }
 
-.boxscoreHomeTeamLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.boxscoreBackButton{
+  grid-area: boxscoreBackButton;
+  width:fit-content;
+  margin: auto;
+  margin-bottom: 25px;
 }
 
-.boxscoreAwayLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.boxscoreHomeTeamLogo {
+  grid-area: boxscoreHomeTeamLogo;
+  width:fit-content;
+  margin: auto;
+}
+
+.boxscoreAwayTeamLogo {
+  grid-area: boxscoreAwayTeamLogo;
+  width: min-content;
+  margin: auto;
 }
 /* end boxscore header */
 

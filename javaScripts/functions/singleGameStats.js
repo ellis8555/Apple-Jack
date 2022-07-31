@@ -14,6 +14,7 @@ import {
   getTablesDiv,
 } from "./variousFunctions.js";
 import sortGroupedStats from "./sort.js";
+import { getTeamsGameResults } from "../setData/setTables/teamsTables.js";
 
 export default function setGamesData(e) {
   clearScoreboardDiv();
@@ -23,6 +24,9 @@ export default function setGamesData(e) {
   let displayGameData = "";
   let displayTeamLogos = "";
   let gameNumber = e.target.dataset.gameId;
+  let teamName = e.target.dataset.teamName;
+  let teamLogo = e.target.dataset.teamLogo;
+  let gameType = e.target.dataset.gameType;
   let thisSeasonNumber = gameResults.filter(
     (item) => item.GameID == gameNumber
   )[0].SeasonNumber;
@@ -110,6 +114,10 @@ export default function setGamesData(e) {
   // team logos
 
   displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
+  // back button area which is row above team logos
+  displayTeamLogos += `<button id="gamesBoxscoreBackButton" class="w3-btn w3-round-large boxscoreBackButton" style="background-color:#${
+    eachTeamObjectMAP.get(teamName).MainColor
+  }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
   displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
   displayTeamLogos += `<img src="${thisGamesHomeTeamLogo}">`;
   displayTeamLogos += `</div>`;
@@ -161,6 +169,12 @@ export default function setGamesData(e) {
 
   // display team stats below team logos
   scoreboardDiv.innerHTML = displayGameData;
+
+  // listener for the back button back to teams layout Page
+  document
+    .getElementById("gamesBoxscoreBackButton")
+    .addEventListener("click", getTeamsGameResults);
+  // end back button
 
   // begin player stats data
   let thisGamesPlayerStats = gamePlayerStats.filter(
