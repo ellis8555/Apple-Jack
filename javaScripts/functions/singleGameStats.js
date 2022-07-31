@@ -115,7 +115,7 @@ export default function setGamesData(e) {
 
   displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
   // back button area which is row above team logos
-  displayTeamLogos += `<button id="gamesBoxscoreBackButton" class="w3-btn w3-round-large" style="background-color:#${
+  displayTeamLogos += `<button id="gamesBoxscoreBackButton" class="w3-btn w3-round-large boxscoreBackButton" style="background-color:#${
     eachTeamObjectMAP.get(teamName).MainColor
   }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
   displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
