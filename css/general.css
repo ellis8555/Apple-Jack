@@ -331,12 +331,14 @@ table td:first-child {
   grid-area: boxscoreHomeTeamLogo;
   width:fit-content;
   margin: auto;
+  margin-left: 42%;
 }
 
 .boxscoreAwayTeamLogo {
   grid-area: boxscoreAwayTeamLogo;
-  width: min-content;
+  width: fit-content;
   margin: auto;
+  margin-right: 42%;
 }
 /* end boxscore header */
 

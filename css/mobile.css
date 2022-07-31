@@ -102,6 +102,16 @@
     width: 90%;
   }
 
+  .boxscoreHomeTeamLogo {
+    margin: auto;
+    margin-left: 12%;
+  }
+  
+  .boxscoreAwayTeamLogo {
+    margin: auto;
+    margin-right: 12%;
+  }
+
   .boxscoreContainer {
     width: 100%;
     margin: auto;
