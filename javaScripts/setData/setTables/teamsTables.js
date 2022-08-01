@@ -115,7 +115,7 @@ let statCategory = ["Season", "Playoff", "Combined"];
 for (let i = 0; i < statCategory.length; i++) {
   for (let j = 1; j <= seasonCountLength; j++) {
     tableDataSource.set(
-      "Teamstats.groupTeamsSeason" + j + statCategory[i] + "Stats",
+      "TeamStats.groupTeamsSeason" + j + statCategory[i] + "Stats",
       eval("TeamStats.groupTeamsSeason" + j + statCategory[i] + "Stats")
     );
   }
