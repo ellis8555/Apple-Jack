@@ -120,6 +120,21 @@ for (let i = 0; i < statCategory.length; i++) {
     );
   }
 }
+// PLAYERS GROUPINGS
+// ALL TIME PLAYERS
+tableDataSource
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimeSeasonStats",
+    IndividualPlayerStats.groupPlayersAllTimeSeasonStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimePlayoffStats",
+    IndividualPlayerStats.groupPlayersAllTimePlayoffStats
+  )
+  .set(
+    "IndividualPlayerStats.groupPlayersAllTimeStats",
+    IndividualPlayerStats.groupPlayersAllTimeStats
+  );
 
 // EACH SEASONS PLAYERS
 
