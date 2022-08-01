@@ -550,6 +550,10 @@ export function teamColorsPage(e) {
   let tLL = teamLogosLayout;
   // teamsColorsLayout is grid containing class
   tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
+  //  back button
+  tLL += `<button id="teamColorsBackButton" class="w3-btn w3-round-large colorsBackButton" style="background-color:#${
+    eachTeamObjectMAP.get(team).MainColor
+  }; color: #ffffff;" data-team-name="${team}" data-team-logo="${teamLogoSrc}" data-season-num="${seasonNum}">back</button>`;
   // teamColorsLayout class that contains the title in colors layout
   tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
   tLL += `<h4 class="w3-text-black">Copy teams color to clipboard</h4>`;
@@ -616,6 +620,11 @@ export function teamColorsPage(e) {
   tablesDiv.innerHTML += `${tLL}`;
 
   // create function to copy color red/blue scheme
+
+  document
+    .getElementById("teamColorsBackButton")
+    .addEventListener("click", setTeamsPageLayout);
+  // end back button
 
   function getColorScheme(e) {
     let scheme = e.target.dataset.colorScheme;
