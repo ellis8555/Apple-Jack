@@ -388,13 +388,20 @@ table td:first-child {
 .teamColorsLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 30% 30% 70%;
   grid-template-areas:
+  "colorsBackButton colorsBackButton"
     "teamColorsHeader teamColorsHeader"
     "teamColorsHomeContent teamColorsAwayContent";
   grid-gap: 5px;
   width: 75%;
   height: auto;
+}
+
+.colorsBackButton{
+  width:fit-content;
+  margin: auto;
+  grid-area: colorsBackButton;
 }
 
 .teamColorsHeader {
