@@ -128,15 +128,22 @@
 
   .teamColorsLayout {
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
     grid-template-columns: 1fr;
     grid-template-areas:
+    "colorsBackButton"
       "teamColorsHeader"
       "teamColorsHomeContent"
       "teamColorsAwayContent";
     grid-gap: 5px;
     width: 90%;
     height: auto;
+  }
+
+  .colorsBackButton{
+    width:fit-content;
+    margin: auto;
+    grid-area: colorsBackButton;
   }
 
   .teamColorsHeader {
