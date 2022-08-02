@@ -1,5 +1,6 @@
 import { sortTable } from "../setData/setTables/teamsTables.js";
 import setTeamsTableBgColor from "./teamTableBgColor.js";
+import { getTeamsPlayersPerSeason } from "./teamPlayerList.js";
 
 export default function screenResize() {
   // insert fetch data function onto <TD> elements in mobile view
