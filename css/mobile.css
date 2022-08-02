@@ -95,6 +95,14 @@
   .gifsHeaderContainer {
     grid-template-rows: 30px;
   }
+
+  .gifsHomeTeam > img {
+    transform: scale(0.70, 0.70);
+  }
+
+  .gifsAwayTeam > img {
+    transform: scale(0.70, 0.70);
+  }
   /*end gifs page*/
 
   /* boxscore page */
