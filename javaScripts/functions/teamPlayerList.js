@@ -323,9 +323,19 @@ export function getTeamsPlayersPerSeason(e) {
     teamPlayersSeasonTable += "</table>";
     /////////////////////////////////////////////////////////////////////////////
     let seasonTable = document.getElementById("teamPlayerSeasonTable");
-    let position = document.querySelector("#teamPlayerPlayoffTable");
+    let playoffTable = document.getElementById("teamPlayerPlayoffTable");
+    if (playoffTable != null) {
+      let tablePosition = document.querySelector("#teamPlayerPlayoffTable");
+    } else {
+      let position = document.querySelector("table + h3");
+    }
     seasonTable.remove();
-    position.insertAdjacentHTML("beforebegin", teamPlayersSeasonTable);
+    if (playoffTable) {
+      position.insertAdjacentHTML("beforebegin", teamPlayersPlayoffTable);
+    } else {
+      position.insertAdjacentHTML("beforebegin", teamPlayersSeasonTable);
+    }
+
     setTeamPlayerSeasonTableListeners(); // this resets the listeners on the table after being redisplayed
 
     let playerNameCells = document.querySelectorAll(
@@ -361,7 +371,6 @@ export function getTeamsPlayersPerSeason(e) {
   setTeamPlayerSeasonTableListeners();
 
   // playoffs sorting and listening functions
-
   function sortTeamPlayersPlayoffTable(e) {
     let sortBy = e.target.dataset.fieldName;
     sortGroupedStats(playerPlayoffObjects, sortBy);
