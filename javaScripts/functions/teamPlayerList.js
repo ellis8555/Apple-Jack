@@ -81,6 +81,7 @@ export function getTeamsPlayersPerSeason(e) {
     <div style="font-size: 1.2em;">${item}</div>`)
   );
   playerStats += `</div>`;
+  playerStats += `<div style="margin: auto; margin-top: 15px; width:70%; background-color: rgb(34, 184, 34);"><h5>These tables are now sortable</h5></div>`;
   // html table season stats begin
   playerStats += "<table id='teamPlayerSeasonTable'>";
   // html table caption
