@@ -81,7 +81,9 @@ export function getTeamsPlayersPerSeason(e) {
     <div style="font-size: 1.2em;">${item}</div>`)
   );
   playerStats += `</div>`;
-  playerStats += `<div style="margin: auto; margin-top: 15px; width:70%; background-color: rgb(34, 184, 34);"><h5>These tables are now sortable</h5></div>`;
+
+  //***************REMEMBER TO TRANSFER THE ID NAME OF BELOW DIV TO PLAYERS NAMES DIV WHEN DELETING THIS MESSAGE******************************************** */
+  playerStats += `<div id="teamPlayerList" style="margin: auto; margin-top: 15px; width:70%; background-color: rgb(34, 184, 34);"><h5>These tables are now sortable</h5></div>`;
   // html table season stats begin
   playerStats += "<table id='teamPlayerSeasonTable'>";
   // html table caption
@@ -263,7 +265,7 @@ export function getTeamsPlayersPerSeason(e) {
     .addEventListener("click", setTeamsPageLayout);
   // end back button
 
-  // BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES
+  ////////////////////BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES//////////////////////////////
   // regular season sorting and listening function
   function sortTeamPlayersSeasonTable(e) {
     let sortBy = e.target.dataset.fieldName;
@@ -323,11 +325,9 @@ export function getTeamsPlayersPerSeason(e) {
     teamPlayersSeasonTable += "</table>";
     /////////////////////////////////////////////////////////////////////////////
     let seasonTable = document.getElementById("teamPlayerSeasonTable");
-
-    let position = document.querySelector("#teamPlayerPlayoffTable");
-
+    let position = document.querySelector("#teamPlayerList");
     seasonTable.remove();
-    position.insertAdjacentHTML("beforebegin", teamPlayersSeasonTable);
+    position.insertAdjacentHTML("afterend", teamPlayersSeasonTable);
 
     setTeamPlayerSeasonTableListeners(); // this resets the listeners on the table after being redisplayed
 
