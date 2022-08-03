@@ -22,6 +22,8 @@ import {
 import { openSidebar, closeSidebar } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/announcements.js";
 import setMainNavbar from "./mainNavbar.js";
+import { getTeamsPlayersPerSeasonResized } from "./teamPlayerList.js";
+
 setMainNavbar();
 // import {
 //   setPlayerS01Season,
@@ -184,8 +186,24 @@ export function setListenersMainNavbar() {
 }
 setListenersMainNavbar();
 
-// testing
-
 // responsive function for live resizing of screen
 
-window.onresize = screenResize; // enables sorting data when switching to mobile view
+let documentBodyObserver = new ResizeObserver((entries) => {
+  let isTeamPlayerTables = document.querySelectorAll("#teamPlayerSeasonTable");
+  let obj = entries[0];
+  let objWidth = obj.contentRect.width;
+  if (isTeamPlayerTables.length == 0) {
+    screenResize();
+  } else {
+    let teamPlayerBackButton = document.getElementById("playerStatsBackButton");
+    let team = teamPlayerBackButton.dataset.teamName;
+    let seasonNumber = teamPlayerBackButton.dataset.seasonNum;
+    let teamLogo = teamPlayerBackButton.dataset.teamLogo;
+    getTeamsPlayersPerSeasonResized(team, seasonNumber, teamLogo);
+  }
+});
+
+documentBodyObserver.observe(document.body);
+// window.onresize = screenResize; // old way of changing table views on screen resizing
+
+// testing
