@@ -189,8 +189,16 @@ setListenersMainNavbar();
 // responsive function for live resizing of screen
 
 let documentBodyObserver = new ResizeObserver((entries) => {
-  let isTeamPlayerTables = document.querySelectorAll("#teamPlayerSeasonTable");
-  if (isTeamPlayerTables.length == 0) {
+  let getTeamPlayerSeasonTable = document.querySelectorAll(
+    "#teamPlayerSeasonTable"
+  );
+  let getTeamPlayerPlayoffTable = document.querySelectorAll(
+    "#teamPlayerPlayoffTable"
+  );
+  let getTeamPlayerCombinedTable = document.querySelectorAll(
+    "#teamPlayerCombinedTable"
+  );
+  if (getTeamPlayerSeasonTable.length == 0) {
     screenResize();
   } else {
     let teamPlayerBackButton = document.getElementById("playerStatsBackButton");
@@ -205,15 +213,25 @@ let documentBodyObserver = new ResizeObserver((entries) => {
     );
     let getSeasonSelectedField = getSeasonTableData[0].dataset.fieldName;
     // 6th argument playoff table
-    let getPlayoffTableData = document.querySelectorAll(
-      "#teamPlayerPlayoffTable td[class='w3-yellow']"
-    );
-    let getPlayoffSelectedField = getPlayoffTableData[0].dataset.fieldName;
+    let getPlayoffSelectedField;
+    if (getTeamPlayerPlayoffTable.length > 0) {
+      let getPlayoffTableData = document.querySelectorAll(
+        "#teamPlayerPlayoffTable td[class='w3-yellow']"
+      );
+      getPlayoffSelectedField = getPlayoffTableData[0].dataset.fieldName;
+    } else {
+      getPlayoffSelectedField = "Points";
+    }
     // 7th argument
-    let getCombinedTableData = document.querySelectorAll(
-      "#teamPlayerCombinedTable td[class='w3-yellow']"
-    );
-    let getCombinedSelectedField = getCombinedTableData[0].dataset.fieldName;
+    let getCombinedSelectedField;
+    if (getTeamPlayerCombinedTable.length > 0) {
+      let getCombinedTableData = document.querySelectorAll(
+        "#teamPlayerCombinedTable td[class='w3-yellow']"
+      );
+      getCombinedSelectedField = getCombinedTableData[0].dataset.fieldName;
+    } else {
+      getCombinedSelectedField = "Points";
+    }
 
     getTeamsPlayersPerSeason(
       false,
