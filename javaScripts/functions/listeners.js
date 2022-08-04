@@ -22,7 +22,7 @@ import {
 import { openSidebar, closeSidebar } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/announcements.js";
 import setMainNavbar from "./mainNavbar.js";
-import { getTeamsPlayersPerSeasonResized } from "./teamPlayerList.js";
+import { getTeamsPlayersPerSeason } from "./teamPlayerList.js";
 
 setMainNavbar();
 // import {
@@ -197,7 +197,7 @@ let documentBodyObserver = new ResizeObserver((entries) => {
     let team = teamPlayerBackButton.dataset.teamName;
     let seasonNumber = teamPlayerBackButton.dataset.seasonNum;
     let teamLogo = teamPlayerBackButton.dataset.teamLogo;
-    getTeamsPlayersPerSeasonResized(team, seasonNumber, teamLogo);
+    getTeamsPlayersPerSeason(e, team, seasonNumber, teamLogo);
   }
 });
 
