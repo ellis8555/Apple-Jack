@@ -194,10 +194,36 @@ let documentBodyObserver = new ResizeObserver((entries) => {
     screenResize();
   } else {
     let teamPlayerBackButton = document.getElementById("playerStatsBackButton");
+    // e is undefined so given value of false
+    // 2nd, 3rd and 4th arguments
     let team = teamPlayerBackButton.dataset.teamName;
     let seasonNumber = teamPlayerBackButton.dataset.seasonNum;
     let teamLogo = teamPlayerBackButton.dataset.teamLogo;
-    getTeamsPlayersPerSeason(e, team, seasonNumber, teamLogo);
+    // 5th argument season table
+    let getSeasonTableData = document.querySelectorAll(
+      "#teamPlayerSeasonTable td[class='w3-yellow']"
+    );
+    let getSeasonSelectedField = getSeasonTableData[0].dataset.fieldName;
+    // 6th argument playoff table
+    let getPlayoffTableData = document.querySelectorAll(
+      "#teamPlayerPlayoffTable td[class='w3-yellow']"
+    );
+    let getPlayoffSelectedField = getPlayoffTableData[0].dataset.fieldName;
+    // 7th argument
+    let getCombinedTableData = document.querySelectorAll(
+      "#teamPlayerCombinedTable td[class='w3-yellow']"
+    );
+    let getCombinedSelectedField = getCombinedTableData[0].dataset.fieldName;
+
+    getTeamsPlayersPerSeason(
+      false,
+      team,
+      seasonNumber,
+      teamLogo,
+      getSeasonSelectedField,
+      getPlayoffSelectedField,
+      getCombinedSelectedField
+    );
   }
 });
 

@@ -27,7 +27,10 @@ export function getTeamsPlayersPerSeason(
   e,
   thisTeam,
   thisSeasonNumber,
-  thisTeamLogo
+  thisTeamLogo,
+  seasonSelectedField = "Points",
+  playoffSelectedField = "Points",
+  combinedSelectedField = "Points"
 ) {
   clearTablesDiv();
   clearScoreboardDiv();
@@ -63,7 +66,7 @@ export function getTeamsPlayersPerSeason(
       ]
     )
   );
-  sortGroupedStats(playerSeasonObjects, "Points");
+  sortGroupedStats(playerSeasonObjects, seasonSelectedField);
   // push those players playoff stats into team array and sort by points
   let playerPlayoffObjects = [];
   playersArray.forEach((item) =>
@@ -73,7 +76,7 @@ export function getTeamsPlayersPerSeason(
       ]
     )
   );
-  sortGroupedStats(playerPlayoffObjects, "Points");
+  sortGroupedStats(playerPlayoffObjects, playoffSelectedField);
   // push those players full season combined stats into team array and sort by points
   let playerCombinedObjects = [];
   playersArray.forEach((item) =>
@@ -83,7 +86,7 @@ export function getTeamsPlayersPerSeason(
       ]
     )
   );
-  sortGroupedStats(playerCombinedObjects, "Points");
+  sortGroupedStats(playerCombinedObjects, combinedSelectedField);
   // var containing the innerHTML of tables
   let playerStats = "";
   playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
@@ -105,7 +108,7 @@ export function getTeamsPlayersPerSeason(
   // html table thead
   playerStats += "<thead><tr>";
   for (let i = 0; i < fieldsLength; i++) {
-    if (playersTable[i] == "Points") {
+    if (playersTable[i] == seasonSelectedField) {
       playerStats +=
         `<th data-field-name=` + //data-fieldNames required for mobile layout
         playersTable[i] +
@@ -129,7 +132,7 @@ export function getTeamsPlayersPerSeason(
     playerStats += "<tr>";
 
     for (let j = 0; j < fieldsLength; j++) {
-      if (playersTable[j] == "Points") {
+      if (playersTable[j] == seasonSelectedField) {
         playerStats +=
           `<td data-field-name=` + //data-fieldNames required for mobile layout
           playersTable[j] +
@@ -159,7 +162,7 @@ export function getTeamsPlayersPerSeason(
     // html table thead
     playerStats += "<thead><tr>";
     for (let i = 0; i < fieldsLength; i++) {
-      if (playersTable[i] == "Points") {
+      if (playersTable[i] == playoffSelectedField) {
         playerStats +=
           `<th data-field-name=` + //data-fieldNames required for mobile layout
           playersTable[i] +
@@ -183,7 +186,7 @@ export function getTeamsPlayersPerSeason(
       playerStats += "<tr>";
 
       for (let j = 0; j < fieldsLength; j++) {
-        if (playersTable[j] == "Points") {
+        if (playersTable[j] == playoffSelectedField) {
           playerStats +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
             playersTable[j] +
@@ -212,7 +215,7 @@ export function getTeamsPlayersPerSeason(
     // html table thead
     playerStats += "<thead><tr>";
     for (let i = 0; i < fieldsLength; i++) {
-      if (playersTable[i] == "Points") {
+      if (playersTable[i] == combinedSelectedField) {
         playerStats +=
           `<th data-field-name=` + //data-fieldNames required for mobile layout
           playersTable[i] +
@@ -236,7 +239,7 @@ export function getTeamsPlayersPerSeason(
       playerStats += "<tr>";
 
       for (let j = 0; j < fieldsLength; j++) {
-        if (playersTable[j] == "Points") {
+        if (playersTable[j] == combinedSelectedField) {
           playerStats +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
             playersTable[j] +
