@@ -190,8 +190,6 @@ setListenersMainNavbar();
 
 let documentBodyObserver = new ResizeObserver((entries) => {
   let isTeamPlayerTables = document.querySelectorAll("#teamPlayerSeasonTable");
-  let obj = entries[0];
-  let objWidth = obj.contentRect.width;
   if (isTeamPlayerTables.length == 0) {
     screenResize();
   } else {
