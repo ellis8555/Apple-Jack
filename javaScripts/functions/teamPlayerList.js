@@ -360,18 +360,18 @@ export function getTeamsPlayersPerSeason(
   // listeners on table headers for sorting table on larger screens
   function setTeamPlayerSeasonTableListeners() {
     let browserWidth = window.innerWidth;
+    let getTable = document.querySelectorAll("#teamPlayerSeasonTable");
+    // for mobile screens
     if (browserWidth < 982) {
-      let mobileTableCells = document.querySelectorAll(
-        "#teamPlayerSeasonTable"
-      );
-      mobileTableCells[0].onclick = function (e) {
+      getTable[0].onclick = function (e) {
         let td = e.target.closest("td");
         if (!td) return;
         sortTeamPlayersSeasonTable(e);
       };
-    } else {
-      let getFieldNames = document.querySelectorAll("#teamPlayerSeasonTable");
-      getFieldNames[0].onclick = function (e) {
+    }
+    // for larger screens
+    else {
+      getTable[0].onclick = function (e) {
         let th = e.target.closest("th");
         if (!th) return;
         sortTeamPlayersSeasonTable(e);
@@ -456,22 +456,27 @@ export function getTeamsPlayersPerSeason(
   // listeners on table headers for sorting regular season table
   function setTeamPlayerPlayoffTableListeners() {
     let browserWidth = window.innerWidth;
-    if (browserWidth < 982) {
-      let mobileTableCells = document.querySelectorAll(
-        "#teamPlayerPlayoffTable"
-      );
-      mobileTableCells[0].onclick = function (e) {
-        let td = e.target.closest("td");
-        if (!td) return;
-        sortTeamPlayersPlayoffTable(e);
-      };
+    let getTable = document.querySelectorAll("#teamPlayerPlayoffTable");
+    // test if team made playoffs
+    if (getTable.length > 0) {
+      // for mobile screens
+      if (browserWidth < 982) {
+        getTable[0].onclick = function (e) {
+          let td = e.target.closest("td");
+          if (!td) return;
+          sortTeamPlayersPlayoffTable(e);
+        };
+      }
+      // for larger screens
+      else {
+        getTable[0].onclick = function (e) {
+          let th = e.target.closest("th");
+          if (!th) return;
+          sortTeamPlayersPlayoffTable(e);
+        };
+      }
     } else {
-      let getFieldNames = document.querySelectorAll("#teamPlayerPlayoffTable");
-      getFieldNames[0].onclick = function (e) {
-        let th = e.target.closest("th");
-        if (!th) return;
-        sortTeamPlayersPlayoffTable(e);
-      };
+      return;
     }
   }
   setTeamPlayerPlayoffTableListeners();
@@ -553,22 +558,27 @@ export function getTeamsPlayersPerSeason(
   // listeners on table headers for sorting combined stats table
   function setTeamPlayerCombinedTableListeners() {
     let browserWidth = window.innerWidth;
-    if (browserWidth < 982) {
-      let mobileTableCells = document.querySelectorAll(
-        "#teamPlayerCombinedTable"
-      );
-      mobileTableCells[0].onclick = function (e) {
-        let td = e.target.closest("td");
-        if (!td) return;
-        sortTeamPlayerscombinedTable(e);
-      };
+    let getTable = document.querySelectorAll("#teamPlayerCombinedTable");
+    // test if team made playoffs
+    if (getTable.length > 0) {
+      // for mobile screens
+      if (browserWidth < 982) {
+        getTable[0].onclick = function (e) {
+          let td = e.target.closest("td");
+          if (!td) return;
+          sortTeamPlayerscombinedTable(e);
+        };
+      }
+      // for larger screens
+      else {
+        getTable[0].onclick = function (e) {
+          let th = e.target.closest("th");
+          if (!th) return;
+          sortTeamPlayerscombinedTable(e);
+        };
+      }
     } else {
-      let getFieldNames = document.querySelectorAll("#teamPlayerCombinedTable");
-      getFieldNames[0].onclick = function (e) {
-        let th = e.target.closest("th");
-        if (!th) return;
-        sortTeamPlayerscombinedTable(e);
-      };
+      return;
     }
   }
   setTeamPlayerCombinedTableListeners();
