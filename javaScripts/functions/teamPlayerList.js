@@ -362,20 +362,20 @@ export function getTeamsPlayersPerSeason(
     let browserWidth = window.innerWidth;
     if (browserWidth < 982) {
       let mobileTableCells = document.querySelectorAll(
-        "#teamPlayerSeasonTable td"
+        "#teamPlayerSeasonTable"
       );
-      let eachCell = Array.from(mobileTableCells);
-      eachCell.forEach((field) =>
-        field.addEventListener("click", sortTeamPlayersSeasonTable)
-      );
+      mobileTableCells[0].onclick = function (e) {
+        let td = e.target.closest("td");
+        if (!td) return;
+        sortTeamPlayersSeasonTable(e);
+      };
     } else {
-      let getFieldNames = document.querySelectorAll(
-        "#teamPlayerSeasonTable th"
-      );
-      let headers = Array.from(getFieldNames);
-      headers.forEach((field) =>
-        field.addEventListener("click", sortTeamPlayersSeasonTable)
-      );
+      let getFieldNames = document.querySelectorAll("#teamPlayerSeasonTable");
+      getFieldNames[0].onclick = function (e) {
+        let th = e.target.closest("th");
+        if (!th) return;
+        sortTeamPlayersSeasonTable(e);
+      };
     }
   }
   setTeamPlayerSeasonTableListeners();
@@ -458,20 +458,20 @@ export function getTeamsPlayersPerSeason(
     let browserWidth = window.innerWidth;
     if (browserWidth < 982) {
       let mobileTableCells = document.querySelectorAll(
-        "#teamPlayerPlayoffTable td"
+        "#teamPlayerPlayoffTable"
       );
-      let eachCell = Array.from(mobileTableCells);
-      eachCell.forEach((field) =>
-        field.addEventListener("click", sortTeamPlayersPlayoffTable)
-      );
+      mobileTableCells[0].onclick = function (e) {
+        let td = e.target.closest("td");
+        if (!td) return;
+        sortTeamPlayersPlayoffTable(e);
+      };
     } else {
-      let getFieldNames = document.querySelectorAll(
-        "#teamPlayerPlayoffTable th"
-      );
-      let headers = Array.from(getFieldNames);
-      headers.forEach((field) =>
-        field.addEventListener("click", sortTeamPlayersPlayoffTable)
-      );
+      let getFieldNames = document.querySelectorAll("#teamPlayerPlayoffTable");
+      getFieldNames[0].onclick = function (e) {
+        let th = e.target.closest("th");
+        if (!th) return;
+        sortTeamPlayersPlayoffTable(e);
+      };
     }
   }
   setTeamPlayerPlayoffTableListeners();
@@ -555,20 +555,20 @@ export function getTeamsPlayersPerSeason(
     let browserWidth = window.innerWidth;
     if (browserWidth < 982) {
       let mobileTableCells = document.querySelectorAll(
-        "#teamPlayerCombinedTable td"
+        "#teamPlayerCombinedTable"
       );
-      let eachCell = Array.from(mobileTableCells);
-      eachCell.forEach((field) =>
-        field.addEventListener("click", sortTeamPlayerscombinedTable)
-      );
+      mobileTableCells[0].onclick = function (e) {
+        let td = e.target.closest("td");
+        if (!td) return;
+        sortTeamPlayerscombinedTable(e);
+      };
     } else {
-      let getFieldNames = document.querySelectorAll(
-        "#teamPlayerCombinedTable th"
-      );
-      let headers = Array.from(getFieldNames);
-      headers.forEach((field) =>
-        field.addEventListener("click", sortTeamPlayerscombinedTable)
-      );
+      let getFieldNames = document.querySelectorAll("#teamPlayerCombinedTable");
+      getFieldNames[0].onclick = function (e) {
+        let th = e.target.closest("th");
+        if (!th) return;
+        sortTeamPlayerscombinedTable(e);
+      };
     }
   }
   setTeamPlayerCombinedTableListeners();
