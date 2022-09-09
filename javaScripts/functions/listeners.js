@@ -24,7 +24,7 @@ import { displayTaskList } from "../setData/announcements.js";
 import setMainNavbar from "./mainNavbar.js";
 import { getTeamsPlayersPerSeason } from "./teamPlayerList.js";
 // testing on new imported test functions
-import { getMostGoalsScoredByATeam } from "./records/teamRecords/teamGoalsScored.js";
+import { leagueTeamRecords } from "./records/teamRecords/teamRecords.js";
 setMainNavbar();
 // import {
 //   setPlayerS01Season,
@@ -177,7 +177,7 @@ document
 // league records
 document
   .getElementById("leagueRecords")
-  .addEventListener("click", getMostGoalsScoredByATeam);
+  .addEventListener("click", leagueTeamRecords.teamGoals);
 // tasks list page
 document
   .getElementById("announcements")

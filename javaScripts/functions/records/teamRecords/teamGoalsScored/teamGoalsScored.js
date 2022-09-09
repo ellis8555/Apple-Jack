@@ -5,13 +5,13 @@ import {
   eachTeamObjectMAP,
   teamPlayers,
   playersMAP,
-} from "../../../../json/masterVars.js";
+} from "../../../../../json/masterVars.js";
 import {
   closeSidebar,
   clearScoreboardDiv,
   getScoreboardDiv,
   clearTablesDiv,
-} from "../../variousFunctions.js";
+} from "../../../variousFunctions.js";
 
 export function getMostGoalsScoredByATeam() {
   clearTablesDiv();
@@ -58,7 +58,6 @@ export function getMostGoalsScoredByATeam() {
 
   const getTeamMembers = teamPlayers.filter(identifyTeamMembers);
 
-  console.log(getTeamMembers);
   let data = `<div class="w3-red w3-padding w3-round">Under contstruction</div><br>`;
   data += `<div style="text-align:left;" class="w3-blue w3-round w3-padding w3-card-4">`;
   data += `Most goals scored in a game by a team: <b>${allTimeMostGoalsScoredByTeam}</b><br>`;
