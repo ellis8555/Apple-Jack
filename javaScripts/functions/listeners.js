@@ -58,6 +58,11 @@ setTableListeners();
 let headerLogo = document.querySelector("img[alt*='Haxball']");
 headerLogo.addEventListener("click", setHomeTable);
 
+// set home on sidebar home nav
+
+let homeSidebar = document.querySelector("#home");
+homeSidebar.addEventListener("click", setHomeTable);
+
 // for toggling the sub menus within sidebar menu
 
 let teamsTables = document.querySelectorAll(".teamTable");
