@@ -23,7 +23,8 @@ import { openSidebar, closeSidebar } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/announcements.js";
 import setMainNavbar from "./mainNavbar.js";
 import { getTeamsPlayersPerSeason } from "./teamPlayerList.js";
-
+// testing on new imported test functions
+import { getMostGoalsScoredByATeam } from "./records/teamRecords/teamGoalsScored.js";
 setMainNavbar();
 // import {
 //   setPlayerS01Season,
@@ -173,6 +174,10 @@ document
 document
   .getElementById("s02CombinedTable")
   .addEventListener("click", setS02CombinedTable);
+// league records
+document
+  .getElementById("leagueRecords")
+  .addEventListener("click", getMostGoalsScoredByATeam);
 // tasks list page
 document
   .getElementById("announcements")
