@@ -91,7 +91,8 @@ export function getTeamsPlayersPerSeason(
   let playerStats = "";
   playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
   playerStats += `<h1>Season ${seasonNum}</h1>`;
-  playerStats += `<div class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
+  // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
+  playerStats += `<div id="teamPlayerList" class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
   playersArray.forEach(
     (item) =>
       (playerStats += `
@@ -99,8 +100,6 @@ export function getTeamsPlayersPerSeason(
   );
   playerStats += `</div>`;
 
-  //***************REMEMBER TO TRANSFER THE ID NAME OF BELOW DIV TO PLAYERS NAMES DIV WHEN DELETING THIS MESSAGE******************************************** */
-  playerStats += `<div id="teamPlayerList" style="margin: auto; margin-top: 15px; width:70%; background-color: rgb(34, 184, 34);"><h5>These tables are now sortable</h5></div>`;
   // html table season stats begin
   playerStats += "<table id='teamPlayerSeasonTable'>";
   // html table caption
