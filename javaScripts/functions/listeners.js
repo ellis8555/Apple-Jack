@@ -24,7 +24,7 @@ import { displayTaskList } from "../setData/announcements.js";
 import setMainNavbar from "./mainNavbar.js";
 import { getTeamsPlayersPerSeason } from "./teamPlayerList.js";
 // testing on new imported test functions
-import { leagueTeamRecords } from "./records/teamRecords/teamRecords.js";
+import { leagueTeamRecords } from "./records/teamRecords/teamRecordsExports.js";
 setMainNavbar();
 // import {
 //   setPlayerS01Season,

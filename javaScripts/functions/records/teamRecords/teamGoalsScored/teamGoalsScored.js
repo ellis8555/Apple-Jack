@@ -1,15 +1,20 @@
-import {
-  gameResults,
-  teamsMAP,
-  teamsNumMAP,
-  eachTeamObjectMAP,
-  teamPlayers,
-  playersMAP,
-} from "../../../../../json/masterVars.js";
-import sortGroupedStats from "../../../sort.js";
+import filterGameResults from "../../genericRecordFunctions/filterGameResults.js";
+import createRecordDisplay from "../../genericRecordFunctions/createRecordDisplay.js";
 
-console.log(gameResults);
 export function getMostGoalsScoredByATeam(seasonMode) {
+  const gameResults = filterGameResults(seasonMode);
+  let title;
+  switch (seasonMode) {
+    case "Season":
+      title = "Most goals scored by a team in a season game";
+      break;
+    case "Playoff":
+      title = "Most goals scored by a team in a playoff game";
+      break;
+    default:
+      title = "Most goals scored in a game all time";
+  }
+
   const goalsContainingArr = [];
   gameResults.forEach((game) => {
     const gameID = +game.GameID;
@@ -54,6 +59,26 @@ export function getMostGoalsScoredByATeam(seasonMode) {
     });
   });
 
-  // NEED TO EXTRACT WHICH SIDE IS THE HIGHER COUNT AND ALSO FILTER FROM SEASON MODE
-  console.log(getTopThreeGoalsScoredGameResults);
+  const most = getTopThreeGoalsScoredGameResults.filter((game) => {
+    if (+game.TeamTwoScore == sortEachUniqueGoalCount[0]) return game;
+    if (+game.TeamOneScore == sortEachUniqueGoalCount[0]) return game;
+  });
+
+  const secondMost = getTopThreeGoalsScoredGameResults.filter((game) => {
+    if (+game.TeamTwoScore == sortEachUniqueGoalCount[1]) return game;
+    if (+game.TeamOneScore == sortEachUniqueGoalCount[1]) return game;
+  });
+
+  const thirdMost = getTopThreeGoalsScoredGameResults.filter((game) => {
+    if (+game.TeamTwoScore == sortEachUniqueGoalCount[2]) return game;
+    if (+game.TeamOneScore == sortEachUniqueGoalCount[2]) return game;
+  });
+
+  // top 3 highest goal output in sorted order!
+
+  const sortedResult = [...most, ...secondMost, ...thirdMost];
+  console.log(sortedResult);
+
+  // begin to display the records
+  createRecordDisplay(title);
 }
