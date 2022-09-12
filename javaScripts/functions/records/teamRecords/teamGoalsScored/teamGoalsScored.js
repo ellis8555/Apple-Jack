@@ -88,7 +88,6 @@ export default function teamGoalsScored(e) {
   // top 3 highest goal output in sorted order!
 
   const sortedResult = [...most, ...secondMost, ...thirdMost];
-  console.log(sortedResult);
 
   // begin to display the records
 

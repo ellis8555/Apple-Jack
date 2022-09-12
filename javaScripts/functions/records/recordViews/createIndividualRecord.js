@@ -38,7 +38,6 @@ export default function createIndividualRecord(
 
   // get players from the record setting team
   const thisTeamsPlayers = getTeamsPlayers(team, seasonNumber);
-  console.log(thisTeamsPlayers);
   // create div which will display the players from that record setting team
   let recordPlayers = document.createElement("div");
   recordPlayers.classList = "recordPlayers w3-panel w3-round w3-card";
