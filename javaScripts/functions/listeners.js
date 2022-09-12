@@ -177,7 +177,7 @@ document
 // league records
 document
   .getElementById("leagueRecords")
-  .addEventListener("click", leagueTeamRecords.teamGoals);
+  .addEventListener("click", leagueTeamRecords.setRecordsPageNav);
 // tasks list page
 document
   .getElementById("announcements")

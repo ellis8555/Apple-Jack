@@ -191,4 +191,26 @@
   .redBlue > .blue {
     grid-area: blue;
   }
+
+/* records page */
+
+.recordsContainer {
+  width: 100%;
 }
+
+.recordsNav div {
+  background-color: rgb(21,87,83);
+  padding: 1em;
+  font-size: .75em;
+  cursor: pointer;
+}
+
+.singleRecordContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+}
+
+

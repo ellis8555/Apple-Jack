@@ -1,7 +1,18 @@
+import { clearScoreboardDiv } from "../../../variousFunctions.js";
 import filterGameResults from "../../genericRecordFunctions/filterGameResults.js";
-import createRecordDisplay from "../../genericRecordFunctions/createRecordDisplay.js";
+import getTeamLogo from "../../genericRecordFunctions/getTeamLogo.js";
+import createIndividualRecord from "../../recordViews/createIndividualRecord.js";
 
-export function getMostGoalsScoredByATeam(seasonMode) {
+export default function teamGoalsScored(e) {
+  clearScoreboardDiv();
+  // get the previously displayed records in order to remove them when another record is requested from the user
+  const getSingleRecordContainers =
+    document.querySelectorAll(".recordTitleDiv");
+  // remove records and display user requested different records
+  getSingleRecordContainers.forEach((record) => {
+    record.remove();
+  });
+  const seasonMode = e.target.dataset.seasonmode;
   const gameResults = filterGameResults(seasonMode);
   let title;
   switch (seasonMode) {
@@ -80,5 +91,42 @@ export function getMostGoalsScoredByATeam(seasonMode) {
   console.log(sortedResult);
 
   // begin to display the records
-  createRecordDisplay(title);
+
+  // grab the element to append each new record to
+  const allRecordsContainingDiv = document.querySelector(".recordsContainer");
+  // create sub containing div that will hold all the individual records encased under one title
+  const titleContainingDiv = document.createElement("div");
+  titleContainingDiv.classList = "recordTitleDiv w3-panel w3-round";
+  titleContainingDiv.innerHTML = `<h1>${title}</h1>`;
+
+  // for each record set the layout with the correct data for each record
+  sortedResult.forEach((game) => {
+    // title is set above
+    let teamLogo;
+    let recordGoals;
+    let seasonNumber = game.SeasonNumber;
+    let homeTeam = +game.TeamOne;
+    let awayTeam = +game.TeamTwo;
+    let team;
+    let homeTeamGoals = +game.TeamOneScore;
+    let awayTeamGoals = +game.TeamTwoScore;
+    if (homeTeamGoals > awayTeamGoals) {
+      teamLogo = getTeamLogo(homeTeam, game.SeasonNumber);
+      recordGoals = homeTeamGoals;
+      team = +game.TeamOne;
+    } else {
+      teamLogo = getTeamLogo(awayTeam, game.SeasonNumber);
+      recordGoals = awayTeamGoals;
+      team = +game.TeamTwo;
+    }
+    const thisRecordData = createIndividualRecord(
+      teamLogo,
+      "Goals",
+      recordGoals,
+      seasonNumber,
+      team
+    );
+    titleContainingDiv.append(thisRecordData);
+    allRecordsContainingDiv.append(titleContainingDiv);
+  });
 }

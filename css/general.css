@@ -441,3 +441,39 @@ table td:first-child {
 .redBlue > .blue {
   grid-area: blue;
 }
+
+/* records page */
+
+.recordsContainer {
+  width: 75%;
+}
+
+.recordsNav {
+  display:flex;
+  justify-content: space-between;
+}
+
+.recordsNav div {
+  background-color: rgb(21,87,83);
+  padding: 1em;
+  font-size: 1.25em;
+  cursor: pointer;
+}
+
+.singleRecordContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.singleRecordContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21,87,83);
+}
+
+.recordPlayers {
+  flex-direction: column;
+}
+
+
