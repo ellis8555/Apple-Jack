@@ -833,8 +833,23 @@ export function setHomeTable() {
   let trophy = document.querySelector("i");
   trophy.classList.add("fa-trophy");
 }
-// full table
-export function setS02SeasonFullTable() {
+// S03 regurlar season full table
+export function setS03SeasonTable() {
+  createTable(
+    3,
+    "S03 Regular Season",
+    "TeamStats.groupTeamsSeason3SeasonStats",
+    TeamStats.groupTeamsSeason3SeasonStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(3);
+}
+// S02 regurlar season
+export function setS02SeasonTable() {
   createTable(
     2,
     "S02 Regular Season",
@@ -925,7 +940,22 @@ export function setS01CombinedTable() {
   setMainNavbar(1);
 }
 // PLAYERS
-// S02 playoffs (CURRENT PLAYOFFS)
+// S03 regular season
+export function setPlayerS03Season() {
+  createTable(
+    3,
+    "S03 Regular Season",
+    "IndividualPlayerStats.groupPlayersSeason3SeasonStats",
+    IndividualPlayerStats.groupPlayersSeason3SeasonStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
+// S02 playoffs
 export function setPlayerS02Playoff() {
   createTable(
     2,

@@ -3,12 +3,14 @@ import {
   getTeamsGameResults,
   setTeamsPageLayout,
   setHomeTable,
-  setS02SeasonFullTable,
+  setS03SeasonTable,
+  setS02SeasonTable,
   setS02PlayoffTable,
   setS02CombinedTable,
   setPlayerAllTimeSeason,
   setPlayerAllTimePlayoff,
   setPlayerAllTimePoints,
+  setPlayerS03Season,
   setPlayerS02Playoff,
   setPlayerS02Season,
   setPlayerS02Combined,
@@ -122,9 +124,13 @@ document
 //CURRENT SEASON STATS
 //current teams table
 document
-  .getElementById("fullTable")
-  .addEventListener("click", setS02SeasonFullTable);
+  .getElementById("s03RegularSeason")
+  .addEventListener("click", setS03SeasonTable);
 // current players table
+document
+  .getElementById("s03PlayerSeasonTable")
+  .addEventListener("click", setPlayerS03Season);
+// season 02 players tables
 document
   .getElementById("s02PlayerPlayoffTable")
   .addEventListener("click", setPlayerS02Playoff);
@@ -168,6 +174,9 @@ document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", setPlayerS01Combined);
 // season 2
+document
+  .getElementById("s02RegularSeason")
+  .addEventListener("click", setS02SeasonTable);
 document
   .getElementById("s02PlayoffTable")
   .addEventListener("click", setS02PlayoffTable);
