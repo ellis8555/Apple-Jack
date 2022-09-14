@@ -814,7 +814,7 @@ export function setTeamsPageLayout(e) {
 export function setHomeTable() {
   createTable(
     currentSeason,
-    "Season 2 Standings",
+    "Season 3 Standings",
     "TeamStats.groupTeamsSeason3SeasonStats",
     TeamStats.groupTeamsSeason3SeasonStats,
     "w3-yellow",
