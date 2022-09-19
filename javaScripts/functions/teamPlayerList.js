@@ -260,7 +260,7 @@ export function getTeamsPlayersPerSeason(
     // html table ends
     playerStats += "</table>";
   } else {
-    playerStats += "<h3>No playoff games were played</h3>";
+    playerStats += "<h3>No playoff games played</h3>";
   }
 
   let playerStatsTable = document.getElementById("scoreboardDiv");
