@@ -7402,6 +7402,7 @@
         },
         {
             "GameID": "57",
+            "ScoredBy": "16",
             "AssistedBy": "6",
             "Comment": "Ellis with the cross field pass to a streaking Lupz and without mercy the Hogans get a 10th goal of the game with less than a tick on the board. 10-2 is the final!",
             "Filepath": "img/gifs/S03/S03-ID57-14.gif"
@@ -7460,6 +7461,88 @@
             "AssistedBy": "6",
             "Comment": "Ellis puts a pass between the opposition up to a streaking Lupz who increases the Hogans lead by 4.",
             "Filepath": "img/gifs/S03/S03-ID57-05.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "13",
+            "Comment": "Tennessee Williams puts on pressure and smashes Hacks 2nd of the game from afar! Hacks down by 2 now",
+            "Filepath": "img/gifs/S03/S03-ID58-10.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "6",
+            "AssistedBy": "16",
+            "Comment": "Lupz puts the ball forward into an awkward situation for Corbett and Ellis takes advantage of the situation and puts the Hogans up 4-1",
+            "Filepath": "img/gifs/S03/S03-ID58-09.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "17",
+            "Comment": "Ceydan quickly gives the Hogans a 2 goal lead which ends the half at 3-1.",
+            "Filepath": "img/gifs/S03/S03-ID58-08.gif"
+        },
+        {
+            "GameID": "58",
+            "Comment": "Ceydan with a very nice play resulting in a glorious opportunity for Lupz who spins and fires point blank but Tennessee with the enormous save keeping the scoreline still at 4-2",
+            "Filepath": "img/gifs/S03/S03-ID58-11.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "13",
+            "AssistedBy": "23",
+            "Comment": "Scribe feeds a wide open Tennessee who easily walks the ball to the line then blasts it home. Hax Hogans 6 -3 over the Hacks will be the final",
+            "Filepath": "img/gifs/S03/S03-ID58-14.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "16",
+            "Comment": "Lupz gets his first in this game increasing Hogans lead now at 6-2",
+            "Filepath": "img/gifs/S03/S03-ID58-13.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "6",
+            "Comment": "Ellis increases Hax Hogans lead by 3 with a lucky goal.  Sometimes it’s the way the ball rolls. 5-2 Hogans",
+            "Filepath": "img/gifs/S03/S03-ID58-12.gif"
+        },
+        {
+            "GameID": "58",
+            "Comment": "Big league jitters for Scribe on this one and misses an open net from long range. ",
+            "Filepath": "img/gifs/S03/S03-ID58-03.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "6",
+            "AssistedBy": "16",
+            "Comment": "Ellis opens up the scoring on a cross field pass from Lupz. 1-0 Hogans",
+            "Filepath": "img/gifs/S03/S03-ID58-02.gif"
+        },
+        {
+            "GameID": "58",
+            "Comment": "Nice playing almost result in Hacks opening up the scoring. Rookie Scribe99 has the door shut in close preventing his first goal in the league.",
+            "Filepath": "img/gifs/S03/S03-ID58-01.gif"
+        },
+        {
+            "GameID": "58",
+            "OwnGoal": "23",
+            "Comment": "Scribe making the highlight reels in the opposite ways. First game mistakes and own goals both happen in Haxball!",
+            "Filepath": "img/gifs/S03/S03-ID58-04.gif"
+        },
+        {
+            "GameID": "58",
+            "ScoredBy": "13",
+            "Comment": "Tennessee gets team Hacks on the board down by a goal. 2-1",
+            "Filepath": "img/gifs/S03/S03-ID58-07.gif"
+        },
+        {
+            "GameID": "58",
+            "Comment": "Scribe with the beautiful pass and Tennessee rips a shot just wide",
+            "Filepath": "img/gifs/S03/S03-ID58-06.gif"
+        },
+        {
+            "GameID": "58",
+            "Comment": "Ceydan shoots wide on a cross from Ellis. Still 2-0 Hogans",
+            "Filepath": "img/gifs/S03/S03-ID58-05.gif"
         }
     ]
 }
