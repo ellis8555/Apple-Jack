@@ -220,7 +220,7 @@ let documentBodyObserver = new ResizeObserver((entries) => {
     // 2 is season number position for previous seasons table header
     getSeasonNumber = +tableCaption.textContent[2];
   }
-  if (screenWidth < 500 && screenWidth > 475) {
+  if (screenWidth < 500) {
     // this if checks for players all time stats as these table headers do not contain a number
     if (isNaN(getSeasonNumber)) {
       setMainNavbar();
