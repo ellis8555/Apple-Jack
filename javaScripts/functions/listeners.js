@@ -221,6 +221,7 @@ let documentBodyObserver = new ResizeObserver((entries) => {
     getSeasonNumber = +tableCaption.textContent[2];
   }
   if (screenWidth < 500 && screenWidth > 475) {
+    // this if checks for players all time stats as these table headers do not contain a number
     if (isNaN(getSeasonNumber)) {
       setMainNavbar();
     } else {
@@ -228,6 +229,7 @@ let documentBodyObserver = new ResizeObserver((entries) => {
       setMainNavbar(getSeasonNumber);
     }
   } else if (screenWidth > 500) {
+    // this if checks for players all time stats as these table headers do not contain a number
     if (isNaN(getSeasonNumber)) {
       setMainNavbar();
     } else {
