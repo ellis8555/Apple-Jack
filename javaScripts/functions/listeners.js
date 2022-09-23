@@ -24,6 +24,7 @@ import {
 import { openSidebar, closeSidebar } from "./variousFunctions.js";
 import { displayTaskList } from "../setData/announcements.js";
 import { getTeamsPlayersPerSeason } from "./teamPlayerList.js";
+import setMainNavbar from "./mainNavbar.js";
 // testing on new imported test functions
 import { leagueTeamRecords } from "./records/teamRecords/teamRecordsExports.js";
 
@@ -208,6 +209,32 @@ setListenersMainNavbar();
 // responsive function for live resizing of screen
 
 let documentBodyObserver = new ResizeObserver((entries) => {
+  // screen size for navbar layout adapting to a screen resize event
+  const screenWidth = window.innerWidth;
+  const tableCaption = document.querySelector(
+    `#tablesDiv > table > caption > h1`
+  );
+  // 7 is season number position for current season table header
+  let getSeasonNumber = +tableCaption.textContent[7];
+  if (isNaN(getSeasonNumber)) {
+    // 2 is season number position for previous seasons table header
+    getSeasonNumber = +tableCaption.textContent[2];
+  }
+  if (screenWidth < 500 && screenWidth > 475) {
+    if (isNaN(getSeasonNumber)) {
+      setMainNavbar();
+    } else {
+      // if mobile screen and more teams than 5 then add another row to navbar teams layout
+      setMainNavbar(getSeasonNumber);
+    }
+  } else if (screenWidth > 500) {
+    if (isNaN(getSeasonNumber)) {
+      setMainNavbar();
+    } else {
+      // if mobile screen and more teams than 5 then add another row to navbar teams layout
+      setMainNavbar(getSeasonNumber);
+    }
+  }
   let getTeamPlayerSeasonTable = document.querySelectorAll(
     "#teamPlayerSeasonTable"
   );
