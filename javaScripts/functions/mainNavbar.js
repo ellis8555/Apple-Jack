@@ -7,12 +7,10 @@ import {
   teams,
 } from "../../json/masterVars.js";
 import { setListenersMainNavbar } from "./listeners.js";
-import mainNavbarLayout from "./mainNavbarLayout.js";
 
 export default function setMainNavbar(season = currentSeason) {
   const teamsThisSeason = eachSeasonsTeamsMAP.get(season).length;
   let navbarContainer = document.querySelector("#teamsNavbar > section");
-  mainNavbarLayout(teamsThisSeason, navbarContainer);
   let navbarContent = "";
   for (let i = 0; i < teamsThisSeason; i++) {
     let imageSource = eachTeamObjectMAP.get(eachSeasonsTeamsMAP.get(season)[i])[
