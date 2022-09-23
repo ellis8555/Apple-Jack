@@ -237,6 +237,8 @@ let documentBodyObserver = new ResizeObserver((entries) => {
       setMainNavbar(getSeasonNumber);
     }
   }
+  // end navbar layout
+
   let getTeamPlayerSeasonTable = document.querySelectorAll(
     "#teamPlayerSeasonTable"
   );
