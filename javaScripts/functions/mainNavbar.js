@@ -22,22 +22,7 @@ export default function setMainNavbar(season = currentSeason) {
       let imageSource = eachTeamObjectMAP.get(
         eachSeasonsTeamsMAP.get(season)[i]
       )[`S0${season}HomeFilePath`];
-
-      navbarContent += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-      navbarContent += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
-      navbarContent += `<div>`; // begin third div
-
-      navbarContent += `<img 
-          src="${imageSource}" 
-          alt="${eachSeasonsTeamsMAP.get(season)[i]}" 
-          data-team-name="${eachSeasonsTeamsMAP.get(season)[i]}" 
-          data-season-num="${season}"
-          class="w3-image navLogo"
-          >`;
-
-      navbarContent += `</div>`; // end third div
-      navbarContent += `</div>`; // end second div
-      navbarContent += `</div>`; // end first div
+      navbarContent = setLayout(imageSource, navbarContent, season, i);
     }
     navbarContent += `</div>`; // end first row of teams container
     navbarContent += `<div>`; // container for second row of teams
@@ -46,22 +31,7 @@ export default function setMainNavbar(season = currentSeason) {
       let imageSource = eachTeamObjectMAP.get(
         eachSeasonsTeamsMAP.get(season)[i]
       )[`S0${season}HomeFilePath`];
-
-      navbarContent += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-      navbarContent += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
-      navbarContent += `<div>`; // begin third div
-
-      navbarContent += `<img 
-          src="${imageSource}" 
-          alt="${eachSeasonsTeamsMAP.get(season)[i]}" 
-          data-team-name="${eachSeasonsTeamsMAP.get(season)[i]}" 
-          data-season-num="${season}"
-          class="w3-image navLogo"
-          >`;
-
-      navbarContent += `</div>`; // end third div
-      navbarContent += `</div>`; // end second div
-      navbarContent += `</div>`; // end first div
+      navbarContent = setLayout(imageSource, navbarContent, season, i);
     }
     navbarContent += `</div>`; // end second row of teams container
   } else {
@@ -70,24 +40,30 @@ export default function setMainNavbar(season = currentSeason) {
       let imageSource = eachTeamObjectMAP.get(
         eachSeasonsTeamsMAP.get(season)[i]
       )[`S0${season}HomeFilePath`];
-      navbarContent += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-      navbarContent += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
-      navbarContent += `<div>`; // begin third div
-
-      navbarContent += `<img 
-          src="${imageSource}" 
-          alt="${eachSeasonsTeamsMAP.get(season)[i]}" 
-          data-team-name="${eachSeasonsTeamsMAP.get(season)[i]}" 
-          data-season-num="${season}"
-          class="w3-image navLogo"
-          >`;
-
-      navbarContent += `</div>`; // end third div
-      navbarContent += `</div>`; // end second div
-      navbarContent += `</div>`; // end first div
+      navbarContent = setLayout(imageSource, navbarContent, season, i);
     }
   }
 
   navbarContainer.innerHTML = navbarContent;
   setListenersMainNavbar();
+}
+
+function setLayout(imageSource, element, season, id) {
+  let image = imageSource; //eachTeamObjectMAP.get(eachSeasonsTeamsMAP.get(season)[i])[`S0${season}HomeFilePath`];
+  element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
+  element += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
+  element += `<div>`; // begin third div
+
+  element += `<img 
+      src="${image}" 
+      alt="${eachSeasonsTeamsMAP.get(season)[id]}" 
+      data-team-name="${eachSeasonsTeamsMAP.get(season)[id]}" 
+      data-season-num="${season}"
+      class="w3-image navLogo"
+      >`;
+
+  element += `</div>`; // end third div
+  element += `</div>`; // end second div
+  element += `</div>`; // end first div
+  return element;
 }
