@@ -37,6 +37,7 @@ export default function setMainNavbar(season = currentSeason) {
     }
     navbarContent += `</div>`; // end second row of teams container
   } else {
+    navbarContainer.style.flexDirection = "row";
     // else less than 5 teams looks good on mobile
     for (let i = 0; i < teamsThisSeason; i++) {
       let imageSource = eachTeamObjectMAP.get(
