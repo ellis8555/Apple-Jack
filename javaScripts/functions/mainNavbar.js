@@ -22,6 +22,7 @@ export default function setMainNavbar(season = currentSeason) {
       let imageSource = eachTeamObjectMAP.get(
         eachSeasonsTeamsMAP.get(season)[i]
       )[`S0${season}HomeFilePath`];
+      // setLayout defined below
       navbarContent = setLayout(imageSource, navbarContent, season, i);
     }
     navbarContent += `</div>`; // end first row of teams container
@@ -31,6 +32,7 @@ export default function setMainNavbar(season = currentSeason) {
       let imageSource = eachTeamObjectMAP.get(
         eachSeasonsTeamsMAP.get(season)[i]
       )[`S0${season}HomeFilePath`];
+      // setLayout defined below
       navbarContent = setLayout(imageSource, navbarContent, season, i);
     }
     navbarContent += `</div>`; // end second row of teams container
@@ -40,6 +42,7 @@ export default function setMainNavbar(season = currentSeason) {
       let imageSource = eachTeamObjectMAP.get(
         eachSeasonsTeamsMAP.get(season)[i]
       )[`S0${season}HomeFilePath`];
+      // setLayout defined below
       navbarContent = setLayout(imageSource, navbarContent, season, i);
     }
   }
@@ -49,7 +52,7 @@ export default function setMainNavbar(season = currentSeason) {
 }
 
 function setLayout(imageSource, element, season, id) {
-  let image = imageSource; //eachTeamObjectMAP.get(eachSeasonsTeamsMAP.get(season)[i])[`S0${season}HomeFilePath`];
+  let image = imageSource;
   element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
   element += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
   element += `<div>`; // begin third div
