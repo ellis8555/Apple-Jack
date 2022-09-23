@@ -4,7 +4,6 @@ import {
   eachTeamObjectMAP,
   eachSeasonsTeamsMAP,
   currentSeason,
-  teams,
 } from "../../json/masterVars.js";
 import { setListenersMainNavbar } from "./listeners.js";
 
