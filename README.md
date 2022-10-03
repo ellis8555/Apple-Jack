@@ -6,10 +6,7 @@ I will keep this site as vanilla JS while other projects will use some JS framew
 
 Todos in no particular order:
 
-<<<<<<< HEAD
-=======
 - currently hosted on git pages
->>>>>>> seasonThree
 - will end up moving the data to a noSQL database
 - game information to be entered directly from the webpage
 - more modular files to break down some files into smaller component files
