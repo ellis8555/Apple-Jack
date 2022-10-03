@@ -11,3 +11,5 @@ Todos in no particular order:
 - game information to be entered directly from the webpage
 - more modular files to break down some files into smaller component files
 - improved file structure for improved readability
+- continuous visual improvements
+- new statistics categories to be added
