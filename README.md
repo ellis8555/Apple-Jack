@@ -1,3 +1,13 @@
 site: https://hax94.com
 
-This is my first github project based on a online league I run once in awhile. I have been slowly improving on organizing the folder structuring and plan on breaking down longer files in many more smaller modules which will then be exported for re-use!
+Vanilla JS - site is for a season based league based on a browser game called Haxball. Haxball.com is the games website.
+
+I will keep this site as vanilla JS while other projects will use some JS frameworks such as React.
+
+Todos in no particular order:
+
+- currently hosted on git pages
+- will end up moving the data to a noSQL database
+- game information to be entered directly from the webpage
+- more modular files to break down some files into smaller component files
+- improved file structure for improved readability
