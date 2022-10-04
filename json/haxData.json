@@ -5397,9 +5397,20 @@
     },
     {
       "GameID": "64",
+      "TeamID": "11",
+      "PlayerID": "15",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "60",
+      "Passes": "18",
+      "ShotsOnGoal": "3",
+      "OwnGoals": "1"
+    },
+    {
+      "GameID": "64",
       "TeamID": "10",
       "PlayerID": "12",
-      "Goals": "2",
+      "Goals": "3",
       "Assists": "0",
       "Kicks": "51",
       "Passes": "4",
@@ -5448,17 +5459,6 @@
       "Kicks": "50",
       "Passes": "10",
       "ShotsOnGoal": "5",
-      "OwnGoals": "0"
-    },
-    {
-      "GameID": "64",
-      "TeamID": "11",
-      "PlayerID": "15",
-      "Goals": "0",
-      "Assists": "0",
-      "Kicks": "60",
-      "Passes": "18",
-      "ShotsOnGoal": "3",
       "OwnGoals": "0"
     },
     {
