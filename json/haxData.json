@@ -8863,7 +8863,7 @@
     {
       "GameID": "64",
       "ScoredBy": "4",
-      "Comment": "Dangler even this game all up at one on a great shot on good positioning",
+      "Comment": "Dangler evens this game all up at one on a great shot on good positioning",
       "Filepath": "img/gifs/S03/S03-ID64-02.gif"
     },
     {
@@ -8897,6 +8897,74 @@
       "AssistedBy": "4",
       "Comment": "Dangler and Mooney making life difficult for the Spaceballs. Nice shot Mooney! 2-0",
       "Filepath": "img/gifs/S03/S03-ID65-02.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "Kingraph streaking down the wing will place this shot wide which will have implications in this game",
+      "Filepath": "img/gifs/S03/S03-ID66-09.gif"
+    },
+    {
+      "GameID": "66",
+      "ScoredBy": "14",
+      "AssistedBy": "10",
+      "Comment": "Shortly after though Kingraph ends up putting the ball in front to a open Drizzle who does not miss in close! 2-1 Haxual Chocolate",
+      "Filepath": "img/gifs/S03/S03-ID66-08.gif"
+    },
+    {
+      "GameID": "66",
+      "ScoredBy": "13",
+      "AssistedBy": "23",
+      "Comment": "With the first half being all chances for Haxual Chocolate team Hacks open up the scoring early in the second half. Game now tied 1-1",
+      "Filepath": "img/gifs/S03/S03-ID66-07.gif"
+    },
+    {
+      "GameID": "66",
+      "ScoredBy": "13",
+      "Comment": "Trefizoh off the draw with quick reactions steals the ball and makes the Chocolate pay in extra time completing an amazing comeback victory for Hacks! 3-2 is the final",
+      "Filepath": "img/gifs/S03/S03-ID66-12.gif"
+    },
+    {
+      "GameID": "66",
+      "ScoredBy": "23",
+      "AssistedBy": "13",
+      "Comment": "11 seconds remaining and Hacks tie this game all up on a nice sweet cross from Trefizoh over to Scribe who sauces a one timer past the keeper. This ones headed for extra time!",
+      "Filepath": "img/gifs/S03/S03-ID66-11.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "With under 30 seconds in the game a mad scramble in the corner ends with a shot just wide by Corbett. Score 2-1 HC with less than half a minute to play…",
+      "Filepath": "img/gifs/S03/S03-ID66-10.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "Scribe just doesn't have ball where he would like it on this play",
+      "Filepath": "img/gifs/S03/S03-ID66-03.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "Haxual Chocolate with a very nice attempt on increasing their lead by two but fall just short..",
+      "Filepath": "img/gifs/S03/S03-ID66-02.gif"
+    },
+    {
+      "GameID": "66",
+      "ScoredBy": "14",
+      "Comment": "Very early on Drizz opens the scoring for the Chocolate. 1-0",
+      "Filepath": "img/gifs/S03/S03-ID66-01.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "A close call at the end of the first half which would have seen this game tied up. 1-0 at the half",
+      "Filepath": "img/gifs/S03/S03-ID66-06.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "An in close shot by Kingraph takes a slight deflection and is barely stopped by Corbett. Still 1-0 Haxual Chocolate",
+      "Filepath": "img/gifs/S03/S03-ID66-05.gif"
+    },
+    {
+      "GameID": "66",
+      "Comment": "This game is producing chances despite only one goal at this point. A nice give and go attempt by Drizz and Raph",
+      "Filepath": "img/gifs/S03/S03-ID66-04.gif"
     }
   ]
 }
