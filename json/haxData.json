@@ -5776,17 +5776,6 @@
     {
       "GameID": "68",
       "TeamID": "10",
-      "PlayerID": "12",
-      "Goals": "0",
-      "Assists": "1",
-      "Kicks": "52",
-      "Passes": "12",
-      "ShotsOnGoal": "3",
-      "OwnGoals": "1"
-    },
-    {
-      "GameID": "68",
-      "TeamID": "10",
       "PlayerID": "2",
       "Goals": "2",
       "Assists": "0",
@@ -5799,7 +5788,7 @@
       "GameID": "68",
       "TeamID": "3",
       "PlayerID": "14",
-      "Goals": "1",
+      "Goals": "2",
       "Assists": "1",
       "Kicks": "61",
       "Passes": "13",
@@ -5815,6 +5804,17 @@
       "Kicks": "58",
       "Passes": "14",
       "ShotsOnGoal": "5",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "68",
+      "TeamID": "10",
+      "PlayerID": "12",
+      "Goals": "0",
+      "Assists": "1",
+      "Kicks": "52",
+      "Passes": "12",
+      "ShotsOnGoal": "3",
       "OwnGoals": "0"
     },
     {
@@ -9021,32 +9021,32 @@
     },
     {
       "GameID": "68",
-      "ScoredBy": "2",
-      "Comment": "Spaceballs finally are rewarded on the effort from Chaos. Spaceballs on the board but down a goal. 2-1",
+      "Comment": "Skills again denied from in close on a goaline save by Kingraph",
       "Filepath": "img/gifs/S03/S03-ID68-07.gif"
     },
     {
       "GameID": "68",
-      "Comment": "Skills again denied from in close on a goaline save by Kingraph",
+      "Comment": "Skills with attempts from in close but just can't quite finish",
       "Filepath": "img/gifs/S03/S03-ID68-06.gif"
+    },
+    {
+      "GameID": "68",
+      "ScoredBy": "2",
+      "Comment": "Spaceballs finally are rewarded on the effort from Chaos. Spaceballs on the board but down a goal. 2-1",
+      "Filepath": "img/gifs/S03/S03-ID68-08.gif"
     },
     {
       "GameID": "68",
       "ScoredBy": "10",
       "Comment": "This game appears to be heading to extra time but Kingraph on the solo effort EPM's the Spaceballs spaceship seconds later! What a finish! 3-2 Haxual Chocolate",
-      "Filepath": "img/gifs/S03/S03-ID68-09.gif"
+      "Filepath": "img/gifs/S03/S03-ID68-10.gif"
     },
     {
       "GameID": "68",
       "ScoredBy": "2",
       "AssistedBy": "12",
       "Comment": "Skills gets the ball out in front to an open Chaos who ties this game up with under 7 seconds remaining! 2-2",
-      "Filepath": "img/gifs/S03/S03-ID68-08.gif"
-    },
-    {
-      "GameID": "68",
-      "Comment": "Skills with attempts from in close but just can't quite finish",
-      "Filepath": "img/gifs/S03/S03-ID68-05.gif"
+      "Filepath": "img/gifs/S03/S03-ID68-09.gif"
     },
     {
       "GameID": "68",
@@ -9060,15 +9060,20 @@
     },
     {
       "GameID": "68",
-      "ScoredBy": "10",
-      "Comment": "Kingraph puts the Chocolate up by two on a selfless play by thatDrizzle! 2-0",
-      "Filepath": "img/gifs/S03/S03-ID68-04.gif"
+      "ScoredBy": "14",
+      "Comment": "Drizzle opens the scoring squeezing the ketchup out of this one and into the net. 1-0 Chocolate",
+      "Filepath": "img/gifs/S03/S03-ID68-03.gif"
     },
     {
       "GameID": "68",
       "ScoredBy": "14",
-      "Comment": "Drizzle opens the scoring squeezing the ketchup out of this one and into the net. 1-0 Chocolate",
-      "Filepath": "img/gifs/S03/S03-ID68-03.gif"
+      "Comment": "After review the goal is awarded to Drizzle. His second of the game",
+      "Filepath": "img/gifs/S03/S03-ID68-05.gif"
+    },
+    {
+      "GameID": "68",
+      "Comment": "Game stats analzyer shows this goal needed VAR! 2-0",
+      "Filepath": "img/gifs/S03/S03-ID68-04.gif"
     },
     {
       "GameID": "69",
