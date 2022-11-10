@@ -6602,24 +6602,13 @@
     {
       "GameID": "78",
       "TeamID": "10",
-      "PlayerID": "12",
-      "Goals": "1",
-      "Assists": "0",
-      "Kicks": "51",
-      "Passes": "7",
-      "ShotsOnGoal": "5",
-      "OwnGoals": "0"
-    },
-    {
-      "GameID": "78",
-      "TeamID": "10",
       "PlayerID": "2",
       "Goals": "1",
       "Assists": "0",
       "Kicks": "53",
       "Passes": "10",
       "ShotsOnGoal": "5",
-      "OwnGoals": "0"
+      "OwnGoals": "1"
     },
     {
       "GameID": "78",
@@ -6630,6 +6619,17 @@
       "Kicks": "58",
       "Passes": "17",
       "ShotsOnGoal": "3",
+      "OwnGoals": "1"
+    },
+    {
+      "GameID": "78",
+      "TeamID": "10",
+      "PlayerID": "12",
+      "Goals": "1",
+      "Assists": "0",
+      "Kicks": "51",
+      "Passes": "7",
+      "ShotsOnGoal": "5",
       "OwnGoals": "0"
     }
   ],
