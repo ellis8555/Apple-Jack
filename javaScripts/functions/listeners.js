@@ -4,13 +4,17 @@ import {
   setTeamsPageLayout,
   setHomeTable,
   setS03SeasonTable,
+  setS03PlayoffTable,
   setS02SeasonTable,
   setS02PlayoffTable,
+  setS03CombinedTable,
   setS02CombinedTable,
   setPlayerAllTimeSeason,
   setPlayerAllTimePlayoff,
   setPlayerAllTimePoints,
   setPlayerS03Season,
+  setPlayerS03Playoff,
+  setPlayerS03Combined,
   setPlayerS02Playoff,
   setPlayerS02Season,
   setPlayerS02Combined,
@@ -121,10 +125,22 @@ document
 document
   .getElementById("s03RegularSeason")
   .addEventListener("click", setS03SeasonTable);
+document
+  .getElementById("s03PlayoffTable")
+  .addEventListener("click", setS03PlayoffTable);
+document
+  .getElementById("s03CombinedTable")
+  .addEventListener("click", setS03CombinedTable);
 // current players table
 document
   .getElementById("s03PlayerSeasonTable")
   .addEventListener("click", setPlayerS03Season);
+document
+  .getElementById("s03PlayerPlayoffTable")
+  .addEventListener("click", setPlayerS03Playoff);
+document
+  .getElementById("s03PlayerCombinedTable")
+  .addEventListener("click", setPlayerS03Combined);
 // season 02 players tables
 document
   .getElementById("s02PlayerPlayoffTable")

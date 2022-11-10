@@ -848,6 +848,36 @@ export function setS03SeasonTable() {
   setTableListeners();
   setMainNavbar(3);
 }
+// S03 playoffs
+export function setS03PlayoffTable() {
+  createTable(
+    3,
+    "S03 Playoffs",
+    "TeamStats.groupTeamsSeason3PlayoffStats",
+    TeamStats.groupTeamsSeason3PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(3);
+}
+// S02 Combined
+export function setS03CombinedTable() {
+  createTable(
+    3,
+    "S03 Combined",
+    "TeamStats.groupTeamsSeason3CombinedStats",
+    TeamStats.groupTeamsSeason3CombinedStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(3);
+}
 // S02 regurlar season
 export function setS02SeasonTable() {
   createTable(
@@ -955,6 +985,36 @@ export function setPlayerS03Season() {
   setTableListeners();
   setMainNavbar();
 }
+// S03 playoffs
+export function setPlayerS03Playoff() {
+  createTable(
+    3,
+    "S03 Playoffs",
+    "IndividualPlayerStats.groupPlayersSeason3PlayoffStats",
+    IndividualPlayerStats.groupPlayersSeason3PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
+// S03 all stats combined
+export function setPlayerS03Combined() {
+  createTable(
+    3,
+    "S03 All Stats",
+    "IndividualPlayerStats.groupPlayersSeason3CombinedStats",
+    IndividualPlayerStats.groupPlayersSeason3CombinedStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
 // S02 playoffs
 export function setPlayerS02Playoff() {
   createTable(
@@ -970,7 +1030,7 @@ export function setPlayerS02Playoff() {
   setTableListeners();
   setMainNavbar();
 }
-// S02 regular season (CURRENT SEASON)
+// S02 regular season
 export function setPlayerS02Season() {
   createTable(
     2,
