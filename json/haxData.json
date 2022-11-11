@@ -6843,10 +6843,6 @@
     {
       "PlayerID": "22",
       "Players": "scribe99"
-    },
-    {
-      "PlayerID": "23",
-      "Players": "Jeelock"
     }
   ],
   "TeamPlayers": [
@@ -7074,11 +7070,6 @@
       "SeasonNumber": "3",
       "TeamID": "12",
       "PlayerID": "19"
-    },
-    {
-      "SeasonNumber": "3",
-      "TeamID": "12",
-      "PlayerID": "23"
     }
   ],
   "GameType": [
@@ -7211,10 +7202,9 @@
     },
     {
       "GameID": "21",
-      "ScoredBy": "9",
-      "AssistedBy": "12",
-      "Comment": "Skills fools the D and makes it look like a pass off the wall but opts for the upfield pass straight onto kids who buries it",
-      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-03.gif"
+      "ScoredBy": "11",
+      "Comment": "Full Mooney!",
+      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-07.gif"
     },
     {
       "GameID": "21",
@@ -7256,9 +7246,10 @@
     },
     {
       "GameID": "21",
-      "ScoredBy": "11",
-      "Comment": "Full Mooney!",
-      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-07.gif"
+      "ScoredBy": "9",
+      "AssistedBy": "12",
+      "Comment": "Skills fools the D and makes it look like a pass off the wall but opts for the upfield pass straight onto kids who buries it",
+      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-03.gif"
     },
     {
       "GameID": "21",
@@ -7389,16 +7380,16 @@
     },
     {
       "GameID": "28",
-      "OwnGoal": "16",
-      "Comment": "Pressure in the corner",
-      "Filepath": "img/gifs/S02/S02-ID28-03.gif"
-    },
-    {
-      "GameID": "28",
       "ScoredBy": "11",
       "AssistedBy": "16",
       "Comment": "Mooney takes advantage of defensive blunder by Ellis",
       "Filepath": "img/gifs/S02/S02-ID28-06.gif"
+    },
+    {
+      "GameID": "28",
+      "OwnGoal": "16",
+      "Comment": "Pressure in the corner",
+      "Filepath": "img/gifs/S02/S02-ID28-03.gif"
     },
     {
       "GameID": "28",
