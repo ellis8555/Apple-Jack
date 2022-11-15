@@ -1538,6 +1538,25 @@
       "TeamTwoPasses": "26",
       "TeamTwoKicks": "139",
       "ExtraTime": "No"
+    },
+    {
+      "GameID": "82",
+      "SeasonNumber": "3",
+      "Round": "2",
+      "GameTypeID": "2",
+      "TeamOne": "8",
+      "TeamOneScore": "1",
+      "TeamOnePossession": "48",
+      "TeamOneShotsOnGoal": "9",
+      "TeamOnePasses": "28",
+      "TeamOneKicks": "157",
+      "TeamTwo": "3",
+      "TeamTwoScore": "5",
+      "TeamTwoPossession": "52",
+      "TeamTwoShotsOnGoal": "10",
+      "TeamTwoPasses": "33",
+      "TeamTwoKicks": "168",
+      "ExtraTime": "No"
     }
   ],
   "GamePlayerStats": [
@@ -6871,6 +6890,72 @@
       "Goals": "0",
       "Assists": "0",
       "Kicks": "38",
+      "Passes": "10",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "82",
+      "TeamID": "3",
+      "PlayerID": "10",
+      "Goals": "0",
+      "Assists": "1",
+      "Kicks": "62",
+      "Passes": "10",
+      "ShotsOnGoal": "1",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "82",
+      "TeamID": "3",
+      "PlayerID": "21",
+      "Goals": "1",
+      "Assists": "1",
+      "Kicks": "42",
+      "Passes": "13",
+      "ShotsOnGoal": "2",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "82",
+      "TeamID": "8",
+      "PlayerID": "3",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "61",
+      "Passes": "6",
+      "ShotsOnGoal": "4",
+      "OwnGoals": "1"
+    },
+    {
+      "GameID": "82",
+      "TeamID": "8",
+      "PlayerID": "13",
+      "Goals": "1",
+      "Assists": "0",
+      "Kicks": "62",
+      "Passes": "12",
+      "ShotsOnGoal": "5",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "82",
+      "TeamID": "3",
+      "PlayerID": "14",
+      "Goals": "3",
+      "Assists": "0",
+      "Kicks": "64",
+      "Passes": "10",
+      "ShotsOnGoal": "5",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "82",
+      "TeamID": "8",
+      "PlayerID": "22",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "34",
       "Passes": "10",
       "ShotsOnGoal": "0",
       "OwnGoals": "0"
