@@ -1557,6 +1557,25 @@
       "TeamTwoPasses": "33",
       "TeamTwoKicks": "168",
       "ExtraTime": "No"
+    },
+    {
+      "GameID": "83",
+      "SeasonNumber": "3",
+      "Round": "2",
+      "GameTypeID": "2",
+      "TeamOne": "11",
+      "TeamOneScore": "2",
+      "TeamOnePossession": "51",
+      "TeamOneShotsOnGoal": "5",
+      "TeamOnePasses": "36",
+      "TeamOneKicks": "161",
+      "TeamTwo": "3",
+      "TeamTwoScore": "1",
+      "TeamTwoPossession": "49",
+      "TeamTwoShotsOnGoal": "11",
+      "TeamTwoPasses": "33",
+      "TeamTwoKicks": "153",
+      "ExtraTime": "No"
     }
   ],
   "GamePlayerStats": [
@@ -6958,6 +6977,72 @@
       "Kicks": "34",
       "Passes": "10",
       "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "83",
+      "TeamID": "11",
+      "PlayerID": "4",
+      "Goals": "1",
+      "Assists": "1",
+      "Kicks": "53",
+      "Passes": "14",
+      "ShotsOnGoal": "2",
+      "OwnGoals": "1"
+    },
+    {
+      "GameID": "83",
+      "TeamID": "11",
+      "PlayerID": "11",
+      "Goals": "1",
+      "Assists": "0",
+      "Kicks": "43",
+      "Passes": "10",
+      "ShotsOnGoal": "3",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "83",
+      "TeamID": "11",
+      "PlayerID": "15",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "65",
+      "Passes": "12",
+      "ShotsOnGoal": "0",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "83",
+      "TeamID": "3",
+      "PlayerID": "10",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "53",
+      "Passes": "11",
+      "ShotsOnGoal": "7",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "83",
+      "TeamID": "3",
+      "PlayerID": "14",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "67",
+      "Passes": "18",
+      "ShotsOnGoal": "2",
+      "OwnGoals": "0"
+    },
+    {
+      "GameID": "83",
+      "TeamID": "3",
+      "PlayerID": "21",
+      "Goals": "0",
+      "Assists": "0",
+      "Kicks": "33",
+      "Passes": "4",
+      "ShotsOnGoal": "2",
       "OwnGoals": "0"
     }
   ],
