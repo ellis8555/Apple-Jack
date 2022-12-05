@@ -27,7 +27,7 @@ let seasonCount = Array.from(
 );
 let seasonCountLength = seasonCount.length;
 seasonCount.sort((a, b) => a - b);
-let defendingChamps = "Mooney";
+let defendingChamps = "Haxual Chocolate";
 let seasonsWithTieGames = [1];
 //**** TEAMS ****//
 let teamsLength = teams.length; // counts and returns how many there have been all time

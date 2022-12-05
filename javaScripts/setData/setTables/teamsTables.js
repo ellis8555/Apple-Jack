@@ -826,10 +826,10 @@ export function setHomeTable() {
   setMainNavbar();
   document.body.style.backgroundColor = "#2196f3";
   let headerImage = document.querySelector("#championsCard>div>img");
-  headerImage.src = "img/teamLogos/S02/MooneyHomeS02.svg";
+  headerImage.src = "img/teamLogos/S03/haxualChocolateHomeS03.svg";
   let header = document.getElementById("headerTeamName");
   let headerChildren = header.childNodes;
-  headerChildren[4].textContent = "Mooney";
+  headerChildren[4].textContent = "Haxual Chocolate";
   let trophy = document.querySelector("i");
   trophy.classList.add("fa-trophy");
 }
