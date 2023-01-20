@@ -814,13 +814,13 @@ export function setTeamsPageLayout(e) {
 export function setHomeTable() {
   createTable(
     currentSeason,
-    "Season 3 Standings",
+    "Season 3 Final Standings",
     "TeamStats.groupTeamsSeason3SeasonStats",
     TeamStats.groupTeamsSeason3SeasonStats,
     "w3-yellow",
     "Points",
-    "homePageFieldsNoTies",
-    homePageFieldsNoTies
+    "fullTableNoTies",
+    fullTableNoTies
   );
   setTableListeners();
   setMainNavbar();
