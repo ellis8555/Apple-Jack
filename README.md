@@ -6,10 +6,6 @@ I will keep this site as vanilla JS while other projects will use some JS framew
 
 Todos in no particular order:
 
-- currently hosted on git pages
-- will end up moving the data to a noSQL database
-- game information to be entered directly from the webpage
-- more modular files to break down some files into smaller component files
-- improved file structure for improved readability
-- continuous visual improvements
-- new statistics categories to be added
+- many improvments will be made on an ongoing basis to this beginning project of mine
+- break down scripts and place into own modules
+- replace innerHTML with node appending/removals
