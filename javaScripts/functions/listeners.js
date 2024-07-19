@@ -3,6 +3,12 @@ import {
   getTeamsGameResults,
   setTeamsPageLayout,
   setHomeTable,
+  setS04SeasonTable,
+  setS04PlayoffTable,
+  setS04CombinedTable,
+  setPlayerS04Season,
+  setPlayerS04Playoff,
+  setPlayerS04Combined,
   setS03SeasonTable,
   setS03PlayoffTable,
   setS02SeasonTable,
@@ -121,7 +127,28 @@ document
 // end sub menus toggling
 // listeners for sidebar links. functions located in ./setData/setTables/teamsTables.js
 //CURRENT SEASON STATS
-//current teams table
+// season 04 teams table
+document
+  .getElementById("s04RegularSeason")
+  .addEventListener("click", setS04SeasonTable);
+document
+  .getElementById("s04PlayoffTable")
+  .addEventListener("click", setS04PlayoffTable);
+document
+  .getElementById("s04CombinedTable")
+  .addEventListener("click", setS04CombinedTable);
+// season 04 players tables
+document
+  .getElementById("s04PlayerSeasonTable")
+  .addEventListener("click", setPlayerS04Season);
+document
+  .getElementById("s04PlayerPlayoffTable")
+  .addEventListener("click", setPlayerS04Playoff);
+document
+  .getElementById("s04PlayerCombinedTable")
+  .addEventListener("click", setPlayerS04Combined);
+
+// season 03 teams table
 document
   .getElementById("s03RegularSeason")
   .addEventListener("click", setS03SeasonTable);
@@ -131,7 +158,7 @@ document
 document
   .getElementById("s03CombinedTable")
   .addEventListener("click", setS03CombinedTable);
-// current players table
+// season 03 players tables
 document
   .getElementById("s03PlayerSeasonTable")
   .addEventListener("click", setPlayerS03Season);
