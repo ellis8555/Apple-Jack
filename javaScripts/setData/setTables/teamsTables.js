@@ -107,19 +107,16 @@ tableDataSource
     TeamStats.groupTeamsAllTimePlayoffStats
   )
   .set("TeamStats.groupTeamsAllTimeStats", TeamStats.groupTeamsAllTimeStats);
-
-// EACH SEASONS TEAMS
-
-let statCategory = ["Season", "Playoff", "Combined"];
-
-for (let i = 0; i < statCategory.length; i++) {
-  for (let j = 1; j <= seasonCountLength; j++) {
-    tableDataSource.set(
-      "TeamStats.groupTeamsSeason" + j + statCategory[i] + "Stats",
-      eval("TeamStats.groupTeamsSeason" + j + statCategory[i] + "Stats")
-    );
+  // EACH SEASONS TEAMS
+  let statCategory = ["Season", "Playoff", "Combined"];
+  for (let i = 0; i < statCategory.length; i++) {
+    for (let j = 1; j <= seasonCountLength; j++) {
+      tableDataSource.set(
+        "TeamStats.groupTeamsSeason" + j + statCategory[i] + "Stats",
+        eval("TeamStats.groupTeamsSeason" + j + statCategory[i] + "Stats")
+      );
+    }
   }
-}
 // PLAYERS GROUPINGS
 // ALL TIME PLAYERS
 tableDataSource
@@ -135,7 +132,6 @@ tableDataSource
     "IndividualPlayerStats.groupPlayersAllTimeStats",
     IndividualPlayerStats.groupPlayersAllTimeStats
   );
-
 // EACH SEASONS PLAYERS
 
 for (let i = 0; i < statCategory.length; i++) {
@@ -809,18 +805,17 @@ export function setTeamsPageLayout(e) {
 // be sure to add "setTableListeners" function needed for sidebar link. resets listeners to table
 // be sure to add "setMainNavbar" function to update navbar for correct season
 // TEAMS
-// S02 regular season
 // home table
 export function setHomeTable() {
   createTable(
     currentSeason,
-    "Season 3 Final Standings",
-    "TeamStats.groupTeamsSeason3SeasonStats",
-    TeamStats.groupTeamsSeason3SeasonStats,
+    "Season 4 Standings",
+    "TeamStats.groupTeamsSeason4SeasonStats",
+    TeamStats.groupTeamsSeason4SeasonStats,
     "w3-yellow",
     "Points",
-    "fullTableNoTies",
-    fullTableNoTies
+    "homePageFieldsNoTies",
+    homePageFieldsNoTies
   );
   setTableListeners();
   setMainNavbar();
@@ -832,6 +827,51 @@ export function setHomeTable() {
   headerChildren[4].textContent = "Haxual Chocolate";
   let trophy = document.querySelector("i");
   trophy.classList.add("fa-trophy");
+}
+// S03 regurlar season full table
+export function setS04SeasonTable() {
+  createTable(
+    4,
+    "S04 Regular Season",
+    "TeamStats.groupTeamsSeason4SeasonStats",
+    TeamStats.groupTeamsSeason4SeasonStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(4);
+}
+// S03 playoffs
+export function setS04PlayoffTable() {
+  createTable(
+    4,
+    "S04 Playoffs",
+    "TeamStats.groupTeamsSeason4PlayoffStats",
+    TeamStats.groupTeamsSeason4PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(4);
+}
+// S04 Combined
+export function setS04CombinedTable() {
+  createTable(
+    4,
+    "S04 Combined",
+    "TeamStats.groupTeamsSeason4CombinedStats",
+    TeamStats.groupTeamsSeason4CombinedStats,
+    "w3-yellow",
+    "Points",
+    "fullTableNoTies",
+    fullTableNoTies
+  );
+  setTableListeners();
+  setMainNavbar(4);
 }
 // S03 regurlar season full table
 export function setS03SeasonTable() {
@@ -970,6 +1010,51 @@ export function setS01CombinedTable() {
   setMainNavbar(1);
 }
 // PLAYERS
+// S04 regular season
+export function setPlayerS04Season() {
+  createTable(
+    4,
+    "S04 Regular Season",
+    "IndividualPlayerStats.groupPlayersSeason4SeasonStats",
+    IndividualPlayerStats.groupPlayersSeason4SeasonStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
+// S04 playoffs
+export function setPlayerS04Playoff() {
+  createTable(
+    4,
+    "S04 Playoffs",
+    "IndividualPlayerStats.groupPlayersSeason4PlayoffStats",
+    IndividualPlayerStats.groupPlayersSeason4PlayoffStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
+// S03 all stats combined
+export function setPlayerS04Combined() {
+  createTable(
+    4,
+    "S04 All Stats",
+    "IndividualPlayerStats.groupPlayersSeason4CombinedStats",
+    IndividualPlayerStats.groupPlayersSeason4CombinedStats,
+    "w3-yellow",
+    "Points",
+    "playersTable",
+    playersTable
+  );
+  setTableListeners();
+  setMainNavbar();
+}
 // S03 regular season
 export function setPlayerS03Season() {
   createTable(
