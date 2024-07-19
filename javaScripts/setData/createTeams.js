@@ -153,11 +153,10 @@ for (let i = 1; i <= teamsMAP.size; i++) {
 }
 
 // loop that fills static arrays containing per season team stats for tabular data as per season
-
 for (let i = 1; i <= teamsMAP.size; i++) {
   for (let j = 1; j <= seasonCountLength; j++) {
     if (
-      TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed.includes(String(j))
+      TeamStats.allTeamStats[teamsMAP.get(i)].seasonsPlayed.includes(j)
     ) {
       for (let k = 0; k < statsType.length; k++) {
         TeamStats["groupTeamsSeason" + j + statsType[k]].push(
