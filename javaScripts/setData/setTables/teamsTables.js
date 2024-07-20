@@ -620,14 +620,14 @@ export function teamColorsPage(e) {
   tLL += `<div data-color-scheme="${
     "/colors red" + " " + homeColorScheme
   }" class="w3-padding w3-round w3-center w3-red red">`;
-  tLL += `red`;
+  tLL += `left`;
   // closing red button container
   tLL += `</div>`;
   // blue button container
   tLL += `<div data-color-scheme="${
     "/colors blue" + " " + homeColorScheme
   }" class="w3-padding w3-round w3-center w3-blue blue">`;
-  tLL += `blue`;
+  tLL += `right`;
   // closing blue button container
   tLL += `</div>`;
   // closing red blue container
@@ -647,14 +647,14 @@ export function teamColorsPage(e) {
   tLL += `<div data-color-scheme="${
     "/colors red" + " " + awayColorScheme
   }" class="w3-padding w3-round w3-center w3-red red">`;
-  tLL += `red`;
+  tLL += `left`;
   // closing red button container
   tLL += `</div>`;
   // blue button container
   tLL += `<div data-color-scheme="${
     "/colors blue" + " " + awayColorScheme
   }" class="w3-padding w3-round w3-center w3-blue blue">`;
-  tLL += `blue`;
+  tLL += `right`;
   // closing blue button container
   tLL += `</div>`;
   // closing red blue container
