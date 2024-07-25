@@ -12349,7 +12349,7 @@
     },
     {
       "GameID": 90,
-      "Comment": "Corbettkb's shot gets past Segathon but kingraph makes the save to keep the start of game 2 0-0",
+      "Comment": "Ellis' shot gets past Segathon but kingraph makes the save to keep the start of game 2 0-0",
       "Filepath": "img/gifs/S04/S04-ID90-01.gif"
     },
     {
@@ -12365,6 +12365,77 @@
       "AssistedBy": 10,
       "Comment": "After a tight 0-0 1st half, AJ opens up the scoring by shifting direction and executing a one-timer pass from kingraph",
       "Filepath": "img/gifs/S04/S04-ID90-03.gif"
+    },
+    {
+      "GameID": 91,
+      "Comment": "DegHax gets a little nonchalant with the ball at the end of the half but time had just expired.",
+      "Filepath": "img/gifs/S04/S04-ID91-03.gif"
+    },
+    {
+      "GameID": 91,
+      "ScoredBy": 24,
+      "AssistedBy": 10,
+      "Comment": "DegenHax clear the ball where it's picked up by Angryjay who kicks off the highlight of the night. However this is not enough as the final will be 2-1 Degeneration Hax.",
+      "Filepath": "img/gifs/S04/S04-ID91-04.gif"
+    },
+    {
+      "GameID": 91,
+      "ScoredBy": 26,
+      "Comment": "Richter in his career opener puts Degeneration Hax on the board halfway through the first half of game 1.",
+      "Filepath": "img/gifs/S04/S04-ID91-01.gif"
+    },
+    {
+      "GameID": 91,
+      "ScoredBy": 2,
+      "Comment": "Chaos charges down Raph and their meeting of the minds results in a meeting of the goal increasing the Degenerates lead by two.",
+      "Filepath": "img/gifs/S04/S04-ID91-02.gif"
+    },
+    {
+      "GameID": 92,
+      "ScoredBy": 26,
+      "AssistedBy": 2,
+      "Comment": "Chaos pressure AJ along the boards, the ball pops out where Richter finds himself in the right place at the right time. Gens now up 3-0.",
+      "Filepath": "img/gifs/S04/S04-ID92-06.gif"
+    },
+    {
+      "GameID": 92,
+      "ScoredBy": 2,
+      "AssistedBy": 26,
+      "Comment": "Richter, calmy turns defense into offense as he finds Chaos and Chaos finds the net from downtown increasing the Gens lead by 2.",
+      "Filepath": "img/gifs/S04/S04-ID92-05.gif"
+    },
+    {
+      "GameID": 92,
+      "ScoredBy": 2,
+      "Comment": "After a scrum in the corner AJ clears right to Chaos who makes a little move north, Richter puts himself in the perfect spot for a body block to end this chapter at 5-0 GH over THF. GG!",
+      "Filepath": "img/gifs/S04/S04-ID92-08.gif"
+    },
+    {
+      "GameID": 92,
+      "ScoredBy": 26,
+      "Comment": "Richter tracks down the loose ball and D retreats but Richter finds a narrow seam and S-N-I-P-E! Hat-trick in only his second career game and now the scoreline sits at 4-0.",
+      "Filepath": "img/gifs/S04/S04-ID92-07.gif"
+    },
+    {
+      "GameID": 92,
+      "Comment": "Shortly after Richter and Tick have an uncomfortable moment in tracking back and manage to clear what could easily have ended up in the back of their net.",
+      "Filepath": "img/gifs/S04/S04-ID92-02.gif"
+    },
+    {
+      "GameID": 92,
+      "Comment": "Raph kicks off game 2 by nearby sniping the DH defense from midfield, and then AJ isn't quite able to get his rotund body around the ball.",
+      "Filepath": "img/gifs/S04/S04-ID92-01.gif"
+    },
+    {
+      "GameID": 92,
+      "ScoredBy": 26,
+      "Comment": "Richter takes advantage of a bit of disarray in the defense and sends a clearance attempt into the open net giving the Degenerates a 1-0 lead.",
+      "Filepath": "img/gifs/S04/S04-ID92-04.gif"
+    },
+    {
+      "GameID": 92,
+      "Comment": "DH nearly open the scoring with an excellent cross-field combo but Raph is there to snuff it out. Game still scoreless.",
+      "Filepath": "img/gifs/S04/S04-ID92-03.gif"
     }
   ]
 }
