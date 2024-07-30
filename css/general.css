@@ -388,7 +388,7 @@ table td:first-child {
 .teamColorsLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30% 30% 70%;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
   "colorsBackButton colorsBackButton"
     "teamColorsHeader teamColorsHeader"
