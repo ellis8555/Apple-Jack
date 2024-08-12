@@ -1,4 +1,0 @@
-1. Note about image folder organization. gifs need to go in /src/img/gifs path as this impacts npm run serve paths due to file paths being set from the excel/json file. copy-webpack-plugin will copy these gifs into the /img folder when npm run build is run.
-2. All other images are placed inside of /img folder.
-3. if want to change main logo on home page need to edit the path within webpack.config.js HtmlWebpackPlugin.templateParameters.headerImage
-4. if want to change sites favicon need to edit inside of HtmlWebpackPlugin.favicon path
