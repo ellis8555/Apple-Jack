@@ -1,0 +1,23 @@
+{
+  "name": "apple-jack",
+  "version": "1.0.0",
+  "description": "A haxball league consisting of retro 16 bit EA NHL 94",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellis8555/Apple-Jack.git"
+  },
+  "keywords": [
+    "haxball",
+    "hax94"
+  ],
+  "author": "Ellis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellis8555/Apple-Jack/issues"
+  },
+  "homepage": "https://github.com/ellis8555/Apple-Jack#readme"
+}
