@@ -1,10 +1,14 @@
 site: https://hax94.com
 
+# Update: Aug -08-2024
+
+This project is now bundled with webpack. The 'dist' branch is used to publish the webpage.
+
+# Project details
+
 Vanilla JS - site is for a season based league based on a browser game called Haxball. Haxball.com is the games website.
 
 I will keep this site as vanilla JS while other projects will use some JS frameworks such as React.
-
-# Project details
 
 ---
 
