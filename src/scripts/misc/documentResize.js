@@ -1,4 +1,4 @@
-import setMainNavbar from "../layouts/setMainNavbar";
+import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import screenResize from "./screenResize";
 import getTeamsPlayersPerSeason from "../layouts/teamPlayerList";
 

@@ -2,7 +2,7 @@ import currentSeason from "../var_lib/season/currentSeason";
 import TeamStats from "../classFiles/teamStats"
 import { homePageFieldsNoTies } from "../../constants/consts/supportVars";
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
-import setMainNavbar from "../layouts/setMainNavbar";
+import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import createTable from "./createTable";
 import { DEFENDING_CHAMPS, DEFENDING_CHAMPS_LOGO } from "../../constants/consts/vars";
 import setHeaderBanner from "../layouts/setHeaderBanner";

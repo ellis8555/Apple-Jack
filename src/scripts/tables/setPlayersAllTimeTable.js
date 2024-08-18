@@ -3,7 +3,7 @@ import IndividualPlayerStats from "../setTables/createPlayer";
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import currentSeason from "../var_lib/season/currentSeason";
 import { playersTable } from "../../constants/consts/supportVars";
-import setMainNavbar from "../layouts/setMainNavbar";
+import setMainNavbar from "../layouts/navbar/setMainNavbar";
 
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles

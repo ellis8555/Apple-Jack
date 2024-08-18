@@ -3,7 +3,7 @@ import { fullTableNoTies, fullTable } from "../../constants/consts/supportVars";
 import { SEASONS_WITH_TIE_GAMES } from "../../constants/consts/vars";
 import TeamStats from "../setTables/createTeam"
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
-import setMainNavbar from "../layouts/setMainNavbar";
+import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import currentSeason from "../var_lib/season/currentSeason";
 
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!

@@ -1,9 +1,9 @@
 // this function is run in listeners.js
 
-import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP"
-import eachSeasonsTeamsMAP from "../var_lib/maps/teams/eachSeasonsTeamsMAP"
-import setListenersMainNavbar from "../listeners/listenerHelpers/setListenersMainNavbar";
-import currentSeason from "../var_lib/season/currentSeason";
+import eachTeamObjectMAP from "../../var_lib/maps/teams/eachTeamObjectMAP"
+import eachSeasonsTeamsMAP from "../../var_lib/maps/teams/eachSeasonsTeamsMAP"
+import setListenersMainNavbar from "../../listeners/listenerHelpers/setListenersMainNavbar";
+import currentSeason from "../../var_lib/season/currentSeason";
   
   export default function setMainNavbar(season) {
     // season can be 0 when choosing all time player stats from menu
