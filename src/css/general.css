@@ -103,6 +103,12 @@ table td:first-child {
 }
 
 /*navbar*/
+.three-d-Logo {
+  width: clamp(2rem, 5vw, 6.25rem);
+  height: clamp(2rem, 5vw, 6.25rem);
+  clip-path: circle();
+}
+
 .navLogo:hover {
   cursor: pointer;
 }
