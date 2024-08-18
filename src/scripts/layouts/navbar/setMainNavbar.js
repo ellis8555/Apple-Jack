@@ -4,6 +4,7 @@ import eachTeamObjectMAP from "../../var_lib/maps/teams/eachTeamObjectMAP"
 import eachSeasonsTeamsMAP from "../../var_lib/maps/teams/eachSeasonsTeamsMAP"
 import setListenersMainNavbar from "../../listeners/listenerHelpers/setListenersMainNavbar";
 import currentSeason from "../../var_lib/season/currentSeason";
+import setLayout from "./helpers/setLayout";
   
   export default function setMainNavbar(season) {
     // season can be 0 when choosing all time player stats from menu
@@ -53,24 +54,4 @@ import currentSeason from "../../var_lib/season/currentSeason";
   
     navbarContainer.innerHTML = navbarContent;
     setListenersMainNavbar();
-  }
-  
-  function setLayout(imageSource, element, season, id) {
-    let image = imageSource;
-    element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-    element += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
-    element += `<div>`; // begin third div
-  
-    element += `<img 
-        src="${image}" 
-        alt="${eachSeasonsTeamsMAP.get(season)[id]}" 
-        data-team-name="${eachSeasonsTeamsMAP.get(season)[id]}" 
-        data-season-num="${season}"
-        class="w3-image navLogo"
-        >`;
-  
-    element += `</div>`; // end third div
-    element += `</div>`; // end second div
-    element += `</div>`; // end first div
-    return element;
   }
