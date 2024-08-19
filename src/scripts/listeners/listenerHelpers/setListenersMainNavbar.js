@@ -1,9 +1,14 @@
 import setTeamsPageLayout from "../../layouts/setTeamsPageLayout";
 
 export default function setListenersMainNavbar() {
-    let getTeamsFromNavBar = document.querySelectorAll("img[data-team-name]");
-    getTeamsFromNavBar.forEach((item) =>
-      // item.addEventListener("click", getTeamsGameResults)
-      item.addEventListener("click", setTeamsPageLayout)
+    let getTeamsFromNavBar = document.querySelectorAll(".three-d-Logo");
+    getTeamsFromNavBar.forEach((item) =>{
+      item.addEventListener("click", (e) => {
+        const targetElement = e.target.closest(".three-d-Logo")
+        if(targetElement){
+          setTeamsPageLayout(targetElement)
+        }
+      })
+    }
     );
   }
