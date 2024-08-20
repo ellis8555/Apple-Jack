@@ -1,8 +1,16 @@
 import eachTeamObjectMAP from "../../../var_lib/maps/teams/eachTeamObjectMAP";
 import eachSeasonsTeamsMAP from "../../../var_lib/maps/teams/eachSeasonsTeamsMAP";
 
-function setNavbarTeamLogoCss(element, season, id) {
-    const teamName = eachSeasonsTeamsMAP.get(season)[id];
+function setNavbarTeamLogoCss(element, season, id = undefined, teamNameParam = undefined) {
+    let teamName;
+    if(id != undefined){
+        teamName = eachSeasonsTeamsMAP.get(season)[id];
+    } 
+
+    if(teamNameParam != undefined){
+        teamName = eachSeasonsTeamsMAP.get(season)[id];  
+    }
+    
     const homeColorString = `S0${season}Home`
     const teamsColorScheme = eachTeamObjectMAP.get(teamName)[homeColorString]
     const colorParts = teamsColorScheme.split(" ")
