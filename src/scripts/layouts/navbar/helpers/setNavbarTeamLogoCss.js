@@ -1,7 +1,7 @@
 import eachTeamObjectMAP from "../../../var_lib/maps/teams/eachTeamObjectMAP";
 import eachSeasonsTeamsMAP from "../../../var_lib/maps/teams/eachSeasonsTeamsMAP";
 
-function setTeamLogoCss(element, season, id) {
+function setNavbarTeamLogoCss(element, season, id) {
     const teamName = eachSeasonsTeamsMAP.get(season)[id];
     const homeColorString = `S0${season}Home`
     const teamsColorScheme = eachTeamObjectMAP.get(teamName)[homeColorString]
@@ -47,4 +47,4 @@ function setTeamLogoCss(element, season, id) {
     return element;
 }
 
-export default setTeamLogoCss;
+export default setNavbarTeamLogoCss;
