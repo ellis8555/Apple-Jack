@@ -34,7 +34,7 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
         }
     }
     element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-    element += `<div class="w3-card-4 w3-blue w3-round-xlarge w3-padding-small w3-section">`; // begin second div
+    element += `<div class="${id != undefined ?'w3-card-4 w3-blue w3-round-xlarge':''} w3-padding-small w3-section">`; // begin second div
     // begin third div
     element += `<div
         data-team-name="${teamName}" 
