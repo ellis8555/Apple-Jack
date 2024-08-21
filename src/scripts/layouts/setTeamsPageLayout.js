@@ -10,19 +10,19 @@ import getTeamsGameResults from "./getTeamsGamesResults";
 import teamColorsPage from "./teamsColorsPage";
 import { SEASONS_WITH_TIE_GAMES } from "../../constants/consts/vars";
 
-export default function setTeamsPageLayout(e) {
+export default function setTeamsPageLayout(eventElement) {
     clearTablesDiv();
     clearScoreboardDiv();
     closeSidebar();
     getTablesDiv();
-    let team = e.target.dataset.teamName;
+    let team = eventElement.dataset.teamName;
     let teamLogoSrc;
-    if (e.target.src) {
-      teamLogoSrc = e.target.src;
+    if (eventElement.src) {
+      teamLogoSrc = eventElement.src;
     } else {
-      teamLogoSrc = e.target.dataset.teamLogo;
+      teamLogoSrc = eventElement.dataset.teamLogo;
     }
-    let seasonNum = e.target.dataset.seasonNum;
+    let seasonNum = eventElement.dataset.seasonNum;
     let teamsSeasonObject =
       TeamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
     let wins = teamsSeasonObject.get("Wins");
@@ -98,7 +98,7 @@ export default function setTeamsPageLayout(e) {
     tablesDiv.innerHTML = teamsLayout;
   
     // change header banner when team is selected from navbar
-    setHeaderBanner(teamLogoSrc, team);
+    setHeaderBanner(team, seasonNum);
   
     // change bodies background color to that of team selected
     document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
