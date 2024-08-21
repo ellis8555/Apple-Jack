@@ -1,10 +1,22 @@
 import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
+import setTeamLogoCss from "./navbar/helpers/setTeamLogoCss";
 
-export default function setHeaderBanner(imgSource, teamName) {
+export default function setHeaderBanner(teamName, seasonNumber) {
+  const previousBannerIcon = document.getElementById("headerIcon");
+  if(previousBannerIcon){
+    previousBannerIcon.remove()
+  }
     // note this is not the champions banner
-    let headerImage = document.querySelector("#championsCard>div>img");
-    headerImage.src = imgSource;
-    let header = document.getElementById("headerTeamName");
+  let header = document.getElementById("headerTeamName");
+const insertionDiv = document.createElement("div");
+insertionDiv.style.display = "flex";
+insertionDiv.style.justifyContent = "center"
+insertionDiv.id = "headerIcon"
+const teamsIconHtmlString = setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
+insertionDiv.innerHTML = teamsIconHtmlString
+const xChild=  insertionDiv.firstChild;
+insertionDiv.removeChild(xChild)
+header.prepend(insertionDiv)
     let headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;
     // add champions name here to display trophy icon when champion team selected
