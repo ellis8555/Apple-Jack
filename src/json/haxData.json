@@ -1785,6 +1785,44 @@
       "TeamTwoPasses": 33,
       "TeamTwoKicks": 151,
       "ExtraTime": "No"
+    },
+    {
+      "GameID": 95,
+      "SeasonNumber": 4,
+      "Round": 0,
+      "GameTypeID": 1,
+      "TeamOne": 13,
+      "TeamOneScore": 3,
+      "TeamOnePossession": 57,
+      "TeamOneShotsOnGoal": 12,
+      "TeamOnePasses": 50,
+      "TeamOneKicks": "154",
+      "TeamTwo": 14,
+      "TeamTwoScore": 0,
+      "TeamTwoPossession": 43,
+      "TeamTwoShotsOnGoal": 10,
+      "TeamTwoPasses": 28,
+      "TeamTwoKicks": 121,
+      "ExtraTime": "No"
+    },
+    {
+      "GameID": 96,
+      "SeasonNumber": 4,
+      "Round": 0,
+      "GameTypeID": 1,
+      "TeamOne": 14,
+      "TeamOneScore": 3,
+      "TeamOnePossession": 43,
+      "TeamOneShotsOnGoal": 14,
+      "TeamOnePasses": 20,
+      "TeamOneKicks": "122",
+      "TeamTwo": 13,
+      "TeamTwoScore": 4,
+      "TeamTwoPossession": 57,
+      "TeamTwoShotsOnGoal": 6,
+      "TeamTwoPasses": 23,
+      "TeamTwoKicks": 131,
+      "ExtraTime": "No"
     }
   ],
   "GamePlayerStats": [
@@ -7979,6 +8017,138 @@
       "Passes": 10,
       "ShotsOnGoal": 6,
       "OwnGoals": 0
+    },
+    {
+      "GameID": 95,
+      "TeamID": 13,
+      "PlayerID": 26,
+      "Goals": 1,
+      "Assists": 2,
+      "Kicks": 55,
+      "Passes": 10,
+      "ShotsOnGoal": 7,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 95,
+      "TeamID": 13,
+      "PlayerID": 15,
+      "Goals": 0,
+      "Assists": 1,
+      "Kicks": 53,
+      "Passes": 16,
+      "ShotsOnGoal": 1,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 95,
+      "TeamID": 13,
+      "PlayerID": 2,
+      "Goals": 2,
+      "Assists": 0,
+      "Kicks": 46,
+      "Passes": 24,
+      "ShotsOnGoal": 4,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 95,
+      "TeamID": 14,
+      "PlayerID": 21,
+      "Goals": 0,
+      "Assists": 0,
+      "Kicks": 33,
+      "Passes": 6,
+      "ShotsOnGoal": 5,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 95,
+      "TeamID": 14,
+      "PlayerID": 3,
+      "Goals": 0,
+      "Assists": 0,
+      "Kicks": 42,
+      "Passes": 10,
+      "ShotsOnGoal": 2,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 95,
+      "TeamID": 14,
+      "PlayerID": 6,
+      "Goals": 0,
+      "Assists": 0,
+      "Kicks": 46,
+      "Passes": 12,
+      "ShotsOnGoal": 3,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 96,
+      "TeamID": 13,
+      "PlayerID": 26,
+      "Goals": 2,
+      "Assists": 0,
+      "Kicks": 45,
+      "Passes": 8,
+      "ShotsOnGoal": 3,
+      "OwnGoals": 1
+    },
+    {
+      "GameID": 96,
+      "TeamID": 14,
+      "PlayerID": 21,
+      "Goals": 0,
+      "Assists": 1,
+      "Kicks": 28,
+      "Passes": 5,
+      "ShotsOnGoal": 3,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 96,
+      "TeamID": 14,
+      "PlayerID": 3,
+      "Goals": 1,
+      "Assists": 1,
+      "Kicks": 48,
+      "Passes": 10,
+      "ShotsOnGoal": 6,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 96,
+      "TeamID": 13,
+      "PlayerID": 15,
+      "Goals": 0,
+      "Assists": 1,
+      "Kicks": 50,
+      "Passes": 8,
+      "ShotsOnGoal": 1,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 96,
+      "TeamID": 14,
+      "PlayerID": 6,
+      "Goals": 1,
+      "Assists": 0,
+      "Kicks": 16,
+      "Passes": 5,
+      "ShotsOnGoal": 5,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 96,
+      "TeamID": 13,
+      "PlayerID": 2,
+      "Goals": 2,
+      "Assists": 0,
+      "Kicks": 36,
+      "Passes": 7,
+      "ShotsOnGoal": 2,
+      "OwnGoals": 0
     }
   ],
   "Teams": [
@@ -12707,6 +12877,103 @@
       "AssistedBy": 10,
       "Comment": "Segathon and Kingraph teaming up again adding to a growing theme of a TNT team unable to hold leads and collapsing as games go deeper….",
       "Filepath": "img/gifs/S04/S04-ID94-03.gif"
+    },
+    {
+      "GameID": 95,
+      "ScoredBy": 2,
+      "AssistedBy": 26,
+      "Comment": "Chaos with his second goal of the game now put's GenHax up 2-0.",
+      "Filepath": "img/gifs/S04/S04-ID95-05.gif"
+    },
+    {
+      "GameID": 95,
+      "Comment": "The pressure continues and the Nighthax are lucky to only be down by two at this point",
+      "Filepath": "img/gifs/S04/S04-ID95-06.gif"
+    },
+    {
+      "GameID": 95,
+      "ScoredBy": 26,
+      "AssistedBy": 15,
+      "Comment": "Richter with his third point of the game will bury the Nighthax 3-0 that is the final.",
+      "Filepath": "img/gifs/S04/S04-ID95-07.gif"
+    },
+    {
+      "GameID": 95,
+      "Comment": "Another attempt from the same combo but just can't quite increase the lead yet.",
+      "Filepath": "img/gifs/S04/S04-ID95-04.gif"
+    },
+    {
+      "GameID": 95,
+      "ScoredBy": 2,
+      "AssistedBy": 26,
+      "Comment": "Chaos opens the scoring for DegenHax picking the short side. 1-0",
+      "Filepath": "img/gifs/S04/S04-ID95-01.gif"
+    },
+    {
+      "GameID": 95,
+      "Comment": "Jer rings one off of the post but the score remains the same…",
+      "Filepath": "img/gifs/S04/S04-ID95-02.gif"
+    },
+    {
+      "GameID": 95,
+      "Comment": "All of the Degenerates combine for a very nice attempt but the stretch pass had to much sauce ",
+      "Filepath": "img/gifs/S04/S04-ID95-03.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 3,
+      "AssistedBy": 21,
+      "Comment": "Early in the second half Corbett adjusts his position to pop the Nighthax to within two. Nice pass Jer.",
+      "Filepath": "img/gifs/S04/S04-ID96-07.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 26,
+      "AssistedBy": 15,
+      "Comment": "There's no quit in this Degen squad and with two seconds remaining in the half they extend their lead to three goals.",
+      "Filepath": "img/gifs/S04/S04-ID96-06.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 21,
+      "AssistedBy": 6,
+      "Comment": "Jer and Ellis applying double coverage as time is winding down and Jer will deflect this ball in but the Nighthax will fall short. 4-3 is the final DegenHax",
+      "Filepath": "img/gifs/S04/S04-ID96-09.gif"
+    },
+    {
+      "GameID": 96,
+      "Comment": "The Nighthax down by two miss another opportunity to be within a goal here.",
+      "Filepath": "img/gifs/S04/S04-ID96-08.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 6,
+      "AssistedBy": 3,
+      "Comment": "Finally the Nighthax are on the board with an absolute Rocket of a shot from Ellis. 3-1 ",
+      "Filepath": "img/gifs/S04/S04-ID96-05.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 26,
+      "Comment": "Shortly after Richter steals the ball creating a break which leads to his second goal in as many games. 2-0 Degens now up.",
+      "Filepath": "img/gifs/S04/S04-ID96-02.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 2,
+      "Comment": "Chaos quickly opens the scoring in this second and final meeting between these two teams. 1-0 DegenHax",
+      "Filepath": "img/gifs/S04/S04-ID96-01.gif"
+    },
+    {
+      "GameID": 96,
+      "Comment": "The pressure is being felt by the Nighthax and some nights this happens to the best.",
+      "Filepath": "img/gifs/S04/S04-ID96-04.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 2,
+      "Comment": "Chaos increases the lead by 3 and also there sixth consecutive goal between this and the first game. Nighthax in trouble.",
+      "Filepath": "img/gifs/S04/S04-ID96-03.gif"
     }
   ]
 }
