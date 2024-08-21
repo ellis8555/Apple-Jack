@@ -6,7 +6,6 @@ import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import createTable from "./createTable";
 import { DEFENDING_CHAMPS, DEFENDING_CHAMPS_LOGO } from "../../constants/consts/vars";
 import setHeaderBanner from "../layouts/setHeaderBanner";
-
 export default function setHomeTable() {
   const key = `groupTeamsSeason${currentSeason}SeasonStats`
     createTable(
@@ -23,5 +22,5 @@ export default function setHomeTable() {
     setMainNavbar(currentSeason);
     // reset background color when navigating back home from a teams layout page
     document.body.style.backgroundColor = "#2196f3";
-    setHeaderBanner(DEFENDING_CHAMPS_LOGO, DEFENDING_CHAMPS)
+    setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
   }
