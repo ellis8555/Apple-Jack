@@ -16,12 +16,6 @@ export default function setTeamsPageLayout(eventElement) {
     closeSidebar();
     getTablesDiv();
     let team = eventElement.dataset.teamName;
-    let teamLogoSrc;
-    if (eventElement.src) {
-      teamLogoSrc = eventElement.src;
-    } else {
-      teamLogoSrc = eventElement.dataset.teamLogo;
-    }
     let seasonNum = eventElement.dataset.seasonNum;
     let teamsSeasonObject =
       TeamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
@@ -54,7 +48,6 @@ export default function setTeamsPageLayout(eventElement) {
     // players grid area
     teamsLayout += `<div
      data-team-name="${team}"
-     data-team-logo="${teamLogoSrc}"
      data-season-num="${seasonNum}"
      data-game-type="Season"
      class="w3-round w3-green players"
@@ -68,7 +61,6 @@ export default function setTeamsPageLayout(eventElement) {
     // season scoreboard grid area
     teamsLayout += `<div
       data-team-name="${team}"
-      data-team-logo="${teamLogoSrc}"
       data-season-num="${seasonNum}"
       data-game-type="Season"
       class="w3-round seasonScoreboard"
@@ -78,7 +70,6 @@ export default function setTeamsPageLayout(eventElement) {
     // playoff scoreboard grid area
     teamsLayout += `<div
       data-team-name="${team}"
-      data-team-logo="${teamLogoSrc}"
       data-season-num="${seasonNum}"
       data-game-type="Playoff"
       class="w3-round playoffScoreboard"
@@ -99,7 +90,6 @@ export default function setTeamsPageLayout(eventElement) {
   
     // change header banner when team is selected from navbar
     setHeaderBanner(team, seasonNum);
-  
     // change bodies background color to that of team selected
     document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
     // sets tables for that teams players stats for that season
