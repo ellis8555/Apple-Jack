@@ -39,13 +39,11 @@
       teamName = teamsMAP.get(+team);
       teamColor = `#${eachTeamObjectMAP.get(teamsMAP.get(team)).MainColor}`;
       seasonNum = e.target.dataset.seasonNum;
-      teamImage = e.target.dataset.teamLogo; // used for the back button
     } else {
       team = teamsNumMAP.get(thisTeam);
       teamName = teamsMAP.get(+team);
       teamColor = `#${eachTeamObjectMAP.get(teamsMAP.get(team)).MainColor}`;
       seasonNum = thisSeasonNumber;
-      teamImage = thisTeamLogo; // used for the back button
     }
     // grab players who played on this team
     let playersFiltered = TeamPlayers.filter(
@@ -88,7 +86,7 @@
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
     // var containing the innerHTML of tables
     let playerStats = "";
-    playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamImage}" data-season-num="${seasonNum}">back</button>`;
+    playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-season-num="${seasonNum}">back</button>`;
     playerStats += `<h1>Season ${seasonNum}</h1>`;
     // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
     playerStats += `<div id="teamPlayerList" class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
@@ -277,7 +275,7 @@
     // listener for the back button back to teams layout Page
     document
       .getElementById("playerStatsBackButton")
-      .addEventListener("click", setTeamsPageLayout);
+      .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('playerStatsBackButton'))});
     // end back button
   
     ////////////////////BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES//////////////////////////////
