@@ -3,26 +3,34 @@ import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "../tables/getTablesDiv";
 import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP";
 import setTeamsPageLayout from "../layouts/setTeamsPageLayout";
+import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP";
 
 export default function teamColorsPage(e) {
     clearTablesDiv();
     clearScoreboardDiv();
     getTablesDiv();
     let team = e.target.dataset.teamName;
-    // let seasonNum = "01";
     let seasonNum = e.target.dataset.seasonNum;
-    let teamLogoSrc = eachTeamObjectMAP.get(team)[`S0${seasonNum}HomeFilePath`];
     let homeColorScheme = eachTeamObjectMAP.get(team)[`S0${seasonNum}Home`];
-    let awayTeamLogo = eachTeamObjectMAP.get(team)[`S0${seasonNum}AwayFilePath`];
     let awayColorScheme = eachTeamObjectMAP.get(team)[`S0${seasonNum}Away`];
     let teamLogosLayout;
+
+    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
+    let homeColorString = `S0${seasonNum}Home`
+    let teamsColorScheme = eachTeamObjectMAP.get(team)[homeColorString]
+    let colorParts = teamsColorScheme.split(" ")
+    let mainColor = colorParts[2];
+        let awayColorString = `S0${seasonNum}Away`
+        let teamsAwayColorScheme = eachTeamObjectMAP.get(team)[awayColorString]
+        let awayColorParts = teamsAwayColorScheme.split(" ")
+        let awayColor = awayColorParts[2];
     let tLL = teamLogosLayout;
     // teamsColorsLayout is grid containing class
     tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
     //  back button
     tLL += `<button id="teamColorsBackButton" class="w3-btn w3-round-large colorsBackButton" style="background-color:#${
       eachTeamObjectMAP.get(team).MainColor
-    }; color: #ffffff;" data-team-name="${team}" data-team-logo="${teamLogoSrc}" data-season-num="${seasonNum}">back</button>`;
+    }; color: #ffffff;" data-team-name="${team}" data-season-num="${seasonNum}">back</button>`;
     // teamColorsLayout class that contains the title in colors layout
     tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
     tLL += `<h4 class="w3-text-black">Copy teams color to clipboard</h4>`;
@@ -30,10 +38,25 @@ export default function teamColorsPage(e) {
     // teamColorsLayout body of layout containing team logos
     // begin flex items containing team logo cards
     // opening teamColorsHomeContent
-    tLL += `<div class="teamColorsHomeContent w3-container w3-padding w3-blue w3-round-large">`;
+    tLL += `<div class="teamColorsHomeContent w3-container w3-padding w3-blue w3-round-large" style="height: 16rem !important">`;
     tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
     tLL += `<div><h5>Home</h5></div>`;
-    tLL += `<img src="${teamLogoSrc}">`;
+    tLL += `<div
+        data-team-name="${team}" 
+        data-season-num="${seasonNum}"
+        class="navLogo three-d-Logo"
+        style="width: 55%; height: 55%; margin:auto; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
+          team
+        )};
+        background: radial-gradient(circle at 50% 00%, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(0, 0, 0, 0.2) 40%, 
+    rgba(0, 0, 0, 0.2) 100%),
+    ${getTeams3dColorScheme(mainColor, colorParts)};
+    transform: rotate(${colorParts[0]}deg);"
+    >
+    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
+    </div>`;
     // container holding red blue buttons
     tLL += `<div class="w3-container w3-padding redBlue">`;
     // red button container
@@ -57,10 +80,23 @@ export default function teamColorsPage(e) {
     //closing teamColorsHomeContent
     tLL += `</div>`;
     // opening teamColorsAwayContent
-    tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large">`;
+    tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large" style="height: 16rem !important">`;
     tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
     tLL += `<div><h5>Alternate</h5></div>`;
-    tLL += `<img src="${awayTeamLogo}">`;
+    tLL += `<div
+        data-team-name="${team}" 
+        data-season-num="${seasonNum}"
+        class="navLogo three-d-Logo"
+        style="width: 55%; height: 55%; margin:auto; display: grid; place-items: center;background-color: #${awayColor};
+        background: radial-gradient(circle at 50% 00%, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(0, 0, 0, 0.2) 40%, 
+    rgba(0, 0, 0, 0.2) 100%),
+    ${getTeams3dColorScheme(awayColor, awayColorParts)};
+    transform: rotate(${awayColorParts[0]}deg);"
+    >
+    <div style="color: #${awayColorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${awayColorParts[0]}deg);">HC</div>
+    </div>`;
     // container holding red blue buttons
     tLL += `<div class="w3-container w3-padding redBlue">`;
     // red button container
@@ -92,7 +128,7 @@ export default function teamColorsPage(e) {
   
     document
       .getElementById("teamColorsBackButton")
-      .addEventListener("click", setTeamsPageLayout);
+      .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('teamColorsBackButton'))});
     // end back button
   
     function getColorScheme(e) {
@@ -106,3 +142,21 @@ export default function teamColorsPage(e) {
       item.addEventListener("click", getColorScheme)
     );
   }
+
+  function getTeams3dColorScheme(mainColor, colorParts){
+    let teams3dColorScheme;
+    const colorPartsLength = colorParts.length;
+    switch(colorPartsLength){
+        case 3:
+            teams3dColorScheme = `#${colorParts[2]}`
+            return teams3dColorScheme
+        case 4:
+            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
+            return teams3dColorScheme
+        case 5:
+            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
+            return teams3dColorScheme
+            default:
+            return `#${mainColor}`
+    }
+}
