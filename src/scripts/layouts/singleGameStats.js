@@ -10,17 +10,18 @@
   import getTablesDiv from "../tables/getTablesDiv.js";
   import sortGroupedStats from "../misc/sort.js";
   import getTeamsGameResults from "./getTeamsGamesResults.js";
+  import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP.js";
   
   export default function setGamesData(e) {
     clearScoreboardDiv();
     clearTablesDiv();
     getScoreboardDiv();
     getTablesDiv();
+    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
     let displayGameData = "";
     let displayTeamLogos = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
-    let teamLogo = e.target.dataset.teamLogo;
     let gameType = e.target.dataset.gameType;
     let thisSeasonNumber = GameResults.filter(
       (item) => item.GameID == gameNumber
@@ -107,17 +108,56 @@
     ];
     // boxscore div container
     // team logos
-  
     displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
     // back button area which is row above team logos
     displayTeamLogos += `<button id="gamesBoxscoreBackButton" class="w3-btn w3-round-large boxscoreBackButton" style="background-color:#${
       eachTeamObjectMAP.get(teamName).MainColor
-    }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
+    }; color: #ffffff;" data-team-name="${teamName}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
+    // home team logo
+    let homeColorString = `S0${thisSeasonNumber}Home`
+    let teamsColorScheme = eachTeamObjectMAP.get(thisGamesHomeTeam)[homeColorString]
+    let colorParts = teamsColorScheme.split(" ")
+    let mainColor = colorParts[2];
     displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
-    displayTeamLogos += `<img src="${thisGamesHomeTeamLogo}">`;
+    displayTeamLogos += `<div
+        data-team-name="${thisGamesHomeTeam}" 
+        data-season-num="${thisSeasonNumber}"
+        class="navLogo three-d-Logo"
+        style="width: 8rem; height: 6rem; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
+          thisGamesHomeTeam
+        )};
+        background: radial-gradient(circle at 50% 00%, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(0, 0, 0, 0.2) 40%, 
+    rgba(0, 0, 0, 0.2) 100%),
+    ${getTeams3dColorScheme(mainColor, colorParts)};
+    transform: rotate(${colorParts[0]}deg);"
+    >
+    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
+    </div>`;
     displayTeamLogos += `</div>`;
+    // away team logo
+    let awayColorString = `S0${thisSeasonNumber}Away`
+    let awayTeamsColorScheme = eachTeamObjectMAP.get(thisGamesAwayTeam)[awayColorString]
+    colorParts = awayTeamsColorScheme.split(" ")
+    mainColor = colorParts[2];
     displayTeamLogos += `<div class="w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreAwayTeamLogo">`;
-    displayTeamLogos += `<img src="${thisGamesAwayTeamLogo}">`;
+    displayTeamLogos += `<div
+        data-team-name="${thisGamesAwayTeam}" 
+        data-season-num="${thisSeasonNumber}"
+        class="navLogo three-d-Logo"
+        style="width: 8rem; height: 6rem; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
+          thisGamesAwayTeam
+        )};
+        background: radial-gradient(circle at 50% 00%, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(0, 0, 0, 0.2) 40%, 
+    rgba(0, 0, 0, 0.2) 100%),
+    ${getTeams3dColorScheme(mainColor, colorParts)};
+    transform: rotate(${colorParts[0]}deg);"
+    >
+    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
+    </div>`;
     displayTeamLogos += `</div>`;
     displayTeamLogos += `</div>`;
     // display team logos
@@ -296,3 +336,21 @@
   }
   
   //end data containers
+
+  function getTeams3dColorScheme(mainColor, colorParts){
+    let teams3dColorScheme;
+    const colorPartsLength = colorParts.length;
+    switch(colorPartsLength){
+        case 3:
+            teams3dColorScheme = `#${colorParts[2]}`
+            return teams3dColorScheme
+        case 4:
+            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
+            return teams3dColorScheme
+        case 5:
+            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
+            return teams3dColorScheme
+            default:
+            return `#${mainColor}`
+    }
+}

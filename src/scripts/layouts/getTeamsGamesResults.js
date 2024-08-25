@@ -14,7 +14,7 @@ export default function getTeamsGameResults(e) {
     let seasonNum = e.target.dataset.seasonNum;
     let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
 
-    const teamLogosHcSize = '1rem, 1.5rem, 2.75rem'
+    const teamLogosHcSize = '.5rem, 1rem, 1.75rem'
   
     let teamsGames;
     let thisGamesGifs;
@@ -139,7 +139,7 @@ export default function getTeamsGameResults(e) {
         // awayTeam logo
         gameResults += `<div class="awayTeamLogo w3-card w3-blue">`;
         if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-          let homeColorString = `S0${seasonNum}Home`
+          let homeColorString = `S0${seasonNum}Away`
           let teamsColorScheme = eachTeamObjectMAP.get(team)[homeColorString]
           let colorParts = teamsColorScheme.split(" ")
           let mainColor = colorParts[2];
@@ -168,7 +168,7 @@ export default function getTeamsGameResults(e) {
           );
           let otherTeamsLogo =
             eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-            let awayColorString = `S0${seasonNum}Home`
+            let awayColorString = `S0${seasonNum}Away`
             let teamsColorScheme = eachTeamObjectMAP.get(otherTeam)[awayColorString]
             let colorParts = teamsColorScheme.split(" ")
             let mainColor = colorParts[2];
