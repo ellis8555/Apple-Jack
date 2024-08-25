@@ -48,7 +48,7 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
     ${getTeams3dColorScheme()};
     transform: rotate(${colorParts[0]}deg);"
     >`; 
-    element += `<div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(.25rem, 2.5vw, 6.25rem); transform: rotate(-${colorParts[0]}deg);">HC</div>` // 4th div
+    element += `<div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(1rem, 1.5vw, 6.25rem); transform: rotate(-${colorParts[0]}deg);">HC</div>` // 4th div
     element += `</div>`; // end third div
     element += `</div>`; // end second div
     element += `</div>`; // end first div
