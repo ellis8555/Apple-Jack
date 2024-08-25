@@ -18,13 +18,13 @@ import setTeamLogoCss from "./helpers/setTeamLogoCss"
     if (teamsThisSeason > 5 && screenWidth < 500) {
       // this is for more teams than 5 which on mobile becomes to crowded
       navbarContainer.style.flexDirection = "column";
-      navbarContent += `<div>`; // container for first row of teams
+      navbarContent += `<div style="width:100% ; display: flex; justify-content: space-around;">`; // container for first row of teams
       for (let i = 0; i < teamsThisSeason / 2; i++) {
         // first row of teams
         navbarContent = setTeamLogoCss(navbarContent, season, i);
       }
       navbarContent += `</div>`; // end first row of teams container
-      navbarContent += `<div>`; // container for second row of teams
+      navbarContent += `<div style="width:100% ; display: flex; justify-content: space-around;">`; // container for second row of teams
       // second row of teams
       for (let i = teamsThisSeason / 2; i < teamsThisSeason; i++) {
         navbarContent = setTeamLogoCss(navbarContent, season, i)
