@@ -10,19 +10,13 @@ import getTeamsGameResults from "./getTeamsGamesResults";
 import teamColorsPage from "./teamsColorsPage";
 import { SEASONS_WITH_TIE_GAMES } from "../../constants/consts/vars";
 
-export default function setTeamsPageLayout(e) {
+export default function setTeamsPageLayout(eventElement) {
     clearTablesDiv();
     clearScoreboardDiv();
     closeSidebar();
     getTablesDiv();
-    let team = e.target.dataset.teamName;
-    let teamLogoSrc;
-    if (e.target.src) {
-      teamLogoSrc = e.target.src;
-    } else {
-      teamLogoSrc = e.target.dataset.teamLogo;
-    }
-    let seasonNum = e.target.dataset.seasonNum;
+    let team = eventElement.dataset.teamName;
+    let seasonNum = eventElement.dataset.seasonNum;
     let teamsSeasonObject =
       TeamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
     let wins = teamsSeasonObject.get("Wins");
@@ -54,7 +48,6 @@ export default function setTeamsPageLayout(e) {
     // players grid area
     teamsLayout += `<div
      data-team-name="${team}"
-     data-team-logo="${teamLogoSrc}"
      data-season-num="${seasonNum}"
      data-game-type="Season"
      class="w3-round w3-green players"
@@ -68,7 +61,6 @@ export default function setTeamsPageLayout(e) {
     // season scoreboard grid area
     teamsLayout += `<div
       data-team-name="${team}"
-      data-team-logo="${teamLogoSrc}"
       data-season-num="${seasonNum}"
       data-game-type="Season"
       class="w3-round seasonScoreboard"
@@ -78,7 +70,6 @@ export default function setTeamsPageLayout(e) {
     // playoff scoreboard grid area
     teamsLayout += `<div
       data-team-name="${team}"
-      data-team-logo="${teamLogoSrc}"
       data-season-num="${seasonNum}"
       data-game-type="Playoff"
       class="w3-round playoffScoreboard"
@@ -98,8 +89,7 @@ export default function setTeamsPageLayout(e) {
     tablesDiv.innerHTML = teamsLayout;
   
     // change header banner when team is selected from navbar
-    setHeaderBanner(teamLogoSrc, team);
-  
+    setHeaderBanner(team, seasonNum);
     // change bodies background color to that of team selected
     document.body.style.backgroundColor = `#${teamsColorMAP.get(team)}`;
     // sets tables for that teams players stats for that season
