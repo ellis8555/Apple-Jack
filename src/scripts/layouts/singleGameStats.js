@@ -12,13 +12,14 @@
   import getTeamsGameResults from "./getTeamsGamesResults.js";
   import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP.js";
   import getTeams3dColorScheme from "../misc/getTeams3DColorScheme.js";
+  import { HC_FONT } from "../../constants/consts/vars.js";
   
   export default function setGamesData(e) {
     clearScoreboardDiv();
     clearTablesDiv();
     getScoreboardDiv();
     getTablesDiv();
-    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
+    const teamLogosHcSize = HC_FONT.singleGameStats
     let displayGameData = "";
     let displayTeamLogos = "";
     let gameNumber = e.target.dataset.gameId;

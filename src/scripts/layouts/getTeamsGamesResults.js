@@ -9,13 +9,14 @@ import setGifs from "./setGifs"
 import setGamesData from "./singleGameStats"
 import getTeams3dColorScheme from "../misc/getTeams3DColorScheme"
 import { Teams, Gifs } from "../../constants/masterHaxData";
+import { HC_FONT } from "../../constants/consts/vars";
 
 export default function getTeamsGameResults(e) {
     let team = e.target.dataset.teamName;
     let seasonNum = e.target.dataset.seasonNum;
     let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
 
-    const teamLogosHcSize = '.5rem, 1rem, 1.75rem'
+    const teamLogosHcSize = HC_FONT.getTeamsGamesResults;
   
     let teamsGames;
     let thisGamesGifs;

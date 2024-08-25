@@ -1,5 +1,6 @@
 import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
 import setTeamLogoCss from "./navbar/helpers/setTeamLogoCss";
+import { HC_FONT } from "../../constants/consts/vars";
 
 export default function setHeaderBanner(teamName, seasonNumber) {
   const previousBannerIcon = document.getElementById("headerIcon");
@@ -20,7 +21,7 @@ const cssLogoNode = insertionDiv.firstElementChild.firstElementChild.firstElemen
 cssLogoNode.style.height = "6rem";
 cssLogoNode.style.width = "6rem";
 const cssLogoTextNode = cssLogoNode.firstElementChild;
-cssLogoTextNode.style.fontSize = "clamp(1rem, 2rem, 3rem)"
+cssLogoTextNode.style.fontSize = HC_FONT.setHeaderBanner;
 header.prepend(insertionDiv)
     let headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;

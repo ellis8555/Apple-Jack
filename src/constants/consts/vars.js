@@ -17,3 +17,12 @@ export const TEAM_PLAYERS_LENGTH = TeamPlayers.length;
 export const GAME_RESULTS_LENGTH = GameResults.length;
 // length of every players stat recorded for all games
 export const GAME_PLAYER_STATS_LENGTH = GamePlayerStats.length;
+// HC font size on team logos via css
+export const HC_FONT = {
+    "getTeamsGamesResults": '.5rem, 1rem, 1.75rem',
+    "setGifs": '1rem, 2.5rem, 2.75rem',
+    "singleGameStats": '1rem, 2.5rem, 2.75rem',
+    "teamColors": '1rem, 2.5rem, 2.75rem',
+    "setHeaderBanner": "clamp(1rem, 2rem, 3rem)",
+    "setTeamLogoCss": "clamp(1rem, 1.5vw, 6.25rem)",
+}

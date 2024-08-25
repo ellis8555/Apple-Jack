@@ -5,6 +5,7 @@ import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP";
 import setTeamsPageLayout from "../layouts/setTeamsPageLayout";
 import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP";
 import getTeams3dColorScheme from "../misc/getTeams3DColorScheme";
+import { HC_FONT } from "../../constants/consts/vars";
 
 export default function teamColorsPage(e) {
     clearTablesDiv();
@@ -16,7 +17,7 @@ export default function teamColorsPage(e) {
     let awayColorScheme = eachTeamObjectMAP.get(team)[`S0${seasonNum}Away`];
     let teamLogosLayout;
 
-    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
+    const teamLogosHcSize = HC_FONT.teamColors
     let homeColorString = `S0${seasonNum}Home`
     let teamsColorScheme = eachTeamObjectMAP.get(team)[homeColorString]
     let colorParts = teamsColorScheme.split(" ")

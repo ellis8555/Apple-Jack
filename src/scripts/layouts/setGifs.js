@@ -8,13 +8,14 @@
   import getTeamsGameResults from "./getTeamsGamesResults.js";
   import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP.js";
   import getTeams3dColorScheme from "../misc/getTeams3DColorScheme.js";
+  import { HC_FONT } from "../../constants/consts/vars.js";
   
   export default function setGifs(e) {
     clearScoreboardDiv();
     clearTablesDiv();
     getTablesDiv();
     getScoreboardDiv();
-    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
+    const teamLogosHcSize = HC_FONT.setGifs;
     let displayGifsHeader = "";
     let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
