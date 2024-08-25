@@ -3,20 +3,16 @@ import teamsMAP from "../var_lib/maps/teams/teamsMAP";
 import setHeaderBanner from "./setHeaderBanner";
 import clearTablesDiv from "../tables/clearTablesDiv";
 import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP";
-import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP";
 import setTeamsPageLayout from "./setTeamsPageLayout";
 import setGifs from "./setGifs"
 import setGamesData from "./singleGameStats"
-import getTeams3dColorScheme from "../misc/getTeams3DColorScheme"
-import { Teams, Gifs } from "../../constants/masterHaxData";
-import { HC_FONT } from "../../constants/consts/vars";
+import createTeamCssLogo from "../misc/createTeamCssLogo";
+import { Gifs } from "../../constants/masterHaxData";
 
 export default function getTeamsGameResults(e) {
     let team = e.target.dataset.teamName;
     let seasonNum = e.target.dataset.seasonNum;
     let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
-
-    const teamLogosHcSize = HC_FONT.getTeamsGamesResults;
   
     let teamsGames;
     let thisGamesGifs;
@@ -45,57 +41,10 @@ export default function getTeamsGameResults(e) {
         // homeTeam logo
         gameResults += `<div class="homeTeamLogo w3-card w3-blue">`;
         if (team == `${teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-          let homeColorString = `S0${seasonNum}Home`
-          let teamsColorScheme = eachTeamObjectMAP.get(team)[homeColorString]
-          let colorParts = teamsColorScheme.split(" ")
-          let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${team}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
-          team
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Home");
         } else {
           let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamOne)}`;
-          let otherTeamsObject = Teams.filter(
-            (item) => item.TeamName == otherTeam
-          );
-          let otherTeamsLogo =
-            eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-            let awayColorString = `S0${seasonNum}Home`
-            let teamsColorScheme = eachTeamObjectMAP.get(otherTeam)[awayColorString]
-            let colorParts = teamsColorScheme.split(" ")
-            let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${otherTeam}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
-          otherTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += createTeamCssLogo.getTeamsGamesResults(otherTeam, seasonNum, "Home");
         }
         gameResults += `</div>`;
         // homeTeam name
@@ -141,57 +90,10 @@ export default function getTeamsGameResults(e) {
         // awayTeam logo
         gameResults += `<div class="awayTeamLogo w3-card w3-blue">`;
         if (team == `${teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-          let homeColorString = `S0${seasonNum}Away`
-          let teamsColorScheme = eachTeamObjectMAP.get(team)[homeColorString]
-          let colorParts = teamsColorScheme.split(" ")
-          let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${team}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
-          team
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Away");
         } else {
           let otherTeam = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-          let otherTeamsObject = Teams.filter(
-            (item) => item.TeamName == otherTeam
-          );
-          let otherTeamsLogo =
-            eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-            let awayColorString = `S0${seasonNum}Away`
-            let teamsColorScheme = eachTeamObjectMAP.get(otherTeam)[awayColorString]
-            let colorParts = teamsColorScheme.split(" ")
-            let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${otherTeam}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
-          otherTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += createTeamCssLogo.getTeamsGamesResults(otherTeam, seasonNum, "Away");
         }
         gameResults += `</div>`;
         // awayTeam score

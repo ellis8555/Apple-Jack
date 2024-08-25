@@ -6,16 +6,13 @@
   import getScoreboardDiv from "../scoreboard/clearScoreboardDiv.js";
   import getTablesDiv from "../tables/getTablesDiv.js";
   import getTeamsGameResults from "./getTeamsGamesResults.js";
-  import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP.js";
-  import getTeams3dColorScheme from "../misc/getTeams3DColorScheme.js";
-  import { HC_FONT } from "../../constants/consts/vars.js";
+  import createTeamCssLogo from "../misc/createTeamCssLogo.js";
   
   export default function setGifs(e) {
     clearScoreboardDiv();
     clearTablesDiv();
     getTablesDiv();
     getScoreboardDiv();
-    const teamLogosHcSize = HC_FONT.setGifs;
     let displayGifsHeader = "";
     let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
@@ -25,16 +22,8 @@
     let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
     let thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
     let thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
-    let thisGamesHomeTeamLogo =
-      eachTeamObjectMAP.get(thisGamesHomeTeam)[
-        `S0${thisGifsSeasonNum}HomeFilePath`
-      ];
     let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
     let thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
-    let thisGamesAwayTeamLogo =
-      eachTeamObjectMAP.get(thisGamesAwayTeam)[
-        `S0${thisGifsSeasonNum}HomeFilePath`
-      ];
     let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
     let thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
     if (thisGamesHighlights.length > 0) {
@@ -46,27 +35,8 @@
       }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisGifsSeasonNum}" data-game-type="${gameType}">back</button>`;
       // end back button
       // home team logo
-      let homeColorString = `S0${thisGifsSeasonNum}Home`
-      let teamsColorScheme = eachTeamObjectMAP.get(thisGamesHomeTeam)[homeColorString]
-      let colorParts = teamsColorScheme.split(" ")
-      let mainColor = colorParts[2];
       displayGifsHeader += `<div class="gifsHomeTeam">`;
-      displayGifsHeader += `<div
-        data-team-name="${thisGamesHomeTeam}" 
-        data-season-num="${thisGifsSeasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 7.5rem; height: 6rem; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
-          thisGamesHomeTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+      displayGifsHeader += createTeamCssLogo.setGifs(thisGamesHomeTeam, thisGifsSeasonNum, "Home");
       displayGifsHeader += `</div>`;
       displayGifsHeader += `<div class="gifsHomeTeamScore">`;
       displayGifsHeader += thisGamesHomeTeamScore;
@@ -75,27 +45,8 @@
       displayGifsHeader += ` vs `;
       displayGifsHeader += `</div>`;
       // away team logo
-      let awayColorString = `S0${thisGifsSeasonNum}Away`
-      let awayTeamsColorScheme = eachTeamObjectMAP.get(thisGamesAwayTeam)[awayColorString]
-      colorParts = awayTeamsColorScheme.split(" ")
-      mainColor = colorParts[2];
       displayGifsHeader += `<div class="gifsAwayTeam">`;
-      displayGifsHeader += `<div
-        data-team-name="${thisGamesAwayTeam}" 
-        data-season-num="${thisGifsSeasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 7.5rem; height: 6rem; display: grid; place-items: center;background-color: #${teamsColorMAP.get(
-          thisGamesAwayTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+      displayGifsHeader += createTeamCssLogo.setGifs(thisGamesAwayTeam, thisGifsSeasonNum, "Away");
       displayGifsHeader += `</div>`;
       displayGifsHeader += `<div class="gifsAwayTeamScore">`;
       displayGifsHeader += thisGamesAwayTeamScore;
