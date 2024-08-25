@@ -8442,7 +8442,7 @@
       "TeamName": "Ultraticklenipple",
       "MainColor": "0831d1",
       "S03Home": "60 FFFFFF 0831D1",
-      "S03Away": "60 FFFFFF 0831D1",
+      "S03Away": "60 0831D1 FFFFFF",
       "S03HomeFilePath": "img/teamLogos/S03/ultraticklenippleHomeS03.svg",
       "S03AwayFilePath": "img/teamLogos/S03/ultraticklenippleAwayS03.svg"
     },
