@@ -14,8 +14,13 @@ insertionDiv.style.justifyContent = "center"
 insertionDiv.id = "headerIcon"
 const teamsIconHtmlString = setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
 insertionDiv.innerHTML = teamsIconHtmlString
-const xChild=  insertionDiv.firstChild;
+const xChild = insertionDiv.firstChild;
 insertionDiv.removeChild(xChild)
+const cssLogoNode = insertionDiv.firstElementChild.firstElementChild.firstElementChild;
+cssLogoNode.style.height = "6rem";
+cssLogoNode.style.width = "6rem";
+const cssLogoTextNode = cssLogoNode.firstElementChild;
+cssLogoTextNode.style.fontSize = "clamp(1rem, 2rem, 3rem)"
 header.prepend(insertionDiv)
     let headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;
