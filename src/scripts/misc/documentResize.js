@@ -19,7 +19,7 @@ function resizeEventMethod() {
     } 
     // season number can become lost resulting in undefined
     if(tableCaption == undefined){
-      const getSeasonNumberFromNavbarDataAttribute = +document.querySelectorAll("img[data-team-name]")[0].dataset.seasonNum;
+      const getSeasonNumberFromNavbarDataAttribute = +document.querySelectorAll("div[data-season-number]")[0].dataset.seasonNum;
       getSeasonNumber = getSeasonNumberFromNavbarDataAttribute
     }
     if (screenWidth < 500) {
