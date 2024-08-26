@@ -1,7 +1,7 @@
 // used to sort tabular data from both teams and players objects
 
 export default function sortGroupedStats(inputArray, category) {
-
+  // remove this note in the future. used for commit issue with dist branch
   // this for sorting team standings. player tables don't have team key
   if(inputArray[0].has('Team')){
     if(category == "Points"){
