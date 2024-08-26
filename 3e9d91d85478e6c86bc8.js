@@ -606,6 +606,42 @@ const TEAM_PLAYERS_LENGTH = TeamPlayers.length;
 const GAME_RESULTS_LENGTH = GameResults.length;
 // length of every players stat recorded for all games
 const GAME_PLAYER_STATS_LENGTH = GamePlayerStats.length;
+// HC font size on team logos via css
+const HC_FONT = {
+    "getTeamsGamesResults": '.5rem, 1rem, 1.75rem',
+    "setGifs": '1rem, 2.5rem, 2.75rem',
+    "singleGameStats": '1rem, 2.5rem, 2.75rem',
+    "teamColors": '1rem, 2.5rem, 2.75rem',
+    "setHeaderBanner": "clamp(1rem, 2rem, 3rem)",
+    "setTeamLogoCss": "1rem, 2vw, 3rem",
+}
+// css logo width/heights
+const CSS_LOGO_DIMENSIONS = {
+    "getTeamsGamesResults": {
+        "width": "85%",
+        "height": "85%"
+    },
+    "setGifs": {
+        "width": "7.5rem",
+        "height": "6rem"
+    },
+    "singleGameStats": {
+        "width": "8rem",
+        "height": "6rem"
+    },
+    "teamColors": {
+        "width": "55%",
+        "height": "55%"
+    },
+    "setHeaderBanner": {
+        "width": "55%",
+        "height": "55%"
+    },
+    "setTeamLogoCss": {
+        "width": null,
+        "height": null 
+    },
+}
 
 ;// CONCATENATED MODULE: ./src/scripts/var_lib/maps/teams/teamsMAP.js
 // maps teams via key is teamID number to textual name as value
@@ -2375,6 +2411,123 @@ function clearTablesDiv() {
     let previousData = document.getElementById("tablesDiv");
     previousData.innerHTML = "";
   }
+;// CONCATENATED MODULE: ./src/scripts/misc/getTeams3DColorScheme.js
+function getTeams3dColorScheme(mainColor, colorParts){
+    let teams3dColorScheme;
+    const colorPartsLength = colorParts.length;
+    switch(colorPartsLength){
+        case 3:
+            teams3dColorScheme = `#${colorParts[2]}`
+            return teams3dColorScheme
+        case 4:
+            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
+            return teams3dColorScheme
+        case 5:
+            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
+            return teams3dColorScheme
+            default:
+            return `#${mainColor}`
+    }
+}
+
+/* harmony default export */ const getTeams3DColorScheme = (getTeams3dColorScheme);
+;// CONCATENATED MODULE: ./src/scripts/misc/createCssLogoSkeleton.js
+// this method is used in createTeamCssLogo.js
+// html all above methods contain but adds custom width/height styles
+
+
+
+
+function createCssLogoSkeleton({width, height, fontSize, teamName, seasonNumber, homeOrAway}){
+    let colorString = `S0${seasonNumber}${homeOrAway}`
+    let teamsColorScheme = teams_eachTeamObjectMAP.get(teamName)[colorString]
+    let colorParts = teamsColorScheme.split(" ")
+    let mainColor = colorParts[2];
+    return `<div
+        data-team-name="${teamName}" 
+        data-season-num="${seasonNumber}"
+        class="navLogo three-d-Logo"
+        style="width:${width};height:${height}; margin:auto; display: grid; place-items: center;background-color: #${mainColor};
+        background: radial-gradient(circle at 50% 00%, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(0, 0, 0, 0.2) 40%, 
+    rgba(0, 0, 0, 0.2) 100%),
+    ${getTeams3DColorScheme(mainColor, colorParts)};
+    transform: rotate(${colorParts[0]}deg);"
+    >
+    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${fontSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
+    </div>`
+}
+
+/* harmony default export */ const misc_createCssLogoSkeleton = (createCssLogoSkeleton);
+;// CONCATENATED MODULE: ./src/scripts/misc/createTeamCssLogo.js
+
+
+
+const createTeamCssLogo = {
+    // setTeamLogoCss page
+    "setTeamLogoCss": function(teamName, seasonNumber, homeOrAway){
+        const attributes = {
+            "width": CSS_LOGO_DIMENSIONS.setTeamLogoCss.width,
+            "height": CSS_LOGO_DIMENSIONS.setTeamLogoCss.height,
+            "fontSize": HC_FONT.setTeamLogoCss,
+            teamName,
+            seasonNumber,
+            homeOrAway
+        }
+        return misc_createCssLogoSkeleton(attributes)
+    },
+    // games results page
+    "getTeamsGamesResults": function(teamName, seasonNumber, homeOrAway){
+        const attributes = {
+            "width": CSS_LOGO_DIMENSIONS.getTeamsGamesResults.width,
+            "height": CSS_LOGO_DIMENSIONS.getTeamsGamesResults.height,
+            "fontSize": HC_FONT.getTeamsGamesResults,
+            teamName,
+            seasonNumber,
+            homeOrAway
+        }
+        return misc_createCssLogoSkeleton(attributes)
+    },
+    // gifs page
+    "setGifs": function(teamName, seasonNumber, homeOrAway){
+        const attributes = {
+            "width": CSS_LOGO_DIMENSIONS.setGifs.width,
+            "height": CSS_LOGO_DIMENSIONS.setGifs.height,
+            "fontSize": HC_FONT.setGifs,
+            teamName,
+            seasonNumber,
+            homeOrAway
+        }
+        return misc_createCssLogoSkeleton(attributes)
+    },
+    // boxscore for a single game page
+    "singleGameStats": function(teamName, seasonNumber, homeOrAway){
+        const attributes = {
+            "width": CSS_LOGO_DIMENSIONS.singleGameStats.width,
+            "height": CSS_LOGO_DIMENSIONS.singleGameStats.height,
+            "fontSize": HC_FONT.singleGameStats,
+            teamName,
+            seasonNumber,
+            homeOrAway
+        }
+        return misc_createCssLogoSkeleton(attributes)
+    },
+    // teams color page
+    "teamsColorsPage": function(teamName, seasonNumber, homeOrAway){
+        const attributes = {
+            "width": CSS_LOGO_DIMENSIONS.teamColors.width,
+            "height": CSS_LOGO_DIMENSIONS.teamColors.height,
+            "fontSize": HC_FONT.teamColors,
+            teamName,
+            seasonNumber,
+            homeOrAway
+        }
+        return misc_createCssLogoSkeleton(attributes)
+    },
+}
+
+/* harmony default export */ const misc_createTeamCssLogo = (createTeamCssLogo);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/navbar/helpers/setTeamLogoCss.js
 
 
@@ -2389,45 +2542,10 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
         teamName = teamNameParam;  
     }
 
-    const homeColorString = `S0${season}Home`
-    const teamsColorScheme = teams_eachTeamObjectMAP.get(teamName)[homeColorString]
-    const colorParts = teamsColorScheme.split(" ")
-    const mainColor = colorParts[2];
-
-    function getTeams3dColorScheme(){
-        let teams3dColorScheme;
-        const colorPartsLength = colorParts.length;
-        switch(colorPartsLength){
-            case 3:
-                teams3dColorScheme = `#${colorParts[2]}`
-                return teams3dColorScheme
-            case 4:
-                teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
-                return teams3dColorScheme
-            case 5:
-                teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
-                return teams3dColorScheme
-                default:
-                return `#${mainColor}`
-        }
-    }
     element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
     element += `<div class="${id != undefined ?'w3-card-4 w3-blue w3-round-xlarge':''} w3-padding-small w3-section">`; // begin second div
-    // begin third div
-    element += `<div
-        data-team-name="${teamName}" 
-        data-season-num="${season}"
-        class="navLogo three-d-Logo"
-        style="display: grid; place-items: center;background-color: #${mainColor};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme()};
-    transform: rotate(${colorParts[0]}deg);"
-    >`; 
-    element += `<div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(1rem, 1.5vw, 6.25rem); transform: rotate(-${colorParts[0]}deg);">HC</div>` // 4th div
-    element += `</div>`; // end third div
+    // begin third div which is imported
+    element += misc_createTeamCssLogo.setTeamLogoCss(teamName, season, "Home")
     element += `</div>`; // end second div
     element += `</div>`; // end first div
     return element;
@@ -2435,6 +2553,7 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
 
 /* harmony default export */ const helpers_setTeamLogoCss = (setTeamLogoCss);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/setHeaderBanner.js
+
 
 
 
@@ -2457,7 +2576,7 @@ const cssLogoNode = insertionDiv.firstElementChild.firstElementChild.firstElemen
 cssLogoNode.style.height = "6rem";
 cssLogoNode.style.width = "6rem";
 const cssLogoTextNode = cssLogoNode.firstElementChild;
-cssLogoTextNode.style.fontSize = "clamp(1rem, 2rem, 3rem)"
+cssLogoTextNode.style.fontSize = HC_FONT.setHeaderBanner;
 header.prepend(insertionDiv)
     let headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;
@@ -3080,7 +3199,6 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
     clearTablesDiv();
     getTablesDiv();
     clearScoreboardDiv();
-    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
     let displayGifsHeader = "";
     let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
@@ -3090,16 +3208,8 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
     let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
     let thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
     let thisGamesHomeTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamOne);
-    let thisGamesHomeTeamLogo =
-      teams_eachTeamObjectMAP.get(thisGamesHomeTeam)[
-        `S0${thisGifsSeasonNum}HomeFilePath`
-      ];
     let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
     let thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
-    let thisGamesAwayTeamLogo =
-      teams_eachTeamObjectMAP.get(thisGamesAwayTeam)[
-        `S0${thisGifsSeasonNum}HomeFilePath`
-      ];
     let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
     let thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
     if (thisGamesHighlights.length > 0) {
@@ -3111,27 +3221,8 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
       }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisGifsSeasonNum}" data-game-type="${gameType}">back</button>`;
       // end back button
       // home team logo
-      let homeColorString = `S0${thisGifsSeasonNum}Home`
-      let teamsColorScheme = teams_eachTeamObjectMAP.get(thisGamesHomeTeam)[homeColorString]
-      let colorParts = teamsColorScheme.split(" ")
-      let mainColor = colorParts[2];
       displayGifsHeader += `<div class="gifsHomeTeam">`;
-      displayGifsHeader += `<div
-        data-team-name="${thisGamesHomeTeam}" 
-        data-season-num="${thisGifsSeasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 7.5rem; height: 6rem; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          thisGamesHomeTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+      displayGifsHeader += misc_createTeamCssLogo.setGifs(thisGamesHomeTeam, thisGifsSeasonNum, "Home");
       displayGifsHeader += `</div>`;
       displayGifsHeader += `<div class="gifsHomeTeamScore">`;
       displayGifsHeader += thisGamesHomeTeamScore;
@@ -3140,27 +3231,8 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
       displayGifsHeader += ` vs `;
       displayGifsHeader += `</div>`;
       // away team logo
-      let awayColorString = `S0${thisGifsSeasonNum}Away`
-      let awayTeamsColorScheme = teams_eachTeamObjectMAP.get(thisGamesAwayTeam)[awayColorString]
-      colorParts = awayTeamsColorScheme.split(" ")
-      mainColor = colorParts[2];
       displayGifsHeader += `<div class="gifsAwayTeam">`;
-      displayGifsHeader += `<div
-        data-team-name="${thisGamesAwayTeam}" 
-        data-season-num="${thisGifsSeasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 7.5rem; height: 6rem; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          thisGamesAwayTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+      displayGifsHeader += misc_createTeamCssLogo.setGifs(thisGamesAwayTeam, thisGifsSeasonNum, "Away");
       displayGifsHeader += `</div>`;
       displayGifsHeader += `<div class="gifsAwayTeamScore">`;
       displayGifsHeader += thisGamesAwayTeamScore;
@@ -3199,24 +3271,6 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
       scoreboardDiv.innerHTML = noGifs;
     }
   }
-
-  function getTeams3dColorScheme(mainColor, colorParts){
-    let teams3dColorScheme;
-    const colorPartsLength = colorParts.length;
-    switch(colorPartsLength){
-        case 3:
-            teams3dColorScheme = `#${colorParts[2]}`
-            return teams3dColorScheme
-        case 4:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
-            return teams3dColorScheme
-        case 5:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
-            return teams3dColorScheme
-            default:
-            return `#${mainColor}`
-    }
-}
 ;// CONCATENATED MODULE: ./src/scripts/scoreboard/getScoreboardDiv.js
 function getScoreboardDiv() {
     let scoreboardDiv = document.getElementById("scoreboardDiv");
@@ -3242,7 +3296,6 @@ function getScoreboardDiv() {
     clearTablesDiv();
     getScoreboardDiv();
     getTablesDiv();
-    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
     let displayGameData = "";
     let displayTeamLogos = "";
     let gameNumber = e.target.dataset.gameId;
@@ -3257,10 +3310,6 @@ function getScoreboardDiv() {
     let thisGamesHomeTeamColor = `#${
       teams_eachTeamObjectMAP.get(thisGamesHomeTeam).MainColor
     }`;
-    let thisGamesHomeTeamLogo =
-      teams_eachTeamObjectMAP.get(thisGamesHomeTeam)[
-        `S0${thisSeasonNumber}HomeFilePath`
-      ];
     //***************************** */
   
     let thisGamesHomeTeamsPlayerRecords = TeamPlayers.filter(
@@ -3285,10 +3334,6 @@ function getScoreboardDiv() {
     let thisGamesAwayTeamColor = `#${
       teams_eachTeamObjectMAP.get(thisGamesAwayTeam).MainColor
     }`;
-    let thisGamesAwayTeamLogo =
-      teams_eachTeamObjectMAP.get(thisGamesAwayTeam)[
-        `S0${thisSeasonNumber}HomeFilePath`
-      ];
     //***************************** */
     let thisGamesAwayTeamsPlayerRecords = TeamPlayers.filter(
       (item) =>
@@ -3339,50 +3384,12 @@ function getScoreboardDiv() {
       teams_eachTeamObjectMAP.get(teamName).MainColor
     }; color: #ffffff;" data-team-name="${teamName}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
     // home team logo
-    let homeColorString = `S0${thisSeasonNumber}Home`
-    let teamsColorScheme = teams_eachTeamObjectMAP.get(thisGamesHomeTeam)[homeColorString]
-    let colorParts = teamsColorScheme.split(" ")
-    let mainColor = colorParts[2];
     displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
-    displayTeamLogos += `<div
-        data-team-name="${thisGamesHomeTeam}" 
-        data-season-num="${thisSeasonNumber}"
-        class="navLogo three-d-Logo"
-        style="width: 8rem; height: 6rem; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          thisGamesHomeTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${singleGameStats_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+    displayTeamLogos += misc_createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home");
     displayTeamLogos += `</div>`;
     // away team logo
-    let awayColorString = `S0${thisSeasonNumber}Away`
-    let awayTeamsColorScheme = teams_eachTeamObjectMAP.get(thisGamesAwayTeam)[awayColorString]
-    colorParts = awayTeamsColorScheme.split(" ")
-    mainColor = colorParts[2];
     displayTeamLogos += `<div class="w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreAwayTeamLogo">`;
-    displayTeamLogos += `<div
-        data-team-name="${thisGamesAwayTeam}" 
-        data-season-num="${thisSeasonNumber}"
-        class="navLogo three-d-Logo"
-        style="width: 8rem; height: 6rem; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          thisGamesAwayTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${singleGameStats_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+    displayTeamLogos += misc_createTeamCssLogo.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away");
     displayTeamLogos += `</div>`;
     displayTeamLogos += `</div>`;
     // display team logos
@@ -3561,24 +3568,6 @@ function getScoreboardDiv() {
   }
   
   //end data containers
-
-  function singleGameStats_getTeams3dColorScheme(mainColor, colorParts){
-    let teams3dColorScheme;
-    const colorPartsLength = colorParts.length;
-    switch(colorPartsLength){
-        case 3:
-            teams3dColorScheme = `#${colorParts[2]}`
-            return teams3dColorScheme
-        case 4:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
-            return teams3dColorScheme
-        case 5:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
-            return teams3dColorScheme
-            default:
-            return `#${mainColor}`
-    }
-}
 ;// CONCATENATED MODULE: ./src/scripts/layouts/getTeamsGamesResults.js
 
 
@@ -3595,8 +3584,6 @@ function getTeamsGameResults(e) {
     let team = e.target.dataset.teamName;
     let seasonNum = e.target.dataset.seasonNum;
     let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
-
-    const teamLogosHcSize = '.5rem, 1rem, 1.75rem'
   
     let teamsGames;
     let thisGamesGifs;
@@ -3625,57 +3612,10 @@ function getTeamsGameResults(e) {
         // homeTeam logo
         gameResults += `<div class="homeTeamLogo w3-card w3-blue">`;
         if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-          let homeColorString = `S0${seasonNum}Home`
-          let teamsColorScheme = teams_eachTeamObjectMAP.get(team)[homeColorString]
-          let colorParts = teamsColorScheme.split(" ")
-          let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${team}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          team
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeamsGamesResults_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Home");
         } else {
           let otherTeam = `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`;
-          let otherTeamsObject = Teams.filter(
-            (item) => item.TeamName == otherTeam
-          );
-          let otherTeamsLogo =
-            teams_eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-            let awayColorString = `S0${seasonNum}Home`
-            let teamsColorScheme = teams_eachTeamObjectMAP.get(otherTeam)[awayColorString]
-            let colorParts = teamsColorScheme.split(" ")
-            let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${otherTeam}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          otherTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeamsGamesResults_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(otherTeam, seasonNum, "Home");
         }
         gameResults += `</div>`;
         // homeTeam name
@@ -3721,57 +3661,10 @@ function getTeamsGameResults(e) {
         // awayTeam logo
         gameResults += `<div class="awayTeamLogo w3-card w3-blue">`;
         if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-          let homeColorString = `S0${seasonNum}Away`
-          let teamsColorScheme = teams_eachTeamObjectMAP.get(team)[homeColorString]
-          let colorParts = teamsColorScheme.split(" ")
-          let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${team}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          team
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeamsGamesResults_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Away");
         } else {
           let otherTeam = `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-          let otherTeamsObject = Teams.filter(
-            (item) => item.TeamName == otherTeam
-          );
-          let otherTeamsLogo =
-            teams_eachTeamObjectMAP.get(otherTeam)[`S0${seasonNum}HomeFilePath`];
-            let awayColorString = `S0${seasonNum}Away`
-            let teamsColorScheme = teams_eachTeamObjectMAP.get(otherTeam)[awayColorString]
-            let colorParts = teamsColorScheme.split(" ")
-            let mainColor = colorParts[2];
-          gameResults += `
-          <div
-        data-team-name="${otherTeam}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 85%; height: 85%; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          otherTeam
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${getTeamsGamesResults_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 500;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>
-          `;
+          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(otherTeam, seasonNum, "Away");
         }
         gameResults += `</div>`;
         // awayTeam score
@@ -3904,24 +3797,6 @@ function getTeamsGameResults(e) {
     );
     //end single games results div
   }
-
-  function getTeamsGamesResults_getTeams3dColorScheme(mainColor, colorParts){
-    let teams3dColorScheme;
-    const colorPartsLength = colorParts.length;
-    switch(colorPartsLength){
-        case 3:
-            teams3dColorScheme = `#${colorParts[2]}`
-            return teams3dColorScheme
-        case 4:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
-            return teams3dColorScheme
-        case 5:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
-            return teams3dColorScheme
-            default:
-            return `#${mainColor}`
-    }
-}
 ;// CONCATENATED MODULE: ./src/scripts/layouts/teamsColorsPage.js
 
 
@@ -3940,15 +3815,6 @@ function teamColorsPage(e) {
     let awayColorScheme = teams_eachTeamObjectMAP.get(team)[`S0${seasonNum}Away`];
     let teamLogosLayout;
 
-    const teamLogosHcSize = '1rem, 2.5rem, 2.75rem'
-    let homeColorString = `S0${seasonNum}Home`
-    let teamsColorScheme = teams_eachTeamObjectMAP.get(team)[homeColorString]
-    let colorParts = teamsColorScheme.split(" ")
-    let mainColor = colorParts[2];
-        let awayColorString = `S0${seasonNum}Away`
-        let teamsAwayColorScheme = teams_eachTeamObjectMAP.get(team)[awayColorString]
-        let awayColorParts = teamsAwayColorScheme.split(" ")
-        let awayColor = awayColorParts[2];
     let tLL = teamLogosLayout;
     // teamsColorsLayout is grid containing class
     tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
@@ -3966,22 +3832,7 @@ function teamColorsPage(e) {
     tLL += `<div class="teamColorsHomeContent w3-container w3-padding w3-blue w3-round-large" style="height: 16rem !important">`;
     tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
     tLL += `<div><h5>Home</h5></div>`;
-    tLL += `<div
-        data-team-name="${team}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 55%; height: 55%; margin:auto; display: grid; place-items: center;background-color: #${teams_teamsColorMAP.get(
-          team
-        )};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${teamsColorsPage_getTeams3dColorScheme(mainColor, colorParts)};
-    transform: rotate(${colorParts[0]}deg);"
-    >
-    <div style="color: #${colorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${colorParts[0]}deg);">HC</div>
-    </div>`;
+    tLL += misc_createTeamCssLogo.teamsColorsPage(team, seasonNum, "Home");
     // container holding red blue buttons
     tLL += `<div class="w3-container w3-padding redBlue">`;
     // red button container
@@ -4008,20 +3859,7 @@ function teamColorsPage(e) {
     tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large" style="height: 16rem !important">`;
     tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
     tLL += `<div><h5>Alternate</h5></div>`;
-    tLL += `<div
-        data-team-name="${team}" 
-        data-season-num="${seasonNum}"
-        class="navLogo three-d-Logo"
-        style="width: 55%; height: 55%; margin:auto; display: grid; place-items: center;background-color: #${awayColor};
-        background: radial-gradient(circle at 50% 00%, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(0, 0, 0, 0.2) 40%, 
-    rgba(0, 0, 0, 0.2) 100%),
-    ${teamsColorsPage_getTeams3dColorScheme(awayColor, awayColorParts)};
-    transform: rotate(${awayColorParts[0]}deg);"
-    >
-    <div style="color: #${awayColorParts[1]};font-weight: 200;font-size: clamp(${teamLogosHcSize}); transform: rotate(-${awayColorParts[0]}deg);">HC</div>
-    </div>`;
+    tLL += misc_createTeamCssLogo.teamsColorsPage(team, seasonNum, "Away");
     // container holding red blue buttons
     tLL += `<div class="w3-container w3-padding redBlue">`;
     // red button container
@@ -4067,24 +3905,6 @@ function teamColorsPage(e) {
       item.addEventListener("click", getColorScheme)
     );
   }
-
-  function teamsColorsPage_getTeams3dColorScheme(mainColor, colorParts){
-    let teams3dColorScheme;
-    const colorPartsLength = colorParts.length;
-    switch(colorPartsLength){
-        case 3:
-            teams3dColorScheme = `#${colorParts[2]}`
-            return teams3dColorScheme
-        case 4:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 50%, #${colorParts[3]} 51%)`
-            return teams3dColorScheme
-        case 5:
-            teams3dColorScheme = `linear-gradient(to right, #${colorParts[2]} 35%, #${colorParts[3]} 36% 64%, #${colorParts[4]} 65%)`
-            return teams3dColorScheme
-            default:
-            return `#${mainColor}`
-    }
-}
 ;// CONCATENATED MODULE: ./src/scripts/layouts/setTeamsPageLayout.js
 
 
@@ -5125,4 +4945,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=8dd1829d42c05ae106b3.js.map
+//# sourceMappingURL=3e9d91d85478e6c86bc8.js.map
