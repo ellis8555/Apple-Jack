@@ -24,7 +24,7 @@ export const HC_FONT = {
     "singleGameStats": '1rem, 2.5rem, 2.75rem',
     "teamColors": '1rem, 2.5rem, 2.75rem',
     "setHeaderBanner": "clamp(1rem, 2rem, 3rem)",
-    "setTeamLogoCss": "1rem, 2rem, 3rem",
+    "setTeamLogoCss": "1rem, 2vw, 3rem",
 }
 // css logo width/heights
 export const CSS_LOGO_DIMENSIONS = {
@@ -50,6 +50,6 @@ export const CSS_LOGO_DIMENSIONS = {
     },
     "setTeamLogoCss": {
         "width": null,
-        "height": null
+        "height": null 
     },
 }
