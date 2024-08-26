@@ -31,11 +31,13 @@ export default function sortGroupedStats(inputArray, category) {
       }
 
     });
-
-      return inputArray
+    return inputArray
   }
+  inputArray.sort((a, b) => b.get(category) - a.get(category));
+}
+  
       // this for sorting player tables as teams don't have assists key
-    } else if(inputArray[0].has('Assists')) {
+    if(inputArray[0].has('Assists')) {
       if(category == "Points"){
         inputArray.sort((a, b) =>{
           const pointStandings = b.get(category) - a.get(category)
@@ -69,9 +71,8 @@ export default function sortGroupedStats(inputArray, category) {
               return shotsOnGoal
             }
         })
+        return inputArray;
       }
-      return inputArray;
-    } else {
-      return inputArray.sort((a, b) => b.get(category) - a.get(category));
+      inputArray.sort((a, b) => b.get(category) - a.get(category));
     }
   }
