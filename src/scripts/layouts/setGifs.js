@@ -14,7 +14,6 @@
     clearTablesDiv();
     getTablesDiv();
     getScoreboardDiv();
-    let displayGifsHeader = "";
     let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
@@ -28,31 +27,58 @@
     let thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
     if (thisGamesHighlights.length > 0) {
       // begin title for gifs page
-      displayGifsHeader = `<div class="gifsHeaderContainer">`;
-      // back button
-      displayGifsHeader += backButton("gamesGifsBackButton", teamName, thisGifsSeasonNum, "Season", "gifsBackButton").outerHTML;
-      // end back button
-      // home team logo
-      displayGifsHeader += `<div class="gifsHomeTeam">`;
-      displayGifsHeader += createTeamCssLogo.setGifs(thisGamesHomeTeam, thisGifsSeasonNum, "Home");
-      displayGifsHeader += `</div>`;
-      displayGifsHeader += `<div class="gifsHomeTeamScore">`;
-      displayGifsHeader += thisGamesHomeTeamScore;
-      displayGifsHeader += `</div>`;
-      displayGifsHeader += `<div class="gifsVsHeader">`;
-      displayGifsHeader += ` vs `;
-      displayGifsHeader += `</div>`;
-      // away team logo
-      displayGifsHeader += `<div class="gifsAwayTeam">`;
-      displayGifsHeader += createTeamCssLogo.setGifs(thisGamesAwayTeam, thisGifsSeasonNum, "Away");
-      displayGifsHeader += `</div>`;
-      displayGifsHeader += `<div class="gifsAwayTeamScore">`;
-      displayGifsHeader += thisGamesAwayTeamScore;
-      displayGifsHeader += `</div>`;
-      //end div for header container
-      displayGifsHeader += `</div>`;
-      //end of gifs page title
-      tablesDiv.innerHTML = displayGifsHeader;
+      const gifsHeaderContainer = document.createElement("div");
+      gifsHeaderContainer.classList.add("gifsHeaderContainer");
+  
+      // Back button
+      const backButtonElement = backButton(
+        "gamesGifsBackButton",
+        teamName,
+        thisGifsSeasonNum,
+        "Season",
+        "gifsBackButton"
+      );
+      gifsHeaderContainer.appendChild(backButtonElement);
+  
+      // Home team section
+      const gifsHomeTeam = document.createElement("div");
+      gifsHomeTeam.classList.add("gifsHomeTeam");
+      gifsHomeTeam.innerHTML = createTeamCssLogo.setGifs(
+        thisGamesHomeTeam,
+        thisGifsSeasonNum,
+        "Home"
+      );
+      gifsHeaderContainer.appendChild(gifsHomeTeam);
+  
+      const gifsHomeTeamScore = document.createElement("div");
+      gifsHomeTeamScore.classList.add("gifsHomeTeamScore");
+      gifsHomeTeamScore.textContent = thisGamesHomeTeamScore;
+      gifsHeaderContainer.appendChild(gifsHomeTeamScore);
+  
+      // "vs" section
+      const gifsVsHeader = document.createElement("div");
+      gifsVsHeader.classList.add("gifsVsHeader");
+      gifsVsHeader.textContent = " vs ";
+      gifsHeaderContainer.appendChild(gifsVsHeader);
+  
+      // Away team section
+      const gifsAwayTeam = document.createElement("div");
+      gifsAwayTeam.classList.add("gifsAwayTeam");
+      gifsAwayTeam.innerHTML = createTeamCssLogo.setGifs(
+        thisGamesAwayTeam,
+        thisGifsSeasonNum,
+        "Away"
+      );
+      gifsHeaderContainer.appendChild(gifsAwayTeam);
+  
+      const gifsAwayTeamScore = document.createElement("div");
+      gifsAwayTeamScore.classList.add("gifsAwayTeamScore");
+      gifsAwayTeamScore.textContent = thisGamesAwayTeamScore;
+      gifsHeaderContainer.appendChild(gifsAwayTeamScore);
+  
+      // Set the gifs header
+      tablesDiv.innerHTML = "";
+      tablesDiv.appendChild(gifsHeaderContainer);
   
       // listener for the back button back to teams layout Page
       document
