@@ -100,12 +100,26 @@
         let thisGif = thisGamesHighlights.find(
           (item) => item.Filepath == thisGamesFinalPath
         );
-        displayGifs += `<h5>${thisGif.Comment}</h5>`;
-        displayGifs += `<img src="${thisGamesFinalPath}">`;
+              // Create a container for each GIF and comment
+      const gifContainer = document.createElement("div");
+      gifContainer.classList.add("gifContainer");
+
+      // Add the comment
+      const gifComment = document.createElement("h5");
+      gifComment.textContent = thisGif.Comment;
+      gifContainer.appendChild(gifComment);
+
+      // Add the GIF image
+      const gifImage = document.createElement("img");
+      gifImage.src = thisGamesFinalPath;
+      gifContainer.appendChild(gifImage);
+
+      // Append the container to the scoreboardDiv
+      scoreboardDiv.appendChild(gifContainer);
       }
-      scoreboardDiv.innerHTML = displayGifs;
     } else {
-      let noGifs = "<h3>No highlights for this game</h3>";
-      scoreboardDiv.innerHTML = noGifs;
+      const noGifsMessage = document.createElement("h3");
+      noGifsMessage.textContent = "No highlights for this game";
+      scoreboardDiv.appendChild(noGifsMessage);
     }
   }
