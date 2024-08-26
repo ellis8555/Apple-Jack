@@ -2124,7 +2124,7 @@ tableFields
 // used to sort tabular data from both teams and players objects
 
 function sortGroupedStats(inputArray, category) {
-
+  // remove this note in the future. used for commit issue with dist branch
   // this for sorting team standings. player tables don't have team key
   if(inputArray[0].has('Team')){
     if(category == "Points"){
@@ -5037,4 +5037,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=461bdd459836ebb88c49.js.map
+//# sourceMappingURL=0669cd961e76be14fcaa.js.map
