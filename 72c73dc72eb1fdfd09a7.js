@@ -2124,7 +2124,78 @@ tableFields
 // used to sort tabular data from both teams and players objects
 
 function sortGroupedStats(inputArray, category) {
-    inputArray.sort((a, b) => b.get(category) - a.get(category));
+  // this for sorting team standings. player tables don't have team key
+  if(inputArray[0].has('Team')){
+    if(category == "Points"){
+      
+      inputArray.sort((a, b) =>{
+        const pointStandings = b.get(category) - a.get(category)
+        
+      // if points are not tied then return
+      if(pointStandings !== 0){
+        return pointStandings;
+      }
+
+      // if points are tied then add sort by less games played
+
+      const gamesPlayedStandings = a.get('GP') - b.get('GP');
+
+      if(gamesPlayedStandings !== 0){
+        return gamesPlayedStandings
+      }
+
+      // if points and games played tied sort by goal differential
+
+      const goalDifference = b.get('GF') - a.get('GF');
+
+      if(goalDifference !== 0){
+        return goalDifference
+      }
+
+    });
+
+      return inputArray
+  }
+      // this for sorting player tables as teams don't have assists key
+    } else if(inputArray[0].has('Assists')) {
+      if(category == "Points"){
+        inputArray.sort((a, b) =>{
+          const pointStandings = b.get(category) - a.get(category)
+
+                // if points are not tied then return
+      if(pointStandings !== 0){
+        return pointStandings;
+      }
+
+            // if points are tied then add sort by less games played
+
+            const gamesPlayedStandings = a.get('GP') - b.get('GP');
+
+            if(gamesPlayedStandings !== 0){
+              return gamesPlayedStandings
+            }
+
+            // if points and games played tied sort by goals scored
+
+            const goalsScored = b.get('Goals') - a.get('Goals');
+
+            if(goalsScored !== 0){
+              return goalsScored
+            }
+
+            // final sort by shots on goal
+
+            const shotsOnGoal = b.get('ShotsOnGoal') - a.get('ShotsOnGoal');
+
+            if(shotsOnGoal !== 0){
+              return shotsOnGoal
+            }
+        })
+      }
+      return inputArray;
+    } else {
+      return inputArray.sort((a, b) => b.get(category) - a.get(category));
+    }
   }
 ;// CONCATENATED MODULE: ./src/scripts/sidebar/closeSidebar.js
 function closeSidebar() {
@@ -2600,6 +2671,29 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
   }
 
 /* harmony default export */ const teams_teamsColorMAP = (teamsColorMAP);
+;// CONCATENATED MODULE: ./src/scripts/misc/backButton.js
+
+
+function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasses){
+    const buttonDiv = document.createElement("div");
+    buttonDiv.id = id;
+    buttonDiv.classList.add('w3-btn', 'w3-round-large')
+    buttonDiv.style.backgroundColor = `#${teams_teamsColorMAP.get(teamName)}`
+    buttonDiv.style.color = "#ffffff"
+    buttonDiv.setAttribute("data-team-name", teamName);
+    buttonDiv.setAttribute("data-season-num", seasonNum);
+    buttonDiv.setAttribute("data-game-type", gameType);
+    if(styleClasses.length > 0){
+        styleClasses.forEach(className => {
+            buttonDiv.classList.add(className)
+        })
+    }
+    buttonDiv.textContent = "back"
+    return buttonDiv
+}
+
+/* harmony default export */ const misc_backButton = (backButton);
+
 ;// CONCATENATED MODULE: ./src/scripts/layouts/teamPlayerList.js
   
   
@@ -2611,6 +2705,7 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
   
   
   
+
   
   let teamPlayerList_playersTable = [
     "Name",
@@ -2689,7 +2784,7 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
     // var containing the innerHTML of tables
     let playerStats = "";
-    playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-season-num="${seasonNum}">back</button>`;
+    playerStats += misc_backButton("playerStatsBackButton", teamName, seasonNum, "Season").outerHTML
     playerStats += `<h1>Season ${seasonNum}</h1>`;
     // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
     playerStats += `<div id="teamPlayerList" class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
@@ -3194,6 +3289,7 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
   
   
   
+  
   function setGifs(e) {
     clearScoreboardDiv();
     clearTablesDiv();
@@ -3203,7 +3299,6 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
     let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
-    let teamLogo = e.target.dataset.teamLogo;
     let gameType = e.target.dataset.gameType;
     let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
     let thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
@@ -3216,9 +3311,7 @@ for (let i = 0; i < teams_teamsMAP.size; i++) {
       // begin title for gifs page
       displayGifsHeader = `<div class="gifsHeaderContainer">`;
       // back button
-      displayGifsHeader += `<button id="gamesGifsBackButton" class="w3-btn w3-round-large gifsBackButton" style="background-color:#${
-        teams_eachTeamObjectMAP.get(teamName).MainColor
-      }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisGifsSeasonNum}" data-game-type="${gameType}">back</button>`;
+      displayGifsHeader += misc_backButton("gamesGifsBackButton", teamName, thisGifsSeasonNum, "Season", "gifsBackButton").outerHTML;
       // end back button
       // home team logo
       displayGifsHeader += `<div class="gifsHomeTeam">`;
@@ -3290,6 +3383,7 @@ function getScoreboardDiv() {
   
   
   
+
   
   function setGamesData(e) {
     clearScoreboardDiv();
@@ -3380,9 +3474,7 @@ function getScoreboardDiv() {
     // team logos
     displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
     // back button area which is row above team logos
-    displayTeamLogos += `<button id="gamesBoxscoreBackButton" class="w3-btn w3-round-large boxscoreBackButton" style="background-color:#${
-      teams_eachTeamObjectMAP.get(teamName).MainColor
-    }; color: #ffffff;" data-team-name="${teamName}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
+    displayTeamLogos += misc_backButton("gamesBoxscoreBackButton", teamName, thisSeasonNumber, gameType, "boxscoreBackButton").outerHTML
     // home team logo
     displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
     displayTeamLogos += misc_createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home");
@@ -3580,11 +3672,11 @@ function getScoreboardDiv() {
 
 
 
+
 function getTeamsGameResults(e) {
     let team = e.target.dataset.teamName;
     let seasonNum = e.target.dataset.seasonNum;
     let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
-  
     let teamsGames;
     let thisGamesGifs;
     let gameResults = "";
@@ -3599,9 +3691,7 @@ function getTeamsGameResults(e) {
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
     let gamesLength = teamsGames.length;
-    gameResults = `<button id="gameResultsBackButton" class="w3-btn w3-round-large" style="background-color:#${teams_teamsColorMAP.get(
-      team
-    )}; color: #ffffff;" data-team-name="${team}" data-season-num="${seasonNum}">back</button>`;
+    gameResults += misc_backButton("gameResultsBackButton", team, seasonNum, gameType).outerHTML;
     gameResults += `<h1>${team}</h1>`;
     gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
     if (gamesLength > 0) {
@@ -3754,7 +3844,7 @@ function getTeamsGameResults(e) {
         gameResults += `</div>`;
         // end hightlights gif div
         // this games stats **NOTE data-game-stats="" used to grab element by attribute by CSS
-        gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-season-number="${seasonNum}" data-game-type=${gameType}" class="gameStats">`;
+        gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-season-number="${seasonNum}" data-game-type="${gameType}" class="gameStats">`;
         gameResults += `Stats`;
         gameResults += `</div>`;
         // end this games stats
@@ -3805,6 +3895,7 @@ function getTeamsGameResults(e) {
 
 
 
+
 function teamColorsPage(e) {
     clearTablesDiv();
     clearScoreboardDiv();
@@ -3819,9 +3910,7 @@ function teamColorsPage(e) {
     // teamsColorsLayout is grid containing class
     tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
     //  back button
-    tLL += `<button id="teamColorsBackButton" class="w3-btn w3-round-large colorsBackButton" style="background-color:#${
-      teams_eachTeamObjectMAP.get(team).MainColor
-    }; color: #ffffff;" data-team-name="${team}" data-season-num="${seasonNum}">back</button>`;
+    tLL += misc_backButton('teamColorsBackButton', team, seasonNum, "Season", "colorsBackButton").outerHTML
     // teamColorsLayout class that contains the title in colors layout
     tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
     tLL += `<h4 class="w3-text-black">Copy teams color to clipboard</h4>`;
@@ -4945,4 +5034,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=3e9d91d85478e6c86bc8.js.map
+//# sourceMappingURL=72c73dc72eb1fdfd09a7.js.map
