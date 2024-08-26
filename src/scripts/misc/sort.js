@@ -1,6 +1,7 @@
 // used to sort tabular data from both teams and players objects
 
 export default function sortGroupedStats(inputArray, category) {
+
   // this for sorting team standings. player tables don't have team key
   if(inputArray[0].has('Team')){
     if(category == "Points"){
@@ -23,7 +24,7 @@ export default function sortGroupedStats(inputArray, category) {
 
       // if points and games played tied sort by goal differential
 
-      const goalDifference = b.get('GF') - a.get('GF');
+      const goalDifference = b.get('GD') - a.get('GD');
 
       if(goalDifference !== 0){
         return goalDifference
