@@ -11,6 +11,7 @@
   import sortGroupedStats from "../misc/sort.js";
   import getTeamsGameResults from "./getTeamsGamesResults.js";
   import createTeamCssLogo from "../misc/createTeamCssLogo.js";
+import backButton from "../misc/backButton.js";
   
   export default function setGamesData(e) {
     clearScoreboardDiv();
@@ -101,9 +102,7 @@
     // team logos
     displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
     // back button area which is row above team logos
-    displayTeamLogos += `<button id="gamesBoxscoreBackButton" class="w3-btn w3-round-large boxscoreBackButton" style="background-color:#${
-      eachTeamObjectMAP.get(teamName).MainColor
-    }; color: #ffffff;" data-team-name="${teamName}" data-season-num="${thisSeasonNumber}" data-game-type="${gameType}">back</button>`;
+    displayTeamLogos += backButton("gamesBoxscoreBackButton", teamName, thisSeasonNumber, gameType, "boxscoreBackButton").outerHTML
     // home team logo
     displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
     displayTeamLogos += createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home");

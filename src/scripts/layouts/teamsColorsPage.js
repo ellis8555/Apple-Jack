@@ -4,6 +4,7 @@ import getTablesDiv from "../tables/getTablesDiv";
 import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP";
 import setTeamsPageLayout from "../layouts/setTeamsPageLayout";
 import createTeamCssLogo from "../misc/createTeamCssLogo";
+import backButton from "../misc/backButton";
 
 export default function teamColorsPage(e) {
     clearTablesDiv();
@@ -19,9 +20,7 @@ export default function teamColorsPage(e) {
     // teamsColorsLayout is grid containing class
     tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
     //  back button
-    tLL += `<button id="teamColorsBackButton" class="w3-btn w3-round-large colorsBackButton" style="background-color:#${
-      eachTeamObjectMAP.get(team).MainColor
-    }; color: #ffffff;" data-team-name="${team}" data-season-num="${seasonNum}">back</button>`;
+    tLL += backButton('teamColorsBackButton', team, seasonNum, "Season", "colorsBackButton").outerHTML
     // teamColorsLayout class that contains the title in colors layout
     tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
     tLL += `<h4 class="w3-text-black">Copy teams color to clipboard</h4>`;

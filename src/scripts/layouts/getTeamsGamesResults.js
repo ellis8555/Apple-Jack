@@ -7,13 +7,13 @@ import setTeamsPageLayout from "./setTeamsPageLayout";
 import setGifs from "./setGifs"
 import setGamesData from "./singleGameStats"
 import createTeamCssLogo from "../misc/createTeamCssLogo";
+import backButton from "../misc/backButton";
 import { Gifs } from "../../constants/masterHaxData";
 
 export default function getTeamsGameResults(e) {
     let team = e.target.dataset.teamName;
     let seasonNum = e.target.dataset.seasonNum;
     let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
-  
     let teamsGames;
     let thisGamesGifs;
     let gameResults = "";
@@ -28,9 +28,7 @@ export default function getTeamsGameResults(e) {
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
     let gamesLength = teamsGames.length;
-    gameResults = `<button id="gameResultsBackButton" class="w3-btn w3-round-large" style="background-color:#${teamsColorMAP.get(
-      team
-    )}; color: #ffffff;" data-team-name="${team}" data-season-num="${seasonNum}">back</button>`;
+    gameResults += backButton("gameResultsBackButton", team, seasonNum, gameType).outerHTML;
     gameResults += `<h1>${team}</h1>`;
     gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
     if (gamesLength > 0) {
@@ -183,7 +181,7 @@ export default function getTeamsGameResults(e) {
         gameResults += `</div>`;
         // end hightlights gif div
         // this games stats **NOTE data-game-stats="" used to grab element by attribute by CSS
-        gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-season-number="${seasonNum}" data-game-type=${gameType}" class="gameStats">`;
+        gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-season-number="${seasonNum}" data-game-type="${gameType}" class="gameStats">`;
         gameResults += `Stats`;
         gameResults += `</div>`;
         // end this games stats

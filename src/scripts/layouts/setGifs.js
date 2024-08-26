@@ -7,6 +7,7 @@
   import getTablesDiv from "../tables/getTablesDiv.js";
   import getTeamsGameResults from "./getTeamsGamesResults.js";
   import createTeamCssLogo from "../misc/createTeamCssLogo.js";
+  import backButton from "../misc/backButton.js";
   
   export default function setGifs(e) {
     clearScoreboardDiv();
@@ -17,7 +18,6 @@
     let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
-    let teamLogo = e.target.dataset.teamLogo;
     let gameType = e.target.dataset.gameType;
     let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
     let thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
@@ -30,9 +30,7 @@
       // begin title for gifs page
       displayGifsHeader = `<div class="gifsHeaderContainer">`;
       // back button
-      displayGifsHeader += `<button id="gamesGifsBackButton" class="w3-btn w3-round-large gifsBackButton" style="background-color:#${
-        eachTeamObjectMAP.get(teamName).MainColor
-      }; color: #ffffff;" data-team-name="${teamName}" data-team-logo="${teamLogo}" data-season-num="${thisGifsSeasonNum}" data-game-type="${gameType}">back</button>`;
+      displayGifsHeader += backButton("gamesGifsBackButton", teamName, thisGifsSeasonNum, "Season", "gifsBackButton").outerHTML;
       // end back button
       // home team logo
       displayGifsHeader += `<div class="gifsHomeTeam">`;

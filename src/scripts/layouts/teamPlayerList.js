@@ -8,6 +8,7 @@
   import clearTablesDiv from "../tables/clearTablesDiv.js";
   import sortGroupedStats from "../misc/sort.js";
   import setTeamsPageLayout from "./setTeamsPageLayout.js";
+import backButton from "../misc/backButton.js";
   
   let playersTable = [
     "Name",
@@ -86,7 +87,7 @@
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
     // var containing the innerHTML of tables
     let playerStats = "";
-    playerStats += `<button id="playerStatsBackButton" class="w3-btn w3-round-large" style="background-color:${teamColor}; color: #ffffff;" data-team-name="${teamName}" data-season-num="${seasonNum}">back</button>`;
+    playerStats += backButton("playerStatsBackButton", teamName, seasonNum, "Season").outerHTML
     playerStats += `<h1>Season ${seasonNum}</h1>`;
     // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
     playerStats += `<div id="teamPlayerList" class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
