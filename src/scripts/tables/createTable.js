@@ -1,4 +1,4 @@
-import sortGroupedStats from "../misc/sort";
+import sortGroupedStats from "../misc/sorting/sort";
 import closeSidebar from "../sidebar/closeSidebar";
 import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "./getTablesDiv";

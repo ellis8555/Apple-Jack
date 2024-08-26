@@ -8,11 +8,10 @@
   import clearTablesDiv from "../tables/clearTablesDiv.js";
   import getScoreboardDiv from "../scoreboard/getScoreboardDiv.js";
   import getTablesDiv from "../tables/getTablesDiv.js";
-  import sortGroupedStats from "../misc/sort.js";
+  import sortGroupedStats from "../misc/sorting/sort.js";
   import getTeamsGameResults from "./getTeamsGamesResults.js";
   import createTeamCssLogo from "../misc/createTeamCssLogo.js";
 import backButton from "../misc/backButton.js";
-  
   export default function setGamesData(e) {
     clearScoreboardDiv();
     clearTablesDiv();
