@@ -1,10 +1,6 @@
-import { GameResults, GamePlayerStats } from "../../../constants/masterHaxData";
-import playersMAP from "../../var_lib/maps/players/playersMAP";
 import playerSeasonsMAP from "../../var_lib/maps/players/playerSeasonsMAP"
-import gameTypeMAP from "../../var_lib/maps/gameType/gameTypeMAP"
 import seasonCount from "../../var_lib/season/seasonCount"
-
-const GameResultsLength = GameResults.length;
+import setPlayersAllTimeStats from "./helpers/setPlayersAllTimeStats";
 
 export default class IndividualPlayerStats {
     constructor(name) {
@@ -56,26 +52,10 @@ export default class IndividualPlayerStats {
       allTimePlayoffArray
     ) {
       // fills allTimeStats[]/seasonStats[]/playoff[]
-      GamePlayerStats.forEach((item) => {
-        if (playersMAP.get(Number(item.PlayerID)) == this.name) {
-          this[allTimeArray].push(item);
-        }
-      });
-  
-      this[allTimeArray].forEach((item) => {
-        for (let i = 0; i < GameResultsLength; i++) {
-          // GameResultsLength
-          if (
-            item.GameID == GameResults[i].GameID &&
-            gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Season"
-          )
-            this[allTimeSeasonArray].push(item);
-          if (
-            item.GameID == GameResults[i].GameID &&
-            gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Playoff"
-          )
-            this[allTimePlayoffArray].push(item);
-        }
-      });
+      setPlayersAllTimeStats.call(
+        this,       
+        allTimeArray,
+        allTimeSeasonArray,
+        allTimePlayoffArray)
     }
   }
