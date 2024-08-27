@@ -8,9 +8,11 @@ const seasonCountLength = seasonCount.length;
 
 // TeamStats is the class for team object creation
 // allTeamStats (object) is the container holding each teams' object
-// TeamStats.allTeamStats(<teamName>) is how to get within any teams' own object
+// TeamStats.allTeamStats[<teamName>] is how to get within any teams' own object
+
 // --------------------
-//    "groupTeamsAllTimeStats", "groupTeamsAllTimeSeasonStats",
+// place TeamStats in front of the following
+// "groupTeamsAllTimeStats", "groupTeamsAllTimeSeasonStats",
 // "groupTeamsAllTimePlayoffStats", are static arrays for the class which hold each teams'
 // MAPS that have each teams' all time stats reduced and ready for table display
 // --------------------
