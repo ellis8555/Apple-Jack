@@ -1,10 +1,10 @@
-import { GameResults } from "../../constants/masterHaxData";
-import {SEASONS_WITH_TIE_GAMES, GAME_RESULTS_LENGTH} from "../../constants/consts/vars"
-import teamsMAP from "../var_lib/maps/teams/teamsMAP"
-import teamsSeasonsMAP from "../var_lib/maps/teams/teamsSeasonsMAP"
-import gameTypeMAP from "../var_lib/maps/gameType/gameTypeMAP"
-import seasonCount from "../var_lib/season/seasonCount"
-import { allTimeStatsMAPS, groupedAllTimeTeamStats } from "../../constants/consts/supportVars";
+import { GameResults } from "../../../constants/masterHaxData";
+import {SEASONS_WITH_TIE_GAMES, GAME_RESULTS_LENGTH} from "../../../constants/consts/vars"
+import teamsMAP from "../../var_lib/maps/teams/teamsMAP"
+import teamsSeasonsMAP from "../../var_lib/maps/teams/teamsSeasonsMAP"
+import gameTypeMAP from "../../var_lib/maps/gameType/gameTypeMAP"
+import seasonCount from "../../var_lib/season/seasonCount"
+import { allTimeStatsMAPS, groupedAllTimeTeamStats } from "../../../constants/consts/supportVars";
 
 class TeamStats {
     constructor(name) {

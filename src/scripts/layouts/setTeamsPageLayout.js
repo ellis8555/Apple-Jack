@@ -2,7 +2,7 @@ import clearTablesDiv from "../tables/clearTablesDiv";
 import getTablesDiv from "../tables/getTablesDiv";
 import closeSidebar from "../sidebar/closeSidebar";
 import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv";
-import TeamStats from "../classFiles/teamStats";
+import TeamStats from "../classFiles/teams/teamStats";
 import setHeaderBanner from "./setHeaderBanner";
 import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP"
 import getTeamsPlayersPerSeason from "./teamPlayerList";

@@ -1,4 +1,4 @@
-import TeamStats from "../classFiles/teamStats";
+import TeamStats from "../classFiles/teams/teamStats";
 import teamsMAP from "../var_lib/maps/teams/teamsMAP";
 import gameTypeMAP from "../var_lib/maps/gameType/gameTypeMAP";
 import seasonCount from "../var_lib/season/seasonCount";

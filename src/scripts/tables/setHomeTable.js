@@ -1,5 +1,5 @@
 import currentSeason from "../var_lib/season/currentSeason";
-import TeamStats from "../classFiles/teamStats"
+import TeamStats from "../classFiles/teams/teamStats"
 import { homePageFieldsNoTies } from "../../constants/consts/supportVars";
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
