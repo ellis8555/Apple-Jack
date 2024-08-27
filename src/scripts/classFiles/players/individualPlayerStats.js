@@ -1,8 +1,8 @@
-import { GameResults, GamePlayerStats } from "../../constants/masterHaxData";
-import playersMAP from "../var_lib/maps/players/playersMAP";
-import playerSeasonsMAP from "../var_lib/maps/players/playerSeasonsMAP"
-import gameTypeMAP from "../var_lib/maps/gameType/gameTypeMAP"
-import seasonCount from "../var_lib/season/seasonCount"
+import { GameResults, GamePlayerStats } from "../../../constants/masterHaxData";
+import playersMAP from "../../var_lib/maps/players/playersMAP";
+import playerSeasonsMAP from "../../var_lib/maps/players/playerSeasonsMAP"
+import gameTypeMAP from "../../var_lib/maps/gameType/gameTypeMAP"
+import seasonCount from "../../var_lib/season/seasonCount"
 
 const GameResultsLength = GameResults.length;
 

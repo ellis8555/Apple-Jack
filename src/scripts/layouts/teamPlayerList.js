@@ -3,7 +3,7 @@
   import teamsMAP from "../var_lib/maps/teams/teamsMAP.js";
   import teamsNumMAP from "../var_lib/maps/teams/teamsNumMAP.js";
   import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP.js";
-  import IndividualPlayerStats from "../classFiles/individualPlayerStats.js";
+  import IndividualPlayerStats from "../classFiles/players/individualPlayerStats.js";
   import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv.js";
   import clearTablesDiv from "../tables/clearTablesDiv.js";
   import sortGroupedStats from "../misc/sorting/sort.js";

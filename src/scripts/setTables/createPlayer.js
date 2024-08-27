@@ -1,4 +1,4 @@
-import IndividualPlayerStats from "../classFiles/individualPlayerStats";
+import IndividualPlayerStats from "../classFiles/players/individualPlayerStats";
 import { GameResults } from "../../constants/masterHaxData";
 import seasonCount from "../var_lib/season/seasonCount";
 import playersMAP from "../var_lib/maps/players/playersMAP";
