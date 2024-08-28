@@ -1,14 +1,13 @@
-
-  import { GameResults, GamePlayerStats, TeamPlayers } from "../../../constants/masterHaxData.js";
-  import teamsMAP from "../../var_lib/maps/teams/teamsMAP.js";
-  import playersMAP from "../../var_lib/maps/players/playersMAP.js";
-  import teamsNumMAP from "../../var_lib/maps/teams/teamsNumMAP.js";
-  import eachTeamObjectMAP from "../../var_lib/maps/teams/eachTeamObjectMAP.js";
-  import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv.js";
-  import clearTablesDiv from "../../tables/clearTablesDiv.js";
-  import getScoreboardDiv from "../../scoreboard/getScoreboardDiv.js";
-  import getTablesDiv from "../../tables/getTablesDiv.js";
-  import getTeamsGameResults from "../getTeamsGamesResults.js";
+import { GameResults, GamePlayerStats, TeamPlayers } from "../../../constants/masterHaxData.js";
+import teamsMAP from "../../var_lib/maps/teams/teamsMAP.js";
+import playersMAP from "../../var_lib/maps/players/playersMAP.js";
+import teamsNumMAP from "../../var_lib/maps/teams/teamsNumMAP.js";
+import eachTeamObjectMAP from "../../var_lib/maps/teams/eachTeamObjectMAP.js";
+import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv.js";
+import clearTablesDiv from "../../tables/clearTablesDiv.js";
+import getScoreboardDiv from "../../scoreboard/getScoreboardDiv.js";
+import getTablesDiv from "../../tables/getTablesDiv.js";
+import getTeamsGameResults from "../getTeamsGamesResults.js";
 import setPlayersBoxscoreTable from "./helpers/setPlayersBoxscoreTable.js"
 import singleGameStatsHeader from "./singleGameStatsComponents/singleGameStatsHeader.js";
 import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.js";
@@ -17,7 +16,6 @@ import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.j
     clearTablesDiv();
     getScoreboardDiv();
     getTablesDiv();
-    let displayGameData = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
     let gameType = e.target.dataset.gameType;
