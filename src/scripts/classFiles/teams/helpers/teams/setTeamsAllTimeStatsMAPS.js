@@ -1,255 +1,97 @@
 import TeamStats from "../../teamStats";
 import teamsMAP from "../../../../var_lib/maps/teams/teamsMAP";
+import setGamesPlayed from "./helpers/setGamesPlayed";
+import setHomeGames from "./helpers/setHomeGames";
+import setAwayGames from "./helpers/setAwayGames";
+import setHomeWins from "./helpers/setHomeWins";
+import setAwayWins from "./helpers/setAwayWins";
+import setWins from "./helpers/setWins";
+import setDraws from "./helpers/setDraws";
+import setLosses from "./helpers/setLosses";
+import setPoints from "./helpers/setPoints";
+import setHomeGoalsFor from "./helpers/setHomeGoalsFor";
+import setAwayGoalsFor from "./helpers/setAwayGoalsFor";
+import setGoalsFor from "./helpers/setGoalsFor";
+import setHomeGoalsAgainst from "./helpers/setHomeGoalsAgainst";
+import setAwayGoalsAgainst from "./helpers/setAwayGoalsAgainst";
+import setGoalsAgainst from "./helpers/setGoalsAgainst";
+import setGoalDifferential from "./helpers/setGoalDifferential";
+import setGoalsForAverage from "./helpers/setGoalsForAverage";
+import setGoalsAgainstAverage from "./helpers/setGoalsAgainstAverage";
+import setHomePossessionFor from "./helpers/setHomePossessionFor";
+import setAwayPossessionFor from "./helpers/setAwayPossessionFor";
+import setHomePossessionAgainst from "./helpers/setHomePossessionAgainst";
+import setAwayPossessionAgainst from "./helpers/setAwayPossessionAgainst";
+import setPossessionFor from "./helpers/setPossessionFor";
+import setPossessionAgainst from "./helpers/setPossessionAgainst";
+import setPossessionForAverage from "./helpers/setPossessionForAverage";
+import setPossessionAgainstAverage from "./helpers/setPossessionAgainstAverage";
 
 function setTeamsAllTimeStatsMAPS(inputArray, writeToMAP) {
+  const argsForStatMethods = {
+    writeToMAP,
+    teamsMAP,
+    TeamStats,
+    inputArray,
+    seasonNumber: undefined
+  }
+  // below are fields for tables. example games played, goals for, possession for etc...
     for (let i = 1; i <= teamsMAP.size; i++) {
       if (this.name == teamsMAP.get(i)) {
         // list team name to be associated with this MAP
         this[writeToMAP].set("Team", teamsMAP.get(i));
         // all Time Games Played
-        this[writeToMAP].set(
-          "GP",
-          TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].length
-        );
+        setGamesPlayed.call(this, i, argsForStatMethods)
         // all Time Home Games
-        this[writeToMAP].set(
-          "allTimeHomeGames",
-          TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].filter(
-            (item) => item.TeamOne == i
-          )
-        );
+        setHomeGames.call(this, i, argsForStatMethods)
         // all Time Away Games
-        this[writeToMAP].set(
-          "allTimeAwayGames",
-          TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].filter(
-            (item) => item.TeamTwo == i
-          )
-        );
+        setAwayGames.call(this, i, argsForStatMethods)
         // all Time Home Wins
-        this[writeToMAP].set(
-          "allTimeHomeWins",
-          this[writeToMAP]
-            .get("allTimeHomeGames")
-            .filter(
-              (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
-            )
-        );
+        setHomeWins.call(this, argsForStatMethods)
         // all Time Away Wins
-        this[writeToMAP].set(
-          "allTimeAwayWins",
-          this[writeToMAP]
-            .get("allTimeAwayGames")
-            .filter(
-              (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
-            )
-        );
+        setAwayWins.call(this, argsForStatMethods)
         // all Time Wins
-        this[writeToMAP].set(
-          "Wins",
-          this[writeToMAP].get("allTimeHomeWins").length +
-            this[writeToMAP].get("allTimeAwayWins").length
-        );
+        setWins.call(this, argsForStatMethods)
         // all Time Draws
-        this[writeToMAP].set(
-          "drawGames",
-          TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].filter(
-            (item) => Number(item.TeamOneScore) == Number(item.TeamTwoScore)
-          )
-        );
-        // all time Draws Length
-        this[writeToMAP].set("Draws", this[writeToMAP].get("drawGames").length);
+        setDraws.call(this, i, argsForStatMethods)
         // all Time Losses
-        this[writeToMAP].set(
-          "Losses",
-          this[writeToMAP].get("GP") -
-            (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
-        );
+        setLosses.call(this, argsForStatMethods)
         // all Time Points
-        this[writeToMAP].set(
-          "Points",
-          this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
-        );
+        setPoints.call(this, argsForStatMethods)
         // all Time Home Goals For
-        if (this[writeToMAP].get("allTimeHomeGames").length != 0) {
-          //check if any home games were even played
-          this[writeToMAP].set(
-            "allTimeHomeGoalsFor",
-            this[writeToMAP]
-              .get("allTimeHomeGames")
-              .map((item) => item.TeamOneScore)
-              .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-          );
-        } else {
-          this[writeToMAP].set("allTimeHomeGoalsFor", 0);
-        }
+        setHomeGoalsFor.call(this, argsForStatMethods)
         // all Time Away Goals For
-        if (this[writeToMAP].get("allTimeAwayGames").length != 0) {
-          //check if any away games were even played
-          this[writeToMAP].set(
-            "allTimeAwayGoalsFor",
-            this[writeToMAP]
-              .get("allTimeAwayGames")
-              .map((item) => item.TeamTwoScore)
-              .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-          );
-        } else {
-          this[writeToMAP].set("allTimeAwayGoalsFor", 0);
-        }
+        setAwayGoalsFor.call(this, argsForStatMethods)
         // all Time Goals For
-        this[writeToMAP].set(
-          "GF",
-          +this[writeToMAP].get("allTimeHomeGoalsFor") +
-            +this[writeToMAP].get("allTimeAwayGoalsFor")
-        );
+        setGoalsFor.call(this, argsForStatMethods)
         // all Time Home Goals Against
-        if (this[writeToMAP].get("allTimeHomeGames").length != 0) {
-          // check if any home games were even played
-          this[writeToMAP].set(
-            "allTimeHomeGoalsAgainst",
-            this[writeToMAP]
-              .get("allTimeHomeGames")
-              .map((item) => item.TeamTwoScore) // TeamTwo is opponent
-              .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-          );
-        } else {
-          this[writeToMAP].set("allTimeHomeGoalsAgainst", 0);
-        }
+        setHomeGoalsAgainst.call(this, argsForStatMethods)
         // all Time Away Goals Against
-        if (this[writeToMAP].get("allTimeAwayGames").length != 0) {
-          this[writeToMAP].set(
-            "allTimeAwayGoalsAgainst",
-            this[writeToMAP]
-              .get("allTimeAwayGames")
-              .map((item) => item.TeamOneScore) // TeamOne is opponent
-              .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-          );
-        } else {
-          this[writeToMAP].set("allTimeAwayGoalsAgainst", 0);
-        }
+        setAwayGoalsAgainst.call(this, argsForStatMethods)
         // all Time Goals Against
-        this[writeToMAP].set(
-          "GA",
-          +this[writeToMAP].get("allTimeHomeGoalsAgainst") +
-            +this[writeToMAP].get("allTimeAwayGoalsAgainst")
-        );
+        setGoalsAgainst.call(this, argsForStatMethods)
         // all Time Goal Differential
-        this[writeToMAP].set(
-          "GD",
-          +this[writeToMAP].get("GF") - +this[writeToMAP].get("GA")
-        );
+        setGoalDifferential.call(this, argsForStatMethods)
         // all Time Goals For Average
-        if (
-          //check for teams that did not make the playoffs to avoid "NaN" result
-          this[writeToMAP].get("GF") != 0 &&
-          this[writeToMAP].get("GA") != 0
-        ) {
-          this[writeToMAP].set(
-            "GFA",
-            (+this[writeToMAP].get("GF") / +this[writeToMAP].get("GP")).toFixed(
-              2
-            )
-          );
+        setGoalsForAverage.call(this, argsForStatMethods)
           // all Time Goals Against Average
-          this[writeToMAP].set(
-            "GAA",
-            (+this[writeToMAP].get("GA") / +this[writeToMAP].get("GP")).toFixed(
-              2
-            )
-          );
-        } else {
-          this[writeToMAP].set("GFA", 0) && this[writeToMAP].set("GAA", 0);
-        }
-        ////////////////////////
+        setGoalsAgainstAverage.call(this, argsForStatMethods)
         // all Time Home Possession For
-        if (this[writeToMAP].get("allTimeHomeGames") != 0) {
-          this[writeToMAP].set(
-            "homePossessionFor",
-            this[writeToMAP]
-              .get("allTimeHomeGames")
-              .map((item) => item.TeamOnePossession)
-              .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-          );
-        } else {
-          this[writeToMAP].set("homePossessionFor", 0);
-        }
+        setHomePossessionFor.call(this, argsForStatMethods)
         // all Time Away Possession For
-        if (this[writeToMAP].get("allTimeAwayGames") != 0) {
-          this[writeToMAP].set(
-            "awayPossessionFor",
-            this[writeToMAP]
-              .get("allTimeAwayGames")
-              .map((item) => item.TeamTwoPossession)
-              .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-          );
-        } else {
-          this[writeToMAP].set("awayPossessionFor", 0);
-        }
+        setAwayPossessionFor.call(this, argsForStatMethods)
         // all Time Home Possession Against
-        if (this[writeToMAP].get("allTimeHomeGames") != 0) {
-          this[writeToMAP].set(
-            "homePossessionAgainst",
-            this[writeToMAP]
-              .get("allTimeHomeGames")
-              .map((item) => item.TeamTwoPossession) // TeamTwo is opponent
-              .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-          );
-        } else {
-          this[writeToMAP].set("homePossessionAgainst", 0);
-        }
+        setHomePossessionAgainst.call(this, argsForStatMethods)
         // all Time Away Possession Against
-        if (this[writeToMAP].get("allTimeAwayGames") != 0) {
-          this[writeToMAP].set(
-            "awayPossessionAgainst",
-            this[writeToMAP]
-              .get("allTimeAwayGames")
-              .map((item) => item.TeamOnePossession) // TeamOne is opponent
-              .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-          );
-        } else {
-          this[writeToMAP].set("awayPossessionAgainst", 0);
-        }
+        setAwayPossessionAgainst.call(this, argsForStatMethods)
         // total Possession For
-        this[writeToMAP].set(
-          "PF",
-          +this[writeToMAP].get("homePossessionFor") +
-            +this[writeToMAP].get("awayPossessionFor")
-        );
+        setPossessionFor.call(this, argsForStatMethods)
         // total Possession Against
-        this[writeToMAP].set(
-          "PA",
-          +this[writeToMAP].get("homePossessionAgainst") +
-            +this[writeToMAP].get("awayPossessionAgainst")
-        );
+        setPossessionAgainst.call(this, argsForStatMethods)
         // possession For Average
-        if (
-          //check for teams that did not make the playoffs to avoid "NaN" result
-          this[writeToMAP].get("PF") != 0 &&
-          this[writeToMAP].get("PA") != 0
-        ) {
-          this[writeToMAP].set(
-            "PFA",
-            (+this[writeToMAP].get("PF") / +this[writeToMAP].get("GP")).toFixed(
-              2
-            )
-          );
-        } else {
-          this[writeToMAP].set("PFA", 0);
-        }
+        setPossessionForAverage.call(this, argsForStatMethods)
         // possession Against Average
-        if (
-          //check for teams that did not make the playoffs to avoid "NaN" result
-          this[writeToMAP].get("PF") != 0 &&
-          this[writeToMAP].get("PA") != 0
-        ) {
-          this[writeToMAP].set(
-            "PAA",
-            (+this[writeToMAP].get("PA") / +this[writeToMAP].get("GP")).toFixed(
-              2
-            )
-          );
-        } else {
-          this[writeToMAP].set("PAA", 0);
-        }
+        setPossessionAgainstAverage.call(this, argsForStatMethods)
       }
     }
   }
