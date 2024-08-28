@@ -14,7 +14,6 @@
     clearTablesDiv();
     getTablesDiv();
     getScoreboardDiv();
-    let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
     let gameType = e.target.dataset.gameType;
