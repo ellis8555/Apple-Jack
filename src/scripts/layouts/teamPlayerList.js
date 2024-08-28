@@ -7,7 +7,7 @@
   import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv.js";
   import clearTablesDiv from "../tables/clearTablesDiv.js";
   import sortGroupedStats from "../misc/sorting/sort.js";
-  import setTeamsPageLayout from "./setTeamsPageLayout.js";
+  import setTeamsPageLayout from "./teamsPageLayout/setTeamsPageLayout.js";
 import backButton from "../misc/backButton.js";
   
   let playersTable = [

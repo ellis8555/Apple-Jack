@@ -1,4 +1,4 @@
-import setTeamsPageLayout from "../../layouts/setTeamsPageLayout";
+import setTeamsPageLayout from "../../layouts/teamsPageLayout/setTeamsPageLayout";
 
 export default function setListenersMainNavbar() {
     let getTeamsFromNavBar = document.querySelectorAll(".three-d-Logo");

@@ -3,7 +3,7 @@ import teamsMAP from "../var_lib/maps/teams/teamsMAP";
 import setHeaderBanner from "./setHeaderBanner";
 import clearTablesDiv from "../tables/clearTablesDiv";
 import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP";
-import setTeamsPageLayout from "./setTeamsPageLayout";
+import setTeamsPageLayout from "./teamsPageLayout/setTeamsPageLayout";
 import setGifs from "./setGifs"
 import setGamesData from "./singleGameStats"
 import createTeamCssLogo from "../misc/createTeamCssLogo";
