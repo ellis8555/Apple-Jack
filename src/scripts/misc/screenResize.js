@@ -2,6 +2,12 @@ import sortTable from "./sortTable";
 import setTeamsTableBgColor from "./setTeamsTableBgColor";
 
 export default function screenResize() {
+// if on boxscore page that has players table just return and exit 
+let boxscorePlayerStats = document.getElementById("boxscorePlayerStats");
+if (boxscorePlayerStats) {
+  return;
+}
+
   // insert fetch data function onto <TD> elements in mobile view
   let screenSize = window.innerWidth;
   let teamPlayersDataSource = document.getElementById("playerStatsBackButton");
