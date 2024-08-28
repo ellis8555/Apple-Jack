@@ -103,6 +103,10 @@
   .gifsAwayTeam > img {
     transform: scale(0.70, 0.70);
   }
+
+  .gifContainer  > img {
+    width: 95%;
+  }
   /*end gifs page*/
 
   /* boxscore page */

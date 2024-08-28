@@ -320,6 +320,10 @@ table td:first-child {
   grid-area: gifsAwayTeam;
 }
 
+.gifContainer  > img {
+  width: 75%;
+}
+
 /*end gifs page*/
 
 /* classes for boxscore page*/
