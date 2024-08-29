@@ -8,7 +8,7 @@ import clearTablesDiv from "../../tables/clearTablesDiv.js";
 import getScoreboardDiv from "../../scoreboard/getScoreboardDiv.js";
 import getTablesDiv from "../../tables/getTablesDiv.js";
 import getTeamsGameResults from "../getTeamsGamesResults.js";
-import setPlayersBoxscoreTable from "./helpers/setPlayersBoxscoreTable.js"
+import setPlayersBoxscoreTable from "./singleGameStatsComponents/setPlayersBoxscoreTable.js"
 import singleGameStatsHeader from "./singleGameStatsComponents/singleGameStatsHeader.js";
 import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.js";
   export default function setGamesData(e) {
