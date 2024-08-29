@@ -1,5 +1,6 @@
 import sortGroupedStats from "../../../misc/sorting/sort";
 import playersMAP from "../../../var_lib/maps/players/playersMAP";
+import throttle from "../../../misc/throttle";
 
 let playersTable = [
     "Name",
@@ -115,28 +116,7 @@ function addEventListeners() {
 
   addEventListeners();
 
-// Throttle function to limit how often a function can be called
-function throttle(func, limit) {
-  let lastFunc;
-  let lastRan;
-  return function(...args) {
-    const context = this;
-    if (!lastRan) {
-      func.apply(context, args);
-      lastRan = Date.now();
-    } else {
-      clearTimeout(lastFunc);
-      lastFunc = setTimeout(() => {
-        if ((Date.now() - lastRan) >= limit) {
-          func.apply(context, args);
-          lastRan = Date.now();
-        }
-      }, limit - (Date.now() - lastRan));
-    }
-  };
-}
-
-// Your resize listener function
+// resize event method
 function handleResize() {
   let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
   if (playerStatsContainer) {
