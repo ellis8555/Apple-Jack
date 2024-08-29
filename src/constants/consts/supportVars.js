@@ -137,3 +137,14 @@ export const playersTable = [
   "ShotsOnGoal",
   "OwnGoals",
 ];
+// set fields for players table within the single game boxscore page
+export const PLAYERS_TABLE = [
+  "Name",
+  "Goals",
+  "Assists",
+  "Points",
+  "Kicks",
+  "Passes",
+  "ShotsOnGoal",
+  "OwnGoals",
+];
