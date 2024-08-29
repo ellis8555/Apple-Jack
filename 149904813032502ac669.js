@@ -691,6 +691,17 @@ for (let i = 1; i <= teams_teamsMAP.size; i++) {
   }
 
 /* harmony default export */ const teams_teamsSeasonsMAP = (teamsSeasonsMAP);
+;// CONCATENATED MODULE: ./src/scripts/var_lib/season/seasonCount.js
+//get count of how many seasons in order to create arrays for each season
+
+  
+
+  const seasonCount = Array.from(
+    //get count of how many seasons in order to create arrays for each season
+    new Set(TeamPlayers.map((item) => item.SeasonNumber))
+  );
+
+  /* harmony default export */ const season_seasonCount = (seasonCount);
 ;// CONCATENATED MODULE: ./src/scripts/var_lib/maps/gameType/gameTypeMAP.js
 // map a list of season modes by Number to name (Season or Playoff)
 
@@ -705,17 +716,948 @@ for (let i = 0; i < GAME_TYPE_LENGTH; i++) {
   }
 
 /* harmony default export */ const gameType_gameTypeMAP = (gameTypeMAP);
-;// CONCATENATED MODULE: ./src/scripts/var_lib/season/seasonCount.js
-//get count of how many seasons in order to create arrays for each season
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/setTeamsAllTimeStats.js
 
-  
 
-  const seasonCount = Array.from(
-    //get count of how many seasons in order to create arrays for each season
-    new Set(TeamPlayers.map((item) => item.SeasonNumber))
-  );
 
-  /* harmony default export */ const season_seasonCount = (seasonCount);
+
+
+
+function setTeamsAllTimeStats(allTimeArray, allTimeSeasonArray, allTimePlayoffArray) {
+  GameResults.forEach((item) => {
+    if (
+      teams_teamsMAP.get(Number(item.TeamOne)) == this.name ||
+      teams_teamsMAP.get(Number(item.TeamTwo)) == this.name
+    ) {
+      this[allTimeArray].push(item);
+    }
+  });
+
+  this[allTimeArray].forEach((item) => {
+    for (let i = 0; i < GAME_RESULTS_LENGTH; i++) {
+      if (
+        item.GameID == GameResults[i].GameID &&
+        gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Season"
+      )
+        this[allTimeSeasonArray].push(item);
+      if (
+        item.GameID == GameResults[i].GameID &&
+        gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Playoff"
+      )
+        this[allTimePlayoffArray].push(item);
+    }
+  });
+}
+
+/* harmony default export */ const teams_setTeamsAllTimeStats = (setTeamsAllTimeStats);
+
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setGamesPlayed.js
+function setGamesPlayed(i, {writeToMAP, teamsMAP, TeamStats, inputArray, seasonNumber}){
+    let value;
+    if(seasonNumber){
+      value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray][0].length
+    } else {
+      value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].length;
+    }
+
+  this[writeToMAP].set("GP", value);
+}
+
+/* harmony default export */ const helpers_setGamesPlayed = (setGamesPlayed);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomeGames.js
+function setHomeGames(i, {seasonNumber, writeToMAP, teamsMAP, TeamStats, inputArray}){
+  let value;
+  if(seasonNumber){
+    value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray][0].filter(
+      (item) => item.TeamOne == i
+    )
+  } else {
+    value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].filter(
+      (item) => item.TeamOne == i
+    )
+  }
+
+    const key = seasonNumber ? `season${seasonNumber}HomeGames` : `allTimeHomeGames`;
+    this[writeToMAP].set(
+        key,
+        value
+      );
+}
+
+/* harmony default export */ const helpers_setHomeGames = (setHomeGames);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayGames.js
+function setAwayGames(i, {seasonNumber, writeToMAP, teamsMAP, TeamStats, inputArray}){
+  let value;
+  if(seasonNumber){
+    value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray][0].filter(
+      (item) => item.TeamTwo == i
+    )
+  } else {
+    value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].filter(
+      (item) => item.TeamTwo == i
+    )
+  }
+
+    const key = seasonNumber ? `season${seasonNumber}AwayGames` : `allTimeAwayGames`;
+
+    this[writeToMAP].set(
+        key,
+        value
+      );
+}
+
+/* harmony default export */ const helpers_setAwayGames = (setAwayGames);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomeWins.js
+function setHomeWins({seasonNumber, writeToMAP}){
+const key = seasonNumber ? `season${seasonNumber}HomeWins` : `allTimeHomeWins`;
+const getMapName= seasonNumber ? `season${seasonNumber}HomeGames` : `allTimeHomeGames`;
+
+    this[writeToMAP].set(
+        key,
+        this[writeToMAP]
+        .get(getMapName)
+        .filter(
+          (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
+        )
+      );
+}
+
+/* harmony default export */ const helpers_setHomeWins = (setHomeWins);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayWins.js
+function setAwayWins({seasonNumber, writeToMAP}){
+    const key = seasonNumber ? `season${seasonNumber}AwayWins` : `allTimeAwayWins`;
+    const getMapName= seasonNumber ? `season${seasonNumber}AwayGames` : `allTimeAwayGames`;
+    
+        this[writeToMAP].set(
+            key,
+            this[writeToMAP]
+            .get(getMapName)
+            .filter(
+              (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
+            )
+          );
+    }
+
+/* harmony default export */ const helpers_setAwayWins = (setAwayWins);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setWins.js
+function setWins({seasonNumber, writeToMAP}){
+    let homeWins;
+    let awayWins
+    if(seasonNumber){
+        homeWins = `season${seasonNumber}HomeWins`;
+        awayWins = `season${seasonNumber}AwayWins`;
+    } else {
+        homeWins = "allTimeHomeWins";
+        awayWins = "allTimeAwayWins";
+    }
+    this[writeToMAP].set(
+        "Wins",
+        this[writeToMAP].get(homeWins).length +
+          this[writeToMAP].get(awayWins).length
+      );
+}
+
+/* harmony default export */ const helpers_setWins = (setWins);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setDraws.js
+function setDraws(i, {seasonNumber, writeToMAP, TeamStats, teamsMAP, inputArray}){
+    let value;
+    if(seasonNumber){
+      value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray][0].filter(
+        (item) => Number(item.TeamOneScore) == Number(item.TeamTwoScore)
+      )
+    } else {
+      value = TeamStats.allTeamStats[teamsMAP.get(i)][inputArray].filter(
+        (item) => Number(item.TeamOneScore) == Number(item.TeamTwoScore)
+      )
+    }
+    this[writeToMAP].set(
+        "drawGames",
+        value
+      );
+      // all time Draws Length
+      this[writeToMAP].set("Draws", this[writeToMAP].get("drawGames").length);
+}
+
+/* harmony default export */ const helpers_setDraws = (setDraws);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setLosses.js
+function setLosses({seasonNumber, writeToMAP}, doesSeasonHaveTieGames = false, ){
+  // first if check looks for season stats as opposed to all time stats
+  if(seasonNumber){
+    if(doesSeasonHaveTieGames){
+                // season WITH ties
+                this[writeToMAP].set(
+                  "Losses",
+                  this[writeToMAP].get("GP") -
+                    (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
+                );
+    } else {
+                // season with NO ties
+                this[writeToMAP].set(
+                  "Losses",
+                  this[writeToMAP].get("GP") -
+                    (this[writeToMAP].get("Wins") + this[writeToMAP].get("OTL"))
+                );
+    }
+  } else {
+    // set all time losses for all time stats
+          this[writeToMAP].set(
+              "Losses",
+              this[writeToMAP].get("GP") -
+                (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
+            );
+  }
+}
+
+/* harmony default export */ const helpers_setLosses = (setLosses);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setPoints.js
+function setPoints({seasonNumber, writeToMAP}, doesSeasonHaveTieGames = false){
+    // first if check looks for season stats as opposed to all time stats
+    if(seasonNumber){
+        if(doesSeasonHaveTieGames){
+            // with tie games
+            this[writeToMAP].set(
+                "Points",
+                this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
+              );
+        } else {
+            // without tie games
+            this[writeToMAP].set(
+                "Points",
+                (this[writeToMAP].get("Wins") - this[writeToMAP].get("OTW")) * 3 +
+                  this[writeToMAP].get("OTW") * 2 +
+                  this[writeToMAP].get("OTL")
+              );
+        }
+    } else {
+        this[writeToMAP].set(
+            "Points",
+            this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
+          );
+    }
+}
+
+/* harmony default export */ const helpers_setPoints = (setPoints);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomeGoalsFor.js
+function setHomeGoalsFor({seasonNumber, writeToMAP}){
+    // set for each season
+    if(seasonNumber){
+      if (
+        //check if any home games were even played
+        this[writeToMAP].get(`season${seasonNumber}HomeGames`).length != 0
+      ) {
+        this[writeToMAP].set(
+          `season${seasonNumber}HomeGoalsFor`,
+          this[writeToMAP]
+            .get(`season${seasonNumber}HomeGames`)
+            .map((item) => item.TeamOneScore)
+            .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+        );
+      } else {
+        this[writeToMAP].set(`season${seasonNumber}HomeGoalsFor`, 0);
+      }
+      // exit the method to avoid all time stats
+        return;
+    }
+    // set all time stats
+    //check if any home games were even played
+    if (this[writeToMAP].get("allTimeHomeGames").length != 0) {
+        this[writeToMAP].set(
+          "allTimeHomeGoalsFor",
+          this[writeToMAP]
+            .get("allTimeHomeGames")
+            .map((item) => item.TeamOneScore)
+            .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+        );
+      } else {
+        this[writeToMAP].set("allTimeHomeGoalsFor", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setHomeGoalsFor = (setHomeGoalsFor);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayGoalsFor.js
+function setAwayGoalsFor({seasonNumber, writeToMAP}){
+    // set for each season
+    if(seasonNumber){
+        if (
+            this[writeToMAP].get(`season${seasonNumber}AwayGames`).length != 0
+          ) {
+            //check if any away games were even played
+            this[writeToMAP].set(
+              `season${seasonNumber}AwayGoalsFor`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}AwayGames`)
+                .map((item) => item.TeamTwoScore)
+                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}AwayGoalsFor`, 0);
+          }
+        // exit the method to avoid all time stats
+        return;
+    }
+    // set all time stats
+    //check if any home games were even played
+    if (this[writeToMAP].get("allTimeAwayGames").length != 0) {
+        //check if any away games were even played
+        this[writeToMAP].set(
+          "allTimeAwayGoalsFor",
+          this[writeToMAP]
+            .get("allTimeAwayGames")
+            .map((item) => item.TeamTwoScore)
+            .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+        );
+      } else {
+        this[writeToMAP].set("allTimeAwayGoalsFor", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setAwayGoalsFor = (setAwayGoalsFor);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setGoalsFor.js
+function setGoalsFor({seasonNumber, writeToMAP}){
+    // check for data per season
+    if(seasonNumber){
+        this[writeToMAP].set(
+            "GF",
+            +this[writeToMAP].get(`season${seasonNumber}HomeGoalsFor`) +
+              +this[writeToMAP].get(`season${seasonNumber}AwayGoalsFor`)
+          );
+        return;
+    }
+
+    // this for all time goals for
+    this[writeToMAP].set(
+        "GF",
+        +this[writeToMAP].get("allTimeHomeGoalsFor") +
+          +this[writeToMAP].get("allTimeAwayGoalsFor")
+      );
+}
+
+/* harmony default export */ const helpers_setGoalsFor = (setGoalsFor);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomeGoalsAgainst.js
+function setHomeGoalsAgainst({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        if (
+            this[writeToMAP].get(`season${seasonNumber}HomeGames`).length != 0
+          ) {
+            // check if any home games were even played
+            this[writeToMAP].set(
+              `season${seasonNumber}HomeGoalsAgainst`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}HomeGames`)
+                .map((item) => item.TeamTwoScore) // TeamTwo is opponent
+                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}HomeGoalsAgainst`, 0);
+          }
+        return;
+    }
+
+    if (this[writeToMAP].get("allTimeHomeGames").length != 0) {
+        // check if any home games were even played
+        this[writeToMAP].set(
+          "allTimeHomeGoalsAgainst",
+          this[writeToMAP]
+            .get("allTimeHomeGames")
+            .map((item) => item.TeamTwoScore) // TeamTwo is opponent
+            .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+        );
+      } else {
+        this[writeToMAP].set("allTimeHomeGoalsAgainst", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setHomeGoalsAgainst = (setHomeGoalsAgainst);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayGoalsAgainst.js
+function setAwayGoalsAgainst({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        if (
+            this[writeToMAP].get(`season${seasonNumber}AwayGames`).length != 0
+          ) {
+            this[writeToMAP].set(
+              `season${seasonNumber}AwayGoalsAgainst`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}AwayGames`)
+                .map((item) => item.TeamOneScore) // TeamOne is opponent
+                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}AwayGoalsAgainst`, 0);
+          }
+        return;
+    }
+
+    if (this[writeToMAP].get("allTimeAwayGames").length != 0) {
+        this[writeToMAP].set(
+          "allTimeAwayGoalsAgainst",
+          this[writeToMAP]
+            .get("allTimeAwayGames")
+            .map((item) => item.TeamOneScore) // TeamOne is opponent
+            .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
+        );
+      } else {
+        this[writeToMAP].set("allTimeAwayGoalsAgainst", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setAwayGoalsAgainst = (setAwayGoalsAgainst);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setGoalsAgainst.js
+function setGoalsAgainst({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        this[writeToMAP].set(
+            "GA",
+            +this[writeToMAP].get(`season${seasonNumber}HomeGoalsAgainst`) +
+              +this[writeToMAP].get(`season${seasonNumber}AwayGoalsAgainst`)
+          );
+        return;
+    }
+
+    this[writeToMAP].set(
+        "GA",
+        +this[writeToMAP].get("allTimeHomeGoalsAgainst") +
+          +this[writeToMAP].get("allTimeAwayGoalsAgainst")
+      );
+}
+
+/* harmony default export */ const helpers_setGoalsAgainst = (setGoalsAgainst);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setGoalDifferential.js
+function setGoalDifferential({writeToMAP}){
+
+    this[writeToMAP].set(
+        "GD",
+        +this[writeToMAP].get("GF") - +this[writeToMAP].get("GA")
+      );
+}
+
+/* harmony default export */ const helpers_setGoalDifferential = (setGoalDifferential);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setGoalsForAverage.js
+function setGoalsForAverage({writeToMAP}){
+  if (
+    //check for teams that did not make the playoffs to avoid "NaN" result
+    this[writeToMAP].get("GF") != 0 &&
+    this[writeToMAP].get("GA") != 0
+  ){
+    this[writeToMAP].set(
+      "GFA",
+      (+this[writeToMAP].get("GF") / +this[writeToMAP].get("GP")).toFixed(
+        2
+      )
+    );
+  } else {
+    this[writeToMAP].set("GFA", 0) && this[writeToMAP].set("GAA", 0);
+  }
+}
+
+/* harmony default export */ const helpers_setGoalsForAverage = (setGoalsForAverage);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setGoalsAgainstAverage.js
+function setGoalsAgainstAverage({writeToMAP}){
+  if (
+    //check for teams that did not make the playoffs to avoid "NaN" result
+    this[writeToMAP].get("GF") != 0 &&
+    this[writeToMAP].get("GA") != 0
+  ) {
+    this[writeToMAP].set(
+        "GAA",
+        (+this[writeToMAP].get("GA") / +this[writeToMAP].get("GP")).toFixed(
+          2
+        )
+      );
+  } else {
+    this[writeToMAP].set("GFA", 0) && this[writeToMAP].set("GAA", 0);
+  }
+}
+
+/* harmony default export */ const helpers_setGoalsAgainstAverage = (setGoalsAgainstAverage);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomePossessionFor.js
+function setHomePossessionFor({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        if (this[writeToMAP].get(`season${seasonNumber}HomeGames`) != 0) {
+            this[writeToMAP].set(
+              `season${seasonNumber}homePossessionFor`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}HomeGames`)
+                .map((item) => item.TeamOnePossession)
+                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}homePossessionFor`, 0);
+          }
+        return;
+    }
+
+    if (this[writeToMAP].get("allTimeHomeGames") != 0) {
+        this[writeToMAP].set(
+          "homePossessionFor",
+          this[writeToMAP]
+            .get("allTimeHomeGames")
+            .map((item) => item.TeamOnePossession)
+            .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+        );
+      } else {
+        this[writeToMAP].set("homePossessionFor", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setHomePossessionFor = (setHomePossessionFor);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayPossessionFor.js
+function setAwayPossessionFor({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        if (this[writeToMAP].get(`season${seasonNumber}AwayGames`) != 0) {
+            this[writeToMAP].set(
+              `season${seasonNumber}awayPossessionFor`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}AwayGames`)
+                .map((item) => item.TeamTwoPossession)
+                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}awayPossessionFor`, 0);
+          }
+        return;
+    }
+
+    if (this[writeToMAP].get("allTimeAwayGames") != 0) {
+        this[writeToMAP].set(
+          "awayPossessionFor",
+          this[writeToMAP]
+            .get("allTimeAwayGames")
+            .map((item) => item.TeamTwoPossession)
+            .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+        );
+      } else {
+        this[writeToMAP].set("awayPossessionFor", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setAwayPossessionFor = (setAwayPossessionFor);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomePossessionAgainst.js
+function setHomePossessionAgainst({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        if (this[writeToMAP].get(`season${seasonNumber}HomeGames`) != 0) {
+            this[writeToMAP].set(
+              `season${seasonNumber}homePossessionAgainst`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}HomeGames`)
+                .map((item) => item.TeamTwoPossession) // TeamTwo is opponent
+                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}homePossessionAgainst`, 0);
+          }
+        return;
+    }
+
+    if (this[writeToMAP].get("allTimeHomeGames") != 0) {
+        this[writeToMAP].set(
+          "homePossessionAgainst",
+          this[writeToMAP]
+            .get("allTimeHomeGames")
+            .map((item) => item.TeamTwoPossession) // TeamTwo is opponent
+            .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+        );
+      } else {
+        this[writeToMAP].set("homePossessionAgainst", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setHomePossessionAgainst = (setHomePossessionAgainst);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayPossessionAgainst.js
+function setAwayPossessionAgainst({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        if (this[writeToMAP].get(`season${seasonNumber}AwayGames`) != 0) {
+            this[writeToMAP].set(
+              `season${seasonNumber}awayPossessionAgainst`,
+              this[writeToMAP]
+                .get(`season${seasonNumber}AwayGames`)
+                .map((item) => item.TeamOnePossession) // TeamOne is opponent
+                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+            );
+          } else {
+            this[writeToMAP].set(`season${seasonNumber}awayPossessionAgainst`, 0);
+          }
+        return;
+    }
+
+    if (this[writeToMAP].get("allTimeAwayGames") != 0) {
+        this[writeToMAP].set(
+          "awayPossessionAgainst",
+          this[writeToMAP]
+            .get("allTimeAwayGames")
+            .map((item) => item.TeamOnePossession) // TeamOne is opponent
+            .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
+        );
+      } else {
+        this[writeToMAP].set("awayPossessionAgainst", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setAwayPossessionAgainst = (setAwayPossessionAgainst);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setPossessionFor.js
+function setPossessionFor({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        this[writeToMAP].set(
+            "PF",
+            +this[writeToMAP].get(`season${seasonNumber}homePossessionFor`) +
+              +this[writeToMAP].get(`season${seasonNumber}awayPossessionFor`)
+          );
+        return;
+    }
+
+    this[writeToMAP].set(
+        "PF",
+        +this[writeToMAP].get("homePossessionFor") +
+          +this[writeToMAP].get("awayPossessionFor")
+      );
+}
+
+/* harmony default export */ const helpers_setPossessionFor = (setPossessionFor);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setPossessionAgainst.js
+function setPossessionAgainst({seasonNumber, writeToMAP}){
+    if(seasonNumber){
+        this[writeToMAP].set(
+            "PA",
+            +this[writeToMAP].get(`season${seasonNumber}homePossessionAgainst`) +
+              +this[writeToMAP].get(`season${seasonNumber}awayPossessionAgainst`)
+          );
+        return;
+    }
+
+    this[writeToMAP].set(
+        "PA",
+        +this[writeToMAP].get("homePossessionAgainst") +
+          +this[writeToMAP].get("awayPossessionAgainst")
+      );
+}
+
+/* harmony default export */ const helpers_setPossessionAgainst = (setPossessionAgainst);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setPossessionForAverage.js
+function setPossessionForAverage({writeToMAP}){
+    if (
+        //check for teams that did not make the playoffs to avoid "NaN" result
+        this[writeToMAP].get("PF") != 0 &&
+        this[writeToMAP].get("PA") != 0
+      ) {
+        this[writeToMAP].set(
+          "PFA",
+          (+this[writeToMAP].get("PF") / +this[writeToMAP].get("GP")).toFixed(
+            2
+          )
+        );
+      } else {
+        this[writeToMAP].set("PFA", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setPossessionForAverage = (setPossessionForAverage);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setPossessionAgainstAverage.js
+function setPossessionAgainstAverage({writeToMAP}){
+    if (
+        //check for teams that did not make the playoffs to avoid "NaN" result
+        this[writeToMAP].get("PF") != 0 &&
+        this[writeToMAP].get("PA") != 0
+      ) {
+        this[writeToMAP].set(
+          "PAA",
+          (+this[writeToMAP].get("PA") / +this[writeToMAP].get("GP")).toFixed(
+            2
+          )
+        );
+      } else {
+        this[writeToMAP].set("PAA", 0);
+      }
+}
+
+/* harmony default export */ const helpers_setPossessionAgainstAverage = (setPossessionAgainstAverage);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/setTeamsAllTimeStatsMAPS.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function setTeamsAllTimeStatsMAPS(inputArray, writeToMAP) {
+  const argsForStatMethods = {
+    writeToMAP,
+    teamsMAP: teams_teamsMAP,
+    TeamStats: teamStats,
+    inputArray,
+    seasonNumber: undefined
+  }
+  // below are fields for tables. example games played, goals for, possession for etc...
+    for (let i = 1; i <= teams_teamsMAP.size; i++) {
+      if (this.name == teams_teamsMAP.get(i)) {
+        // list team name to be associated with this MAP
+        this[writeToMAP].set("Team", teams_teamsMAP.get(i));
+        // all Time Games Played
+        helpers_setGamesPlayed.call(this, i, argsForStatMethods)
+        // all Time Home Games
+        helpers_setHomeGames.call(this, i, argsForStatMethods)
+        // all Time Away Games
+        helpers_setAwayGames.call(this, i, argsForStatMethods)
+        // all Time Home Wins
+        helpers_setHomeWins.call(this, argsForStatMethods)
+        // all Time Away Wins
+        helpers_setAwayWins.call(this, argsForStatMethods)
+        // all Time Wins
+        helpers_setWins.call(this, argsForStatMethods)
+        // all Time Draws
+        helpers_setDraws.call(this, i, argsForStatMethods)
+        // all Time Losses
+        helpers_setLosses.call(this, argsForStatMethods)
+        // all Time Points
+        helpers_setPoints.call(this, argsForStatMethods)
+        // all Time Home Goals For
+        helpers_setHomeGoalsFor.call(this, argsForStatMethods)
+        // all Time Away Goals For
+        helpers_setAwayGoalsFor.call(this, argsForStatMethods)
+        // all Time Goals For
+        helpers_setGoalsFor.call(this, argsForStatMethods)
+        // all Time Home Goals Against
+        helpers_setHomeGoalsAgainst.call(this, argsForStatMethods)
+        // all Time Away Goals Against
+        helpers_setAwayGoalsAgainst.call(this, argsForStatMethods)
+        // all Time Goals Against
+        helpers_setGoalsAgainst.call(this, argsForStatMethods)
+        // all Time Goal Differential
+        helpers_setGoalDifferential.call(this, argsForStatMethods)
+        // all Time Goals For Average
+        helpers_setGoalsForAverage.call(this, argsForStatMethods)
+          // all Time Goals Against Average
+        helpers_setGoalsAgainstAverage.call(this, argsForStatMethods)
+        // all Time Home Possession For
+        helpers_setHomePossessionFor.call(this, argsForStatMethods)
+        // all Time Away Possession For
+        helpers_setAwayPossessionFor.call(this, argsForStatMethods)
+        // all Time Home Possession Against
+        helpers_setHomePossessionAgainst.call(this, argsForStatMethods)
+        // all Time Away Possession Against
+        helpers_setAwayPossessionAgainst.call(this, argsForStatMethods)
+        // total Possession For
+        helpers_setPossessionFor.call(this, argsForStatMethods)
+        // total Possession Against
+        helpers_setPossessionAgainst.call(this, argsForStatMethods)
+        // possession For Average
+        helpers_setPossessionForAverage.call(this, argsForStatMethods)
+        // possession Against Average
+        helpers_setPossessionAgainstAverage.call(this, argsForStatMethods)
+      }
+    }
+  }
+
+  /* harmony default export */ const teams_setTeamsAllTimeStatsMAPS = (setTeamsAllTimeStatsMAPS);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setOvertimeWins.js
+function setOvertimeWins({seasonNumber, writeToMAP}){
+    this[writeToMAP].set(
+        "OTW",
+        this[writeToMAP]
+          .get(`season${seasonNumber}HomeWins`)
+          .filter((item) => item.ExtraTime == "Yes").length +
+          this[writeToMAP]
+            .get(`season${seasonNumber}AwayWins`)
+            .filter((item) => item.ExtraTime == "Yes").length
+      );
+}
+
+/* harmony default export */ const helpers_setOvertimeWins = (setOvertimeWins);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setHomeLosses.js
+function setHomeLosses({seasonNumber, writeToMAP}){
+    this[writeToMAP].set(
+        `season${seasonNumber}HomeLosses`,
+        this[writeToMAP]
+          .get(`season${seasonNumber}HomeGames`)
+          .filter(
+            (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
+          )
+      );
+    }
+
+/* harmony default export */ const helpers_setHomeLosses = (setHomeLosses);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setAwayLosses.js
+function setAwayLosses({seasonNumber, writeToMAP}){
+    this[writeToMAP].set(
+        `season${seasonNumber}AwayLosses`,
+        this[writeToMAP]
+          .get(`season${seasonNumber}AwayGames`)
+          .filter(
+            (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
+          )
+      );
+}
+
+/* harmony default export */ const helpers_setAwayLosses = (setAwayLosses);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/helpers/setOvertimeLosses.js
+function setOvertimeLosses({seasonNumber, writeToMAP}){
+    this[writeToMAP].set(
+        "OTL",
+        this[writeToMAP]
+          .get(`season${seasonNumber}HomeLosses`)
+          .filter((item) => item.ExtraTime == "Yes").length +
+          this[writeToMAP]
+            .get(`season${seasonNumber}AwayLosses`)
+            .filter((item) => item.ExtraTime == "Yes").length
+      );
+}
+
+/* harmony default export */ const helpers_setOvertimeLosses = (setOvertimeLosses);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/helpers/teams/setTeamsIndividualSeasonsStatsMAPS.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function setTeamsIndividualSeasonsStatsMAPS(
+    inputArray,
+    writeToMAP,
+    seasonNumber = currentSeason
+  ) {
+    const argsForStatMethods = {
+      writeToMAP,
+      teamsMAP: teams_teamsMAP,
+      TeamStats: teamStats,
+      inputArray,
+      seasonNumber
+    }
+    // mode argument is either "combined season and playoffs", "season", "playoff"
+    for (let i = 1; i <= teams_teamsMAP.size; i++) {
+      if (this.name == teams_teamsMAP.get(i)) {
+        // list team name to be associated with this MAP
+        this[writeToMAP].set("Team", teams_teamsMAP.get(i));
+        // this seasons Games Played
+        helpers_setGamesPlayed.call(this, i, argsForStatMethods)
+        // this seasons Home Games
+        helpers_setHomeGames.call(this, i, argsForStatMethods)
+        // this seasons Away Games
+        helpers_setAwayGames.call(this, i, argsForStatMethods)
+        // this seasons Home Wins
+        helpers_setHomeWins.call(this, argsForStatMethods)
+        // this seasons Away Wins
+        helpers_setAwayWins.call(this, argsForStatMethods)
+        // this seasons OT wins
+        if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
+          //season withOUT ties
+          helpers_setOvertimeWins.call(this, argsForStatMethods)
+        }
+        // this seasons Wins
+        helpers_setWins.call(this, argsForStatMethods)
+        // this seasons Draw games
+        helpers_setDraws.call(this, i, argsForStatMethods)
+        // this seasons home Losses
+        helpers_setHomeLosses.call(this, argsForStatMethods)
+        // this seasons away Losses
+        helpers_setAwayLosses.call(this, argsForStatMethods)
+        // this seasons OT Losses
+        if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
+          // season withOUT ties
+          helpers_setOvertimeLosses.call(this, argsForStatMethods)
+        }
+        // this seasons Losses
+        if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
+          // season with NO ties
+          helpers_setLosses.call(this, {seasonNumber, writeToMAP}, false)
+        } else {
+          // season WITH ties
+          helpers_setLosses.call(this, {seasonNumber, writeToMAP}, true)
+        }
+
+        // this seasons Points
+        if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
+          // season withOUT ties
+          helpers_setPoints.call(this, argsForStatMethods, false)
+        } else {
+          // season WITH ties
+          helpers_setPoints.call(this, argsForStatMethods, true)
+        }
+        // this seasons Home Goals For
+        helpers_setHomeGoalsFor.call(this, argsForStatMethods)
+        // this seasons Away Goals For
+        helpers_setAwayGoalsFor.call(this, argsForStatMethods)
+        // this seasons Goals For
+        helpers_setGoalsFor.call(this, argsForStatMethods)
+        // this seasons Home Goals Against
+        helpers_setHomeGoalsAgainst.call(this, argsForStatMethods)
+        // this seasons Away Goals Against
+        helpers_setAwayGoalsAgainst.call(this, argsForStatMethods)
+        // this seasons Goals Against
+        helpers_setGoalsAgainst.call(this, argsForStatMethods)
+        // this seasons Goal Differential
+        helpers_setGoalDifferential.call(this, argsForStatMethods)
+        // this seasons Goals For Average
+          helpers_setGoalsForAverage.call(this, argsForStatMethods)
+          // this seasons Goals Against Average
+          helpers_setGoalsAgainstAverage.call(this, argsForStatMethods)
+        // this seasons Home Possession For
+        helpers_setHomePossessionFor.call(this, argsForStatMethods)
+        // this seasons Away Possession For
+        helpers_setAwayPossessionFor.call(this, argsForStatMethods)
+        // this seasons Home Possession Against
+        helpers_setHomePossessionAgainst.call(this, argsForStatMethods)
+        // this seasons Away Possession Against
+        helpers_setAwayPossessionAgainst.call(this, argsForStatMethods)
+        // this seasons Possession For
+        helpers_setPossessionFor.call(this, argsForStatMethods)
+        // this seasons Possession Against
+        helpers_setPossessionAgainst.call(this, argsForStatMethods)
+        // this seasons possession For Average
+        helpers_setPossessionForAverage.call(this, argsForStatMethods)
+        // this seasons possession Against Average
+        helpers_setPossessionAgainstAverage.call(this, argsForStatMethods)
+      }
+    }
+}
+
+/* harmony default export */ const teams_setTeamsIndividualSeasonsStatsMAPS = (setTeamsIndividualSeasonsStatsMAPS);
 ;// CONCATENATED MODULE: ./src/constants/consts/supportVars.js
 // for teams class
 
@@ -856,7 +1798,20 @@ const playersTable = [
   "ShotsOnGoal",
   "OwnGoals",
 ];
-;// CONCATENATED MODULE: ./src/scripts/classFiles/teamStats.js
+// set fields for players table within the single game boxscore page
+const PLAYERS_TABLE = [
+  "Name",
+  "Goals",
+  "Assists",
+  "Points",
+  "Kicks",
+  "Passes",
+  "ShotsOnGoal",
+  "OwnGoals",
+];
+
+;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/teamStats.js
+
 
 
 
@@ -922,616 +1877,26 @@ class TeamStats {
   
     setTeamsAllTimeStats(allTimeArray, allTimeSeasonArray, allTimePlayoffArray) {
       // fills allTimeStats[]/seasonStats[]/playoff[]
-      GameResults.forEach((item) => {
-        if (
-          teams_teamsMAP.get(Number(item.TeamOne)) == this.name ||
-          teams_teamsMAP.get(Number(item.TeamTwo)) == this.name
-        ) {
-          this[allTimeArray].push(item);
-        }
-      });
-  
-      this[allTimeArray].forEach((item) => {
-        for (let i = 0; i < GAME_RESULTS_LENGTH; i++) {
-          // GAME_RESULTS_LENGTH
-          if (
-            item.GameID == GameResults[i].GameID &&
-            gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Season"
-          )
-            this[allTimeSeasonArray].push(item);
-          if (
-            item.GameID == GameResults[i].GameID &&
-            gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Playoff"
-          )
-            this[allTimePlayoffArray].push(item);
-        }
-      });
+        teams_setTeamsAllTimeStats.call(this, allTimeArray, allTimeSeasonArray, allTimePlayoffArray);
     }
   
     // set teams all time stats MAPS
   
     setTeamsAllTimeStatsMAPS(inputArray, writeToMAP) {
-      for (let i = 1; i <= teams_teamsMAP.size; i++) {
-        if (this.name == teams_teamsMAP.get(i)) {
-          // list team name to be associated with this MAP
-          this[writeToMAP].set("Team", teams_teamsMAP.get(i));
-          // all Time Games Played
-          this[writeToMAP].set(
-            "GP",
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray].length
-          );
-          // all Time Home Games
-          this[writeToMAP].set(
-            "allTimeHomeGames",
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray].filter(
-              (item) => item.TeamOne == i
-            )
-          );
-          // all Time Away Games
-          this[writeToMAP].set(
-            "allTimeAwayGames",
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray].filter(
-              (item) => item.TeamTwo == i
-            )
-          );
-          // all Time Home Wins
-          this[writeToMAP].set(
-            "allTimeHomeWins",
-            this[writeToMAP]
-              .get("allTimeHomeGames")
-              .filter(
-                (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
-              )
-          );
-          // all Time Away Wins
-          this[writeToMAP].set(
-            "allTimeAwayWins",
-            this[writeToMAP]
-              .get("allTimeAwayGames")
-              .filter(
-                (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
-              )
-          );
-          // all Time Wins
-          this[writeToMAP].set(
-            "Wins",
-            this[writeToMAP].get("allTimeHomeWins").length +
-              this[writeToMAP].get("allTimeAwayWins").length
-          );
-          // all Time Draws
-          this[writeToMAP].set(
-            "drawGames",
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray].filter(
-              (item) => Number(item.TeamOneScore) == Number(item.TeamTwoScore)
-            )
-          );
-          // all time Draws Length
-          this[writeToMAP].set("Draws", this[writeToMAP].get("drawGames").length);
-          // all Time Losses
-          this[writeToMAP].set(
-            "Losses",
-            this[writeToMAP].get("GP") -
-              (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
-          );
-          // all Time Points
-          this[writeToMAP].set(
-            "Points",
-            this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
-          );
-          // all Time Home Goals For
-          if (this[writeToMAP].get("allTimeHomeGames").length != 0) {
-            //check if any home games were even played
-            this[writeToMAP].set(
-              "allTimeHomeGoalsFor",
-              this[writeToMAP]
-                .get("allTimeHomeGames")
-                .map((item) => item.TeamOneScore)
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set("allTimeHomeGoalsFor", 0);
-          }
-          // all Time Away Goals For
-          if (this[writeToMAP].get("allTimeAwayGames").length != 0) {
-            //check if any away games were even played
-            this[writeToMAP].set(
-              "allTimeAwayGoalsFor",
-              this[writeToMAP]
-                .get("allTimeAwayGames")
-                .map((item) => item.TeamTwoScore)
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set("allTimeAwayGoalsFor", 0);
-          }
-          // all Time Goals For
-          this[writeToMAP].set(
-            "GF",
-            +this[writeToMAP].get("allTimeHomeGoalsFor") +
-              +this[writeToMAP].get("allTimeAwayGoalsFor")
-          );
-          // all Time Home Goals Against
-          if (this[writeToMAP].get("allTimeHomeGames").length != 0) {
-            // check if any home games were even played
-            this[writeToMAP].set(
-              "allTimeHomeGoalsAgainst",
-              this[writeToMAP]
-                .get("allTimeHomeGames")
-                .map((item) => item.TeamTwoScore) // TeamTwo is opponent
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set("allTimeHomeGoalsAgainst", 0);
-          }
-          // all Time Away Goals Against
-          if (this[writeToMAP].get("allTimeAwayGames").length != 0) {
-            this[writeToMAP].set(
-              "allTimeAwayGoalsAgainst",
-              this[writeToMAP]
-                .get("allTimeAwayGames")
-                .map((item) => item.TeamOneScore) // TeamOne is opponent
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set("allTimeAwayGoalsAgainst", 0);
-          }
-          // all Time Goals Against
-          this[writeToMAP].set(
-            "GA",
-            +this[writeToMAP].get("allTimeHomeGoalsAgainst") +
-              +this[writeToMAP].get("allTimeAwayGoalsAgainst")
-          );
-          // all Time Goal Differential
-          this[writeToMAP].set(
-            "GD",
-            +this[writeToMAP].get("GF") - +this[writeToMAP].get("GA")
-          );
-          // all Time Goals For Average
-          if (
-            //check for teams that did not make the playoffs to avoid "NaN" result
-            this[writeToMAP].get("GF") != 0 &&
-            this[writeToMAP].get("GA") != 0
-          ) {
-            this[writeToMAP].set(
-              "GFA",
-              (+this[writeToMAP].get("GF") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-            // all Time Goals Against Average
-            this[writeToMAP].set(
-              "GAA",
-              (+this[writeToMAP].get("GA") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-          } else {
-            this[writeToMAP].set("GFA", 0) && this[writeToMAP].set("GAA", 0);
-          }
-          ////////////////////////
-          // all Time Home Possession For
-          if (this[writeToMAP].get("allTimeHomeGames") != 0) {
-            this[writeToMAP].set(
-              "homePossessionFor",
-              this[writeToMAP]
-                .get("allTimeHomeGames")
-                .map((item) => item.TeamOnePossession)
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set("homePossessionFor", 0);
-          }
-          // all Time Away Possession For
-          if (this[writeToMAP].get("allTimeAwayGames") != 0) {
-            this[writeToMAP].set(
-              "awayPossessionFor",
-              this[writeToMAP]
-                .get("allTimeAwayGames")
-                .map((item) => item.TeamTwoPossession)
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set("awayPossessionFor", 0);
-          }
-          // all Time Home Possession Against
-          if (this[writeToMAP].get("allTimeHomeGames") != 0) {
-            this[writeToMAP].set(
-              "homePossessionAgainst",
-              this[writeToMAP]
-                .get("allTimeHomeGames")
-                .map((item) => item.TeamTwoPossession) // TeamTwo is opponent
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set("homePossessionAgainst", 0);
-          }
-          // all Time Away Possession Against
-          if (this[writeToMAP].get("allTimeAwayGames") != 0) {
-            this[writeToMAP].set(
-              "awayPossessionAgainst",
-              this[writeToMAP]
-                .get("allTimeAwayGames")
-                .map((item) => item.TeamOnePossession) // TeamOne is opponent
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set("awayPossessionAgainst", 0);
-          }
-          // total Possession For
-          this[writeToMAP].set(
-            "PF",
-            +this[writeToMAP].get("homePossessionFor") +
-              +this[writeToMAP].get("awayPossessionFor")
-          );
-          // total Possession Against
-          this[writeToMAP].set(
-            "PA",
-            +this[writeToMAP].get("homePossessionAgainst") +
-              +this[writeToMAP].get("awayPossessionAgainst")
-          );
-          // possession For Average
-          if (
-            //check for teams that did not make the playoffs to avoid "NaN" result
-            this[writeToMAP].get("PF") != 0 &&
-            this[writeToMAP].get("PA") != 0
-          ) {
-            this[writeToMAP].set(
-              "PFA",
-              (+this[writeToMAP].get("PF") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-          } else {
-            this[writeToMAP].set("PFA", 0);
-          }
-          // possession Against Average
-          if (
-            //check for teams that did not make the playoffs to avoid "NaN" result
-            this[writeToMAP].get("PF") != 0 &&
-            this[writeToMAP].get("PA") != 0
-          ) {
-            this[writeToMAP].set(
-              "PAA",
-              (+this[writeToMAP].get("PA") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-          } else {
-            this[writeToMAP].set("PAA", 0);
-          }
-        }
-      }
+      teams_setTeamsAllTimeStatsMAPS.call(this, inputArray, writeToMAP)
     }
   
     setTeamsIndividualSeasonsStatsMAPS(
       inputArray,
       writeToMAP,
-      seasonNumber = currentSeason
+      seasonNumber = season_currentSeason
     ) {
       // mode argument is either "combined season and playoffs", "season", "playoff"
-      for (let i = 1; i <= teams_teamsMAP.size; i++) {
-        if (this.name == teams_teamsMAP.get(i)) {
-          // list team name to be associated with this MAP
-          this[writeToMAP].set("Team", teams_teamsMAP.get(i));
-          // this seasons Games Played
-          this[writeToMAP].set(
-            "GP",
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray][0].length
-          );
-          // this seasons Home Games
-          this[writeToMAP].set(
-            `season${seasonNumber}HomeGames`,
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray][0].filter(
-              (item) => item.TeamOne == i
-            )
-          );
-          // this seasons Away Games
-          this[writeToMAP].set(
-            `season${seasonNumber}AwayGames`,
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray][0].filter(
-              (item) => item.TeamTwo == i
-            )
-          );
-          // this seasons Home Wins
-          this[writeToMAP].set(
-            `season${seasonNumber}HomeWins`,
-            this[writeToMAP]
-              .get(`season${seasonNumber}HomeGames`)
-              .filter(
-                (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
-              )
-          );
-          // this seasons Away Wins
-          this[writeToMAP].set(
-            `season${seasonNumber}AwayWins`,
-            this[writeToMAP]
-              .get(`season${seasonNumber}AwayGames`)
-              .filter(
-                (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
-              )
-          );
-          // this seasons OT wins
-          if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
-            //season withOUT ties
-            this[writeToMAP].set(
-              "OTW",
-              this[writeToMAP]
-                .get(`season${seasonNumber}HomeWins`)
-                .filter((item) => item.ExtraTime == "Yes").length +
-                this[writeToMAP]
-                  .get(`season${seasonNumber}AwayWins`)
-                  .filter((item) => item.ExtraTime == "Yes").length
-            );
-          }
-          // this seasons Wins
-          this[writeToMAP].set(
-            "Wins",
-            this[writeToMAP].get(`season${seasonNumber}HomeWins`).length +
-              this[writeToMAP].get(`season${seasonNumber}AwayWins`).length
-          );
-          // this seasons Draw games
-          this[writeToMAP].set(
-            "drawGames",
-            TeamStats.allTeamStats[teams_teamsMAP.get(i)][inputArray][0].filter(
-              (item) => Number(item.TeamOneScore) == Number(item.TeamTwoScore)
-            )
-          );
-          // this  seasons Draws
-          this[writeToMAP].set("Draws", this[writeToMAP].get("drawGames").length);
-          // this seasons home Losses
-          this[writeToMAP].set(
-            `season${seasonNumber}HomeLosses`,
-            this[writeToMAP]
-              .get(`season${seasonNumber}HomeGames`)
-              .filter(
-                (item) => Number(item.TeamOneScore) < Number(item.TeamTwoScore)
-              )
-          );
-          // this seasons away Losses
-          this[writeToMAP].set(
-            `season${seasonNumber}AwayLosses`,
-            this[writeToMAP]
-              .get(`season${seasonNumber}AwayGames`)
-              .filter(
-                (item) => Number(item.TeamOneScore) > Number(item.TeamTwoScore)
-              )
-          );
-          // this seasons OT Losses
-          if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
-            // season withOUT ties
-            this[writeToMAP].set(
-              "OTL",
-              this[writeToMAP]
-                .get(`season${seasonNumber}HomeLosses`)
-                .filter((item) => item.ExtraTime == "Yes").length +
-                this[writeToMAP]
-                  .get(`season${seasonNumber}AwayLosses`)
-                  .filter((item) => item.ExtraTime == "Yes").length
-            );
-          }
-          // this seasons Losses
-          if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
-            // season with NO ties
-            this[writeToMAP].set(
-              "Losses",
-              this[writeToMAP].get("GP") -
-                (this[writeToMAP].get("Wins") + this[writeToMAP].get("OTL"))
-            );
-          } else {
-            // season WITH ties
-            this[writeToMAP].set(
-              "Losses",
-              this[writeToMAP].get("GP") -
-                (this[writeToMAP].get("Wins") + this[writeToMAP].get("Draws"))
-            );
-          }
-  
-          // this seasons Points
-          if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
-            // season withOUT ties
-            this[writeToMAP].set(
-              "Points",
-              (this[writeToMAP].get("Wins") - this[writeToMAP].get("OTW")) * 3 +
-                this[writeToMAP].get("OTW") * 2 +
-                this[writeToMAP].get("OTL")
-            );
-          } else {
-            // season WITH ties
-            this[writeToMAP].set(
-              "Points",
-              this[writeToMAP].get("Wins") * 3 + this[writeToMAP].get("Draws")
-            );
-          }
-          // this seasons Home Goals For
-          if (
-            this[writeToMAP].get(`season${seasonNumber}HomeGames`).length != 0
-          ) {
-            //check if any home games were even played
-            this[writeToMAP].set(
-              `season${seasonNumber}HomeGoalsFor`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}HomeGames`)
-                .map((item) => item.TeamOneScore)
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}HomeGoalsFor`, 0);
-          }
-          // this seasons Away Goals For
-          if (
-            this[writeToMAP].get(`season${seasonNumber}AwayGames`).length != 0
-          ) {
-            //check if any away games were even played
-            this[writeToMAP].set(
-              `season${seasonNumber}AwayGoalsFor`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}AwayGames`)
-                .map((item) => item.TeamTwoScore)
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}AwayGoalsFor`, 0);
-          }
-          // this seasons Goals For
-          this[writeToMAP].set(
-            "GF",
-            +this[writeToMAP].get(`season${seasonNumber}HomeGoalsFor`) +
-              +this[writeToMAP].get(`season${seasonNumber}AwayGoalsFor`)
-          );
-          // this seasons Home Goals Against
-          if (
-            this[writeToMAP].get(`season${seasonNumber}HomeGames`).length != 0
-          ) {
-            // check if any home games were even played
-            this[writeToMAP].set(
-              `season${seasonNumber}HomeGoalsAgainst`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}HomeGames`)
-                .map((item) => item.TeamTwoScore) // TeamTwo is opponent
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}HomeGoalsAgainst`, 0);
-          }
-          // this seasons Away Goals Against
-          if (
-            this[writeToMAP].get(`season${seasonNumber}AwayGames`).length != 0
-          ) {
-            this[writeToMAP].set(
-              `season${seasonNumber}AwayGoalsAgainst`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}AwayGames`)
-                .map((item) => item.TeamOneScore) // TeamOne is opponent
-                .reduce((goalStart, goalAdd) => +goalStart + +goalAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}AwayGoalsAgainst`, 0);
-          }
-          // this seasons Goals Against
-          this[writeToMAP].set(
-            "GA",
-            +this[writeToMAP].get(`season${seasonNumber}HomeGoalsAgainst`) +
-              +this[writeToMAP].get(`season${seasonNumber}AwayGoalsAgainst`)
-          );
-          // this seasons Goal Differential
-          this[writeToMAP].set(
-            "GD",
-            +this[writeToMAP].get("GF") - +this[writeToMAP].get("GA")
-          );
-          // this seasons Goals For Average
-          if (
-            //check for teams that did not make the playoffs to avoid "NaN" result
-            this[writeToMAP].get("GF") != 0 &&
-            this[writeToMAP].get("GA") != 0
-          ) {
-            this[writeToMAP].set(
-              "GFA",
-              (+this[writeToMAP].get("GF") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-            // this seasons Goals Against Average
-            this[writeToMAP].set(
-              "GAA",
-              (+this[writeToMAP].get("GA") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-          } else {
-            this[writeToMAP].set("GFA", 0) && this[writeToMAP].set("GAA", 0);
-          }
-          // this seasons Home Possession For
-          if (this[writeToMAP].get(`season${seasonNumber}HomeGames`) != 0) {
-            this[writeToMAP].set(
-              `season${seasonNumber}homePossessionFor`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}HomeGames`)
-                .map((item) => item.TeamOnePossession)
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}homePossessionFor`, 0);
-          }
-          // this seasons Away Possession For
-          if (this[writeToMAP].get(`season${seasonNumber}AwayGames`) != 0) {
-            this[writeToMAP].set(
-              `season${seasonNumber}awayPossessionFor`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}AwayGames`)
-                .map((item) => item.TeamTwoPossession)
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}awayPossessionFor`, 0);
-          }
-          // this seasons Home Possession Against
-          if (this[writeToMAP].get(`season${seasonNumber}HomeGames`) != 0) {
-            this[writeToMAP].set(
-              `season${seasonNumber}homePossessionAgainst`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}HomeGames`)
-                .map((item) => item.TeamTwoPossession) // TeamTwo is opponent
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}homePossessionAgainst`, 0);
-          }
-          // this seasons Away Possession Against
-          if (this[writeToMAP].get(`season${seasonNumber}AwayGames`) != 0) {
-            this[writeToMAP].set(
-              `season${seasonNumber}awayPossessionAgainst`,
-              this[writeToMAP]
-                .get(`season${seasonNumber}AwayGames`)
-                .map((item) => item.TeamOnePossession) // TeamOne is opponent
-                .reduce((timeStart, timeAdd) => +timeStart + +timeAdd)
-            );
-          } else {
-            this[writeToMAP].set(`season${seasonNumber}awayPossessionAgainst`, 0);
-          }
-          // this seasons Possession For
-          this[writeToMAP].set(
-            "PF",
-            +this[writeToMAP].get(`season${seasonNumber}homePossessionFor`) +
-              +this[writeToMAP].get(`season${seasonNumber}awayPossessionFor`)
-          );
-          // this seasons Possession Against
-          this[writeToMAP].set(
-            "PA",
-            +this[writeToMAP].get(`season${seasonNumber}homePossessionAgainst`) +
-              +this[writeToMAP].get(`season${seasonNumber}awayPossessionAgainst`)
-          );
-          // this seasons possession For Average
-          if (
-            //check for teams that did not make the playoffs to avoid "NaN" result
-            this[writeToMAP].get("PF") != 0 &&
-            this[writeToMAP].get("PA") != 0
-          ) {
-            this[writeToMAP].set(
-              "PFA",
-              (+this[writeToMAP].get("PF") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-          } else {
-            this[writeToMAP].set("PFA", 0);
-          }
-          // this seasons possession Against Average
-          if (
-            //check for teams that did not make the playoffs to avoid "NaN" result
-            this[writeToMAP].get("PF") != 0 &&
-            this[writeToMAP].get("PA") != 0
-          ) {
-            this[writeToMAP].set(
-              "PAA",
-              (+this[writeToMAP].get("PA") / +this[writeToMAP].get("GP")).toFixed(
-                2
-              )
-            );
-          } else {
-            this[writeToMAP].set("PAA", 0);
-          }
-        }
-      }
+      teams_setTeamsIndividualSeasonsStatsMAPS.call(
+        this, 
+        inputArray,
+        writeToMAP,
+        seasonNumber)
     }
   }
 
@@ -1547,9 +1912,11 @@ const seasonCountLength = season_seasonCount.length;
 
 // TeamStats is the class for team object creation
 // allTeamStats (object) is the container holding each teams' object
-// TeamStats.allTeamStats(<teamName>) is how to get within any teams' own object
+// TeamStats.allTeamStats[<teamName>] is how to get within any teams' own object
+
 // --------------------
-//    "groupTeamsAllTimeStats", "groupTeamsAllTimeSeasonStats",
+// place TeamStats in front of the following
+// "groupTeamsAllTimeStats", "groupTeamsAllTimeSeasonStats",
 // "groupTeamsAllTimePlayoffStats", are static arrays for the class which hold each teams'
 // MAPS that have each teams' all time stats reduced and ready for table display
 // --------------------
@@ -1724,14 +2091,45 @@ for (let i = 0; i < PLAYERS_LENGTH; i++) {
   }
 
 /* harmony default export */ const players_playerSeasonsMAP = (playerSeasonsMAP);
-;// CONCATENATED MODULE: ./src/scripts/classFiles/individualPlayerStats.js
-
-
+;// CONCATENATED MODULE: ./src/scripts/classFiles/players/helpers/setPlayersAllTimeStats.js
 
 
 
 
 const GameResultsLength = GameResults.length;
+
+function setPlayersAllTimeStats(
+    allTimeArray,
+    allTimeSeasonArray,
+    allTimePlayoffArray){
+        GamePlayerStats.forEach((item) => {
+            if (players_playersMAP.get(Number(item.PlayerID)) == this.name) {
+              this[allTimeArray].push(item);
+            }
+          });
+      
+          this[allTimeArray].forEach((item) => {
+            for (let i = 0; i < GameResultsLength; i++) {
+              // GameResultsLength
+              if (
+                item.GameID == GameResults[i].GameID &&
+                gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Season"
+              )
+                this[allTimeSeasonArray].push(item);
+              if (
+                item.GameID == GameResults[i].GameID &&
+                gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Playoff"
+              )
+                this[allTimePlayoffArray].push(item);
+            }
+          });
+}
+
+/* harmony default export */ const helpers_setPlayersAllTimeStats = (setPlayersAllTimeStats);
+;// CONCATENATED MODULE: ./src/scripts/classFiles/players/individualPlayerStats.js
+
+
+
 
 class IndividualPlayerStats {
     constructor(name) {
@@ -1783,27 +2181,11 @@ class IndividualPlayerStats {
       allTimePlayoffArray
     ) {
       // fills allTimeStats[]/seasonStats[]/playoff[]
-      GamePlayerStats.forEach((item) => {
-        if (players_playersMAP.get(Number(item.PlayerID)) == this.name) {
-          this[allTimeArray].push(item);
-        }
-      });
-  
-      this[allTimeArray].forEach((item) => {
-        for (let i = 0; i < GameResultsLength; i++) {
-          // GameResultsLength
-          if (
-            item.GameID == GameResults[i].GameID &&
-            gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Season"
-          )
-            this[allTimeSeasonArray].push(item);
-          if (
-            item.GameID == GameResults[i].GameID &&
-            gameType_gameTypeMAP.get(Number(GameResults[i].GameTypeID)) == "Playoff"
-          )
-            this[allTimePlayoffArray].push(item);
-        }
-      });
+      helpers_setPlayersAllTimeStats.call(
+        this,       
+        allTimeArray,
+        allTimeSeasonArray,
+        allTimePlayoffArray)
     }
   }
 ;// CONCATENATED MODULE: ./src/scripts/setTables/createPlayer.js
@@ -2120,48 +2502,44 @@ tableFields
   .set("homePageFieldsNoTies", homePageFieldsNoTies);
 
   /* harmony default export */ const tableFieldsMAP = (tableFields);
-;// CONCATENATED MODULE: ./src/scripts/misc/sort.js
-// used to sort tabular data from both teams and players objects
-
-function sortGroupedStats(inputArray, category) {
-  // remove this note in the future. used for commit issue with dist branch
-  // this for sorting team standings. player tables don't have team key
-  if(inputArray[0].has('Team')){
+;// CONCATENATED MODULE: ./src/scripts/misc/sorting/helpers/teamSorting.js
+function teamSorting(inputArray, category){
     if(category == "Points"){
       
-      inputArray.sort((a, b) =>{
-        const pointStandings = b.get(category) - a.get(category)
-        
-      // if points are not tied then return
-      if(pointStandings !== 0){
-        return pointStandings;
-      }
-
-      // if points are tied then add sort by less games played
-
-      const gamesPlayedStandings = a.get('GP') - b.get('GP');
-
-      if(gamesPlayedStandings !== 0){
-        return gamesPlayedStandings
-      }
-
-      // if points and games played tied sort by goal differential
-
-      const goalDifference = b.get('GD') - a.get('GD');
-
-      if(goalDifference !== 0){
-        return goalDifference
-      }
-
-    });
-    return inputArray
-  }
-  inputArray.sort((a, b) => b.get(category) - a.get(category));
-}
+        inputArray.sort((a, b) =>{
+          const pointStandings = b.get(category) - a.get(category)
+          
+        // if points are not tied then return
+        if(pointStandings !== 0){
+          return pointStandings;
+        }
   
-      // this for sorting player tables as teams don't have assists key
-    if(inputArray[0].has('Assists')) {
-      if(category == "Points"){
+        // if points are tied then add sort by less games played
+  
+        const gamesPlayedStandings = a.get('GP') - b.get('GP');
+  
+        if(gamesPlayedStandings !== 0){
+          return gamesPlayedStandings
+        }
+  
+        // if points and games played tied sort by goal differential
+  
+        const goalDifference = b.get('GD') - a.get('GD');
+  
+        if(goalDifference !== 0){
+          return goalDifference
+        }
+  
+      });
+      return inputArray
+    }
+   return inputArray.sort((a, b) => b.get(category) - a.get(category));
+}
+
+/* harmony default export */ const helpers_teamSorting = (teamSorting);
+;// CONCATENATED MODULE: ./src/scripts/misc/sorting/helpers/playerSorting.js
+function playerSorting(inputArray, category){
+    if(category == "Points"){
         inputArray.sort((a, b) =>{
           const pointStandings = b.get(category) - a.get(category)
 
@@ -2196,9 +2574,26 @@ function sortGroupedStats(inputArray, category) {
         })
         return inputArray;
       }
-      inputArray.sort((a, b) => b.get(category) - a.get(category));
-    }
+      return inputArray.sort((a, b) => b.get(category) - a.get(category));
+}
+
+/* harmony default export */ const helpers_playerSorting = (playerSorting);
+;// CONCATENATED MODULE: ./src/scripts/misc/sorting/sort.js
+// used to sort tabular data from both teams and players objects
+
+
+
+function sortGroupedStats(inputArray, category) {
+  // this for sorting team standings. player tables don't have team key
+  if(inputArray[0].has('Team')){
+    return helpers_teamSorting(inputArray, category)
   }
+  
+      // this for sorting player tables as teams don't have assists key
+    if(inputArray[0].has('Assists')) {
+      return helpers_playerSorting(inputArray, category)
+    }
+}
 
 ;// CONCATENATED MODULE: ./src/scripts/sidebar/closeSidebar.js
 function closeSidebar() {
@@ -2976,7 +3371,7 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
     // listener for the back button back to teams layout Page
     document
       .getElementById("playerStatsBackButton")
-      .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('playerStatsBackButton'))});
+      .addEventListener("click", () => {teamsPageLayout_setTeamsPageLayout(document.getElementById('playerStatsBackButton'))});
     // end back button
   
     ////////////////////BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES//////////////////////////////
@@ -3298,8 +3693,6 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
     clearTablesDiv();
     getTablesDiv();
     clearScoreboardDiv();
-    let displayGifsHeader = "";
-    let displayGifs = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
     let gameType = e.target.dataset.gameType;
@@ -3312,31 +3705,58 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
     let thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
     if (thisGamesHighlights.length > 0) {
       // begin title for gifs page
-      displayGifsHeader = `<div class="gifsHeaderContainer">`;
-      // back button
-      displayGifsHeader += misc_backButton("gamesGifsBackButton", teamName, thisGifsSeasonNum, "Season", "gifsBackButton").outerHTML;
-      // end back button
-      // home team logo
-      displayGifsHeader += `<div class="gifsHomeTeam">`;
-      displayGifsHeader += misc_createTeamCssLogo.setGifs(thisGamesHomeTeam, thisGifsSeasonNum, "Home");
-      displayGifsHeader += `</div>`;
-      displayGifsHeader += `<div class="gifsHomeTeamScore">`;
-      displayGifsHeader += thisGamesHomeTeamScore;
-      displayGifsHeader += `</div>`;
-      displayGifsHeader += `<div class="gifsVsHeader">`;
-      displayGifsHeader += ` vs `;
-      displayGifsHeader += `</div>`;
-      // away team logo
-      displayGifsHeader += `<div class="gifsAwayTeam">`;
-      displayGifsHeader += misc_createTeamCssLogo.setGifs(thisGamesAwayTeam, thisGifsSeasonNum, "Away");
-      displayGifsHeader += `</div>`;
-      displayGifsHeader += `<div class="gifsAwayTeamScore">`;
-      displayGifsHeader += thisGamesAwayTeamScore;
-      displayGifsHeader += `</div>`;
-      //end div for header container
-      displayGifsHeader += `</div>`;
-      //end of gifs page title
-      tablesDiv.innerHTML = displayGifsHeader;
+      const gifsHeaderContainer = document.createElement("div");
+      gifsHeaderContainer.classList.add("gifsHeaderContainer");
+  
+      // Back button
+      const backButtonElement = misc_backButton(
+        "gamesGifsBackButton",
+        teamName,
+        thisGifsSeasonNum,
+        "Season",
+        "gifsBackButton"
+      );
+      gifsHeaderContainer.appendChild(backButtonElement);
+  
+      // Home team section
+      const gifsHomeTeam = document.createElement("div");
+      gifsHomeTeam.classList.add("gifsHomeTeam");
+      gifsHomeTeam.innerHTML = misc_createTeamCssLogo.setGifs(
+        thisGamesHomeTeam,
+        thisGifsSeasonNum,
+        "Home"
+      );
+      gifsHeaderContainer.appendChild(gifsHomeTeam);
+  
+      const gifsHomeTeamScore = document.createElement("div");
+      gifsHomeTeamScore.classList.add("gifsHomeTeamScore");
+      gifsHomeTeamScore.textContent = thisGamesHomeTeamScore;
+      gifsHeaderContainer.appendChild(gifsHomeTeamScore);
+  
+      // "vs" section
+      const gifsVsHeader = document.createElement("div");
+      gifsVsHeader.classList.add("gifsVsHeader");
+      gifsVsHeader.textContent = " vs ";
+      gifsHeaderContainer.appendChild(gifsVsHeader);
+  
+      // Away team section
+      const gifsAwayTeam = document.createElement("div");
+      gifsAwayTeam.classList.add("gifsAwayTeam");
+      gifsAwayTeam.innerHTML = misc_createTeamCssLogo.setGifs(
+        thisGamesAwayTeam,
+        thisGifsSeasonNum,
+        "Away"
+      );
+      gifsHeaderContainer.appendChild(gifsAwayTeam);
+  
+      const gifsAwayTeamScore = document.createElement("div");
+      gifsAwayTeamScore.classList.add("gifsAwayTeamScore");
+      gifsAwayTeamScore.textContent = thisGamesAwayTeamScore;
+      gifsHeaderContainer.appendChild(gifsAwayTeamScore);
+  
+      // Set the gifs header
+      tablesDiv.innerHTML = "";
+      tablesDiv.appendChild(gifsHeaderContainer);
   
       // listener for the back button back to teams layout Page
       document
@@ -3358,13 +3778,27 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         let thisGif = thisGamesHighlights.find(
           (item) => item.Filepath == thisGamesFinalPath
         );
-        displayGifs += `<h5>${thisGif.Comment}</h5>`;
-        displayGifs += `<img src="${thisGamesFinalPath}">`;
+              // Create a container for each GIF and comment
+      const gifContainer = document.createElement("div");
+      gifContainer.classList.add("gifContainer");
+
+      // Add the comment
+      const gifComment = document.createElement("h5");
+      gifComment.textContent = thisGif.Comment;
+      gifContainer.appendChild(gifComment);
+
+      // Add the GIF image
+      const gifImage = document.createElement("img");
+      gifImage.src = thisGamesFinalPath;
+      gifContainer.appendChild(gifImage);
+
+      // Append the container to the scoreboardDiv
+      scoreboardDiv.appendChild(gifContainer);
       }
-      scoreboardDiv.innerHTML = displayGifs;
     } else {
-      let noGifs = "<h3>No highlights for this game</h3>";
-      scoreboardDiv.innerHTML = noGifs;
+      const noGifsMessage = document.createElement("h3");
+      noGifsMessage.textContent = "No highlights for this game";
+      scoreboardDiv.appendChild(noGifsMessage);
     }
   }
 ;// CONCATENATED MODULE: ./src/scripts/scoreboard/getScoreboardDiv.js
@@ -3372,29 +3806,289 @@ function getScoreboardDiv() {
     let scoreboardDiv = document.getElementById("scoreboardDiv");
     return scoreboardDiv;
   }
-;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats.js
+;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/boxscorePage/boxscorePlayerTables/playerBoxscoreTableListeners.js
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
+function playerBoxscoreTableListeners({thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor}) {
+    let browserWidth = window.innerWidth;
+    if (browserWidth < 982) {
+      let mobileTableCells = document.querySelectorAll("#boxscorePlayerStats td");
+      let eachCell = Array.from(mobileTableCells);
+      eachCell.forEach((field) =>
+        field.addEventListener("click", (e) =>
+          singleGameStatsComponents_setPlayersBoxscoreTable(e, { thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor })
+        )
+      );
+    } else {
+      let getFieldNames = document.querySelectorAll("#boxscorePlayerStats th");
+      let headers = Array.from(getFieldNames);
+      headers.forEach((field) =>
+        field.addEventListener("click", (e) =>
+          singleGameStatsComponents_setPlayersBoxscoreTable(e, { thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor })
+        )
+      );
+    }
+  }
+
+/* harmony default export */ const boxscorePlayerTables_playerBoxscoreTableListeners = (playerBoxscoreTableListeners);
+;// CONCATENATED MODULE: ./src/scripts/misc/debounce.js
+function debounce(func, delay) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
+/* harmony default export */ const misc_debounce = (debounce);
+
+;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/boxscorePage/boxscorePlayerTables/updatePlayersBoxscoreTableResizeListener.js
+
+
+
+function updatePlayersBoxscoreTableResizeListener({thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor}){
+    // resize event method
+function handleResize() {
+    let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
+    if (playerStatsContainer) {
+        boxscorePlayerTables_playerBoxscoreTableListeners({ thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor })
+    }
+  }
   
+  // Throttled version of the resize listener
+  const debouncedResize = misc_debounce(handleResize, 500); // Adjust the limit (in milliseconds) as needed
+
+  let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
+  if (playerStatsContainer) {
+    window.addEventListener('resize', debouncedResize);
+  } else {
+    window.removeEventListener('resize', debouncedResize);
+  }
+}
+
+/* harmony default export */ const boxscorePlayerTables_updatePlayersBoxscoreTableResizeListener = (updatePlayersBoxscoreTableResizeListener);
+;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStatsComponents/setPlayersBoxscoreTable.js
+
+
+
+
+
+
+const setPlayersBoxscoreTable_fieldsLength = PLAYERS_TABLE.length;
+
+function setPlayersBoxscoreTable(e, {thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor}) {
+    let sortBy;
+    if (e) {
+      sortBy = e.target.dataset.fieldName;
+    } else {
+      sortBy = "Points";
+    }
+    sortGroupedStats(thisGamesPlayerStatMAPS, sortBy);
+    let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
+    let playersData = "";
+    // begin players game stats table
+    playersData += `<table>`;
+    // html table thead
+    playersData += "<thead><tr>";
+    for (let i = 0; i < setPlayersBoxscoreTable_fieldsLength; i++) {
+      if (PLAYERS_TABLE[i] == sortBy) {
+        playersData +=
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          PLAYERS_TABLE[i] +
+          ` class="w3-orange">` +
+          PLAYERS_TABLE[i] +
+          "</th>";
+      } else {
+        playersData +=
+          `<th data-field-name=` + //data-fieldNames required for mobile layout
+          PLAYERS_TABLE[i] +
+          " >" +
+          PLAYERS_TABLE[i] +
+          "</th>";
+      }
+    }
+    playersData += "</tr></thead>";
+    // end of html table header fields row
+    thisGamesPlayerStatMAPS.forEach((item) => {
+      // table data begins for each field
+      playersData += "<tr>";
+      for (let j = 0; j < setPlayersBoxscoreTable_fieldsLength; j++) {
+        if (PLAYERS_TABLE[j] == sortBy) {
+          playersData +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            PLAYERS_TABLE[j] +
+            ` class="w3-yellow">` + // add yellow background for sorted column points
+            item.get(PLAYERS_TABLE[j]) +
+            "</td>";
+        } else if (PLAYERS_TABLE[j] == "Name") {
+          if (
+            thisGamesHomeTeamPlayerNames.includes(
+              players_playersMAP.get(+item.get("PlayerID"))
+            )
+          ) {
+            playersData +=
+              `<td data-field-name=` + //data-fieldNames required for mobile layout
+              PLAYERS_TABLE[j] +
+              ` style="background-color:${thisGamesHomeTeamColor};color:#fff">` +
+              players_playersMAP.get(+item.get("PlayerID")) +
+              "</td>";
+          } else {
+            playersData +=
+              `<td data-field-name=` + //data-fieldNames required for mobile layout
+              PLAYERS_TABLE[j] +
+              ` style="background-color:${thisGamesAwayTeamColor};color:#fff">` +
+              players_playersMAP.get(+item.get("PlayerID")) +
+              "</td>";
+          }
+        } else {
+          playersData +=
+            `<td data-field-name=` + //data-fieldNames required for mobile layout
+            PLAYERS_TABLE[j] +
+            " >" +
+            item.get(PLAYERS_TABLE[j]) +
+            "</td>";
+        }
+      }
+
+      playersData += "</tr>";
+    });
+    playersData += `</table>`;
+    playerStatsContainer.innerHTML = playersData;
+
+// add listeners to the table headers
+boxscorePlayerTables_playerBoxscoreTableListeners({ thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor });
+
+// update listeners on resize event. this is debounced
+boxscorePlayerTables_updatePlayersBoxscoreTableResizeListener({thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor});
+}
+
+/* harmony default export */ const singleGameStatsComponents_setPlayersBoxscoreTable = (setPlayersBoxscoreTable);
+;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStatsComponents/singleGameStatsHeader.js
+
+
+
+function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesHomeTeam, thisGamesAwayTeam}){
+    const containerElem = document.createElement('div')
+    containerElem.classList.add("w3-section", "boxscoreTeamLogosContainer");
+
+    // for parsing the button and css logos
+    const parser = new DOMParser()
+    // create the back button
+    const backButtonHTML = misc_backButton("gamesBoxscoreBackButton", teamName, thisSeasonNumber, gameType, "boxscoreBackButton").outerHTML;
+    const button = parser.parseFromString(backButtonHTML, 'text/html');
+    const backButtonElem = button.body.firstChild
+    // append the back button
+    containerElem.append(backButtonElem)
+
+    // create the css logos
+    const homeLogoHTML = misc_createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home") 
+    const awayLogoHTML = misc_createTeamCssLogo.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away")
+
+    const homeTeamLogo = parser.parseFromString(homeLogoHTML, 'text/html').body.firstChild;
+    const awayTeamLogo = parser.parseFromString(awayLogoHTML, 'text/html').body.firstChild;
+
+    // create div to hold both logos
+    // home team
+    const homeLogoContainerElem = document.createElement('div');
+    homeLogoContainerElem.classList.add("w3-blue", "w3-round-large", "w3-card-4", "w3-padding-small", "boxscoreHomeTeamLogo")
+    homeLogoContainerElem.append(homeTeamLogo)
+    // away team
+    const awayLogoContainerElem = document.createElement('div');
+    awayLogoContainerElem.classList.add("w3-blue", "w3-round-large", "w3-card-4", "w3-padding-small", "boxscoreAwayTeamLogo")
+    awayLogoContainerElem.append(awayTeamLogo)
+    // append the home logo
+    containerElem.append(homeLogoContainerElem)
+    // append the away logo
+    containerElem.append(awayLogoContainerElem)
+
+    return containerElem;
+}
+
+/* harmony default export */ const singleGameStatsComponents_singleGameStatsHeader = (singleGameStatsHeader);
+;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStatsComponents/SingleGameBoxscore.js
+function SingleGameBoxscore({
+    thisGamesHomeTeamColor,
+    thisGamesAwayTeamColor,
+    thisGamesHomeTeamStats,
+    thisGamesAwayTeamStats
+}){
+    const gameCategories = [
+        "Team",
+        "Score",
+        "Possession",
+        "SOG",
+        "Passes",
+        "Kicks",
+      ];
+
+      // create container to hold boxscore stats
+      const fragment = document.createDocumentFragment()
+
+    for (let i = 0; i < gameCategories.length; i++) {
+        const boxscoreRowContainerElem = document.createElement('div');
+        boxscoreRowContainerElem.classList.add("boxscoreContainer", "w3-center")
+
+        // create first column of three
+        const boxscoreHomeCell = document.createElement('div');
+        boxscoreHomeCell.classList.add("boxscoreHomeStats")
+      // set first rows home teams cell to teams main color
+      boxscoreHomeCell.textContent = thisGamesHomeTeamStats[i];
+
+      // create the 2nd column of stat categories
+      const seperatorDiv = document.createElement('div');
+      seperatorDiv.classList.add("boxscoreSeperator")
+      seperatorDiv.textContent = gameCategories[i];
+
+      const boxscoreAwayCell = document.createElement('div');
+      boxscoreAwayCell.classList.add("boxscoreAwayStats")
+      boxscoreAwayCell.textContent = thisGamesAwayTeamStats[i]
+
+      // add teams background color to name field of team only
+      if (i == 0) {
+        boxscoreHomeCell.style.backgroundColor = `${thisGamesHomeTeamColor}`
+        boxscoreAwayCell.style.backgroundColor = `${thisGamesAwayTeamColor}`
+      } 
+
+      boxscoreRowContainerElem.append(boxscoreHomeCell)
+      boxscoreRowContainerElem.append(seperatorDiv)
+      boxscoreRowContainerElem.append(boxscoreAwayCell)
+      fragment.append(boxscoreRowContainerElem);
+    }
+
+    //create some space between players table
+    const breakDiv = document.createElement("br")
+    fragment.append(breakDiv)
+    fragment.append(breakDiv)
+
+    // create div for players stat for this game
+    const playersDiv = document.createElement('div')
+    playersDiv.id = "boxscorePlayerStats";
+
+    fragment.append(playersDiv)
+
+    return fragment
+}
+
+/* harmony default export */ const singleGameStatsComponents_SingleGameBoxscore = (SingleGameBoxscore);
+;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStats.js
+
+
+
+
+
+
+
+
+
+
+
+
+
   function setGamesData(e) {
     clearScoreboardDiv();
     clearTablesDiv();
     getScoreboardDiv();
     getTablesDiv();
-    let displayGameData = "";
-    let displayTeamLogos = "";
     let gameNumber = e.target.dataset.gameId;
     let teamName = e.target.dataset.teamName;
     let gameType = e.target.dataset.gameType;
@@ -3448,15 +4142,6 @@ function getScoreboardDiv() {
     let thisGamesAwayTeamPasses = thisGamesResult[0].TeamTwoPasses;
     let thisGamesAwayTeamKicks = thisGamesResult[0].TeamTwoKicks;
     // end away team
-  
-    let gameCategories = [
-      "Team",
-      "Score",
-      "Possession",
-      "SOG",
-      "Passes",
-      "Kicks",
-    ];
     let thisGamesHomeTeamStats = [
       thisGamesHomeTeam,
       thisGamesHomeTeamScore,
@@ -3474,84 +4159,33 @@ function getScoreboardDiv() {
       thisGamesAwayTeamKicks,
     ];
     // boxscore div container
-    // team logos
-    displayTeamLogos += `<div class=" w3-section boxscoreTeamLogosContainer">`;
-    // back button area which is row above team logos
-    displayTeamLogos += misc_backButton("gamesBoxscoreBackButton", teamName, thisSeasonNumber, gameType, "boxscoreBackButton").outerHTML
-    // home team logo
-    displayTeamLogos += `<div class=" w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreHomeTeamLogo">`;
-    displayTeamLogos += misc_createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home");
-    displayTeamLogos += `</div>`;
-    // away team logo
-    displayTeamLogos += `<div class="w3-blue w3-round-large w3-card-4 w3-padding-small boxscoreAwayTeamLogo">`;
-    displayTeamLogos += misc_createTeamCssLogo.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away");
-    displayTeamLogos += `</div>`;
-    displayTeamLogos += `</div>`;
-    // display team logos
-    tablesDiv.innerHTML = displayTeamLogos;
+    const singleGameStatsHeaderArguments = {
+      teamName, thisSeasonNumber, gameType, thisGamesHomeTeam, thisGamesAwayTeam
+    }
+    // // this is the header containing back button and team css logos
+    tablesDiv.append(singleGameStatsComponents_singleGameStatsHeader(singleGameStatsHeaderArguments))
     // end team logos
   
-    // begin data containers
-    for (let i = 0; i < gameCategories.length; i++) {
-      displayGameData += `<div class="boxscoreContainer w3-center">`;
-      // set first rows home teams cell to teams main color
-      if (i == 0) {
-        displayGameData += `<div class="boxscoreHomeStats" style="background-color:${thisGamesHomeTeamColor}">`;
-      } else {
-        displayGameData += `<div class="boxscoreHomeStats">`;
-      }
-      // onto next rows
-      displayGameData += `${thisGamesHomeTeamStats[i]}`;
-      displayGameData += `</div>`;
-  
-      displayGameData += `<div class="boxscoreSeperator">`;
-      displayGameData += `${gameCategories[i]}`;
-  
-      displayGameData += `</div>`;
-  
-      // set first rows home teams cell to teams main color
-      if (i == 0) {
-        displayGameData += `<div class="boxscoreAwayStats" style="background-color:${thisGamesAwayTeamColor}">`;
-      } else {
-        displayGameData += `<div class="boxscoreAwayStats">`;
-      }
-      // onto next rows
-      displayGameData += `${thisGamesAwayTeamStats[i]}`;
-      displayGameData += `</div>`;
-      // end boxscore container div
-      displayGameData += `</div>`;
+    // this section is the green team boxscore stats
+    // create arguments object
+    const singleScoreBoxscoreArguments = {
+      thisGamesHomeTeamColor,
+      thisGamesAwayTeamColor,
+      thisGamesHomeTeamStats,
+      thisGamesAwayTeamStats
     }
-  
-    displayGameData += `<br>`;
-  
-    displayGameData += `<br>`;
-  
-    // div holding the players table
-    displayGameData += `<div id="boxscorePlayerStats"></div>`;
-  
-    // display team stats below team logos
-    scoreboardDiv.innerHTML = displayGameData;
-  
+    scoreboardDiv.append(singleGameStatsComponents_SingleGameBoxscore(singleScoreBoxscoreArguments))
+
     // listener for the back button back to teams layout Page
     document
       .getElementById("gamesBoxscoreBackButton")
       .addEventListener("click", getTeamsGameResults);
     // end back button
+
     // begin player stats data
     let thisGamesPlayerStats = GamePlayerStats.filter(
       (item) => item.GameID == gameNumber
     );
-    let playersTable = [
-      "Name",
-      "Goals",
-      "Assists",
-      "Points",
-      "Kicks",
-      "Passes",
-      "ShotsOnGoal",
-      "OwnGoals",
-    ];
-    let fieldsLength = playersTable.length;
     let thisGamesPlayerStatMAPS = [];
     for (let i = 0; i < thisGamesPlayerStats.length; i++) {
       thisGamesPlayerStatMAPS.push(
@@ -3563,102 +4197,14 @@ function getScoreboardDiv() {
           +thisGamesPlayerStatMAPS[i].get("Assists")
       );
     }
-    function setPlayersBoxscoreTable(e) {
-      let sortBy;
-      if (e) {
-        sortBy = e.target.dataset.fieldName;
-      } else {
-        sortBy = "Points";
-      }
-      sortGroupedStats(thisGamesPlayerStatMAPS, sortBy);
-      let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
-      let playersData = "";
-      // begin players game stats table
-      playersData += `<table>`;
-      // html table thead
-      playersData += "<thead><tr>";
-      for (let i = 0; i < fieldsLength; i++) {
-        if (playersTable[i] == sortBy) {
-          playersData +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
-            ` class="w3-orange">` +
-            playersTable[i] +
-            "</th>";
-        } else {
-          playersData +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
-            " >" +
-            playersTable[i] +
-            "</th>";
-        }
-      }
-      playersData += "</tr></thead>";
-      // end of html table header fields row
-      thisGamesPlayerStatMAPS.forEach((item) => {
-        // table data begins for each field
-        playersData += "<tr>";
-        for (let j = 0; j < fieldsLength; j++) {
-          if (playersTable[j] == sortBy) {
-            playersData +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
-              ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(playersTable[j]) +
-              "</td>";
-          } else if (playersTable[j] == "Name") {
-            if (
-              thisGamesHomeTeamPlayerNames.includes(
-                players_playersMAP.get(+item.get("PlayerID"))
-              )
-            ) {
-              playersData +=
-                `<td data-field-name=` + //data-fieldNames required for mobile layout
-                playersTable[j] +
-                ` style="background-color:${thisGamesHomeTeamColor};color:#fff">` +
-                players_playersMAP.get(+item.get("PlayerID")) +
-                "</td>";
-            } else {
-              playersData +=
-                `<td data-field-name=` + //data-fieldNames required for mobile layout
-                playersTable[j] +
-                ` style="background-color:${thisGamesAwayTeamColor};color:#fff">` +
-                players_playersMAP.get(+item.get("PlayerID")) +
-                "</td>";
-            }
-          } else {
-            playersData +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
-              " >" +
-              item.get(playersTable[j]) +
-              "</td>";
-          }
-        }
-  
-        playersData += "</tr>";
-      });
-      playersData += `</table>`;
-      playerStatsContainer.innerHTML = playersData;
-      let browserWidth = window.innerWidth;
-      if (browserWidth < 982) {
-        let mobileTableCells = document.querySelectorAll(
-          "#boxscorePlayerStats td"
-        );
-        let eachCell = Array.from(mobileTableCells);
-        eachCell.forEach((field) =>
-          field.addEventListener("click", setPlayersBoxscoreTable)
-        );
-      } else {
-        let getFieldNames = document.querySelectorAll("#boxscorePlayerStats th");
-        let headers = Array.from(getFieldNames);
-        headers.forEach((field) =>
-          field.addEventListener("click", setPlayersBoxscoreTable)
-        );
-      }
+    // players boxscore stats begin here
+    const setPlayersBoxscoreTableArguments = {
+      thisGamesPlayerStatMAPS,
+      thisGamesHomeTeamPlayerNames,
+      thisGamesHomeTeamColor,
+      thisGamesAwayTeamColor
     }
-    setPlayersBoxscoreTable();
+    singleGameStatsComponents_setPlayersBoxscoreTable(null, setPlayersBoxscoreTableArguments);
     // end players game stats table
   }
   
@@ -3872,7 +4418,7 @@ function getTeamsGameResults(e) {
     // listener for the back button back to teams layout Page
     document
       .getElementById("gameResultsBackButton")
-      .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('gameResultsBackButton'))});
+      .addEventListener("click", () => {teamsPageLayout_setTeamsPageLayout(document.getElementById('gameResultsBackButton'))});
     // end back button
     // highlight divs
     let gameHighlightDivs = Array.from(
@@ -3890,8 +4436,84 @@ function getTeamsGameResults(e) {
     );
     //end single games results div
   }
-;// CONCATENATED MODULE: ./src/scripts/layouts/teamsColorsPage.js
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsColorLayout/colorPageHeader/colorPageHeader.js
+function colorPageHeader(){
+    const containerElem = document.createElement('div');
+    const headerElem = document.createElement('h4')
 
+    containerElem.classList.add("teamColorsHeader", "w3-blue", "w3-round-large")
+    headerElem.classList.add("w3-text-black");
+    headerElem.textContent = "Copy teams color to clipboard"
+
+    containerElem.append(headerElem);
+    return containerElem;
+}
+
+/* harmony default export */ const colorPageHeader_colorPageHeader = (colorPageHeader);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsColorLayout/TeamsLogoElement/TeamsLogoElement.js
+
+
+function TeamsLogoElement(teamName, seasonNumber, homeOrAway, homeOrAlternate, colorScheme){
+    const containerElem = document.createElement('div');
+    const innerContainerElem = document.createElement('div');
+    const titleContainerElem = document.createElement('div');
+    const redBlueElem = document.createElement('div');
+    const redContainer = document.createElement("div")
+    const blueContainer = document.createElement("div")
+
+    containerElem.classList.add(`teamColors${homeOrAway}Content`, "w3-container", "w3-padding", "w3-blue", "w3-round-large")
+    containerElem.style.setProperty('height', '16rem', 'important');
+
+    innerContainerElem.classList.add("w3-card-4", "w3-padding", "w3-yellow", "w3-round-large")
+ 
+    const titleElem = document.createElement("h5");
+    titleElem.textContent = homeOrAlternate;
+    titleContainerElem.append(titleElem);
+
+    redContainer.setAttribute("data-color-scheme", `/colors red ${colorScheme}`)
+    redContainer.classList.add("w3-padding", "w3-round", "w3-center", "w3-red", "red")
+    redContainer.textContent = "left"
+
+    blueContainer.setAttribute("data-color-scheme", `/colors blue ${colorScheme}`)
+    blueContainer.classList.add("w3-padding", "w3-round", "w3-center", "w3-blue", "blue")
+    blueContainer.textContent = "right"
+
+    redBlueElem.classList.add("w3-container", "w3-padding", "redBlue")
+    redBlueElem.append(redContainer)
+    redBlueElem.append(blueContainer)
+
+
+    innerContainerElem.append(titleContainerElem);
+    const teamLogo = misc_createTeamCssLogo.teamsColorsPage(teamName, seasonNumber, homeOrAway);
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(teamLogo, 'text/html');
+    const teamsLogoCssElem = doc.body.firstChild
+    innerContainerElem.append(teamsLogoCssElem)
+    innerContainerElem.append(redBlueElem);
+
+    containerElem.append(innerContainerElem);
+    return containerElem;
+}
+/* harmony default export */ const TeamsLogoElement_TeamsLogoElement = (TeamsLogoElement);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsColorLayout/ColorsPageLayout.js
+
+
+
+
+function ColorsPageLayout(teamName, seasonNumber, homeColorScheme, awayColorScheme){
+    const containerElem = document.createElement("div");
+    containerElem.classList.add("w3-container", "w3-margin", "teamColorsLayout")
+
+    containerElem.append(misc_backButton('teamColorsBackButton', teamName, seasonNumber, "Season", "colorsBackButton"))
+    containerElem.append(colorPageHeader_colorPageHeader())
+    containerElem.append(TeamsLogoElement_TeamsLogoElement(teamName, seasonNumber, "Home", "Home", homeColorScheme))
+    containerElem.append(TeamsLogoElement_TeamsLogoElement(teamName, seasonNumber, "Away", "Alternate", awayColorScheme))
+
+    return containerElem;
+}
+
+/* harmony default export */ const teamsColorLayout_ColorsPageLayout = (ColorsPageLayout);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsColorLayout/teamsColorsPage.js
 
 
 
@@ -3907,97 +4529,148 @@ function teamColorsPage(e) {
     let seasonNum = e.target.dataset.seasonNum;
     let homeColorScheme = teams_eachTeamObjectMAP.get(team)[`S0${seasonNum}Home`];
     let awayColorScheme = teams_eachTeamObjectMAP.get(team)[`S0${seasonNum}Away`];
-    let teamLogosLayout;
 
-    let tLL = teamLogosLayout;
-    // teamsColorsLayout is grid containing class
-    tLL = `<div class="w3-container w3-margin teamColorsLayout">`;
-    //  back button
-    tLL += misc_backButton('teamColorsBackButton', team, seasonNum, "Season", "colorsBackButton").outerHTML
-    // teamColorsLayout class that contains the title in colors layout
-    tLL += `<div class="teamColorsHeader w3-blue w3-round-large">`;
-    tLL += `<h4 class="w3-text-black">Copy teams color to clipboard</h4>`;
-    tLL += `</div>`;
-    // teamColorsLayout body of layout containing team logos
-    // begin flex items containing team logo cards
-    // opening teamColorsHomeContent
-    tLL += `<div class="teamColorsHomeContent w3-container w3-padding w3-blue w3-round-large" style="height: 16rem !important">`;
-    tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
-    tLL += `<div><h5>Home</h5></div>`;
-    tLL += misc_createTeamCssLogo.teamsColorsPage(team, seasonNum, "Home");
-    // container holding red blue buttons
-    tLL += `<div class="w3-container w3-padding redBlue">`;
-    // red button container
-    tLL += `<div data-color-scheme="${
-      "/colors red" + " " + homeColorScheme
-    }" class="w3-padding w3-round w3-center w3-red red">`;
-    tLL += `left`;
-    // closing red button container
-    tLL += `</div>`;
-    // blue button container
-    tLL += `<div data-color-scheme="${
-      "/colors blue" + " " + homeColorScheme
-    }" class="w3-padding w3-round w3-center w3-blue blue">`;
-    tLL += `right`;
-    // closing blue button container
-    tLL += `</div>`;
-    // closing red blue container
-    tLL += `</div>`;
-    // closing card containing logo
-    tLL += `</div>`;
-    //closing teamColorsHomeContent
-    tLL += `</div>`;
-    // opening teamColorsAwayContent
-    tLL += `<div class="teamColorsAwayContent w3-container w3-padding w3-blue w3-round-large" style="height: 16rem !important">`;
-    tLL += `<div class="w3-card-4 w3-padding w3-yellow w3-round-large">`;
-    tLL += `<div><h5>Alternate</h5></div>`;
-    tLL += misc_createTeamCssLogo.teamsColorsPage(team, seasonNum, "Away");
-    // container holding red blue buttons
-    tLL += `<div class="w3-container w3-padding redBlue">`;
-    // red button container
-    tLL += `<div data-color-scheme="${
-      "/colors red" + " " + awayColorScheme
-    }" class="w3-padding w3-round w3-center w3-red red">`;
-    tLL += `left`;
-    // closing red button container
-    tLL += `</div>`;
-    // blue button container
-    tLL += `<div data-color-scheme="${
-      "/colors blue" + " " + awayColorScheme
-    }" class="w3-padding w3-round w3-center w3-blue blue">`;
-    tLL += `right`;
-    // closing blue button container
-    tLL += `</div>`;
-    // closing red blue container
-    tLL += `</div>`;
-    // closing card containing logo
-    tLL += `</div>`;
-    //closing teamColorsAwayContent
-    tLL += `</div>`;
-    //closing teamColorsLayout
-    tLL += `</div>`;
-  
-    tablesDiv.innerHTML += `${tLL}`;
-  
+    tablesDiv.append(teamsColorLayout_ColorsPageLayout(team, seasonNum, homeColorScheme, awayColorScheme))
     // create function to copy color red/blue scheme
   
     document
       .getElementById("teamColorsBackButton")
-      .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('teamColorsBackButton'))});
+      .addEventListener("click", () => {teamsPageLayout_setTeamsPageLayout(document.getElementById('teamColorsBackButton'))});
     // end back button
   
     function getColorScheme(e) {
       let scheme = e.target.dataset.colorScheme;
       navigator.clipboard.writeText(scheme);
     }
-  
     // set listeners on newly created red/blue button elements
     let redBlueButtons = document.querySelectorAll("div[data-color-scheme]");
     redBlueButtons.forEach((item) =>
       item.addEventListener("click", getColorScheme)
     );
   }
-;// CONCATENATED MODULE: ./src/scripts/layouts/setTeamsPageLayout.js
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/teamsPageHeader/TeamName.js
+function TeamName(teamName){
+const containerElem = document.createElement("div");
+const headingTeamNameElem = document.createElement("h1");
+
+containerElem.className=  "teamName";
+headingTeamNameElem.textContent = teamName
+containerElem.append(headingTeamNameElem)
+return containerElem;
+}
+
+/* harmony default export */ const teamsPageHeader_TeamName = (TeamName);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/teamsPageHeader/SeasonNumber.js
+function SeasonNumber(seasonNumber) {
+    const containerElem = document.createElement("div");
+    const headerElem = document.createElement("h3")
+
+    containerElem.className = "gameType";
+    headerElem.textContent = `Season ${seasonNumber}`
+
+    containerElem.append(headerElem);
+    return containerElem;
+}
+
+/* harmony default export */ const teamsPageHeader_SeasonNumber = (SeasonNumber);
+
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/teamsPageHeader/TeamRecord.js
+function TeamRecord(wins, losses, draws) {
+    const containerElem = document.createElement("div");
+    const headerElem = document.createElement("h3");
+
+    containerElem.classList = "teamRecord";
+    headerElem.textContent = `(${wins} - ${losses} - ${draws})`
+
+    containerElem.append(headerElem);
+    return containerElem;
+}
+
+/* harmony default export */ const teamsPageHeader_TeamRecord = (TeamRecord);
+
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/playersButton/PlayersButton.js
+function PlayersButton(teamName, seasonNumber){
+    const containerElem = document.createElement("div");
+    containerElem.classList.add("w3-round", "w3-green", "players");
+    containerElem.setAttribute("data-team-name", teamName)
+    containerElem.setAttribute("data-season-num", seasonNumber)
+    containerElem.setAttribute("data-game-type", "Season")
+
+    containerElem.textContent = "Players";
+    
+    return containerElem;
+}
+
+/* harmony default export */ const playersButton_PlayersButton = (PlayersButton);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/seasonResultsButton/SeasonResultsButton.js
+function SeasonResultButton(teamName, seasonNumber){
+    const containerElem = document.createElement("div");
+    containerElem.classList.add("w3-round", "seasonScoreboard");
+    containerElem.setAttribute("data-team-name", teamName)
+    containerElem.setAttribute("data-season-num", seasonNumber)
+    containerElem.setAttribute("data-game-type", "Season")
+
+    containerElem.textContent = "Season Results";
+    
+    return containerElem;
+}
+
+/* harmony default export */ const SeasonResultsButton = (SeasonResultButton);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/playoffResultsButton/PlayoffResultsButton.js
+function PlayoffResultButton(teamName, seasonNumber){
+    const containerElem = document.createElement("div");
+    containerElem.classList.add("w3-round", "playoffScoreboard");
+    containerElem.setAttribute("data-team-name", teamName)
+    containerElem.setAttribute("data-season-num", seasonNumber)
+    containerElem.setAttribute("data-game-type", "Playoff")
+
+    containerElem.textContent = "Playoff Results";
+    
+    return containerElem;
+}
+
+/* harmony default export */ const PlayoffResultsButton = (PlayoffResultButton);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/teamColorsButton/TeamColorsButton.js
+function TeamColorsButton(teamName, seasonNumber, buttonColor){
+    const containerElem = document.createElement("div");
+    containerElem.classList.add("w3-round", "teamColors");
+    containerElem.style.backgroundColor = `#${buttonColor}`;
+    containerElem.setAttribute("data-team-name", teamName)
+    containerElem.setAttribute("data-season-num", seasonNumber)
+    containerElem.textContent = "Team Colors"
+
+    return containerElem;
+}
+
+/* harmony default export */ const teamColorsButton_TeamColorsButton = (TeamColorsButton);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/TeamsPageLayout.js
+
+
+
+
+
+
+
+
+function TeamsPageLayout(teamName, seasonNumber, wins, losses, draws, color){
+    const containerElem = document.createElement("div");
+    containerElem.classList.add("w3-container", "w3-margin", "teamsLayout")
+
+    containerElem.append(teamsPageHeader_TeamName(teamName))
+    containerElem.append(teamsPageHeader_SeasonNumber(seasonNumber))
+    containerElem.append(teamsPageHeader_TeamRecord(wins, losses, draws))
+    containerElem.append(playersButton_PlayersButton(teamName, seasonNumber))
+    containerElem.append(SeasonResultsButton(teamName, seasonNumber))
+    containerElem.append(PlayoffResultsButton(teamName, seasonNumber))
+    containerElem.append(teamColorsButton_TeamColorsButton(teamName, seasonNumber, color))
+
+
+// console.log(containerElem)
+    return containerElem;
+}
+
+/* harmony default export */ const teamsPageLayout_TeamsPageLayout = (TeamsPageLayout);
+;// CONCATENATED MODULE: ./src/scripts/layouts/teamsPageLayout/setTeamsPageLayout.js
 
 
 
@@ -4010,100 +4683,45 @@ function teamColorsPage(e) {
 
 
 
-function setTeamsPageLayout(eventElement) {
-    clearTablesDiv();
-    clearScoreboardDiv();
-    sidebar_closeSidebar();
-    getTablesDiv();
-    let team = eventElement.dataset.teamName;
-    let seasonNum = eventElement.dataset.seasonNum;
-    let teamsSeasonObject =
-      teamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
-    let wins = teamsSeasonObject.get("Wins");
-    let losses = teamsSeasonObject.get("Losses");
-    let draws = "";
-    if (SEASONS_WITH_TIE_GAMES.includes(+seasonNum)) {
-      draws = teamsSeasonObject.get("Draws");
-    } else {
-      draws = teamsSeasonObject.get("OTL");
-    }
-    // class teamsLayout is grid container
-    let teamsLayout;
-    // 4 divs make up the grid. (teamName, gameType, notes, scoreboard and teamColors)
-    teamsLayout = `<div class="w3-container w3-margin teamsLayout">`;
-    // team name grid area
-    teamsLayout += `<div class="teamName">`;
-    teamsLayout += `<h1>${team}</h1>`;
-    teamsLayout += `</div>`;
-    // gametype grid area
-    teamsLayout += `<div class="gameType">`;
-    teamsLayout += `<h3>Season ${seasonNum}</h3>`;
-    teamsLayout += `</div>`;
-    // teams season record grid area
-    teamsLayout += `<div class="teamRecord">`;
-    // draws will refer to either a tie or OTL depending on that season if it has ties or not
-    teamsLayout += `<h3>(${wins} - ${losses} - ${draws})</h3>`;
-    teamsLayout += `</div>`;
-  
-    // players grid area
-    teamsLayout += `<div
-     data-team-name="${team}"
-     data-season-num="${seasonNum}"
-     data-game-type="Season"
-     class="w3-round w3-green players"
-     >`;
-    teamsLayout += `Players`;
-    teamsLayout += `</div>`;
-    // notes grid area **bottom of webpage**
-    teamsLayout += `<div class="notes">`;
-    // teamsLayout += `<h5>More options will be placed here</h5>`;
-    teamsLayout += `</div>`;
-    // season scoreboard grid area
-    teamsLayout += `<div
-      data-team-name="${team}"
-      data-season-num="${seasonNum}"
-      data-game-type="Season"
-      class="w3-round seasonScoreboard"
-      >`;
-    teamsLayout += `Season Results`;
-    teamsLayout += `</div>`;
-    // playoff scoreboard grid area
-    teamsLayout += `<div
-      data-team-name="${team}"
-      data-season-num="${seasonNum}"
-      data-game-type="Playoff"
-      class="w3-round playoffScoreboard"
-      >`;
-    teamsLayout += `Playoff Results`;
-    teamsLayout += `</div>`;
-    // teamColors grid area
-    teamsLayout += `<div
-      data-team-name="${team}"
-      data-season-num="${seasonNum}"
-      style="background-color: #${teams_teamsColorMAP.get(team)}"
-      class="w3-round teamColors"
-    >`;
-    teamsLayout += `Team Colors`;
-    teamsLayout += `</div>`;
-    teamsLayout += `</div>`;
-    tablesDiv.innerHTML = teamsLayout;
-  
+
+async function setTeamsPageLayout(eventElement) {
+  clearTablesDiv();
+  clearScoreboardDiv();
+  sidebar_closeSidebar();
+  getTablesDiv();
+  let team = eventElement.dataset.teamName;
+  let seasonNum = eventElement.dataset.seasonNum;
+  let teamsSeasonObject =
+  teamStats.allTeamStats[team][`teamsSeason${seasonNum}SeasonStatsMAP`];
+  const teamColor = teams_teamsColorMAP.get(team)
+  let wins = teamsSeasonObject.get("Wins");
+  let losses = teamsSeasonObject.get("Losses");
+  let draws = "";
+  if (SEASONS_WITH_TIE_GAMES.includes(+seasonNum)) {
+    draws = teamsSeasonObject.get("Draws");
+  } else {
+    draws = teamsSeasonObject.get("OTL");
+  }
+  // class teamsLayout is grid container
+  tablesDiv.append(teamsPageLayout_TeamsPageLayout(team, seasonNum, wins, losses, draws, teamColor))
     // change header banner when team is selected from navbar
     setHeaderBanner(team, seasonNum);
-    // change bodies background color to that of team selected
-    document.body.style.backgroundColor = `#${teams_teamsColorMAP.get(team)}`;
-    // sets tables for that teams players stats for that season
-    let playersArea = document.querySelector(".players");
-    playersArea.addEventListener("click", getTeamsPlayersPerSeason);
-    let teamColorsArea = document.querySelector(".teamColors");
-    teamColorsArea.style.backgroundColor = `#${teams_teamsColorMAP.get(team)}`;
-    // set listeners on newly created elements (buttons) once entering teams layout page
-    let seasonGamesResultsArea = document.querySelector(".seasonScoreboard");
-    seasonGamesResultsArea.addEventListener("click", getTeamsGameResults);
-    let playoffGamesResultsArea = document.querySelector(".playoffScoreboard");
-    playoffGamesResultsArea.addEventListener("click", getTeamsGameResults);
-    teamColorsArea.addEventListener("click", teamColorsPage);
+      // change bodies background color to that of team selected
+      document.body.style.backgroundColor = `#${teams_teamsColorMAP.get(team)}`;
+      // sets tables for that teams players stats for that season
+      let playersArea = document.querySelector(".players");
+      playersArea.addEventListener("click", getTeamsPlayersPerSeason);
+      let teamColorsArea = document.querySelector(".teamColors");
+      teamColorsArea.style.backgroundColor = `#${teams_teamsColorMAP.get(team)}`;
+      // set listeners on newly created elements (buttons) once entering teams layout page
+      let seasonGamesResultsArea = document.querySelector(".seasonScoreboard");
+      seasonGamesResultsArea.addEventListener("click", getTeamsGameResults);
+      let playoffGamesResultsArea = document.querySelector(".playoffScoreboard");
+      playoffGamesResultsArea.addEventListener("click", getTeamsGameResults);
+      teamColorsArea.addEventListener("click", teamColorsPage);
   }
+
+  /* harmony default export */ const teamsPageLayout_setTeamsPageLayout = (setTeamsPageLayout);
 ;// CONCATENATED MODULE: ./src/scripts/listeners/listenerHelpers/setListenersMainNavbar.js
 
 
@@ -4113,7 +4731,7 @@ function setListenersMainNavbar() {
       item.addEventListener("click", (e) => {
         const targetElement = e.target.closest(".three-d-Logo")
         if(targetElement){
-          setTeamsPageLayout(targetElement)
+          teamsPageLayout_setTeamsPageLayout(targetElement)
         }
       })
     }
@@ -4196,6 +4814,12 @@ function setHomeTable() {
 
 
 function screenResize() {
+// if on boxscore page that has players table just return and exit 
+let boxscorePlayerStats = document.getElementById("boxscorePlayerStats");
+if (boxscorePlayerStats) {
+  return;
+}
+
   // insert fetch data function onto <TD> elements in mobile view
   let screenSize = window.innerWidth;
   let teamPlayersDataSource = document.getElementById("playerStatsBackButton");
@@ -4628,29 +5252,78 @@ document
   .addEventListener("click", () => {
     setPlayersFullTable(1, "Combined", "Combined");
 });
-;// CONCATENATED MODULE: ./src/scripts/layouts/announcements.js
+;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/MainAnnouncement.js
+function MainAnnouncement(){
+      // Create the first inner div
+  const containerElem = document.createElement('div');
+  containerElem.style.margin = 'auto';
+  containerElem.style.width = '90%';
+  containerElem.style.backgroundColor = 'rgb(0,255,0)';
+  containerElem.style.color = '#000000';
+
+  const headingElem = document.createElement('h5');
+  const bold = document.createElement('b')
+  bold.textContent = "Season 4 has begun!";
+  headingElem.append(bold)
+
+  containerElem.append(headingElem);
+  return containerElem
+}
+
+/* harmony default export */ const announcementComponents_MainAnnouncement = (MainAnnouncement);
+;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/Message.js
+function Message(){
+    const message = document.createElement('p');
+    message.innerHTML = `<b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b><br>
+    <b>**</b> Tables are sortable via clicking the field header. On mobile, click on any row <b>**</b>`
+
+    return message;
+}
+
+/* harmony default export */ const announcementComponents_Message = (Message);
+;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/AnnouncementsPageLayout.js
 
 
+
+function AnnouncementsPageLayout(){
+    const containerElem = document.createElement('div');
+    containerElem.classList.add("w3-content", "w3-margin", "w3-padding", "w3-round-large", "w3-display-container", "w3-margin-top", "w3-card-4", "w3-text-black")
+
+    containerElem.append(announcementComponents_MainAnnouncement())
+    containerElem.append(announcementComponents_Message())
+    return containerElem;
+}
+
+/* harmony default export */ const announcements_AnnouncementsPageLayout = (AnnouncementsPageLayout);
+;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/setAnnouncements.js
+
+
+
+
+function setAnnouncements() {
+  clearScoreboardDiv();
   
-  function announcements() {
-    clearScoreboardDiv();
-    let displayArea = document.getElementById("tablesDiv");
-  
-    displayArea.innerHTML = `<div class="w3-content w3-margin w3-padding w3-round-large w3-display-container w3-margin-top w3-card-4 w3-text-black">
-    <div style="margin: auto; width:90%; background-color: rgb(0,255,0);color: #000000;"><h5><b>Season 4 has begun!</b></h5></div>
-    <p style="background-color: orange;"><b>A tonne of stats yet to be created over time. A playoff page, list of Champions etc...</b></p>
-    <b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b></p>
-    <p><b>**</b> Tables are sortable via clicking the field header. On mobile click on any row <b>**</b></p>
-    </div>`;
-    sidebar_closeSidebar();
-  }
+  // Get the display area where you want to add content
+  let displayArea = document.getElementById("tablesDiv");
+
+  // Clear any existing content in the display area
+  displayArea.innerHTML = '';
+
+displayArea.append(announcements_AnnouncementsPageLayout())
+
+  // Close the sidebar
+  sidebar_closeSidebar();
+}
+
+/* harmony default export */ const announcements_setAnnouncements = (setAnnouncements);
+
 ;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/announcementsListener.js
 
 
   // announcements page
   document
   .getElementById("announcements")
-  .addEventListener("click", announcements);
+  .addEventListener("click", announcements_setAnnouncements);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/records/genericRecordFunctions/filterGameResults.js
 
 
@@ -5037,4 +5710,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=0669cd961e76be14fcaa.js.map
+//# sourceMappingURL=149904813032502ac669.js.map
