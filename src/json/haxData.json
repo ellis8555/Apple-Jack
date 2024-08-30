@@ -13625,7 +13625,7 @@
     },
     {
       "GameID": 100,
-      "Comment": "Tickenest has not experienced this type of pressure all season long. Drizz almost breaks the deadlock.",
+      "Comment": "Tickenest has not experienced this type of pressure all season long. Drizz almost breaks the deadlock",
       "Filepath": "img/gifs/S04/S04-ID100-05.gif"
     },
     {
@@ -13665,6 +13665,120 @@
       "ScoredBy": 12,
       "Comment": "Skills does what skills did in game one and applies pressure resulting in another unfortunate goal against the Degenerate Squad. Hax now up 2-1.",
       "Filepath": "img/gifs/S04/S04-ID100-03.gif"
+    },
+    {
+      "GameID": 101,
+      "ScoredBy": 3,
+      "AssistedBy": 21,
+      "Comment": "Corbett pauses at the half line recoginizing a potential break and potential becomes reality as Jer set Corbett on a empty net break where he will put the Nighthax up 3-2.",
+      "Filepath": "img/gifs/S04/S04-ID101-06.gif"
+    },
+    {
+      "GameID": 101,
+      "ScoredBy": 21,
+      "AssistedBy": 6,
+      "Comment": "Jer finds the ball as a hestitant Kidswasted hesitates to engage and Jer will tie this game up at 2-2.",
+      "Filepath": "img/gifs/S04/S04-ID101-05.gif"
+    },
+    {
+      "GameID": 101,
+      "OwnGoal": 12,
+      "Comment": "Corbett will tuck the ball into the corner as this game's final seconds tick down. This game will end 4-2 for the Nighthax.",
+      "Filepath": "img/gifs/S04/S04-ID101-08.gif"
+    },
+    {
+      "GameID": 101,
+      "Comment": "Ellis with the save here which preserves the Nighthax's lead.",
+      "Filepath": "img/gifs/S04/S04-ID101-07.gif"
+    },
+    {
+      "GameID": 101,
+      "Comment": ".Hax barely escape being down by 2 goals after this shot just misses the net.",
+      "Filepath": "img/gifs/S04/S04-ID101-02.gif"
+    },
+    {
+      "GameID": 101,
+      "ScoredBy": 3,
+      "AssistedBy": 21,
+      "Comment": "Corbs is open after Jer barely sneaks through the pass. Nighthax open up the scoring in this first game of two.",
+      "Filepath": "img/gifs/S04/S04-ID101-01.gif"
+    },
+    {
+      "GameID": 101,
+      "ScoredBy": 14,
+      "AssistedBy": 12,
+      "Comment": "Skills and Drizz working the corner when all of a sudden Drizz finds himself with a golden opportunity to score which he does. 2-1 .Hax lead.",
+      "Filepath": "img/gifs/S04/S04-ID101-04.gif"
+    },
+    {
+      "GameID": 101,
+      "ScoredBy": 14,
+      "Comment": "As the defender fans on the cross field pass, Drizz will pounce on the opportunity and equalize the score. 1-1 game.",
+      "Filepath": "img/gifs/S04/S04-ID101-03.gif"
+    },
+    {
+      "GameID": 102,
+      "Comment": "Skills on his own also almost unevens the current scoreline but we are still tied at 3-3.",
+      "Filepath": "img/gifs/S04/S04-ID102-08.gif"
+    },
+    {
+      "GameID": 102,
+      "Comment": "Corbett sends Jer in on a 1v1 vs Kidswasted who will make the save on a play that could have seen the scoreline uneven.",
+      "Filepath": "img/gifs/S04/S04-ID102-07.gif"
+    },
+    {
+      "GameID": 102,
+      "Comment": "Shortly after this tiebreaker still remains after this chance.",
+      "Filepath": "img/gifs/S04/S04-ID102-09.gif"
+    },
+    {
+      "GameID": 102,
+      "Comment": "Ellis sends the shot wide and this game will end up having .Hax come from behind 3-1 to win 4-3. ",
+      "Filepath": "img/gifs/S04/S04-ID102-11.gif"
+    },
+    {
+      "GameID": 102,
+      "ScoredBy": 12,
+      "AssistedBy": 14,
+      "Comment": "Skills gets what will be the game winner as he puts this shot on net which takes a deflection off of the defender.",
+      "Filepath": "img/gifs/S04/S04-ID102-10.gif"
+    },
+    {
+      "GameID": 102,
+      "ScoredBy": 12,
+      "AssistedBy": 14,
+      "Comment": "The pressure cooking team doing what they do creating havoc to which Skills will suddenly tie this game up. Down by 2 now the Hax are tied up 3-3!",
+      "Filepath": "img/gifs/S04/S04-ID102-06.gif"
+    },
+    {
+      "GameID": 102,
+      "ScoredBy": 14,
+      "Comment": "Roughly 5 seconds Ellis gets caught by a charging Driz who ties this game up 1-1.",
+      "Filepath": "img/gifs/S04/S04-ID102-02.gif"
+    },
+    {
+      "GameID": 102,
+      "ScoredBy": 21,
+      "Comment": "Jer will get his 11th of the season in the right spot at the right time. Again Nighthax will take the lead 1-0 in this season series.",
+      "Filepath": "img/gifs/S04/S04-ID102-01.gif"
+    },
+    {
+      "GameID": 102,
+      "ScoredBy": 21,
+      "Comment": "Tough battle along the north post when this ball pops eastwards to a wide open Jer who again give the lead to the Nighthax. 2-1.",
+      "Filepath": "img/gifs/S04/S04-ID102-03.gif"
+    },
+    {
+      "GameID": 102,
+      "OwnGoal": 3,
+      "Comment": "Kidswasted gets a little surprise on the pass attempt as the defender punts the interception towards his own goal and now .Hax are within a goal.",
+      "Filepath": "img/gifs/S04/S04-ID102-05.gif"
+    },
+    {
+      "GameID": 102,
+      "ScoredBy": 6,
+      "Comment": "Huge save by Kidswasted however Ellis will increase the Nighthax's lead 3-1 to end the half.",
+      "Filepath": "img/gifs/S04/S04-ID102-04.gif"
     }
   ]
 }
