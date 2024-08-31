@@ -1,4 +1,4 @@
-function boxscorePlayersTableElement(tableHeaders, sortBy){
+function boxscorePlayersTableHeadersElements(tableHeaders, sortBy){
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
 
@@ -19,4 +19,4 @@ function boxscorePlayersTableElement(tableHeaders, sortBy){
     return thead
 }
 
-export default boxscorePlayersTableElement;
+export default boxscorePlayersTableHeadersElements;
