@@ -5,19 +5,23 @@ import { HC_FONT } from "../../constants/consts/vars";
 export default function setHeaderBanner(teamName, seasonNumber) {
   const previousBannerIcon = document.getElementById("headerIcon");
   if(previousBannerIcon){
-    previousBannerIcon.remove()
+    previousBannerIcon.innerHTML = "";
   }
     // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
 const insertionDiv = document.createElement("div");
 insertionDiv.style.display = "flex";
 insertionDiv.style.justifyContent = "center"
+insertionDiv.style.alignItems = "center"
 insertionDiv.id = "headerIcon"
-const teamsIconHtmlString = setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
-insertionDiv.innerHTML = teamsIconHtmlString
-const xChild = insertionDiv.firstChild;
-insertionDiv.removeChild(xChild)
-const cssLogoNode = insertionDiv.firstElementChild.firstElementChild.firstElementChild;
+
+// get teams css logo
+const teamsCssLogo = setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
+const grabLogo = teamsCssLogo.firstElementChild.firstElementChild
+grabLogo.style.height = "6rem";
+grabLogo.style.width = "6rem";
+insertionDiv.append(teamsCssLogo)
+const cssLogoNode = teamsCssLogo.firstElementChild;
 cssLogoNode.style.height = "6rem";
 cssLogoNode.style.width = "6rem";
 const cssLogoTextNode = cssLogoNode.firstElementChild;
