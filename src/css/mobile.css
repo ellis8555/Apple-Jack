@@ -53,6 +53,12 @@
     line-height: 0.3 !important;
   }
 
+/*navbar*/
+/*navbar*/
+#teamsNavbar > section {
+  gap: .25rem;
+}
+
   /* CLASSES FOR TEAM PAGE LAYOUT */
 
   .teamsLayout {
