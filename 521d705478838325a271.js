@@ -2997,7 +2997,18 @@ const createTeamCssLogo = {
 }
 
 /* harmony default export */ const misc_createTeamCssLogo = (createTeamCssLogo);
+;// CONCATENATED MODULE: ./src/scripts/misc/parsedStringToDOM.js
+function parseStringToDOM(htmlString){
+    const parser = new DOMParser();
+    const parsedCssLogo = parser.parseFromString(htmlString, 'text/html');
+    const parsedHTML = parsedCssLogo.body.firstChild;
+
+    return parsedHTML;
+}
+
+/* harmony default export */ const parsedStringToDOM = (parseStringToDOM);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/navbar/helpers/setTeamLogoCss.js
+
 
 
 
@@ -3011,13 +3022,23 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
         teamName = teamNameParam;  
     }
 
-    element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-    element += `<div class="${id != undefined ?'w3-card-4 w3-blue w3-round-xlarge':''} w3-padding-small w3-section">`; // begin second div
-    // begin third div which is imported
-    element += misc_createTeamCssLogo.setTeamLogoCss(teamName, season, "Home")
-    element += `</div>`; // end second div
-    element += `</div>`; // end first div
-    return element;
+    const containerElem = document.createElement('div');
+    containerElem.classList.add("w3-container", "w3-cell", "w3-cell-middle");
+
+    const innerDiv = document.createElement('div');
+    const innerDivClass = id != undefined ? "w3-card-4 w3-blue w3-round-xlarge navLogoContainer" : "w3-padding-small w3-section navLogoContainer";
+    const splitClasses = innerDivClass.split(" ");
+    splitClasses.forEach(className => {
+        innerDiv.classList.add(className)
+    })
+    const cssLogoElement = misc_createTeamCssLogo.setTeamLogoCss(teamName, season, "Home")
+
+    const parsedLogo = parsedStringToDOM(cssLogoElement)
+
+    innerDiv.append(parsedLogo);
+
+    containerElem.append(innerDiv);
+    return containerElem;
 }
 
 /* harmony default export */ const helpers_setTeamLogoCss = (setTeamLogoCss);
@@ -3029,19 +3050,23 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
 function setHeaderBanner(teamName, seasonNumber) {
   const previousBannerIcon = document.getElementById("headerIcon");
   if(previousBannerIcon){
-    previousBannerIcon.remove()
+    previousBannerIcon.innerHTML = "";
   }
     // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
 const insertionDiv = document.createElement("div");
 insertionDiv.style.display = "flex";
 insertionDiv.style.justifyContent = "center"
+insertionDiv.style.alignItems = "center"
 insertionDiv.id = "headerIcon"
-const teamsIconHtmlString = helpers_setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
-insertionDiv.innerHTML = teamsIconHtmlString
-const xChild = insertionDiv.firstChild;
-insertionDiv.removeChild(xChild)
-const cssLogoNode = insertionDiv.firstElementChild.firstElementChild.firstElementChild;
+
+// get teams css logo
+const teamsCssLogo = helpers_setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
+const grabLogo = teamsCssLogo.firstElementChild.firstElementChild
+grabLogo.style.height = "6rem";
+grabLogo.style.width = "6rem";
+insertionDiv.append(teamsCssLogo)
+const cssLogoNode = teamsCssLogo.firstElementChild;
 cssLogoNode.style.height = "6rem";
 cssLogoNode.style.width = "6rem";
 const cssLogoTextNode = cssLogoNode.firstElementChild;
@@ -3867,6 +3892,68 @@ function handleResize() {
 }
 
 /* harmony default export */ const boxscorePlayerTables_updatePlayersBoxscoreTableResizeListener = (updatePlayersBoxscoreTableResizeListener);
+;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStatsComponents/helpers/boxscorePlayersTableHeadersElements.js
+function boxscorePlayersTableHeadersElements(tableHeaders, sortBy){
+    const thead = document.createElement('thead')
+    const tr = document.createElement('tr')
+
+    thead.append(tr)
+
+    for(let i = 0; i < tableHeaders.length; i++){
+        const th = document.createElement('th');
+        th.setAttribute('data-field-name', tableHeaders[i]);
+
+        if(tableHeaders[i] == sortBy){
+            th.classList.add("w3-orange")
+        }
+
+        th.textContent = tableHeaders[i]
+        tr.append(th)
+    }
+
+    return thead
+}
+
+/* harmony default export */ const helpers_boxscorePlayersTableHeadersElements = (boxscorePlayersTableHeadersElements);
+;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStatsComponents/helpers/boxscorePlayersTableDataElements.js
+
+
+function boxscorePlayersTableDataElements(thisGamesPlayerStatMAPS, tableHeaders, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor, sortBy){
+    const fragment = document.createDocumentFragment()
+    const fieldsLength = tableHeaders.length;
+    // this runs for each player in the game
+    thisGamesPlayerStatMAPS.forEach((item) => {
+        const playersRowOfData = document.createElement('tr');
+
+    // loop only over the fields defined by tableHeaders var passed in
+        for(let i = 0; i < fieldsLength; i++){
+            const td = document.createElement('td');
+            td.setAttribute("data-field-name", tableHeaders[i]);
+
+            // add yellow background to cells that fall under the current field that is sorted
+            if(tableHeaders[i] == sortBy){
+                td.classList.add("w3-yellow");
+                td.textContent = item.get(tableHeaders[i])
+                // for dealing with the players name within the table
+            } else if(tableHeaders[i] == "Name"){
+                const playerName = players_playersMAP.get(+item.get("PlayerID"));
+                const isHomeTeamPlayer = thisGamesHomeTeamPlayerNames.includes(playerName);
+                td.style.backgroundColor = isHomeTeamPlayer ? `${thisGamesHomeTeamColor}` : `${thisGamesAwayTeamColor}`;
+                td.style.color = "#fff";
+                td.textContent = playerName;
+            } else {
+                td.textContent = item.get(tableHeaders[i])
+            }
+            // add the single cell of data for the current field which is tableHeaders[i]
+            playersRowOfData.append(td)
+            // add the single cell to the players row in the html table then loop again over the next players stat
+            fragment.append(playersRowOfData)
+        }
+    })
+    return fragment;
+}
+
+/* harmony default export */ const helpers_boxscorePlayersTableDataElements = (boxscorePlayersTableDataElements);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/singleGameStats/singleGameStatsComponents/setPlayersBoxscoreTable.js
 
 
@@ -3874,86 +3961,26 @@ function handleResize() {
 
 
 
-const setPlayersBoxscoreTable_fieldsLength = PLAYERS_TABLE.length;
 
 function setPlayersBoxscoreTable(e, {thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor}) {
-    let sortBy;
-    if (e) {
-      sortBy = e.target.dataset.fieldName;
-    } else {
-      sortBy = "Points";
-    }
-    sortGroupedStats(thisGamesPlayerStatMAPS, sortBy);
-    let playerStatsContainer = document.querySelector("#boxscorePlayerStats");
-    let playersData = "";
-    // begin players game stats table
-    playersData += `<table>`;
-    // html table thead
-    playersData += "<thead><tr>";
-    for (let i = 0; i < setPlayersBoxscoreTable_fieldsLength; i++) {
-      if (PLAYERS_TABLE[i] == sortBy) {
-        playersData +=
-          `<th data-field-name=` + //data-fieldNames required for mobile layout
-          PLAYERS_TABLE[i] +
-          ` class="w3-orange">` +
-          PLAYERS_TABLE[i] +
-          "</th>";
-      } else {
-        playersData +=
-          `<th data-field-name=` + //data-fieldNames required for mobile layout
-          PLAYERS_TABLE[i] +
-          " >" +
-          PLAYERS_TABLE[i] +
-          "</th>";
-      }
-    }
-    playersData += "</tr></thead>";
-    // end of html table header fields row
-    thisGamesPlayerStatMAPS.forEach((item) => {
-      // table data begins for each field
-      playersData += "<tr>";
-      for (let j = 0; j < setPlayersBoxscoreTable_fieldsLength; j++) {
-        if (PLAYERS_TABLE[j] == sortBy) {
-          playersData +=
-            `<td data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[j] +
-            ` class="w3-yellow">` + // add yellow background for sorted column points
-            item.get(PLAYERS_TABLE[j]) +
-            "</td>";
-        } else if (PLAYERS_TABLE[j] == "Name") {
-          if (
-            thisGamesHomeTeamPlayerNames.includes(
-              players_playersMAP.get(+item.get("PlayerID"))
-            )
-          ) {
-            playersData +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` style="background-color:${thisGamesHomeTeamColor};color:#fff">` +
-              players_playersMAP.get(+item.get("PlayerID")) +
-              "</td>";
-          } else {
-            playersData +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` style="background-color:${thisGamesAwayTeamColor};color:#fff">` +
-              players_playersMAP.get(+item.get("PlayerID")) +
-              "</td>";
-          }
-        } else {
-          playersData +=
-            `<td data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[j] +
-            " >" +
-            item.get(PLAYERS_TABLE[j]) +
-            "</td>";
-        }
-      }
+  let sortBy;
+  if (e) {
+    sortBy = e.target.dataset.fieldName;
+  } else {
+    sortBy = "Points";
+  }
 
-      playersData += "</tr>";
-    });
-    playersData += `</table>`;
-    playerStatsContainer.innerHTML = playersData;
+    sortGroupedStats(thisGamesPlayerStatMAPS, sortBy);
+    const playerStatsContainer = document.querySelector("#boxscorePlayerStats");
+    playerStatsContainer.innerHTML = "";
+
+    const table = document.createElement('table');
+    const thead = helpers_boxscorePlayersTableHeadersElements(PLAYERS_TABLE, sortBy)
+    const td = helpers_boxscorePlayersTableDataElements(thisGamesPlayerStatMAPS, PLAYERS_TABLE, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor, sortBy)
+    thead.append(td)
+    table.append(thead)
+
+    playerStatsContainer.append(table)
 
 // add listeners to the table headers
 boxscorePlayerTables_playerBoxscoreTableListeners({ thisGamesPlayerStatMAPS, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor });
@@ -4750,36 +4777,58 @@ function setListenersMainNavbar() {
     if(season === 0 || season == undefined){
       season = season_currentSeason
     }
-    let screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth;
     const teamsThisSeason = teams_eachSeasonsTeamsMAP.get(season).length;
-    let navbarContainer = document.querySelector("#teamsNavbar > section");
-    let navbarContent = "";
+    const navbarContainer = document.querySelector("#teamsNavbar > section");
+    const navbarContent = document.createDocumentFragment()
     // if statement to prevent to many team logos which appear too small on one navbar
     if (teamsThisSeason > 5 && screenWidth < 500) {
       // this is for more teams than 5 which on mobile becomes to crowded
       navbarContainer.style.flexDirection = "column";
-      navbarContent += `<div style="width:100% ; display: flex; justify-content: space-around;">`; // container for first row of teams
+      const navbarContentContainer = document.createElement('div');
+      navbarContentContainer.style.width = "100%";
+      navbarContentContainer.style.display = "flex";
+      navbarContentContainer.style.justifyContent = "space-around";
+      
       for (let i = 0; i < teamsThisSeason / 2; i++) {
         // first row of teams
-        navbarContent = helpers_setTeamLogoCss(navbarContent, season, i);
+        navbarContentContainer.append(helpers_setTeamLogoCss(navbarContent, season, i));
       }
-      navbarContent += `</div>`; // end first row of teams container
-      navbarContent += `<div style="width:100% ; display: flex; justify-content: space-around;">`; // container for second row of teams
+      // create second row of teams
+      const secondRowContainer = document.createElement('div');
+      secondRowContainer.style.width = "100%";
+      secondRowContainer.style.display = "flex";
+      secondRowContainer.style.justifyContent = "space-around";
       // second row of teams
       for (let i = teamsThisSeason / 2; i < teamsThisSeason; i++) {
-        navbarContent = helpers_setTeamLogoCss(navbarContent, season, i)
+        secondRowContainer.append(helpers_setTeamLogoCss(navbarContent, season, i))
       }
-      navbarContent += `</div>`; // end second row of teams container
+      navbarContent.append(navbarContentContainer)
+      navbarContent.append(secondRowContainer)
+      
     } else {
       navbarContainer.style.flexDirection = "row";
       // else less than 5 teams looks good on mobile
       for (let i = 0; i < teamsThisSeason; i++) {
         // navbarContent = setLayout(imageSource, navbarContent, season, i);
-        navbarContent = helpers_setTeamLogoCss(navbarContent, season, i)
+        navbarContent.append(helpers_setTeamLogoCss(navbarContent, season, i))
       }
     }
-  
-    navbarContainer.innerHTML = navbarContent;
+    navbarContainer.innerHTML = "";
+    navbarContainer.append(navbarContent);
+
+    // increase css logo sizes on seasons team counts that require multiple navbar rows
+    if (teamsThisSeason > 5 && screenWidth < 500) {
+      const mobileNavlogoContainers = document.querySelectorAll(".navLogoContainer");
+      mobileNavlogoContainers.forEach((row, index) => {
+        if(index !== 0){
+          const eachCssLogo = row.firstElementChild;
+          eachCssLogo.style.width = "3.25rem";
+          eachCssLogo.style.height = "3.25rem";
+        }
+      });
+    }
+
     setListenersMainNavbar();
   }
 ;// CONCATENATED MODULE: ./src/scripts/tables/setHomeTable.js
@@ -5710,4 +5759,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=6842d5eec406875e0828.js.map
+//# sourceMappingURL=521d705478838325a271.js.map
