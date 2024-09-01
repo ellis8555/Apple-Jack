@@ -4782,7 +4782,7 @@ function setListenersMainNavbar() {
     const navbarContainer = document.querySelector("#teamsNavbar > section");
     const navbarContent = document.createDocumentFragment()
     // if statement to prevent to many team logos which appear too small on one navbar
-    if (teamsThisSeason > 5 && screenWidth < 500) {
+    if (teamsThisSeason > 5 && screenWidth < 600) {
       // this is for more teams than 5 which on mobile becomes to crowded
       navbarContainer.style.flexDirection = "column";
       const navbarContentContainer = document.createElement('div');
@@ -4818,7 +4818,7 @@ function setListenersMainNavbar() {
     navbarContainer.append(navbarContent);
 
     // increase css logo sizes on seasons team counts that require multiple navbar rows
-    if (teamsThisSeason > 5 && screenWidth < 500) {
+    if (teamsThisSeason > 5 && screenWidth < 600) {
       const mobileNavlogoContainers = document.querySelectorAll(".navLogoContainer");
       mobileNavlogoContainers.forEach((row, index) => {
         if(index !== 0){
@@ -5759,4 +5759,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=521d705478838325a271.js.map
+//# sourceMappingURL=d37980ff304f4e7f3210.js.map
