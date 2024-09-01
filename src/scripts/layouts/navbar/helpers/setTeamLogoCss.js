@@ -1,5 +1,6 @@
 import eachSeasonsTeamsMAP from "../../../var_lib/maps/teams/eachSeasonsTeamsMAP";
 import createTeamCssLogo from "../../../misc/createTeamCssLogo";
+import parseStringToDOM from "../../../misc/parsedStringToDOM";
 
 function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefined) {
     let teamName;
@@ -11,13 +12,23 @@ function setTeamLogoCss(element, season, id = undefined, teamNameParam = undefin
         teamName = teamNameParam;  
     }
 
-    element += `<div class="w3-container w3-cell w3-cell-middle">`; // begin first div
-    element += `<div class="${id != undefined ?'w3-card-4 w3-blue w3-round-xlarge':''} w3-padding-small w3-section">`; // begin second div
-    // begin third div which is imported
-    element += createTeamCssLogo.setTeamLogoCss(teamName, season, "Home")
-    element += `</div>`; // end second div
-    element += `</div>`; // end first div
-    return element;
+    const containerElem = document.createElement('div');
+    containerElem.classList.add("w3-container", "w3-cell", "w3-cell-middle");
+
+    const innerDiv = document.createElement('div');
+    const innerDivClass = id != undefined ? "w3-card-4 w3-blue w3-round-xlarge navLogoContainer" : "w3-padding-small w3-section navLogoContainer";
+    const splitClasses = innerDivClass.split(" ");
+    splitClasses.forEach(className => {
+        innerDiv.classList.add(className)
+    })
+    const cssLogoElement = createTeamCssLogo.setTeamLogoCss(teamName, season, "Home")
+
+    const parsedLogo = parseStringToDOM(cssLogoElement)
+
+    innerDiv.append(parsedLogo);
+
+    containerElem.append(innerDiv);
+    return containerElem;
 }
 
 export default setTeamLogoCss;
