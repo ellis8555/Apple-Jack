@@ -10,35 +10,57 @@ import setTeamLogoCss from "./helpers/setTeamLogoCss"
     if(season === 0 || season == undefined){
       season = currentSeason
     }
-    let screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth;
     const teamsThisSeason = eachSeasonsTeamsMAP.get(season).length;
-    let navbarContainer = document.querySelector("#teamsNavbar > section");
-    let navbarContent = "";
+    const navbarContainer = document.querySelector("#teamsNavbar > section");
+    const navbarContent = document.createDocumentFragment()
     // if statement to prevent to many team logos which appear too small on one navbar
     if (teamsThisSeason > 5 && screenWidth < 500) {
       // this is for more teams than 5 which on mobile becomes to crowded
       navbarContainer.style.flexDirection = "column";
-      navbarContent += `<div style="width:100% ; display: flex; justify-content: space-around;">`; // container for first row of teams
+      const navbarContentContainer = document.createElement('div');
+      navbarContentContainer.style.width = "100%";
+      navbarContentContainer.style.display = "flex";
+      navbarContentContainer.style.justifyContent = "space-around";
+      
       for (let i = 0; i < teamsThisSeason / 2; i++) {
         // first row of teams
-        navbarContent = setTeamLogoCss(navbarContent, season, i);
+        navbarContentContainer.append(setTeamLogoCss(navbarContent, season, i));
       }
-      navbarContent += `</div>`; // end first row of teams container
-      navbarContent += `<div style="width:100% ; display: flex; justify-content: space-around;">`; // container for second row of teams
+      // create second row of teams
+      const secondRowContainer = document.createElement('div');
+      secondRowContainer.style.width = "100%";
+      secondRowContainer.style.display = "flex";
+      secondRowContainer.style.justifyContent = "space-around";
       // second row of teams
       for (let i = teamsThisSeason / 2; i < teamsThisSeason; i++) {
-        navbarContent = setTeamLogoCss(navbarContent, season, i)
+        secondRowContainer.append(setTeamLogoCss(navbarContent, season, i))
       }
-      navbarContent += `</div>`; // end second row of teams container
+      navbarContent.append(navbarContentContainer)
+      navbarContent.append(secondRowContainer)
+      
     } else {
       navbarContainer.style.flexDirection = "row";
       // else less than 5 teams looks good on mobile
       for (let i = 0; i < teamsThisSeason; i++) {
         // navbarContent = setLayout(imageSource, navbarContent, season, i);
-        navbarContent = setTeamLogoCss(navbarContent, season, i)
+        navbarContent.append(setTeamLogoCss(navbarContent, season, i))
       }
     }
-  
-    navbarContainer.innerHTML = navbarContent;
+    navbarContainer.innerHTML = "";
+    navbarContainer.append(navbarContent);
+
+    // increase css logo sizes on seasons team counts that require multiple navbar rows
+    if (teamsThisSeason > 5 && screenWidth < 500) {
+      const mobileNavlogoContainers = document.querySelectorAll(".navLogoContainer");
+      mobileNavlogoContainers.forEach((row, index) => {
+        if(index !== 0){
+          const eachCssLogo = row.firstElementChild;
+          eachCssLogo.style.width = "3.25rem";
+          eachCssLogo.style.height = "3.25rem";
+        }
+      });
+    }
+
     setListenersMainNavbar();
   }
