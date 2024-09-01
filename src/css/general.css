@@ -103,10 +103,21 @@ table td:first-child {
 }
 
 /*navbar*/
+#teamsNavbar > section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: auto;
+  gap: 1rem;
+}
+
+.navLogoContainer {
+  padding: .5rem;
+}
+
 .three-d-Logo {
   width: clamp(2rem, 5vw, 6.25rem);
   height: clamp(2rem, 5vw, 6.25rem);
-  clip-path: circle();
+  clip-path: circle(); 
 }
 
 .navLogo:hover {
