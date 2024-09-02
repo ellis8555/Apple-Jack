@@ -3701,6 +3701,11 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
     setTeamPlayerCombinedTableListeners();
   }
   
+;// CONCATENATED MODULE: ./src/scripts/scoreboard/getScoreboardDiv.js
+function getScoreboardDiv() {
+    const scoreboardDiv = document.getElementById("scoreboardDiv");
+    return scoreboardDiv;
+  }
 ;// CONCATENATED MODULE: ./src/scripts/layouts/setGifs.js
   
   
@@ -3716,18 +3721,18 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
   function setGifs(e) {
     clearScoreboardDiv();
     clearTablesDiv();
-    getTablesDiv();
-    clearScoreboardDiv();
-    let gameNumber = e.target.dataset.gameId;
-    let teamName = e.target.dataset.teamName;
-    let gameType = e.target.dataset.gameType;
-    let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
-    let thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
-    let thisGamesHomeTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamOne);
-    let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
-    let thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
-    let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
-    let thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
+    const tablesDiv = getTablesDiv();
+    const scoreboardDiv = getScoreboardDiv();
+    const gameNumber = e.target.dataset.gameId;
+    const teamName = e.target.dataset.teamName;
+    const gameType = e.target.dataset.gameType;
+    const thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
+    const thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
+    const thisGamesHomeTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamOne);
+    const thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
+    const thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
+    const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
+    const thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
     if (thisGamesHighlights.length > 0) {
       // begin title for gifs page
       const gifsHeaderContainer = document.createElement("div");
@@ -3790,8 +3795,8 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       // end back button
       for (let i = 0; i < thisGamesHighlights.length; i++) {
         let thisGamesFinalPath;
-        let theseGifsSubSet = thisGamesHighlights[0].Filepath;
-        let thisGifsSubPath = theseGifsSubSet.slice(
+        const theseGifsSubSet = thisGamesHighlights[0].Filepath;
+        const thisGifsSubPath = theseGifsSubSet.slice(
           0,
           theseGifsSubSet.length - 6
         );
@@ -3800,7 +3805,7 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         } else {
           thisGamesFinalPath = `${thisGifsSubPath}${i + 1}.gif`;
         }
-        let thisGif = thisGamesHighlights.find(
+        const thisGif = thisGamesHighlights.find(
           (item) => item.Filepath == thisGamesFinalPath
         );
               // Create a container for each GIF and comment
@@ -3825,11 +3830,6 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       noGifsMessage.textContent = "No highlights for this game";
       scoreboardDiv.appendChild(noGifsMessage);
     }
-  }
-;// CONCATENATED MODULE: ./src/scripts/scoreboard/getScoreboardDiv.js
-function getScoreboardDiv() {
-    let scoreboardDiv = document.getElementById("scoreboardDiv");
-    return scoreboardDiv;
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/boxscorePage/boxscorePlayerTables/playerBoxscoreTableListeners.js
 
@@ -4114,62 +4114,62 @@ function SingleGameBoxscore({
   function setGamesData(e) {
     clearScoreboardDiv();
     clearTablesDiv();
-    getScoreboardDiv();
-    getTablesDiv();
-    let gameNumber = e.target.dataset.gameId;
-    let teamName = e.target.dataset.teamName;
-    let gameType = e.target.dataset.gameType;
-    let thisSeasonNumber = GameResults.filter(
+    const scoreboardDiv = getScoreboardDiv();
+    const tablesDiv = getTablesDiv();
+    const gameNumber = e.target.dataset.gameId;
+    const teamName = e.target.dataset.teamName;
+    const gameType = e.target.dataset.gameType;
+    const thisSeasonNumber = GameResults.filter(
       (item) => item.GameID == gameNumber
     )[0].SeasonNumber;
-    let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
+    const thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
     // begin home team
-    let thisGamesHomeTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamOne);
-    let thisGamesHomeTeamColor = `#${
+    const thisGamesHomeTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamOne);
+    const thisGamesHomeTeamColor = `#${
       teams_eachTeamObjectMAP.get(thisGamesHomeTeam).MainColor
     }`;
     //***************************** */
   
-    let thisGamesHomeTeamsPlayerRecords = TeamPlayers.filter(
+    const thisGamesHomeTeamsPlayerRecords = TeamPlayers.filter(
       (item) =>
         item.SeasonNumber == thisSeasonNumber &&
         item.TeamID == String(teams_teamsNumMAP.get(thisGamesHomeTeam))
     );
-    let thisGamesHomeTeamPlayerNames = [];
+    const thisGamesHomeTeamPlayerNames = [];
     thisGamesHomeTeamsPlayerRecords.forEach((item) =>
       thisGamesHomeTeamPlayerNames.push(players_playersMAP.get(+item.PlayerID))
     );
   
     //**************************************** */
-    let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
-    let thisGamesHomeTeamPossession = thisGamesResult[0].TeamOnePossession;
-    let thisGamesHomeTeamShotsOnGoal = thisGamesResult[0].TeamOneShotsOnGoal;
-    let thisGamesHomeTeamPasses = thisGamesResult[0].TeamOnePasses;
-    let thisGamesHomeTeamKicks = thisGamesResult[0].TeamOneKicks;
+    const thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
+    const thisGamesHomeTeamPossession = thisGamesResult[0].TeamOnePossession;
+    const thisGamesHomeTeamShotsOnGoal = thisGamesResult[0].TeamOneShotsOnGoal;
+    const thisGamesHomeTeamPasses = thisGamesResult[0].TeamOnePasses;
+    const thisGamesHomeTeamKicks = thisGamesResult[0].TeamOneKicks;
     // end home team
     // begin away team
-    let thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
-    let thisGamesAwayTeamColor = `#${
+    const thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
+    const thisGamesAwayTeamColor = `#${
       teams_eachTeamObjectMAP.get(thisGamesAwayTeam).MainColor
     }`;
     //***************************** */
-    let thisGamesAwayTeamsPlayerRecords = TeamPlayers.filter(
+    const thisGamesAwayTeamsPlayerRecords = TeamPlayers.filter(
       (item) =>
         item.SeasonNumber == thisSeasonNumber &&
         item.TeamID == String(teams_teamsNumMAP.get(thisGamesAwayTeam))
     );
-    let thisGamesAwayTeamPlayerNames = [];
+    const thisGamesAwayTeamPlayerNames = [];
     thisGamesAwayTeamsPlayerRecords.forEach((item) =>
       thisGamesAwayTeamPlayerNames.push(players_playersMAP.get(+item.PlayerID))
     );
     //***************************************** */
-    let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
-    let thisGamesAwayTeamPossession = thisGamesResult[0].TeamTwoPossession;
-    let thisGamesAwayTeamShotsOnGoal = thisGamesResult[0].TeamTwoShotsOnGoal;
-    let thisGamesAwayTeamPasses = thisGamesResult[0].TeamTwoPasses;
-    let thisGamesAwayTeamKicks = thisGamesResult[0].TeamTwoKicks;
+    const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
+    const thisGamesAwayTeamPossession = thisGamesResult[0].TeamTwoPossession;
+    const thisGamesAwayTeamShotsOnGoal = thisGamesResult[0].TeamTwoShotsOnGoal;
+    const thisGamesAwayTeamPasses = thisGamesResult[0].TeamTwoPasses;
+    const thisGamesAwayTeamKicks = thisGamesResult[0].TeamTwoKicks;
     // end away team
-    let thisGamesHomeTeamStats = [
+    const thisGamesHomeTeamStats = [
       thisGamesHomeTeam,
       thisGamesHomeTeamScore,
       thisGamesHomeTeamPossession,
@@ -4177,7 +4177,7 @@ function SingleGameBoxscore({
       thisGamesHomeTeamPasses,
       thisGamesHomeTeamKicks,
     ];
-    let thisGamesAwayTeamStats = [
+    const thisGamesAwayTeamStats = [
       thisGamesAwayTeam,
       thisGamesAwayTeamScore,
       thisGamesAwayTeamPossession,
@@ -4210,10 +4210,10 @@ function SingleGameBoxscore({
     // end back button
 
     // begin player stats data
-    let thisGamesPlayerStats = GamePlayerStats.filter(
+    const thisGamesPlayerStats = GamePlayerStats.filter(
       (item) => item.GameID == gameNumber
     );
-    let thisGamesPlayerStatMAPS = [];
+    const thisGamesPlayerStatMAPS = [];
     for (let i = 0; i < thisGamesPlayerStats.length; i++) {
       thisGamesPlayerStatMAPS.push(
         new Map(Object.entries(thisGamesPlayerStats[i]))
@@ -4236,7 +4236,74 @@ function SingleGameBoxscore({
   }
   
   //end data containers
-;// CONCATENATED MODULE: ./src/scripts/layouts/getTeamsGamesResults.js
+;// CONCATENATED MODULE: ./src/scripts/layouts/getTeamsGamesResults/helpers/getGameResultClass.js
+
+
+function getGameResultClass(game, team) {
+    if (team == `${teams_teamsMAP.get(+game.TeamOne)}`) {
+        if (game.TeamOneScore > game.TeamTwoScore && game.ExtraTime == "No") {
+            return 'w3-green'; // Win
+        } else if (game.TeamOneScore > game.TeamTwoScore && game.ExtraTime == "Yes") {
+            return 'w3-blue'; // Overtime Win
+        } else if (game.TeamOneScore == game.TeamTwoScore) {
+            return 'w3-grey'; // Draw
+        } else if (game.TeamOneScore < game.TeamTwoScore && game.ExtraTime == "Yes") {
+            return 'w3-grey'; // Overtime Loss
+        } else {
+            return 'w3-red'; // Loss
+        }
+    } else if (team == `${teams_teamsMAP.get(+game.TeamTwo)}`) {
+        if (game.TeamTwoScore > game.TeamOneScore && game.ExtraTime == "No") {
+            return 'w3-green'; // Win
+        } else if (game.TeamTwoScore > game.TeamOneScore && game.ExtraTime == "Yes") {
+            return 'w3-blue'; // Overtime Win
+        } else if (game.TeamTwoScore == game.TeamOneScore) {
+            return 'w3-grey'; // Draw
+        } else if (game.TeamTwoScore < game.TeamOneScore && game.ExtraTime == "Yes") {
+            return 'w3-grey'; // Overtime Loss
+        } else {
+            return 'w3-red'; // Loss
+        }
+    }
+}
+
+/* harmony default export */ const helpers_getGameResultClass = (getGameResultClass);
+;// CONCATENATED MODULE: ./src/scripts/layouts/getTeamsGamesResults/helpers/getGameResultText.js
+
+
+function getGameResultText(game, team) {
+    if (team == `${teams_teamsMAP.get(+game.TeamOne)}`) {
+        if (game.TeamOneScore > game.TeamTwoScore && game.ExtraTime == "No") {
+            return 'Win';
+        } else if (game.TeamOneScore > game.TeamTwoScore && game.ExtraTime == "Yes") {
+            return 'OTW';
+        } else if (game.TeamOneScore == game.TeamTwoScore) {
+            return 'Draw';
+        } else if (game.TeamOneScore < game.TeamTwoScore && game.ExtraTime == "Yes") {
+            return 'OTL';
+        } else {
+            return 'Loss';
+        }
+    } else if (team == `${teams_teamsMAP.get(+game.TeamTwo)}`) {
+        if (game.TeamTwoScore > game.TeamOneScore && game.ExtraTime == "No") {
+            return 'Win';
+        } else if (game.TeamTwoScore > game.TeamOneScore && game.ExtraTime == "Yes") {
+            return 'OTW';
+        } else if (game.TeamTwoScore == game.TeamOneScore) {
+            return 'Draw';
+        } else if (game.TeamTwoScore < game.TeamOneScore && game.ExtraTime == "Yes") {
+            return 'OTL';
+        } else {
+            return 'Loss';
+        }
+    }
+  }
+
+/* harmony default export */ const helpers_getGameResultText = (getGameResultText);
+;// CONCATENATED MODULE: ./src/scripts/layouts/getTeamsGamesResults/getTeamsGamesResults.js
+
+
+
 
 
 
@@ -4250,187 +4317,121 @@ function SingleGameBoxscore({
 
 
 function getTeamsGameResults(e) {
-    let team = e.target.dataset.teamName;
-    let seasonNum = e.target.dataset.seasonNum;
-    let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
+    const team = e.target.dataset.teamName;
+    const seasonNum = e.target.dataset.seasonNum;
+    const gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
     let teamsGames;
-    let thisGamesGifs;
-    let gameResults = "";
-    let gameResultsBoxResult = "";
-    let win = "W";
-    let loss = "L";
-    let draw = "D";
-    let overTimeWin = "OTW";
-    let overTimeLoss = "OTL";
     teamsGames =
       teamStats.allTeamStats[team][
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
-    let gamesLength = teamsGames.length;
-    gameResults += misc_backButton("gameResultsBackButton", team, seasonNum, gameType).outerHTML;
-    gameResults += `<h1>${team}</h1>`;
-    gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
-    if (gamesLength > 0) {
-      for (let i = 0; i < gamesLength; i++) {
-        gameResults += `<div style="display: flex; justify-content: center">`;
-        // class gameResults is containing grid
-        gameResults += `<div class="w3-container w3-margin gameResults">`;
-        // homeTeam logo
-        gameResults += `<div class="homeTeamLogo w3-card w3-blue">`;
-        if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Home");
-        } else {
-          let otherTeam = `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`;
-          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(otherTeam, seasonNum, "Home");
+    const gamesLength = teamsGames.length;
+
+      const gameResultsFrag = document.createDocumentFragment();
+
+      const backButtonContainer = document.createElement('div');
+      backButtonContainer.innerHTML = misc_backButton("gameResultsBackButton", team, seasonNum, gameType).outerHTML
+      const backButtonElement = backButtonContainer.firstElementChild;
+      gameResultsFrag.append(backButtonElement)
+
+      const teamName = document.createElement('h1');
+      teamName.textContent = team;
+      gameResultsFrag.append(teamName)
+
+      const scoresSeasonInfo = document.createElement('h4');
+      scoresSeasonInfo.textContent = `S0${seasonNum} ${gameType}`;
+      gameResultsFrag.append(scoresSeasonInfo)
+
+      if(gamesLength > 0){
+        for (let i = 0; i < gamesLength; i++) {
+          const gameContainer = document.createElement('div');
+        gameContainer.style.display = 'flex';
+        gameContainer.style.justifyContent = 'center';
+
+        const gameResultsDiv = document.createElement('div');
+        gameResultsDiv.className = 'w3-container w3-margin gameResults';
+        gameContainer.appendChild(gameResultsDiv);
+
+        // Home Team Logo
+        const homeTeamLogo = document.createElement('div');
+        homeTeamLogo.className = 'homeTeamLogo w3-card w3-blue';
+        const homeTeamLogoHTML = team == `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`
+            ? misc_createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Home")
+            : misc_createTeamCssLogo.getTeamsGamesResults(`${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`, seasonNum, "Home");
+        homeTeamLogo.innerHTML = homeTeamLogoHTML;
+        gameResultsDiv.appendChild(homeTeamLogo);
+
+        // Home Team Name
+        const homeTeam = document.createElement('div');
+        homeTeam.className = 'homeTeam';
+        homeTeam.style.backgroundColor = `#${teams_teamsColorMAP.get(team == `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}` ? team : `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`)}`;
+        homeTeam.style.color = '#ffffff';
+        homeTeam.textContent = `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`;
+        gameResultsDiv.appendChild(homeTeam);
+
+        // Home Team Score
+        const homeScore = document.createElement('div');
+        homeScore.className = `homeScore ${teamsGames[i].TeamOneScore > teamsGames[i].TeamTwoScore ? 'w3-green' : teamsGames[i].TeamOneScore == teamsGames[i].TeamTwoScore ? 'w3-dark-gray' : 'w3-red'}`;
+        homeScore.textContent = `${teamsGames[i].TeamOneScore}`;
+        gameResultsDiv.appendChild(homeScore);
+
+        // Away Team Name
+        const awayTeam = document.createElement('div');
+        awayTeam.className = 'awayTeam';
+        awayTeam.style.backgroundColor = `#${teams_teamsColorMAP.get(team == `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}` ? team : `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`)}`;
+        awayTeam.style.color = '#ffffff';
+        awayTeam.textContent = `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`;
+        gameResultsDiv.appendChild(awayTeam);
+
+        // Away Team Logo
+        const awayTeamLogo = document.createElement('div');
+        awayTeamLogo.className = 'awayTeamLogo w3-card w3-blue';
+        const awayTeamLogoHTML = team == `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`
+            ? misc_createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Away")
+            : misc_createTeamCssLogo.getTeamsGamesResults(`${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`, seasonNum, "Away");
+        awayTeamLogo.innerHTML = awayTeamLogoHTML;
+        gameResultsDiv.appendChild(awayTeamLogo);
+
+        // Away Team Score
+        const awayScore = document.createElement('div');
+        awayScore.className = `awayScore ${teamsGames[i].TeamOneScore < teamsGames[i].TeamTwoScore ? 'w3-green' : teamsGames[i].TeamTwoScore == teamsGames[i].TeamOneScore ? 'w3-dark-gray' : 'w3-red'}`;
+        awayScore.textContent = `${teamsGames[i].TeamTwoScore}`;
+        gameResultsDiv.appendChild(awayScore);
+
+        // Game Result Box
+        const gameResultsBox = document.createElement('div');
+        gameResultsBox.className = `gameResultsBox ${helpers_getGameResultClass(teamsGames[i], team)}`;
+        gameResultsBox.textContent = helpers_getGameResultText(teamsGames[i], team);
+        gameResultsDiv.appendChild(gameResultsBox);
+
+        // Game Highlights
+        const gameHighlights = document.createElement('div');
+        gameHighlights.className = 'gameHighlights';
+        gameHighlights.dataset.gameHighlights = "";
+        gameHighlights.dataset.teamName = team;
+        gameHighlights.dataset.gameId = teamsGames[i].GameID;
+        gameHighlights.dataset.gameType = gameType;
+        gameHighlights.textContent = `Game Highlights (${Gifs.filter(gif => gif.GameID == teamsGames[i].GameID).length})`;
+        gameResultsDiv.appendChild(gameHighlights);
+
+        // Game Stats
+        const gameStats = document.createElement('div');
+        gameStats.className = 'gameStats';
+        gameStats.dataset.gameStats = "";
+        gameStats.dataset.teamName = team;
+        gameStats.dataset.gameId = teamsGames[i].GameID;
+        gameStats.dataset.seasonNumber = seasonNum;
+        gameStats.dataset.gameType = gameType;
+        gameStats.textContent = 'Stats';
+        gameResultsDiv.appendChild(gameStats);
+
+        gameResultsFrag.appendChild(gameContainer);
         }
-        gameResults += `</div>`;
-        // homeTeam name
-        gameResults += `<div class="homeTeam"`;
-        if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-          gameResults += `style="background-color: #${teams_teamsColorMAP.get(
-            team
-          )}; color: #ffffff;">`;
-        } else {
-          let otherTeam = `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`;
-          gameResults += `style="background-color: #${teams_teamsColorMAP.get(
-            otherTeam
-          )}; color: #ffffff;">`;
-        }
-        gameResults += `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`;
-        gameResults += `</div>`;
-        // homeScore
-        if (+`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}`) {
-          gameResults += `<div class="homeScore w3-green">`;
-        } else if (
-          +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
-        ) {
-          gameResults += `<div class="homeScore w3-dark-gray">`;
-        } else {
-          gameResults += `<div class="homeScore w3-red">`;
-        }
-        gameResults += `${+teamsGames[i].TeamOneScore}`;
-        gameResults += `</div>`;
-        // awayTeam
-        gameResults += `<div class="awayTeam"`;
-        if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-          gameResults += `style="background-color: #${teams_teamsColorMAP.get(
-            team
-          )}; color: #ffffff;">`;
-        } else {
-          let otherTeam = `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-          gameResults += `style="background-color: #${teams_teamsColorMAP.get(
-            otherTeam
-          )}; color: #ffffff;">`;
-        }
-        gameResults += ` ${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-        gameResults += `</div>`;
-        // awayTeam logo
-        gameResults += `<div class="awayTeamLogo w3-card w3-blue">`;
-        if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(team, seasonNum, "Away");
-        } else {
-          let otherTeam = `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`;
-          gameResults += misc_createTeamCssLogo.getTeamsGamesResults(otherTeam, seasonNum, "Away");
-        }
-        gameResults += `</div>`;
-        // awayTeam score
-        if (+`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}`) {
-          gameResults += `<div class="awayScore w3-green">`;
-        } else if (
-          +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
-        ) {
-          gameResults += `<div class="awayScore w3-dark-gray">`;
-        } else {
-          gameResults += `<div class="awayScore w3-red">`;
-        }
-        gameResults += `${+teamsGames[i].TeamTwoScore}`;
-        gameResults += `</div>`;
-        // gameResult div
-        if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamOne)}`) {
-          if (
-            +`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}` &&
-            `${teamsGames[i].ExtraTime}` == "No"
-          ) {
-            gameResults += `<div class="gameResultsBox w3-green">`;
-            gameResultsBoxResult = win;
-          } else if (
-            +`${teamsGames[i].TeamOneScore}` > +`${teamsGames[i].TeamTwoScore}` &&
-            `${teamsGames[i].ExtraTime}` == "Yes"
-          ) {
-            gameResults += `<div class="gameResultsBox w3-blue">`;
-            gameResultsBoxResult = overTimeWin;
-          } else if (
-            +`${teamsGames[i].TeamOneScore}` == +`${teamsGames[i].TeamTwoScore}`
-          ) {
-            gameResults += `<div class="gameResultsBox w3-grey">`;
-            gameResultsBoxResult = draw;
-          } else if (
-            +`${teamsGames[i].TeamOneScore}` < +`${teamsGames[i].TeamTwoScore}` &&
-            `${teamsGames[i].ExtraTime}` == "Yes"
-          ) {
-            gameResults += `<div class="gameResultsBox w3-grey">`;
-            gameResultsBoxResult = overTimeLoss;
-          } else {
-            gameResults += `<div class="gameResultsBox w3-red">`;
-            gameResultsBoxResult = loss;
-          }
-        } else {
-          if (team == `${teams_teamsMAP.get(+teamsGames[i].TeamTwo)}`) {
-            if (
-              +`${teamsGames[i].TeamTwoScore}` >
-                +`${teamsGames[i].TeamOneScore}` &&
-              `${teamsGames[i].ExtraTime}` == "No"
-            ) {
-              gameResults += `<div class="gameResultsBox w3-green">`;
-              gameResultsBoxResult = win;
-            } else if (
-              +`${teamsGames[i].TeamTwoScore}` >
-                +`${teamsGames[i].TeamOneScore}` &&
-              `${teamsGames[i].ExtraTime}` == "Yes"
-            ) {
-              gameResults += `<div class="gameResultsBox w3-blue">`;
-              gameResultsBoxResult = overTimeWin;
-            } else if (
-              +`${teamsGames[i].TeamTwoScore}` == +`${teamsGames[i].TeamOneScore}`
-            ) {
-              gameResults += `<div class="gameResultsBox w3-grey">`;
-              gameResultsBoxResult = draw;
-            } else if (
-              +`${teamsGames[i].TeamTwoScore}` <
-                +`${teamsGames[i].TeamOneScore}` &&
-              `${teamsGames[i].ExtraTime}` == "Yes"
-            ) {
-              gameResults += `<div class="gameResultsBox w3-grey">`;
-              gameResultsBoxResult = overTimeLoss;
-            } else {
-              gameResults += `<div class="gameResultsBox w3-red">`;
-              gameResultsBoxResult = loss;
-            }
-          }
-        }
-        gameResults += gameResultsBoxResult;
-        gameResults += `</div>`;
-        // end gameResult div
-        // this games highlight gifs div
-        thisGamesGifs = Gifs.filter(
-          (gifItem) => gifItem.GameID == teamsGames[i].GameID
-        );
-        gameResults += `<div data-game-highlights data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-game-type="${gameType}"" class="gameHighlights">`;
-        gameResults += `Game Highlights (${thisGamesGifs.length})`;
-        gameResults += `</div>`;
-        // end hightlights gif div
-        // this games stats **NOTE data-game-stats="" used to grab element by attribute by CSS
-        gameResults += `<div data-game-stats="" data-team-name="${team}" data-game-id="${teamsGames[i].GameID}" data-season-number="${seasonNum}" data-game-type="${gameType}" class="gameStats">`;
-        gameResults += `Stats`;
-        gameResults += `</div>`;
-        // end this games stats
-  
-        gameResults += `</div>`;
-        gameResults += `</div>`;
+      } else {
+        const scoreResults = document.createElement('h4');
+        scoreResults.textContent = "No games played"
+        gameResultsFrag.append(scoreResults)
       }
-    } else {
-      gameResults += `<h4>No games played</h4>`;
-    }
   
     // change header banner when team is selected from navbar
     setHeaderBanner(team, seasonNum);
@@ -4440,22 +4441,23 @@ function getTeamsGameResults(e) {
   
     // display data in correct div and clear previous data
     clearTablesDiv();
-    let scores = document.getElementById("scoreboardDiv");
-    scores.innerHTML = gameResults;
+    clearScoreboardDiv()
+    const scores = document.getElementById("scoreboardDiv");
+    scores.append(gameResultsFrag)
     // listener for the back button back to teams layout Page
     document
       .getElementById("gameResultsBackButton")
       .addEventListener("click", () => {teamsPageLayout_setTeamsPageLayout(document.getElementById('gameResultsBackButton'))});
     // end back button
     // highlight divs
-    let gameHighlightDivs = Array.from(
+    const gameHighlightDivs = Array.from(
       document.querySelectorAll("div[data-game-highlights]")
     );
   
     gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
     //end highlights div
     // single games result div
-    let gameResultsDataDiv = Array.from(
+    const gameResultsDataDiv = Array.from(
       document.querySelectorAll("div[data-game-stats]")
     );
     gameResultsDataDiv.forEach((item) =>
@@ -4789,16 +4791,14 @@ function setListenersMainNavbar() {
       navbarContentContainer.style.width = "100%";
       navbarContentContainer.style.display = "flex";
       navbarContentContainer.style.justifyContent = "space-around";
+
+      // create second row of teams
+      const secondRowContainer = navbarContentContainer.cloneNode();
       
       for (let i = 0; i < teamsThisSeason / 2; i++) {
         // first row of teams
         navbarContentContainer.append(helpers_setTeamLogoCss(navbarContent, season, i));
       }
-      // create second row of teams
-      const secondRowContainer = document.createElement('div');
-      secondRowContainer.style.width = "100%";
-      secondRowContainer.style.display = "flex";
-      secondRowContainer.style.justifyContent = "space-around";
       // second row of teams
       for (let i = teamsThisSeason / 2; i < teamsThisSeason; i++) {
         secondRowContainer.append(helpers_setTeamLogoCss(navbarContent, season, i))
@@ -4831,7 +4831,15 @@ function setListenersMainNavbar() {
 
     setListenersMainNavbar();
   }
+;// CONCATENATED MODULE: ./src/constants/consts/colors.js
+const colors_COLORS = {
+    "w3-blue" : "#2196f3",
+}
+
+/* harmony default export */ const colors = (colors_COLORS);
+
 ;// CONCATENATED MODULE: ./src/scripts/tables/setHomeTable.js
+
 
 
 
@@ -4852,11 +4860,11 @@ function setHomeTable() {
       "homePageFieldsNoTies",
       homePageFieldsNoTies
     );
-    setTableListeners();
-    setMainNavbar(season_currentSeason);
     // reset background color when navigating back home from a teams layout page
-    document.body.style.backgroundColor = "#2196f3";
+    document.body.style.backgroundColor = colors['w3-blue'];
     setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+    setMainNavbar(season_currentSeason);
+    setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/misc/screenResize.js
 
@@ -5049,7 +5057,12 @@ function displayPlayerSubMenu() {
 
   // home option 
   const homeSidebar = document.querySelector("#home");
-  homeSidebar.addEventListener("click", setHomeTable);
+  homeSidebar.addEventListener("click", () => {
+    setHomeTable();
+    setTimeout(() => {
+      sidebar_closeSidebar()
+    }, 50)
+  });
   
   // teams sub menus
   document
@@ -5074,6 +5087,8 @@ function displayPlayerSubMenu() {
       sidebar_closeSidebar();
     });
 ;// CONCATENATED MODULE: ./src/scripts/tables/setSeasonsFullTable.js
+
+
 
 
 
@@ -5108,8 +5123,10 @@ function setSeasonsFullTable(seasonNumber = season_currentSeason, modeDescriptor
     tableTypeString,
     tableTypeArray
   );
-  setTableListeners();
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  document.body.style.backgroundColor = colors["w3-blue"]; 
   setMainNavbar(seasonNumber);
+  setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/seasonTableListeners/seasonTableListeners.js
 
@@ -5211,6 +5228,7 @@ document
 
 
 
+
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
@@ -5228,6 +5246,7 @@ function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor
     playersTable
   );
   setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  document.body.style.backgroundColor = colors["w3-blue"]; 
   setMainNavbar(seasonNumber)
   setTableListeners();
   }
@@ -5259,6 +5278,7 @@ function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescript
     playersTable
   );
   setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  document.body.style.backgroundColor = COLORS["w3-blue"]; 
   setMainNavbar(season_currentSeason)
   setTableListeners();
   }
@@ -5845,4 +5865,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=f299881043372257a5ce.js.map
+//# sourceMappingURL=b3aa44456c23b1d85a87.js.map
