@@ -13,7 +13,12 @@ import setHomeTable from "../../tables/setHomeTable";
 
   // home option 
   const homeSidebar = document.querySelector("#home");
-  homeSidebar.addEventListener("click", setHomeTable);
+  homeSidebar.addEventListener("click", () => {
+    setHomeTable();
+    setTimeout(() => {
+      closeSidebar()
+    }, 50)
+  });
   
   // teams sub menus
   document
