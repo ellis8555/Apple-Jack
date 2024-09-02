@@ -4,6 +4,8 @@ import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import currentSeason from "../var_lib/season/currentSeason";
 import { playersTable } from "../../constants/consts/supportVars";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
+import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
+import setHeaderBanner from "../layouts/setHeaderBanner";
 
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
@@ -21,6 +23,7 @@ export default function setPlayersFullTable(seasonNumber = currentSeason, modeDe
     "playersTable",
     playersTable
   );
+  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
   setMainNavbar(seasonNumber)
   setTableListeners();
   }
