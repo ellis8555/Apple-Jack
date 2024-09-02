@@ -14,62 +14,62 @@ import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.j
   export default function setGamesData(e) {
     clearScoreboardDiv();
     clearTablesDiv();
-    getScoreboardDiv();
-    getTablesDiv();
-    let gameNumber = e.target.dataset.gameId;
-    let teamName = e.target.dataset.teamName;
-    let gameType = e.target.dataset.gameType;
-    let thisSeasonNumber = GameResults.filter(
+    const scoreboardDiv = getScoreboardDiv();
+    const tablesDiv = getTablesDiv();
+    const gameNumber = e.target.dataset.gameId;
+    const teamName = e.target.dataset.teamName;
+    const gameType = e.target.dataset.gameType;
+    const thisSeasonNumber = GameResults.filter(
       (item) => item.GameID == gameNumber
     )[0].SeasonNumber;
-    let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
+    const thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
     // begin home team
-    let thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
-    let thisGamesHomeTeamColor = `#${
+    const thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
+    const thisGamesHomeTeamColor = `#${
       eachTeamObjectMAP.get(thisGamesHomeTeam).MainColor
     }`;
     //***************************** */
   
-    let thisGamesHomeTeamsPlayerRecords = TeamPlayers.filter(
+    const thisGamesHomeTeamsPlayerRecords = TeamPlayers.filter(
       (item) =>
         item.SeasonNumber == thisSeasonNumber &&
         item.TeamID == String(teamsNumMAP.get(thisGamesHomeTeam))
     );
-    let thisGamesHomeTeamPlayerNames = [];
+    const thisGamesHomeTeamPlayerNames = [];
     thisGamesHomeTeamsPlayerRecords.forEach((item) =>
       thisGamesHomeTeamPlayerNames.push(playersMAP.get(+item.PlayerID))
     );
   
     //**************************************** */
-    let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
-    let thisGamesHomeTeamPossession = thisGamesResult[0].TeamOnePossession;
-    let thisGamesHomeTeamShotsOnGoal = thisGamesResult[0].TeamOneShotsOnGoal;
-    let thisGamesHomeTeamPasses = thisGamesResult[0].TeamOnePasses;
-    let thisGamesHomeTeamKicks = thisGamesResult[0].TeamOneKicks;
+    const thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
+    const thisGamesHomeTeamPossession = thisGamesResult[0].TeamOnePossession;
+    const thisGamesHomeTeamShotsOnGoal = thisGamesResult[0].TeamOneShotsOnGoal;
+    const thisGamesHomeTeamPasses = thisGamesResult[0].TeamOnePasses;
+    const thisGamesHomeTeamKicks = thisGamesResult[0].TeamOneKicks;
     // end home team
     // begin away team
-    let thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
-    let thisGamesAwayTeamColor = `#${
+    const thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
+    const thisGamesAwayTeamColor = `#${
       eachTeamObjectMAP.get(thisGamesAwayTeam).MainColor
     }`;
     //***************************** */
-    let thisGamesAwayTeamsPlayerRecords = TeamPlayers.filter(
+    const thisGamesAwayTeamsPlayerRecords = TeamPlayers.filter(
       (item) =>
         item.SeasonNumber == thisSeasonNumber &&
         item.TeamID == String(teamsNumMAP.get(thisGamesAwayTeam))
     );
-    let thisGamesAwayTeamPlayerNames = [];
+    const thisGamesAwayTeamPlayerNames = [];
     thisGamesAwayTeamsPlayerRecords.forEach((item) =>
       thisGamesAwayTeamPlayerNames.push(playersMAP.get(+item.PlayerID))
     );
     //***************************************** */
-    let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
-    let thisGamesAwayTeamPossession = thisGamesResult[0].TeamTwoPossession;
-    let thisGamesAwayTeamShotsOnGoal = thisGamesResult[0].TeamTwoShotsOnGoal;
-    let thisGamesAwayTeamPasses = thisGamesResult[0].TeamTwoPasses;
-    let thisGamesAwayTeamKicks = thisGamesResult[0].TeamTwoKicks;
+    const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
+    const thisGamesAwayTeamPossession = thisGamesResult[0].TeamTwoPossession;
+    const thisGamesAwayTeamShotsOnGoal = thisGamesResult[0].TeamTwoShotsOnGoal;
+    const thisGamesAwayTeamPasses = thisGamesResult[0].TeamTwoPasses;
+    const thisGamesAwayTeamKicks = thisGamesResult[0].TeamTwoKicks;
     // end away team
-    let thisGamesHomeTeamStats = [
+    const thisGamesHomeTeamStats = [
       thisGamesHomeTeam,
       thisGamesHomeTeamScore,
       thisGamesHomeTeamPossession,
@@ -77,7 +77,7 @@ import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.j
       thisGamesHomeTeamPasses,
       thisGamesHomeTeamKicks,
     ];
-    let thisGamesAwayTeamStats = [
+    const thisGamesAwayTeamStats = [
       thisGamesAwayTeam,
       thisGamesAwayTeamScore,
       thisGamesAwayTeamPossession,
@@ -110,10 +110,10 @@ import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.j
     // end back button
 
     // begin player stats data
-    let thisGamesPlayerStats = GamePlayerStats.filter(
+    const thisGamesPlayerStats = GamePlayerStats.filter(
       (item) => item.GameID == gameNumber
     );
-    let thisGamesPlayerStatMAPS = [];
+    const thisGamesPlayerStatMAPS = [];
     for (let i = 0; i < thisGamesPlayerStats.length; i++) {
       thisGamesPlayerStatMAPS.push(
         new Map(Object.entries(thisGamesPlayerStats[i]))
