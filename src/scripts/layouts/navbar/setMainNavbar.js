@@ -22,16 +22,14 @@ import setTeamLogoCss from "./helpers/setTeamLogoCss"
       navbarContentContainer.style.width = "100%";
       navbarContentContainer.style.display = "flex";
       navbarContentContainer.style.justifyContent = "space-around";
+
+      // create second row of teams
+      const secondRowContainer = navbarContentContainer.cloneNode();
       
       for (let i = 0; i < teamsThisSeason / 2; i++) {
         // first row of teams
         navbarContentContainer.append(setTeamLogoCss(navbarContent, season, i));
       }
-      // create second row of teams
-      const secondRowContainer = document.createElement('div');
-      secondRowContainer.style.width = "100%";
-      secondRowContainer.style.display = "flex";
-      secondRowContainer.style.justifyContent = "space-around";
       // second row of teams
       for (let i = teamsThisSeason / 2; i < teamsThisSeason; i++) {
         secondRowContainer.append(setTeamLogoCss(navbarContent, season, i))
