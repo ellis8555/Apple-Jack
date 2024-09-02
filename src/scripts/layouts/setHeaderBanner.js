@@ -24,7 +24,7 @@ insertionDiv.append(teamsCssLogo)
 const cssLogoNode = teamsCssLogo.firstElementChild;
 cssLogoNode.style.height = "6rem";
 cssLogoNode.style.width = "6rem";
-const cssLogoTextNode = cssLogoNode.firstElementChild;
+const cssLogoTextNode = cssLogoNode.firstElementChild.firstElementChild
 cssLogoTextNode.style.fontSize = HC_FONT.setHeaderBanner;
 header.prepend(insertionDiv)
     let headerChildren = header.childNodes;
