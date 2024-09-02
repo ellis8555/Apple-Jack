@@ -23,7 +23,7 @@ export const HC_FONT = {
     "setGifs": '1rem, 2.5rem, 2.75rem',
     "singleGameStats": '1rem, 2.5rem, 2.75rem',
     "teamColors": '1rem, 2.5rem, 2.75rem',
-    "setHeaderBanner": "clamp(1rem, 2rem, 3rem)",
+    "setHeaderBanner": "1rem, 2rem, 3rem",
     "setTeamLogoCss": "1rem, 2vw, 3rem",
 }
 // css logo width/heights
