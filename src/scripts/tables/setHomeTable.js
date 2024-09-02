@@ -4,8 +4,9 @@ import { homePageFieldsNoTies } from "../../constants/consts/supportVars";
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import createTable from "./createTable";
-import { DEFENDING_CHAMPS, DEFENDING_CHAMPS_LOGO } from "../../constants/consts/vars";
+import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
 import setHeaderBanner from "../layouts/setHeaderBanner";
+import COLORS from "../../constants/consts/colors"
 export default function setHomeTable() {
   const key = `groupTeamsSeason${currentSeason}SeasonStats`
     createTable(
@@ -18,9 +19,9 @@ export default function setHomeTable() {
       "homePageFieldsNoTies",
       homePageFieldsNoTies
     );
-    setTableListeners();
-    setMainNavbar(currentSeason);
     // reset background color when navigating back home from a teams layout page
-    document.body.style.backgroundColor = "#2196f3";
+    document.body.style.backgroundColor = COLORS['w3-blue'];
     setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+    setMainNavbar(currentSeason);
+    setTableListeners();
   }

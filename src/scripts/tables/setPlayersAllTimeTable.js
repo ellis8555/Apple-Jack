@@ -24,6 +24,7 @@ export default function setPlayersAllTimeTable(seasonNumber, modeDescriptor = ""
     playersTable
   );
   setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+  document.body.style.backgroundColor = COLORS["w3-blue"]; 
   setMainNavbar(currentSeason)
   setTableListeners();
   }
