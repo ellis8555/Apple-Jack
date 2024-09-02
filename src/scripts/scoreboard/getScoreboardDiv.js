@@ -1,4 +1,4 @@
 export default function getScoreboardDiv() {
-    let scoreboardDiv = document.getElementById("scoreboardDiv");
+    const scoreboardDiv = document.getElementById("scoreboardDiv");
     return scoreboardDiv;
   }
