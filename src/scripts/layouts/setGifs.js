@@ -5,7 +5,7 @@
   import clearTablesDiv from "../tables/clearTablesDiv.js";
   import getScoreboardDiv from "../scoreboard/getScoreboardDiv.js";
   import getTablesDiv from "../tables/getTablesDiv.js";
-  import getTeamsGameResults from "./getTeamsGamesResults.js";
+  import getTeamsGameResults from "./getTeamsGamesResults/getTeamsGamesResults.js";
   import createTeamCssLogo from "../misc/createTeamCssLogo.js";
   import backButton from "../misc/backButton.js";
   

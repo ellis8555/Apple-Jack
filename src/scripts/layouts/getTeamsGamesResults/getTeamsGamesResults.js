@@ -1,33 +1,33 @@
-import TeamStats from "../classFiles/teams/teamStats";
-import teamsMAP from "../var_lib/maps/teams/teamsMAP";
-import setHeaderBanner from "./setHeaderBanner";
-import clearTablesDiv from "../tables/clearTablesDiv";
-import teamsColorMAP from "../var_lib/maps/teams/teamsColorMAP";
-import setTeamsPageLayout from "./teamsPageLayout/setTeamsPageLayout";
-import setGifs from "./setGifs"
-import setGamesData from "./singleGameStats/singleGameStats"
-import createTeamCssLogo from "../misc/createTeamCssLogo";
-import backButton from "../misc/backButton";
-import { Gifs } from "../../constants/masterHaxData";
+import TeamStats from "../../classFiles/teams/teamStats";
+import teamsMAP from "../../var_lib/maps/teams/teamsMAP";
+import setHeaderBanner from "../setHeaderBanner";
+import clearTablesDiv from "../../tables/clearTablesDiv";
+import teamsColorMAP from "../../var_lib/maps/teams/teamsColorMAP";
+import setTeamsPageLayout from "../teamsPageLayout/setTeamsPageLayout";
+import setGifs from "../setGifs"
+import setGamesData from "../singleGameStats/singleGameStats"
+import createTeamCssLogo from "../../misc/createTeamCssLogo";
+import backButton from "../../misc/backButton";
+import { Gifs } from "../../../constants/masterHaxData";
 
 export default function getTeamsGameResults(e) {
-    let team = e.target.dataset.teamName;
-    let seasonNum = e.target.dataset.seasonNum;
-    let gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
+    const team = e.target.dataset.teamName;
+    const seasonNum = e.target.dataset.seasonNum;
+    const gameType = e.target.dataset.gameType; // 1="Season" 2="Playoff"
     let teamsGames;
+    const win = "W";
+    const loss = "L";
+    const draw = "D";
+    const overTimeWin = "OTW";
+    const overTimeLoss = "OTL";
     let thisGamesGifs;
     let gameResults = "";
     let gameResultsBoxResult = "";
-    let win = "W";
-    let loss = "L";
-    let draw = "D";
-    let overTimeWin = "OTW";
-    let overTimeLoss = "OTL";
     teamsGames =
       TeamStats.allTeamStats[team][
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
-    let gamesLength = teamsGames.length;
+    const gamesLength = teamsGames.length;
     gameResults += backButton("gameResultsBackButton", team, seasonNum, gameType).outerHTML;
     gameResults += `<h1>${team}</h1>`;
     gameResults += `<h4>S0${seasonNum} ${gameType}</h4>`;
@@ -201,7 +201,7 @@ export default function getTeamsGameResults(e) {
   
     // display data in correct div and clear previous data
     clearTablesDiv();
-    let scores = document.getElementById("scoreboardDiv");
+    const scores = document.getElementById("scoreboardDiv");
     scores.innerHTML = gameResults;
     // listener for the back button back to teams layout Page
     document
@@ -209,14 +209,14 @@ export default function getTeamsGameResults(e) {
       .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('gameResultsBackButton'))});
     // end back button
     // highlight divs
-    let gameHighlightDivs = Array.from(
+    const gameHighlightDivs = Array.from(
       document.querySelectorAll("div[data-game-highlights]")
     );
   
     gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
     //end highlights div
     // single games result div
-    let gameResultsDataDiv = Array.from(
+    const gameResultsDataDiv = Array.from(
       document.querySelectorAll("div[data-game-stats]")
     );
     gameResultsDataDiv.forEach((item) =>

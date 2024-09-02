@@ -7,7 +7,7 @@ import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv.js";
 import clearTablesDiv from "../../tables/clearTablesDiv.js";
 import getScoreboardDiv from "../../scoreboard/getScoreboardDiv.js";
 import getTablesDiv from "../../tables/getTablesDiv.js";
-import getTeamsGameResults from "../getTeamsGamesResults.js";
+import getTeamsGameResults from "../getTeamsGamesResults/getTeamsGamesResults.js";
 import setPlayersBoxscoreTable from "./singleGameStatsComponents/setPlayersBoxscoreTable.js"
 import singleGameStatsHeader from "./singleGameStatsComponents/singleGameStatsHeader.js";
 import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.js";
