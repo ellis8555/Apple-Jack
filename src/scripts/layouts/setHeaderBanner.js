@@ -25,7 +25,7 @@ const cssLogoNode = teamsCssLogo.firstElementChild;
 cssLogoNode.style.height = "6rem";
 cssLogoNode.style.width = "6rem";
 const cssLogoTextNode = cssLogoNode.firstElementChild.firstElementChild
-cssLogoTextNode.style.fontSize = HC_FONT.setHeaderBanner;
+cssLogoTextNode.style.fontSize = `clamp(${HC_FONT.setHeaderBanner})`;
 header.prepend(insertionDiv)
     let headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;
