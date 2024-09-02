@@ -612,7 +612,7 @@ const HC_FONT = {
     "setGifs": '1rem, 2.5rem, 2.75rem',
     "singleGameStats": '1rem, 2.5rem, 2.75rem',
     "teamColors": '1rem, 2.5rem, 2.75rem',
-    "setHeaderBanner": "clamp(1rem, 2rem, 3rem)",
+    "setHeaderBanner": "1rem, 2rem, 3rem",
     "setTeamLogoCss": "1rem, 2vw, 3rem",
 }
 // css logo width/heights
@@ -3054,34 +3054,34 @@ function setHeaderBanner(teamName, seasonNumber) {
   }
     // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
-const insertionDiv = document.createElement("div");
-insertionDiv.style.display = "flex";
-insertionDiv.style.justifyContent = "center"
-insertionDiv.style.alignItems = "center"
-insertionDiv.id = "headerIcon"
+  const insertionDiv = document.createElement("div");
+  insertionDiv.style.display = "flex";
+  insertionDiv.style.justifyContent = "center"
+  insertionDiv.style.alignItems = "center"
+  insertionDiv.id = "headerIcon"
 
-// get teams css logo
-const teamsCssLogo = helpers_setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
-const grabLogo = teamsCssLogo.firstElementChild.firstElementChild
-grabLogo.style.height = "6rem";
-grabLogo.style.width = "6rem";
-insertionDiv.append(teamsCssLogo)
-const cssLogoNode = teamsCssLogo.firstElementChild;
-cssLogoNode.style.height = "6rem";
-cssLogoNode.style.width = "6rem";
-const cssLogoTextNode = cssLogoNode.firstElementChild;
-cssLogoTextNode.style.fontSize = HC_FONT.setHeaderBanner;
-header.prepend(insertionDiv)
-    let headerChildren = header.childNodes;
-    headerChildren[headerChildren.length-1].textContent = teamName;
-    // add champions name here to display trophy icon when champion team selected
-    let trophy = document.querySelector("i");
-    if (teamName == DEFENDING_CHAMPS) {
-      trophy.classList.add("fa-trophy");
-    } else {
-      trophy.classList.remove("fa-trophy");
-    }
+  // get teams css logo
+  const teamsCssLogo = helpers_setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
+  const grabLogo = teamsCssLogo.firstElementChild.firstElementChild
+  grabLogo.style.height = "6rem";
+  grabLogo.style.width = "6rem";
+  insertionDiv.append(teamsCssLogo)
+  const cssLogoNode = teamsCssLogo.firstElementChild;
+  cssLogoNode.style.height = "6rem";
+  cssLogoNode.style.width = "6rem";
+  const cssLogoTextNode = cssLogoNode.firstElementChild.firstElementChild
+  cssLogoTextNode.style.fontSize = `clamp(${HC_FONT.setHeaderBanner})`;
+  header.prepend(insertionDiv)
+  let headerChildren = header.childNodes;
+  headerChildren[headerChildren.length-1].textContent = teamName;
+  // add champions name here to display trophy icon when champion team selected
+  let trophy = document.querySelector("i");
+  if (teamName == DEFENDING_CHAMPS) {
+    trophy.classList.add("fa-trophy");
+  } else {
+    trophy.classList.remove("fa-trophy");
   }
+}
 ;// CONCATENATED MODULE: ./src/scripts/var_lib/maps/teams/teamsColorMAP.js
 // maps teams main color with ID number
 
@@ -5114,63 +5114,96 @@ function setSeasonsFullTable(seasonNumber = season_currentSeason, modeDescriptor
 ;// CONCATENATED MODULE: ./src/scripts/listeners/seasonTableListeners/seasonTableListeners.js
 
 
+
 // teams tables
 // season 04 standings tables
 document
   .getElementById("s04RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable()
+    setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 03 standings tables
 document
   .getElementById("s03RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable(3)
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s03PlayoffTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(3, "Playoff", "Playoffs")
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s03CombinedTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(3, "Combined", "Combined")
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 02 standings tables
 document
   .getElementById("s02RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable(2)
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s02PlayoffTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(2, "Playoff", "Playoffs")
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s02CombinedTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(2, "Combined", "Combined")
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 01 standings tables
 document
   .getElementById("s01RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable(1)
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s01PlayoffTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(1, "Playoff", "Playoffs")
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s01CombinedTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(1, "Combined", "Combined")
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 
 ;// CONCATENATED MODULE: ./src/scripts/tables/setPlayersFullTable.js
+
+
 
 
 
@@ -5194,6 +5227,7 @@ function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor
     "playersTable",
     playersTable
   );
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
   setMainNavbar(seasonNumber)
   setTableListeners();
   }
@@ -5206,12 +5240,13 @@ function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor
 
 
 
+
+
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
 function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescriptor) {
   // all time player stats contains possible 0 as season number
-
   const key = `groupPlayersAllTime${modeDescriptor}Stats`
   createTable(
     seasonNumber,
@@ -5223,10 +5258,12 @@ function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescript
     "playersTable",
     playersTable
   );
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
   setMainNavbar(season_currentSeason)
   setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/playerTableListeners/playerTableListeners.js
+
 
 
 
@@ -5236,70 +5273,109 @@ document
   .getElementById("allTimePlayerPointsTable")
   .addEventListener("click", () => {
     setPlayersAllTimeTable(0, "", "Stats");
+    setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("allTimePlayerSeasonTable")
   .addEventListener("click", () => {
     setPlayersAllTimeTable(0, "Season", "Season Stats");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("allTimePlayerPlayoffTable")
   .addEventListener("click", () => {
     setPlayersAllTimeTable(0, "Playoff", "Playoff Stats");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 04 players tables
 document
   .getElementById("s04PlayerSeasonTable")
   .addEventListener("click", () => {
     setPlayersFullTable();
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 03 player tables
 document
   .getElementById("s03PlayerSeasonTable")
   .addEventListener("click", () => {
     setPlayersFullTable(3);
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s03PlayerPlayoffTable")
   .addEventListener("click", () => {
     setPlayersFullTable(3, "Playoff", "Playoffs");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s03PlayerCombinedTable")
   .addEventListener("click", () => {
     setPlayersFullTable(3, "Combined", "Combined");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 02 player tables
 document
   .getElementById("s02PlayerSeasonTable")
   .addEventListener("click", () => {
     setPlayersFullTable(2);
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s02PlayerPlayoffTable")
   .addEventListener("click", () => {
     setPlayersFullTable(2, "Playoff", "Playoffs");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s02PlayerCombinedTable")
   .addEventListener("click", () => {
     setPlayersFullTable(2, "Combined", "Combined");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 // season 03 player tables
 document
   .getElementById("s01PlayerSeasonTable")
   .addEventListener("click", () => {
     setPlayersFullTable(1);
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s01PlayerPlayoffTable")
   .addEventListener("click", () => {
     setPlayersFullTable(1, "Playoff", "Playoffs");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 document
   .getElementById("s01PlayerCombinedTable")
   .addEventListener("click", () => {
     setPlayersFullTable(1, "Combined", "Combined");
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
 });
 ;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/MainAnnouncement.js
 function MainAnnouncement(){
@@ -5369,10 +5445,14 @@ displayArea.append(announcements_AnnouncementsPageLayout())
 ;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/announcementsListener.js
 
 
+
   // announcements page
   document
   .getElementById("announcements")
-  .addEventListener("click", announcements_setAnnouncements);
+  .addEventListener("click", () => {
+    announcements_setAnnouncements()
+    setTimeout(() => sidebar_closeSidebar(), 50)
+  });
 ;// CONCATENATED MODULE: ./src/scripts/layouts/records/genericRecordFunctions/filterGameResults.js
 
 
@@ -5696,10 +5776,16 @@ const leagueTeamRecords = {
 ;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/leagueRecordsListener.js
 
 
+
 // league records
 document
   .getElementById("leagueRecords")
-  .addEventListener("click", teamRecordsExports.setRecordsPageNav);
+  .addEventListener("click", () => {
+    teamRecordsExports.setRecordsPageNav();
+    setTimeout(() => {
+      sidebar_closeSidebar()
+    }, 50)
+  });
 ;// CONCATENATED MODULE: ./src/scripts/listeners/listeners.js
 
 
@@ -5759,4 +5845,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=d37980ff304f4e7f3210.js.map
+//# sourceMappingURL=f299881043372257a5ce.js.map
