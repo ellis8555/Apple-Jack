@@ -3,7 +3,7 @@
   import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP.js";
   import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv.js";
   import clearTablesDiv from "../tables/clearTablesDiv.js";
-  import getScoreboardDiv from "../scoreboard/clearScoreboardDiv.js";
+  import getScoreboardDiv from "../scoreboard/getScoreboardDiv.js";
   import getTablesDiv from "../tables/getTablesDiv.js";
   import getTeamsGameResults from "./getTeamsGamesResults.js";
   import createTeamCssLogo from "../misc/createTeamCssLogo.js";
@@ -12,18 +12,18 @@
   export default function setGifs(e) {
     clearScoreboardDiv();
     clearTablesDiv();
-    getTablesDiv();
-    getScoreboardDiv();
-    let gameNumber = e.target.dataset.gameId;
-    let teamName = e.target.dataset.teamName;
-    let gameType = e.target.dataset.gameType;
-    let thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
-    let thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
-    let thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
-    let thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
-    let thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
-    let thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
-    let thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
+    const tablesDiv = getTablesDiv();
+    const scoreboardDiv = getScoreboardDiv();
+    const gameNumber = e.target.dataset.gameId;
+    const teamName = e.target.dataset.teamName;
+    const gameType = e.target.dataset.gameType;
+    const thisGamesResult = GameResults.filter((item) => item.GameID == gameNumber);
+    const thisGifsSeasonNum = thisGamesResult[0].SeasonNumber;
+    const thisGamesHomeTeam = teamsMAP.get(+thisGamesResult[0].TeamOne);
+    const thisGamesHomeTeamScore = thisGamesResult[0].TeamOneScore;
+    const thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
+    const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
+    const thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
     if (thisGamesHighlights.length > 0) {
       // begin title for gifs page
       const gifsHeaderContainer = document.createElement("div");
@@ -86,8 +86,8 @@
       // end back button
       for (let i = 0; i < thisGamesHighlights.length; i++) {
         let thisGamesFinalPath;
-        let theseGifsSubSet = thisGamesHighlights[0].Filepath;
-        let thisGifsSubPath = theseGifsSubSet.slice(
+        const theseGifsSubSet = thisGamesHighlights[0].Filepath;
+        const thisGifsSubPath = theseGifsSubSet.slice(
           0,
           theseGifsSubSet.length - 6
         );
@@ -96,7 +96,7 @@
         } else {
           thisGamesFinalPath = `${thisGifsSubPath}${i + 1}.gif`;
         }
-        let thisGif = thisGamesHighlights.find(
+        const thisGif = thisGamesHighlights.find(
           (item) => item.Filepath == thisGamesFinalPath
         );
               // Create a container for each GIF and comment
