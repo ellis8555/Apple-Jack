@@ -1,6 +1,8 @@
 function setGifContainers({thisGamesHighlights}){
     const fragment = document.createDocumentFragment();
 
+    // loops through all gifs for this game and only loads img src for the first gif
+    // while others have containers created to be observed for intersection
     for (let i = 0; i < thisGamesHighlights.length; i++) {
     let thisGamesFinalPath;
     const theseGifsSubSet = thisGamesHighlights[0].Filepath;
@@ -8,6 +10,7 @@ function setGifContainers({thisGamesHighlights}){
       0,
       theseGifsSubSet.length - 6
     );
+    // deals with file names 09 or 10 and above
     if (i < 9) {
       thisGamesFinalPath = `${thisGifsSubPath}0${i + 1}.gif`;
     } else {
