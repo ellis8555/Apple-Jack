@@ -3706,7 +3706,181 @@ function getScoreboardDiv() {
     const scoreboardDiv = document.getElementById("scoreboardDiv");
     return scoreboardDiv;
   }
-;// CONCATENATED MODULE: ./src/scripts/layouts/setGifs.js
+;// CONCATENATED MODULE: ./src/scripts/layouts/gifs/helpers/observeGifs.js
+function observeGifs(){
+    const firstGifContainer = document.querySelectorAll(".firstGif");
+
+    const firstGifObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const gifsComment = entry.target.querySelector("h5");
+        const gif = entry.target.querySelector("img");
+
+        if(entry.isIntersecting){
+          gifsComment.textContent = entry.target.dataset.gifcomment;
+          gif.src = entry.target.dataset.imgsrc;
+        } else {
+            // Remove the GIF image source when the element is out of view
+            gif.src = ''; // Clear the image src
+            gifsComment.textContent = ''; 
+        }
+      })
+    },
+  {
+    rootMargin: "50px"
+  })
+
+  firstGifContainer.forEach(gif => {
+    firstGifObserver.observe(gif)
+  })
+    const gifContainers = document.querySelectorAll(".observedGif");
+
+    const followingGifsObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const gifsComment = entry.target.querySelector("h5");
+        const gif = entry.target.querySelector("img");
+
+        if(entry.isIntersecting){
+          gifsComment.textContent = entry.target.dataset.gifcomment;
+          gif.src = entry.target.dataset.imgsrc;
+        } else {
+            // Remove the GIF image source when the element is out of view
+            gif.src = ''; // Clear the image src
+            gifsComment.textContent = ''; 
+        }
+      })
+    },
+  {
+    rootMargin: "50px"
+  })
+
+  gifContainers.forEach(gif => {
+    followingGifsObserver.observe(gif)
+  })
+  }
+
+  /* harmony default export */ const helpers_observeGifs = (observeGifs);
+;// CONCATENATED MODULE: ./src/scripts/layouts/gifs/components/gifsHeader.js
+
+
+
+function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore}){
+    const gifsHeaderContainer = document.createElement("div");
+    gifsHeaderContainer.classList.add("gifsHeaderContainer");
+
+    // Back button
+    const backButtonElement = misc_backButton(
+      "gamesGifsBackButton",
+      teamName,
+      thisGifsSeasonNum,
+      "Season",
+      "gifsBackButton"
+    );
+    gifsHeaderContainer.appendChild(backButtonElement);
+
+    // Home team section
+    const gifsHomeTeam = document.createElement("div");
+    gifsHomeTeam.classList.add("gifsHomeTeam");
+    gifsHomeTeam.innerHTML = misc_createTeamCssLogo.setGifs(
+      thisGamesHomeTeam,
+      thisGifsSeasonNum,
+      "Home"
+    );
+    gifsHeaderContainer.appendChild(gifsHomeTeam);
+
+    const gifsHomeTeamScore = document.createElement("div");
+    gifsHomeTeamScore.classList.add("gifsHomeTeamScore");
+    gifsHomeTeamScore.textContent = thisGamesHomeTeamScore;
+    gifsHeaderContainer.appendChild(gifsHomeTeamScore);
+
+    // "vs" section
+    const gifsVsHeader = document.createElement("div");
+    gifsVsHeader.classList.add("gifsVsHeader");
+    gifsVsHeader.textContent = " vs ";
+    gifsHeaderContainer.appendChild(gifsVsHeader);
+
+    // Away team section
+    const gifsAwayTeam = document.createElement("div");
+    gifsAwayTeam.classList.add("gifsAwayTeam");
+    gifsAwayTeam.innerHTML = misc_createTeamCssLogo.setGifs(
+      thisGamesAwayTeam,
+      thisGifsSeasonNum,
+      "Away"
+    );
+    gifsHeaderContainer.appendChild(gifsAwayTeam);
+
+    const gifsAwayTeamScore = document.createElement("div");
+    gifsAwayTeamScore.classList.add("gifsAwayTeamScore");
+    gifsAwayTeamScore.textContent = thisGamesAwayTeamScore;
+    gifsHeaderContainer.appendChild(gifsAwayTeamScore);
+
+    return gifsHeaderContainer;
+}
+
+/* harmony default export */ const components_gifsHeader = (gifsHeader);
+;// CONCATENATED MODULE: ./src/scripts/layouts/gifs/components/setGifContainers.js
+function setGifContainers({thisGamesHighlights}){
+    const fragment = document.createDocumentFragment();
+
+    // loops through all gifs for this game and only loads img src for the first gif
+    // while others have containers created to be observed for intersection
+    for (let i = 0; i < thisGamesHighlights.length; i++) {
+    let thisGamesFinalPath;
+    const theseGifsSubSet = thisGamesHighlights[0].Filepath;
+    const thisGifsSubPath = theseGifsSubSet.slice(
+      0,
+      theseGifsSubSet.length - 6
+    );
+    // deals with file names 09 or 10 and above
+    if (i < 9) {
+      thisGamesFinalPath = `${thisGifsSubPath}0${i + 1}.gif`;
+    } else {
+      thisGamesFinalPath = `${thisGifsSubPath}${i + 1}.gif`;
+    }
+    const thisGif = thisGamesHighlights.find(
+      (item) => item.Filepath == thisGamesFinalPath
+    );
+          // Create a container for each GIF and comment
+    const gifContainer = document.createElement("div");
+    gifContainer.style.minHeight = "100px";
+    i == 0 ? gifContainer.classList.add("gifContainer", "firstGif") : gifContainer.classList.add("gifContainer", "observedGif")
+
+    gifContainer.setAttribute('data-imgSrc', thisGamesFinalPath)
+    gifContainer.setAttribute('data-gifComment', thisGif.Comment)
+
+    // Add the comment to the first gif
+    if(i == 0){
+    const gifComment = document.createElement("h5");
+    gifComment.textContent = thisGif.Comment;
+    gifContainer.appendChild(gifComment);
+
+    // Add the GIF image to the first img
+    const gifImage = document.createElement("img");
+    gifImage.src = thisGamesFinalPath;
+    gifContainer.appendChild(gifImage);
+    } else {
+    // create empty container
+    const gifComment = document.createElement("h5");
+    gifContainer.append(gifComment)
+    // create empty img element
+    const gifImage = document.createElement("img");
+    gifContainer.append(gifImage)
+    }
+    fragment.append(gifContainer)
+    }
+    return fragment
+}
+
+/* harmony default export */ const components_setGifContainers = (setGifContainers);
+;// CONCATENATED MODULE: ./src/scripts/layouts/gifs/components/noGifs.js
+function noGifs(){
+    const noGifsElement = document.createElement("h3");
+    noGifsElement.textContent = "No highlights for this game";
+    return noGifsElement;
+}
+
+/* harmony default export */ const components_noGifs = (noGifs);
+;// CONCATENATED MODULE: ./src/scripts/layouts/gifs/setGifs.js
+  
   
   
   
@@ -3733,102 +3907,31 @@ function getScoreboardDiv() {
     const thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
     const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
     const thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
+
+    // arguments for methods used below
+    const argsObject = {
+      teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, thisGamesHighlights
+    }
+
     if (thisGamesHighlights.length > 0) {
-      // begin title for gifs page
-      const gifsHeaderContainer = document.createElement("div");
-      gifsHeaderContainer.classList.add("gifsHeaderContainer");
-  
-      // Back button
-      const backButtonElement = misc_backButton(
-        "gamesGifsBackButton",
-        teamName,
-        thisGifsSeasonNum,
-        "Season",
-        "gifsBackButton"
-      );
-      gifsHeaderContainer.appendChild(backButtonElement);
-  
-      // Home team section
-      const gifsHomeTeam = document.createElement("div");
-      gifsHomeTeam.classList.add("gifsHomeTeam");
-      gifsHomeTeam.innerHTML = misc_createTeamCssLogo.setGifs(
-        thisGamesHomeTeam,
-        thisGifsSeasonNum,
-        "Home"
-      );
-      gifsHeaderContainer.appendChild(gifsHomeTeam);
-  
-      const gifsHomeTeamScore = document.createElement("div");
-      gifsHomeTeamScore.classList.add("gifsHomeTeamScore");
-      gifsHomeTeamScore.textContent = thisGamesHomeTeamScore;
-      gifsHeaderContainer.appendChild(gifsHomeTeamScore);
-  
-      // "vs" section
-      const gifsVsHeader = document.createElement("div");
-      gifsVsHeader.classList.add("gifsVsHeader");
-      gifsVsHeader.textContent = " vs ";
-      gifsHeaderContainer.appendChild(gifsVsHeader);
-  
-      // Away team section
-      const gifsAwayTeam = document.createElement("div");
-      gifsAwayTeam.classList.add("gifsAwayTeam");
-      gifsAwayTeam.innerHTML = misc_createTeamCssLogo.setGifs(
-        thisGamesAwayTeam,
-        thisGifsSeasonNum,
-        "Away"
-      );
-      gifsHeaderContainer.appendChild(gifsAwayTeam);
-  
-      const gifsAwayTeamScore = document.createElement("div");
-      gifsAwayTeamScore.classList.add("gifsAwayTeamScore");
-      gifsAwayTeamScore.textContent = thisGamesAwayTeamScore;
-      gifsHeaderContainer.appendChild(gifsAwayTeamScore);
   
       // Set the gifs header
       tablesDiv.innerHTML = "";
-      tablesDiv.appendChild(gifsHeaderContainer);
+      tablesDiv.appendChild(components_gifsHeader(argsObject));
   
       // listener for the back button back to teams layout Page
       document
         .getElementById("gamesGifsBackButton")
         .addEventListener("click", getTeamsGameResults);
       // end back button
-      for (let i = 0; i < thisGamesHighlights.length; i++) {
-        let thisGamesFinalPath;
-        const theseGifsSubSet = thisGamesHighlights[0].Filepath;
-        const thisGifsSubPath = theseGifsSubSet.slice(
-          0,
-          theseGifsSubSet.length - 6
-        );
-        if (i < 9) {
-          thisGamesFinalPath = `${thisGifsSubPath}0${i + 1}.gif`;
-        } else {
-          thisGamesFinalPath = `${thisGifsSubPath}${i + 1}.gif`;
-        }
-        const thisGif = thisGamesHighlights.find(
-          (item) => item.Filepath == thisGamesFinalPath
-        );
-              // Create a container for each GIF and comment
-      const gifContainer = document.createElement("div");
-      gifContainer.classList.add("gifContainer");
+      // Append the gifs to the scoreboardDiv
+      scoreboardDiv.appendChild(components_setGifContainers(argsObject));
 
-      // Add the comment
-      const gifComment = document.createElement("h5");
-      gifComment.textContent = thisGif.Comment;
-      gifContainer.appendChild(gifComment);
+      // watch gif containers for lazy loading
+      helpers_observeGifs()
 
-      // Add the GIF image
-      const gifImage = document.createElement("img");
-      gifImage.src = thisGamesFinalPath;
-      gifContainer.appendChild(gifImage);
-
-      // Append the container to the scoreboardDiv
-      scoreboardDiv.appendChild(gifContainer);
-      }
     } else {
-      const noGifsMessage = document.createElement("h3");
-      noGifsMessage.textContent = "No highlights for this game";
-      scoreboardDiv.appendChild(noGifsMessage);
+      scoreboardDiv.appendChild(components_noGifs());
     }
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/boxscorePage/boxscorePlayerTables/playerBoxscoreTableListeners.js
@@ -5865,4 +5968,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=b3aa44456c23b1d85a87.js.map
+//# sourceMappingURL=6b7607888551f8614957.js.map
