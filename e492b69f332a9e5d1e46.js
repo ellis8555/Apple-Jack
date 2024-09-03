@@ -3918,6 +3918,14 @@ function noGifs(){
       // Set the gifs header
       tablesDiv.innerHTML = "";
       tablesDiv.appendChild(components_gifsHeader(argsObject));
+
+          // scroll window to the top
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      } );
+    }, 100)
   
       // listener for the back button back to teams layout Page
       document
@@ -5968,4 +5976,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=6b7607888551f8614957.js.map
+//# sourceMappingURL=e492b69f332a9e5d1e46.js.map
