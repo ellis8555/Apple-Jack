@@ -1,13 +1,13 @@
-  import { GameResults, Gifs } from "../../constants/masterHaxData.js";
-  import teamsMAP from "../var_lib/maps/teams/teamsMAP.js";
-  import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP.js";
-  import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv.js";
-  import clearTablesDiv from "../tables/clearTablesDiv.js";
-  import getScoreboardDiv from "../scoreboard/getScoreboardDiv.js";
-  import getTablesDiv from "../tables/getTablesDiv.js";
-  import getTeamsGameResults from "./getTeamsGamesResults/getTeamsGamesResults.js";
-  import createTeamCssLogo from "../misc/createTeamCssLogo.js";
-  import backButton from "../misc/backButton.js";
+  import { GameResults, Gifs } from "../../../constants/masterHaxData.js";
+  import teamsMAP from "../../var_lib/maps/teams/teamsMAP.js";
+  import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv.js";
+  import clearTablesDiv from "../../tables/clearTablesDiv.js";
+  import getScoreboardDiv from "../../scoreboard/getScoreboardDiv.js";
+  import getTablesDiv from "../../tables/getTablesDiv.js";
+  import getTeamsGameResults from "../getTeamsGamesResults/getTeamsGamesResults.js";
+  import createTeamCssLogo from "../../misc/createTeamCssLogo.js";
+  import backButton from "../../misc/backButton.js";
+  import observeGifs from "./helpers/observeGifs.js"
   
   export default function setGifs(e) {
     clearScoreboardDiv();
@@ -101,21 +101,38 @@
         );
               // Create a container for each GIF and comment
       const gifContainer = document.createElement("div");
-      gifContainer.classList.add("gifContainer");
+      gifContainer.style.minHeight = "100px";
+      i == 0 ? gifContainer.classList.add("gifContainer", "firstGif") : gifContainer.classList.add("gifContainer", "observedGif")
 
-      // Add the comment
-      const gifComment = document.createElement("h5");
-      gifComment.textContent = thisGif.Comment;
-      gifContainer.appendChild(gifComment);
+      gifContainer.setAttribute('data-imgSrc', thisGamesFinalPath)
+      gifContainer.setAttribute('data-gifComment', thisGif.Comment)
 
-      // Add the GIF image
-      const gifImage = document.createElement("img");
-      gifImage.src = thisGamesFinalPath;
-      gifContainer.appendChild(gifImage);
+      // Add the comment to the first gif
+      if(i == 0){
+        const gifComment = document.createElement("h5");
+        gifComment.textContent = thisGif.Comment;
+        gifContainer.appendChild(gifComment);
+  
+        // Add the GIF image to the first img
+        const gifImage = document.createElement("img");
+        gifImage.src = thisGamesFinalPath;
+        gifContainer.appendChild(gifImage);
+      } else {
+        // craete empty comment element 
+        const gifComment = document.createElement("h5");
+        gifContainer.append(gifComment)
+        // create empty img element
+        const gifImage = document.createElement("img");
+        gifContainer.append(gifImage)
+      }
 
       // Append the container to the scoreboardDiv
       scoreboardDiv.appendChild(gifContainer);
+
       }
+
+      observeGifs()
+
     } else {
       const noGifsMessage = document.createElement("h3");
       noGifsMessage.textContent = "No highlights for this game";

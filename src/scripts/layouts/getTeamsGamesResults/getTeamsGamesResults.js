@@ -4,7 +4,7 @@ import setHeaderBanner from "../setHeaderBanner";
 import clearTablesDiv from "../../tables/clearTablesDiv";
 import teamsColorMAP from "../../var_lib/maps/teams/teamsColorMAP";
 import setTeamsPageLayout from "../teamsPageLayout/setTeamsPageLayout";
-import setGifs from "../setGifs"
+import setGifs from "../gifs/setGifs"
 import setGamesData from "../singleGameStats/singleGameStats"
 import createTeamCssLogo from "../../misc/createTeamCssLogo";
 import backButton from "../../misc/backButton";
