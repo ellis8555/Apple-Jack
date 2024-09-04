@@ -3919,13 +3919,14 @@ function noGifs(){
       tablesDiv.innerHTML = "";
       tablesDiv.appendChild(components_gifsHeader(argsObject));
 
-          // scroll window to the top
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      } );
-    }, 100)
+      // scroll window to the top
+      setTimeout(() => {
+          const firstGif = document.querySelector(".firstGif");
+          firstGif.scrollIntoView({
+            behavior: 'smooth',
+            block: "center"
+          } );
+    }, 75)
   
       // listener for the back button back to teams layout Page
       document
@@ -5976,4 +5977,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=e492b69f332a9e5d1e46.js.map
+//# sourceMappingURL=2dae72d925f49f4b93ed.js.map
