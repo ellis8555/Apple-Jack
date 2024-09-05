@@ -15,7 +15,7 @@ async function setTeamsPageLayout(eventElement) {
   clearTablesDiv();
   clearScoreboardDiv();
   closeSidebar();
-  getTablesDiv();
+  const tablesDiv = getTablesDiv();
   let team = eventElement.dataset.teamName;
   let seasonNum = eventElement.dataset.seasonNum;
   let teamsSeasonObject =
