@@ -4829,7 +4829,7 @@ async function setTeamsPageLayout(eventElement) {
   clearTablesDiv();
   clearScoreboardDiv();
   sidebar_closeSidebar();
-  getTablesDiv();
+  const tablesDiv = getTablesDiv();
   let team = eventElement.dataset.teamName;
   let seasonNum = eventElement.dataset.seasonNum;
   let teamsSeasonObject =
@@ -4961,6 +4961,8 @@ const colors_COLORS = {
 
 
 function setHomeTable() {
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  setMainNavbar(season_currentSeason);
   const key = `groupTeamsSeason${season_currentSeason}SeasonStats`
     createTable(
       season_currentSeason,
@@ -4974,8 +4976,6 @@ function setHomeTable() {
     );
     // reset background color when navigating back home from a teams layout page
     document.body.style.backgroundColor = colors['w3-blue'];
-    setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
-    setMainNavbar(season_currentSeason);
     setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/misc/screenResize.js
@@ -5213,6 +5213,8 @@ function displayPlayerSubMenu() {
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'Combined' -- these are just table titles
 
 function setSeasonsFullTable(seasonNumber = season_currentSeason, modeDescriptor = "Season", tableDescriptor = "Regular Season") {
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  setMainNavbar(seasonNumber);
   // set the table headers for ties for seasons that played with tie games
   let tableTypeString;
   let tableTypeArray;
@@ -5235,9 +5237,7 @@ function setSeasonsFullTable(seasonNumber = season_currentSeason, modeDescriptor
     tableTypeString,
     tableTypeArray
   );
-  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
   document.body.style.backgroundColor = colors["w3-blue"]; 
-  setMainNavbar(seasonNumber);
   setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/seasonTableListeners/seasonTableListeners.js
@@ -5345,7 +5345,8 @@ document
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
 function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor = "Season", tableDescriptor = "Regular Season") {
-
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  setMainNavbar(seasonNumber)
   const key = `groupPlayersSeason${seasonNumber}${modeDescriptor}Stats`
   createTable(
     seasonNumber,
@@ -5357,9 +5358,7 @@ function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor
     "playersTable",
     playersTable
   );
-  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
   document.body.style.backgroundColor = colors["w3-blue"]; 
-  setMainNavbar(seasonNumber)
   setTableListeners();
   }
   
@@ -5377,6 +5376,8 @@ function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
 function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescriptor) {
+  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
+  setMainNavbar(season_currentSeason)
   // all time player stats contains possible 0 as season number
   const key = `groupPlayersAllTime${modeDescriptor}Stats`
   createTable(
@@ -5389,9 +5390,7 @@ function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescript
     "playersTable",
     playersTable
   );
-  setHeaderBanner(DEFENDING_CHAMPS, season_currentSeason-1)
   document.body.style.backgroundColor = COLORS["w3-blue"]; 
-  setMainNavbar(season_currentSeason)
   setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/playerTableListeners/playerTableListeners.js
@@ -5977,4 +5976,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=2dae72d925f49f4b93ed.js.map
+//# sourceMappingURL=52d4f43d38f9761e8ad8.js.map
