@@ -12,6 +12,8 @@ import COLORS from "../../constants/consts/colors";
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'Combined' -- these are just table titles
 
 export default function setSeasonsFullTable(seasonNumber = currentSeason, modeDescriptor = "Season", tableDescriptor = "Regular Season") {
+  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+  setMainNavbar(seasonNumber);
   // set the table headers for ties for seasons that played with tie games
   let tableTypeString;
   let tableTypeArray;
@@ -34,8 +36,6 @@ export default function setSeasonsFullTable(seasonNumber = currentSeason, modeDe
     tableTypeString,
     tableTypeArray
   );
-  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
   document.body.style.backgroundColor = COLORS["w3-blue"]; 
-  setMainNavbar(seasonNumber);
   setTableListeners();
   }

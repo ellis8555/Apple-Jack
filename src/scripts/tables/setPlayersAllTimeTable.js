@@ -11,6 +11,8 @@ import setHeaderBanner from "../layouts/setHeaderBanner";
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
 export default function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescriptor) {
+  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+  setMainNavbar(currentSeason)
   // all time player stats contains possible 0 as season number
   const key = `groupPlayersAllTime${modeDescriptor}Stats`
   createTable(
@@ -23,8 +25,6 @@ export default function setPlayersAllTimeTable(seasonNumber, modeDescriptor = ""
     "playersTable",
     playersTable
   );
-  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
   document.body.style.backgroundColor = COLORS["w3-blue"]; 
-  setMainNavbar(currentSeason)
   setTableListeners();
   }

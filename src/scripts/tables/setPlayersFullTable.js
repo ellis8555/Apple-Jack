@@ -12,7 +12,8 @@ import COLORS from "../../constants/consts/colors";
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
 export default function setPlayersFullTable(seasonNumber = currentSeason, modeDescriptor = "Season", tableDescriptor = "Regular Season") {
-
+  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+  setMainNavbar(seasonNumber)
   const key = `groupPlayersSeason${seasonNumber}${modeDescriptor}Stats`
   createTable(
     seasonNumber,
@@ -24,9 +25,7 @@ export default function setPlayersFullTable(seasonNumber = currentSeason, modeDe
     "playersTable",
     playersTable
   );
-  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
   document.body.style.backgroundColor = COLORS["w3-blue"]; 
-  setMainNavbar(seasonNumber)
   setTableListeners();
   }
   
