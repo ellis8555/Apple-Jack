@@ -1,5 +1,6 @@
 import setHomeTable from "../tables/setHomeTable";
 import resizeEventMethod from "../misc/documentResize";
+import debounce from "../misc/debounce";
 
 // menu bar listeners
 import "./menubarListeners/menubarListeners"
@@ -18,4 +19,5 @@ import "./pageListeners/leagueRecordsListener"
 
 // keeps tables fields correctly highlighted on windows resize
 
-  window.addEventListener('resize', resizeEventMethod)
+const debouncedResizeEventMethod = debounce(resizeEventMethod, 50);
+window.addEventListener('resize', debouncedResizeEventMethod)
