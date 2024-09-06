@@ -28,9 +28,9 @@ function boxscorePlayersTableDataElements(thisGamesPlayerStatMAPS, tableHeaders,
             }
             // add the single cell of data for the current field which is tableHeaders[i]
             playersRowOfData.append(td)
-            // add the single cell to the players row in the html table then loop again over the next players stat
-            fragment.append(playersRowOfData)
         }
+        // add the single cell to the players row in the html table then loop again over the next players stat
+        fragment.append(playersRowOfData)
     })
     return fragment;
 }
