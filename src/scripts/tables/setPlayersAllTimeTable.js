@@ -6,6 +6,7 @@ import { playersTable } from "../../constants/consts/supportVars";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
 import setHeaderBanner from "../layouts/setHeaderBanner";
+import COLORS from "../../constants/consts/colors";
 
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
