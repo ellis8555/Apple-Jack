@@ -18,6 +18,11 @@ function setPlayersBoxscoreTable(e, {thisGamesPlayerStatMAPS, thisGamesHomeTeamP
     playerStatsContainer.innerHTML = "";
 
     const table = document.createElement('table');
+    const caption = document.createElement('caption');
+    caption.style.marginBottom = "1.5rem";
+    caption.style.fontWeight = "bold";
+    caption.textContent = "Player stats"
+    table.append(caption)
     const thead = boxscorePlayersTableHeadersElements(PLAYERS_TABLE, sortBy)
     table.append(thead)
     const tableBody = document.createElement('tbody');
