@@ -44,7 +44,7 @@
             behavior: 'smooth',
             block: "center"
           } );
-    }, 75)
+    }, 50)
   
       // listener for the back button back to teams layout Page
       document
