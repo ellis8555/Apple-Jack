@@ -133,6 +133,14 @@ import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.j
     }
     setPlayersBoxscoreTable(null, setPlayersBoxscoreTableArguments);
     // end players game stats table
+
+    // scroll to top of boxscore page from when clicking on gameStats further down the list
+    setTimeout(() => {
+      tablesDiv.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      })
+    }, 50)
   }
   
   //end data containers
