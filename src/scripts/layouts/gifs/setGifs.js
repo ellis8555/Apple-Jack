@@ -36,15 +36,6 @@
       // Set the gifs header
       tablesDiv.innerHTML = "";
       tablesDiv.appendChild(gifsHeader(argsObject));
-
-      // scroll window to the top
-      setTimeout(() => {
-          const firstGif = document.querySelector(".firstGif");
-          firstGif.scrollIntoView({
-            behavior: 'smooth',
-            block: "center"
-          } );
-    }, 50)
   
       // listener for the back button back to teams layout Page
       document
