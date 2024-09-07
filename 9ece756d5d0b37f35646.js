@@ -606,6 +606,8 @@ const TEAM_PLAYERS_LENGTH = TeamPlayers.length;
 const GAME_RESULTS_LENGTH = GameResults.length;
 // length of every players stat recorded for all games
 const GAME_PLAYER_STATS_LENGTH = GamePlayerStats.length;
+// screen resizing break points
+const TABLE_BREAK_POINT = 601;
 // HC font size on team logos via css
 const HC_FONT = {
     "getTeamsGamesResults": '.5rem, 1rem, 1.75rem',
@@ -2835,9 +2837,10 @@ function sortTable(event) {
 ;// CONCATENATED MODULE: ./src/scripts/listeners/listenerHelpers/setTableListeners.js
 
 
+
 function setTableListeners() {
     let browserWidth = window.innerWidth;
-    if (browserWidth < 982) {
+    if (browserWidth < TABLE_BREAK_POINT) {
       let mobileTableCells = document.querySelectorAll("#tablesDiv");
       mobileTableCells[0].onclick = function (e) {
         let td = e.target.closest("td");
@@ -4077,6 +4080,11 @@ function setPlayersBoxscoreTable(e, {thisGamesPlayerStatMAPS, thisGamesHomeTeamP
     playerStatsContainer.innerHTML = "";
 
     const table = document.createElement('table');
+    const caption = document.createElement('caption');
+    caption.style.marginBottom = "1.5rem";
+    caption.style.fontWeight = "bold";
+    caption.textContent = "Player stats"
+    table.append(caption)
     const thead = helpers_boxscorePlayersTableHeadersElements(PLAYERS_TABLE, sortBy)
     table.append(thead)
     const tableBody = document.createElement('tbody');
@@ -4954,11 +4962,11 @@ function setListenersMainNavbar() {
     setListenersMainNavbar();
   }
 ;// CONCATENATED MODULE: ./src/constants/consts/colors.js
-const colors_COLORS = {
+const COLORS = {
     "w3-blue" : "#2196f3",
 }
 
-/* harmony default export */ const colors = (colors_COLORS);
+/* harmony default export */ const colors = (COLORS);
 
 ;// CONCATENATED MODULE: ./src/scripts/tables/setHomeTable.js
 
@@ -4992,6 +5000,7 @@ function setHomeTable() {
 
 
 
+
 function screenResize() {
 // if on boxscore page that has players table just return and exit 
 let boxscorePlayerStats = document.getElementById("boxscorePlayerStats");
@@ -5005,7 +5014,7 @@ if (boxscorePlayerStats) {
   if (!teamPlayersDataSource) {
     let regularScreen = document.querySelectorAll("#tablesDiv table th");
     let mobileTableData = document.querySelectorAll("#tablesDiv table td");
-    if (screenSize < 993) {
+    if (screenSize < TABLE_BREAK_POINT) {
       mobileTableData.forEach((item) =>
         item.addEventListener("click", sortTable)
       );
@@ -5382,6 +5391,7 @@ function setPlayersFullTable(seasonNumber = season_currentSeason, modeDescriptor
 
 
 
+
 // modeDescriptor either 'Season', 'Playoff', or 'Combined' -- case sensitive!
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
@@ -5400,7 +5410,7 @@ function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescript
     "playersTable",
     playersTable
   );
-  document.body.style.backgroundColor = COLORS["w3-blue"]; 
+  document.body.style.backgroundColor = colors["w3-blue"]; 
   setTableListeners();
   }
 ;// CONCATENATED MODULE: ./src/scripts/listeners/playerTableListeners/playerTableListeners.js
@@ -5988,4 +5998,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=e19cf504903f37a93135.js.map
+//# sourceMappingURL=9ece756d5d0b37f35646.js.map
