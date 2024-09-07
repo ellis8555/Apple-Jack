@@ -1,5 +1,6 @@
 import sortTable from "./sortTable";
 import setTeamsTableBgColor from "./setTeamsTableBgColor";
+import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
 
 export default function screenResize() {
 // if on boxscore page that has players table just return and exit 
@@ -14,7 +15,7 @@ if (boxscorePlayerStats) {
   if (!teamPlayersDataSource) {
     let regularScreen = document.querySelectorAll("#tablesDiv table th");
     let mobileTableData = document.querySelectorAll("#tablesDiv table td");
-    if (screenSize < 993) {
+    if (screenSize < TABLE_BREAK_POINT) {
       mobileTableData.forEach((item) =>
         item.addEventListener("click", sortTable)
       );

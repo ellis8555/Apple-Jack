@@ -17,6 +17,8 @@ export const TEAM_PLAYERS_LENGTH = TeamPlayers.length;
 export const GAME_RESULTS_LENGTH = GameResults.length;
 // length of every players stat recorded for all games
 export const GAME_PLAYER_STATS_LENGTH = GamePlayerStats.length;
+// screen resizing break points
+export const TABLE_BREAK_POINT = 601;
 // HC font size on team logos via css
 export const HC_FONT = {
     "getTeamsGamesResults": '.5rem, 1rem, 1.75rem',
