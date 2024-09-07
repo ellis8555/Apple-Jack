@@ -3918,15 +3918,6 @@ function noGifs(){
       // Set the gifs header
       tablesDiv.innerHTML = "";
       tablesDiv.appendChild(components_gifsHeader(argsObject));
-
-      // scroll window to the top
-      setTimeout(() => {
-          const firstGif = document.querySelector(".firstGif");
-          firstGif.scrollIntoView({
-            behavior: 'smooth',
-            block: "center"
-          } );
-    }, 50)
   
       // listener for the back button back to teams layout Page
       document
@@ -4436,6 +4427,7 @@ function getGameResultText(game, team) {
 
 
 
+
 function getTeamsGameResults(e) {
     const team = e.target.dataset.teamName;
     const seasonNum = e.target.dataset.seasonNum;
@@ -4574,7 +4566,17 @@ function getTeamsGameResults(e) {
       document.querySelectorAll("div[data-game-highlights]")
     );
   
-    gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
+    gameHighlightDivs.forEach((item) => item.addEventListener("click", (e) => {
+      // scroll window back up before loading gifs
+        const tablesDiv = getTablesDiv();
+        tablesDiv.scrollIntoView({
+          behavior: 'smooth',
+          block: "center"
+        });
+      setTimeout(() => {
+        setGifs(e)
+      }, 750)
+    }));
     //end highlights div
     // single games result div
     const gameResultsDataDiv = Array.from(
@@ -5986,4 +5988,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=bf1da898fcff9136e251.js.map
+//# sourceMappingURL=e19cf504903f37a93135.js.map
