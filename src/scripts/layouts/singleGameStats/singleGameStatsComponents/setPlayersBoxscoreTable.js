@@ -19,10 +19,11 @@ function setPlayersBoxscoreTable(e, {thisGamesPlayerStatMAPS, thisGamesHomeTeamP
 
     const table = document.createElement('table');
     const thead = boxscorePlayersTableHeadersElements(PLAYERS_TABLE, sortBy)
-    const td = boxscorePlayersTableDataElements(thisGamesPlayerStatMAPS, PLAYERS_TABLE, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor, sortBy)
-    thead.append(td)
     table.append(thead)
-
+    const tableBody = document.createElement('tbody');
+    const td = boxscorePlayersTableDataElements(thisGamesPlayerStatMAPS, PLAYERS_TABLE, thisGamesHomeTeamPlayerNames, thisGamesHomeTeamColor, thisGamesAwayTeamColor, sortBy)
+    tableBody.append(td)
+    table.append(tableBody)
     playerStatsContainer.append(table)
 
 // add listeners to the table headers
