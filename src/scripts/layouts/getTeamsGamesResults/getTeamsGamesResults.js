@@ -12,6 +12,7 @@ import getGameResultClass from "./helpers/getGameResultClass"
 import getGameResultText from "./helpers/getGameResultText"
 import { Gifs } from "../../../constants/masterHaxData";
 import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv";
+import getTablesDiv from "../../tables/getTablesDiv";
 
 export default function getTeamsGameResults(e) {
     const team = e.target.dataset.teamName;
@@ -151,7 +152,17 @@ export default function getTeamsGameResults(e) {
       document.querySelectorAll("div[data-game-highlights]")
     );
   
-    gameHighlightDivs.forEach((item) => item.addEventListener("click", setGifs));
+    gameHighlightDivs.forEach((item) => item.addEventListener("click", (e) => {
+      // scroll window back up before loading gifs
+        const tablesDiv = getTablesDiv();
+        tablesDiv.scrollIntoView({
+          behavior: 'smooth',
+          block: "center"
+        });
+      setTimeout(() => {
+        setGifs(e)
+      }, 750)
+    }));
     //end highlights div
     // single games result div
     const gameResultsDataDiv = Array.from(
