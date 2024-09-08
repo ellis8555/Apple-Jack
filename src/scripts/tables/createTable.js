@@ -91,7 +91,7 @@ export default function createTable(
     clearScoreboardDiv();
   
     // display table on web page
-    getTablesDiv(); // import function
+    const tablesDiv = getTablesDiv(); // import function
     tablesDiv.innerHTML = tableStats;
   
     // function to change background-color on team row viewed on smaller screens
