@@ -3826,7 +3826,7 @@ function observeGifs(){
 
 
 
-function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore}){
+function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, gameType}){
     const gifsHeaderContainer = document.createElement("div");
     gifsHeaderContainer.classList.add("gifsHeaderContainer");
 
@@ -3835,7 +3835,7 @@ function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesA
       "gamesGifsBackButton",
       teamName,
       thisGifsSeasonNum,
-      "Season",
+      gameType,
       "gifsBackButton"
     );
     gifsHeaderContainer.appendChild(backButtonElement);
@@ -3970,10 +3970,9 @@ function noGifs(){
     const thisGamesAwayTeam = teams_teamsMAP.get(+thisGamesResult[0].TeamTwo);
     const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
     const thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
-
     // arguments for methods used below
     const argsObject = {
-      teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, thisGamesHighlights
+      teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, thisGamesHighlights, gameType
     }
 
     if (thisGamesHighlights.length > 0) {
@@ -6058,4 +6057,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=cc54829b1faecd070e69.js.map
+//# sourceMappingURL=974c9da4f9b22de3bb44.js.map
