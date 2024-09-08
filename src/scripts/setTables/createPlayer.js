@@ -50,7 +50,6 @@ for (let i = 1; i <= playersMAP.size; i++) {
 }
 
 // all time MAPS for each player
-
 for (let i = 1; i <= playersMAP.size; i++) {
   for (let j = 0; j < allTimeStatsArray.length; j++) {
     for (let k = 0; k < playerStatsFields.length; k++) {
@@ -86,6 +85,67 @@ for (let i = 1; i <= playersMAP.size; i++) {
     );
   }
 }
+
+// update each players stats to includes those that had to step in to play for another team.
+
+// loop through player objects and find those that begin with double star (**) as this indicates 
+// those players who have played for another team during a single season
+for (let playersName in IndividualPlayerStats.allPlayersStats){
+  // extract players alternate name
+  if(playersName[0] && playersName[1] === "*"){
+    // get players main user name
+    const playersMainName = playersName.slice(2);
+    // for each alternate players games push them into players all time main stats
+    // this will be alltime for all, season, and playoffs 
+    for(let i = 0; i < allTimeStatsArray.length; i++){
+        for(let j = 0; j < IndividualPlayerStats.allPlayersStats[playersName][allTimeStatsArray[i]].length; j++){
+          IndividualPlayerStats.allPlayersStats[playersMainName][allTimeStatsArray[i]].push(
+            IndividualPlayerStats.allPlayersStats[playersName][allTimeStatsArray[i]][j]
+          )
+        }
+    }
+
+    // update the players all time maps which produces that players stats such as goals, pts, games played etc...
+    for (let j = 0; j < allTimeStatsArray.length; j++) {
+      for (let k = 0; k < playerStatsFields.length; k++) {
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].set(
+          playerStatsFields[k],
+          IndividualPlayerStats.allPlayersStats[playersMainName][
+            allTimeStatsArray[j]
+          ]
+            .map((item) => Number(item[playerStatsFields[k]]))
+            .reduce((current, adjusted) => current + adjusted, 0)
+        );
+      }
+      IndividualPlayerStats.allPlayersStats[playersMainName][
+        allTimeStatsMAPS[j]
+      ].set(
+        "GP",
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsArray[j]
+        ].length
+      );
+      IndividualPlayerStats.allPlayersStats[playersMainName][
+        allTimeStatsMAPS[j]
+      ].set(
+        "Points",
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].get("Assists") +
+          IndividualPlayerStats.allPlayersStats[playersMainName][
+            allTimeStatsMAPS[j]
+          ].get("Goals")
+      );
+    }
+  }
+}
+// finally sort the all games array by order of gameID.
+IndividualPlayerStats.allPlayersStats['Skills324']['allTimeStats'].sort((a, b) => {
+  return a.GameID - b.GameID
+})
+
 // loop that fills each players seasons stats per each season
 // array for specific season, that seasons playoff and also combined season and playoffs
 
