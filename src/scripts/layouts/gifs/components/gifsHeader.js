@@ -1,7 +1,7 @@
 import backButton from "../../../misc/backButton";
 import createTeamCssLogo from "../../../misc/createTeamCssLogo";
 
-function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore}){
+function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, gameType}){
     const gifsHeaderContainer = document.createElement("div");
     gifsHeaderContainer.classList.add("gifsHeaderContainer");
 
@@ -10,7 +10,7 @@ function gifsHeader({teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesA
       "gamesGifsBackButton",
       teamName,
       thisGifsSeasonNum,
-      "Season",
+      gameType,
       "gifsBackButton"
     );
     gifsHeaderContainer.appendChild(backButtonElement);
