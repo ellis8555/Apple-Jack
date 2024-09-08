@@ -25,10 +25,9 @@
     const thisGamesAwayTeam = teamsMAP.get(+thisGamesResult[0].TeamTwo);
     const thisGamesAwayTeamScore = thisGamesResult[0].TeamTwoScore;
     const thisGamesHighlights = Gifs.filter((item) => item.GameID == gameNumber);
-
     // arguments for methods used below
     const argsObject = {
-      teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, thisGamesHighlights
+      teamName, thisGifsSeasonNum,  thisGamesHomeTeam, thisGamesAwayTeam ,thisGamesHomeTeamScore, thisGamesAwayTeamScore, thisGamesHighlights, gameType
     }
 
     if (thisGamesHighlights.length > 0) {
