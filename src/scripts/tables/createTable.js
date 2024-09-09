@@ -4,6 +4,7 @@ import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "./getTablesDiv";
 import setPlayersTableBgColor from "../misc/playerTableBgColor";
 import setTeamsTableBgColor from "../misc/setTeamsTableBgColor";
+import clearTablesDiv from "./clearTablesDiv"
 
 export default function createTable(
     seasonNumber,
@@ -32,67 +33,76 @@ export default function createTable(
     } else {
       screenedDataSource = dataSource;
     }
-    // html table begin
-    tableStats = "<table>";
-    // html table caption
-    tableStats += `<caption><h1>${tableName}</h1></caption>`;
-    // html table thead
-    tableStats += "<thead><tr>";
+    // dom created table
+    const tableStatsDOM = document.createElement('table');
+
+    // create table heading
+    const tableCaptionElem = document.createElement('caption');
+    const tableCaptionHeading = document.createElement('h1');
+    tableCaptionHeading.textContent = tableName;
+
+    // append the table caption
+    tableCaptionElem.append(tableCaptionHeading);
+    tableStatsDOM.append(tableCaptionElem);
+
+    // begin table headers
+    const tableHeadElem = document.createElement('thead');
+    const tableHeadRowElem = document.createElement('tr');
+    
     for (let i = 0; i < fieldsLength; i++) {
-      tableStats +=
-        `<th data-season-Number=${seasonNumber} data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
-        tableHeaders[i] +
-        " >" +
-        tableHeaders[i] +
-        "</th>";
+      const tableHeaderElem = document.createElement('th');
+      tableHeaderElem.setAttribute('data-season-Number', seasonNumber)
+      tableHeaderElem.setAttribute('data-data-source', dataSourceName)
+      tableHeaderElem.setAttribute('data-array-source', fieldsArrayName)
+      tableHeaderElem.setAttribute('data-field-name', tableHeaders[i])
+      tableHeaderElem.textContent = tableHeaders[i];
+      // append each <th> to row
+      tableHeadRowElem.append(tableHeaderElem);
     }
-    tableStats += "</tr></thead>";
-    // end of html table header fields row
-  
+    // append th row to <thead>
+    tableHeadElem.append(tableHeadRowElem)
+    // append <thead> to table
+    tableStatsDOM.append(tableHeadElem)
+    // begin each row of table data
     screenedDataSource.forEach((item) => {
-      // table data begins for each field
-      tableStats += "<tr>";
-  
+      // create a new table row element for each field
+      const tableRowElem = document.createElement('tr');
+    
       for (let j = 0; j < fieldsLength; j++) {
-        if (tableHeaders[j] == sortBy) {
-          // this if part adds highlight to sorted column
-          tableStats +=
-            `<td data-season-Number=${seasonNumber} data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} class=${color} data-field-name=` + //data-fieldNames required for mobile layout
-            tableHeaders[j] +
-            " >";
-          // this if correctly outputs wins - OTW in full table view
-          if (isOTW && tableHeaders[j] == "Wins") {
-            tableStats += item.get(tableHeaders[j]) - item.get("OTW");
-          } else {
-            tableStats += item.get(tableHeaders[j]);
-          }
-          tableStats += "</td>";
-        } else {
-          tableStats +=
-            `<td  data-season-Number=${seasonNumber} data-data-source=${dataSourceName} data-array-source=${fieldsArrayName} data-field-name=` + //data-fieldNames required for mobile layout
-            tableHeaders[j] +
-            " >";
-          // this if correctly outputs wins - OTW in full table view
-          if (isOTW && tableHeaders[j] == "Wins") {
-            tableStats += item.get(tableHeaders[j]) - item.get("OTW");
-          } else {
-            tableStats += item.get(tableHeaders[j]);
-          }
-          tableStats += "</td>";
+        // create table data cell element
+        const tableDataElem = document.createElement('td');
+        tableDataElem.setAttribute('data-season-number', seasonNumber);
+        tableDataElem.setAttribute('data-data-source', dataSourceName);
+        tableDataElem.setAttribute('data-array-source', fieldsArrayName);
+        tableDataElem.setAttribute('data-field-name', tableHeaders[j]);
+    
+        // add class for sorted column if applicable
+        if (tableHeaders[j] === sortBy) {
+          tableDataElem.classList.add(color);
         }
+    
+        // check if wins need to be adjusted for OTW and set the content accordingly
+        if (isOTW && tableHeaders[j] === "Wins") {
+          tableDataElem.textContent = item.get(tableHeaders[j]) - item.get("OTW");
+        } else {
+          tableDataElem.textContent = item.get(tableHeaders[j]);
+        }
+    
+        // append the cell to the row
+        tableRowElem.append(tableDataElem);
       }
-      tableStats += "</tr>";
+    
+      // append the row to the table body
+      tableStatsDOM.append(tableRowElem);
     });
-  
-    // html table ends
-    tableStats += "</table>";
   
     closeSidebar();
     clearScoreboardDiv();
   
     // display table on web page
     const tablesDiv = getTablesDiv(); // import function
-    tablesDiv.innerHTML = tableStats;
+    // clear tablesDiv before appending new data
+    tablesDiv.innerHTML = tableStatsDOM.outerHTML
   
     // function to change background-color on team row viewed on smaller screens
     if (isTeamTable) {
