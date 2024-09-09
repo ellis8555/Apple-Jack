@@ -5106,9 +5106,9 @@ function resizeEventMethod() {
         getSeasonNumber = +tableCaption.textContent[2];
       }
     } 
-    // season number can become lost resulting in undefined
+    // season number can become lost resulting in undefined so grab season number from element with season-num data attribute
     if(tableCaption == undefined){
-      const getSeasonNumberFromNavbarDataAttribute = +document.querySelectorAll("div[data-season-number]")[0]?.dataset.seasonNum;
+      const getSeasonNumberFromNavbarDataAttribute = +document.querySelectorAll("div[data-season-num]")[0]?.dataset.seasonNum;
       getSeasonNumber = getSeasonNumberFromNavbarDataAttribute
     }
     if (screenWidth < 500) {
@@ -6057,4 +6057,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=974c9da4f9b22de3bb44.js.map
+//# sourceMappingURL=6ea18ac6662c7731e7e5.js.map
