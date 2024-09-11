@@ -2770,7 +2770,6 @@ function setTeamsTableBgColor() {
 
 
 
-
 function createTable(
     seasonNumber,
     tableName,
@@ -2786,7 +2785,6 @@ function createTable(
     let fieldsLength = fieldsArray[0].length; // named array of fields previously made
     let isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
     let screenedDataSource;
-    let tableStats;
     // check if dataSource is a teams table
     let isTeamTable = dataSourceName.includes("TeamStats");
     // check if dataSource is a player table
@@ -2799,7 +2797,7 @@ function createTable(
       screenedDataSource = dataSource;
     }
     // dom created table
-    const tableStatsDOM = document.createElement('table');
+    const tableStats = document.createElement('table');
 
     // create table heading
     const tableCaptionElem = document.createElement('caption');
@@ -2808,7 +2806,7 @@ function createTable(
 
     // append the table caption
     tableCaptionElem.append(tableCaptionHeading);
-    tableStatsDOM.append(tableCaptionElem);
+    tableStats.append(tableCaptionElem);
 
     // begin table headers
     const tableHeadElem = document.createElement('thead');
@@ -2827,7 +2825,7 @@ function createTable(
     // append th row to <thead>
     tableHeadElem.append(tableHeadRowElem)
     // append <thead> to table
-    tableStatsDOM.append(tableHeadElem)
+    tableStats.append(tableHeadElem)
     // begin each row of table data
     screenedDataSource.forEach((item) => {
       // create a new table row element for each field
@@ -2858,7 +2856,7 @@ function createTable(
       }
     
       // append the row to the table body
-      tableStatsDOM.append(tableRowElem);
+      tableStats.append(tableRowElem);
     });
   
     sidebar_closeSidebar();
@@ -2867,7 +2865,7 @@ function createTable(
     // display table on web page
     const tablesDiv = getTablesDiv(); // import function
     // clear tablesDiv before appending new data
-    tablesDiv.innerHTML = tableStatsDOM.outerHTML
+    tablesDiv.innerHTML = tableStats.outerHTML
   
     // function to change background-color on team row viewed on smaller screens
     if (isTeamTable) {
@@ -6067,4 +6065,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=95118174d81a14c933ae.js.map
+//# sourceMappingURL=b8bea9818713402268ec.js.map
