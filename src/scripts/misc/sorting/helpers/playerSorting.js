@@ -34,6 +34,11 @@ function playerSorting(inputArray, category){
         })
         return inputArray;
       }
+
+      if(category == "Shooting%"){
+        return inputArray.sort((a,b) => parseFloat(b.get(category)) - parseFloat(a.get(category)))
+      }
+
       return inputArray.sort((a, b) => b.get(category) - a.get(category));
 }
 

@@ -4,6 +4,7 @@ import seasonCount from "../var_lib/season/seasonCount";
 import playersMAP from "../var_lib/maps/players/playersMAP";
 import gameTypeMAP from "../var_lib/maps/gameType/gameTypeMAP"
 import { playerStatsFields, allTimeStatsArray, allTimeStatsMAPS, groupedAllTimePlayerStats, perSeasonCats, perSeasonCatMAPS } from "../../constants/consts/supportVars";
+import { CSS_LOGO_DIMENSIONS } from "../../constants/consts/vars";
 
 // IndividualPlayerStats is the class each players' object creation
 // allPLayersStats (object) is the container holding each players' object
@@ -48,7 +49,6 @@ for (let i = 1; i <= playersMAP.size; i++) {
     "allTimePlayoffStats"
   );
 }
-
 // all time MAPS for each player
 for (let i = 1; i <= playersMAP.size; i++) {
   for (let j = 0; j < allTimeStatsArray.length; j++) {
@@ -83,6 +83,39 @@ for (let i = 1; i <= playersMAP.size; i++) {
           allTimeStatsMAPS[j]
         ].get("Goals")
     );
+
+    // prevent 0/0 if goals and shots on goal are both zeros
+    if(
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].get("Goals") &&
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].get("ShotsOnGoal") !== 0
+    ){
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].set(
+        "Shooting%",
+        Math.round(
+        (
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          allTimeStatsMAPS[j]
+        ].get("Goals") / 
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          allTimeStatsMAPS[j]
+        ].get("ShotsOnGoal")
+      )*100
+    ) + "%"
+      );
+    }else{
+      IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].set(
+        "Shooting%",
+        "0%"
+      );
+    }
   }
 }
 
@@ -138,6 +171,38 @@ for (let playersName in IndividualPlayerStats.allPlayersStats){
             allTimeStatsMAPS[j]
           ].get("Goals")
       );
+      // prevent 0/0 if goals and shots on goal are both zeros
+      if(
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].get("Goals") &&
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].get("ShotsOnGoal") !== 0
+      ){
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].set(
+          "Shooting%",
+          Math.round(
+            (
+              IndividualPlayerStats.allPlayersStats[playersMainName][
+                allTimeStatsMAPS[j]
+              ].get("Goals") /
+                IndividualPlayerStats.allPlayersStats[playersMainName][
+                  allTimeStatsMAPS[j]
+                ].get("ShotsOnGoal")
+            )*100
+          ) + "%"
+        );
+      }else{
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].set(
+          "Shooting%",
+          "0%"
+        );
+      }
     }
   }
 }
@@ -240,6 +305,40 @@ for (let i = 1; i <= playersMAP.size; i++) {
             "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
           ].get("Goals")
       );
+      // prevent 0/0 if goals and shots on goal are both zeros
+      if(
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].get("Goals") &&
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].get("ShotsOnGoal")
+        !== 0
+      ){
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].set(
+          "Shooting%",
+          Math.round(
+            (
+              IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+                "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+              ].get("Goals") /
+                IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+                  "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+                ].get("ShotsOnGoal")
+            )*100
+          ) + "%"
+        );
+      }
+      else {
+        IndividualPlayerStats.allPlayersStats[playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].set(
+          "Shooting%",
+          "0%"
+        );
+      }
     }
   }
 }
@@ -284,7 +383,27 @@ if (seasonCount.length > 1) {
   }
 }
 
-// TESTING
+// adjust shooting % for players who played in season one.
+// there is no shots on goal data so subtract goals from first season
+// shooting % is actually for seasons 2 onwards
+for (let i = 1; i <= playersMAP.size; i++){
+  const seasonsPlayed = IndividualPlayerStats.allPlayersStats[playersMAP.get(i)]["seasonsPlayed"]
+  const player = IndividualPlayerStats.allPlayersStats[playersMAP.get(i)]
+  if(seasonsPlayed.includes(1) && seasonsPlayed.some(season => season != 1)){
+  for(let j = 0; j < allTimeStatsArray.length; j++){
+    const allTimeGoals = player[allTimeStatsMAPS[j]].get("Goals");
+    const allTimeShotsOngoal = player[allTimeStatsMAPS[j]].get("ShotsOnGoal");
+    const firstSeasonGoals = player["playersSeason1" + perSeasonCatMAPS[j]].get("Goals");
+    player[allTimeStatsMAPS[j]].set("Shooting%", 
+      Math.round(
+        (
+          (allTimeGoals - firstSeasonGoals)/allTimeShotsOngoal
+        )*100
+      ) + "%"
+    )
+  }
+  }
+}
 
 // EXPORTS
 

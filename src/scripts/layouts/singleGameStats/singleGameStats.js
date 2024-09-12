@@ -123,6 +123,23 @@ import SingleGameBoxscore from "./singleGameStatsComponents/SingleGameBoxscore.j
         +thisGamesPlayerStatMAPS[i].get("Goals") +
           +thisGamesPlayerStatMAPS[i].get("Assists")
       );
+      // check for zero / zero
+      if(thisGamesPlayerStatMAPS[i].get("Goals") && thisGamesPlayerStatMAPS[i].get("ShotsOnGoal") != 0){
+        thisGamesPlayerStatMAPS[i].set(
+          "Shooting%",
+          Math.round(
+            (
+              +thisGamesPlayerStatMAPS[i].get("Goals") /
+              +thisGamesPlayerStatMAPS[i].get("ShotsOnGoal")
+            )*100
+          )+ "%"
+        ) 
+      } else {
+        thisGamesPlayerStatMAPS[i].set(
+          "Shooting%",
+          "0%"
+        )
+      }
     }
     // players boxscore stats begin here
     const setPlayersBoxscoreTableArguments = {

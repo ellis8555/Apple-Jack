@@ -48,6 +48,7 @@ export const statsType = ["CombinedStats", "SeasonStats", "PlayoffStats"]
 // forplayer class
 
 export const  playerSeasonMode = ["Season", "Playoff"];
+// these fields are for offscreen data and those used via reduce method. fields that can be simply added together
 export const  playerStatsFields = [
   "Assists",
   "Goals",
@@ -136,6 +137,7 @@ export const playersTable = [
   "Passes",
   "ShotsOnGoal",
   "OwnGoals",
+  "Shooting%"
 ];
 // set fields for players table within the single game boxscore page
 export const PLAYERS_TABLE = [
@@ -147,4 +149,5 @@ export const PLAYERS_TABLE = [
   "Passes",
   "ShotsOnGoal",
   "OwnGoals",
+  "Shooting%"
 ];
