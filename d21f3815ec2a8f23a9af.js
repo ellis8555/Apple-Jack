@@ -1711,6 +1711,7 @@ const statsType = ["CombinedStats", "SeasonStats", "PlayoffStats"]
 // forplayer class
 
 const  playerSeasonMode = (/* unused pure expression or super */ null && (["Season", "Playoff"]));
+// these fields are for offscreen data and those used via reduce method. fields that can be simply added together
 const  playerStatsFields = [
   "Assists",
   "Goals",
@@ -1799,6 +1800,7 @@ const playersTable = [
   "Passes",
   "ShotsOnGoal",
   "OwnGoals",
+  "Shooting%"
 ];
 // set fields for players table within the single game boxscore page
 const PLAYERS_TABLE = [
@@ -1810,6 +1812,7 @@ const PLAYERS_TABLE = [
   "Passes",
   "ShotsOnGoal",
   "OwnGoals",
+  "Shooting%"
 ];
 
 ;// CONCATENATED MODULE: ./src/scripts/classFiles/teams/teamStats.js
@@ -2198,6 +2201,7 @@ class IndividualPlayerStats {
 
 
 
+
 // IndividualPlayerStats is the class each players' object creation
 // allPLayersStats (object) is the container holding each players' object
 // IndividualPlayerStats.allPlayersStats(<playerName>) is how to get within any players' own object
@@ -2241,7 +2245,6 @@ for (let i = 1; i <= players_playersMAP.size; i++) {
     "allTimePlayoffStats"
   );
 }
-
 // all time MAPS for each player
 for (let i = 1; i <= players_playersMAP.size; i++) {
   for (let j = 0; j < allTimeStatsArray.length; j++) {
@@ -2276,6 +2279,39 @@ for (let i = 1; i <= players_playersMAP.size; i++) {
           allTimeStatsMAPS[j]
         ].get("Goals")
     );
+
+    // prevent 0/0 if goals and shots on goal are both zeros
+    if(
+      IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].get("Goals") &&
+      IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].get("ShotsOnGoal") !== 0
+    ){
+      IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].set(
+        "Shooting%",
+        Math.round(
+        (
+        IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+          allTimeStatsMAPS[j]
+        ].get("Goals") / 
+        IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+          allTimeStatsMAPS[j]
+        ].get("ShotsOnGoal")
+      )*100
+    ) + "%"
+      );
+    }else{
+      IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+        allTimeStatsMAPS[j]
+      ].set(
+        "Shooting%",
+        "0%"
+      );
+    }
   }
 }
 
@@ -2331,6 +2367,38 @@ for (let playersName in IndividualPlayerStats.allPlayersStats){
             allTimeStatsMAPS[j]
           ].get("Goals")
       );
+      // prevent 0/0 if goals and shots on goal are both zeros
+      if(
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].get("Goals") &&
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].get("ShotsOnGoal") !== 0
+      ){
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].set(
+          "Shooting%",
+          Math.round(
+            (
+              IndividualPlayerStats.allPlayersStats[playersMainName][
+                allTimeStatsMAPS[j]
+              ].get("Goals") /
+                IndividualPlayerStats.allPlayersStats[playersMainName][
+                  allTimeStatsMAPS[j]
+                ].get("ShotsOnGoal")
+            )*100
+          ) + "%"
+        );
+      }else{
+        IndividualPlayerStats.allPlayersStats[playersMainName][
+          allTimeStatsMAPS[j]
+        ].set(
+          "Shooting%",
+          "0%"
+        );
+      }
     }
   }
 }
@@ -2433,6 +2501,40 @@ for (let i = 1; i <= players_playersMAP.size; i++) {
             "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
           ].get("Goals")
       );
+      // prevent 0/0 if goals and shots on goal are both zeros
+      if(
+        IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].get("Goals") &&
+        IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].get("ShotsOnGoal")
+        !== 0
+      ){
+        IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].set(
+          "Shooting%",
+          Math.round(
+            (
+              IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+                "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+              ].get("Goals") /
+                IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+                  "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+                ].get("ShotsOnGoal")
+            )*100
+          ) + "%"
+        );
+      }
+      else {
+        IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)][
+          "playersSeason" + seasonsPlayedIn[j] + perSeasonCatMAPS[l]
+        ].set(
+          "Shooting%",
+          "0%"
+        );
+      }
     }
   }
 }
@@ -2477,7 +2579,27 @@ if (season_seasonCount.length > 1) {
   }
 }
 
-// TESTING
+// adjust shooting % for players who played in season one.
+// there is no shots on goal data so subtract goals from first season
+// shooting % is actually for seasons 2 onwards
+for (let i = 1; i <= players_playersMAP.size; i++){
+  const seasonsPlayed = IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)]["seasonsPlayed"]
+  const player = IndividualPlayerStats.allPlayersStats[players_playersMAP.get(i)]
+  if(seasonsPlayed.includes(1) && seasonsPlayed.some(season => season != 1)){
+  for(let j = 0; j < allTimeStatsArray.length; j++){
+    const allTimeGoals = player[allTimeStatsMAPS[j]].get("Goals");
+    const allTimeShotsOngoal = player[allTimeStatsMAPS[j]].get("ShotsOnGoal");
+    const firstSeasonGoals = player["playersSeason1" + perSeasonCatMAPS[j]].get("Goals");
+    player[allTimeStatsMAPS[j]].set("Shooting%", 
+      Math.round(
+        (
+          (allTimeGoals - firstSeasonGoals)/allTimeShotsOngoal
+        )*100
+      ) + "%"
+    )
+  }
+  }
+}
 
 // EXPORTS
 
@@ -2636,6 +2758,11 @@ function playerSorting(inputArray, category){
         })
         return inputArray;
       }
+
+      if(category == "Shooting%"){
+        return inputArray.sort((a,b) => parseFloat(b.get(category)) - parseFloat(a.get(category)))
+      }
+
       return inputArray.sort((a, b) => b.get(category) - a.get(category));
 }
 
@@ -4401,6 +4528,23 @@ function SingleGameBoxscore({
         +thisGamesPlayerStatMAPS[i].get("Goals") +
           +thisGamesPlayerStatMAPS[i].get("Assists")
       );
+      // check for zero / zero
+      if(thisGamesPlayerStatMAPS[i].get("Goals") && thisGamesPlayerStatMAPS[i].get("ShotsOnGoal") != 0){
+        thisGamesPlayerStatMAPS[i].set(
+          "Shooting%",
+          Math.round(
+            (
+              +thisGamesPlayerStatMAPS[i].get("Goals") /
+              +thisGamesPlayerStatMAPS[i].get("ShotsOnGoal")
+            )*100
+          )+ "%"
+        ) 
+      } else {
+        thisGamesPlayerStatMAPS[i].set(
+          "Shooting%",
+          "0%"
+        )
+      }
     }
     // players boxscore stats begin here
     const setPlayersBoxscoreTableArguments = {
@@ -6065,4 +6209,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=b8bea9818713402268ec.js.map
+//# sourceMappingURL=d21f3815ec2a8f23a9af.js.map
