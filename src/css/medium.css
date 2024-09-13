@@ -30,6 +30,13 @@
     cursor: pointer;
   }
 
+  table td:nth-child(odd) {
+    background-color: #fff;
+  }
+  table td:nth-child(even) {
+    background-color: #e0e0e0;
+  }
+
   table tr td:first-child {
     background-color: hsl(12, 62%, 67%);
   }
