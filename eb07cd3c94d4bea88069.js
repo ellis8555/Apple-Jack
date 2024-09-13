@@ -3316,30 +3316,20 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
 /* harmony default export */ const misc_backButton = (backButton);
 
 ;// CONCATENATED MODULE: ./src/scripts/layouts/teamPlayerList.js
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
 
   
-  let teamPlayerList_playersTable = [
-    "Name",
-    "GP",
-    "Goals",
-    "Assists",
-    "Points",
-    "Kicks",
-    "Passes",
-    "ShotsOnGoal",
-    "OwnGoals",
-  ];
-  let fieldsLength = teamPlayerList_playersTable.length;
+  let fieldsLength = playersTable.length;
   
   function getTeamsPlayersPerSeason(
     e,
@@ -3423,19 +3413,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
     // html table thead
     playerStats += "<thead><tr>";
     for (let i = 0; i < fieldsLength; i++) {
-      if (teamPlayerList_playersTable[i] == seasonSelectedField) {
+      if (playersTable[i] == seasonSelectedField) {
         playerStats +=
           `<th data-field-name=` + //data-fieldNames required for mobile layout
-          teamPlayerList_playersTable[i] +
+          playersTable[i] +
           ` class="w3-orange">` +
-          teamPlayerList_playersTable[i] +
+          playersTable[i] +
           "</th>";
       } else {
         playerStats +=
           `<th  data-field-name=` + //data-fieldNames required for mobile layout
-          teamPlayerList_playersTable[i] +
+          playersTable[i] +
           " >" +
-          teamPlayerList_playersTable[i] +
+          playersTable[i] +
           "</th>";
       }
     }
@@ -3447,19 +3437,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       playerStats += "<tr>";
   
       for (let j = 0; j < fieldsLength; j++) {
-        if (teamPlayerList_playersTable[j] == seasonSelectedField) {
+        if (playersTable[j] == seasonSelectedField) {
           playerStats +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[j] +
+            playersTable[j] +
             ` class="w3-yellow">` + // add yellow background for sorted column points
-            item.get(teamPlayerList_playersTable[j]) +
+            item.get(playersTable[j]) +
             "</td>";
         } else {
           playerStats +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[j] +
+            playersTable[j] +
             " >" +
-            item.get(teamPlayerList_playersTable[j]) +
+            item.get(playersTable[j]) +
             "</td>";
         }
       }
@@ -3477,19 +3467,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       // html table thead
       playerStats += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (teamPlayerList_playersTable[i] == playoffSelectedField) {
+        if (playersTable[i] == playoffSelectedField) {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             ` class="w3-orange">` +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         } else {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             " >" +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         }
       }
@@ -3501,19 +3491,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         playerStats += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (teamPlayerList_playersTable[j] == playoffSelectedField) {
+          if (playersTable[j] == playoffSelectedField) {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           } else {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               " >" +
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           }
         }
@@ -3530,19 +3520,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       // html table thead
       playerStats += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (teamPlayerList_playersTable[i] == combinedSelectedField) {
+        if (playersTable[i] == combinedSelectedField) {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             ` class="w3-orange">` +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         } else {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             " >" +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         }
       }
@@ -3554,19 +3544,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         playerStats += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (teamPlayerList_playersTable[j] == combinedSelectedField) {
+          if (playersTable[j] == combinedSelectedField) {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           } else {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               " >" +
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           }
         }
@@ -3610,19 +3600,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       // html table thead
       teamPlayersSeasonTable += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (teamPlayerList_playersTable[i] == sortBy) {
+        if (playersTable[i] == sortBy) {
           teamPlayersSeasonTable +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             ` class="w3-orange">` +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         } else {
           teamPlayersSeasonTable +=
             `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             " >" +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         }
       }
@@ -3634,19 +3624,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         teamPlayersSeasonTable += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (teamPlayerList_playersTable[j] == sortBy) {
+          if (playersTable[j] == sortBy) {
             teamPlayersSeasonTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           } else {
             teamPlayersSeasonTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               " >" +
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           }
         }
@@ -3707,19 +3697,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       // html table thead
       teamPlayersPlayoffTable += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (teamPlayerList_playersTable[i] == sortBy) {
+        if (playersTable[i] == sortBy) {
           teamPlayersPlayoffTable +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             ` class="w3-orange">` +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         } else {
           teamPlayersPlayoffTable +=
             `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             " >" +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         }
       }
@@ -3731,19 +3721,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         teamPlayersPlayoffTable += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (teamPlayerList_playersTable[j] == sortBy) {
+          if (playersTable[j] == sortBy) {
             teamPlayersPlayoffTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           } else {
             teamPlayersPlayoffTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               " >" +
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           }
         }
@@ -3809,19 +3799,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
       // html table thead
       teamPlayersCombinedTable += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (teamPlayerList_playersTable[i] == sortBy) {
+        if (playersTable[i] == sortBy) {
           teamPlayersCombinedTable +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             ` class="w3-orange">` +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         } else {
           teamPlayersCombinedTable +=
             `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             " >" +
-            teamPlayerList_playersTable[i] +
+            playersTable[i] +
             "</th>";
         }
       }
@@ -3833,19 +3823,19 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         teamPlayersCombinedTable += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (teamPlayerList_playersTable[j] == sortBy) {
+          if (playersTable[j] == sortBy) {
             teamPlayersCombinedTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           } else {
             teamPlayersCombinedTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              teamPlayerList_playersTable[j] +
+              playersTable[j] +
               " >" +
-              item.get(teamPlayerList_playersTable[j]) +
+              item.get(playersTable[j]) +
               "</td>";
           }
         }
@@ -6209,4 +6199,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=f2d8c82fc87ea91affa5.js.map
+//# sourceMappingURL=eb07cd3c94d4bea88069.js.map
