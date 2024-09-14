@@ -18,14 +18,13 @@ import { TABLE_BREAK_POINT } from "../../../constants/consts/vars.js";
     e,
     thisTeam,
     thisSeasonNumber,
-    thisTeamLogo,
     seasonSelectedField = "Points",
     playoffSelectedField = "Points",
     combinedSelectedField = "Points"
   ) {
     clearTablesDiv();
     clearScoreboardDiv();
-    let team, teamName, teamColor, seasonNum, teamImage;
+    let team, teamName, teamColor, seasonNum;
     if (e !== false) {
       team = teamsNumMAP.get(e.target.dataset.teamName);
       teamName = teamsMAP.get(+team);
