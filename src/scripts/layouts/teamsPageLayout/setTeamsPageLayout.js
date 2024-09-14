@@ -5,7 +5,7 @@ import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv";
 import TeamStats from "../../classFiles/teams/teamStats";
 import setHeaderBanner from "../setHeaderBanner";
 import teamsColorMAP from "../../var_lib/maps/teams/teamsColorMAP"
-import getTeamsPlayersPerSeason from "../teamPlayerList";
+import getTeamsPlayersPerSeason from "../teamPlayerList/teamPlayerList";
 import getTeamsGameResults from "../getTeamsGamesResults/getTeamsGamesResults";
 import teamColorsPage from "../teamsColorLayout/teamsColorsPage";
 import { SEASONS_WITH_TIE_GAMES } from "../../../constants/consts/vars";

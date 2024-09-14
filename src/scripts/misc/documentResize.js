@@ -1,6 +1,6 @@
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import screenResize from "./screenResize";
-import getTeamsPlayersPerSeason from "../layouts/teamPlayerList";
+import getTeamsPlayersPerSeason from "../layouts/teamPlayerList/teamPlayerList";
 
 function resizeEventMethod() {
   // screen size for navbar layout adapting to a screen resize event
