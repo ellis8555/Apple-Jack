@@ -46,7 +46,6 @@ export default function createTable(
     // begin table headers
     const tableHeadElem = document.createElement('thead');
     const tableHeadRowElem = document.createElement('tr');
-    
     for (let i = 0; i < fieldsLength; i++) {
       const tableHeaderElem = document.createElement('th');
       tableHeaderElem.setAttribute('data-season-Number', seasonNumber)
@@ -54,6 +53,10 @@ export default function createTable(
       tableHeaderElem.setAttribute('data-array-source', fieldsArrayName)
       tableHeaderElem.setAttribute('data-field-name', tableHeaders[i])
       tableHeaderElem.textContent = tableHeaders[i];
+      // add orange color to table heading if header is sortBy
+      if(tableHeaders[i] == sortBy){
+        tableHeaderElem.classList.add("w3-orange")
+      }
       // append each <th> to row
       tableHeadRowElem.append(tableHeaderElem);
     }
