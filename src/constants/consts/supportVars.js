@@ -126,19 +126,6 @@ export const fullTableNoTies = [
   "PA",
   "PAA",
 ];
-// SET FIELDS FOR PLAYERS TABLES
-export const playersTable = [
-  "Name",
-  "GP",
-  "Goals",
-  "Assists",
-  "Points",
-  "Kicks",
-  "Passes",
-  "ShotsOnGoal",
-  "OwnGoals",
-  "Shooting%"
-];
 // set fields for players table within the single game boxscore page
 export const PLAYERS_TABLE = [
   "Name",

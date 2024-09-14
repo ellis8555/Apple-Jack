@@ -2,7 +2,7 @@ import createTable from "./createTable";
 import IndividualPlayerStats from "../setTables/createPlayer";
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import currentSeason from "../var_lib/season/currentSeason";
-import { playersTable } from "../../constants/consts/supportVars";
+import { PLAYERS_TABLE } from "../../constants/consts/supportVars";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
 import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
 import setHeaderBanner from "../layouts/setHeaderBanner";
@@ -23,8 +23,8 @@ export default function setPlayersAllTimeTable(seasonNumber, modeDescriptor = ""
     IndividualPlayerStats[key],
     "w3-yellow",
     "Points",
-    "playersTable",
-    playersTable
+    "PLAYERS_TABLE",
+    PLAYERS_TABLE
   );
   document.body.style.backgroundColor = COLORS["w3-blue"]; 
   setTableListeners();

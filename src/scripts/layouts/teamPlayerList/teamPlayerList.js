@@ -9,9 +9,9 @@ import clearTablesDiv from "../../tables/clearTablesDiv.js";
 import sortGroupedStats from "../../misc/sorting/sort.js";
 import setTeamsPageLayout from "../teamsPageLayout/setTeamsPageLayout.js";
 import backButton from "../../misc/backButton.js";
-import { playersTable } from "../../../constants/consts/supportVars.js";
+import { PLAYERS_TABLE } from "../../../constants/consts/supportVars.js";
   
-  let fieldsLength = playersTable.length;
+  let fieldsLength = PLAYERS_TABLE.length;
   
   export default function getTeamsPlayersPerSeason(
     e,
@@ -95,19 +95,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
     // html table thead
     playerStats += "<thead><tr>";
     for (let i = 0; i < fieldsLength; i++) {
-      if (playersTable[i] == seasonSelectedField) {
+      if (PLAYERS_TABLE[i] == seasonSelectedField) {
         playerStats +=
           `<th data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[i] +
+          PLAYERS_TABLE[i] +
           ` class="w3-orange">` +
-          playersTable[i] +
+          PLAYERS_TABLE[i] +
           "</th>";
       } else {
         playerStats +=
           `<th  data-field-name=` + //data-fieldNames required for mobile layout
-          playersTable[i] +
+          PLAYERS_TABLE[i] +
           " >" +
-          playersTable[i] +
+          PLAYERS_TABLE[i] +
           "</th>";
       }
     }
@@ -119,19 +119,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
       playerStats += "<tr>";
   
       for (let j = 0; j < fieldsLength; j++) {
-        if (playersTable[j] == seasonSelectedField) {
+        if (PLAYERS_TABLE[j] == seasonSelectedField) {
           playerStats +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[j] +
+            PLAYERS_TABLE[j] +
             ` class="w3-yellow">` + // add yellow background for sorted column points
-            item.get(playersTable[j]) +
+            item.get(PLAYERS_TABLE[j]) +
             "</td>";
         } else {
           playerStats +=
             `<td data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[j] +
+            PLAYERS_TABLE[j] +
             " >" +
-            item.get(playersTable[j]) +
+            item.get(PLAYERS_TABLE[j]) +
             "</td>";
         }
       }
@@ -149,19 +149,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
       // html table thead
       playerStats += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (playersTable[i] == playoffSelectedField) {
+        if (PLAYERS_TABLE[i] == playoffSelectedField) {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             ` class="w3-orange">` +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         } else {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             " >" +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         }
       }
@@ -173,19 +173,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
         playerStats += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (playersTable[j] == playoffSelectedField) {
+          if (PLAYERS_TABLE[j] == playoffSelectedField) {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           } else {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               " >" +
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           }
         }
@@ -202,19 +202,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
       // html table thead
       playerStats += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (playersTable[i] == combinedSelectedField) {
+        if (PLAYERS_TABLE[i] == combinedSelectedField) {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             ` class="w3-orange">` +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         } else {
           playerStats +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             " >" +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         }
       }
@@ -226,19 +226,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
         playerStats += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (playersTable[j] == combinedSelectedField) {
+          if (PLAYERS_TABLE[j] == combinedSelectedField) {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           } else {
             playerStats +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               " >" +
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           }
         }
@@ -282,19 +282,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
       // html table thead
       teamPlayersSeasonTable += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (playersTable[i] == sortBy) {
+        if (PLAYERS_TABLE[i] == sortBy) {
           teamPlayersSeasonTable +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             ` class="w3-orange">` +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         } else {
           teamPlayersSeasonTable +=
             `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             " >" +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         }
       }
@@ -306,19 +306,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
         teamPlayersSeasonTable += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (playersTable[j] == sortBy) {
+          if (PLAYERS_TABLE[j] == sortBy) {
             teamPlayersSeasonTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           } else {
             teamPlayersSeasonTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               " >" +
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           }
         }
@@ -379,19 +379,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
       // html table thead
       teamPlayersPlayoffTable += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (playersTable[i] == sortBy) {
+        if (PLAYERS_TABLE[i] == sortBy) {
           teamPlayersPlayoffTable +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             ` class="w3-orange">` +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         } else {
           teamPlayersPlayoffTable +=
             `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             " >" +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         }
       }
@@ -403,19 +403,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
         teamPlayersPlayoffTable += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (playersTable[j] == sortBy) {
+          if (PLAYERS_TABLE[j] == sortBy) {
             teamPlayersPlayoffTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           } else {
             teamPlayersPlayoffTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               " >" +
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           }
         }
@@ -481,19 +481,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
       // html table thead
       teamPlayersCombinedTable += "<thead><tr>";
       for (let i = 0; i < fieldsLength; i++) {
-        if (playersTable[i] == sortBy) {
+        if (PLAYERS_TABLE[i] == sortBy) {
           teamPlayersCombinedTable +=
             `<th data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             ` class="w3-orange">` +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         } else {
           teamPlayersCombinedTable +=
             `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             " >" +
-            playersTable[i] +
+            PLAYERS_TABLE[i] +
             "</th>";
         }
       }
@@ -505,19 +505,19 @@ import { playersTable } from "../../../constants/consts/supportVars.js";
         teamPlayersCombinedTable += "<tr>";
   
         for (let j = 0; j < fieldsLength; j++) {
-          if (playersTable[j] == sortBy) {
+          if (PLAYERS_TABLE[j] == sortBy) {
             teamPlayersCombinedTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           } else {
             teamPlayersCombinedTable +=
               `<td data-field-name=` + //data-fieldNames required for mobile layout
-              playersTable[j] +
+              PLAYERS_TABLE[j] +
               " >" +
-              item.get(playersTable[j]) +
+              item.get(PLAYERS_TABLE[j]) +
               "</td>";
           }
         }
