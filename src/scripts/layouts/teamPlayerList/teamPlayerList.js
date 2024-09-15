@@ -49,35 +49,26 @@ import playersListHeader from "./components/playersListHeader.js";
     playersFiltered.forEach((item) =>
       playersArray.push(playersMAP.get(+item.PlayerID))
     );
-    // push those players seasons stats into team array and sort by points
+
     const playerSeasonObjects = [];
-    playersArray.forEach((item) =>
-      playerSeasonObjects.push(
-        IndividualPlayerStats.allPlayersStats[item][
-          `playersSeason${seasonNum}SeasonStatsMAP`
-        ]
-      )
-    );
-    sortGroupedStats(playerSeasonObjects, seasonSelectedField);
-    // push those players playoff stats into team array and sort by points
     const playerPlayoffObjects = [];
-    playersArray.forEach((item) =>
-      playerPlayoffObjects.push(
-        IndividualPlayerStats.allPlayersStats[item][
-          `playersSeason${seasonNum}PlayoffStatsMAP`
-        ]
-      )
-    );
-    sortGroupedStats(playerPlayoffObjects, playoffSelectedField);
-    // push those players full season combined stats into team array and sort by points
     const playerCombinedObjects = [];
-    playersArray.forEach((item) =>
-      playerCombinedObjects.push(
-        IndividualPlayerStats.allPlayersStats[item][
-          `playersSeason${seasonNum}CombinedStatsMAP`
-        ]
-      )
-    );
+
+    const mapsArray = ["SeasonStatsMAP", "PlayoffStatsMAP", "CombinedStatsMAP"]
+    const playerObjectsArray = [playerSeasonObjects, playerPlayoffObjects, playerCombinedObjects]
+
+    for(let i=0; i<mapsArray.length; i++){
+      playersArray.forEach((item) =>
+        playerObjectsArray[i].push(
+          IndividualPlayerStats.allPlayersStats[item][
+            `playersSeason${seasonNum}${mapsArray[i]}`
+          ]
+        )
+      );
+    }
+
+    sortGroupedStats(playerSeasonObjects, seasonSelectedField);
+    sortGroupedStats(playerPlayoffObjects, playoffSelectedField);
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
   
     // element that will contain the player tables
@@ -132,50 +123,56 @@ import playersListHeader from "./components/playersListHeader.js";
       .addEventListener("click", () => {setTeamsPageLayout(document.getElementById('playerStatsBackButton'))});
     // end back button
   
-    ////////////////////BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES//////////////////////////////
-    const sortTeamPlayerTableArgs = {
-      PLAYERS_TABLE,
-      fieldsLength,
-      teamColor
-    }
-    // regular season sorting and listening function
-    function sortTeamPlayersSeasonTable(e) {
-      const teamPlayersSeasonTable = sortTeamPlayersTables(e, "teamPlayerSeasonTable", "Regular Season", playerSeasonObjects, sortTeamPlayerTableArgs);
-      const seasonTable = document.getElementById("teamPlayerSeasonTable");
-      const position = document.querySelector("#teamPlayerList");
-      seasonTable.remove();
-      position.after(teamPlayersSeasonTable)
-  
-      setTeamPlayerTableListeners("teamPlayerSeasonTable", sortTeamPlayersSeasonTable); // this resets the listeners on the table after being redisplayed
-    }
-    setTeamPlayerTableListeners("teamPlayerSeasonTable", (e) => {
-      sortTeamPlayersSeasonTable(e);
-    })
-  
-    // playoffs sorting and listening functions
-    function sortTeamPlayersPlayoffTable(e) {
-      const teamPlayersPlayoffTable = sortTeamPlayersTables(e, "teamPlayerPlayoffTable", "Playoffs", playerPlayoffObjects, sortTeamPlayerTableArgs);
-      const playoffTable = document.getElementById("teamPlayerPlayoffTable");
-      const position = document.querySelector("#teamPlayerCombinedTable");
-      playoffTable.remove();
-      position.before(teamPlayersPlayoffTable)
-      setTeamPlayerTableListeners("teamPlayerPlayoffTable", sortTeamPlayersPlayoffTable); // this resets the listeners on the table after being redisplayed
-    }
-    setTeamPlayerTableListeners("teamPlayerPlayoffTable", (e) => {
-      sortTeamPlayersPlayoffTable(e);
-    })
-  
-    // combined stats for sorting and listening functions
-  
-    function sortTeamPlayersCombinedTable(e) {
-      const teamPlayerCombinedTable = sortTeamPlayersTables(e, "teamPlayerCombinedTable", "Combined Stats", playerCombinedObjects, sortTeamPlayerTableArgs);
-      const combinedTable = document.getElementById("teamPlayerCombinedTable");
-      const position = document.querySelector("#teamPlayerPlayoffTable");
-      combinedTable.remove();
-      position.after(teamPlayerCombinedTable);
-      setTeamPlayerTableListeners("teamPlayerCombinedTable", sortTeamPlayersCombinedTable)
-    }
-    setTeamPlayerTableListeners("teamPlayerCombinedTable", (e) => {
-      sortTeamPlayersCombinedTable(e);
-    })
+////////////////////BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES//////////////////////////////
+
+const sortTeamPlayerTableArgs = {
+  PLAYERS_TABLE,
+  fieldsLength,
+  teamColor
+};
+
+// Configuration array for each table (Season, Playoff, Combined)
+const tableConfigs = [
+  {
+    id: "teamPlayerSeasonTable",
+    label: "Regular Season",
+    data: playerSeasonObjects,
+    afterElement: "#teamPlayerList",
+    insertMethod: 'after',
+  },
+  {
+    id: "teamPlayerPlayoffTable",
+    label: "Playoffs",
+    data: playerPlayoffObjects,
+    afterElement: "#teamPlayerCombinedTable",
+    insertMethod: 'before',
+  },
+  {
+    id: "teamPlayerCombinedTable",
+    label: "Combined Stats",
+    data: playerCombinedObjects,
+    afterElement: "#teamPlayerPlayoffTable",
+    insertMethod: 'after',
   }
+];
+
+// Helper function to handle sorting and listeners setup
+function sortTeamPlayersTable(e, config) {
+  const { id, label, data, afterElement, insertMethod } = config;
+  const teamPlayerTable = sortTeamPlayersTables(e, id, label, data, sortTeamPlayerTableArgs);
+  const oldTable = document.getElementById(id);
+  const position = document.querySelector(afterElement);
+  oldTable.remove();
+  position[insertMethod](teamPlayerTable);
+  
+  // Resets the listeners on the table after being redisplayed
+  setTeamPlayerTableListeners(id, (event) => sortTeamPlayersTable(event, config));
+}
+
+// Setup sorting and listeners for all tables
+tableConfigs.forEach((config) => {
+  setTeamPlayerTableListeners(config.id, (e) => {
+    sortTeamPlayersTable(e, config);
+  });
+});
+}
