@@ -3,7 +3,6 @@ import setTeamsTableBgColor from "./setTeamsTableBgColor";
 import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
 
 export default function screenResize() {
-  console.log('sex with Heather')
 // if on boxscore page that has players table just return and exit 
 const boxscorePlayerStats = document.getElementById("boxscorePlayerStats");
 if (boxscorePlayerStats) {

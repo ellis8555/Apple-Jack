@@ -84,12 +84,10 @@ function resizeEventMethod() {
         } else {
           getCombinedSelectedField = "Points";
         }
-    
         getTeamsPlayersPerSeason(
           false,
           team,
           seasonNumber,
-          teamLogo,
           getSeasonSelectedField,
           getPlayoffSelectedField,
           getCombinedSelectedField
