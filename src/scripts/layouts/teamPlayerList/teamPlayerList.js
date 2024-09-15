@@ -9,11 +9,12 @@ import clearTablesDiv from "../../tables/clearTablesDiv.js";
 import sortGroupedStats from "../../misc/sorting/sort.js";
 import setTeamsPageLayout from "../teamsPageLayout/setTeamsPageLayout.js";
 import backButton from "../../misc/backButton.js";
+import createPlayerStatsTable from "./components/createPlayerStatsTable.js"
 import { PLAYERS_TABLE } from "../../../constants/consts/supportVars.js";
-import { TABLE_BREAK_POINT } from "../../../constants/consts/vars.js";
+import sortTeamPlayersTables from "./helpers/sortTeamPlayersTables.js";
+import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.js";
   
   let fieldsLength = PLAYERS_TABLE.length;
-  
   export default function getTeamsPlayersPerSeason(
     e,
     thisTeam,
@@ -75,187 +76,58 @@ import { TABLE_BREAK_POINT } from "../../../constants/consts/vars.js";
       )
     );
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
-    // var containing the innerHTML of tables
-    let playerStats = "";
-    playerStats += backButton("playerStatsBackButton", teamName, seasonNum, "Season").outerHTML
-    playerStats += `<h1>Season ${seasonNum}</h1>`;
-    // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
-    playerStats += `<div id="teamPlayerList" class="w3-padding w3-card-4 w3-round-large" style="color:#fff;background-color:${teamColor};">`;
-    playersArray.forEach(
-      (item) =>
-        (playerStats += `
-      <div style="font-size: 1.2em;">${item}</div>`)
-    );
-    playerStats += `</div>`;
   
-    // html table season stats begin
-    playerStats += "<table id='teamPlayerSeasonTable'>";
-    // html table caption
-    playerStats += `<caption><h3>Regular Season</h3></caption>`;
-    // html table thead
-    playerStats += "<thead><tr>";
-    for (let i = 0; i < fieldsLength; i++) {
-      if (PLAYERS_TABLE[i] == seasonSelectedField) {
-        playerStats +=
-          `<th data-field-name=` + //data-fieldNames required for mobile layout
-          PLAYERS_TABLE[i] +
-          ` class="w3-orange">` +
-          PLAYERS_TABLE[i] +
-          "</th>";
-      } else {
-        playerStats +=
-          `<th  data-field-name=` + //data-fieldNames required for mobile layout
-          PLAYERS_TABLE[i] +
-          " >" +
-          PLAYERS_TABLE[i] +
-          "</th>";
-      }
-    }
-    playerStats += "</tr></thead>";
-    // end of html table header fields row
-  
-    playerSeasonObjects.forEach((item) => {
-      // table data begins for each field
-      playerStats += "<tr>";
-  
-      for (let j = 0; j < fieldsLength; j++) {
-        if (PLAYERS_TABLE[j] == seasonSelectedField) {
-          playerStats +=
-            `<td data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[j] +
-            ` class="w3-yellow">` + // add yellow background for sorted column points
-            item.get(PLAYERS_TABLE[j]) +
-            "</td>";
-        } else {
-          playerStats +=
-            `<td data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[j] +
-            " >" +
-            item.get(PLAYERS_TABLE[j]) +
-            "</td>";
-        }
-      }
-      playerStats += "</tr>";
-    });
-  
-    // html table ends
-    playerStats += "</table>";
-  
-    // html table playoff stats begin
-    if (playerPlayoffObjects[0].get("GP") > 0) {
-      playerStats += "<table id='teamPlayerPlayoffTable'>";
-      // html table caption
-      playerStats += `<caption><h3>Playoffs</h3></caption>`;
-      // html table thead
-      playerStats += "<thead><tr>";
-      for (let i = 0; i < fieldsLength; i++) {
-        if (PLAYERS_TABLE[i] == playoffSelectedField) {
-          playerStats +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            ` class="w3-orange">` +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        } else {
-          playerStats +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            " >" +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        }
-      }
-      playerStats += "</tr></thead>";
-      // end of html table header fields row
-  
-      playerPlayoffObjects.forEach((item) => {
-        // table data begins for each field
-        playerStats += "<tr>";
-  
-        for (let j = 0; j < fieldsLength; j++) {
-          if (PLAYERS_TABLE[j] == playoffSelectedField) {
-            playerStats +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          } else {
-            playerStats +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              " >" +
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          }
-        }
-        playerStats += "</tr>";
-      });
-  
-      // html table ends
-      playerStats += "</table>";
-  
-      // html table combined stats begin
-      playerStats += "<table id='teamPlayerCombinedTable'>";
-      // html table caption
-      playerStats += `<caption><h3>Combined Stats</h3></caption>`;
-      // html table thead
-      playerStats += "<thead><tr>";
-      for (let i = 0; i < fieldsLength; i++) {
-        if (PLAYERS_TABLE[i] == combinedSelectedField) {
-          playerStats +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            ` class="w3-orange">` +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        } else {
-          playerStats +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            " >" +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        }
-      }
-      playerStats += "</tr></thead>";
-      // end of html table header fields row
-  
-      playerCombinedObjects.forEach((item) => {
-        // table data begins for each field
-        playerStats += "<tr>";
-  
-        for (let j = 0; j < fieldsLength; j++) {
-          if (PLAYERS_TABLE[j] == combinedSelectedField) {
-            playerStats +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          } else {
-            playerStats +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              " >" +
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          }
-        }
-        playerStats += "</tr>";
-      });
-  
-      // html table ends
-      playerStats += "</table>";
-    } else {
-      playerStats += "<h3>No playoff games played</h3>";
-    }
-  
-    let playerStatsTable = document.getElementById("scoreboardDiv");
+    // element that will contain the player tables
+    const playerStatsTable = document.getElementById("scoreboardDiv");
     playerStatsTable.style.display = "flex";
     playerStatsTable.style.flexDirection = "column";
     playerStatsTable.style.alignItems = "center";
-    playerStatsTable.innerHTML = playerStats;
+
+    // add the back button
+    const backButtonElement = backButton("playerStatsBackButton", teamName, seasonNum, "Season")
+    playerStatsTable.append(backButtonElement)
+    // add season header
+    const h1 = document.createElement('h1');
+    h1.textContent = `Season ${seasonNum}`
+    playerStatsTable.append(h1);
+    // add list of teams players
+    const playersListContainer = document.createElement('div');
+        // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
+    playersListContainer.id = "teamPlayerList";
+    playersListContainer.classList.add("w3-padding", "w3-padding", "w3-card", "w3-round-large")
+    playersListContainer.style.color = "#fff";
+    playersListContainer.style.backgroundColor = teamColor;
+    playersArray.forEach(item => {
+      const div = document.createElement('div');
+      div.style.fontSize = "1.2rem";
+      div.textContent = item;
+      playersListContainer.append(div)
+    })
+    playerStatsTable.append(playersListContainer)
+    // begin adding player tables
+    // tables arguments object
+    const createPlayerStatsTableArgs = {
+      PLAYERS_TABLE, 
+      seasonSelectedField, 
+      playerSeasonObjects, 
+      fieldsLength,
+      playoffSelectedField,
+      combinedSelectedField
+    }
+    const playersSeasonTable = createPlayerStatsTable('teamPlayerSeasonTable', 'Regular Season', 'season',createPlayerStatsTableArgs)
+    playerStatsTable.append(playersSeasonTable)
+    // if playoffs have occured add both playoffs and combined tables
+    if (playerPlayoffObjects[0].get("GP") > 0) {
+      const playersPlayoffTable = createPlayerStatsTable('teamPlayerPlayoffTable', 'Playoffs', 'playoffs',createPlayerStatsTableArgs)
+      playerStatsTable.append(playersPlayoffTable)
+      const playersCombinedTable = createPlayerStatsTable('teamPlayerCombinedTable', 'Combined Stats', 'combined',createPlayerStatsTableArgs)
+      playerStatsTable.append(playersCombinedTable)
+    } else {
+      // else if season is still on going within the current season
+      const h3 = document.createElement('h3');
+      h3.textContent = 'No playoff games played'
+      playerStatsTable.append(h3)
+    }
   
     let playerNameCells = document.querySelectorAll("td[data-field-name='Name']");
     playerNameCells.forEach((item) => {
@@ -270,304 +142,57 @@ import { TABLE_BREAK_POINT } from "../../../constants/consts/vars.js";
     // end back button
   
     ////////////////////BEGIN OF SORTINGFUNCTIONS FOR THE ABOVE 3 TABLES//////////////////////////////
+    const sortTeamPlayerTableArgs = {
+      PLAYERS_TABLE,
+      fieldsLength,
+      teamColor
+    }
     // regular season sorting and listening function
     function sortTeamPlayersSeasonTable(e) {
-      let sortBy = e.target.dataset.fieldName;
-      sortGroupedStats(playerSeasonObjects, sortBy);
-      let teamPlayersSeasonTable = "";
-      // html table season stats begin
-      teamPlayersSeasonTable += "<table id='teamPlayerSeasonTable'>";
-      // html table caption
-      teamPlayersSeasonTable += `<caption><h3>Regular Season</h3></caption>`;
-      // html table thead
-      teamPlayersSeasonTable += "<thead><tr>";
-      for (let i = 0; i < fieldsLength; i++) {
-        if (PLAYERS_TABLE[i] == sortBy) {
-          teamPlayersSeasonTable +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            ` class="w3-orange">` +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        } else {
-          teamPlayersSeasonTable +=
-            `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            " >" +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        }
-      }
-      teamPlayersSeasonTable += "</tr></thead>";
-      // end of html table header fields row
-  
-      playerSeasonObjects.forEach((item) => {
-        // table data begins for each field
-        teamPlayersSeasonTable += "<tr>";
-  
-        for (let j = 0; j < fieldsLength; j++) {
-          if (PLAYERS_TABLE[j] == sortBy) {
-            teamPlayersSeasonTable +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          } else {
-            teamPlayersSeasonTable +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              " >" +
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          }
-        }
-        teamPlayersSeasonTable += "</tr>";
-      });
-  
-      // html table ends
-      teamPlayersSeasonTable += "</table>";
+      /////////////////////////////////////////////////////////////////////////////
+      const teamPlayersSeasonTable = sortTeamPlayersTables(e, "teamPlayerSeasonTable", "Regular Season", playerSeasonObjects, sortTeamPlayerTableArgs);
       /////////////////////////////////////////////////////////////////////////////
       let seasonTable = document.getElementById("teamPlayerSeasonTable");
       let position = document.querySelector("#teamPlayerList");
       seasonTable.remove();
-      position.insertAdjacentHTML("afterend", teamPlayersSeasonTable);
+      // position.insertAdjacentHTML("afterend", teamPlayersSeasonTable);
+      position.after(teamPlayersSeasonTable)
   
-      setTeamPlayerSeasonTableListeners(); // this resets the listeners on the table after being redisplayed
-  
-      let playerNameCells = document.querySelectorAll(
-        "td[data-field-name='Name']"
-      );
-      playerNameCells.forEach((item) => {
-        item.style.color = "#fff";
-        item.style.backgroundColor = teamColor;
-      });
+      setTeamPlayerTableListeners("teamPlayerSeasonTable", sortTeamPlayersSeasonTable); // this resets the listeners on the table after being redisplayed
     }
-  
-    // listeners on table headers for sorting table on larger screens
-    function setTeamPlayerSeasonTableListeners() {
-      let browserWidth = window.innerWidth;
-      let getTable = document.querySelectorAll("#teamPlayerSeasonTable");
-      // for mobile screens
-      if (browserWidth < TABLE_BREAK_POINT) {
-        getTable[0].onclick = function (e) {
-          let td = e.target.closest("td");
-          if (!td) return;
-          sortTeamPlayersSeasonTable(e);
-        };
-      }
-      // for larger screens
-      else {
-        getTable[0].onclick = function (e) {
-          let th = e.target.closest("th");
-          if (!th) return;
-          sortTeamPlayersSeasonTable(e);
-        };
-      }
-    }
-    setTeamPlayerSeasonTableListeners();
+    setTeamPlayerTableListeners("teamPlayerSeasonTable", (e) => {
+      sortTeamPlayersSeasonTable(e);
+    })
   
     // playoffs sorting and listening functions
     function sortTeamPlayersPlayoffTable(e) {
-      let sortBy = e.target.dataset.fieldName;
-      sortGroupedStats(playerPlayoffObjects, sortBy);
-      let teamPlayersPlayoffTable = "";
-      // html table season stats begin
-      teamPlayersPlayoffTable += "<table id='teamPlayerPlayoffTable'>";
-      // html table caption
-      teamPlayersPlayoffTable += `<caption><h3>Playoffs</h3></caption>`;
-      // html table thead
-      teamPlayersPlayoffTable += "<thead><tr>";
-      for (let i = 0; i < fieldsLength; i++) {
-        if (PLAYERS_TABLE[i] == sortBy) {
-          teamPlayersPlayoffTable +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            ` class="w3-orange">` +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        } else {
-          teamPlayersPlayoffTable +=
-            `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            " >" +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        }
-      }
-      teamPlayersPlayoffTable += "</tr></thead>";
-      // end of html table header fields row
-  
-      playerPlayoffObjects.forEach((item) => {
-        // table data begins for each field
-        teamPlayersPlayoffTable += "<tr>";
-  
-        for (let j = 0; j < fieldsLength; j++) {
-          if (PLAYERS_TABLE[j] == sortBy) {
-            teamPlayersPlayoffTable +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          } else {
-            teamPlayersPlayoffTable +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              " >" +
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          }
-        }
-        teamPlayersPlayoffTable += "</tr>";
-      });
-  
-      // html table ends
-      teamPlayersPlayoffTable += "</table>";
+      /////////////////////////////////////////////////////////////////////////////
+      const teamPlayersPlayoffTable = sortTeamPlayersTables(e, "teamPlayerPlayoffTable", "Playoffs", playerPlayoffObjects, sortTeamPlayerTableArgs);
       /////////////////////////////////////////////////////////////////////////////
       let playoffTable = document.getElementById("teamPlayerPlayoffTable");
       let position = document.querySelector("#teamPlayerCombinedTable");
       playoffTable.remove();
-      position.insertAdjacentHTML("beforebegin", teamPlayersPlayoffTable);
-      setTeamPlayerPlayoffTableListeners(); // this resets the listeners on the table after being redisplayed
-  
-      let playerNameCells = document.querySelectorAll(
-        "td[data-field-name='Name']"
-      );
-      playerNameCells.forEach((item) => {
-        item.style.color = "#fff";
-        item.style.backgroundColor = teamColor;
-      });
+      position.before(teamPlayersPlayoffTable)
+      setTeamPlayerTableListeners("teamPlayerPlayoffTable", sortTeamPlayersPlayoffTable); // this resets the listeners on the table after being redisplayed
     }
-  
-    // listeners on table headers for sorting regular season table
-    function setTeamPlayerPlayoffTableListeners() {
-      let browserWidth = window.innerWidth;
-      let getTable = document.querySelectorAll("#teamPlayerPlayoffTable");
-      // test if team made playoffs
-      if (getTable.length > 0) {
-        // for mobile screens
-        if (browserWidth < TABLE_BREAK_POINT) {
-          getTable[0].onclick = function (e) {
-            let td = e.target.closest("td");
-            if (!td) return;
-            sortTeamPlayersPlayoffTable(e);
-          };
-        }
-        // for larger screens
-        else {
-          getTable[0].onclick = function (e) {
-            let th = e.target.closest("th");
-            if (!th) return;
-            sortTeamPlayersPlayoffTable(e);
-          };
-        }
-      } else {
-        return;
-      }
-    }
-    setTeamPlayerPlayoffTableListeners();
+    setTeamPlayerTableListeners("teamPlayerPlayoffTable", (e) => {
+      sortTeamPlayersPlayoffTable(e);
+    })
   
     // combined stats for sorting and listening functions
   
-    function sortTeamPlayerscombinedTable(e) {
-      let sortBy = e.target.dataset.fieldName;
-      sortGroupedStats(playerCombinedObjects, sortBy);
-      let teamPlayersCombinedTable = "";
-      // html table season stats begin
-      teamPlayersCombinedTable += "<table id='teamPlayerCombinedTable'>";
-      // html table caption
-      teamPlayersCombinedTable += `<caption><h3>Combined Stats</h3></caption>`;
-      // html table thead
-      teamPlayersCombinedTable += "<thead><tr>";
-      for (let i = 0; i < fieldsLength; i++) {
-        if (PLAYERS_TABLE[i] == sortBy) {
-          teamPlayersCombinedTable +=
-            `<th data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            ` class="w3-orange">` +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        } else {
-          teamPlayersCombinedTable +=
-            `<th  data-field-name=` + //data-fieldNames required for mobile layout
-            PLAYERS_TABLE[i] +
-            " >" +
-            PLAYERS_TABLE[i] +
-            "</th>";
-        }
-      }
-      teamPlayersCombinedTable += "</tr></thead>";
-      // end of html table header fields row
-  
-      playerCombinedObjects.forEach((item) => {
-        // table data begins for each field
-        teamPlayersCombinedTable += "<tr>";
-  
-        for (let j = 0; j < fieldsLength; j++) {
-          if (PLAYERS_TABLE[j] == sortBy) {
-            teamPlayersCombinedTable +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              ` class="w3-yellow">` + // add yellow background for sorted column points
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          } else {
-            teamPlayersCombinedTable +=
-              `<td data-field-name=` + //data-fieldNames required for mobile layout
-              PLAYERS_TABLE[j] +
-              " >" +
-              item.get(PLAYERS_TABLE[j]) +
-              "</td>";
-          }
-        }
-        teamPlayersCombinedTable += "</tr>";
-      });
-  
-      // html table ends
-      teamPlayersCombinedTable += "</table>";
+    function sortTeamPlayersCombinedTable(e) {
+      /////////////////////////////////////////////////////////////////////////////
+      const teamPlayerCombinedTable = sortTeamPlayersTables(e, "teamPlayerCombinedTable", "Combined Stats", playerCombinedObjects, sortTeamPlayerTableArgs);
       /////////////////////////////////////////////////////////////////////////////
       let combinedTable = document.getElementById("teamPlayerCombinedTable");
       let position = document.querySelector("#teamPlayerPlayoffTable");
       combinedTable.remove();
-      position.insertAdjacentHTML("afterend", teamPlayersCombinedTable);
-      setTeamPlayerCombinedTableListeners(); // this resets the listeners on the table after being redisplayed
-  
-      let playerNameCells = document.querySelectorAll(
-        "td[data-field-name='Name']"
-      );
-      playerNameCells.forEach((item) => {
-        item.style.color = "#fff";
-        item.style.backgroundColor = teamColor;
-      });
+      position.after(teamPlayerCombinedTable);
+      // setTeamPlayerCombinedTableListeners(); // this resets the listeners on the table after being redisplayed
+      setTeamPlayerTableListeners("teamPlayerCombinedTable", sortTeamPlayersCombinedTable)
     }
-  
-    // listeners on table headers for sorting combined stats table
-    function setTeamPlayerCombinedTableListeners() {
-      let browserWidth = window.innerWidth;
-      let getTable = document.querySelectorAll("#teamPlayerCombinedTable");
-      // test if team made playoffs
-      if (getTable.length > 0) {
-        // for mobile screens
-        if (browserWidth < TABLE_BREAK_POINT) {
-          getTable[0].onclick = function (e) {
-            let td = e.target.closest("td");
-            if (!td) return;
-            sortTeamPlayerscombinedTable(e);
-          };
-        }
-        // for larger screens
-        else {
-          getTable[0].onclick = function (e) {
-            let th = e.target.closest("th");
-            if (!th) return;
-            sortTeamPlayerscombinedTable(e);
-          };
-        }
-      } else {
-        return;
-      }
-    }
-    setTeamPlayerCombinedTableListeners();
+    setTeamPlayerTableListeners("teamPlayerCombinedTable", (e) => {
+      sortTeamPlayersCombinedTable(e);
+    })
   }
-  
