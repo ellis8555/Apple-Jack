@@ -3,7 +3,7 @@ import sortGroupedStats from "../../../misc/sorting/sort";
 function sortTeamPlayersTables(e, tableId, tableHeader, playersTableMode, {PLAYERS_TABLE, fieldsLength, teamColor}){
     const playersTableFragment = document.createDocumentFragment();
 
-    let sortBy = e.target.dataset.fieldName;
+    const sortBy = e.target.dataset.fieldName;
     sortGroupedStats(playersTableMode, sortBy);
 
     const tableContainer = document.createElement('table');

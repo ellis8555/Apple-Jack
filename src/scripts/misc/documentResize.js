@@ -41,33 +41,33 @@ function resizeEventMethod() {
     }
     // end navbar layout
     // this is for on teams page players list and there respective stats tables
-    let getTeamPlayerSeasonTable = document.querySelectorAll(
+    const getTeamPlayerSeasonTable = document.querySelectorAll(
       "#teamPlayerSeasonTable"
     );
-    let getTeamPlayerPlayoffTable = document.querySelectorAll(
+    const getTeamPlayerPlayoffTable = document.querySelectorAll(
       "#teamPlayerPlayoffTable"
     );
-    let getTeamPlayerCombinedTable = document.querySelectorAll(
+    const getTeamPlayerCombinedTable = document.querySelectorAll(
       "#teamPlayerCombinedTable"
     );
       if (getTeamPlayerSeasonTable.length == 0) {
         screenResize();
       } else {
-        let teamPlayerBackButton = document.getElementById("playerStatsBackButton");
+        const teamPlayerBackButton = document.getElementById("playerStatsBackButton");
         // e is undefined so given value of false
         // 2nd, 3rd and 4th arguments
-        let team = teamPlayerBackButton.dataset.teamName;
-        let seasonNumber = teamPlayerBackButton.dataset.seasonNum;
-        let teamLogo = teamPlayerBackButton.dataset.teamLogo;
+        const team = teamPlayerBackButton.dataset.teamName;
+        const seasonNumber = teamPlayerBackButton.dataset.seasonNum;
+        const teamLogo = teamPlayerBackButton.dataset.teamLogo;
         // 5th argument season table
-        let getSeasonTableData = document.querySelectorAll(
+        const getSeasonTableData = document.querySelectorAll(
           "#teamPlayerSeasonTable td[class='w3-yellow']"
         );
-        let getSeasonSelectedField = getSeasonTableData[0].dataset.fieldName;
+        const getSeasonSelectedField = getSeasonTableData[0].dataset.fieldName;
         // 6th argument playoff table
         let getPlayoffSelectedField;
         if (getTeamPlayerPlayoffTable.length > 0) {
-          let getPlayoffTableData = document.querySelectorAll(
+          const getPlayoffTableData = document.querySelectorAll(
             "#teamPlayerPlayoffTable td[class='w3-yellow']"
           );
           getPlayoffSelectedField = getPlayoffTableData[0].dataset.fieldName;
@@ -77,7 +77,7 @@ function resizeEventMethod() {
         // 7th argument
         let getCombinedSelectedField;
         if (getTeamPlayerCombinedTable.length > 0) {
-          let getCombinedTableData = document.querySelectorAll(
+          const getCombinedTableData = document.querySelectorAll(
             "#teamPlayerCombinedTable td[class='w3-yellow']"
           );
           getCombinedSelectedField = getCombinedTableData[0].dataset.fieldName;

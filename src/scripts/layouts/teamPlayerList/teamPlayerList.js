@@ -38,16 +38,16 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
       seasonNum = thisSeasonNumber;
     }
     // grab players who played on this team
-    let playersFiltered = TeamPlayers.filter(
+    const playersFiltered = TeamPlayers.filter(
       (item) => item.TeamID == team && item.SeasonNumber == seasonNum
     );
     // enter players on this team into an array
-    let playersArray = [];
+    const playersArray = [];
     playersFiltered.forEach((item) =>
       playersArray.push(playersMAP.get(+item.PlayerID))
     );
     // push those players seasons stats into team array and sort by points
-    let playerSeasonObjects = [];
+    const playerSeasonObjects = [];
     playersArray.forEach((item) =>
       playerSeasonObjects.push(
         IndividualPlayerStats.allPlayersStats[item][
@@ -57,7 +57,7 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
     );
     sortGroupedStats(playerSeasonObjects, seasonSelectedField);
     // push those players playoff stats into team array and sort by points
-    let playerPlayoffObjects = [];
+    const playerPlayoffObjects = [];
     playersArray.forEach((item) =>
       playerPlayoffObjects.push(
         IndividualPlayerStats.allPlayersStats[item][
@@ -67,7 +67,7 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
     );
     sortGroupedStats(playerPlayoffObjects, playoffSelectedField);
     // push those players full season combined stats into team array and sort by points
-    let playerCombinedObjects = [];
+    const playerCombinedObjects = [];
     playersArray.forEach((item) =>
       playerCombinedObjects.push(
         IndividualPlayerStats.allPlayersStats[item][
@@ -149,13 +149,10 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
     }
     // regular season sorting and listening function
     function sortTeamPlayersSeasonTable(e) {
-      /////////////////////////////////////////////////////////////////////////////
       const teamPlayersSeasonTable = sortTeamPlayersTables(e, "teamPlayerSeasonTable", "Regular Season", playerSeasonObjects, sortTeamPlayerTableArgs);
-      /////////////////////////////////////////////////////////////////////////////
-      let seasonTable = document.getElementById("teamPlayerSeasonTable");
-      let position = document.querySelector("#teamPlayerList");
+      const seasonTable = document.getElementById("teamPlayerSeasonTable");
+      const position = document.querySelector("#teamPlayerList");
       seasonTable.remove();
-      // position.insertAdjacentHTML("afterend", teamPlayersSeasonTable);
       position.after(teamPlayersSeasonTable)
   
       setTeamPlayerTableListeners("teamPlayerSeasonTable", sortTeamPlayersSeasonTable); // this resets the listeners on the table after being redisplayed
@@ -166,11 +163,9 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
   
     // playoffs sorting and listening functions
     function sortTeamPlayersPlayoffTable(e) {
-      /////////////////////////////////////////////////////////////////////////////
       const teamPlayersPlayoffTable = sortTeamPlayersTables(e, "teamPlayerPlayoffTable", "Playoffs", playerPlayoffObjects, sortTeamPlayerTableArgs);
-      /////////////////////////////////////////////////////////////////////////////
-      let playoffTable = document.getElementById("teamPlayerPlayoffTable");
-      let position = document.querySelector("#teamPlayerCombinedTable");
+      const playoffTable = document.getElementById("teamPlayerPlayoffTable");
+      const position = document.querySelector("#teamPlayerCombinedTable");
       playoffTable.remove();
       position.before(teamPlayersPlayoffTable)
       setTeamPlayerTableListeners("teamPlayerPlayoffTable", sortTeamPlayersPlayoffTable); // this resets the listeners on the table after being redisplayed
@@ -182,14 +177,11 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
     // combined stats for sorting and listening functions
   
     function sortTeamPlayersCombinedTable(e) {
-      /////////////////////////////////////////////////////////////////////////////
       const teamPlayerCombinedTable = sortTeamPlayersTables(e, "teamPlayerCombinedTable", "Combined Stats", playerCombinedObjects, sortTeamPlayerTableArgs);
-      /////////////////////////////////////////////////////////////////////////////
-      let combinedTable = document.getElementById("teamPlayerCombinedTable");
-      let position = document.querySelector("#teamPlayerPlayoffTable");
+      const combinedTable = document.getElementById("teamPlayerCombinedTable");
+      const position = document.querySelector("#teamPlayerPlayoffTable");
       combinedTable.remove();
       position.after(teamPlayerCombinedTable);
-      // setTeamPlayerCombinedTableListeners(); // this resets the listeners on the table after being redisplayed
       setTeamPlayerTableListeners("teamPlayerCombinedTable", sortTeamPlayersCombinedTable)
     }
     setTeamPlayerTableListeners("teamPlayerCombinedTable", (e) => {

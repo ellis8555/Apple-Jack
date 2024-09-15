@@ -3,18 +3,19 @@ import setTeamsTableBgColor from "./setTeamsTableBgColor";
 import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
 
 export default function screenResize() {
+  console.log('sex with Heather')
 // if on boxscore page that has players table just return and exit 
-let boxscorePlayerStats = document.getElementById("boxscorePlayerStats");
+const boxscorePlayerStats = document.getElementById("boxscorePlayerStats");
 if (boxscorePlayerStats) {
   return;
 }
 
   // insert fetch data function onto <TD> elements in mobile view
-  let screenSize = window.innerWidth;
-  let teamPlayersDataSource = document.getElementById("playerStatsBackButton");
+  const screenSize = window.innerWidth;
+  const teamPlayersDataSource = document.getElementById("playerStatsBackButton");
   if (!teamPlayersDataSource) {
-    let regularScreen = document.querySelectorAll("#tablesDiv table th");
-    let mobileTableData = document.querySelectorAll("#tablesDiv table td");
+    const regularScreen = document.querySelectorAll("#tablesDiv table th");
+    const mobileTableData = document.querySelectorAll("#tablesDiv table td");
     if (screenSize < TABLE_BREAK_POINT) {
       mobileTableData.forEach((item) =>
         item.addEventListener("click", sortTable)
