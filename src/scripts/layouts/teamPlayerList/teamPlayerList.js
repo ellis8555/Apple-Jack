@@ -13,8 +13,11 @@ import createPlayerStatsTable from "./components/createPlayerStatsTable.js"
 import { PLAYERS_TABLE } from "../../../constants/consts/supportVars.js";
 import sortTeamPlayersTables from "./helpers/sortTeamPlayersTables.js";
 import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.js";
+import playersList from "./components/playersList.js";
+import playersListHeader from "./components/playersListHeader.js";
   
-  let fieldsLength = PLAYERS_TABLE.length;
+  const fieldsLength = PLAYERS_TABLE.length;
+
   export default function getTeamsPlayersPerSeason(
     e,
     thisTeam,
@@ -87,22 +90,10 @@ import setTeamPlayerTableListeners from "./helpers/setTeamPlayerTableListeners.j
     const backButtonElement = backButton("playerStatsBackButton", teamName, seasonNum, "Season")
     playerStatsTable.append(backButtonElement)
     // add season header
-    const h1 = document.createElement('h1');
-    h1.textContent = `Season ${seasonNum}`
+    const h1 = playersListHeader(seasonNum)
     playerStatsTable.append(h1);
     // add list of teams players
-    const playersListContainer = document.createElement('div');
-        // the following div ID "teamPlayerList" is used for where to position the regular season players table after a sort function
-    playersListContainer.id = "teamPlayerList";
-    playersListContainer.classList.add("w3-padding", "w3-padding", "w3-card", "w3-round-large")
-    playersListContainer.style.color = "#fff";
-    playersListContainer.style.backgroundColor = teamColor;
-    playersArray.forEach(item => {
-      const div = document.createElement('div');
-      div.style.fontSize = "1.2rem";
-      div.textContent = item;
-      playersListContainer.append(div)
-    })
+    const playersListContainer = playersList(playersArray, teamColor)
     playerStatsTable.append(playersListContainer)
     // begin adding player tables
     // tables arguments object
