@@ -37,6 +37,22 @@ document
       closeSidebar();
     }, 50);
 });
+document
+  .getElementById("s04PlayerPlayoffTable")
+  .addEventListener("click", () => {
+    setPlayersFullTable(4, "Playoff", "Playoffs");
+        setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s04PlayerCombinedTable")
+  .addEventListener("click", () => {
+    setPlayersFullTable(4, "Combined", "Combined");
+        setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
 // season 03 player tables
 document
   .getElementById("s03PlayerSeasonTable")
