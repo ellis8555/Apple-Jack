@@ -11,6 +11,22 @@ document
       closeSidebar();
     }, 50);
 });
+document
+  .getElementById("s04PlayoffTable")
+  .addEventListener("click", () => {
+    setSeasonsFullTable(4, "Playoff", "Playoffs")
+    setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s04CombinedTable")
+  .addEventListener("click", () => {
+    setSeasonsFullTable(4, "Combined", "PCombined")
+    setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
 // season 03 standings tables
 document
   .getElementById("s03RegularSeason")
