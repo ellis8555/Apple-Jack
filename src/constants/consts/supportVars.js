@@ -129,6 +129,7 @@ export const fullTableNoTies = [
 // set fields for players table within the single game boxscore page
 export const PLAYERS_TABLE = [
   "Name",
+  "GP",
   "Goals",
   "Assists",
   "Points",
