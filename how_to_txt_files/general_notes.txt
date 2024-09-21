@@ -2,3 +2,4 @@
 2. All other images are placed inside of /img folder.
 3. if want to change main logo on home page need to edit the path within webpack.config.js HtmlWebpackPlugin.templateParameters.headerImage
 4. if want to change sites favicon need to edit inside of HtmlWebpackPlugin.favicon path
+5. table upon site landing is set in index.js
