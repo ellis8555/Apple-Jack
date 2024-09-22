@@ -66,7 +66,6 @@ import playersListHeader from "./components/playersListHeader.js";
         )
       );
     }
-
     sortGroupedStats(playerSeasonObjects, seasonSelectedField);
     sortGroupedStats(playerPlayoffObjects, playoffSelectedField);
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
@@ -92,6 +91,8 @@ import playersListHeader from "./components/playersListHeader.js";
       PLAYERS_TABLE, 
       seasonSelectedField, 
       playerSeasonObjects, 
+      playerPlayoffObjects,
+      playerCombinedObjects,
       fieldsLength,
       playoffSelectedField,
       combinedSelectedField
