@@ -1,11 +1,15 @@
-    function createPlayerStatsTable(tableId, tableHeading, tableMode = 'season', {PLAYERS_TABLE, seasonSelectedField, playerSeasonObjects, fieldsLength, playoffSelectedField, combinedSelectedField}){
+    function createPlayerStatsTable(tableId, tableHeading, tableMode = 'season', {PLAYERS_TABLE, seasonSelectedField, playerSeasonObjects, playerPlayoffObjects, playerCombinedObjects, fieldsLength, playoffSelectedField, combinedSelectedField}){
         let seasonModeField;
+        let playerModeObjects;
         if(tableMode == 'season'){
-            seasonModeField = seasonSelectedField
+            seasonModeField = seasonSelectedField;
+            playerModeObjects = playerSeasonObjects;
         } else if(tableMode == 'playoffs'){
-            seasonModeField = playoffSelectedField
+            seasonModeField = playoffSelectedField;
+            playerModeObjects = playerPlayoffObjects
         } else if(tableMode == 'combined'){
-            seasonModeField = combinedSelectedField
+            seasonModeField = combinedSelectedField;
+            playerModeObjects = playerCombinedObjects;
         } else {
             seasonModeField = seasonSelectedField
         }
@@ -35,7 +39,7 @@
         tableContainer.append(thead)
 
         const tbody = document.createElement('tbody')
-        playerSeasonObjects.forEach((item) => {
+        playerModeObjects.forEach((item) => {
         const tr = document.createElement('tr')
         
         for (let i = 0; i < fieldsLength; i++) {
