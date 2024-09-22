@@ -3307,14 +3307,18 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
 /* harmony default export */ const misc_backButton = (backButton);
 
 ;// CONCATENATED MODULE: ./src/scripts/layouts/teamPlayerList/components/createPlayerStatsTable.js
-    function createPlayerStatsTable(tableId, tableHeading, tableMode = 'season', {PLAYERS_TABLE, seasonSelectedField, playerSeasonObjects, fieldsLength, playoffSelectedField, combinedSelectedField}){
+    function createPlayerStatsTable(tableId, tableHeading, tableMode = 'season', {PLAYERS_TABLE, seasonSelectedField, playerSeasonObjects, playerPlayoffObjects, playerCombinedObjects, fieldsLength, playoffSelectedField, combinedSelectedField}){
         let seasonModeField;
+        let playerModeObjects;
         if(tableMode == 'season'){
-            seasonModeField = seasonSelectedField
+            seasonModeField = seasonSelectedField;
+            playerModeObjects = playerSeasonObjects;
         } else if(tableMode == 'playoffs'){
-            seasonModeField = playoffSelectedField
+            seasonModeField = playoffSelectedField;
+            playerModeObjects = playerPlayoffObjects
         } else if(tableMode == 'combined'){
-            seasonModeField = combinedSelectedField
+            seasonModeField = combinedSelectedField;
+            playerModeObjects = playerCombinedObjects;
         } else {
             seasonModeField = seasonSelectedField
         }
@@ -3344,7 +3348,7 @@ function backButton(id, teamName, seasonNum, gameType = "Season", ...styleClasse
         tableContainer.append(thead)
 
         const tbody = document.createElement('tbody')
-        playerSeasonObjects.forEach((item) => {
+        playerModeObjects.forEach((item) => {
         const tr = document.createElement('tr')
         
         for (let i = 0; i < fieldsLength; i++) {
@@ -3549,7 +3553,6 @@ function playersListHeader(seasonNum){
         )
       );
     }
-
     sortGroupedStats(playerSeasonObjects, seasonSelectedField);
     sortGroupedStats(playerPlayoffObjects, playoffSelectedField);
     sortGroupedStats(playerCombinedObjects, combinedSelectedField);
@@ -3575,6 +3578,8 @@ function playersListHeader(seasonNum){
       PLAYERS_TABLE: PLAYERS_TABLE, 
       seasonSelectedField, 
       playerSeasonObjects, 
+      playerPlayoffObjects,
+      playerCombinedObjects,
       fieldsLength,
       playoffSelectedField,
       combinedSelectedField
@@ -6002,4 +6007,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=3a806c991726cdb14088.js.map
+//# sourceMappingURL=aa97ca8fc767ef3b05e3.js.map
