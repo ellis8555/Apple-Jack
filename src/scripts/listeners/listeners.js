@@ -12,6 +12,8 @@ import "../listeners/playerTableListeners/playerTableListeners"
 import "./pageListeners/announcementsListener"
 // records page listener
 import "./pageListeners/leagueRecordsListener"
+// testing page listener
+import "./pageListeners/testingListener"
 
   // add link to haxball logo 
   const headerLogo = document.querySelector("img[alt*='Haxball']");
