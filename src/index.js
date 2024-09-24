@@ -5,9 +5,11 @@ import "./css/large.css"
 import "./css/medium.css"
 import "./css/mobileLandscape.css"
 import "./css/mobile.css"
+import "./css/playoffTree.css"
 // js files
 import "./scripts/listeners/listeners"
 import setHomeTable from "./scripts/tables/setHomeTable"
+import playoffTree from "./scripts/layouts/playoffTree/playoffTree"
 import setSeasonsFullTable from "./scripts/tables/setSeasonsFullTable"
 import setTableListeners from "./scripts/listeners/listenerHelpers/setTableListeners"
 
@@ -18,5 +20,6 @@ import images from "./scripts/loadImages";
     // setHomeTable();
     // during playoffs
     setSeasonsFullTable(4, "Playoff", "Playoffs")
+    // playoffTree()
     // Set listeners on table headers
     setTableListeners();
