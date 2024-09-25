@@ -5944,6 +5944,214 @@ document
       sidebar_closeSidebar()
     }, 50)
   });
+;// CONCATENATED MODULE: ./src/scripts/layouts/playoffTree/componenets/bestOfSeries.js
+
+
+
+function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
+// check if is finals series
+if(isFinals){
+    if(team){
+        const seriesFrag = document.createDocumentFragment()
+
+        const teamGameOne = document.createElement("div");
+        teamGameOne.classList.add(teamOneOrTwo)
+        // team one name
+        const teamName = document.createElement("div")
+        teamName.classList.add("teamData")
+        teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
+        teamName.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
+        teamGameOne.append(teamName)
+            // pass back which team won the series to be used in next round information
+    let seriesWinner;
+    let wins = 0
+    if(wins == 2){
+        seriesWinner = team.get("Team")
+    } else {
+        seriesWinner = null
+    }
+    seriesFrag.append(teamGameOne)
+return {
+    seriesFrag,
+    seriesWinner
+}
+    } else {
+        const seriesFrag = document.createDocumentFragment()
+
+        const teamGameOne = document.createElement("div");
+        teamGameOne.classList.add(teamOneOrTwo)
+        // team one name
+        const teamName = document.createElement("div")
+        teamName.classList.add("teamData")
+        teamName.textContent = "TBD"
+
+        teamGameOne.append(teamName)
+            // pass back which team won the series to be used in next round information
+    let seriesWinner;
+    let wins = 0
+    if(wins == 2){
+        seriesWinner = team.get("Team")
+    } else {
+        seriesWinner = null
+    }
+    seriesFrag.append(teamGameOne)
+return {
+    seriesFrag,
+    seriesWinner
+}
+    }
+}
+// these are not final series
+// filter out games that only have this team
+const filteredPlayoffGamesArray = playoffGamesArray.filter(game => {
+    if(game.TeamOne == teams_teamsNumMAP.get(team.get("Team")) || game.TeamTwo == teams_teamsNumMAP.get(team.get("Team"))) {
+        return game;
+    }
+});
+
+// if the series has been played
+if(filteredPlayoffGamesArray.length > 0){
+    const seriesFrag = document.createDocumentFragment()
+    
+    const teamGameOne = document.createElement("div");
+    teamGameOne.classList.add(teamOneOrTwo)
+    // team one name
+    const teamName = document.createElement("div")
+    teamName.classList.add("teamData")
+    teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
+    teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+    // team one game one score
+    const teamGameOneScore = document.createElement("div")
+    teamGameOneScore.classList.add("teamData")
+    const teamsNum = teams_teamsNumMAP.get(team.get("Team"))
+    const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
+    teamGameOneScore.textContent = gameOneScore;
+    let isTeamOneInGameResult = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? true : false;
+    // wins counts to determine if this team wins the series
+    let wins = 0;
+    let resultBgColor;
+    if(isTeamOneInGameResult){
+        if (filteredPlayoffGamesArray[0].TeamOneScore > filteredPlayoffGamesArray[0].TeamTwoScore) {
+            resultBgColor = "green";
+            wins++;
+        } else {
+            resultBgColor = "red";
+        }
+    } else {
+        if (filteredPlayoffGamesArray[0].TeamTwoScore > filteredPlayoffGamesArray[0].TeamOneScore) {
+            resultBgColor = "green";
+            wins++
+        } else {
+            resultBgColor = "red";
+        }
+    }
+    teamGameOneScore.style.backgroundColor = resultBgColor;
+    // team one game two score
+    const teamGameTwoScore = document.createElement("div")
+    teamGameTwoScore.classList.add("teamData")
+    const gameTwoScore = (filteredPlayoffGamesArray[1].TeamOne == teamsNum) ? filteredPlayoffGamesArray[1].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
+    teamGameTwoScore.textContent = gameTwoScore
+    isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
+    if(isTeamOneInGameResult){
+        if (filteredPlayoffGamesArray[1].TeamOneScore > filteredPlayoffGamesArray[1].TeamTwoScore) {
+            resultBgColor = "green";
+            wins++;
+        } else {
+            resultBgColor = "red";
+        }
+    } else {
+        if (filteredPlayoffGamesArray[1].TeamTwoScore > filteredPlayoffGamesArray[1].TeamOneScore) {
+            resultBgColor = "green";
+            wins++
+        } else {
+            resultBgColor = "red";
+        }
+    }
+    teamGameTwoScore.style.backgroundColor = resultBgColor;
+    
+    teamGameOne.append(teamName)
+    teamGameOne.append(teamGameOneScore)
+    teamGameOne.append(teamGameTwoScore)
+    
+    const wasThirdGamePlayed = filteredPlayoffGamesArray.length;
+    if(wasThirdGamePlayed > 2){
+        // team one game three score
+        const teamGameThreeScore = document.createElement("div")
+        const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
+    teamGameThreeScore.textContent = gameThreeScore
+    isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
+    if(isTeamOneInGameResult){
+        if (filteredPlayoffGamesArray[2].TeamOneScore > filteredPlayoffGamesArray[2].TeamTwoScore) {
+            resultBgColor = "green";
+            wins++;
+        } else {
+            resultBgColor = "red";
+        }
+    } else {
+        if (filteredPlayoffGamesArray[1].TeamTwoScore > filteredPlayoffGamesArray[1].TeamOneScore) {
+            resultBgColor = "green";
+            wins++
+        } else {
+            resultBgColor = "red";
+        }
+    }
+    teamGameTwoScore.style.backgroundColor = resultBgColor;
+        teamGameOne.append(teamGameThreeScore)
+    } else {
+        // team one game three score
+        const teamGameThreeScore = document.createElement("div")
+        teamGameThreeScore.classList.add("teamData")
+        teamGameThreeScore.textContent = "-"
+        teamGameOne.append(teamGameThreeScore)
+    }
+    seriesFrag.append(teamGameOne)
+    // pass back which team won the series to be used in next round information
+    let seriesWinner;
+    if(wins == 2){
+        seriesWinner = team.get("Team")
+    } else {
+        seriesWinner = null
+    }
+return {
+    seriesFrag,
+    seriesWinner
+}
+// else return team names with score symbols for yet to be played games
+} else {
+
+        const seriesFrag = document.createDocumentFragment()
+    
+        const teamGameOne = document.createElement("div");
+        teamGameOne.classList.add(teamOneOrTwo)
+            // team one name
+        const teamName = document.createElement("div")
+        teamName.classList.add("teamData")
+        teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
+        teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+        // team one game one score
+        const teamGameOneScore = document.createElement("div")
+        teamGameOneScore.classList.add("teamData")
+        teamGameOneScore.textContent = "-";
+        // team one game two score
+        const teamGameTwoScore = document.createElement("div")
+        teamGameTwoScore.classList.add("teamData")
+        teamGameTwoScore.textContent = "-"
+        
+        teamGameOne.append(teamName)
+        teamGameOne.append(teamGameOneScore)
+        teamGameOne.append(teamGameTwoScore)
+        // team one game three score
+        const teamGameThreeScore = document.createElement("div")
+        teamGameThreeScore.classList.add("teamData")
+        teamGameThreeScore.textContent = "-"
+        teamGameOne.append(teamGameThreeScore)
+    
+        seriesFrag.append(teamGameOne)
+        return seriesFrag
+}
+}
+
+/* harmony default export */ const componenets_bestOfSeries = (bestOfSeries);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/playoffTree/playoffTree.js
 
 
@@ -5957,9 +6165,10 @@ document
 function playoffTree(){
     clearTablesDiv()
     clearScoreboardDiv()
-
+    
     // get season number from data attribute on playoff menu link
     const seasonNumber = +document.getElementById("testingPlayoffTree").dataset.seasonNumber;
+    setMainNavbar(seasonNumber)
     // get semis playoff games for matching season
     const semiPlayoffGames = GameResults.filter(game => {
         if(game.SeasonNumber === seasonNumber && game.Round === 1){
@@ -5980,158 +6189,82 @@ function playoffTree(){
     // begin constructing the display
     const tablesDiv = getTablesDiv();
     
-    // playoff tree container
+    // playoff tree grid container
     const containerElem = document.createElement("div");
     containerElem.classList.add("w3-container", "w3-margin", "playoffTree")
 
     //// semi final 1v4 ////
     const firstPlaceTeam = sortedFinalStandings[0]
     const fourthPlaceTeam = sortedFinalStandings[3]
-    // flex container
+    // flex container for alignments
     const semiDiv1Container = document.createElement("div");
     semiDiv1Container.classList.add("semi1Container")
-    // flex container
+    // flex container for alignments
     const semi1InnerContainer = document.createElement("div")
     semi1InnerContainer.classList.add("semi1")
     // flex containers that contain the series data
     const seriesOne = document.createElement("div");
     seriesOne.classList.add("series")
     // team one flex container
-    let team1GameOne = document.createElement("div");
-    team1GameOne.classList.add("team1")
-        // team one name
-    let team1Name = document.createElement("div")
-    team1Name.classList.add("teamData")
-    team1Name.style.backgroundColor = "#" + teams_teamsColorMAP.get(firstPlaceTeam.get("Team"))
-    team1Name.textContent = "(1) " + firstPlaceTeam.get("Team")
-    // team one game one score
-    let team1GameOneScore = document.createElement("div")
-    team1GameOneScore.classList.add("teamData")
-    let teamsNum = teams_teamsNumMAP.get(firstPlaceTeam.get("Team"))
-    const gameOneScore = semiPlayoffGames[0].TeamOne == teamsNum ? semiPlayoffGames[0].TeamOneScore : semiPlayoffGames[0].TeamTwoScore
-    team1GameOneScore.textContent = gameOneScore;
-    let isTeamOneInGameResult = semiPlayoffGames[0].TeamOne == teamsNum ? true : false;
-    let resultBgColor;
-    if(isTeamOneInGameResult){
-        semiPlayoffGames[0].TeamOneScore > semiPlayoffGames[0].TeamTwoScore ? resultBgColor = "green" : resultBgColor = "red";
-    } else {
-        semiPlayoffGames[0].TeamTwoScore > semiPlayoffGames[0].TeamOneScore ? resultBgColor = "green" : resultBgColor = "red";
-    }
-    team1GameOneScore.style.backgroundColor = resultBgColor;
-    // team one game two score
-    let team1GameTwoScore = document.createElement("div")
-    team1GameTwoScore.classList.add("teamData")
-    const gameTwoScore = (semiPlayoffGames[1].TeamOne == teamsNum) ? semiPlayoffGames[1].TeamOneScore : semiPlayoffGames[1].TeamTwoScore
-    team1GameTwoScore.textContent = gameTwoScore
-    isTeamOneInGameResult = semiPlayoffGames[1].TeamOne == teamsNum ? true : false;
-    if(isTeamOneInGameResult){
-        semiPlayoffGames[1].TeamOneScore > semiPlayoffGames[1].TeamTwoScore ? resultBgColor = "green" : resultBgColor = "red";
-    } else {
-        semiPlayoffGames[1].TeamTwoScore > semiPlayoffGames[1].TeamOneScore ? resultBgColor = "green" : resultBgColor = "red";
-    }
-    team1GameTwoScore.style.backgroundColor = resultBgColor;
-
-    team1GameOne.append(team1Name)
-    team1GameOne.append(team1GameOneScore)
-    team1GameOne.append(team1GameTwoScore)
-
-    let wasThirdGamePlayed = semiPlayoffGames.length;
-    if(wasThirdGamePlayed > 2){
-        // team one game three score
-        let team1GameThreeScore = document.createElement("div")
-        team1GameThreeScore.classList.add("teamData")
-        team1GameThreeScore.textContent = 0
-        team1GameOne.append(team1GameThreeScore)
-    } else {
-        // team one game three score
-        let team1GameThreeScore = document.createElement("div")
-        team1GameThreeScore.classList.add("teamData")
-        team1GameThreeScore.textContent = "-"
-        team1GameOne.append(team1GameThreeScore)
-    }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // team two first game score
-    // team flex flex container
-    let team2GameOne = document.createElement("div");
-    team2GameOne.classList.add("team2")
-        // team one name
-    let team2Name = document.createElement("div")
-    team2Name.classList.add("teamData")
-    team2Name.style.backgroundColor = "#" + teams_teamsColorMAP.get(fourthPlaceTeam.get("Team"))
-    team2Name.textContent = "(4) " + fourthPlaceTeam.get("Team")
-    // team one game one score
-    let team2GameOneScore = document.createElement("div")
-    team2GameOneScore.classList.add("teamData")
-    teamsNum = teams_teamsNumMAP.get(fourthPlaceTeam.get("Team"))
-    const gameOneScoreSecondTeam = semiPlayoffGames[0].TeamOne == teamsNum ? semiPlayoffGames[0].TeamOneScore : semiPlayoffGames[0].TeamTwoScore
-    team2GameOneScore.textContent = gameOneScoreSecondTeam
-    let isTeamTwoInGameResult = semiPlayoffGames[0].TeamOne == teamsNum ? true : false;
-    resultBgColor;
-    if(isTeamTwoInGameResult){
-        semiPlayoffGames[0].TeamOneScore > semiPlayoffGames[0].TeamTwoScore ? resultBgColor = "green" : resultBgColor = "red";
-    } else {
-        semiPlayoffGames[0].TeamTwoScore > semiPlayoffGames[0].TeamOneScore ? resultBgColor = "green" : resultBgColor = "red";
-    }
-    team2GameOneScore.style.backgroundColor = resultBgColor;
-    // team one game two score
-    let team2GameTwoScore = document.createElement("div")
-    team2GameTwoScore.classList.add("teamData")
-    const gameTwoScoreSecondTeam = semiPlayoffGames[1].TeamOne == teamsNum ? semiPlayoffGames[1].TeamOneScore : semiPlayoffGames[1].TeamTwoScore
-    team2GameTwoScore.textContent = gameTwoScoreSecondTeam
-    isTeamTwoInGameResult = semiPlayoffGames[1].TeamOne == teamsNum ? true : false;
-    if(isTeamTwoInGameResult){
-        semiPlayoffGames[1].TeamOneScore > semiPlayoffGames[1].TeamTwoScore ? resultBgColor = "green" : resultBgColor = "red";
-    } else {
-        semiPlayoffGames[1].TeamTwoScore > semiPlayoffGames[1].TeamOneScore ? resultBgColor = "green" : resultBgColor = "red";
-    }
-    team2GameTwoScore.style.backgroundColor = resultBgColor;
-
-    team2GameOne.append(team2Name)
-    team2GameOne.append(team2GameOneScore)
-    team2GameOne.append(team2GameTwoScore)
-
-    wasThirdGamePlayed = semiPlayoffGames.length;
-    if(wasThirdGamePlayed > 2){
-        // team one game three score
-        let team2GameThreeScore = document.createElement("div")
-        team2GameThreeScore.classList.add("teamData")
-        team2GameThreeScore.textContent = 0
-        team2GameOne.append(team2GameThreeScore)
-    } else {
-        // team one game three score
-        let team2GameThreeScore = document.createElement("div")
-        team2GameThreeScore.classList.add("teamData")
-        team2GameThreeScore.textContent = "-"
-        team2GameOne.append(team2GameThreeScore)
-    }
-    
+    const firstSeriesTeam1Results = componenets_bestOfSeries(firstPlaceTeam, semiPlayoffGames, "team1", 1)
+    // team two flex container
+    const firstSeriesTeam2Results = componenets_bestOfSeries(fourthPlaceTeam, semiPlayoffGames, "team2", 4)
     // append each teams row of results
-    seriesOne.append(team1GameOne)
-    seriesOne.append(team2GameOne)
+    seriesOne.append(firstSeriesTeam1Results.seriesFrag)
+    seriesOne.append(firstSeriesTeam2Results.seriesFrag)
     semi1InnerContainer.append(seriesOne)
     semiDiv1Container.append(semi1InnerContainer)
 
     //// semi final 2v3 ////
     const secondPlaceTeam = sortedFinalStandings[1]
     const thirdPlaceTeam = sortedFinalStandings[2]
+        // flex container for alignments
     const semiDiv2Container = document.createElement("div");
     semiDiv2Container.classList.add( "semi2Container")
+        // flex container for alignments
     const semi2InnerContainer = document.createElement("div")
     semi2InnerContainer.classList.add("semi2")
-    const team2Container = document.createElement("div");
-    team2Container.classList.add("team")
-    semi2InnerContainer.textContent = `${secondPlaceTeam.get("Team")} vs ${thirdPlaceTeam.get("Team")}`
+       // flex containers that contain the series data
+    const seriesTwo = document.createElement("div")
+    seriesTwo.classList.add("series")
+    // team one flex container
+    const secondSeriesTeam1Results = componenets_bestOfSeries(secondPlaceTeam, semiPlayoffGames, "team1", 2)
+    // team two flex container
+    const secondSeriesTeam2Results = componenets_bestOfSeries(thirdPlaceTeam, semiPlayoffGames, "team2", 3)
+    // append each teams row of results
+    seriesTwo.append(secondSeriesTeam1Results)
+    seriesTwo.append(secondSeriesTeam2Results)
+    semi2InnerContainer.append(seriesTwo)
     semiDiv2Container.append(semi2InnerContainer)
-    
+
     // finals container
     const finalsContainer = document.createElement("div");
     finalsContainer.classList.add("finalsContainer")
     const finalsDiv = document.createElement("div");
-    finalsDiv.style.backgroundColor = "green"
-    finalsDiv.innerHTML = "Playoff tree in early development.<br>NOT mobile friendly yet<br>Work in progress"
+    finalsDiv.classList.add("semi2Container")
+    const finalsDivInnerContainer = document.createElement("div");
+    finalsDivInnerContainer.classList.add("semi2")
+    const finalSeries = document.createElement("div");
+    finalSeries.classList.add("series");
     
-    finalsContainer.append(finalsDiv)
+    // get the finalists index in sorted standings in order to be passed into the finalists bestOfSeries call
+    const seriesOneWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
+    const seriesTwoWinner = secondSeriesTeam1Results.seriesWinner ?? secondSeriesTeam2Results.seriesWinner;
+    const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
+    const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
 
+    // team one flex container
+    const finalSeriesTeam1Results = componenets_bestOfSeries(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
+    // team one flex container
+    const finalSeriesTeam2Results = componenets_bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
+
+    finalSeries.append(finalSeriesTeam1Results.seriesFrag)
+    finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+    finalsDivInnerContainer.append(finalSeries)
+    finalsContainer.append(finalsDivInnerContainer)
+
+
+    // append each series to playoffs grid layout
     containerElem.append(semiDiv1Container, semiDiv2Container, finalsContainer)
 
     tablesDiv.append(containerElem)
@@ -6220,4 +6353,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=3f9c592efc1dadb45926.js.map
+//# sourceMappingURL=513976efde531d7291d9.js.map
