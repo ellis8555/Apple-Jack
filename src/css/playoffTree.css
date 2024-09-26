@@ -2,19 +2,29 @@
 .playoffTree {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 
+        "playoffAnnouncement playoffAnnouncement"
         "semi1Container finalsContainer"
         "semi2Container finalsContainer"
     ;
     padding: 1rem;
     width: 100%;
-    height: 20rem;
     background-color: #2196f3;
     color: white;
 }
 
 /* playoff tree inner containers that hold individual containers for each series */
+.playoffAnnouncement {
+    grid-area: playoffAnnouncement;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: .25rem;
+    background-color: blue;
+}
+
 .semi1Container {
     grid-area: semi1Container;
     margin-bottom: .25rem;
@@ -42,6 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem 0;
 }
 
 /* inner series containers */

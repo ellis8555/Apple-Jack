@@ -6,13 +6,16 @@ import TeamStats from "../../setTables/createTeam";
 import sortGroupedStats from "../../misc/sorting/sort";
 import bestOfSeries from "./componenets/bestOfSeries";
 import setMainNavbar from "../navbar/setMainNavbar";
+import setHeaderBanner from "../setHeaderBanner";
+import { DEFENDING_CHAMPS } from "../../../constants/consts/vars";
+import currentSeason from "../../var_lib/season/currentSeason";
 
 function playoffTree(){
     clearTablesDiv()
     clearScoreboardDiv()
-    
     // get season number from data attribute on playoff menu link
-    const seasonNumber = +document.getElementById("testingPlayoffTree").dataset.seasonNumber;
+    const seasonNumber = +currentSeason
+    setHeaderBanner(DEFENDING_CHAMPS, seasonNumber-1)
     setMainNavbar(seasonNumber)
     // get semis playoff games for matching season
     const semiPlayoffGames = GameResults.filter(game => {
@@ -37,6 +40,11 @@ function playoffTree(){
     // playoff tree grid container
     const containerElem = document.createElement("div");
     containerElem.classList.add("w3-container", "w3-margin", "playoffTree")
+
+    const playoffsAnnouncementContainer = document.createElement("div");
+    playoffsAnnouncementContainer.classList.add("playoffAnnouncement")
+    playoffsAnnouncementContainer.innerHTML = "<h3>Season 4 playoff tree being worked on.</h3> <p>On Mobile try landscape mode for the time being.</p>"
+    containerElem.append(playoffsAnnouncementContainer)
 
     //// semi final 1v4 ////
     const firstPlaceTeam = sortedFinalStandings[0]
