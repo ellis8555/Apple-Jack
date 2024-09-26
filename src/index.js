@@ -19,7 +19,7 @@ import images from "./scripts/loadImages";
     // Set homepage standings table for current season
     // setHomeTable();
     // during playoffs
-    setSeasonsFullTable(4, "Playoff", "Playoffs")
-    // playoffTree()
+    // setSeasonsFullTable(4, "Playoff", "Playoffs")
+    playoffTree()
     // Set listeners on table headers
     setTableListeners();

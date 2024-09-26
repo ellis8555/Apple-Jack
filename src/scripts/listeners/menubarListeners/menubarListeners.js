@@ -6,6 +6,7 @@ import displayTeamSubMenu from "../../sidebar/teams/displayTeamSubMenu"
 import hidePlayerSubMenu from "../../sidebar/players/hidePlayerSubMenu";
 import displayPlayerSubMenu from "../../sidebar/players/displayPlayerSubMenu"
 import setHomeTable from "../../tables/setHomeTable";
+import playoffTree from "../../layouts/playoffTree/playoffTree";
   
   // sidebar menu
   document.getElementById("openSidebar").addEventListener("click", openSidebar);
@@ -14,7 +15,7 @@ import setHomeTable from "../../tables/setHomeTable";
   // home option 
   const homeSidebar = document.querySelector("#home");
   homeSidebar.addEventListener("click", () => {
-    setHomeTable();
+    playoffTree();
     setTimeout(() => {
       closeSidebar()
     }, 50)
