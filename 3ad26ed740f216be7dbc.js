@@ -5375,7 +5375,7 @@ function playoffTree(){
     
     // playoff tree grid container
     const containerElem = document.createElement("div");
-    containerElem.classList.add("w3-container", "w3-margin", "playoffTree")
+    containerElem.classList.add("w3-container", "playoffTree")
 
     const playoffsAnnouncementContainer = document.createElement("div");
     playoffsAnnouncementContainer.classList.add("playoffAnnouncement")
@@ -6335,4 +6335,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=fd274d066afe263185d6.js.map
+//# sourceMappingURL=3ad26ed740f216be7dbc.js.map
