@@ -39,7 +39,7 @@ function playoffTree(){
     
     // playoff tree grid container
     const containerElem = document.createElement("div");
-    containerElem.classList.add("w3-container", "w3-margin", "playoffTree")
+    containerElem.classList.add("w3-container", "playoffTree")
 
     const playoffsAnnouncementContainer = document.createElement("div");
     playoffsAnnouncementContainer.classList.add("playoffAnnouncement")
