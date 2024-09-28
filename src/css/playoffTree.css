@@ -32,7 +32,6 @@
 
 .semi2Container {
     grid-area: semi2Container;
-    margin-top: .25rem;
 }
 
 .finalsContainer {
@@ -89,7 +88,7 @@
     padding: 1vw;
 }
 
-@container (max-width: 680px) {
+@container (max-width: 695px) {
     .playoffTree {
         grid-template-rows: repeat(4, 1fr);
         grid-template-areas: 
