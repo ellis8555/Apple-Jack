@@ -43,7 +43,7 @@ function playoffTree(){
 
     const playoffsAnnouncementContainer = document.createElement("div");
     playoffsAnnouncementContainer.classList.add("playoffAnnouncement")
-    playoffsAnnouncementContainer.innerHTML = "<h3>Season 4 playoff tree being worked on.</h3> <p>On Mobile try landscape mode for the time being.</p>"
+    playoffsAnnouncementContainer.innerHTML = "<h3>Season 4 playoff tree</h3> <p>Playoff tree in development</p>"
     containerElem.append(playoffsAnnouncementContainer)
 
     //// semi final 1v4 ////
@@ -99,6 +99,12 @@ function playoffTree(){
     finalsDivInnerContainer.classList.add("semi2")
     const finalSeries = document.createElement("div");
     finalSeries.classList.add("series");
+
+    // add finals series containers title
+    const finalSeriesTitleContainer = document.createElement("div");
+    const finalSeriesTitle = document.createElement("h3");
+    finalSeriesTitle.textContent = "Finals";
+    finalSeriesTitleContainer.append(finalSeriesTitle)
     
     // get the finalists index in sorted standings in order to be passed into the finalists bestOfSeries call
     const seriesOneWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
@@ -108,9 +114,10 @@ function playoffTree(){
 
     // team one flex container
     const finalSeriesTeam1Results = bestOfSeries(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
-    // team one flex container
+    // team two flex container
     const finalSeriesTeam2Results = bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
 
+    finalSeries.append(finalSeriesTitleContainer)
     finalSeries.append(finalSeriesTeam1Results.seriesFrag)
     finalSeries.append(finalSeriesTeam2Results.seriesFrag)
     finalsDivInnerContainer.append(finalSeries)
