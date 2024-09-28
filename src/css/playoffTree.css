@@ -89,3 +89,19 @@
     padding: 1vw;
 }
 
+@container (max-width: 680px) {
+    .playoffTree {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas: 
+            "playoffAnnouncement playoffAnnouncement"
+            "semi1Container semi1Container"
+            "semi2Container semi2Container"
+            "finalsContainer finalsContainer"
+        ;
+    }
+
+    .finalsContainer {
+        margin-left: 0;
+        margin-top: .25rem;
+    }
+}

@@ -43,6 +43,7 @@ img[src*="-big-"] {
 }
 
 #tablesDiv {
+  container-type: inline-size;
   overflow-x: auto;
   display: flex;
   justify-content: center;
