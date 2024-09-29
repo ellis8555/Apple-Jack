@@ -46,6 +46,22 @@ function playoffTree(){
     playoffsAnnouncementContainer.innerHTML = "<h3>Season 4 playoff tree</h3> <p>Playoff tree in development</p>"
     containerElem.append(playoffsAnnouncementContainer)
 
+    // first round title
+    const firstRoundTitleContainer = document.createElement("div");
+    firstRoundTitleContainer.classList.add("firstRound")
+    const firstRoundTitleHeadElement = document.createElement("h4")
+    firstRoundTitleHeadElement.textContent = "Round One"
+    firstRoundTitleContainer.append(firstRoundTitleHeadElement)
+    containerElem.append(firstRoundTitleContainer)
+
+        // final round title
+        const finalRoundTitleContainer = document.createElement("div");
+        finalRoundTitleContainer.classList.add("finalRound")
+        const finalRoundTitleHeadElement = document.createElement("h4")
+        finalRoundTitleHeadElement.textContent = "Championship"
+        finalRoundTitleContainer.append(finalRoundTitleHeadElement)
+        containerElem.append(finalRoundTitleContainer)
+
     //// semi final 1v4 ////
     const firstPlaceTeam = sortedFinalStandings[0]
     const fourthPlaceTeam = sortedFinalStandings[3]
@@ -120,12 +136,6 @@ function playoffTree(){
     finalsDivInnerContainer.classList.add("semi2")
     const finalSeries = document.createElement("div");
     finalSeries.classList.add("series");
-
-    // add finals series containers title
-    const finalSeriesTitleContainer = document.createElement("div");
-    const finalSeriesTitle = document.createElement("h3");
-    finalSeriesTitle.textContent = "Finals";
-    finalSeriesTitleContainer.append(finalSeriesTitle)
     
     // get the finalists index in sorted standings in order to be passed into the finalists bestOfSeries call
     const seriesOneWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
@@ -138,7 +148,6 @@ function playoffTree(){
     // team two flex container
     const finalSeriesTeam2Results = bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
 
-    finalSeries.append(finalSeriesTitleContainer)
     finalSeries.append(finalSeriesTeam1Results.seriesFrag)
     finalSeries.append(finalSeriesTeam2Results.seriesFrag)
     finalsDivInnerContainer.append(finalSeries)
