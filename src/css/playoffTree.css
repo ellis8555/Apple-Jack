@@ -2,12 +2,14 @@
 .playoffTree {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 3rem 1fr 1fr;
+    grid-template-rows: 7rem 3rem 1fr 1fr 1fr 1fr;
     grid-template-areas: 
         "playoffAnnouncement playoffAnnouncement"
-        "firstRound finalRound"
+        "firstRound ..."
+        "semi1Container finalRound"
         "semi1Container finalsContainer"
         "semi2Container finalsContainer"
+        "semi2Container ..."
     ;
     margin: 1rem 0;
     width: 100%;
@@ -28,16 +30,18 @@
 
 .firstRound {
     grid-area: firstRound;
+    justify-content: center;
+    align-items: center;
 }
 
 .finalRound {
-    grid-area: finalRound
+    grid-area: finalRound;
+    justify-content: center;
+    align-items: end;
 }
 
 :is(.firstRound, .finalRound){
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: black;
     margin-bottom: 1rem;
 }
@@ -108,7 +112,7 @@
 
 @container (max-width: 695px) {
     .playoffTree {
-        grid-template-rows: 1fr 3rem 1fr 1fr 3rem 1fr;
+        grid-template-rows: 7rem 3rem 1fr 1fr 3rem 1fr;
         grid-template-areas: 
             "playoffAnnouncement playoffAnnouncement"
             "firstRound firstRound"
