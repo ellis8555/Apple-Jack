@@ -62,7 +62,18 @@ function playoffTree(){
     const firstSeriesTeam1Results = bestOfSeries(firstPlaceTeam, semiPlayoffGames, "team1", 1)
     // team two flex container
     const firstSeriesTeam2Results = bestOfSeries(fourthPlaceTeam, semiPlayoffGames, "team2", 4)
+    // append state of series such as series winner or tied at 0-0
+    let seriesWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
+    let seriesLosersWins = Math.min(firstSeriesTeam1Results.wins, firstSeriesTeam2Results.wins)
+    const seriesOneStatusContainer = document.createElement("div")
+    if(seriesWinner && seriesLosersWins != null){
+        seriesOneStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
+    } else {
+        seriesOneStatusContainer.textContent = `Series to be played`;
+    }
+
     // append each teams row of results
+    seriesOne.append(seriesOneStatusContainer)
     seriesOne.append(firstSeriesTeam1Results.seriesFrag)
     seriesOne.append(firstSeriesTeam2Results.seriesFrag)
     semi1InnerContainer.append(seriesOne)
@@ -84,7 +95,17 @@ function playoffTree(){
     const secondSeriesTeam1Results = bestOfSeries(secondPlaceTeam, semiPlayoffGames, "team1", 2)
     // team two flex container
     const secondSeriesTeam2Results = bestOfSeries(thirdPlaceTeam, semiPlayoffGames, "team2", 3)
+        // append state of series such as series winner or tied at 0-0
+        seriesWinner = secondSeriesTeam1Results.seriesWinner ?? secondSeriesTeam2Results.seriesWinner;
+        seriesLosersWins = Math.min(secondSeriesTeam1Results.wins, secondSeriesTeam2Results.wins)
+        const seriesTwoStatusContainer = document.createElement("div")
+        if(seriesWinner && seriesLosersWins != null){
+            seriesTwoStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
+        } else {
+            seriesTwoStatusContainer.textContent = `Series (0 - 0)`;
+        }
     // append each teams row of results
+    seriesTwo.append(seriesTwoStatusContainer)
     seriesTwo.append(secondSeriesTeam1Results)
     seriesTwo.append(secondSeriesTeam2Results)
     semi2InnerContainer.append(seriesTwo)
