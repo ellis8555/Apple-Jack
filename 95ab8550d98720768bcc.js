@@ -5014,19 +5014,24 @@ function resizeEventMethod() {
   const tableCaption = document.querySelector(
     `#tablesDiv > table > caption > h1`
   );
-    // 7 is season number position on home page table which is the current season
-    let getSeasonNumber;
-    if(tableCaption){
+  // 7 is season number position on home page table which is the current season
+  let getSeasonNumber;
+  if(tableCaption){
       getSeasonNumber = +tableCaption.textContent[7]
       if (isNaN(getSeasonNumber)) {
         // 2 is season number position for tables not on the home page
         getSeasonNumber = +tableCaption.textContent[2];
       }
     } 
-    // season number can become lost resulting in undefined so grab season number from element with season-num data attribute
-    if(tableCaption == undefined){
+    // season number can become lost resulting in undefined so grab season number from navbar element with season-num data attribute
+    if(tableCaption == null){
       const getSeasonNumberFromNavbarDataAttribute = +document.querySelectorAll("div[data-season-num]")[0]?.dataset.seasonNum;
       getSeasonNumber = getSeasonNumberFromNavbarDataAttribute
+      // there is a bug when showing playoff tree that reduces season number by one so add one back when playoff tree
+      const isPlayoffTree = document.querySelector(".playoffTree h3");
+      if(isPlayoffTree){
+        getSeasonNumber = +isPlayoffTree.textContent[7]
+      } 
     }
     if (screenWidth < 500) {
       // this if checks for players all time stats as these table headers do not contain a number
@@ -5041,7 +5046,7 @@ function resizeEventMethod() {
       if (isNaN(getSeasonNumber)) {
         setMainNavbar_setMainNavbar();
       } else {
-        // if mobile screen and more teams than 5 then add another row to navbar teams layout
+        // if large screen and more teams than 5 then add another row to navbar teams layout
         setMainNavbar_setMainNavbar(getSeasonNumber);
       }
     }
@@ -6335,4 +6340,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=3ad26ed740f216be7dbc.js.map
+//# sourceMappingURL=95ab8550d98720768bcc.js.map
