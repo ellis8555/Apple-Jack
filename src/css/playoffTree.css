@@ -20,14 +20,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: .25rem;
+    margin-bottom: 1rem;
     background-color: hsl(from #2196f3 h s 43%);
     border-radius: .5rem;
 }
 
 .semi1Container {
     grid-area: semi1Container;
-    margin-bottom: .25rem;
+    margin-bottom: 1rem;
 }
 
 .semi2Container {
@@ -40,7 +40,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-left: .5rem;
+    margin-left: 1rem;
 }
 
 .playoffTree > :is(.semi1Container, .semi2Container, .finalsContainer){
@@ -102,6 +102,6 @@
 
     .finalsContainer {
         margin-left: 0;
-        margin-top: .25rem;
+        margin-top: 1rem;
     }
 }
