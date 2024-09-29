@@ -1,16 +1,15 @@
 import teamsColorMAP from "../../../var_lib/maps/teams/teamsColorMAP";
 import teamsNumMAP from "../../../var_lib/maps/teams/teamsNumMAP";
+import createElement from "../../../misc/createElement";
 
 function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
     // check if is finals series
     if(isFinals){
             const seriesFrag = document.createDocumentFragment()
 
-            const teamGameOne = document.createElement("div");
-            teamGameOne.classList.add(teamOneOrTwo)
+            const teamGameOne = createElement("div", teamOneOrTwo)
             // team one name
-            const teamName = document.createElement("div")
-            teamName.classList.add("teamData")
+            const teamName = createElement("div", "teamData")
             // checks if finals are set either one no teams or one team
             if(team){
                 teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
@@ -46,16 +45,13 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
     if(filteredPlayoffGamesArray.length > 0){
         const seriesFrag = document.createDocumentFragment()
         
-        const teamGameOne = document.createElement("div");
-        teamGameOne.classList.add(teamOneOrTwo)
+        const teamGameOne = createElement("div", teamOneOrTwo)
         // team one name
-        const teamName = document.createElement("div")
-        teamName.classList.add("teamData")
+        const teamName = createElement("div", "teamData")
         teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
         teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
         // team one game one score
-        const teamGameOneScore = document.createElement("div")
-        teamGameOneScore.classList.add("teamData")
+        const teamGameOneScore = createElement("div", "teamData")
         const teamsNum = teamsNumMAP.get(team.get("Team"))
         const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
         teamGameOneScore.textContent = gameOneScore;
@@ -80,8 +76,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         }
         teamGameOneScore.style.backgroundColor = resultBgColor;
         // team one game two score
-        const teamGameTwoScore = document.createElement("div")
-        teamGameTwoScore.classList.add("teamData")
+        const teamGameTwoScore = createElement("div", "teamData")
         const gameTwoScore = (filteredPlayoffGamesArray[1].TeamOne == teamsNum) ? filteredPlayoffGamesArray[1].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
         teamGameTwoScore.textContent = gameTwoScore
         isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
@@ -109,7 +104,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         const wasThirdGamePlayed = filteredPlayoffGamesArray.length;
         if(wasThirdGamePlayed > 2){
             // team one game three score
-            const teamGameThreeScore = document.createElement("div")
+            const teamGameThreeScore = createElement("div")
             const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
         teamGameThreeScore.textContent = gameThreeScore
         isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
@@ -132,8 +127,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             teamGameOne.append(teamGameThreeScore)
         } else {
             // team one game three score
-            const teamGameThreeScore = document.createElement("div")
-            teamGameThreeScore.classList.add("teamData")
+            const teamGameThreeScore = createElement("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         }
@@ -155,28 +149,23 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
 
             const seriesFrag = document.createDocumentFragment()
         
-            const teamGameOne = document.createElement("div");
-            teamGameOne.classList.add(teamOneOrTwo)
+            const teamGameOne = createElement("div", teamOneOrTwo)
                 // team one name
-            const teamName = document.createElement("div")
-            teamName.classList.add("teamData")
+            const teamName = createElement("div", "teamData")
             teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
             teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
             // team one game one score
-            const teamGameOneScore = document.createElement("div")
-            teamGameOneScore.classList.add("teamData")
+            const teamGameOneScore = createElement("div", "teamData")
             teamGameOneScore.textContent = "-";
             // team one game two score
-            const teamGameTwoScore = document.createElement("div")
-            teamGameTwoScore.classList.add("teamData")
+            const teamGameTwoScore = createElement("div", "teamData")
             teamGameTwoScore.textContent = "-"
             
             teamGameOne.append(teamName)
             teamGameOne.append(teamGameOneScore)
             teamGameOne.append(teamGameTwoScore)
             // team one game three score
-            const teamGameThreeScore = document.createElement("div")
-            teamGameThreeScore.classList.add("teamData")
+            const teamGameThreeScore = createElement("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         

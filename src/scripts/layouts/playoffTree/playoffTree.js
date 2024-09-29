@@ -9,6 +9,7 @@ import setMainNavbar from "../navbar/setMainNavbar";
 import setHeaderBanner from "../setHeaderBanner";
 import { DEFENDING_CHAMPS } from "../../../constants/consts/vars";
 import currentSeason from "../../var_lib/season/currentSeason";
+import createElement from "../../misc/createElement";
 
 function playoffTree(){
     clearTablesDiv()
@@ -38,26 +39,21 @@ function playoffTree(){
     const tablesDiv = getTablesDiv();
     
     // playoff tree grid container
-    const containerElem = document.createElement("div");
-    containerElem.classList.add("w3-container", "playoffTree")
-
-    const playoffsAnnouncementContainer = document.createElement("div");
-    playoffsAnnouncementContainer.classList.add("playoffAnnouncement")
+    const containerElem = createElement("div", "w3-container", "playoffTree")
+    const playoffsAnnouncementContainer = createElement("div", "playoffAnnouncement")
     playoffsAnnouncementContainer.innerHTML = "<h3>Season 4 playoff tree</h3> <p>Playoff tree in development</p>"
     containerElem.append(playoffsAnnouncementContainer)
 
     // first round title
-    const firstRoundTitleContainer = document.createElement("div");
-    firstRoundTitleContainer.classList.add("firstRound")
-    const firstRoundTitleHeadElement = document.createElement("h4")
+    const firstRoundTitleContainer = createElement("div", "firstRound")
+    const firstRoundTitleHeadElement = createElement("h4");
     firstRoundTitleHeadElement.textContent = "Round One"
     firstRoundTitleContainer.append(firstRoundTitleHeadElement)
     containerElem.append(firstRoundTitleContainer)
 
         // final round title
-        const finalRoundTitleContainer = document.createElement("div");
-        finalRoundTitleContainer.classList.add("finalRound")
-        const finalRoundTitleHeadElement = document.createElement("h4")
+        const finalRoundTitleContainer = createElement("div", "finalRound")
+        const finalRoundTitleHeadElement = createElement("h4")
         finalRoundTitleHeadElement.textContent = "Championship"
         finalRoundTitleContainer.append(finalRoundTitleHeadElement)
         containerElem.append(finalRoundTitleContainer)
@@ -66,14 +62,11 @@ function playoffTree(){
     const firstPlaceTeam = sortedFinalStandings[0]
     const fourthPlaceTeam = sortedFinalStandings[3]
     // flex container for alignments
-    const semiDiv1Container = document.createElement("div");
-    semiDiv1Container.classList.add("semi1Container")
+    const semiDiv1Container = createElement("div", "semi1Container")
     // flex container for alignments
-    const semi1InnerContainer = document.createElement("div")
-    semi1InnerContainer.classList.add("semi1")
+    const semi1InnerContainer = createElement("div", "semi1")
     // flex containers that contain the series data
-    const seriesOne = document.createElement("div");
-    seriesOne.classList.add("series")
+    const seriesOne = createElement("div", "series")
     // team one flex container
     const firstSeriesTeam1Results = bestOfSeries(firstPlaceTeam, semiPlayoffGames, "team1", 1)
     // team two flex container
@@ -81,7 +74,7 @@ function playoffTree(){
     // append state of series such as series winner or tied at 0-0
     let seriesWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
     let seriesLosersWins = Math.min(firstSeriesTeam1Results.wins, firstSeriesTeam2Results.wins)
-    const seriesOneStatusContainer = document.createElement("div")
+    const seriesOneStatusContainer = createElement("div")
     if(seriesWinner && seriesLosersWins != null){
         seriesOneStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
     } else {
@@ -99,14 +92,11 @@ function playoffTree(){
     const secondPlaceTeam = sortedFinalStandings[1]
     const thirdPlaceTeam = sortedFinalStandings[2]
         // flex container for alignments
-    const semiDiv2Container = document.createElement("div");
-    semiDiv2Container.classList.add( "semi2Container")
+    const semiDiv2Container = createElement("div", "semi2Container")
         // flex container for alignments
-    const semi2InnerContainer = document.createElement("div")
-    semi2InnerContainer.classList.add("semi2")
+    const semi2InnerContainer = createElement("div", "semi2")
        // flex containers that contain the series data
-    const seriesTwo = document.createElement("div")
-    seriesTwo.classList.add("series")
+    const seriesTwo = createElement("div", "series")
     // team one flex container
     const secondSeriesTeam1Results = bestOfSeries(secondPlaceTeam, semiPlayoffGames, "team1", 2)
     // team two flex container
@@ -114,7 +104,7 @@ function playoffTree(){
         // append state of series such as series winner or tied at 0-0
         seriesWinner = secondSeriesTeam1Results.seriesWinner ?? secondSeriesTeam2Results.seriesWinner;
         seriesLosersWins = Math.min(secondSeriesTeam1Results.wins, secondSeriesTeam2Results.wins)
-        const seriesTwoStatusContainer = document.createElement("div")
+        const seriesTwoStatusContainer = createElement("div")
         if(seriesWinner && seriesLosersWins != null){
             seriesTwoStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
         } else {
@@ -128,14 +118,10 @@ function playoffTree(){
     semiDiv2Container.append(semi2InnerContainer)
 
     // finals container
-    const finalsContainer = document.createElement("div");
-    finalsContainer.classList.add("finalsContainer")
-    const finalsDiv = document.createElement("div");
-    finalsDiv.classList.add("semi2Container")
-    const finalsDivInnerContainer = document.createElement("div");
-    finalsDivInnerContainer.classList.add("semi2")
-    const finalSeries = document.createElement("div");
-    finalSeries.classList.add("series");
+    const finalsContainer = createElement("div", "finalsContainer")
+    const finalsDiv = createElement("div", "semi2Container")
+    const finalsDivInnerContainer = createElement("div", "semi2")
+    const finalSeries = createElement("div", "series")
     
     // get the finalists index in sorted standings in order to be passed into the finalists bestOfSeries call
     const seriesOneWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
