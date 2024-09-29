@@ -30,7 +30,8 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
                 seriesFrag.append(teamGameOne)
             return {
                 seriesFrag,
-                seriesWinner
+                seriesWinner,
+                wins
             }
     }
     // these are not final series
@@ -146,7 +147,8 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         }
     return {
         seriesFrag,
-        seriesWinner
+        seriesWinner,
+        wins
     }
     // else return team names with score symbols for yet to be played games
     } else {
