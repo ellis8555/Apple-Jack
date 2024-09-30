@@ -5,6 +5,9 @@ import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP"
 import getTeams3dColorScheme from "./getTeams3DColorScheme"
 
 function createCssLogoSkeleton({width, height, fontSize, teamName, seasonNumber, homeOrAway}){
+    if(seasonNumber === 0){
+        seasonNumber = 1
+    }
     let colorString = `S0${seasonNumber}${homeOrAway}`
     let teamsColorScheme = eachTeamObjectMAP.get(teamName)[colorString]
     let colorParts = teamsColorScheme.split(" ")
