@@ -20,6 +20,6 @@ import images from "./scripts/loadImages";
     // setHomeTable();
     // during playoffs
     // setSeasonsFullTable(4, "Playoff", "Playoffs")
-    playoffTree()
+    playoffTree(4)
     // Set listeners on table headers
     setTableListeners();
