@@ -8,7 +8,7 @@ function MainAnnouncement(){
 
   const headingElem = document.createElement('h5');
   const bold = document.createElement('b')
-  bold.textContent = "Season 4 has begun!";
+  bold.textContent = "Season 4 playoffs are currently underway!";
   headingElem.append(bold)
 
   containerElem.append(headingElem);
