@@ -137,8 +137,10 @@ function playoffTree(seasonNumber){
     } else {
         finaSeriesStatusContainer.textContent = `Series (0 - 0)`;
     }
-
-    finalSeries.append(finaSeriesStatusContainer)
+    // only append the series status if both teams are determined
+    if(seriesOneWinner && seriesTwoWinner){
+        finalSeries.append(finaSeriesStatusContainer)
+    }
     finalSeries.append(finalSeriesTeam1Results.seriesFrag)
     finalSeries.append(finalSeriesTeam2Results.seriesFrag)
     finalsDivInnerContainer.append(finalSeries)
