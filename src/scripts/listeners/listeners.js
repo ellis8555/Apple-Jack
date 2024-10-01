@@ -13,11 +13,12 @@ import "./pageListeners/announcementsListener"
 // records page listener
 import "./pageListeners/leagueRecordsListener"
 import playoffTree from "../layouts/playoffTree/playoffTree";
+import currentSeason from "../var_lib/season/currentSeason";
 
   // add link to haxball logo 
   const headerLogo = document.querySelector("img[alt*='Haxball']");
   // setHomeTable or playoffs depending on if playoffs are currently ongoing
-  headerLogo.addEventListener("click", playoffTree);
+  headerLogo.addEventListener("click", () => {playoffTree(currentSeason)});
 
 // keeps tables fields correctly highlighted on windows resize
 

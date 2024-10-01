@@ -1,3 +1,4 @@
+import playoffTree from "../../layouts/playoffTree/playoffTree";
 import closeSidebar from "../../sidebar/closeSidebar";
 import setSeasonsFullTable from "../../tables/setSeasonsFullTable";
 
@@ -7,6 +8,14 @@ document
   .getElementById("s04RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable()
+    setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s04PlayoffTree")
+  .addEventListener("click", () => {
+    playoffTree(4)
     setTimeout(() => {
       closeSidebar();
     }, 50);
@@ -82,6 +91,14 @@ document
   .getElementById("s01RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable(1)
+        setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s01PlayoffTree")
+  .addEventListener("click", () => {
+    playoffTree(1)
         setTimeout(() => {
       closeSidebar();
     }, 50);

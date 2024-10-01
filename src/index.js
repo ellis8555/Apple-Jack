@@ -15,11 +15,12 @@ import setTableListeners from "./scripts/listeners/listenerHelpers/setTableListe
 
 // img files all imported using script
 import images from "./scripts/loadImages";
+import currentSeason from "./scripts/var_lib/season/currentSeason"
 
     // Set homepage standings table for current season
     // setHomeTable();
     // during playoffs
     // setSeasonsFullTable(4, "Playoff", "Playoffs")
-    playoffTree(4)
+    playoffTree(currentSeason)
     // Set listeners on table headers
     setTableListeners();
