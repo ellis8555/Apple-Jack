@@ -3097,6 +3097,9 @@ function getTeams3dColorScheme(mainColor, colorParts){
 
 
 function createCssLogoSkeleton({width, height, fontSize, teamName, seasonNumber, homeOrAway}){
+    if(seasonNumber === 0){
+        seasonNumber = 1
+    }
     let colorString = `S0${seasonNumber}${homeOrAway}`
     let teamsColorScheme = teams_eachTeamObjectMAP.get(teamName)[colorString]
     let colorParts = teamsColorScheme.split(" ")
@@ -5151,7 +5154,40 @@ function displayPlayerSubMenu() {
     item.classList.toggle("w3-yellow", !item.classList.contains("w3-hide"));
   });
 }
+;// CONCATENATED MODULE: ./src/scripts/misc/createElement.js
+function createElement(elementType, ...classes) {
+    const element = document.createElement(elementType);
+    if(classes){
+        element.classList.add(...classes)
+    }
+    return element;
+}
+
+/* harmony default export */ const misc_createElement = (createElement);
+;// CONCATENATED MODULE: ./src/scripts/layouts/playoffTree/componenets/bestOfSeriesGameResult.js
+function bestOfSeriesGameResult(isTeamOneInGameResult, gamesArray, gameNum, resultBgColor, wins){
+    if(isTeamOneInGameResult){
+        if (gamesArray[gameNum].TeamOneScore > gamesArray[gameNum].TeamTwoScore) {
+            resultBgColor = "green";
+            wins++;
+        } else {
+            resultBgColor = "red";
+        }
+    } else {
+        if (gamesArray[gameNum].TeamTwoScore > gamesArray[gameNum].TeamOneScore) {
+            resultBgColor = "green";
+            wins++
+        } else {
+            resultBgColor = "red";
+        }
+    }
+    return { resultBgColor, wins }
+}
+
+/* harmony default export */ const componenets_bestOfSeriesGameResult = (bestOfSeriesGameResult);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/playoffTree/componenets/bestOfSeries.js
+
+
 
 
 
@@ -5160,28 +5196,71 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
     if(isFinals){
             const seriesFrag = document.createDocumentFragment()
 
-            const teamGameOne = document.createElement("div");
-            teamGameOne.classList.add(teamOneOrTwo)
+            const teamGameOne = misc_createElement("div", teamOneOrTwo)
             // team one name
-            const teamName = document.createElement("div")
-            teamName.classList.add("teamData")
+            const teamName = misc_createElement("div", "teamData")
+            let seriesWinner;
+            let wins = 0;
             // checks if finals are set either one no teams or one team
             if(team){
                 teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
                 teamName.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
-            } else {
-                teamName.innerHTML = "vs <br> <br> TBD";
-            }
-            teamGameOne.append(teamName)
+                teamGameOne.append(teamName)
+                if(playoffGamesArray.length > 0){                    
+                    // team one game one score
+                    const teamGameOneScore = misc_createElement("div", "teamData")
+                    const teamsNum = teams_teamsNumMAP.get(team.get("Team"))
+                    const gameOneScore = playoffGamesArray[0].TeamOne == teamsNum ? playoffGamesArray[0].TeamOneScore : playoffGamesArray[0].TeamTwoScore
+                    teamGameOneScore.textContent = gameOneScore;
+                    let isTeamOneInGameResult = playoffGamesArray[0].TeamOne == teamsNum ? true : false;
+                    // wins counts to determine if this team wins the series
+                    let resultBgColor;
+                    const gameOneResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, playoffGamesArray, 0, resultBgColor, wins)
+                    wins = gameOneResult.wins;
+                    resultBgColor = gameOneResult.resultBgColor
+                    teamGameOneScore.style.backgroundColor = resultBgColor;
+                    // team one game two score
+                    const teamGameTwoScore = misc_createElement("div", "teamData")
+                    const gameTwoScore = (playoffGamesArray[1].TeamOne == teamsNum) ? playoffGamesArray[1].TeamOneScore : playoffGamesArray[1].TeamTwoScore
+                    teamGameTwoScore.textContent = gameTwoScore
+                    isTeamOneInGameResult = playoffGamesArray[1].TeamOne == teamsNum ? true : false;
+                    const gameTwoResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, playoffGamesArray, 1, resultBgColor, wins)
+                    wins = gameTwoResult.wins;
+                    resultBgColor = gameTwoResult.resultBgColor
+                    teamGameTwoScore.style.backgroundColor = resultBgColor;
+                    
+                    teamGameOne.append(teamGameOneScore)
+                    teamGameOne.append(teamGameTwoScore)
+                    const wasThirdGamePlayed = playoffGamesArray.length;
+                    if(wasThirdGamePlayed > 2){
+                        // team one game three score
+                        const teamGameThreeScore = misc_createElement("div", "teamData")
+                        const gameThreeScore = (playoffGamesArray[2].TeamOne == teamsNum) ? playoffGamesArray[2].TeamOneScore : playoffGamesArray[2].TeamTwoScore
+                        teamGameThreeScore.textContent = gameThreeScore
+                        isTeamOneInGameResult = playoffGamesArray[1].TeamOne == teamsNum ? true : false;
+                        const gameThreeResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, playoffGamesArray, 2, resultBgColor, wins)
+                        wins = gameThreeResult.wins;
+                        resultBgColor = gameThreeResult.resultBgColor
+                        teamGameThreeScore.style.backgroundColor = resultBgColor;
+                        teamGameOne.append(teamGameThreeScore)
+                    } else {
+                        // team one game three score
+                        const teamGameThreeScore = misc_createElement("div", "teamData")
+                        teamGameThreeScore.textContent = "-"
+                        teamGameOne.append(teamGameThreeScore)
+                    }
+                }
                 // pass back which team won the series to be used in next round information
-            let seriesWinner;
-            let wins = 0
             if(wins == 2){
                 seriesWinner = team.get("Team")
             } else {
                     seriesWinner = null
                 }
-                seriesFrag.append(teamGameOne)
+            } else {
+                teamName.innerHTML = "vs <br> <br> TBD";
+                teamGameOne.append(teamName)
+            }
+            seriesFrag.append(teamGameOne)
             return {
                 seriesFrag,
                 seriesWinner,
@@ -5195,21 +5274,17 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             return game;
         }
     });
-
     // if the series has been played
     if(filteredPlayoffGamesArray.length > 0){
         const seriesFrag = document.createDocumentFragment()
         
-        const teamGameOne = document.createElement("div");
-        teamGameOne.classList.add(teamOneOrTwo)
+        const teamGameOne = misc_createElement("div", teamOneOrTwo)
         // team one name
-        const teamName = document.createElement("div")
-        teamName.classList.add("teamData")
+        const teamName = misc_createElement("div", "teamData")
         teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
         teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
         // team one game one score
-        const teamGameOneScore = document.createElement("div")
-        teamGameOneScore.classList.add("teamData")
+        const teamGameOneScore = misc_createElement("div", "teamData")
         const teamsNum = teams_teamsNumMAP.get(team.get("Team"))
         const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
         teamGameOneScore.textContent = gameOneScore;
@@ -5217,43 +5292,18 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         // wins counts to determine if this team wins the series
         let wins = 0;
         let resultBgColor;
-        if(isTeamOneInGameResult){
-            if (filteredPlayoffGamesArray[0].TeamOneScore > filteredPlayoffGamesArray[0].TeamTwoScore) {
-                resultBgColor = "green";
-                wins++;
-            } else {
-                resultBgColor = "red";
-            }
-        } else {
-            if (filteredPlayoffGamesArray[0].TeamTwoScore > filteredPlayoffGamesArray[0].TeamOneScore) {
-                resultBgColor = "green";
-                wins++
-            } else {
-                resultBgColor = "red";
-            }
-        }
+        const gameOneResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
+        wins = gameOneResult.wins;
+        resultBgColor = gameOneResult.resultBgColor
         teamGameOneScore.style.backgroundColor = resultBgColor;
         // team one game two score
-        const teamGameTwoScore = document.createElement("div")
-        teamGameTwoScore.classList.add("teamData")
+        const teamGameTwoScore = misc_createElement("div", "teamData")
         const gameTwoScore = (filteredPlayoffGamesArray[1].TeamOne == teamsNum) ? filteredPlayoffGamesArray[1].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
         teamGameTwoScore.textContent = gameTwoScore
         isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
-        if(isTeamOneInGameResult){
-            if (filteredPlayoffGamesArray[1].TeamOneScore > filteredPlayoffGamesArray[1].TeamTwoScore) {
-                resultBgColor = "green";
-                wins++;
-            } else {
-                resultBgColor = "red";
-            }
-        } else {
-            if (filteredPlayoffGamesArray[1].TeamTwoScore > filteredPlayoffGamesArray[1].TeamOneScore) {
-                resultBgColor = "green";
-                wins++
-            } else {
-                resultBgColor = "red";
-            }
-        }
+        const gameTwoResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, filteredPlayoffGamesArray, 1, resultBgColor, wins)
+        wins = gameTwoResult.wins;
+        resultBgColor = gameTwoResult.resultBgColor
         teamGameTwoScore.style.backgroundColor = resultBgColor;
         
         teamGameOne.append(teamName)
@@ -5263,31 +5313,18 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         const wasThirdGamePlayed = filteredPlayoffGamesArray.length;
         if(wasThirdGamePlayed > 2){
             // team one game three score
-            const teamGameThreeScore = document.createElement("div")
-            const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
-        teamGameThreeScore.textContent = gameThreeScore
-        isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
-        if(isTeamOneInGameResult){
-            if (filteredPlayoffGamesArray[2].TeamOneScore > filteredPlayoffGamesArray[2].TeamTwoScore) {
-                resultBgColor = "green";
-                wins++;
-            } else {
-                resultBgColor = "red";
-            }
-        } else {
-            if (filteredPlayoffGamesArray[1].TeamTwoScore > filteredPlayoffGamesArray[1].TeamOneScore) {
-                resultBgColor = "green";
-                wins++
-            } else {
-                resultBgColor = "red";
-            }
-        }
-        teamGameTwoScore.style.backgroundColor = resultBgColor;
+            const teamGameThreeScore = misc_createElement("div", "teamData")
+            const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[2].TeamTwoScore
+            teamGameThreeScore.textContent = gameThreeScore
+            isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
+            const gameThreeResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, filteredPlayoffGamesArray, 2, resultBgColor, wins)
+            wins = gameThreeResult.wins;
+            resultBgColor = gameThreeResult.resultBgColor
+            teamGameThreeScore.style.backgroundColor = resultBgColor;
             teamGameOne.append(teamGameThreeScore)
         } else {
             // team one game three score
-            const teamGameThreeScore = document.createElement("div")
-            teamGameThreeScore.classList.add("teamData")
+            const teamGameThreeScore = misc_createElement("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         }
@@ -5306,36 +5343,30 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
     }
     // else return team names with score symbols for yet to be played games
     } else {
-
             const seriesFrag = document.createDocumentFragment()
         
-            const teamGameOne = document.createElement("div");
-            teamGameOne.classList.add(teamOneOrTwo)
+            const teamGameOne = misc_createElement("div", teamOneOrTwo)
                 // team one name
-            const teamName = document.createElement("div")
-            teamName.classList.add("teamData")
+            const teamName = misc_createElement("div", "teamData")
             teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
             teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
             // team one game one score
-            const teamGameOneScore = document.createElement("div")
-            teamGameOneScore.classList.add("teamData")
+            const teamGameOneScore = misc_createElement("div", "teamData")
             teamGameOneScore.textContent = "-";
             // team one game two score
-            const teamGameTwoScore = document.createElement("div")
-            teamGameTwoScore.classList.add("teamData")
+            const teamGameTwoScore = misc_createElement("div", "teamData")
             teamGameTwoScore.textContent = "-"
             
             teamGameOne.append(teamName)
             teamGameOne.append(teamGameOneScore)
             teamGameOne.append(teamGameTwoScore)
             // team one game three score
-            const teamGameThreeScore = document.createElement("div")
-            teamGameThreeScore.classList.add("teamData")
+            const teamGameThreeScore = misc_createElement("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         
             seriesFrag.append(teamGameOne)
-            return seriesFrag
+            return {seriesFrag}
     }
 }
 
@@ -5353,11 +5384,10 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
 
 
 
-function playoffTree(){
+function playoffTree(seasonNumber){
     clearTablesDiv()
     clearScoreboardDiv()
     // get season number from data attribute on playoff menu link
-    const seasonNumber = +season_currentSeason
     setHeaderBanner_setHeaderBanner(vars_DEFENDING_CHAMPS, seasonNumber-1)
     setMainNavbar_setMainNavbar(seasonNumber)
     // get semis playoff games for matching season
@@ -5373,7 +5403,6 @@ function playoffTree(){
             return game;
         }
     })
-
     const key = `groupTeamsSeason${seasonNumber}SeasonStats`
     const seasonsFinalStandings = createTeam[key]
     const sortedFinalStandings = sortGroupedStats(seasonsFinalStandings, "Points")
@@ -5381,42 +5410,34 @@ function playoffTree(){
     const tablesDiv = getTablesDiv();
     
     // playoff tree grid container
-    const containerElem = document.createElement("div");
-    containerElem.classList.add("w3-container", "playoffTree")
-
-    const playoffsAnnouncementContainer = document.createElement("div");
-    playoffsAnnouncementContainer.classList.add("playoffAnnouncement")
-    playoffsAnnouncementContainer.innerHTML = "<h3>Season 4 playoff tree</h3> <p>Playoff tree in development</p>"
+    const containerElem = misc_createElement("div", "w3-container", "playoffTree")
+    const playoffsAnnouncementContainer = misc_createElement("div", "playoffAnnouncement")
+    playoffsAnnouncementContainer.innerHTML = `<h3>Season ${seasonNumber} playoff tree</h3> <p>Playoff tree in development</p>`
     containerElem.append(playoffsAnnouncementContainer)
 
     // first round title
-    const firstRoundTitleContainer = document.createElement("div");
-    firstRoundTitleContainer.classList.add("firstRound")
-    const firstRoundTitleHeadElement = document.createElement("h4")
+    const firstRoundTitleContainer = misc_createElement("div", "firstRound")
+    const firstRoundTitleHeadElement = misc_createElement("h4");
     firstRoundTitleHeadElement.textContent = "Round One"
     firstRoundTitleContainer.append(firstRoundTitleHeadElement)
     containerElem.append(firstRoundTitleContainer)
 
-        // final round title
-        const finalRoundTitleContainer = document.createElement("div");
-        finalRoundTitleContainer.classList.add("finalRound")
-        const finalRoundTitleHeadElement = document.createElement("h4")
-        finalRoundTitleHeadElement.textContent = "Championship"
-        finalRoundTitleContainer.append(finalRoundTitleHeadElement)
-        containerElem.append(finalRoundTitleContainer)
+    // final round title
+    const finalRoundTitleContainer = misc_createElement("div", "finalRound")
+    const finalRoundTitleHeadElement = misc_createElement("h4")
+    finalRoundTitleHeadElement.textContent = "Championship"
+    finalRoundTitleContainer.append(finalRoundTitleHeadElement)
+    containerElem.append(finalRoundTitleContainer)
 
     //// semi final 1v4 ////
     const firstPlaceTeam = sortedFinalStandings[0]
     const fourthPlaceTeam = sortedFinalStandings[3]
     // flex container for alignments
-    const semiDiv1Container = document.createElement("div");
-    semiDiv1Container.classList.add("semi1Container")
+    const semiDiv1Container = misc_createElement("div", "semi1Container")
     // flex container for alignments
-    const semi1InnerContainer = document.createElement("div")
-    semi1InnerContainer.classList.add("semi1")
+    const semi1InnerContainer = misc_createElement("div", "semi1")
     // flex containers that contain the series data
-    const seriesOne = document.createElement("div");
-    seriesOne.classList.add("series")
+    const seriesOne = misc_createElement("div", "series")
     // team one flex container
     const firstSeriesTeam1Results = componenets_bestOfSeries(firstPlaceTeam, semiPlayoffGames, "team1", 1)
     // team two flex container
@@ -5424,7 +5445,7 @@ function playoffTree(){
     // append state of series such as series winner or tied at 0-0
     let seriesWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
     let seriesLosersWins = Math.min(firstSeriesTeam1Results.wins, firstSeriesTeam2Results.wins)
-    const seriesOneStatusContainer = document.createElement("div")
+    const seriesOneStatusContainer = misc_createElement("div")
     if(seriesWinner && seriesLosersWins != null){
         seriesOneStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
     } else {
@@ -5442,14 +5463,11 @@ function playoffTree(){
     const secondPlaceTeam = sortedFinalStandings[1]
     const thirdPlaceTeam = sortedFinalStandings[2]
         // flex container for alignments
-    const semiDiv2Container = document.createElement("div");
-    semiDiv2Container.classList.add( "semi2Container")
+    const semiDiv2Container = misc_createElement("div", "semi2Container")
         // flex container for alignments
-    const semi2InnerContainer = document.createElement("div")
-    semi2InnerContainer.classList.add("semi2")
+    const semi2InnerContainer = misc_createElement("div", "semi2")
        // flex containers that contain the series data
-    const seriesTwo = document.createElement("div")
-    seriesTwo.classList.add("series")
+    const seriesTwo = misc_createElement("div", "series")
     // team one flex container
     const secondSeriesTeam1Results = componenets_bestOfSeries(secondPlaceTeam, semiPlayoffGames, "team1", 2)
     // team two flex container
@@ -5457,7 +5475,7 @@ function playoffTree(){
         // append state of series such as series winner or tied at 0-0
         seriesWinner = secondSeriesTeam1Results.seriesWinner ?? secondSeriesTeam2Results.seriesWinner;
         seriesLosersWins = Math.min(secondSeriesTeam1Results.wins, secondSeriesTeam2Results.wins)
-        const seriesTwoStatusContainer = document.createElement("div")
+        const seriesTwoStatusContainer = misc_createElement("div")
         if(seriesWinner && seriesLosersWins != null){
             seriesTwoStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
         } else {
@@ -5465,32 +5483,38 @@ function playoffTree(){
         }
     // append each teams row of results
     seriesTwo.append(seriesTwoStatusContainer)
-    seriesTwo.append(secondSeriesTeam1Results)
-    seriesTwo.append(secondSeriesTeam2Results)
+    seriesTwo.append(secondSeriesTeam1Results.seriesFrag)
+    seriesTwo.append(secondSeriesTeam2Results.seriesFrag)
     semi2InnerContainer.append(seriesTwo)
     semiDiv2Container.append(semi2InnerContainer)
 
     // finals container
-    const finalsContainer = document.createElement("div");
-    finalsContainer.classList.add("finalsContainer")
-    const finalsDiv = document.createElement("div");
-    finalsDiv.classList.add("semi2Container")
-    const finalsDivInnerContainer = document.createElement("div");
-    finalsDivInnerContainer.classList.add("semi2")
-    const finalSeries = document.createElement("div");
-    finalSeries.classList.add("series");
+    const finalsContainer = misc_createElement("div", "finalsContainer")
+    const finalsDivInnerContainer = misc_createElement("div", "semi2")
+    const finalSeries = misc_createElement("div", "series")
     
     // get the finalists index in sorted standings in order to be passed into the finalists bestOfSeries call
     const seriesOneWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
     const seriesTwoWinner = secondSeriesTeam1Results.seriesWinner ?? secondSeriesTeam2Results.seriesWinner;
     const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
     const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
-
     // team one flex container
     const finalSeriesTeam1Results = componenets_bestOfSeries(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
     // team two flex container
     const finalSeriesTeam2Results = componenets_bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
-
+    // append state of series such as series winner or tied at 0-0
+    seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
+    seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
+    const finaSeriesStatusContainer = misc_createElement("div")
+    if(seriesWinner && seriesLosersWins != null){
+        finaSeriesStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
+    } else {
+        finaSeriesStatusContainer.textContent = `Series (0 - 0)`;
+    }
+    // only append the series status if both teams are determined
+    if(seriesOneWinner && seriesTwoWinner){
+        finalSeries.append(finaSeriesStatusContainer)
+    }
     finalSeries.append(finalSeriesTeam1Results.seriesFrag)
     finalSeries.append(finalSeriesTeam2Results.seriesFrag)
     finalsDivInnerContainer.append(finalSeries)
@@ -5514,6 +5538,7 @@ function playoffTree(){
 
 
 
+
   
   // sidebar menu
   document.getElementById("openSidebar").addEventListener("click", sidebar_openSidebar);
@@ -5522,7 +5547,7 @@ function playoffTree(){
   // home option 
   const homeSidebar = document.querySelector("#home");
   homeSidebar.addEventListener("click", () => {
-    playoffTree_playoffTree();
+    playoffTree_playoffTree(season_currentSeason);
     setTimeout(() => {
       sidebar_closeSidebar()
     }, 50)
@@ -5596,12 +5621,21 @@ function setSeasonsFullTable(seasonNumber = season_currentSeason, modeDescriptor
 
 
 
+
 // teams tables
 // season 04 standings tables
 document
   .getElementById("s04RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable()
+    setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s04PlayoffTree")
+  .addEventListener("click", () => {
+    playoffTree_playoffTree(4)
     setTimeout(() => {
       sidebar_closeSidebar();
     }, 50);
@@ -5677,6 +5711,14 @@ document
   .getElementById("s01RegularSeason")
   .addEventListener("click", () => {
     setSeasonsFullTable(1)
+        setTimeout(() => {
+      sidebar_closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s01PlayoffTree")
+  .addEventListener("click", () => {
+    playoffTree_playoffTree(1)
         setTimeout(() => {
       sidebar_closeSidebar();
     }, 50);
@@ -5904,7 +5946,7 @@ function MainAnnouncement(){
 
   const headingElem = document.createElement('h5');
   const bold = document.createElement('b')
-  bold.textContent = "Season 4 has begun!";
+  bold.textContent = "Season 4 playoffs are currently underway!";
   headingElem.append(bold)
 
   containerElem.append(headingElem);
@@ -5915,8 +5957,13 @@ function MainAnnouncement(){
 ;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/Message.js
 function Message(){
     const message = document.createElement('p');
-    message.innerHTML = `<b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b><br>
-    <b>**</b> Tables are sortable via clicking the field header. On mobile, click on any row <b>**</b>`
+    message.innerHTML = `<b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b>
+    <br>
+    <b>**</b> Tables are sortable via clicking the field header. On mobile, click on any row <b>**</b>
+    <br>
+    <br>
+    Playoff trees for all seasons currently being developed. Out of 4 seasons there have been 3 different playoff formats. Seasons 1 and 4 are the same format so they are currently available. Seasons 2 and 3 are being worked on. 
+    `
 
     return message;
 }
@@ -6320,10 +6367,11 @@ document
 
 
 
+
   // add link to haxball logo 
   const headerLogo = document.querySelector("img[alt*='Haxball']");
   // setHomeTable or playoffs depending on if playoffs are currently ongoing
-  headerLogo.addEventListener("click", playoffTree_playoffTree);
+  headerLogo.addEventListener("click", () => {playoffTree_playoffTree(season_currentSeason)});
 
 // keeps tables fields correctly highlighted on windows resize
 
@@ -6361,15 +6409,16 @@ function importAll(r) {
 // img files all imported using script
 
 
+
     // Set homepage standings table for current season
     // setHomeTable();
     // during playoffs
     // setSeasonsFullTable(4, "Playoff", "Playoffs")
-    playoffTree_playoffTree()
+    playoffTree_playoffTree(season_currentSeason)
     // Set listeners on table headers
     setTableListeners_setTableListeners();
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=4beea6956e3b46b4692d.js.map
+//# sourceMappingURL=eb3ec8d6ca5b030d9b7e.js.map
