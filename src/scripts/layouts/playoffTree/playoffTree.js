@@ -38,7 +38,7 @@ function playoffTree(seasonNumber){
     // playoff tree grid container
     const containerElem = createElement("div", "w3-container", "playoffTree")
     const playoffsAnnouncementContainer = createElement("div", "playoffAnnouncement")
-    playoffsAnnouncementContainer.innerHTML = `<h3>Season ${seasonNumber} playoff tree</h3> <p>Playoff tree in development</p>`
+    playoffsAnnouncementContainer.innerHTML = `<h3>Season ${seasonNumber} playoffs</h3>`
     containerElem.append(playoffsAnnouncementContainer)
 
     // first round title
