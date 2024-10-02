@@ -128,7 +128,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             const teamGameThreeScore = createElement("div", "teamData")
             const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[2].TeamTwoScore
             teamGameThreeScore.textContent = gameThreeScore
-            isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
+            isTeamOneInGameResult = filteredPlayoffGamesArray[2].TeamOne == teamsNum ? true : false;
             const gameThreeResult = bestOfSeriesGameResult(isTeamOneInGameResult, filteredPlayoffGamesArray, 2, resultBgColor, wins)
             wins = gameThreeResult.wins;
             resultBgColor = gameThreeResult.resultBgColor
