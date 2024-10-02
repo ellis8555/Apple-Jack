@@ -105,6 +105,7 @@
 :is(.team1 .teamData:first-child, .team2 .teamData:first-child){
     flex-grow: 1;
     width: 100%;
+    min-width: 15rem;
 }
 
 :is(.teamData) {
