@@ -109,7 +109,7 @@
 }
 
 :is(.teamData) {
-    padding: 1vw;
+    padding: 1.55vw;
 }
 
 @container (max-width: 695px) {
@@ -123,6 +123,10 @@
             "finalRound finalRound"
             "finalsContainer finalsContainer"
         ;
+    }
+
+    :is(.team1 .teamData:first-child, .team2 .teamData:first-child){
+        min-width: 12rem;
     }
 
     .finalRound {
