@@ -146,9 +146,24 @@ function playoffTree(seasonNumber){
     finalsDivInnerContainer.append(finalSeries)
     finalsContainer.append(finalsDivInnerContainer)
 
-
     // append each series to playoffs grid layout
     containerElem.append(semiDiv1Container, semiDiv2Container, finalsContainer)
+
+    // if both finalists are set but no games have been played then append dashes in place of scores
+    if(seriesOneWinner && seriesTwoWinner){
+        if(finalPlayoffGames.length == 0){
+                setTimeout(() => {
+                    for(let i = 1; i<=2; i++){
+                        let getFinalsContainer = document.querySelector(`.finalsContainer .team${i}`)
+                            for(let j = 0; j<=2; j++){
+                                const teamOneFinalsScoreHolder = createElement("div", "teamData")
+                                teamOneFinalsScoreHolder.textContent = "-";
+                                getFinalsContainer.append(teamOneFinalsScoreHolder)
+                            }
+                    }
+                }, 0)
+            }
+        }
 
     tablesDiv.append(containerElem)
 }

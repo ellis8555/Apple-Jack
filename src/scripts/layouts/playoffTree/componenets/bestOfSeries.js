@@ -13,7 +13,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             const teamName = createElement("div", "teamData")
             let seriesWinner;
             let wins = 0;
-            // checks if finals are set either one no teams or one team
+            // checks if finals are set either no teams or one team
             if(team){
                 teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
                 teamName.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
