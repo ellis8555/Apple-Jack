@@ -5201,7 +5201,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             const teamName = misc_createElement("div", "teamData")
             let seriesWinner;
             let wins = 0;
-            // checks if finals are set either one no teams or one team
+            // checks if finals are set either no teams or one team
             if(team){
                 teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
                 teamName.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
@@ -5520,9 +5520,24 @@ function playoffTree(seasonNumber){
     finalsDivInnerContainer.append(finalSeries)
     finalsContainer.append(finalsDivInnerContainer)
 
-
     // append each series to playoffs grid layout
     containerElem.append(semiDiv1Container, semiDiv2Container, finalsContainer)
+
+    // if both finalists are set but no games have been played then append dashes in place of scores
+    if(seriesOneWinner && seriesTwoWinner){
+        if(finalPlayoffGames.length == 0){
+                setTimeout(() => {
+                    for(let i = 1; i<=2; i++){
+                        let getFinalsContainer = document.querySelector(`.finalsContainer .team${i}`)
+                            for(let j = 0; j<=2; j++){
+                                const teamOneFinalsScoreHolder = misc_createElement("div", "teamData")
+                                teamOneFinalsScoreHolder.textContent = "-";
+                                getFinalsContainer.append(teamOneFinalsScoreHolder)
+                            }
+                    }
+                }, 0)
+            }
+        }
 
     tablesDiv.append(containerElem)
 }
@@ -6421,4 +6436,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=20336fe86d1d4924f2b5.js.map
+//# sourceMappingURL=83416eec4b01924cc628.js.map
