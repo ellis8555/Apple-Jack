@@ -109,7 +109,7 @@
 }
 
 :is(.teamData) {
-    padding: 1.55vw;
+    padding: 1vw;
 }
 
 @container (max-width: 695px) {
