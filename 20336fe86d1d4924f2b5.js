@@ -5168,14 +5168,14 @@ function createElement(elementType, ...classes) {
 function bestOfSeriesGameResult(isTeamOneInGameResult, gamesArray, gameNum, resultBgColor, wins){
     if(isTeamOneInGameResult){
         if (gamesArray[gameNum].TeamOneScore > gamesArray[gameNum].TeamTwoScore) {
-            resultBgColor = "green";
+            resultBgColor = "limegreen";
             wins++;
         } else {
             resultBgColor = "red";
         }
     } else {
         if (gamesArray[gameNum].TeamTwoScore > gamesArray[gameNum].TeamOneScore) {
-            resultBgColor = "green";
+            resultBgColor = "limegreen";
             wins++
         } else {
             resultBgColor = "red";
@@ -6421,4 +6421,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=cc0eb1470b78693e182d.js.map
+//# sourceMappingURL=20336fe86d1d4924f2b5.js.map
