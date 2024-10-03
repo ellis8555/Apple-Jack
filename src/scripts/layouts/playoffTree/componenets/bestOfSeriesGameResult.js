@@ -1,14 +1,14 @@
 function bestOfSeriesGameResult(isTeamOneInGameResult, gamesArray, gameNum, resultBgColor, wins){
     if(isTeamOneInGameResult){
         if (gamesArray[gameNum].TeamOneScore > gamesArray[gameNum].TeamTwoScore) {
-            resultBgColor = "green";
+            resultBgColor = "limegreen";
             wins++;
         } else {
             resultBgColor = "red";
         }
     } else {
         if (gamesArray[gameNum].TeamTwoScore > gamesArray[gameNum].TeamOneScore) {
-            resultBgColor = "green";
+            resultBgColor = "limegreen";
             wins++
         } else {
             resultBgColor = "red";
