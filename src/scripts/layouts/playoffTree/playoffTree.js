@@ -9,10 +9,13 @@ import setMainNavbar from "../navbar/setMainNavbar";
 import setHeaderBanner from "../setHeaderBanner";
 import { DEFENDING_CHAMPS } from "../../../constants/consts/vars";
 import createElement from "../../misc/createElement";
+import seriesContainer from "./componenets/seriesContainer";
+import COLORS from "../../../constants/consts/colors";
 
 function playoffTree(seasonNumber){
     clearTablesDiv()
     clearScoreboardDiv()
+    document.body.style.backgroundColor = COLORS["w3-blue"]
     // get season number from data attribute on playoff menu link
     setHeaderBanner(DEFENDING_CHAMPS, seasonNumber-1)
     setMainNavbar(seasonNumber)
@@ -58,61 +61,36 @@ function playoffTree(seasonNumber){
     //// semi final 1v4 ////
     const firstPlaceTeam = sortedFinalStandings[0]
     const fourthPlaceTeam = sortedFinalStandings[3]
-    // flex container for alignments
-    const semiDiv1Container = createElement("div", "semi1Container")
-    // flex container for alignments
-    const semi1InnerContainer = createElement("div", "semi1")
-    // flex containers that contain the series data
-    const seriesOne = createElement("div", "series")
-    // team one flex container
-    const firstSeriesTeam1Results = bestOfSeries(firstPlaceTeam, semiPlayoffGames, "team1", 1)
-    // team two flex container
-    const firstSeriesTeam2Results = bestOfSeries(fourthPlaceTeam, semiPlayoffGames, "team2", 4)
-    // append state of series such as series winner or tied at 0-0
-    let seriesWinner = firstSeriesTeam1Results.seriesWinner ?? firstSeriesTeam2Results.seriesWinner;
-    let seriesLosersWins = Math.min(firstSeriesTeam1Results.wins, firstSeriesTeam2Results.wins)
-    const seriesOneStatusContainer = createElement("div")
-    if(seriesWinner && seriesLosersWins != null){
-        seriesOneStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
-    } else {
-        seriesOneStatusContainer.textContent = `Series to be played`;
-    }
-
-    // append each teams row of results
-    seriesOne.append(seriesOneStatusContainer)
-    seriesOne.append(firstSeriesTeam1Results.seriesFrag)
-    seriesOne.append(firstSeriesTeam2Results.seriesFrag)
-    semi1InnerContainer.append(seriesOne)
-    semiDiv1Container.append(semi1InnerContainer)
+    // returns dom container for a single series
+    const {
+        semiDivContainer: semiDiv1Container,
+        seriesTeam1Results: firstSeriesTeam1Results, 
+        seriesTeam2Results: firstSeriesTeam2Results
+    } = seriesContainer(
+        firstPlaceTeam, 
+        1, 
+        fourthPlaceTeam, 
+        4, 
+        semiPlayoffGames, 
+        1
+    );
 
     //// semi final 2v3 ////
     const secondPlaceTeam = sortedFinalStandings[1]
     const thirdPlaceTeam = sortedFinalStandings[2]
-        // flex container for alignments
-    const semiDiv2Container = createElement("div", "semi2Container")
-        // flex container for alignments
-    const semi2InnerContainer = createElement("div", "semi2")
-       // flex containers that contain the series data
-    const seriesTwo = createElement("div", "series")
-    // team one flex container
-    const secondSeriesTeam1Results = bestOfSeries(secondPlaceTeam, semiPlayoffGames, "team1", 2)
-    // team two flex container
-    const secondSeriesTeam2Results = bestOfSeries(thirdPlaceTeam, semiPlayoffGames, "team2", 3)
-        // append state of series such as series winner or tied at 0-0
-        seriesWinner = secondSeriesTeam1Results.seriesWinner ?? secondSeriesTeam2Results.seriesWinner;
-        seriesLosersWins = Math.min(secondSeriesTeam1Results.wins, secondSeriesTeam2Results.wins)
-        const seriesTwoStatusContainer = createElement("div")
-        if(seriesWinner && seriesLosersWins != null){
-            seriesTwoStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
-        } else {
-            seriesTwoStatusContainer.textContent = `Series (0 - 0)`;
-        }
-    // append each teams row of results
-    seriesTwo.append(seriesTwoStatusContainer)
-    seriesTwo.append(secondSeriesTeam1Results.seriesFrag)
-    seriesTwo.append(secondSeriesTeam2Results.seriesFrag)
-    semi2InnerContainer.append(seriesTwo)
-    semiDiv2Container.append(semi2InnerContainer)
+    // returns dom container for a single series
+    const {
+        semiDivContainer: semiDiv2Container,
+        seriesTeam1Results: secondSeriesTeam1Results, 
+        seriesTeam2Results: secondSeriesTeam2Results
+    } = seriesContainer(
+        secondPlaceTeam, 
+        2, 
+        thirdPlaceTeam, 
+        3, 
+        semiPlayoffGames, 
+        2
+    );
 
     // finals container
     const finalsContainer = createElement("div", "finalsContainer")
@@ -129,8 +107,8 @@ function playoffTree(seasonNumber){
     // team two flex container
     const finalSeriesTeam2Results = bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
     // append state of series such as series winner or tied at 0-0
-    seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
-    seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
+    const seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
+    const seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
     const finaSeriesStatusContainer = createElement("div")
     if(seriesWinner && seriesLosersWins != null){
         finaSeriesStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
