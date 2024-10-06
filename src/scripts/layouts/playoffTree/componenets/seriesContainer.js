@@ -1,7 +1,7 @@
 import bestOfSeries from "./bestOfSeries";
 import createElement from "../../../misc/createElement";
 
-function seriesContainer(teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum){
+function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum}){
     // flex container for alignments
     const semiDivContainer = createElement("div", `semi${seriesNum}Container`)
     // flex container for alignments

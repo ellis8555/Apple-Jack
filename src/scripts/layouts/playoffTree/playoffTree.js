@@ -59,38 +59,36 @@ function playoffTree(seasonNumber){
     containerElem.append(finalRoundTitleContainer)
 
     //// semi final 1v4 ////
-    const firstPlaceTeam = sortedFinalStandings[0]
-    const fourthPlaceTeam = sortedFinalStandings[3]
+    const seriesOneContainerArgs = {
+        teamOne: sortedFinalStandings[0],
+        teamOneRank: 1,
+        teamTwo: sortedFinalStandings[3],
+        teamTwoRank: 4,
+        gamesArray: semiPlayoffGames,
+        seriesNum: 1,
+    }
     // returns dom container for a single series
     const {
         semiDivContainer: semiDiv1Container,
         seriesTeam1Results: firstSeriesTeam1Results, 
         seriesTeam2Results: firstSeriesTeam2Results
-    } = seriesContainer(
-        firstPlaceTeam, 
-        1, 
-        fourthPlaceTeam, 
-        4, 
-        semiPlayoffGames, 
-        1
-    );
+    } = seriesContainer(seriesOneContainerArgs);
 
     //// semi final 2v3 ////
-    const secondPlaceTeam = sortedFinalStandings[1]
-    const thirdPlaceTeam = sortedFinalStandings[2]
+    const seriesTwoContainerArgs = {
+        teamOne: sortedFinalStandings[1],
+        teamOneRank: 2,
+        teamTwo: sortedFinalStandings[2],
+        teamTwoRank: 3,
+        gamesArray: semiPlayoffGames,
+        seriesNum: 2,
+    }
     // returns dom container for a single series
     const {
         semiDivContainer: semiDiv2Container,
         seriesTeam1Results: secondSeriesTeam1Results, 
         seriesTeam2Results: secondSeriesTeam2Results
-    } = seriesContainer(
-        secondPlaceTeam, 
-        2, 
-        thirdPlaceTeam, 
-        3, 
-        semiPlayoffGames, 
-        2
-    );
+    } = seriesContainer(seriesTwoContainerArgs);
 
     // finals container
     const finalsContainer = createElement("div", "finalsContainer")
