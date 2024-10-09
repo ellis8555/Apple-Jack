@@ -2,6 +2,7 @@ import { Teams, Players, GameType, TeamPlayers, GameResults, GamePlayerStats } f
 
 export const DEFENDING_CHAMPS = "Haxual Chocolate";
 export const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S03/haxualChocolateHomeS03.svg"
+export const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate"]
 export const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 export const TEAMS_LENGTH = Teams.length;
