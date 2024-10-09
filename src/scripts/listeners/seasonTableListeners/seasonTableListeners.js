@@ -71,6 +71,14 @@ document
     }, 50);
 });
 document
+  .getElementById("s02PlayoffTree")
+  .addEventListener("click", () => {
+    playoffTree(2)
+        setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
   .getElementById("s02PlayoffTable")
   .addEventListener("click", () => {
     setSeasonsFullTable(2, "Playoff", "Playoffs")
