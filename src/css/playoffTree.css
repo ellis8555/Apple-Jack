@@ -1,15 +1,37 @@
-/* entire playoff tree container */
-.playoffTree {
+/* entire playoff tree container*/
+/* can look different depending on playoff format for any given season */
+
+/* playoffs that have 3 teams */
+.playoffTreeThreeTeams {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 7rem 3rem 1fr 1fr 1fr 1fr;
     grid-template-areas: 
         "playoffAnnouncement playoffAnnouncement"
-        "firstRound ..."
+        "firstRound ."
+        "byeContainer finalRound"
+        "byeContainer finalsContainer"
+        "semi2Container finalsContainer"
+        "semi2Container ."
+    ;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 900px;
+    color: white;
+}
+
+/* playoffs that have four teams */
+.playoffTreeFourTeams {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7rem 3rem 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "playoffAnnouncement playoffAnnouncement"
+        "firstRound ."
         "semi1Container finalRound"
         "semi1Container finalsContainer"
         "semi2Container finalsContainer"
-        "semi2Container ..."
+        "semi2Container ."
     ;
     margin: 1rem 0;
     width: 100%;
@@ -27,6 +49,14 @@
     margin-bottom: 1rem;
     background-color: hsl(from #2196f3 h s 43%);
     border-radius: .5rem;
+}
+
+.byeContainer {
+    grid-area: byeContainer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .firstRound {
@@ -65,12 +95,12 @@
     margin-left: 1rem;
 }
 
-.playoffTree > :is(.semi1Container, .semi2Container, .finalsContainer){
+:is(.byeContainer, .semi1Container, .semi2Container, .finalsContainer){
     background-color: hsl(from #2196f3 h s 43%);
     border-radius: .5rem;
 }
 
-:is(.semi1Container, .semi2Container){
+:is(.byeContainer, .semi1Container, .semi2Container){
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +143,20 @@
 }
 
 @container (max-width: 695px) {
-    .playoffTree {
+    /* three teams grid */
+    .playoffTreeThreeTeams {
+        grid-template-rows: 7rem 3rem 1fr 1fr 3rem 1fr;
+        grid-template-areas: 
+            "playoffAnnouncement playoffAnnouncement"
+            "firstRound firstRound"
+            "byeContainer byeContainer"
+            "semi2Container semi2Container"
+            "finalRound finalRound"
+            "finalsContainer finalsContainer"
+        ;
+    }
+    /* four teams grid */
+    .playoffTreeFourTeams {
         grid-template-rows: 7rem 3rem 1fr 1fr 3rem 1fr;
         grid-template-areas: 
             "playoffAnnouncement playoffAnnouncement"
