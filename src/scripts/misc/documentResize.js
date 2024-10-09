@@ -22,7 +22,16 @@ function resizeEventMethod() {
       const getSeasonNumberFromNavbarDataAttribute = +document.querySelectorAll("div[data-season-num]")[0]?.dataset.seasonNum;
       getSeasonNumber = getSeasonNumberFromNavbarDataAttribute
       // there is a bug when showing playoff tree that reduces season number by one so add one back when playoff tree
-      const isPlayoffTree = document.querySelector(".playoffTree h3");
+      let isPlayoffTree
+      if(document.querySelector(".playoffTreeThreeTeams h3")) {
+        isPlayoffTree = document.querySelector(".playoffTreeThreeTeams h3");
+      }
+      if(document.querySelector(".playoffTreeFourTeams h3")) {
+        isPlayoffTree = document.querySelector(".playoffTreeFourTeams h3");
+      }
+      if(document.querySelector(".playoffTreeFiveTeams h3")) {
+        isPlayoffTree = document.querySelector(".playoffTreeFiveTeams h3");
+      }
       if(isPlayoffTree){
         getSeasonNumber = +isPlayoffTree.textContent[7]
       } 
