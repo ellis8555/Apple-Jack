@@ -20,14 +20,14 @@ document
       closeSidebar();
     }, 50);
 });
-document
-  .getElementById("s04PlayoffTable")
-  .addEventListener("click", () => {
-    setSeasonsFullTable(4, "Playoff", "Playoffs")
-    setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
+// document
+//   .getElementById("s04PlayoffTable")
+//   .addEventListener("click", () => {
+//     setSeasonsFullTable(4, "Playoff", "Playoffs")
+//     setTimeout(() => {
+//       closeSidebar();
+//     }, 50);
+// });
 document
   .getElementById("s04CombinedTable")
   .addEventListener("click", () => {
@@ -78,14 +78,14 @@ document
       closeSidebar();
     }, 50);
 });
-document
-  .getElementById("s02PlayoffTable")
-  .addEventListener("click", () => {
-    setSeasonsFullTable(2, "Playoff", "Playoffs")
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
+// document
+//   .getElementById("s02PlayoffTable")
+//   .addEventListener("click", () => {
+//     setSeasonsFullTable(2, "Playoff", "Playoffs")
+//         setTimeout(() => {
+//       closeSidebar();
+//     }, 50);
+// });
 document
   .getElementById("s02CombinedTable")
   .addEventListener("click", () => {
@@ -111,14 +111,14 @@ document
       closeSidebar();
     }, 50);
 });
-document
-  .getElementById("s01PlayoffTable")
-  .addEventListener("click", () => {
-    setSeasonsFullTable(1, "Playoff", "Playoffs")
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
+// document
+//   .getElementById("s01PlayoffTable")
+//   .addEventListener("click", () => {
+//     setSeasonsFullTable(1, "Playoff", "Playoffs")
+//         setTimeout(() => {
+//       closeSidebar();
+//     }, 50);
+// });
 document
   .getElementById("s01CombinedTable")
   .addEventListener("click", () => {
