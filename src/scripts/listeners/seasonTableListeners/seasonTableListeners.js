@@ -40,7 +40,7 @@ document
 document
   .getElementById("s03PlayoffTable")
   .addEventListener("click", () => {
-    setSeasonsFullTable(3, "Playoff", "Playoffs")
+    playoffTree(3)
         setTimeout(() => {
       closeSidebar();
     }, 50);
