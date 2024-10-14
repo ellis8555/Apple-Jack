@@ -5178,17 +5178,33 @@ function createElement(elementType, ...classes) {
 function bestOfSeriesGameResult(isTeamOneInGameResult, gamesArray, gameNum, resultBgColor, wins){
     if(isTeamOneInGameResult){
         if (gamesArray[gameNum].TeamOneScore > gamesArray[gameNum].TeamTwoScore) {
-            resultBgColor = "limegreen";
+            if(gamesArray[gameNum].ExtraTime === "Yes"){
+                resultBgColor = "#2196F3"
+            } else {
+                resultBgColor = "limegreen";
+            }
             wins++;
         } else {
-            resultBgColor = "red";
+            if(gamesArray[gameNum].ExtraTime === "Yes"){
+                resultBgColor = "#9E9E9E"
+            } else {
+                resultBgColor = "red";
+            }
         }
     } else {
         if (gamesArray[gameNum].TeamTwoScore > gamesArray[gameNum].TeamOneScore) {
-            resultBgColor = "limegreen";
+            if(gamesArray[gameNum].ExtraTime === "Yes"){
+                resultBgColor = "#2196F3"
+            } else {
+                resultBgColor = "limegreen";
+            }
             wins++
         } else {
-            resultBgColor = "red";
+            if(gamesArray[gameNum].ExtraTime === "Yes"){
+                resultBgColor = "#9E9E9E"
+            } else {
+                resultBgColor = "red";
+            }
         }
     }
     return { resultBgColor, wins }
@@ -5458,7 +5474,106 @@ function seriesBye(team){
 }
 
 /* harmony default export */ const componenets_seriesBye = (seriesBye);
+;// CONCATENATED MODULE: ./src/scripts/layouts/playoffTree/componenets/singleGameSeriesContainer.js
+
+
+
+
+
+function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum}){
+    // flex container for alignments
+    const semiDivContainer = misc_createElement("div", `secondRoundDiv${seriesNum}Container`)
+    // flex container for alignments
+    const semiInnerContainer = misc_createElement("div", `semi${seriesNum}`)
+    // flex containers that contain the series data
+    const series = misc_createElement("div", "series")
+    // team one flex container
+    const seriesTeam1Results = singleGameSeries(teamOne, gamesArray, "team1", teamOneRank)
+    // team two flex container
+    const seriesTeam2Results = singleGameSeries(teamTwo, gamesArray, "team2", teamTwoRank)
+
+    // append each teams row of results
+    series.append(seriesTeam1Results.seriesFrag)
+    series.append(seriesTeam2Results.seriesFrag)
+    semiInnerContainer.append(series)
+    semiDivContainer.append(semiInnerContainer)
+
+    return {
+        semiDivContainer,
+        seriesTeam1Results,
+        seriesTeam2Results
+    }
+}
+
+function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
+    const filteredPlayoffGamesArray = [gamesArray]
+    // if the series has been played
+    if(filteredPlayoffGamesArray.length > 0){
+        const seriesFrag = document.createDocumentFragment()
+        
+        const teamGameOne = misc_createElement("div", teamOneOrTwo)
+        // team one name
+        const teamName = misc_createElement("div", "teamData")
+        teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
+        teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+        // team one game one score
+        const teamGameOneScore = misc_createElement("div", "teamData")
+        const teamsNum = teams_teamsNumMAP.get(team.get("Team"))
+        const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
+        teamGameOneScore.textContent = gameOneScore;
+        let isTeamOneInGameResult = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? true : false;
+        // wins counts to determine if this team wins the series
+        let wins = 0;
+        let resultBgColor;
+        const gameOneResult = componenets_bestOfSeriesGameResult(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
+        wins = gameOneResult.wins;
+        resultBgColor = gameOneResult.resultBgColor
+        if(filteredPlayoffGamesArray[0].ExtraTime === "Yes"){
+            if(resultBgColor === "limegreen"){
+                resultBgColor = "#2196F3"
+            }
+            if(resultBgColor === "red"){
+                resultBgColor = "#9E9E9E"
+            }
+        }
+        teamGameOneScore.style.backgroundColor = resultBgColor;
+        
+        teamGameOne.append(teamName)
+        teamGameOne.append(teamGameOneScore)
+    
+
+        seriesFrag.append(teamGameOne)
+
+    return {
+        seriesFrag,
+    }
+    // else return team names with score symbols for yet to be played games
+    } else {
+            const seriesFrag = document.createDocumentFragment()
+        
+            const teamGameOne = misc_createElement("div", teamOneOrTwo)
+                // team one name
+            const teamName = misc_createElement("div", "teamData")
+            teamName.style.backgroundColor = "#" + teams_teamsColorMAP.get(team.get("Team"))
+            teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+            // team one game one score
+            const teamGameOneScore = misc_createElement("div", "teamData")
+            teamGameOneScore.textContent = "-";
+            // team one game two score
+            const teamGameTwoScore = misc_createElement("div", "teamData")
+            teamGameTwoScore.textContent = "-"
+            
+            teamGameOne.append(teamName)
+            teamGameOne.append(teamGameOneScore)
+        
+            seriesFrag.append(teamGameOne)
+            return {seriesFrag}
+    }
+}
+
+/* harmony default export */ const componenets_singleGameSeriesContainer = (singleGameSeriesContainer);
 ;// CONCATENATED MODULE: ./src/scripts/layouts/playoffTree/playoffTree.js
+
 
 
 
@@ -5488,16 +5603,17 @@ function playoffTree(seasonNumber){
     }
     setHeaderBanner_setHeaderBanner(CHAMPIONS_LIST[championsListElement], seasonNumber == season_currentSeason ? seasonNumber-1 : seasonNumber)
     setMainNavbar_setMainNavbar(seasonNumber)
-    // get semis playoff games for matching season
+    // get playoff games for matching season
     const firstRoundGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === 1)
-    
+    const secondRoundGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === 2)
+    const firstAndSecondRoundGames = [...firstRoundGames, ...secondRoundGames]
     // use to determine which round numbers are which series. example semi's or final's
-    const countOfTeamsInPlayoffs = new Set(firstRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size;
+    const countOfTeamsInPlayoffs = new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size;
     let finalsRoundNumber;
     let semisRoundNumber;
     let playoffTreeClass
     switch(countOfTeamsInPlayoffs){
-        case 2:
+        case 3:
             semisRoundNumber = 1;
             finalsRoundNumber = 2;
             playoffTreeClass = "playoffTreeThreeTeams"
@@ -5532,6 +5648,15 @@ function playoffTree(seasonNumber){
     firstRoundTitleContainer.append(firstRoundTitleHeadElement)
     containerElem.append(firstRoundTitleContainer)
 
+    // if three rounds
+    if(countOfTeamsInPlayoffs === 5){
+        const secondRoundTitleContainer = misc_createElement("div", "secondRound")
+        const secondRoundTitleHeadElement = misc_createElement("h4");
+        secondRoundTitleHeadElement.textContent = "Round Robin"
+        secondRoundTitleContainer.append(secondRoundTitleHeadElement)
+        containerElem.append(secondRoundTitleContainer)
+    }
+
     // final round title
     const finalRoundTitleContainer = misc_createElement("div", "finalRound")
     const finalRoundTitleHeadElement = misc_createElement("h4")
@@ -5540,7 +5665,7 @@ function playoffTree(seasonNumber){
     containerElem.append(finalRoundTitleContainer)
     // build the series tree dependant on how many teams are in the playoffs for that particular season
     // first round in playoff format that contains 3 teams
-    if(seasonNumber == 2){
+    if(countOfTeamsInPlayoffs == 3){
         // team with bye
         const {
             byeContainer,
@@ -5703,7 +5828,141 @@ function playoffTree(seasonNumber){
     }
     // first round in playoff format that contains 5 teams
     if(countOfTeamsInPlayoffs == 5){
-    
+        // get round robin playoff games for matching season
+        const roundRobinPlayoffGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === 2)
+        // team with bye
+        const {
+            byeContainer,
+            seriesTeam1Results: firstSeriesTeam1Results
+        } = componenets_seriesBye(sortedFinalStandings[1])
+
+        //// first round 2v5 ////
+        const seriesOneContainerArgs = {
+            teamOne: sortedFinalStandings[0],
+            teamOneRank: 2,
+            teamTwo: sortedFinalStandings[4],
+            teamTwoRank: 5,
+            gamesArray: firstRoundGames,
+            seriesNum: 1,
+        }
+        // returns dom container for a single series
+        const {
+            semiDivContainer: firstRoundDiv1Container,
+            seriesTeam1Results: secondSeriesTeam1Results, 
+            seriesTeam2Results: secondSeriesTeam2Results
+        } = componenets_seriesContainer(seriesOneContainerArgs);
+
+        //// first round 3v4 ////
+        const seriesTwoContainerArgs = {
+            teamOne: sortedFinalStandings[2],
+            teamOneRank: 3,
+            teamTwo: sortedFinalStandings[3],
+            teamTwoRank: 4,
+            gamesArray: firstRoundGames,
+            seriesNum: 2,
+        }
+        // returns dom container for a single series
+        const {
+            semiDivContainer: firstRoundDiv2Container,
+            seriesTeam1Results: thirdSeriesTeam1Results, 
+            seriesTeam2Results: thirdSeriesTeam2Results
+        } = componenets_seriesContainer(seriesTwoContainerArgs);
+
+        // round robin container
+        //// second round game one ////
+        const secondRoundGameOneContainerArgs = {
+            teamOne: sortedFinalStandings[0],
+            teamOneRank: 2,
+            teamTwo: sortedFinalStandings[2],
+            teamTwoRank: 3,
+            gamesArray: roundRobinPlayoffGames[0],
+            seriesNum: 1,
+        }
+        // returns dom container for a single series
+        const {
+            semiDivContainer: secondRoundDiv1Container,
+        } = componenets_singleGameSeriesContainer(secondRoundGameOneContainerArgs);
+
+        //// second round game two ////
+        const secondRoundGameTwoContainerArgs = {
+            teamOne: sortedFinalStandings[1],
+            teamOneRank: 1,
+            teamTwo: sortedFinalStandings[2],
+            teamTwoRank: 3,
+            gamesArray: roundRobinPlayoffGames[1],
+            seriesNum: 2,
+        }
+        // returns dom container for a single series
+        const {
+            semiDivContainer: secondRoundDiv2Container,
+        } = componenets_singleGameSeriesContainer(secondRoundGameTwoContainerArgs);
+
+        //// second round game three ////
+        const secondRoundGameThreeContainerArgs = {
+            teamOne: sortedFinalStandings[1],
+            teamOneRank: 1,
+            teamTwo: sortedFinalStandings[0],
+            teamTwoRank: 2,
+            gamesArray: roundRobinPlayoffGames[2],
+            seriesNum: 3,
+        }
+        // returns dom container for a single series
+        const {
+            semiDivContainer: secondRoundDiv3Container,
+        } = componenets_singleGameSeriesContainer(secondRoundGameThreeContainerArgs);
+
+        // get finals playoff games for matching season
+        const finalPlayoffGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === finalsRoundNumber)
+        // finals container
+        const finalsContainer = misc_createElement("div", "finalsContainer")
+        const finalsDivInnerContainer = misc_createElement("div", "semi2")
+        const finalSeries = misc_createElement("div", "series")
+        
+        // get the finalists index in sorted standings in order to be passed into the finalists bestOfSeries call
+        const seriesOneWinner = "Orange Ricky"
+        const seriesTwoWinner = "Haxual Chocolate"
+        const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
+        const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
+        // team one flex container
+        const finalSeriesTeam1Results = componenets_bestOfSeries(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
+        // team two flex container
+        const finalSeriesTeam2Results = componenets_bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
+        // append state of series such as series winner or tied at 0-0
+        const seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
+        const seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
+        const finaSeriesStatusContainer = misc_createElement("div")
+        if(seriesWinner && seriesLosersWins != null){
+            finaSeriesStatusContainer.textContent = `${seriesWinner} win (2 - ${seriesLosersWins})`;
+        } else {
+            finaSeriesStatusContainer.textContent = `Series (0 - 0)`;
+        }
+        // only append the series status if both teams are determined
+        if(seriesOneWinner && seriesTwoWinner){
+            finalSeries.append(finaSeriesStatusContainer)
+        }
+        finalSeries.append(finalSeriesTeam1Results.seriesFrag)
+        finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+        finalsDivInnerContainer.append(finalSeries)
+        finalsContainer.append(finalsDivInnerContainer)
+        
+        // if both finalists are set but no games have been played then append dashes in place of scores
+        if(seriesOneWinner && seriesTwoWinner){
+            if(finalPlayoffGames.length == 0){
+                    setTimeout(() => {
+                        for(let i = 1; i<=2; i++){
+                            let getFinalsContainer = document.querySelector(`.finalsContainer .team${i}`)
+                                for(let j = 0; j<=2; j++){
+                                    const teamOneFinalsScoreHolder = misc_createElement("div", "teamData")
+                                    teamOneFinalsScoreHolder.textContent = "-";
+                                    getFinalsContainer.append(teamOneFinalsScoreHolder)
+                                }
+                        }
+                    }, 0)
+                }
+            }
+
+        // append each series to playoffs grid layout
+        containerElem.append(byeContainer, firstRoundDiv1Container, firstRoundDiv2Container, secondRoundDiv1Container, secondRoundDiv2Container, secondRoundDiv3Container, finalsContainer)
     }
     tablesDiv.append(containerElem)
 }
@@ -5821,14 +6080,6 @@ document
       sidebar_closeSidebar();
     }, 50);
 });
-// document
-//   .getElementById("s04PlayoffTable")
-//   .addEventListener("click", () => {
-//     setSeasonsFullTable(4, "Playoff", "Playoffs")
-//     setTimeout(() => {
-//       closeSidebar();
-//     }, 50);
-// });
 document
   .getElementById("s04CombinedTable")
   .addEventListener("click", () => {
@@ -5849,7 +6100,7 @@ document
 document
   .getElementById("s03PlayoffTable")
   .addEventListener("click", () => {
-    setSeasonsFullTable(3, "Playoff", "Playoffs")
+    playoffTree_playoffTree(3)
         setTimeout(() => {
       sidebar_closeSidebar();
     }, 50);
@@ -5879,14 +6130,6 @@ document
       sidebar_closeSidebar();
     }, 50);
 });
-// document
-//   .getElementById("s02PlayoffTable")
-//   .addEventListener("click", () => {
-//     setSeasonsFullTable(2, "Playoff", "Playoffs")
-//         setTimeout(() => {
-//       closeSidebar();
-//     }, 50);
-// });
 document
   .getElementById("s02CombinedTable")
   .addEventListener("click", () => {
@@ -5912,14 +6155,6 @@ document
       sidebar_closeSidebar();
     }, 50);
 });
-// document
-//   .getElementById("s01PlayoffTable")
-//   .addEventListener("click", () => {
-//     setSeasonsFullTable(1, "Playoff", "Playoffs")
-//         setTimeout(() => {
-//       closeSidebar();
-//     }, 50);
-// });
 document
   .getElementById("s01CombinedTable")
   .addEventListener("click", () => {
@@ -6149,9 +6384,6 @@ function Message(){
     message.innerHTML = `<b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b>
     <br>
     <b>**</b> Tables are sortable via clicking the field header. On mobile, click on any row <b>**</b>
-    <br>
-    <br>
-    Playoff trees for all seasons currently being developed. Out of 4 seasons there have been 3 different playoff formats. Seasons 1 and 4 are the same format so they are currently available. Seasons 2 and 3 are being worked on. 
     `
 
     return message;
@@ -6610,4 +6842,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=1f4b6798f662bb24b45d.js.map
+//# sourceMappingURL=1f30959420b3300fd61f.js.map
