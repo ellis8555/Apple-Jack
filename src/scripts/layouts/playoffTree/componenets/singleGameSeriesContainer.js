@@ -51,6 +51,14 @@ function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinal
         const gameOneResult = bestOfSeriesGameResult(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
         wins = gameOneResult.wins;
         resultBgColor = gameOneResult.resultBgColor
+        if(filteredPlayoffGamesArray[0].ExtraTime === "Yes"){
+            if(resultBgColor === "limegreen"){
+                resultBgColor = "#2196F3"
+            }
+            if(resultBgColor === "red"){
+                resultBgColor = "#9E9E9E"
+            }
+        }
         teamGameOneScore.style.backgroundColor = resultBgColor;
         
         teamGameOne.append(teamName)
