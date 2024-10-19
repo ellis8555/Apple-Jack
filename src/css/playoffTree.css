@@ -94,11 +94,13 @@
 
 .finalRound {
     grid-area: finalRound;
+    display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    color: black;
 }
 
-:is(.firstRound, .secondRound, .finalRound){
+:is(.firstRound, .secondRound){
     display: flex;
     color: black;
     margin-bottom: 1rem;
@@ -142,6 +144,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-bottom: 1rem;
     margin-left: 1rem;
 }
 
@@ -248,7 +251,7 @@
         min-width: 12rem;
     }
 
-    .semi2Container {
-        margin-bottom: 2rem;
+    :is(.secondRoundDiv1Container, .secondRoundDiv2Container, .secondRoundDiv3Container, .finalsContainer){
+        margin-left: 0;
     }
 }
