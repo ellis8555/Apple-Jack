@@ -5,8 +5,11 @@
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./favicon/haxFav.svg": 7736,
-	"./haxball-big-min.svg": 6317,
+	"./favicon/haxFav.png": 6375,
+	"./favicon/haxFav.svg": 7576,
+	"./haxball-big-min.png": 1058,
+	"./haxball-big-min.svg": 5805,
+	"./original-logo.svg": 4636,
 	"./teamLogos/S01/Mooney3rdS01.svg": 6740,
 	"./teamLogos/S01/MooneyAwayS01.svg": 8711,
 	"./teamLogos/S01/MooneyHomeS01.svg": 6970,
@@ -78,6 +81,22 @@ webpackContext.keys = function webpackContextKeys() {
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = 5179;
+
+/***/ }),
+
+/***/ 7576:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "../../../../../../../img/favicon/haxFav.svg";
+
+/***/ }),
+
+/***/ 5805:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "../../../../../../../img/haxball-big-min.svg";
 
 /***/ }),
 
@@ -169,19 +188,27 @@ module.exports = __webpack_require__.p + "../../../../../../../img/teamLogos/S02
 
 /***/ }),
 
-/***/ 7736:
+/***/ 6375:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "img/favicon/haxFav.svg";
+module.exports = __webpack_require__.p + "img/favicon/haxFav.png";
 
 /***/ }),
 
-/***/ 6317:
+/***/ 1058:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "img/haxball-big-min.svg";
+module.exports = __webpack_require__.p + "img/haxball-big-min.png";
+
+/***/ }),
+
+/***/ 4636:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/original-logo.svg";
 
 /***/ }),
 
@@ -6842,4 +6869,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=1f30959420b3300fd61f.js.map
+//# sourceMappingURL=46440cc9aa3254116d21.js.map
