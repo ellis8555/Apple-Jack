@@ -24,12 +24,12 @@ module.exports = {
             title: "Hax94",
             template: path.resolve(__dirname, "./src/template.html"),
             templateParameters: {
-                headerImage: "./img/haxball-big-min.svg",
+                headerImage: "./img/haxball-big-min.png",
                 championsLogo: "./img/teamLogos/S03/haxualChocolateHomeS03.svg",
                 championsTeamName: "Haxual Chocolate"
             },
             filename: "index.html",
-            favicon: path.resolve(__dirname, "./img/favicon/haxFav.svg")
+            favicon: path.resolve(__dirname, "./img/favicon/haxFav.png")
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",
