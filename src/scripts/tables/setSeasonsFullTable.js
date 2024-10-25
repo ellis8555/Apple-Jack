@@ -1,6 +1,6 @@
 import createTable from "./createTable";
 import { fullTableNoTies, fullTable } from "../../constants/consts/supportVars";
-import { SEASONS_WITH_TIE_GAMES, DEFENDING_CHAMPS } from "../../constants/consts/vars";
+import { SEASONS_WITH_TIE_GAMES, DEFENDING_CHAMPS, IN_BETWEEN_SEASONS } from "../../constants/consts/vars";
 import TeamStats from "../setTables/createTeam"
 import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
@@ -12,7 +12,7 @@ import COLORS from "../../constants/consts/colors";
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'Combined' -- these are just table titles
 
 export default function setSeasonsFullTable(seasonNumber = currentSeason, modeDescriptor = "Season", tableDescriptor = "Regular Season") {
-  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+  setHeaderBanner(DEFENDING_CHAMPS, IN_BETWEEN_SEASONS ? currentSeason : currentSeason-1)
   setMainNavbar(seasonNumber);
   // set the table headers for ties for seasons that played with tie games
   let tableTypeString;

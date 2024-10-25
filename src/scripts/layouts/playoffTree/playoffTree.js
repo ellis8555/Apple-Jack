@@ -7,7 +7,7 @@ import sortGroupedStats from "../../misc/sorting/sort";
 import bestOfSeries from "./componenets/bestOfSeries";
 import setMainNavbar from "../navbar/setMainNavbar";
 import setHeaderBanner from "../setHeaderBanner";
-import { CHAMPIONS_LIST } from "../../../constants/consts/vars";
+import { CHAMPIONS_LIST, IN_BETWEEN_SEASONS } from "../../../constants/consts/vars";
 import createElement from "../../misc/createElement";
 import seriesContainer from "./componenets/seriesContainer";
 import COLORS from "../../../constants/consts/colors";
@@ -23,10 +23,13 @@ function playoffTree(seasonNumber){
     let championsListElement;
     if(seasonNumber == currentSeason){
         championsListElement = seasonNumber-2
+        if(IN_BETWEEN_SEASONS){
+            championsListElement = seasonNumber-1
+        }
     } else {
         championsListElement = seasonNumber - 1 
     }
-    setHeaderBanner(CHAMPIONS_LIST[championsListElement], seasonNumber == currentSeason ? seasonNumber-1 : seasonNumber)
+    setHeaderBanner(CHAMPIONS_LIST[championsListElement], seasonNumber == currentSeason ? (IN_BETWEEN_SEASONS ? seasonNumber : seasonNumber-1) : seasonNumber)
     setMainNavbar(seasonNumber)
     // get playoff games for matching season
     const firstRoundGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === 1)
