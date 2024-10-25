@@ -4,7 +4,7 @@ import setTableListeners from "../listeners/listenerHelpers/setTableListeners";
 import currentSeason from "../var_lib/season/currentSeason";
 import { PLAYERS_TABLE } from "../../constants/consts/supportVars";
 import setMainNavbar from "../layouts/navbar/setMainNavbar";
-import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
+import { DEFENDING_CHAMPS, IN_BETWEEN_SEASONS } from "../../constants/consts/vars";
 import setHeaderBanner from "../layouts/setHeaderBanner";
 import COLORS from "../../constants/consts/colors";
 
@@ -12,7 +12,7 @@ import COLORS from "../../constants/consts/colors";
 // tableDescriptor either 'Regular Season', 'Playoffs', or 'All Stats' -- these are just table titles
 
 export default function setPlayersAllTimeTable(seasonNumber, modeDescriptor = "", tableDescriptor) {
-  setHeaderBanner(DEFENDING_CHAMPS, currentSeason-1)
+  setHeaderBanner(DEFENDING_CHAMPS, IN_BETWEEN_SEASONS ? currentSeason : currentSeason-1)
   setMainNavbar(currentSeason)
   // all time player stats contains possible 0 as season number
   const key = `groupPlayersAllTime${modeDescriptor}Stats`
