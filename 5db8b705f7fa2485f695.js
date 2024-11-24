@@ -6401,7 +6401,7 @@ function MainAnnouncement(){
 
   const headingElem = document.createElement('h5');
   const bold = document.createElement('b')
-  bold.textContent = "Season 4 playoffs are currently underway!";
+  bold.textContent = "Degeneration Hax are your season 4 champions!";
   headingElem.append(bold)
 
   containerElem.append(headingElem);
@@ -6412,11 +6412,8 @@ function MainAnnouncement(){
 ;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/Message.js
 function Message(){
     const message = document.createElement('p');
-    message.innerHTML = `<b>*</b> HaxBall main logo is a link back to home settings of the page. <b>*</b>
-    <br>
-    <b>**</b> Tables are sortable via clicking the field header. On mobile, click on any row <b>**</b>
+    message.innerHTML = `Hax94 is a league that began as a tournament between players from the classic title EA NHL 94. <br> NHL 94 league website can be found at <a href="http://www.nhl94.com" style="color:red">here</a>. <br><br> There are also a few players from the NHL 95 community as well.  
     `
-
     return message;
 }
 
@@ -6873,4 +6870,4 @@ function importAll(r) {
 
 /******/ })()
 ;
-//# sourceMappingURL=5fd331c5ca3c461297ce.js.map
+//# sourceMappingURL=5db8b705f7fa2485f695.js.map
