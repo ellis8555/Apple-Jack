@@ -2,8 +2,9 @@ These are not in any particular order.
 
 1. in webpack.config.js within HtmlWebpackPlugin.templateParameters has 2 objects whos paths need to reflect the previous seasons logo and name.
 2. for now in template.html menu items need to be added for new season with proper id'season.
-3. inside of /src/constants/consts/vars.js DEFENDING_CHAMPS and DEFENDING_CHAMPS_LOGO need to be changed to reflect previous seasons champion team
+3. inside of /src/constants/consts/vars.js DEFENDING_CHAMPS and DEFENDING_CHAMPS_LOGO(logos may not need to be images any more) need to be changed to reflect previous seasons champion team
 4. if new season will have tie games then SEASONS_WITH_TIE_GAMES needs to have the new seasons number added to it. same file as step 3.
 5. season table listeners for menu need to be added in /src/scripts/listeners/seasonTableListeners/seasonTableListeners.js
 6. player table listeners for menu need to be added in /src/scripts/listeners/playerTableListeners/playerTableListeners.js
-7. in /src/constants/consts/vars.js IN_BETWEEN_SEASONS variable needs to be looked at
+7. steps 5 and 6 also need table arguments adjusted when setting up new seasons
+8. in /src/constants/consts/vars.js IN_BETWEEN_SEASONS variable needs to be looked at
