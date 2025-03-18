@@ -9872,10 +9872,10 @@
     },
     {
       "TeamID": 21,
-      "TeamName": "Tickenest ( un-named )",
-      "MainColor": "c8c8c8",
-      "S05Home": "60 c8c8c8 c0c0c0",
-      "S05Away": "60 c0c0c0 c8c8c8"
+      "TeamName": "Scribeathonenest",
+      "MainColor": "004953",
+      "S05Home": "30 FFFFFF 004953 000000 004953",
+      "S05Away": "150 000000 FFFFFF 004953 FFFFFF"
     }
   ],
   "Players": [
