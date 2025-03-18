@@ -18,9 +18,9 @@ import images from "./scripts/loadImages";
 import currentSeason from "./scripts/var_lib/season/currentSeason"
 
     // Set homepage standings table for current season
-    // setHomeTable();
+    setHomeTable();
     // during playoffs
     // setSeasonsFullTable(4, "Playoff", "Playoffs")
-    playoffTree(currentSeason)
+    // playoffTree(currentSeason)
     // Set listeners on table headers
     setTableListeners();
