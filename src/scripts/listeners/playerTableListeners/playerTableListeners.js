@@ -32,7 +32,7 @@ document
 document
   .getElementById("s04PlayerSeasonTable")
   .addEventListener("click", () => {
-    setPlayersFullTable();
+    setPlayersFullTable(4);
         setTimeout(() => {
       closeSidebar();
     }, 50);

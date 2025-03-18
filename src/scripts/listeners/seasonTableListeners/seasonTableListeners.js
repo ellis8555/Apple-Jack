@@ -7,7 +7,7 @@ import setSeasonsFullTable from "../../tables/setSeasonsFullTable";
 document
   .getElementById("s04RegularSeason")
   .addEventListener("click", () => {
-    setSeasonsFullTable()
+    setSeasonsFullTable(4)
     setTimeout(() => {
       closeSidebar();
     }, 50);
@@ -23,7 +23,7 @@ document
 document
   .getElementById("s04CombinedTable")
   .addEventListener("click", () => {
-    setSeasonsFullTable(4, "Combined", "PCombined")
+    setSeasonsFullTable(4, "Combined", "Combined")
     setTimeout(() => {
       closeSidebar();
     }, 50);
