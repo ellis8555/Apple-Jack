@@ -39,6 +39,44 @@
       "ExtraTime": "No"
     },
     {
+      "GameID": 21,
+      "SeasonNumber": 1,
+      "Round": 1,
+      "GameTypeID": 2,
+      "TeamOne": 4,
+      "TeamOneScore": 6,
+      "TeamOnePossession": 0,
+      "TeamOneShotsOnGoal": 0,
+      "TeamOnePasses": 0,
+      "TeamOneKicks": "0",
+      "TeamTwo": 1,
+      "TeamTwoScore": 4,
+      "TeamTwoPossession": 0,
+      "TeamTwoShotsOnGoal": 0,
+      "TeamTwoPasses": 0,
+      "TeamTwoKicks": 0,
+      "ExtraTime": "No"
+    },
+    {
+      "GameID": 22,
+      "SeasonNumber": 1,
+      "Round": 1,
+      "GameTypeID": 2,
+      "TeamOne": 4,
+      "TeamOneScore": 1,
+      "TeamOnePossession": 0,
+      "TeamOneShotsOnGoal": 0,
+      "TeamOnePasses": 0,
+      "TeamOneKicks": "0",
+      "TeamTwo": 1,
+      "TeamTwoScore": 2,
+      "TeamTwoPossession": 0,
+      "TeamTwoShotsOnGoal": 0,
+      "TeamTwoPasses": 0,
+      "TeamTwoKicks": 0,
+      "ExtraTime": "No"
+    },
+    {
       "GameID": 3,
       "SeasonNumber": 1,
       "Round": 0,
@@ -305,44 +343,6 @@
       "ExtraTime": "No"
     },
     {
-      "GameID": 17,
-      "SeasonNumber": 1,
-      "Round": 0,
-      "GameTypeID": 1,
-      "TeamOne": 4,
-      "TeamOneScore": 10,
-      "TeamOnePossession": 0,
-      "TeamOneShotsOnGoal": 0,
-      "TeamOnePasses": 0,
-      "TeamOneKicks": "0",
-      "TeamTwo": 5,
-      "TeamTwoScore": 3,
-      "TeamTwoPossession": 0,
-      "TeamTwoShotsOnGoal": 0,
-      "TeamTwoPasses": 0,
-      "TeamTwoKicks": 0,
-      "ExtraTime": "No"
-    },
-    {
-      "GameID": 18,
-      "SeasonNumber": 1,
-      "Round": 0,
-      "GameTypeID": 1,
-      "TeamOne": 4,
-      "TeamOneScore": 8,
-      "TeamOnePossession": 0,
-      "TeamOneShotsOnGoal": 0,
-      "TeamOnePasses": 0,
-      "TeamOneKicks": "0",
-      "TeamTwo": 5,
-      "TeamTwoScore": 3,
-      "TeamTwoPossession": 0,
-      "TeamTwoShotsOnGoal": 0,
-      "TeamTwoPasses": 0,
-      "TeamTwoKicks": 0,
-      "ExtraTime": "No"
-    },
-    {
       "GameID": 19,
       "SeasonNumber": 1,
       "Round": 0,
@@ -381,18 +381,18 @@
       "ExtraTime": "No"
     },
     {
-      "GameID": 21,
+      "GameID": 17,
       "SeasonNumber": 1,
-      "Round": 1,
-      "GameTypeID": 2,
+      "Round": 0,
+      "GameTypeID": 1,
       "TeamOne": 4,
-      "TeamOneScore": 6,
+      "TeamOneScore": 10,
       "TeamOnePossession": 0,
       "TeamOneShotsOnGoal": 0,
       "TeamOnePasses": 0,
       "TeamOneKicks": "0",
-      "TeamTwo": 1,
-      "TeamTwoScore": 4,
+      "TeamTwo": 5,
+      "TeamTwoScore": 3,
       "TeamTwoPossession": 0,
       "TeamTwoShotsOnGoal": 0,
       "TeamTwoPasses": 0,
@@ -400,18 +400,18 @@
       "ExtraTime": "No"
     },
     {
-      "GameID": 22,
+      "GameID": 18,
       "SeasonNumber": 1,
-      "Round": 1,
-      "GameTypeID": 2,
+      "Round": 0,
+      "GameTypeID": 1,
       "TeamOne": 4,
-      "TeamOneScore": 1,
+      "TeamOneScore": 8,
       "TeamOnePossession": 0,
       "TeamOneShotsOnGoal": 0,
       "TeamOnePasses": 0,
       "TeamOneKicks": "0",
-      "TeamTwo": 1,
-      "TeamTwoScore": 2,
+      "TeamTwo": 5,
+      "TeamTwoScore": 3,
       "TeamTwoPossession": 0,
       "TeamTwoShotsOnGoal": 0,
       "TeamTwoPasses": 0,
@@ -2182,29 +2182,7 @@
     {
       "GameID": 1,
       "TeamID": 2,
-      "PlayerID": 7,
-      "Goals": 1,
-      "Assists": 1,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
-      "GameID": 1,
-      "TeamID": 2,
       "PlayerID": 6,
-      "Goals": 3,
-      "Assists": 1,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
-      "GameID": 1,
-      "TeamID": 1,
-      "PlayerID": 12,
       "Goals": 3,
       "Assists": 1,
       "Kicks": 0,
@@ -2235,6 +2213,28 @@
       "OwnGoals": 0
     },
     {
+      "GameID": 1,
+      "TeamID": 1,
+      "PlayerID": 12,
+      "Goals": 3,
+      "Assists": 1,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 1,
+      "TeamID": 2,
+      "PlayerID": 7,
+      "Goals": 1,
+      "Assists": 1,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
       "GameID": 2,
       "TeamID": 1,
       "PlayerID": 14,
@@ -2251,6 +2251,28 @@
       "PlayerID": 9,
       "Goals": 0,
       "Assists": 0,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 2,
+      "TeamID": 1,
+      "PlayerID": 12,
+      "Goals": 0,
+      "Assists": 1,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 2,
+      "TeamID": 2,
+      "PlayerID": 7,
+      "Goals": 0,
+      "Assists": 1,
       "Kicks": 0,
       "Passes": 0,
       "ShotsOnGoal": 0,
@@ -2279,28 +2301,6 @@
       "OwnGoals": 0
     },
     {
-      "GameID": 2,
-      "TeamID": 2,
-      "PlayerID": 7,
-      "Goals": 0,
-      "Assists": 1,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
-      "GameID": 2,
-      "TeamID": 1,
-      "PlayerID": 12,
-      "Goals": 0,
-      "Assists": 1,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
       "GameID": 3,
       "TeamID": 1,
       "PlayerID": 14,
@@ -2326,6 +2326,17 @@
       "GameID": 3,
       "TeamID": 1,
       "PlayerID": 12,
+      "Goals": 1,
+      "Assists": 1,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 3,
+      "TeamID": 3,
+      "PlayerID": 10,
       "Goals": 1,
       "Assists": 1,
       "Kicks": 0,
@@ -2356,11 +2367,22 @@
       "OwnGoals": 0
     },
     {
-      "GameID": 3,
-      "TeamID": 3,
-      "PlayerID": 10,
+      "GameID": 4,
+      "TeamID": 1,
+      "PlayerID": 14,
       "Goals": 1,
-      "Assists": 1,
+      "Assists": 0,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 4,
+      "TeamID": 1,
+      "PlayerID": 9,
+      "Goals": 0,
+      "Assists": 0,
       "Kicks": 0,
       "Passes": 0,
       "ShotsOnGoal": 0,
@@ -2379,21 +2401,10 @@
     },
     {
       "GameID": 4,
-      "TeamID": 1,
-      "PlayerID": 14,
-      "Goals": 1,
-      "Assists": 0,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
-      "GameID": 4,
-      "TeamID": 1,
-      "PlayerID": 9,
-      "Goals": 0,
-      "Assists": 0,
+      "TeamID": 3,
+      "PlayerID": 10,
+      "Goals": 5,
+      "Assists": 1,
       "Kicks": 0,
       "Passes": 0,
       "ShotsOnGoal": 0,
@@ -2422,21 +2433,10 @@
       "OwnGoals": 0
     },
     {
-      "GameID": 4,
-      "TeamID": 3,
-      "PlayerID": 10,
-      "Goals": 5,
-      "Assists": 1,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
       "GameID": 5,
       "TeamID": 1,
-      "PlayerID": 12,
-      "Goals": 0,
+      "PlayerID": 14,
+      "Goals": 1,
       "Assists": 0,
       "Kicks": 0,
       "Passes": 0,
@@ -2457,9 +2457,20 @@
     {
       "GameID": 5,
       "TeamID": 1,
-      "PlayerID": 14,
-      "Goals": 1,
+      "PlayerID": 12,
+      "Goals": 0,
       "Assists": 0,
+      "Kicks": 0,
+      "Passes": 0,
+      "ShotsOnGoal": 0,
+      "OwnGoals": 0
+    },
+    {
+      "GameID": 5,
+      "TeamID": 4,
+      "PlayerID": 2,
+      "Goals": 3,
+      "Assists": 1,
       "Kicks": 0,
       "Passes": 0,
       "ShotsOnGoal": 0,
@@ -2488,11 +2499,11 @@
       "OwnGoals": 0
     },
     {
-      "GameID": 5,
-      "TeamID": 4,
-      "PlayerID": 2,
-      "Goals": 3,
-      "Assists": 1,
+      "GameID": 6,
+      "TeamID": 1,
+      "PlayerID": 14,
+      "Goals": 1,
+      "Assists": 0,
       "Kicks": 0,
       "Passes": 0,
       "ShotsOnGoal": 0,
@@ -2522,19 +2533,8 @@
     },
     {
       "GameID": 6,
-      "TeamID": 1,
-      "PlayerID": 14,
-      "Goals": 1,
-      "Assists": 0,
-      "Kicks": 0,
-      "Passes": 0,
-      "ShotsOnGoal": 0,
-      "OwnGoals": 0
-    },
-    {
-      "GameID": 6,
       "TeamID": 4,
-      "PlayerID": 2,
+      "PlayerID": 15,
       "Goals": 1,
       "Assists": 1,
       "Kicks": 0,
@@ -2556,7 +2556,7 @@
     {
       "GameID": 6,
       "TeamID": 4,
-      "PlayerID": 15,
+      "PlayerID": 2,
       "Goals": 1,
       "Assists": 1,
       "Kicks": 0,
@@ -2600,7 +2600,7 @@
     {
       "GameID": 7,
       "TeamID": 5,
-      "PlayerID": 13,
+      "PlayerID": 1,
       "Goals": 1,
       "Assists": 1,
       "Kicks": 0,
@@ -2622,7 +2622,7 @@
     {
       "GameID": 7,
       "TeamID": 5,
-      "PlayerID": 1,
+      "PlayerID": 13,
       "Goals": 1,
       "Assists": 1,
       "Kicks": 0,
@@ -9841,6 +9841,41 @@
       "S04Away": "60 FFC62F FFFFFF FFFFFF 4F2683",
       "S04HomeFilePath": "img/teamLogos/S04/trinityNuclearTestHomeS04.svg",
       "S04AwayFilePath": "img/teamLogos/S04/trinityNuclearTestAwayS04.svg"
+    },
+    {
+      "TeamID": 17,
+      "TeamName": "Kingraph ( un-named )",
+      "MainColor": "c8c8c8",
+      "S05Home": "60 c8c8c8 c0c0c0",
+      "S05Away": "60 c0c0c0 c8c8c8"
+    },
+    {
+      "TeamID": 18,
+      "TeamName": "Ellis ( un-named )",
+      "MainColor": "cf0a2c",
+      "S05Home": "60 FFFFFF 000000 CF0A2C FFFFFF",
+      "S05Away": "60 FFFFFF CF0A2C"
+    },
+    {
+      "TeamID": 19,
+      "TeamName": "USHAX",
+      "MainColor": "0000ff",
+      "S05Home": "60 0000FF FFFFFF FFFFFF DD0000",
+      "S05Away": "60 FFFFFF 0000FF"
+    },
+    {
+      "TeamID": 20,
+      "TeamName": "Phoenhax Coyotes",
+      "MainColor": "822634",
+      "S05Home": "90 D7D5DE 822634 044833",
+      "S05Away": "90 822634 DED3B0 F7F4E9"
+    },
+    {
+      "TeamID": 21,
+      "TeamName": "Tickenest ( un-named )",
+      "MainColor": "c8c8c8",
+      "S05Home": "60 c8c8c8 c0c0c0",
+      "S05Away": "60 c0c0c0 c8c8c8"
     }
   ],
   "Players": [
@@ -9947,6 +9982,14 @@
     {
       "PlayerID": 26,
       "Players": "Richter"
+    },
+    {
+      "PlayerID": 27,
+      "Players": "ComicalFont"
+    },
+    {
+      "PlayerID": 28,
+      "Players": "Mr T EX"
     }
   ],
   "TeamPlayers": [
@@ -10254,6 +10297,81 @@
       "SeasonNumber": 4,
       "TeamID": 16,
       "PlayerID": 13
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 17,
+      "PlayerID": 10
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 17,
+      "PlayerID": 1
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 17,
+      "PlayerID": 27
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 18,
+      "PlayerID": 6
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 18,
+      "PlayerID": 12
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 18,
+      "PlayerID": 28
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 19,
+      "PlayerID": 2
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 19,
+      "PlayerID": 13
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 19,
+      "PlayerID": 3
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 20,
+      "PlayerID": 26
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 20,
+      "PlayerID": 21
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 20,
+      "PlayerID": 8
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 21,
+      "PlayerID": 15
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 21,
+      "PlayerID": 24
+    },
+    {
+      "SeasonNumber": 5,
+      "TeamID": 21,
+      "PlayerID": 22
     }
   ],
   "GameType": [
@@ -10272,12 +10390,6 @@
       "ScoredBy": 14,
       "Comment": "Drizz with the steal, dump and chase - GOAL!!",
       "Filepath": "img/gifs/S01/S01-ID01-01.gif"
-    },
-    {
-      "GameID": 1,
-      "OwnGoal": 9,
-      "Comment": "Gambi keeps the ball in the offensive zone and luck gives C.E.G its second goal!",
-      "Filepath": "img/gifs/S01/S01-ID01-05.gif"
     },
     {
       "GameID": 1,
@@ -10304,8 +10416,14 @@
       "GameID": 1,
       "ScoredBy": 14,
       "AssistedBy": 12,
-      "Comment": "Forechecking by skills results in a tap in for thatDrizzle",
-      "Filepath": "img/gifs/S01/S01-ID01-02.gif"
+      "Comment": "thatDrizzle with the early hat trick on another setup from skills!",
+      "Filepath": "img/gifs/S01/S01-ID01-03.gif"
+    },
+    {
+      "GameID": 1,
+      "OwnGoal": 9,
+      "Comment": "Gambi keeps the ball in the offensive zone and luck gives C.E.G its second goal!",
+      "Filepath": "img/gifs/S01/S01-ID01-05.gif"
     },
     {
       "GameID": 1,
@@ -10317,8 +10435,8 @@
       "GameID": 1,
       "ScoredBy": 14,
       "AssistedBy": 12,
-      "Comment": "thatDrizzle with the early hat trick on another setup from skills!",
-      "Filepath": "img/gifs/S01/S01-ID01-03.gif"
+      "Comment": "Forechecking by skills results in a tap in for thatDrizzle",
+      "Filepath": "img/gifs/S01/S01-ID01-02.gif"
     },
     {
       "GameID": 1,
@@ -10331,6 +10449,12 @@
       "ScoredBy": 14,
       "Comment": "thatDrizzle kicks the ball upfield then cuts off the wall angle resulting in his 4th of the game!",
       "Filepath": "img/gifs/S01/S01-ID01-06.gif"
+    },
+    {
+      "GameID": 1,
+      "ScoredBy": 14,
+      "Comment": "thatDrizzle with his 5th of the game on a intercepted pass",
+      "Filepath": "img/gifs/S01/S01-ID01-09.gif"
     },
     {
       "GameID": 1,
@@ -10349,12 +10473,6 @@
       "ScoredBy": 12,
       "Comment": "Skills bringing the crease cut into hax!",
       "Filepath": "img/gifs/S01/S01-ID01-08.gif"
-    },
-    {
-      "GameID": 1,
-      "ScoredBy": 14,
-      "Comment": "thatDrizzle with his 5th of the game on a intercepted pass",
-      "Filepath": "img/gifs/S01/S01-ID01-09.gif"
     },
     {
       "GameID": 12,
@@ -10379,6 +10497,13 @@
     },
     {
       "GameID": 21,
+      "ScoredBy": 15,
+      "AssistedBy": 2,
+      "Comment": "Chaos pinches up and moves the ball up to Tickenest for another cap",
+      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-02.gif"
+    },
+    {
+      "GameID": 21,
       "ScoredBy": 9,
       "AssistedBy": 12,
       "Comment": "Skills fools the D and makes it look like a pass off the wall but opts for the upfield pass straight onto kids who buries it",
@@ -10392,9 +10517,10 @@
     },
     {
       "GameID": 21,
-      "ScoredBy": 14,
-      "Comment": "Drizz caps one after applying offensive pressure alongside Skills",
-      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-05.gif"
+      "ScoredBy": 15,
+      "AssistedBy": 11,
+      "Comment": "Nice passing play all around from team Mooney!",
+      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-01.gif"
     },
     {
       "GameID": 21,
@@ -10408,13 +10534,6 @@
       "ScoredBy": 11,
       "Comment": "Full Mooney!",
       "Filepath": "img/gifs/S01/Playoffs/S01-ID21-07.gif"
-    },
-    {
-      "GameID": 21,
-      "ScoredBy": 15,
-      "AssistedBy": 2,
-      "Comment": "Chaos pinches up and moves the ball up to Tickenest for another cap",
-      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-02.gif"
     },
     {
       "GameID": 21,
@@ -10437,10 +10556,9 @@
     },
     {
       "GameID": 21,
-      "ScoredBy": 15,
-      "AssistedBy": 11,
-      "Comment": "Nice passing play all around from team Mooney!",
-      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-01.gif"
+      "ScoredBy": 14,
+      "Comment": "Drizz caps one after applying offensive pressure alongside Skills",
+      "Filepath": "img/gifs/S01/Playoffs/S01-ID21-05.gif"
     },
     {
       "GameID": 22,
@@ -10513,10 +10631,10 @@
     },
     {
       "GameID": 28,
-      "ScoredBy": 6,
-      "AssistedBy": 3,
-      "Comment": "Corbettk with the long bank pass off the wall for Ellis.",
-      "Filepath": "img/gifs/S02/S02-ID28-10.gif"
+      "ScoredBy": 11,
+      "AssistedBy": 16,
+      "Comment": "Mooney takes advantage of defensive blunder by Ellis",
+      "Filepath": "img/gifs/S02/S02-ID28-06.gif"
     },
     {
       "GameID": 28,
@@ -10544,6 +10662,19 @@
     },
     {
       "GameID": 28,
+      "ScoredBy": 16,
+      "Comment": "Lupz27 given an open net break from Ellis!",
+      "Filepath": "img/gifs/S02/S02-ID28-11.gif"
+    },
+    {
+      "GameID": 28,
+      "ScoredBy": 6,
+      "AssistedBy": 3,
+      "Comment": "Corbettk with the long bank pass off the wall for Ellis.",
+      "Filepath": "img/gifs/S02/S02-ID28-10.gif"
+    },
+    {
+      "GameID": 28,
       "ScoredBy": 12,
       "AssistedBy": 6,
       "Comment": "Unlucky bounce off of corner shot by Skills324",
@@ -10565,22 +10696,9 @@
     },
     {
       "GameID": 28,
-      "ScoredBy": 11,
-      "AssistedBy": 16,
-      "Comment": "Mooney takes advantage of defensive blunder by Ellis",
-      "Filepath": "img/gifs/S02/S02-ID28-06.gif"
-    },
-    {
-      "GameID": 28,
       "OwnGoal": 16,
       "Comment": "Pressure in the corner",
       "Filepath": "img/gifs/S02/S02-ID28-03.gif"
-    },
-    {
-      "GameID": 28,
-      "ScoredBy": 16,
-      "Comment": "Lupz27 given an open net break from Ellis!",
-      "Filepath": "img/gifs/S02/S02-ID28-11.gif"
     },
     {
       "GameID": 29,

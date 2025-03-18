@@ -18,7 +18,8 @@ import currentSeason from "../var_lib/season/currentSeason";
   // add link to haxball logo 
   const headerLogo = document.querySelector("img[alt*='Haxball']");
   // setHomeTable or playoffs depending on if playoffs are currently ongoing
-  headerLogo.addEventListener("click", () => {playoffTree(currentSeason)});
+  headerLogo.addEventListener("click", () => {setHomeTable()});
+  // headerLogo.addEventListener("click", () => {playoffTree(currentSeason)});
 
 // keeps tables fields correctly highlighted on windows resize
 

@@ -6,3 +6,4 @@ These are not in any particular order.
 4. if new season will have tie games then SEASONS_WITH_TIE_GAMES needs to have the new seasons number added to it. same file as step 3.
 5. season table listeners for menu need to be added in /src/scripts/listeners/seasonTableListeners/seasonTableListeners.js
 6. player table listeners for menu need to be added in /src/scripts/listeners/playerTableListeners/playerTableListeners.js
+7. in /src/constants/consts/vars.js IN_BETWEEN_SEASONS variable needs to be looked at
