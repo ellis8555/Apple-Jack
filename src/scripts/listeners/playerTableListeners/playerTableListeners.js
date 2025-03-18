@@ -28,6 +28,15 @@ document
       closeSidebar();
     }, 50);
 });
+// season 05 players tables
+document  
+  .getElementById("s05PlayerSeasonTable")
+  .addEventListener("click", () => {
+    setPlayersFullTable(5)
+    setTimeout(() => {
+      closeSidebar()
+    })
+  }, 50)
 // season 04 players tables
 document
   .getElementById("s04PlayerSeasonTable")

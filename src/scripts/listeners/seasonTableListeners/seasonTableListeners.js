@@ -3,6 +3,15 @@ import closeSidebar from "../../sidebar/closeSidebar";
 import setSeasonsFullTable from "../../tables/setSeasonsFullTable";
 
 // teams tables
+// season 05 standings tables
+document
+  .getElementById("s05RegularSeason")
+  .addEventListener("click", () => {
+    setSeasonsFullTable()
+    setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
 // season 04 standings tables
 document
   .getElementById("s04RegularSeason")
