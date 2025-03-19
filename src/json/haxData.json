@@ -9844,10 +9844,10 @@
     },
     {
       "TeamID": 17,
-      "TeamName": "Kingraph ( un-named )",
-      "MainColor": "c8c8c8",
-      "S05Home": "60 c8c8c8 c0c0c0",
-      "S05Away": "60 c0c0c0 c8c8c8"
+      "TeamName": "Haxvetica",
+      "MainColor": "000000",
+      "S05Home": "45 FF0A2B 000000 000000 ADADAD",
+      "S05Away": "45 000000 ADADAD ADADAD FF0A2B"
     },
     {
       "TeamID": 18,
