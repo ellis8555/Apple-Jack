@@ -11739,9 +11739,10 @@
     },
     {
       "GameID": 33,
-      "OwnGoal": 16,
-      "Comment": "Angryjay93 cuts off angle to force an OG!",
-      "Filepath": "img/gifs/S02/S02-ID33-04.gif"
+      "ScoredBy": 15,
+      "AssistedBy": 2,
+      "Comment": "Tickenest caps a quick one two",
+      "Filepath": "img/gifs/S02/S02-ID33-03.gif"
     },
     {
       "GameID": 33,
@@ -11758,10 +11759,9 @@
     },
     {
       "GameID": 33,
-      "ScoredBy": 15,
-      "AssistedBy": 2,
-      "Comment": "Tickenest caps a quick one two",
-      "Filepath": "img/gifs/S02/S02-ID33-03.gif"
+      "OwnGoal": 16,
+      "Comment": "Angryjay93 cuts off angle to force an OG!",
+      "Filepath": "img/gifs/S02/S02-ID33-04.gif"
     },
     {
       "GameID": 33,
@@ -11912,9 +11912,9 @@
     },
     {
       "GameID": 38,
-      "ScoredBy": 3,
-      "Comment": "Only Corbettkb picks this shot!",
-      "Filepath": "img/gifs/S02/S02-ID38-05.gif"
+      "ScoredBy": 16,
+      "Comment": "A howitzer of a shot by Tennessee Williams collected up by rookie sensation Lupz27",
+      "Filepath": "img/gifs/S02/S02-ID38-04.gif"
     },
     {
       "GameID": 38,
@@ -11925,9 +11925,9 @@
     },
     {
       "GameID": 38,
-      "ScoredBy": 16,
-      "Comment": "A howitzer of a shot by Tennessee Williams collected up by rookie sensation Lupz27",
-      "Filepath": "img/gifs/S02/S02-ID38-04.gif"
+      "ScoredBy": 3,
+      "Comment": "Only Corbettkb picks this shot!",
+      "Filepath": "img/gifs/S02/S02-ID38-05.gif"
     },
     {
       "GameID": 38,
@@ -12000,20 +12000,13 @@
     },
     {
       "GameID": 40,
-      "Comment": "Kingraph with the nice off the wall moneuver gaining position for setting up the next highlight…",
-      "Filepath": "img/gifs/S02/S02-ID40-09.gif"
-    },
-    {
-      "GameID": 40,
       "Comment": "Kingraph shoulder to shoulder with Ellis goes for distance and comes up shy by inches",
       "Filepath": "img/gifs/S02/S02-ID40-07.gif"
     },
     {
       "GameID": 40,
-      "ScoredBy": 10,
-      "AssistedBy": 4,
-      "Comment": "Haxual Chocolate gets one with 20 seconds remaining in the first half to go up 3-0",
-      "Filepath": "img/gifs/S02/S02-ID40-03.gif"
+      "Comment": "Kingraph with the nice off the wall moneuver gaining position for setting up the next highlight…",
+      "Filepath": "img/gifs/S02/S02-ID40-09.gif"
     },
     {
       "GameID": 40,
@@ -12034,6 +12027,13 @@
       "ScoredBy": 3,
       "Comment": "Corbettkb picks the bottom corner and gets CES Pool on the board now down 5-1",
       "Filepath": "img/gifs/S02/S02-ID40-06.gif"
+    },
+    {
+      "GameID": 40,
+      "ScoredBy": 10,
+      "AssistedBy": 4,
+      "Comment": "Haxual Chocolate gets one with 20 seconds remaining in the first half to go up 3-0",
+      "Filepath": "img/gifs/S02/S02-ID40-03.gif"
     },
     {
       "GameID": 40,
@@ -12119,6 +12119,13 @@
     },
     {
       "GameID": 42,
+      "ScoredBy": 14,
+      "AssistedBy": 4,
+      "Comment": "Dangler with the pass upfield to a streaking thatDrizzle who angles one in. 5-3 Haxual Chocolate!",
+      "Filepath": "img/gifs/S02/S02-ID42-11.gif"
+    },
+    {
+      "GameID": 42,
       "ScoredBy": 10,
       "AssistedBy": 14,
       "Comment": "Ellis sustains an injury by a Hax Chocolate fan who threw a \"lag\" bolt at him resulting in a nice set up by Drizzle to Kingraph. 4-3 HC!",
@@ -12145,10 +12152,9 @@
     },
     {
       "GameID": 42,
-      "ScoredBy": 14,
-      "AssistedBy": 4,
-      "Comment": "Dangler with the pass upfield to a streaking thatDrizzle who angles one in. 5-3 Haxual Chocolate!",
-      "Filepath": "img/gifs/S02/S02-ID42-11.gif"
+      "ScoredBy": 4,
+      "Comment": "Dangler banks one off of Corbettkb to open the scoring in this game",
+      "Filepath": "img/gifs/S02/S02-ID42-01.gif"
     },
     {
       "GameID": 42,
@@ -12179,10 +12185,11 @@
       "Filepath": "img/gifs/S02/S02-ID42-06.gif"
     },
     {
-      "GameID": 42,
-      "ScoredBy": 4,
-      "Comment": "Dangler banks one off of Corbettkb to open the scoring in this game",
-      "Filepath": "img/gifs/S02/S02-ID42-01.gif"
+      "GameID": 43,
+      "ScoredBy": 10,
+      "AssistedBy": 4,
+      "Comment": "Kingraph and Haxual Chocolate quickly end this game in extra time on nice corner work from Dangler",
+      "Filepath": "img/gifs/S02/S02-ID43-10.gif"
     },
     {
       "GameID": 43,
@@ -12207,13 +12214,6 @@
       "AssistedBy": 12,
       "Comment": "Ellis making things more complicated than they need to be",
       "Filepath": "img/gifs/S02/S02-ID43-06.gif"
-    },
-    {
-      "GameID": 43,
-      "ScoredBy": 10,
-      "AssistedBy": 4,
-      "Comment": "Kingraph and Haxual Chocolate quickly end this game in extra time on nice corner work from Dangler",
-      "Filepath": "img/gifs/S02/S02-ID43-10.gif"
     },
     {
       "GameID": 43,
@@ -12257,11 +12257,6 @@
     },
     {
       "GameID": 44,
-      "Comment": "Tickenest makes a massive save deep into extra time on this shot from Dr Drizzle",
-      "Filepath": "img/gifs/S02/S02-ID44-11.gif"
-    },
-    {
-      "GameID": 44,
       "Comment": "Chaos gets a break but deep into extra time exhaustion is a  factor! Game is still tied at 1-1",
       "Filepath": "img/gifs/S02/S02-ID44-10.gif"
     },
@@ -12279,6 +12274,11 @@
       "GameID": 44,
       "Comment": "Extra time pressure is building on everyone in this game and Kingraph just misses! Game still tied at 1-1!!",
       "Filepath": "img/gifs/S02/S02-ID44-07.gif"
+    },
+    {
+      "GameID": 44,
+      "Comment": "Tickenest makes a massive save deep into extra time on this shot from Dr Drizzle",
+      "Filepath": "img/gifs/S02/S02-ID44-11.gif"
     },
     {
       "GameID": 44,
@@ -12315,13 +12315,20 @@
     },
     {
       "GameID": 45,
-      "Comment": "Kingraph narrowly misses evening this game up. Still 2-1 for Mooney",
-      "Filepath": "img/gifs/S02/S02-ID45-06.gif"
+      "ScoredBy": 2,
+      "AssistedBy": 1,
+      "Comment": "A rare breakdown from Haxual Chocolate leads to Angryjay and Chaos pressure resulting in a 3-1 victory for team Mooney ",
+      "Filepath": "img/gifs/S02/S02-ID45-08.gif"
     },
     {
       "GameID": 45,
       "Comment": "Angryjay with the right idea passing back to the point but got lucky on this errant attempt",
       "Filepath": "img/gifs/S02/S02-ID45-07.gif"
+    },
+    {
+      "GameID": 45,
+      "Comment": "Kingraph narrowly misses evening this game up. Still 2-1 for Mooney",
+      "Filepath": "img/gifs/S02/S02-ID45-06.gif"
     },
     {
       "GameID": 45,
@@ -12332,15 +12339,10 @@
     },
     {
       "GameID": 45,
-      "ScoredBy": 2,
-      "AssistedBy": 1,
-      "Comment": "A rare breakdown from Haxual Chocolate leads to Angryjay and Chaos pressure resulting in a 3-1 victory for team Mooney ",
-      "Filepath": "img/gifs/S02/S02-ID45-08.gif"
-    },
-    {
-      "GameID": 45,
-      "Comment": "Kingraph finds an opening an puts Haxual Chocolate up 1-0",
-      "Filepath": "img/gifs/S02/S02-ID45-03.gif"
+      "ScoredBy": 1,
+      "AssistedBy": 2,
+      "Comment": "Angryjay evens this game up on a wall pass courtesy of Chaos",
+      "Filepath": "img/gifs/S02/S02-ID45-04.gif"
     },
     {
       "GameID": 45,
@@ -12354,10 +12356,8 @@
     },
     {
       "GameID": 45,
-      "ScoredBy": 1,
-      "AssistedBy": 2,
-      "Comment": "Angryjay evens this game up on a wall pass courtesy of Chaos",
-      "Filepath": "img/gifs/S02/S02-ID45-04.gif"
+      "Comment": "Kingraph finds an opening an puts Haxual Chocolate up 1-0",
+      "Filepath": "img/gifs/S02/S02-ID45-03.gif"
     },
     {
       "GameID": 46,
@@ -12438,12 +12438,6 @@
     },
     {
       "GameID": 47,
-      "ScoredBy": 1,
-      "Comment": "Angryjay makes this one look easier than it actually is angling team Mooney to within  three at the half",
-      "Filepath": "img/gifs/S02/S02-ID47-08.gif"
-    },
-    {
-      "GameID": 47,
       "ScoredBy": 2,
       "AssistedBy": 1,
       "Comment": "To little too late on a decent goal from all members of team Mooney. Final is 7-3 HC ",
@@ -12464,23 +12458,21 @@
     },
     {
       "GameID": 47,
+      "ScoredBy": 1,
+      "Comment": "Angryjay makes this one look easier than it actually is angling team Mooney to within  three at the half",
+      "Filepath": "img/gifs/S02/S02-ID47-08.gif"
+    },
+    {
+      "GameID": 47,
+      "Comment": "thatDrizzle showing his hax moves!! 4-1 HC with time remaining in this first half",
+      "Filepath": "img/gifs/S02/S02-ID47-06.gif"
+    },
+    {
+      "GameID": 47,
       "ScoredBy": 10,
       "AssistedBy": 14,
       "Comment": "An extremely patient Kingraph caps Hax Chocolates 5th of the half",
       "Filepath": "img/gifs/S02/S02-ID47-07.gif"
-    },
-    {
-      "GameID": 47,
-      "ScoredBy": 14,
-      "Comment": "thatDrizzle capatilizes on what appears to be a very jet \"lag\" ged  Tickenest?",
-      "Filepath": "img/gifs/S02/S02-ID47-02.gif"
-    },
-    {
-      "GameID": 47,
-      "ScoredBy": 1,
-      "AssistedBy": 15,
-      "Comment": "Angryjay puts team Mooney on the board on a forward ball via Tickenest. ",
-      "Filepath": "img/gifs/S02/S02-ID47-05.gif"
     },
     {
       "GameID": 47,
@@ -12496,13 +12488,21 @@
     },
     {
       "GameID": 47,
+      "ScoredBy": 14,
+      "Comment": "thatDrizzle capatilizes on what appears to be a very jet \"lag\" ged  Tickenest?",
+      "Filepath": "img/gifs/S02/S02-ID47-02.gif"
+    },
+    {
+      "GameID": 47,
       "Comment": "Haxual Chocolate barely miss on this very nice play and the game remains scoreless",
       "Filepath": "img/gifs/S02/S02-ID47-01.gif"
     },
     {
       "GameID": 47,
-      "Comment": "thatDrizzle showing his hax moves!! 4-1 HC with time remaining in this first half",
-      "Filepath": "img/gifs/S02/S02-ID47-06.gif"
+      "ScoredBy": 1,
+      "AssistedBy": 15,
+      "Comment": "Angryjay puts team Mooney on the board on a forward ball via Tickenest. ",
+      "Filepath": "img/gifs/S02/S02-ID47-05.gif"
     },
     {
       "GameID": 48,
@@ -12512,8 +12512,10 @@
     },
     {
       "GameID": 48,
-      "Comment": "Haxel Rose barely escapes going down by four on a nice save by Lupz27",
-      "Filepath": "img/gifs/S02/S02-ID48-15.gif"
+      "ScoredBy": 10,
+      "AssistedBy": 14,
+      "Comment": "Kingraph closes out the scoring on a nice wall bounce from Drizzle. The final will be 7-3 Haxual Chocolate",
+      "Filepath": "img/gifs/S02/S02-ID48-16.gif"
     },
     {
       "GameID": 48,
@@ -12528,13 +12530,6 @@
       "AssistedBy": 10,
       "Comment": "A wide open Dangler puts HC back up by two. 5-3 HC",
       "Filepath": "img/gifs/S02/S02-ID48-13.gif"
-    },
-    {
-      "GameID": 48,
-      "ScoredBy": 10,
-      "AssistedBy": 14,
-      "Comment": "Kingraph closes out the scoring on a nice wall bounce from Drizzle. The final will be 7-3 Haxual Chocolate",
-      "Filepath": "img/gifs/S02/S02-ID48-16.gif"
     },
     {
       "GameID": 48,
@@ -12557,8 +12552,8 @@
     },
     {
       "GameID": 48,
-      "Comment": "Mooney with an exceptional defensive play leaves Kingraph in disbelief as he had an easy goal lined up",
-      "Filepath": "img/gifs/S02/S02-ID48-04.gif"
+      "Comment": "Haxel Rose barely escapes going down by four on a nice save by Lupz27",
+      "Filepath": "img/gifs/S02/S02-ID48-15.gif"
     },
     {
       "GameID": 48,
@@ -12576,6 +12571,11 @@
       "AssistedBy": 13,
       "Comment": "Lupz27 squeezes Kingraph and the ball over the goaline putting Haxel Rose onto the scoreboard. Now 2-1 HC",
       "Filepath": "img/gifs/S02/S02-ID48-05.gif"
+    },
+    {
+      "GameID": 48,
+      "Comment": "Mooney with an exceptional defensive play leaves Kingraph in disbelief as he had an easy goal lined up",
+      "Filepath": "img/gifs/S02/S02-ID48-04.gif"
     },
     {
       "GameID": 48,
@@ -12637,13 +12637,6 @@
       "GameID": 49,
       "ScoredBy": 4,
       "AssistedBy": 10,
-      "Comment": "Dangler with the hat trick and this game still has some time remaining",
-      "Filepath": "img/gifs/S02/S02-ID49-11.gif"
-    },
-    {
-      "GameID": 49,
-      "ScoredBy": 4,
-      "AssistedBy": 10,
       "Comment": "Dangler gets his second of the game on a long ball from Kingraph. 8-1",
       "Filepath": "img/gifs/S02/S02-ID49-10.gif"
     },
@@ -12657,13 +12650,20 @@
     {
       "GameID": 49,
       "ScoredBy": 4,
-      "Comment": "Dangler brings this game into the beginning of an ominous state. 5-1 and things will not improve for team Rose",
-      "Filepath": "img/gifs/S02/S02-ID49-06.gif"
+      "AssistedBy": 10,
+      "Comment": "Dangler with the hat trick and this game still has some time remaining",
+      "Filepath": "img/gifs/S02/S02-ID49-11.gif"
     },
     {
       "GameID": 49,
       "Comment": "Mooney with a golden opportunity elects to dump this one into the corner. It's getting late on the Atlantic coast",
       "Filepath": "img/gifs/S02/S02-ID49-07.gif"
+    },
+    {
+      "GameID": 49,
+      "ScoredBy": 4,
+      "Comment": "Dangler brings this game into the beginning of an ominous state. 5-1 and things will not improve for team Rose",
+      "Filepath": "img/gifs/S02/S02-ID49-06.gif"
     },
     {
       "GameID": 49,
@@ -12732,16 +12732,29 @@
     },
     {
       "GameID": 50,
+      "ScoredBy": 10,
+      "Comment": "Kingraph puts Haxual Chocolate up 1-0 in this third game of the season between these two teams",
+      "Filepath": "img/gifs/S02/S02-ID50-01.gif"
+    },
+    {
+      "GameID": 50,
       "ScoredBy": 14,
       "AssistedBy": 4,
       "Comment": "Dangler puts in the all the work allowing a tap in for thatDrizzle. 2-0 HC",
       "Filepath": "img/gifs/S02/S02-ID50-02.gif"
     },
     {
-      "GameID": 50,
+      "GameID": 51,
+      "ScoredBy": 16,
+      "AssistedBy": 13,
+      "Comment": "Haxel Rose take advantage of a confident HC and in particular Kingraph showing how bad he wants to lead the league in \"kicks\". Tick will take this category afterall",
+      "Filepath": "img/gifs/S02/S02-ID51-09.gif"
+    },
+    {
+      "GameID": 51,
       "ScoredBy": 10,
-      "Comment": "Kingraph puts Haxual Chocolate up 1-0 in this third game of the season between these two teams",
-      "Filepath": "img/gifs/S02/S02-ID50-01.gif"
+      "Comment": "Dangler just misses from a sharp angle but Kingraph puts the ball towards nets center and that'll make the final 10-3",
+      "Filepath": "img/gifs/S02/S02-ID51-14.gif"
     },
     {
       "GameID": 51,
@@ -12771,13 +12784,6 @@
     },
     {
       "GameID": 51,
-      "ScoredBy": 16,
-      "AssistedBy": 13,
-      "Comment": "Haxel Rose take advantage of a confident HC and in particular Kingraph showing how bad he wants to lead the league in \"kicks\". Tick will take this category afterall",
-      "Filepath": "img/gifs/S02/S02-ID51-09.gif"
-    },
-    {
-      "GameID": 51,
       "ScoredBy": 4,
       "AssistedBy": 10,
       "Comment": "Dangler dangles like he does in snes nhl94 and gets the hat trick in the closing seconds of the first half",
@@ -12785,15 +12791,16 @@
     },
     {
       "GameID": 51,
-      "ScoredBy": 10,
-      "Comment": "Dangler just misses from a sharp angle but Kingraph puts the ball towards nets center and that'll make the final 10-3",
-      "Filepath": "img/gifs/S02/S02-ID51-14.gif"
-    },
-    {
-      "GameID": 51,
       "OwnGoal": 13,
       "Comment": "Kingraph steps out of the way ensuring a Rose goal against",
       "Filepath": "img/gifs/S02/S02-ID51-06.gif"
+    },
+    {
+      "GameID": 51,
+      "ScoredBy": 4,
+      "AssistedBy": 10,
+      "Comment": "Dangler picks the top corner on a nice cross from Kingraph putting HC up 5-1",
+      "Filepath": "img/gifs/S02/S02-ID51-07.gif"
     },
     {
       "GameID": 51,
@@ -12827,13 +12834,6 @@
       "Filepath": "img/gifs/S02/S02-ID51-01.gif"
     },
     {
-      "GameID": 51,
-      "ScoredBy": 4,
-      "AssistedBy": 10,
-      "Comment": "Dangler picks the top corner on a nice cross from Kingraph putting HC up 5-1",
-      "Filepath": "img/gifs/S02/S02-ID51-07.gif"
-    },
-    {
       "GameID": 52,
       "ScoredBy": 15,
       "Comment": "Ellis hands Tickenest his hat trick and the last goal of this game. 6-1 is the final for team Mooney",
@@ -12858,26 +12858,24 @@
     },
     {
       "GameID": 52,
+      "Comment": "Ellis' pass attempt intercepted in a dangerous spot which very well could have put CES Pool down by 2. Still 2-1 Mooney",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-08.gif"
+    },
+    {
+      "GameID": 52,
+      "Comment": "Skills eager to begin the second half does not wait for the referees signal and touches the ball inadvertantly beginning play",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-07.gif"
+    },
+    {
+      "GameID": 52,
       "OwnGoal": 6,
       "Comment": "All of CES Pool keeping this ball in dangerous territory resulting an own goal by Ellis. 3-1 Mooney",
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-09.gif"
     },
     {
       "GameID": 52,
-      "Comment": "Ellis' pass attempt intercepted in a dangerous spot which very well could have put CES Pool down by 2. Still 2-1 Mooney",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-08.gif"
-    },
-    {
-      "GameID": 52,
       "Comment": "Off the kickoff Ellis pinches up and seconds later almost puts CES Pool back in the lead. Game still tied at one all",
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-05.gif"
-    },
-    {
-      "GameID": 52,
-      "ScoredBy": 2,
-      "AssistedBy": 15,
-      "Comment": "Tick pinches up and keeps team Mooney on the offence resulting in some Chaos pressure who ends up giving team Mooney a 2-1 lead",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-06.gif"
     },
     {
       "GameID": 52,
@@ -12903,13 +12901,10 @@
     },
     {
       "GameID": 52,
-      "Comment": "Skills eager to begin the second half does not wait for the referees signal and touches the ball inadvertantly beginning play",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-07.gif"
-    },
-    {
-      "GameID": 53,
-      "Comment": "Ellis sends the ball up to Skills who narrowly misses this potential game tying shot",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-05.gif"
+      "ScoredBy": 2,
+      "AssistedBy": 15,
+      "Comment": "Tick pinches up and keeps team Mooney on the offence resulting in some Chaos pressure who ends up giving team Mooney a 2-1 lead",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID52-06.gif"
     },
     {
       "GameID": 53,
@@ -12918,10 +12913,22 @@
     },
     {
       "GameID": 53,
+      "Comment": "Ellis sends the ball up to Skills who narrowly misses this potential game tying shot",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-05.gif"
+    },
+    {
+      "GameID": 53,
       "ScoredBy": 2,
       "AssistedBy": 1,
       "Comment": "Team Mooney brilliantly using wall passes resulting in what will be the series clinching goal by Chaos. 2-1 team Mooney",
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-04.gif"
+    },
+    {
+      "GameID": 53,
+      "ScoredBy": 2,
+      "AssistedBy": 1,
+      "Comment": "Chaos blasts a shot from angle and the ball finds the back of the net short side. Game is all tied up at 1-1",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-03.gif"
     },
     {
       "GameID": 53,
@@ -12935,11 +12942,15 @@
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-02.gif"
     },
     {
-      "GameID": 53,
+      "GameID": 54,
       "ScoredBy": 2,
-      "AssistedBy": 1,
-      "Comment": "Chaos blasts a shot from angle and the ball finds the back of the net short side. Game is all tied up at 1-1",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID53-03.gif"
+      "Comment": "Haxual Chocolate are forced into uncomfortable positioning by a pressing Mooney and Chaos ends up ripping a clearance attempt into the net! 4-0 Mooney",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID54-09.gif"
+    },
+    {
+      "GameID": 54,
+      "Comment": "Seconds later Angryjay hits the outside of the post barely missing a Mooney sixth. Game one of this championship series goes to the underdogs Mooney 5-0",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID54-12.gif"
     },
     {
       "GameID": 54,
@@ -12954,12 +12965,6 @@
     },
     {
       "GameID": 54,
-      "ScoredBy": 2,
-      "Comment": "Haxual Chocolate are forced into uncomfortable positioning by a pressing Mooney and Chaos ends up ripping a clearance attempt into the net! 4-0 Mooney",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID54-09.gif"
-    },
-    {
-      "GameID": 54,
       "Comment": "VAR had to be used to ensure that in fact the ball did not totally cross the line here and referees original call stands! Still 3-0 team Mooney",
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID54-08.gif"
     },
@@ -12968,11 +12973,6 @@
       "ScoredBy": 2,
       "Comment": "Chaos gets the angles right on both defense and offense and increases Mooney's lead by three! 3-0",
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID54-07.gif"
-    },
-    {
-      "GameID": 54,
-      "Comment": "Seconds later Angryjay hits the outside of the post barely missing a Mooney sixth. Game one of this championship series goes to the underdogs Mooney 5-0",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID54-12.gif"
     },
     {
       "GameID": 54,
@@ -13017,6 +13017,12 @@
     {
       "GameID": 55,
       "ScoredBy": 2,
+      "Comment": "In extra time Chaos jumps on the loose ball and makes a slight adjustment finding his sight for the perfect shot clinching the Hax94 Season 2 title! 3-2 scoreline. Team Mooney 2-0 series!",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-09.gif"
+    },
+    {
+      "GameID": 55,
+      "ScoredBy": 2,
       "Comment": "Chaos again applying pressure and puts Mooney in the lead with just over one minute from being champions! 2-1 team Mooney",
       "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-07.gif"
     },
@@ -13028,13 +13034,13 @@
     },
     {
       "GameID": 55,
-      "Comment": "Drizz and Dangler give and go setting up for another grand opportunity for HC but again Tickenest with the stellar save keeping Mooney still up a goal",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-05.gif"
+      "Comment": "Kingraph blasts a one timer from a pass of precision by Dangler but Tickenest moves perfectly in line with the play and makes a stunning save",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-04.gif"
     },
     {
       "GameID": 55,
-      "Comment": "Kingraph blasts a one timer from a pass of precision by Dangler but Tickenest moves perfectly in line with the play and makes a stunning save",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-04.gif"
+      "Comment": "Haxual Chocolate come close to evening the score with an overall nice play setting up Kingraph who beats two defenders but the ball is just out of reach. Still 1-0 Mooney",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-03.gif"
     },
     {
       "GameID": 55,
@@ -13049,21 +13055,13 @@
     },
     {
       "GameID": 55,
-      "Comment": "Haxual Chocolate come close to evening the score with an overall nice play setting up Kingraph who beats two defenders but the ball is just out of reach. Still 1-0 Mooney",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-03.gif"
-    },
-    {
-      "GameID": 55,
-      "ScoredBy": 2,
-      "Comment": "In extra time Chaos jumps on the loose ball and makes a slight adjustment finding his sight for the perfect shot clinching the Hax94 Season 2 title! 3-2 scoreline. Team Mooney 2-0 series!",
-      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-09.gif"
+      "Comment": "Drizz and Dangler give and go setting up for another grand opportunity for HC but again Tickenest with the stellar save keeping Mooney still up a goal",
+      "Filepath": "img/gifs/S02/S02Playoffs/S02-ID55-05.gif"
     },
     {
       "GameID": 56,
-      "ScoredBy": 12,
-      "AssistedBy": 2,
-      "Comment": "A patient Chaos picks his play and forwards the ball up to Skills who reacts nicely to a pinching Ellis and makes him pay! Spaceballs within two early in the second half",
-      "Filepath": "img/gifs/S03/S03-ID56-07.gif"
+      "Comment": "Ceydan spins and fires just wide almost putting Hax Hogans up by 3",
+      "Filepath": "img/gifs/S03/S03-ID56-08.gif"
     },
     {
       "GameID": 56,
@@ -13084,8 +13082,16 @@
     },
     {
       "GameID": 56,
-      "Comment": "Ceydan spins and fires just wide almost putting Hax Hogans up by 3",
-      "Filepath": "img/gifs/S03/S03-ID56-08.gif"
+      "ScoredBy": 12,
+      "AssistedBy": 2,
+      "Comment": "A patient Chaos picks his play and forwards the ball up to Skills who reacts nicely to a pinching Ellis and makes him pay! Spaceballs within two early in the second half",
+      "Filepath": "img/gifs/S03/S03-ID56-07.gif"
+    },
+    {
+      "GameID": 56,
+      "ScoredBy": 12,
+      "Comment": "Skills welcoming newcomer Ceydan to the league capitalizing on a giveway from the corner. Game tied 1-1",
+      "Filepath": "img/gifs/S03/S03-ID56-02.gif"
     },
     {
       "GameID": 56,
@@ -13101,6 +13107,13 @@
     },
     {
       "GameID": 56,
+      "ScoredBy": 6,
+      "AssistedBy": 17,
+      "Comment": "Ceydan with the pass back to the point and Ellis picks his shot from the point giving the Hogans a 2-1 lead",
+      "Filepath": "img/gifs/S03/S03-ID56-03.gif"
+    },
+    {
+      "GameID": 56,
       "ScoredBy": 16,
       "AssistedBy": 6,
       "Comment": "Season 2 rookie sensation Lupz carries off from where he left! Scoring and this 13 seconds into the campaign. 1-0 Hax Hogans",
@@ -13113,37 +13126,9 @@
       "Filepath": "img/gifs/S03/S03-ID56-06.gif"
     },
     {
-      "GameID": 56,
-      "ScoredBy": 6,
-      "AssistedBy": 17,
-      "Comment": "Ceydan with the pass back to the point and Ellis picks his shot from the point giving the Hogans a 2-1 lead",
-      "Filepath": "img/gifs/S03/S03-ID56-03.gif"
-    },
-    {
-      "GameID": 56,
-      "ScoredBy": 12,
-      "Comment": "Skills welcoming newcomer Ceydan to the league capitalizing on a giveway from the corner. Game tied 1-1",
-      "Filepath": "img/gifs/S03/S03-ID56-02.gif"
-    },
-    {
       "GameID": 57,
-      "ScoredBy": 16,
-      "AssistedBy": 6,
-      "Comment": "Ellis with the cross field pass to a streaking Lupz and without mercy the Hogans get a 10th goal of the game with less than a tick on the board. 10-2 is the final!",
-      "Filepath": "img/gifs/S03/S03-ID57-14.gif"
-    },
-    {
-      "GameID": 57,
-      "ScoredBy": 16,
-      "Comment": "Lupz with another sneaky goal reminescent of the previous game. This goal at 2.467 from the draw!",
-      "Filepath": "img/gifs/S03/S03-ID57-13.gif"
-    },
-    {
-      "GameID": 57,
-      "ScoredBy": 12,
-      "AssistedBy": 1,
-      "Comment": "Skills gets the Spaceballs 2nd of the game on the rebound off the post from AngryJay",
-      "Filepath": "img/gifs/S03/S03-ID57-12.gif"
+      "Comment": "AngryJay looking like Kingraph on this one. Lupz left behind in the corner on this one!",
+      "Filepath": "img/gifs/S03/S03-ID57-10.gif"
     },
     {
       "GameID": 57,
@@ -13160,14 +13145,41 @@
     },
     {
       "GameID": 57,
-      "ScoredBy": 17,
-      "Comment": "Chaos is clearly lagging on this play but Ceydan will not pass up an opportunity and adds to the Hogans tally. ",
-      "Filepath": "img/gifs/S03/S03-ID57-07.gif"
+      "ScoredBy": 16,
+      "Comment": "Lupz with another sneaky goal reminescent of the previous game. This goal at 2.467 from the draw!",
+      "Filepath": "img/gifs/S03/S03-ID57-13.gif"
     },
     {
       "GameID": 57,
-      "Comment": "AngryJay looking like Kingraph on this one. Lupz left behind in the corner on this one!",
-      "Filepath": "img/gifs/S03/S03-ID57-10.gif"
+      "ScoredBy": 16,
+      "AssistedBy": 6,
+      "Comment": "Ellis with the cross field pass to a streaking Lupz and without mercy the Hogans get a 10th goal of the game with less than a tick on the board. 10-2 is the final!",
+      "Filepath": "img/gifs/S03/S03-ID57-14.gif"
+    },
+    {
+      "GameID": 57,
+      "ScoredBy": 12,
+      "AssistedBy": 1,
+      "Comment": "Skills gets the Spaceballs 2nd of the game on the rebound off the post from AngryJay",
+      "Filepath": "img/gifs/S03/S03-ID57-12.gif"
+    },
+    {
+      "GameID": 57,
+      "ScoredBy": 12,
+      "Comment": "Skills puts Spaceballs the HC onto the board on a misplay by defender Ellis. ",
+      "Filepath": "img/gifs/S03/S03-ID57-08.gif"
+    },
+    {
+      "GameID": 57,
+      "ScoredBy": 6,
+      "Comment": "Ellis pressures the D forcing a turnover by AngryJay and puts away one into an open net. 3-0 Hogans. ",
+      "Filepath": "img/gifs/S03/S03-ID57-04.gif"
+    },
+    {
+      "GameID": 57,
+      "ScoredBy": 16,
+      "Comment": "Ceydan narrowly misses blasting a shot through two defenders but Lupz is right there to bang in loose ball for his 2nd of the game. 5-0",
+      "Filepath": "img/gifs/S03/S03-ID57-06.gif"
     },
     {
       "GameID": 57,
@@ -13175,12 +13187,6 @@
       "AssistedBy": 6,
       "Comment": "Ellis puts a pass between the opposition up to a streaking Lupz who increases the Hogans lead by 4.",
       "Filepath": "img/gifs/S03/S03-ID57-05.gif"
-    },
-    {
-      "GameID": 57,
-      "ScoredBy": 6,
-      "Comment": "Ellis pressures the D forcing a turnover by AngryJay and puts away one into an open net. 3-0 Hogans. ",
-      "Filepath": "img/gifs/S03/S03-ID57-04.gif"
     },
     {
       "GameID": 57,
@@ -13201,21 +13207,9 @@
     },
     {
       "GameID": 57,
-      "ScoredBy": 16,
-      "Comment": "Ceydan narrowly misses blasting a shot through two defenders but Lupz is right there to bang in loose ball for his 2nd of the game. 5-0",
-      "Filepath": "img/gifs/S03/S03-ID57-06.gif"
-    },
-    {
-      "GameID": 57,
-      "ScoredBy": 12,
-      "Comment": "Skills puts Spaceballs the HC onto the board on a misplay by defender Ellis. ",
-      "Filepath": "img/gifs/S03/S03-ID57-08.gif"
-    },
-    {
-      "GameID": 58,
       "ScoredBy": 17,
-      "Comment": "Ceydan quickly gives the Hogans a 2 goal lead which ends the half at 3-1.",
-      "Filepath": "img/gifs/S03/S03-ID58-08.gif"
+      "Comment": "Chaos is clearly lagging on this play but Ceydan will not pass up an opportunity and adds to the Hogans tally. ",
+      "Filepath": "img/gifs/S03/S03-ID57-07.gif"
     },
     {
       "GameID": 58,
@@ -13253,6 +13247,12 @@
       "AssistedBy": 16,
       "Comment": "Lupz puts the ball forward into an awkward situation for Corbett and Ellis takes advantage of the situation and puts the Hogans up 4-1",
       "Filepath": "img/gifs/S03/S03-ID58-09.gif"
+    },
+    {
+      "GameID": 58,
+      "ScoredBy": 17,
+      "Comment": "Ceydan quickly gives the Hogans a 2 goal lead which ends the half at 3-1.",
+      "Filepath": "img/gifs/S03/S03-ID58-08.gif"
     },
     {
       "GameID": 58,
@@ -13325,15 +13325,15 @@
     },
     {
       "GameID": 59,
-      "ScoredBy": 22,
-      "Comment": "Scribe gets his 2nd  of the game narrowing the gap by a goal for Hacks. 4-3",
-      "Filepath": "img/gifs/S03/S03-ID59-09.gif"
-    },
-    {
-      "GameID": 59,
       "ScoredBy": 16,
       "Comment": "Lupz with his 4th of this game. He may have to start wearing a pink shirt the way he's been bullying Corbett around this game! 4-2 Hogans",
       "Filepath": "img/gifs/S03/S03-ID59-08.gif"
+    },
+    {
+      "GameID": 59,
+      "ScoredBy": 22,
+      "Comment": "Scribe gets his 2nd  of the game narrowing the gap by a goal for Hacks. 4-3",
+      "Filepath": "img/gifs/S03/S03-ID59-09.gif"
     },
     {
       "GameID": 59,
@@ -13377,23 +13377,21 @@
     },
     {
       "GameID": 60,
-      "ScoredBy": 11,
-      "AssistedBy": 15,
-      "Comment": "Mooney gets his hat trick goal very early in the 2nd half regaining the lead for team Mooney. 3-2",
-      "Filepath": "img/gifs/S03/S03-ID60-06.gif"
-    },
-    {
-      "GameID": 60,
       "ScoredBy": 10,
       "Comment": "Kingraph razzles and dazzles in close and will get Haxual Choclate the win! 4-3 Haxual Chocolate is the final score.",
       "Filepath": "img/gifs/S03/S03-ID60-09.gif"
     },
     {
       "GameID": 60,
-      "ScoredBy": 10,
-      "AssistedBy": 14,
-      "Comment": "Driz with a beautiful pass to kingraph who gets just enough mustard on it to get past Tickenest shortside! Game all tied up at 3's",
-      "Filepath": "img/gifs/S03/S03-ID60-08.gif"
+      "Comment": "Dangler displaying his extremely accurate shooting ability with this sharp angle shot! Kingraph is in position though keeping this a one goal affair..",
+      "Filepath": "img/gifs/S03/S03-ID60-07.gif"
+    },
+    {
+      "GameID": 60,
+      "ScoredBy": 11,
+      "AssistedBy": 15,
+      "Comment": "Mooney gets his hat trick goal very early in the 2nd half regaining the lead for team Mooney. 3-2",
+      "Filepath": "img/gifs/S03/S03-ID60-06.gif"
     },
     {
       "GameID": 60,
@@ -13402,8 +13400,10 @@
     },
     {
       "GameID": 60,
-      "Comment": "Dangler displaying his extremely accurate shooting ability with this sharp angle shot! Kingraph is in position though keeping this a one goal affair..",
-      "Filepath": "img/gifs/S03/S03-ID60-07.gif"
+      "ScoredBy": 10,
+      "AssistedBy": 14,
+      "Comment": "Driz with a beautiful pass to kingraph who gets just enough mustard on it to get past Tickenest shortside! Game all tied up at 3's",
+      "Filepath": "img/gifs/S03/S03-ID60-08.gif"
     },
     {
       "GameID": 60,
@@ -13438,12 +13438,6 @@
     },
     {
       "GameID": 61,
-      "ScoredBy": 11,
-      "Comment": "Mooney gets his second of the game increasing the lead by 5. 6-1 ",
-      "Filepath": "img/gifs/S03/S03-ID61-07.gif"
-    },
-    {
-      "GameID": 61,
       "ScoredBy": 10,
       "AssistedBy": 14,
       "Comment": "Kingraph sneaks behind the defence and scores on a ball that was cleared by Drizzle! Haxual Chocolate down by 3",
@@ -13458,6 +13452,12 @@
     },
     {
       "GameID": 61,
+      "ScoredBy": 11,
+      "Comment": "Mooney gets his second of the game increasing the lead by 5. 6-1 ",
+      "Filepath": "img/gifs/S03/S03-ID61-07.gif"
+    },
+    {
+      "GameID": 61,
       "ScoredBy": 4,
       "AssistedBy": 11,
       "Comment": "Mooney with the INT who then spots a streaking Dangler who nets his 4th of the game late in the first half. 5-1 team Mooney now!",
@@ -13465,16 +13465,10 @@
     },
     {
       "GameID": 61,
-      "ScoredBy": 10,
-      "AssistedBy": 21,
-      "Comment": "Kingraph opens the scoring on a nice ball from jer_33. 1-0 Hax Choco",
-      "Filepath": "img/gifs/S03/S03-ID61-01.gif"
-    },
-    {
-      "GameID": 61,
       "ScoredBy": 4,
-      "Comment": "Dangler welcoming jer_33 to the big leagues! Happens to us all….",
-      "Filepath": "img/gifs/S03/S03-ID61-04.gif"
+      "AssistedBy": 15,
+      "Comment": "Tickenest with the long ball up to Dangler who gets his hat trick with a little help from Kingraph. 4-1 team Mooney still in the first half!",
+      "Filepath": "img/gifs/S03/S03-ID61-05.gif"
     },
     {
       "GameID": 61,
@@ -13491,16 +13485,16 @@
     },
     {
       "GameID": 61,
-      "ScoredBy": 4,
-      "AssistedBy": 15,
-      "Comment": "Tickenest with the long ball up to Dangler who gets his hat trick with a little help from Kingraph. 4-1 team Mooney still in the first half!",
-      "Filepath": "img/gifs/S03/S03-ID61-05.gif"
+      "ScoredBy": 10,
+      "AssistedBy": 21,
+      "Comment": "Kingraph opens the scoring on a nice ball from jer_33. 1-0 Hax Choco",
+      "Filepath": "img/gifs/S03/S03-ID61-01.gif"
     },
     {
-      "GameID": 62,
-      "ScoredBy": 13,
-      "Comment": "Tennessee puts Hacks up 3-1 with a well placed shot far side",
-      "Filepath": "img/gifs/S03/S03-ID62-07.gif"
+      "GameID": 61,
+      "ScoredBy": 4,
+      "Comment": "Dangler welcoming jer_33 to the big leagues! Happens to us all….",
+      "Filepath": "img/gifs/S03/S03-ID61-04.gif"
     },
     {
       "GameID": 62,
@@ -13510,19 +13504,20 @@
     },
     {
       "GameID": 62,
-      "Comment": "Nice cross point play between Chaos and Skills but Corbett with great positioning to make the save",
-      "Filepath": "img/gifs/S03/S03-ID62-05.gif"
-    },
-    {
-      "GameID": 62,
       "ScoredBy": 3,
       "Comment": "Corbett with 10 seconds remaining adds another for Hacks which will end 4-1 Hacks over Spaceballs",
       "Filepath": "img/gifs/S03/S03-ID62-08.gif"
     },
     {
       "GameID": 62,
-      "Comment": "Corbett gets enough of this shot from Skills to keep this game tied",
-      "Filepath": "img/gifs/S03/S03-ID62-03.gif"
+      "ScoredBy": 13,
+      "Comment": "Tennessee puts Hacks up 3-1 with a well placed shot far side",
+      "Filepath": "img/gifs/S03/S03-ID62-07.gif"
+    },
+    {
+      "GameID": 62,
+      "Comment": "Hacks lucky this game still tied up! AngryJay rips a shot but Tennessee stuns all with this save!",
+      "Filepath": "img/gifs/S03/S03-ID62-04.gif"
     },
     {
       "GameID": 62,
@@ -13532,14 +13527,19 @@
     },
     {
       "GameID": 62,
-      "OwnGoal": 2,
-      "Comment": "Scribe plays the ball into the corner putting Chaos into a very awkward position resulting in Hacks going up 1-0",
-      "Filepath": "img/gifs/S03/S03-ID62-01.gif"
+      "Comment": "Corbett gets enough of this shot from Skills to keep this game tied",
+      "Filepath": "img/gifs/S03/S03-ID62-03.gif"
     },
     {
       "GameID": 62,
-      "Comment": "Hacks lucky this game still tied up! AngryJay rips a shot but Tennessee stuns all with this save!",
-      "Filepath": "img/gifs/S03/S03-ID62-04.gif"
+      "Comment": "Nice cross point play between Chaos and Skills but Corbett with great positioning to make the save",
+      "Filepath": "img/gifs/S03/S03-ID62-05.gif"
+    },
+    {
+      "GameID": 62,
+      "OwnGoal": 2,
+      "Comment": "Scribe plays the ball into the corner putting Chaos into a very awkward position resulting in Hacks going up 1-0",
+      "Filepath": "img/gifs/S03/S03-ID62-01.gif"
     },
     {
       "GameID": 63,
@@ -13573,14 +13573,8 @@
     {
       "GameID": 64,
       "ScoredBy": 12,
-      "Comment": "Skills with reaction to take the shot from center giving Spaceballs the 1-0 lead",
-      "Filepath": "img/gifs/S03/S03-ID64-01.gif"
-    },
-    {
-      "GameID": 64,
-      "ScoredBy": 4,
-      "Comment": "Dangler evens this game all up at one on a great shot on good positioning",
-      "Filepath": "img/gifs/S03/S03-ID64-02.gif"
+      "Comment": "Skills gets his fourth of the game. On a game dominated in possession by Orange Ricky the final will be 4-1 for the Spaceballs.",
+      "Filepath": "img/gifs/S03/S03-ID64-05.gif"
     },
     {
       "GameID": 64,
@@ -13597,13 +13591,28 @@
     {
       "GameID": 64,
       "ScoredBy": 12,
-      "Comment": "Skills gets his fourth of the game. On a game dominated in possession by Orange Ricky the final will be 4-1 for the Spaceballs.",
-      "Filepath": "img/gifs/S03/S03-ID64-05.gif"
+      "Comment": "Skills with reaction to take the shot from center giving Spaceballs the 1-0 lead",
+      "Filepath": "img/gifs/S03/S03-ID64-01.gif"
+    },
+    {
+      "GameID": 64,
+      "ScoredBy": 4,
+      "Comment": "Dangler evens this game all up at one on a great shot on good positioning",
+      "Filepath": "img/gifs/S03/S03-ID64-02.gif"
     },
     {
       "GameID": 65,
-      "Comment": "No goals in the second half only Chaos mentions house almost catches fire…",
-      "Filepath": "img/gifs/S03/S03-ID65-05.gif"
+      "ScoredBy": 4,
+      "AssistedBy": 15,
+      "Comment": "Dangler looks cross field faking the cross and precisely short sides a beautiful shot! 1-0 Orange Ricky",
+      "Filepath": "img/gifs/S03/S03-ID65-01.gif"
+    },
+    {
+      "GameID": 65,
+      "ScoredBy": 11,
+      "AssistedBy": 4,
+      "Comment": "Dangler and Mooney making life difficult for the Spaceballs. Nice shot Mooney! 2-0",
+      "Filepath": "img/gifs/S03/S03-ID65-02.gif"
     },
     {
       "GameID": 65,
@@ -13620,17 +13629,15 @@
     },
     {
       "GameID": 65,
-      "ScoredBy": 4,
-      "AssistedBy": 15,
-      "Comment": "Dangler looks cross field faking the cross and precisely short sides a beautiful shot! 1-0 Orange Ricky",
-      "Filepath": "img/gifs/S03/S03-ID65-01.gif"
+      "Comment": "No goals in the second half only Chaos mentions house almost catches fire…",
+      "Filepath": "img/gifs/S03/S03-ID65-05.gif"
     },
     {
-      "GameID": 65,
-      "ScoredBy": 11,
-      "AssistedBy": 4,
-      "Comment": "Dangler and Mooney making life difficult for the Spaceballs. Nice shot Mooney! 2-0",
-      "Filepath": "img/gifs/S03/S03-ID65-02.gif"
+      "GameID": 66,
+      "ScoredBy": 14,
+      "AssistedBy": 10,
+      "Comment": "Shortly after though Kingraph ends up putting the ball in front to a open Drizzle who does not miss in close! 2-1 Haxual Chocolate",
+      "Filepath": "img/gifs/S03/S03-ID66-08.gif"
     },
     {
       "GameID": 66,
@@ -13648,13 +13655,6 @@
       "GameID": 66,
       "Comment": "Kingraph streaking down the wing will place this shot wide which will have implications in this game",
       "Filepath": "img/gifs/S03/S03-ID66-09.gif"
-    },
-    {
-      "GameID": 66,
-      "ScoredBy": 14,
-      "AssistedBy": 10,
-      "Comment": "Shortly after though Kingraph ends up putting the ball in front to a open Drizzle who does not miss in close! 2-1 Haxual Chocolate",
-      "Filepath": "img/gifs/S03/S03-ID66-08.gif"
     },
     {
       "GameID": 66,
@@ -13755,9 +13755,8 @@
     },
     {
       "GameID": 68,
-      "ScoredBy": 10,
-      "Comment": "This game appears to be heading to extra time but Kingraph on the solo effort EPM's the Spaceballs spaceship seconds later! What a finish! 3-2 Haxual Chocolate",
-      "Filepath": "img/gifs/S03/S03-ID68-10.gif"
+      "Comment": "Skills again denied from in close on a goaline save by Kingraph",
+      "Filepath": "img/gifs/S03/S03-ID68-07.gif"
     },
     {
       "GameID": 68,
@@ -13774,24 +13773,25 @@
     },
     {
       "GameID": 68,
+      "ScoredBy": 10,
+      "Comment": "This game appears to be heading to extra time but Kingraph on the solo effort EPM's the Spaceballs spaceship seconds later! What a finish! 3-2 Haxual Chocolate",
+      "Filepath": "img/gifs/S03/S03-ID68-10.gif"
+    },
+    {
+      "GameID": 68,
       "Comment": "Skills with attempts from in close but just can't quite finish",
       "Filepath": "img/gifs/S03/S03-ID68-06.gif"
-    },
-    {
-      "GameID": 68,
-      "Comment": "Skills again denied from in close on a goaline save by Kingraph",
-      "Filepath": "img/gifs/S03/S03-ID68-07.gif"
-    },
-    {
-      "GameID": 68,
-      "Comment": "Game stats analzyer shows this goal needed VAR! 2-0",
-      "Filepath": "img/gifs/S03/S03-ID68-04.gif"
     },
     {
       "GameID": 68,
       "ScoredBy": 14,
       "Comment": "Drizzle opens the scoring squeezing the ketchup out of this one and into the net. 1-0 Chocolate",
       "Filepath": "img/gifs/S03/S03-ID68-03.gif"
+    },
+    {
+      "GameID": 68,
+      "Comment": "Game stats analzyer shows this goal needed VAR! 2-0",
+      "Filepath": "img/gifs/S03/S03-ID68-04.gif"
     },
     {
       "GameID": 68,
@@ -13878,13 +13878,6 @@
     },
     {
       "GameID": 70,
-      "ScoredBy": 16,
-      "AssistedBy": 17,
-      "Comment": "Lupz opens the scoring giving the Hogans the 1-0 lead",
-      "Filepath": "img/gifs/S03/S03-ID70-01.gif"
-    },
-    {
-      "GameID": 70,
       "ScoredBy": 14,
       "Comment": "Quickly after the last goal thatDrizzle puts the Chocolate up a goal 2-1",
       "Filepath": "img/gifs/S03/S03-ID70-03.gif"
@@ -13898,16 +13891,21 @@
     },
     {
       "GameID": 70,
+      "ScoredBy": 16,
+      "AssistedBy": 17,
+      "Comment": "Lupz opens the scoring giving the Hogans the 1-0 lead",
+      "Filepath": "img/gifs/S03/S03-ID70-01.gif"
+    },
+    {
+      "GameID": 70,
       "ScoredBy": 14,
       "Comment": "thatDrizzle takes advantage of an empty backfield and gets his second of this game. 3-1 Haxual Chocolate",
       "Filepath": "img/gifs/S03/S03-ID70-04.gif"
     },
     {
       "GameID": 71,
-      "ScoredBy": 16,
-      "AssistedBy": 17,
-      "Comment": "Ceydan puts the ball forward and right onto the open foot of Lupz who with his second of this game narrows the gap by 2",
-      "Filepath": "img/gifs/S03/S03-ID71-06.gif"
+      "Comment": "Lupz grazes the outside of the post. The game will end 4-3 Haxual Chocolate",
+      "Filepath": "img/gifs/S03/S03-ID71-09.gif"
     },
     {
       "GameID": 71,
@@ -13929,8 +13927,10 @@
     },
     {
       "GameID": 71,
-      "Comment": "Lupz grazes the outside of the post. The game will end 4-3 Haxual Chocolate",
-      "Filepath": "img/gifs/S03/S03-ID71-09.gif"
+      "ScoredBy": 16,
+      "AssistedBy": 17,
+      "Comment": "Ceydan puts the ball forward and right onto the open foot of Lupz who with his second of this game narrows the gap by 2",
+      "Filepath": "img/gifs/S03/S03-ID71-06.gif"
     },
     {
       "GameID": 71,
@@ -13961,8 +13961,21 @@
     {
       "GameID": 72,
       "ScoredBy": 11,
+      "AssistedBy": 4,
+      "Comment": "Dangler with the intercept right in front of goal and shares in the spoils handing Mooney his 2nd of the game and Ricky's 8th. 8-1",
+      "Filepath": "img/gifs/S03/S03-ID72-09.gif"
+    },
+    {
+      "GameID": 72,
+      "ScoredBy": 11,
       "Comment": "Mooney in the dying seconds get's his hat trick goal and this inaugural game for ULTN will end 10-2 for Orange Ricky",
       "Filepath": "img/gifs/S03/S03-ID72-13.gif"
+    },
+    {
+      "GameID": 72,
+      "ScoredBy": 15,
+      "Comment": "Tickenest adds to the tally on a scramble in front of the goal. 9-2",
+      "Filepath": "img/gifs/S03/S03-ID72-12.gif"
     },
     {
       "GameID": 72,
@@ -13977,13 +13990,6 @@
     },
     {
       "GameID": 72,
-      "ScoredBy": 11,
-      "AssistedBy": 4,
-      "Comment": "Dangler with the intercept right in front of goal and shares in the spoils handing Mooney his 2nd of the game and Ricky's 8th. 8-1",
-      "Filepath": "img/gifs/S03/S03-ID72-09.gif"
-    },
-    {
-      "GameID": 72,
       "ScoredBy": 4,
       "AssistedBy": 11,
       "Comment": "Dangler gets the natural hat trick on a nice feed from Mooney. 7-1",
@@ -13991,15 +13997,17 @@
     },
     {
       "GameID": 72,
-      "ScoredBy": 4,
-      "Comment": "Shortly after Dangler puts Ricky up 6-1 on the clearing attempt of NIPPLE",
-      "Filepath": "img/gifs/S03/S03-ID72-07.gif"
+      "ScoredBy": 19,
+      "AssistedBy": 18,
+      "Comment": "Ticklepuss and NIPPLE  combine on a very nice goal for the 95er's first ever goal! 3-1",
+      "Filepath": "img/gifs/S03/S03-ID72-04.gif"
     },
     {
       "GameID": 72,
-      "ScoredBy": 15,
-      "Comment": "Tickenest adds to the tally on a scramble in front of the goal. 9-2",
-      "Filepath": "img/gifs/S03/S03-ID72-12.gif"
+      "ScoredBy": 4,
+      "AssistedBy": 15,
+      "Comment": "Dangler slips a shot in between the defenders far side. 5-1 Orange Ricky",
+      "Filepath": "img/gifs/S03/S03-ID72-06.gif"
     },
     {
       "GameID": 72,
@@ -14007,13 +14015,6 @@
       "AssistedBy": 4,
       "Comment": "Mooney buries a ball placed out in front from off the end wall via Dangler. Now 4-1",
       "Filepath": "img/gifs/S03/S03-ID72-05.gif"
-    },
-    {
-      "GameID": 72,
-      "ScoredBy": 19,
-      "AssistedBy": 18,
-      "Comment": "Ticklepuss and NIPPLE  combine on a very nice goal for the 95er's first ever goal! 3-1",
-      "Filepath": "img/gifs/S03/S03-ID72-04.gif"
     },
     {
       "GameID": 72,
@@ -14037,14 +14038,13 @@
     {
       "GameID": 72,
       "ScoredBy": 4,
-      "AssistedBy": 15,
-      "Comment": "Dangler slips a shot in between the defenders far side. 5-1 Orange Ricky",
-      "Filepath": "img/gifs/S03/S03-ID72-06.gif"
+      "Comment": "Shortly after Dangler puts Ricky up 6-1 on the clearing attempt of NIPPLE",
+      "Filepath": "img/gifs/S03/S03-ID72-07.gif"
     },
     {
       "GameID": 73,
-      "Comment": "Ultramagnus narrowly misses getting the natural hat trick hitting the post. Make the final 8-2 Orange Ricky",
-      "Filepath": "img/gifs/S03/S03-ID73-13.gif"
+      "Comment": "Orange Ricky come close again on an empty net opportunity",
+      "Filepath": "img/gifs/S03/S03-ID73-09.gif"
     },
     {
       "GameID": 73,
@@ -14062,20 +14062,32 @@
     },
     {
       "GameID": 73,
+      "Comment": "Ultramagnus narrowly misses getting the natural hat trick hitting the post. Make the final 8-2 Orange Ricky",
+      "Filepath": "img/gifs/S03/S03-ID73-13.gif"
+    },
+    {
+      "GameID": 73,
       "OwnGoal": 19,
       "Comment": "Dangler and Tickenest in Public Enemy style bumrush Puss enforing an own goal. 8-0",
       "Filepath": "img/gifs/S03/S03-ID73-10.gif"
     },
     {
       "GameID": 73,
-      "Comment": "Orange Ricky come close again on an empty net opportunity",
-      "Filepath": "img/gifs/S03/S03-ID73-09.gif"
-    },
-    {
-      "GameID": 73,
       "ScoredBy": 15,
       "Comment": "Tick using the side line setting up a shot that forces it way past keeper Puss. 7-0 now",
       "Filepath": "img/gifs/S03/S03-ID73-08.gif"
+    },
+    {
+      "GameID": 73,
+      "ScoredBy": 11,
+      "Comment": "Mooney pinches in on the defender a puts Orange Ricky up 2-0",
+      "Filepath": "img/gifs/S03/S03-ID73-03.gif"
+    },
+    {
+      "GameID": 73,
+      "ScoredBy": 11,
+      "Comment": "Mooney get's the hat tick on a steal down low and shoots high. 5-0",
+      "Filepath": "img/gifs/S03/S03-ID73-06.gif"
     },
     {
       "GameID": 73,
@@ -14086,20 +14098,8 @@
     {
       "GameID": 73,
       "ScoredBy": 11,
-      "Comment": "Mooney get's the hat tick on a steal down low and shoots high. 5-0",
-      "Filepath": "img/gifs/S03/S03-ID73-06.gif"
-    },
-    {
-      "GameID": 73,
-      "ScoredBy": 11,
       "Comment": "Mooney gets his second of this game increading Ricky's lead by 3",
       "Filepath": "img/gifs/S03/S03-ID73-04.gif"
-    },
-    {
-      "GameID": 73,
-      "ScoredBy": 11,
-      "Comment": "Mooney pinches in on the defender a puts Orange Ricky up 2-0",
-      "Filepath": "img/gifs/S03/S03-ID73-03.gif"
     },
     {
       "GameID": 73,
@@ -14122,20 +14122,9 @@
     {
       "GameID": 74,
       "ScoredBy": 13,
-      "AssistedBy": 22,
-      "Comment": "Scribe sets up Trefizoh down the sideline who will get his 4th of this game. 6-1",
-      "Filepath": "img/gifs/S03/S03-ID74-11.gif"
-    },
-    {
-      "GameID": 74,
-      "ScoredBy": 13,
-      "Comment": "Scribe and Tref again adding to expansion pains. 7-1",
-      "Filepath": "img/gifs/S03/S03-ID74-12.gif"
-    },
-    {
-      "GameID": 74,
-      "Comment": "Trefizoh sets Corbett up with an empty net opportunity but he shoots just wide…",
-      "Filepath": "img/gifs/S03/S03-ID74-09.gif"
+      "AssistedBy": 3,
+      "Comment": "Trefizoh gets his 7th of this game and may very well be a single game league all time record! 10-1 is the final",
+      "Filepath": "img/gifs/S03/S03-ID74-15.gif"
     },
     {
       "GameID": 74,
@@ -14147,27 +14136,31 @@
     {
       "GameID": 74,
       "ScoredBy": 13,
-      "AssistedBy": 3,
-      "Comment": "Trefizoh gets his 7th of this game and may very well be a single game league all time record! 10-1 is the final",
-      "Filepath": "img/gifs/S03/S03-ID74-15.gif"
-    },
-    {
-      "GameID": 74,
-      "ScoredBy": 13,
       "Comment": "In the big leagues there can be no mercy. 8-1",
       "Filepath": "img/gifs/S03/S03-ID74-13.gif"
     },
     {
       "GameID": 74,
-      "ScoredBy": 22,
-      "AssistedBy": 13,
-      "Comment": "Trefizoh sets up Scribe down low who absolutey lables this shot! 5-1 to end the half",
-      "Filepath": "img/gifs/S03/S03-ID74-08.gif"
+      "ScoredBy": 13,
+      "Comment": "Scribe and Tref again adding to expansion pains. 7-1",
+      "Filepath": "img/gifs/S03/S03-ID74-12.gif"
+    },
+    {
+      "GameID": 74,
+      "ScoredBy": 13,
+      "AssistedBy": 22,
+      "Comment": "Scribe sets up Trefizoh down the sideline who will get his 4th of this game. 6-1",
+      "Filepath": "img/gifs/S03/S03-ID74-11.gif"
     },
     {
       "GameID": 74,
       "Comment": "And Corbett returns the same opportunity with the same result…",
       "Filepath": "img/gifs/S03/S03-ID74-10.gif"
+    },
+    {
+      "GameID": 74,
+      "Comment": "Trefizoh sets Corbett up with an empty net opportunity but he shoots just wide…",
+      "Filepath": "img/gifs/S03/S03-ID74-09.gif"
     },
     {
       "GameID": 74,
@@ -14212,27 +14205,11 @@
       "Filepath": "img/gifs/S03/S03-ID74-01.gif"
     },
     {
-      "GameID": 75,
+      "GameID": 74,
       "ScoredBy": 22,
-      "Comment": "Scribe gets his 5th of the game as well as a all time league record for team goals in a game at 13. 13-0 is the final",
-      "Filepath": "img/gifs/S03/S03-ID75-16.gif"
-    },
-    {
-      "GameID": 75,
-      "ScoredBy": 13,
-      "Comment": "Trefizoh displays patience and holds for the opening to show itself and his 5th of this game",
-      "Filepath": "img/gifs/S03/S03-ID75-15.gif"
-    },
-    {
-      "GameID": 75,
-      "Comment": "Hacks just miss on another nice attempt..",
-      "Filepath": "img/gifs/S03/S03-ID75-14.gif"
-    },
-    {
-      "GameID": 75,
-      "ScoredBy": 22,
-      "Comment": "Scribe gets his 4th of the match and 11th for Hacks",
-      "Filepath": "img/gifs/S03/S03-ID75-13.gif"
+      "AssistedBy": 13,
+      "Comment": "Trefizoh sets up Scribe down low who absolutey lables this shot! 5-1 to end the half",
+      "Filepath": "img/gifs/S03/S03-ID74-08.gif"
     },
     {
       "GameID": 75,
@@ -14248,8 +14225,31 @@
     },
     {
       "GameID": 75,
+      "ScoredBy": 22,
+      "Comment": "Scribe gets his 4th of the match and 11th for Hacks",
+      "Filepath": "img/gifs/S03/S03-ID75-13.gif"
+    },
+    {
+      "GameID": 75,
       "Comment": "Somehow the ball stays out!",
       "Filepath": "img/gifs/S03/S03-ID75-10.gif"
+    },
+    {
+      "GameID": 75,
+      "ScoredBy": 13,
+      "Comment": "Trefizoh displays patience and holds for the opening to show itself and his 5th of this game",
+      "Filepath": "img/gifs/S03/S03-ID75-15.gif"
+    },
+    {
+      "GameID": 75,
+      "ScoredBy": 22,
+      "Comment": "Scribe gets his 5th of the game as well as a all time league record for team goals in a game at 13. 13-0 is the final",
+      "Filepath": "img/gifs/S03/S03-ID75-16.gif"
+    },
+    {
+      "GameID": 75,
+      "Comment": "Hacks just miss on another nice attempt..",
+      "Filepath": "img/gifs/S03/S03-ID75-14.gif"
     },
     {
       "GameID": 75,
@@ -14259,15 +14259,22 @@
     },
     {
       "GameID": 75,
-      "ScoredBy": 22,
-      "Comment": "Scribe storming the corner and comes out with his 2nd of the game. Now 6-0",
-      "Filepath": "img/gifs/S03/S03-ID75-06.gif"
+      "ScoredBy": 13,
+      "Comment": "Trefizoh gets his hat trick and Hacks' 7th for the half.",
+      "Filepath": "img/gifs/S03/S03-ID75-07.gif"
     },
     {
       "GameID": 75,
       "ScoredBy": 13,
-      "Comment": "Trefizoh gets his hat trick and Hacks' 7th for the half.",
-      "Filepath": "img/gifs/S03/S03-ID75-07.gif"
+      "AssistedBy": 22,
+      "Comment": "Hacks again displaying their passing capabilities! Trefizoh ends the play with his 4th of the game. 8-0",
+      "Filepath": "img/gifs/S03/S03-ID75-08.gif"
+    },
+    {
+      "GameID": 75,
+      "ScoredBy": 22,
+      "Comment": "Scribe storming the corner and comes out with his 2nd of the game. Now 6-0",
+      "Filepath": "img/gifs/S03/S03-ID75-06.gif"
     },
     {
       "GameID": 75,
@@ -14305,18 +14312,16 @@
       "Filepath": "img/gifs/S03/S03-ID75-01.gif"
     },
     {
-      "GameID": 75,
-      "ScoredBy": 13,
-      "AssistedBy": 22,
-      "Comment": "Hacks again displaying their passing capabilities! Trefizoh ends the play with his 4th of the game. 8-0",
-      "Filepath": "img/gifs/S03/S03-ID75-08.gif"
-    },
-    {
       "GameID": 76,
       "ScoredBy": 1,
       "AssistedBy": 2,
       "Comment": "Half a minute into extra AngryJay beats the defender with an off the wall play and gives Spaceballs the HC the 1-0 series lead! Game ends 2-1 Spaceballs",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-06.gif"
+    },
+    {
+      "GameID": 76,
+      "Comment": "In the dying seconds of regulation time Spaceballs the HC are beaten by the clock who had Hacks beaten on this! Heading to extra time!",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-05.gif"
     },
     {
       "GameID": 76,
@@ -14327,18 +14332,8 @@
     },
     {
       "GameID": 76,
-      "Comment": "In the dying seconds of regulation time Spaceballs the HC are beaten by the clock who had Hacks beaten on this! Heading to extra time!",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-05.gif"
-    },
-    {
-      "GameID": 76,
       "Comment": "Shortly after in the dying seconds of the first half team Hacks come close from in close. 1-0 at the half",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-02.gif"
-    },
-    {
-      "GameID": 76,
-      "Comment": "Early in the second half Spaceballs also with the chance to go up by 2 from in close.",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-03.gif"
     },
     {
       "GameID": 76,
@@ -14346,6 +14341,16 @@
       "AssistedBy": 2,
       "Comment": "Spaceballs' Chaos sets up an open Skills on the opposite side who rockets a shot far side! 1-0 Spaceballs the HC",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-01.gif"
+    },
+    {
+      "GameID": 76,
+      "Comment": "Early in the second half Spaceballs also with the chance to go up by 2 from in close.",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID76-03.gif"
+    },
+    {
+      "GameID": 77,
+      "Comment": "Skills with a golden opportunity to increase Spaceballs lead by two but can't put it away. This could have been the series turning point",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID77-07.gif"
     },
     {
       "GameID": 77,
@@ -14367,14 +14372,14 @@
     },
     {
       "GameID": 77,
-      "Comment": "Skills with a golden opportunity to increase Spaceballs lead by two but can't put it away. This could have been the series turning point",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID77-07.gif"
-    },
-    {
-      "GameID": 77,
       "AssistedBy": 2,
       "Comment": "Hacks will kill the half in the corner BUT WAIT! Somehow the Spaceballs manage to sneak a goal! Fans were already out at the concession stands! 3-2 Spaceballs in front end of half!",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID77-06.gif"
+    },
+    {
+      "GameID": 77,
+      "Comment": "Very early on team Hacks form a very strong case for a goal but justice is denied!",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID77-01.gif"
     },
     {
       "GameID": 77,
@@ -14399,11 +14404,6 @@
     },
     {
       "GameID": 77,
-      "Comment": "Very early on team Hacks form a very strong case for a goal but justice is denied!",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID77-01.gif"
-    },
-    {
-      "GameID": 77,
       "ScoredBy": 12,
       "AssistedBy": 1,
       "Comment": "AngryJay spots Skills open opposite side and Skills smashes it home to tie the game up at 2 with half a minute remaining in the first half",
@@ -14418,21 +14418,14 @@
     },
     {
       "GameID": 78,
-      "Comment": "As Trefizoh is yawning Skills blasts a shot that the keeper can't get enough of and the game is now 5-3 Hacks",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-10.gif"
-    },
-    {
-      "GameID": 78,
       "ScoredBy": 2,
       "Comment": "Chaos jumps up into the play and amazingly brings the Spaceballs to within a goal but the game will end 5-4 and the series 2-1 for the Hacks",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-11.gif"
     },
     {
       "GameID": 78,
-      "ScoredBy": 3,
-      "AssistedBy": 22,
-      "Comment": "Trefizoh \"yawns\" his team into a sweet passing play who have just increased their lead by 3. 5-2 now",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-09.gif"
+      "Comment": "As Trefizoh is yawning Skills blasts a shot that the keeper can't get enough of and the game is now 5-3 Hacks",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-10.gif"
     },
     {
       "GameID": 78,
@@ -14442,14 +14435,16 @@
     },
     {
       "GameID": 78,
-      "ScoredBy": 22,
-      "Comment": "All scribbles and scribes on this solo effort from none other than Scribe99! 1-0 Hacks to open game 3 of the series",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-02.gif"
+      "AssistedBy": 1,
+      "Comment": "AngryJay fighting and working free the ball for Skills who banks one off of the keeper to tie this game up at 2-2",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-06.gif"
     },
     {
       "GameID": 78,
-      "Comment": "Corbett blasts one from the point that has everyone beaten except the post. The half will end 2-1",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-05.gif"
+      "ScoredBy": 3,
+      "AssistedBy": 22,
+      "Comment": "Trefizoh \"yawns\" his team into a sweet passing play who have just increased their lead by 3. 5-2 now",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-09.gif"
     },
     {
       "GameID": 78,
@@ -14465,20 +14460,19 @@
     },
     {
       "GameID": 78,
+      "ScoredBy": 22,
+      "Comment": "All scribbles and scribes on this solo effort from none other than Scribe99! 1-0 Hacks to open game 3 of the series",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-02.gif"
+    },
+    {
+      "GameID": 78,
       "Comment": "What a sick one time pass from Scribe that is narrowly intercepted what surely would have been an unbelievable goal!",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-01.gif"
     },
     {
       "GameID": 78,
-      "AssistedBy": 1,
-      "Comment": "AngryJay fighting and working free the ball for Skills who banks one off of the keeper to tie this game up at 2-2",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-06.gif"
-    },
-    {
-      "GameID": 79,
-      "ScoredBy": 10,
-      "Comment": "Kingraph immediately seeks revenge and gets his hat trick off the draw creating an \"oof\" moment for Ceydan",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-07.gif"
+      "Comment": "Corbett blasts one from the point that has everyone beaten except the post. The half will end 2-1",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID78-05.gif"
     },
     {
       "GameID": 79,
@@ -14495,8 +14489,14 @@
     },
     {
       "GameID": 79,
-      "Comment": "Ceydan marches up field and takes a very dangerous shot but jer_33 is there with a nice clearance",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-09.gif"
+      "Comment": "Skills narrowly misses on a close call. Game still 4-1 for Haxual Chocolate",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-08.gif"
+    },
+    {
+      "GameID": 79,
+      "ScoredBy": 10,
+      "Comment": "Kingraph immediately seeks revenge and gets his hat trick off the draw creating an \"oof\" moment for Ceydan",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-07.gif"
     },
     {
       "GameID": 79,
@@ -14507,20 +14507,13 @@
     },
     {
       "GameID": 79,
-      "Comment": "Skills narrowly misses on a close call. Game still 4-1 for Haxual Chocolate",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-08.gif"
+      "Comment": "Ceydan marches up field and takes a very dangerous shot but jer_33 is there with a nice clearance",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-09.gif"
     },
     {
       "GameID": 79,
       "Comment": "Drizzle from in close gets a dangerous shot away but Ceydan is there to deny him",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-04.gif"
-    },
-    {
-      "GameID": 79,
-      "ScoredBy": 21,
-      "AssistedBy": 14,
-      "Comment": "jer_33 seeing his first playoff game get's his first goal here putting Haxual up now 3-0",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-05.gif"
     },
     {
       "GameID": 79,
@@ -14539,6 +14532,13 @@
       "GameID": 79,
       "Comment": "Early on Ellis with an opening takes the shot but Kingraph makes a nice save",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-01.gif"
+    },
+    {
+      "GameID": 79,
+      "ScoredBy": 21,
+      "AssistedBy": 14,
+      "Comment": "jer_33 seeing his first playoff game get's his first goal here putting Haxual up now 3-0",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID79-05.gif"
     },
     {
       "GameID": 80,
@@ -14570,20 +14570,14 @@
     },
     {
       "GameID": 80,
-      "ScoredBy": 10,
-      "Comment": "To little too late as Kingraph pots his 2nd of the game. Hax Hogans even this series up winning 5-2",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID80-12.gif"
+      "Comment": "Ceydan makes a huge save off a one time blast from Drizz",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID80-04.gif"
     },
     {
       "GameID": 80,
       "ScoredBy": 6,
       "Comment": "Ellis gets the natural hat-trick off of a ill placed pass by Kingraph. 3-0 Hogans up",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID80-05.gif"
-    },
-    {
-      "GameID": 80,
-      "Comment": "Ceydan makes a huge save off a one time blast from Drizz",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID80-04.gif"
     },
     {
       "GameID": 80,
@@ -14610,17 +14604,10 @@
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID80-06.gif"
     },
     {
-      "GameID": 81,
+      "GameID": 80,
       "ScoredBy": 10,
-      "Comment": "Kingraph closes out the scoring in the series with his 6th of this game and 12 of the series. 8-3 is the final",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-11.gif"
-    },
-    {
-      "GameID": 81,
-      "ScoredBy": 10,
-      "AssistedBy": 14,
-      "Comment": "VAR once again needed here and it was revealed that Haxual Chocolate will take the series in 3. 7-3 now",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-10.gif"
+      "Comment": "To little too late as Kingraph pots his 2nd of the game. Hax Hogans even this series up winning 5-2",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID80-12.gif"
     },
     {
       "GameID": 81,
@@ -14632,8 +14619,28 @@
     {
       "GameID": 81,
       "ScoredBy": 10,
+      "AssistedBy": 21,
+      "Comment": "jer with persistence moves the ball upfield where Kingraph puts the Chocolate up 2-1 with the quick release!",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-03.gif"
+    },
+    {
+      "GameID": 81,
+      "ScoredBy": 10,
+      "Comment": "Kingraph closes out the scoring in the series with his 6th of this game and 12 of the series. 8-3 is the final",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-11.gif"
+    },
+    {
+      "GameID": 81,
+      "ScoredBy": 10,
       "Comment": "Right off of the faceoff the King takes control of the game and gives Haxual a commanding lead now 6-2 ",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-08.gif"
+    },
+    {
+      "GameID": 81,
+      "ScoredBy": 10,
+      "AssistedBy": 14,
+      "Comment": "VAR once again needed here and it was revealed that Haxual Chocolate will take the series in 3. 7-3 now",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-10.gif"
     },
     {
       "GameID": 81,
@@ -14641,6 +14648,12 @@
       "AssistedBy": 10,
       "Comment": "Kingraph blasts a shot that hits jer in the backside and deflects off of Ceydan. VAR used to clear up the stats here. 5-2 Chocolate",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-07.gif"
+    },
+    {
+      "GameID": 81,
+      "ScoredBy": 12,
+      "Comment": "Ellis with the nice read to intercept and Skills with the finish to open the scoring in this game 3. 1-0",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-01.gif"
     },
     {
       "GameID": 81,
@@ -14657,37 +14670,14 @@
     {
       "GameID": 81,
       "ScoredBy": 10,
-      "AssistedBy": 21,
-      "Comment": "jer with persistence moves the ball upfield where Kingraph puts the Chocolate up 2-1 with the quick release!",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-03.gif"
-    },
-    {
-      "GameID": 81,
-      "ScoredBy": 10,
       "Comment": "Kingraph evens the game up on an \"oof\" goal that we all know to well. 1-1",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-02.gif"
-    },
-    {
-      "GameID": 81,
-      "ScoredBy": 12,
-      "Comment": "Ellis with the nice read to intercept and Skills with the finish to open the scoring in this game 3. 1-0",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-01.gif"
     },
     {
       "GameID": 81,
       "OwnGoal": 14,
       "Comment": "Drizz with the right idea but wrong angle. Hogans back in this down by 2",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID81-06.gif"
-    },
-    {
-      "GameID": 82,
-      "Comment": "Stunning pass, shot and save all in the same sequence",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-08.gif"
-    },
-    {
-      "GameID": 82,
-      "Comment": "Hacks almost bring themselves to within 2 but can't quite convert a nice play",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-10.gif"
     },
     {
       "GameID": 82,
@@ -14703,20 +14693,25 @@
     },
     {
       "GameID": 82,
+      "Comment": "Stunning pass, shot and save all in the same sequence",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-08.gif"
+    },
+    {
+      "GameID": 82,
       "Comment": "Kingraph and the Chocolate narrowly miss handing a goal to the Hacks here",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-07.gif"
     },
     {
       "GameID": 82,
-      "ScoredBy": 14,
-      "Comment": "thatDrizzle breaks the scoreless draw and puts the Chocolate up 1-0",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-02.gif"
+      "ScoredBy": 21,
+      "AssistedBy": 10,
+      "Comment": "Raph will set up jer_33 for his first of the game. 4-0 now",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-06.gif"
     },
     {
       "GameID": 82,
-      "ScoredBy": 14,
-      "Comment": "jer and Drizz with a nice give and go resulting in a natural hat-trick for Drizz and a 3-0 lead for Haxual",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-05.gif"
+      "Comment": "Hacks almost bring themselves to within 2 but can't quite convert a nice play",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-10.gif"
     },
     {
       "GameID": 82,
@@ -14731,15 +14726,20 @@
     },
     {
       "GameID": 82,
+      "ScoredBy": 14,
+      "Comment": "thatDrizzle breaks the scoreless draw and puts the Chocolate up 1-0",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-02.gif"
+    },
+    {
+      "GameID": 82,
       "Comment": "20 seconds in and Drizz rips one of the near post with the rebound to Raph who rips one off of the far post keeping this game scoreless",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-01.gif"
     },
     {
       "GameID": 82,
-      "ScoredBy": 21,
-      "AssistedBy": 10,
-      "Comment": "Raph will set up jer_33 for his first of the game. 4-0 now",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-06.gif"
+      "ScoredBy": 14,
+      "Comment": "jer and Drizz with a nice give and go resulting in a natural hat-trick for Drizz and a 3-0 lead for Haxual",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID82-05.gif"
     },
     {
       "GameID": 83,
@@ -14777,22 +14777,15 @@
     },
     {
       "GameID": 84,
-      "ScoredBy": 3,
-      "AssistedBy": 13,
-      "Comment": "With just over 1 minute remaining in the game Corbett gets lucky with a shot that goes off of the defender and towards goal! Game tied 1-1",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-08.gif"
+      "ScoredBy": 13,
+      "AssistedBy": 22,
+      "Comment": "Corner work from Scribe leads to a ball in front where Trefizoh will smash it home and the game into the books. Hacks 2-1 the final",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-12.gif"
     },
     {
       "GameID": 84,
       "Comment": "Mooney spots a wide open Tickenest who can't pick a side",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-11.gif"
-    },
-    {
-      "GameID": 84,
-      "ScoredBy": 13,
-      "AssistedBy": 22,
-      "Comment": "Corner work from Scribe leads to a ball in front where Trefizoh will smash it home and the game into the books. Hacks 2-1 the final",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-12.gif"
     },
     {
       "GameID": 84,
@@ -14806,13 +14799,15 @@
     },
     {
       "GameID": 84,
-      "Comment": "Folks nerves are clearly on edge at this point in this very important game",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-07.gif"
+      "ScoredBy": 3,
+      "AssistedBy": 13,
+      "Comment": "With just over 1 minute remaining in the game Corbett gets lucky with a shot that goes off of the defender and towards goal! Game tied 1-1",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-08.gif"
     },
     {
       "GameID": 84,
-      "Comment": "Meanwhile at the other end of the field Orange Ricky will get a shot on net but Corbett makes the save",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-02.gif"
+      "Comment": "Folks nerves are clearly on edge at this point in this very important game",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-07.gif"
     },
     {
       "GameID": 84,
@@ -14832,6 +14827,11 @@
     },
     {
       "GameID": 84,
+      "Comment": "Meanwhile at the other end of the field Orange Ricky will get a shot on net but Corbett makes the save",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-02.gif"
+    },
+    {
+      "GameID": 84,
       "Comment": "A minute and a half into this final game of the round robin Hacks with a decent chance to open the scoreline but the shot goes wide",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-01.gif"
     },
@@ -14839,11 +14839,6 @@
       "GameID": 84,
       "Comment": "Dangler comes close to putting the Orange up by 2 but the ball hits the inside of the post and then cleared away",
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID84-06.gif"
-    },
-    {
-      "GameID": 85,
-      "Comment": "Mooney with a nice clearance with what would have been an open net shot for Jerr_33",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID85-07.gif"
     },
     {
       "GameID": 85,
@@ -14865,9 +14860,8 @@
     },
     {
       "GameID": 85,
-      "ScoredBy": 10,
-      "Comment": "Seconds after a nice save Tick is vicitim to a common scenario in this game! Kingraph will give the lead back to the Chocolate. 2-1",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID85-04.gif"
+      "Comment": "Mooney with a nice clearance with what would have been an open net shot for Jerr_33",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID85-07.gif"
     },
     {
       "GameID": 85,
@@ -14887,6 +14881,12 @@
       "Filepath": "img/gifs/S03/S03Playoffs/S03-ID85-01.gif"
     },
     {
+      "GameID": 85,
+      "ScoredBy": 10,
+      "Comment": "Seconds after a nice save Tick is vicitim to a common scenario in this game! Kingraph will give the lead back to the Chocolate. 2-1",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID85-04.gif"
+    },
+    {
       "GameID": 86,
       "ScoredBy": 14,
       "AssistedBy": 10,
@@ -14895,16 +14895,29 @@
     },
     {
       "GameID": 86,
-      "OwnGoal": 15,
-      "Comment": "Haxual Chocolate turn this defensive kick off into pure offense resulting in Orange Ricky loggin a OG! Game all tied up at 3-3 now!",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-08.gif"
+      "ScoredBy": 21,
+      "AssistedBy": 14,
+      "Comment": "Drizzle drizzlin in the corner and sneaks the ball out to an open Jer_33 who finishes with a nice touch. 1-0 Chocolate",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-01.gif"
     },
     {
       "GameID": 86,
-      "ScoredBy": 10,
-      "AssistedBy": 21,
-      "Comment": "Kingraph with one of his trademark moves off the end wall rings the far post that’s to much for Orange Ricky. 3-2 with 45 seconds left",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-07.gif"
+      "ScoredBy": 15,
+      "Comment": "Tickenest ties this game up on a very nice fade away shot from distance. 1-1 now",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-02.gif"
+    },
+    {
+      "GameID": 86,
+      "ScoredBy": 15,
+      "AssistedBy": 4,
+      "Comment": "Tickenest picks the top corner again after muscling into position. Nice pass from Dangler to start the play. 2-1 Orange Ricky",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-03.gif"
+    },
+    {
+      "GameID": 86,
+      "ScoredBy": 15,
+      "Comment": "Tick gets the natural hat trick and puts Orange Ricky up 3-1",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-04.gif"
     },
     {
       "GameID": 86,
@@ -14918,47 +14931,16 @@
     },
     {
       "GameID": 86,
-      "ScoredBy": 15,
-      "AssistedBy": 4,
-      "Comment": "Tickenest picks the top corner again after muscling into position. Nice pass from Dangler to start the play. 2-1 Orange Ricky",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-03.gif"
-    },
-    {
-      "GameID": 86,
-      "ScoredBy": 15,
-      "Comment": "Tickenest ties this game up on a very nice fade away shot from distance. 1-1 now",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-02.gif"
-    },
-    {
-      "GameID": 86,
-      "ScoredBy": 21,
-      "AssistedBy": 14,
-      "Comment": "Drizzle drizzlin in the corner and sneaks the ball out to an open Jer_33 who finishes with a nice touch. 1-0 Chocolate",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-01.gif"
-    },
-    {
-      "GameID": 86,
-      "ScoredBy": 15,
-      "Comment": "Tick gets the natural hat trick and puts Orange Ricky up 3-1",
-      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-04.gif"
-    },
-    {
-      "GameID": 87,
-      "ScoredBy": 6,
+      "ScoredBy": 10,
       "AssistedBy": 21,
-      "Comment": "..and finally Ellis with the hat-trick goal, a classic one-timer to tie the game in the last 30 seconds. 4-4 now.",
-      "Filepath": "img/gifs/S04/S04-ID87-08.gif"
+      "Comment": "Kingraph with one of his trademark moves off the end wall rings the far post that’s to much for Orange Ricky. 3-2 with 45 seconds left",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-07.gif"
     },
     {
-      "GameID": 87,
-      "ScoredBy": 21,
-      "Comment": "..and Jer buries a squeaker in the 7th minute of OT to win it for Nighthax. Final score 5-4.",
-      "Filepath": "img/gifs/S04/S04-ID87-12.gif"
-    },
-    {
-      "GameID": 87,
-      "Comment": "A beautiful team effort from TNT on this play but Ellis is in position for the double save.",
-      "Filepath": "img/gifs/S04/S04-ID87-11.gif"
+      "GameID": 86,
+      "OwnGoal": 15,
+      "Comment": "Haxual Chocolate turn this defensive kick off into pure offense resulting in Orange Ricky loggin a OG! Game all tied up at 3-3 now!",
+      "Filepath": "img/gifs/S03/S03Playoffs/S03-ID86-08.gif"
     },
     {
       "GameID": 87,
@@ -14972,22 +14954,28 @@
     },
     {
       "GameID": 87,
+      "ScoredBy": 21,
+      "Comment": "..and Jer buries a squeaker in the 7th minute of OT to win it for Nighthax. Final score 5-4.",
+      "Filepath": "img/gifs/S04/S04-ID87-12.gif"
+    },
+    {
+      "GameID": 87,
+      "ScoredBy": 6,
+      "AssistedBy": 21,
+      "Comment": "..and finally Ellis with the hat-trick goal, a classic one-timer to tie the game in the last 30 seconds. 4-4 now.",
+      "Filepath": "img/gifs/S04/S04-ID87-08.gif"
+    },
+    {
+      "GameID": 87,
+      "Comment": "A beautiful team effort from TNT on this play but Ellis is in position for the double save.",
+      "Filepath": "img/gifs/S04/S04-ID87-11.gif"
+    },
+    {
+      "GameID": 87,
       "ScoredBy": 3,
       "AssistedBy": 21,
       "Comment": "Corbett with a beautiful snipe off the post to keep the game close. 4-3 TNT in front.",
       "Filepath": "img/gifs/S04/S04-ID87-07.gif"
-    },
-    {
-      "GameID": 87,
-      "ScoredBy": 13,
-      "Comment": "Tennessee with a nice block leading to a goal. TNT now up 2-0.",
-      "Filepath": "img/gifs/S04/S04-ID87-02.gif"
-    },
-    {
-      "GameID": 87,
-      "ScoredBy": 22,
-      "Comment": "Scribe gets one back for TNT with a long-range snipe. TNT back in the lead 3-2.",
-      "Filepath": "img/gifs/S04/S04-ID87-05.gif"
     },
     {
       "GameID": 87,
@@ -14998,15 +14986,9 @@
     },
     {
       "GameID": 87,
-      "ScoredBy": 6,
-      "Comment": "Ellis puts Nighthax on the board with a nice stepback snipe right in the middle of the net",
-      "Filepath": "img/gifs/S04/S04-ID87-03.gif"
-    },
-    {
-      "GameID": 87,
-      "ScoredBy": 25,
-      "Comment": "A single goal scored in the first half would have you believe that this was going to be a low-scoring affair.. Brockness creates his own chance here. Also, first goal of the season.",
-      "Filepath": "img/gifs/S04/S04-ID87-01.gif"
+      "ScoredBy": 22,
+      "Comment": "Scribe gets one back for TNT with a long-range snipe. TNT back in the lead 3-2.",
+      "Filepath": "img/gifs/S04/S04-ID87-05.gif"
     },
     {
       "GameID": 87,
@@ -15015,10 +14997,22 @@
       "Filepath": "img/gifs/S04/S04-ID87-06.gif"
     },
     {
-      "GameID": 88,
+      "GameID": 87,
+      "ScoredBy": 6,
+      "Comment": "Ellis puts Nighthax on the board with a nice stepback snipe right in the middle of the net",
+      "Filepath": "img/gifs/S04/S04-ID87-03.gif"
+    },
+    {
+      "GameID": 87,
       "ScoredBy": 13,
-      "Comment": "Tennessee snipes one through two defenders and buries it in the corner cutting the defecit to three.",
-      "Filepath": "img/gifs/S04/S04-ID88-07.gif"
+      "Comment": "Tennessee with a nice block leading to a goal. TNT now up 2-0.",
+      "Filepath": "img/gifs/S04/S04-ID87-02.gif"
+    },
+    {
+      "GameID": 87,
+      "ScoredBy": 25,
+      "Comment": "A single goal scored in the first half would have you believe that this was going to be a low-scoring affair.. Brockness creates his own chance here. Also, first goal of the season.",
+      "Filepath": "img/gifs/S04/S04-ID87-01.gif"
     },
     {
       "GameID": 88,
@@ -15042,6 +15036,12 @@
     },
     {
       "GameID": 88,
+      "ScoredBy": 13,
+      "Comment": "Tennessee snipes one through two defenders and buries it in the corner cutting the defecit to three.",
+      "Filepath": "img/gifs/S04/S04-ID88-07.gif"
+    },
+    {
+      "GameID": 88,
       "ScoredBy": 21,
       "AssistedBy": 3,
       "Comment": "Corbett sends another stretch pass and Jer just beats out Brockness for his 4th of the game. Now 5-1 Nighthax",
@@ -15049,16 +15049,16 @@
     },
     {
       "GameID": 88,
+      "ScoredBy": 25,
+      "Comment": "Brockness puts TNT on the board with a nice bouncepass to himself and threads the needle.",
+      "Filepath": "img/gifs/S04/S04-ID88-04.gif"
+    },
+    {
+      "GameID": 88,
       "ScoredBy": 21,
       "AssistedBy": 6,
       "Comment": "Ellis sneaks a shot through and Jer runs it down to the net. 3-0 after the first half.",
       "Filepath": "img/gifs/S04/S04-ID88-03.gif"
-    },
-    {
-      "GameID": 88,
-      "ScoredBy": 25,
-      "Comment": "Brockness puts TNT on the board with a nice bouncepass to himself and threads the needle.",
-      "Filepath": "img/gifs/S04/S04-ID88-04.gif"
     },
     {
       "GameID": 88,
@@ -15082,6 +15082,11 @@
     },
     {
       "GameID": 89,
+      "Comment": "Give and go play but the shot is wide.",
+      "Filepath": "img/gifs/S04/S04-ID89-08.gif"
+    },
+    {
+      "GameID": 89,
       "ScoredBy": 24,
       "AssistedBy": 1,
       "Comment": "Sega's 2nd of his career in as many games will end this game having the Foundation win 8-2.",
@@ -15101,8 +15106,9 @@
     },
     {
       "GameID": 89,
-      "Comment": "Give and go play but the shot is wide.",
-      "Filepath": "img/gifs/S04/S04-ID89-08.gif"
+      "ScoredBy": 6,
+      "Comment": "Ellis with the interception and quickly moves upfield and picks the short side. Nighthax now down by three.",
+      "Filepath": "img/gifs/S04/S04-ID89-09.gif"
     },
     {
       "GameID": 89,
@@ -15113,9 +15119,10 @@
     },
     {
       "GameID": 89,
-      "ScoredBy": 6,
-      "Comment": "Ellis with the interception and quickly moves upfield and picks the short side. Nighthax now down by three.",
-      "Filepath": "img/gifs/S04/S04-ID89-09.gif"
+      "ScoredBy": 10,
+      "AssistedBy": 1,
+      "Comment": "Angryjay sets up Kingraph to kick off the campaign for the Foundation.",
+      "Filepath": "img/gifs/S04/S04-ID89-01.gif"
     },
     {
       "GameID": 89,
@@ -15143,17 +15150,22 @@
     },
     {
       "GameID": 89,
-      "ScoredBy": 10,
-      "AssistedBy": 1,
-      "Comment": "Angryjay sets up Kingraph to kick off the campaign for the Foundation.",
-      "Filepath": "img/gifs/S04/S04-ID89-01.gif"
-    },
-    {
-      "GameID": 89,
       "ScoredBy": 21,
       "AssistedBy": 3,
       "Comment": "Jer gets the Nighthax on the board on another stretch pass the team displayed in their first games of the season. 4-1",
       "Filepath": "img/gifs/S04/S04-ID89-06.gif"
+    },
+    {
+      "GameID": 90,
+      "Comment": "Corbettkb with a big save to keep the game 2-1",
+      "Filepath": "img/gifs/S04/S04-ID90-06.gif"
+    },
+    {
+      "GameID": 90,
+      "ScoredBy": 6,
+      "AssistedBy": 3,
+      "Comment": "In a mirror look of the 2nd goal, Ellis snipes the corner to tie up the game",
+      "Filepath": "img/gifs/S04/S04-ID90-07.gif"
     },
     {
       "GameID": 90,
@@ -15164,8 +15176,9 @@
     },
     {
       "GameID": 90,
-      "Comment": "Ellis' shot gets past Segathon but kingraph makes the save to keep the start of game 2 0-0",
-      "Filepath": "img/gifs/S04/S04-ID90-01.gif"
+      "ScoredBy": 3,
+      "Comment": "Corbettkb squeaks one through the entire Foundation defense to cut the deficit in half",
+      "Filepath": "img/gifs/S04/S04-ID90-05.gif"
     },
     {
       "GameID": 90,
@@ -15181,40 +15194,15 @@
     },
     {
       "GameID": 90,
+      "Comment": "Ellis' shot gets past Segathon but kingraph makes the save to keep the start of game 2 0-0",
+      "Filepath": "img/gifs/S04/S04-ID90-01.gif"
+    },
+    {
+      "GameID": 90,
       "ScoredBy": 10,
       "AssistedBy": 1,
       "Comment": "Hax Foundation goes up 2-0 after kingraph finds the sharp angle to the bottom of the net",
       "Filepath": "img/gifs/S04/S04-ID90-04.gif"
-    },
-    {
-      "GameID": 90,
-      "ScoredBy": 3,
-      "Comment": "Corbettkb squeaks one through the entire Foundation defense to cut the deficit in half",
-      "Filepath": "img/gifs/S04/S04-ID90-05.gif"
-    },
-    {
-      "GameID": 90,
-      "Comment": "Corbettkb with a big save to keep the game 2-1",
-      "Filepath": "img/gifs/S04/S04-ID90-06.gif"
-    },
-    {
-      "GameID": 90,
-      "ScoredBy": 6,
-      "AssistedBy": 3,
-      "Comment": "In a mirror look of the 2nd goal, Ellis snipes the corner to tie up the game",
-      "Filepath": "img/gifs/S04/S04-ID90-07.gif"
-    },
-    {
-      "GameID": 91,
-      "ScoredBy": 24,
-      "AssistedBy": 10,
-      "Comment": "DegenHax clear the ball where it's picked up by Angryjay who kicks off the highlight of the night. However this is not enough as the final will be 2-1 Degeneration Hax.",
-      "Filepath": "img/gifs/S04/S04-ID91-04.gif"
-    },
-    {
-      "GameID": 91,
-      "Comment": "DegHax gets a little nonchalant with the ball at the end of the half but time had just expired.",
-      "Filepath": "img/gifs/S04/S04-ID91-03.gif"
     },
     {
       "GameID": 91,
@@ -15229,25 +15217,28 @@
       "Filepath": "img/gifs/S04/S04-ID91-02.gif"
     },
     {
-      "GameID": 92,
-      "Comment": "Raph kicks off game 2 by nearby sniping the DH defense from midfield, and then AJ isn't quite able to get his rotund body around the ball.",
-      "Filepath": "img/gifs/S04/S04-ID92-01.gif"
+      "GameID": 91,
+      "Comment": "DegHax gets a little nonchalant with the ball at the end of the half but time had just expired.",
+      "Filepath": "img/gifs/S04/S04-ID91-03.gif"
+    },
+    {
+      "GameID": 91,
+      "ScoredBy": 24,
+      "AssistedBy": 10,
+      "Comment": "DegenHax clear the ball where it's picked up by Angryjay who kicks off the highlight of the night. However this is not enough as the final will be 2-1 Degeneration Hax.",
+      "Filepath": "img/gifs/S04/S04-ID91-04.gif"
     },
     {
       "GameID": 92,
-      "Comment": "Shortly after Richter and Tick have an uncomfortable moment in tracking back and manage to clear what could easily have ended up in the back of their net.",
-      "Filepath": "img/gifs/S04/S04-ID92-02.gif"
-    },
-    {
-      "GameID": 92,
-      "Comment": "DH nearly open the scoring with an excellent cross-field combo but Raph is there to snuff it out. Game still scoreless.",
-      "Filepath": "img/gifs/S04/S04-ID92-03.gif"
+      "ScoredBy": 2,
+      "Comment": "After a scrum in the corner AJ clears right to Chaos who makes a little move north, Richter puts himself in the perfect spot for a body block to end this chapter at 5-0 GH over THF. GG!",
+      "Filepath": "img/gifs/S04/S04-ID92-08.gif"
     },
     {
       "GameID": 92,
       "ScoredBy": 26,
-      "Comment": "Richter takes advantage of a bit of disarray in the defense and sends a clearance attempt into the open net giving the Degenerates a 1-0 lead.",
-      "Filepath": "img/gifs/S04/S04-ID92-04.gif"
+      "Comment": "Richter tracks down the loose ball and D retreats but Richter finds a narrow seam and S-N-I-P-E! Hat-trick in only his second career game and now the scoreline sits at 4-0.",
+      "Filepath": "img/gifs/S04/S04-ID92-07.gif"
     },
     {
       "GameID": 92,
@@ -15265,15 +15256,49 @@
     },
     {
       "GameID": 92,
-      "ScoredBy": 26,
-      "Comment": "Richter tracks down the loose ball and D retreats but Richter finds a narrow seam and S-N-I-P-E! Hat-trick in only his second career game and now the scoreline sits at 4-0.",
-      "Filepath": "img/gifs/S04/S04-ID92-07.gif"
+      "Comment": "DH nearly open the scoring with an excellent cross-field combo but Raph is there to snuff it out. Game still scoreless.",
+      "Filepath": "img/gifs/S04/S04-ID92-03.gif"
     },
     {
       "GameID": 92,
-      "ScoredBy": 2,
-      "Comment": "After a scrum in the corner AJ clears right to Chaos who makes a little move north, Richter puts himself in the perfect spot for a body block to end this chapter at 5-0 GH over THF. GG!",
-      "Filepath": "img/gifs/S04/S04-ID92-08.gif"
+      "Comment": "Shortly after Richter and Tick have an uncomfortable moment in tracking back and manage to clear what could easily have ended up in the back of their net.",
+      "Filepath": "img/gifs/S04/S04-ID92-02.gif"
+    },
+    {
+      "GameID": 92,
+      "Comment": "Raph kicks off game 2 by nearby sniping the DH defense from midfield, and then AJ isn't quite able to get his rotund body around the ball.",
+      "Filepath": "img/gifs/S04/S04-ID92-01.gif"
+    },
+    {
+      "GameID": 92,
+      "ScoredBy": 26,
+      "Comment": "Richter takes advantage of a bit of disarray in the defense and sends a clearance attempt into the open net giving the Degenerates a 1-0 lead.",
+      "Filepath": "img/gifs/S04/S04-ID92-04.gif"
+    },
+    {
+      "GameID": 93,
+      "ScoredBy": 1,
+      "Comment": "AJ opens up the scoring 11 seconds in quite aggresively pressuring and clearly intimating a bewildered Tref.  ",
+      "Filepath": "img/gifs/S04/S04-ID93-01.gif"
+    },
+    {
+      "GameID": 93,
+      "Comment": "Segathon rips a one-timer just wide.",
+      "Filepath": "img/gifs/S04/S04-ID93-02.gif"
+    },
+    {
+      "GameID": 93,
+      "ScoredBy": 13,
+      "AssistedBy": 22,
+      "Comment": "Scribe's one timer pass sets up Trefizoh who banks a shot off of both defenders. Game tied 1-1.",
+      "Filepath": "img/gifs/S04/S04-ID93-03.gif"
+    },
+    {
+      "GameID": 93,
+      "ScoredBy": 24,
+      "AssistedBy": 1,
+      "Comment": "Segathon finds space to bury a goal for THF who take a 2-1 lead early in the second half.",
+      "Filepath": "img/gifs/S04/S04-ID93-04.gif"
     },
     {
       "GameID": 93,
@@ -15286,52 +15311,39 @@
       "GameID": 93,
       "ScoredBy": 24,
       "AssistedBy": 10,
-      "Comment": "The game was surely over until a unexpected offensive rush leads to a wide open Segathon whom Raph spots which will have the game unecessarily end at 5-1.",
-      "Filepath": "img/gifs/S04/S04-ID93-07.gif"
-    },
-    {
-      "GameID": 93,
-      "ScoredBy": 24,
-      "AssistedBy": 10,
       "Comment": "With the game winding down rookie Segathon gets the natural hat trick. 4-1 is now the scoreline.",
       "Filepath": "img/gifs/S04/S04-ID93-06.gif"
     },
     {
       "GameID": 93,
       "ScoredBy": 24,
+      "AssistedBy": 10,
+      "Comment": "The game was surely over until a unexpected offensive rush leads to a wide open Segathon whom Raph spots which will have the game unecessarily end at 5-1.",
+      "Filepath": "img/gifs/S04/S04-ID93-07.gif"
+    },
+    {
+      "GameID": 94,
+      "ScoredBy": 22,
+      "AssistedBy": 25,
+      "Comment": "Scribe catches keeper Raph with a nice turn and shoot to bring this game within reach however the clock will have the final 4-3 for The Hax Foundation.",
+      "Filepath": "img/gifs/S04/S04-ID94-09.gif"
+    },
+    {
+      "GameID": 94,
+      "Comment": "Great save!! Tref barely keeps this ball out keeping the game within reach for a possible Nuclear Test.",
+      "Filepath": "img/gifs/S04/S04-ID94-08.gif"
+    },
+    {
+      "GameID": 94,
+      "Comment": "Despite a stellar save by Scribe Segathon will get his 10th goal of the season increasing his teams lead to 4-2",
+      "Filepath": "img/gifs/S04/S04-ID94-07.gif"
+    },
+    {
+      "GameID": 94,
+      "ScoredBy": 10,
       "AssistedBy": 1,
-      "Comment": "Segathon finds space to bury a goal for THF who take a 2-1 lead early in the second half.",
-      "Filepath": "img/gifs/S04/S04-ID93-04.gif"
-    },
-    {
-      "GameID": 93,
-      "ScoredBy": 13,
-      "AssistedBy": 22,
-      "Comment": "Scribe's one timer pass sets up Trefizoh who banks a shot off of both defenders. Game tied 1-1.",
-      "Filepath": "img/gifs/S04/S04-ID93-03.gif"
-    },
-    {
-      "GameID": 93,
-      "Comment": "Segathon rips a one-timer just wide.",
-      "Filepath": "img/gifs/S04/S04-ID93-02.gif"
-    },
-    {
-      "GameID": 93,
-      "ScoredBy": 1,
-      "Comment": "AJ opens up the scoring 11 seconds in quite aggresively pressuring and clearly intimating a bewildered Tref.  ",
-      "Filepath": "img/gifs/S04/S04-ID93-01.gif"
-    },
-    {
-      "GameID": 94,
-      "ScoredBy": 25,
-      "Comment": "The dreaded open net breakaway that creates many nervous breakdowns and self doubt. Counselor Raph offers up some nerve therapy to Brock here. TNT take the lead 1-0",
-      "Filepath": "img/gifs/S04/S04-ID94-01.gif"
-    },
-    {
-      "GameID": 94,
-      "ScoredBy": 24,
-      "Comment": "Segathon has been beefing up and simply outmuscles Tref along the wall to tie this game up at 1-1.",
-      "Filepath": "img/gifs/S04/S04-ID94-02.gif"
+      "Comment": "Not for long though as The Foundation will take back the lead on a small pinch by the defender which this league has no mercy for. 3-2 Foundation",
+      "Filepath": "img/gifs/S04/S04-ID94-06.gif"
     },
     {
       "GameID": 94,
@@ -15347,58 +15359,22 @@
     },
     {
       "GameID": 94,
+      "ScoredBy": 24,
+      "Comment": "Segathon has been beefing up and simply outmuscles Tref along the wall to tie this game up at 1-1.",
+      "Filepath": "img/gifs/S04/S04-ID94-02.gif"
+    },
+    {
+      "GameID": 94,
+      "ScoredBy": 25,
+      "Comment": "The dreaded open net breakaway that creates many nervous breakdowns and self doubt. Counselor Raph offers up some nerve therapy to Brock here. TNT take the lead 1-0",
+      "Filepath": "img/gifs/S04/S04-ID94-01.gif"
+    },
+    {
+      "GameID": 94,
       "ScoredBy": 13,
       "AssistedBy": 25,
       "Comment": "Alas with less than 3 seconds remaining in the opening half Trinity Test do tie this game up at 2-2.",
       "Filepath": "img/gifs/S04/S04-ID94-05.gif"
-    },
-    {
-      "GameID": 94,
-      "ScoredBy": 10,
-      "AssistedBy": 1,
-      "Comment": "Not for long though as The Foundation will take back the lead on a small pinch by the defender which this league has no mercy for. 3-2 Foundation",
-      "Filepath": "img/gifs/S04/S04-ID94-06.gif"
-    },
-    {
-      "GameID": 94,
-      "Comment": "Despite a stellar save by Scribe Segathon will get his 10th goal of the season increasing his teams lead to 4-2",
-      "Filepath": "img/gifs/S04/S04-ID94-07.gif"
-    },
-    {
-      "GameID": 94,
-      "Comment": "Great save!! Tref barely keeps this ball out keeping the game within reach for a possible Nuclear Test.",
-      "Filepath": "img/gifs/S04/S04-ID94-08.gif"
-    },
-    {
-      "GameID": 94,
-      "ScoredBy": 22,
-      "AssistedBy": 25,
-      "Comment": "Scribe catches keeper Raph with a nice turn and shoot to bring this game within reach however the clock will have the final 4-3 for The Hax Foundation.",
-      "Filepath": "img/gifs/S04/S04-ID94-09.gif"
-    },
-    {
-      "GameID": 95,
-      "Comment": "The pressure continues and the Nighthax are lucky to only be down by two at this point",
-      "Filepath": "img/gifs/S04/S04-ID95-06.gif"
-    },
-    {
-      "GameID": 95,
-      "Comment": "All of the Degenerates combine for a very nice attempt but the stretch pass had to much sauce ",
-      "Filepath": "img/gifs/S04/S04-ID95-03.gif"
-    },
-    {
-      "GameID": 95,
-      "ScoredBy": 26,
-      "AssistedBy": 15,
-      "Comment": "Richter with his third point of the game will bury the Nighthax 3-0 that is the final.",
-      "Filepath": "img/gifs/S04/S04-ID95-07.gif"
-    },
-    {
-      "GameID": 95,
-      "ScoredBy": 2,
-      "AssistedBy": 26,
-      "Comment": "Chaos with his second goal of the game now put's GenHax up 2-0.",
-      "Filepath": "img/gifs/S04/S04-ID95-05.gif"
     },
     {
       "GameID": 95,
@@ -15414,8 +15390,39 @@
     },
     {
       "GameID": 95,
+      "Comment": "All of the Degenerates combine for a very nice attempt but the stretch pass had to much sauce ",
+      "Filepath": "img/gifs/S04/S04-ID95-03.gif"
+    },
+    {
+      "GameID": 95,
       "Comment": "Another attempt from the same combo but just can't quite increase the lead yet.",
       "Filepath": "img/gifs/S04/S04-ID95-04.gif"
+    },
+    {
+      "GameID": 95,
+      "ScoredBy": 2,
+      "AssistedBy": 26,
+      "Comment": "Chaos with his second goal of the game now put's GenHax up 2-0.",
+      "Filepath": "img/gifs/S04/S04-ID95-05.gif"
+    },
+    {
+      "GameID": 95,
+      "Comment": "The pressure continues and the Nighthax are lucky to only be down by two at this point",
+      "Filepath": "img/gifs/S04/S04-ID95-06.gif"
+    },
+    {
+      "GameID": 95,
+      "ScoredBy": 26,
+      "AssistedBy": 15,
+      "Comment": "Richter with his third point of the game will bury the Nighthax 3-0 that is the final.",
+      "Filepath": "img/gifs/S04/S04-ID95-07.gif"
+    },
+    {
+      "GameID": 96,
+      "ScoredBy": 21,
+      "AssistedBy": 6,
+      "Comment": "Jer and Ellis applying double coverage as time is winding down and Jer will deflect this ball in but the Nighthax will fall short. 4-3 is the final DegenHax",
+      "Filepath": "img/gifs/S04/S04-ID96-09.gif"
     },
     {
       "GameID": 96,
@@ -15438,17 +15445,14 @@
     },
     {
       "GameID": 96,
-      "ScoredBy": 6,
-      "AssistedBy": 3,
-      "Comment": "Finally the Nighthax are on the board with an absolute Rocket of a shot from Ellis. 3-1 ",
-      "Filepath": "img/gifs/S04/S04-ID96-05.gif"
+      "ScoredBy": 2,
+      "Comment": "Chaos quickly opens the scoring in this second and final meeting between these two teams. 1-0 DegenHax",
+      "Filepath": "img/gifs/S04/S04-ID96-01.gif"
     },
     {
       "GameID": 96,
-      "ScoredBy": 21,
-      "AssistedBy": 6,
-      "Comment": "Jer and Ellis applying double coverage as time is winding down and Jer will deflect this ball in but the Nighthax will fall short. 4-3 is the final DegenHax",
-      "Filepath": "img/gifs/S04/S04-ID96-09.gif"
+      "Comment": "The pressure is being felt by the Nighthax and some nights this happens to the best.",
+      "Filepath": "img/gifs/S04/S04-ID96-04.gif"
     },
     {
       "GameID": 96,
@@ -15464,41 +15468,10 @@
     },
     {
       "GameID": 96,
-      "ScoredBy": 2,
-      "Comment": "Chaos quickly opens the scoring in this second and final meeting between these two teams. 1-0 DegenHax",
-      "Filepath": "img/gifs/S04/S04-ID96-01.gif"
-    },
-    {
-      "GameID": 96,
-      "Comment": "The pressure is being felt by the Nighthax and some nights this happens to the best.",
-      "Filepath": "img/gifs/S04/S04-ID96-04.gif"
-    },
-    {
-      "GameID": 97,
-      "ScoredBy": 2,
-      "AssistedBy": 15,
-      "Comment": "Richter starts the play patiently in the corner back to the point, across to Chaos who one times a shot top side to give the Degenerates the 1-0 lead.",
-      "Filepath": "img/gifs/S04/S04-ID97-01.gif"
-    },
-    {
-      "GameID": 97,
-      "Comment": "Rookie sensation Ricther with a rare rare miss that only the experienced can understand.",
-      "Filepath": "img/gifs/S04/S04-ID97-02.gif"
-    },
-    {
-      "GameID": 97,
-      "Comment": "The Trefizoh disco flash hrere is strong with good reason however the ball stays out of the net again for Trinity.",
-      "Filepath": "img/gifs/S04/S04-ID97-03.gif"
-    },
-    {
-      "GameID": 97,
-      "Comment": "With Trinity down by a goal and a dozen seconds remaining rookie Brockness' pressure almost results in a game tying goal but the post is in the way. ",
-      "Filepath": "img/gifs/S04/S04-ID97-04.gif"
-    },
-    {
-      "GameID": 97,
-      "Comment": "Rookies squared and Brockness with the good defensive play to keep this game close. Score is still 1-0 Degeneration Hax",
-      "Filepath": "img/gifs/S04/S04-ID97-05.gif"
+      "ScoredBy": 6,
+      "AssistedBy": 3,
+      "Comment": "Finally the Nighthax are on the board with an absolute Rocket of a shot from Ellis. 3-1 ",
+      "Filepath": "img/gifs/S04/S04-ID96-05.gif"
     },
     {
       "GameID": 97,
@@ -15515,10 +15488,57 @@
     },
     {
       "GameID": 97,
+      "Comment": "Rookies squared and Brockness with the good defensive play to keep this game close. Score is still 1-0 Degeneration Hax",
+      "Filepath": "img/gifs/S04/S04-ID97-05.gif"
+    },
+    {
+      "GameID": 97,
       "ScoredBy": 26,
       "AssistedBy": 15,
       "Comment": "Tickenest pressures and outmans the defender to gain control in the dying seconds of game to set up Richter who will end this games scoreline at 4-0 for Degeneration Hax.",
       "Filepath": "img/gifs/S04/S04-ID97-08.gif"
+    },
+    {
+      "GameID": 97,
+      "Comment": "The Trefizoh disco flash hrere is strong with good reason however the ball stays out of the net again for Trinity.",
+      "Filepath": "img/gifs/S04/S04-ID97-03.gif"
+    },
+    {
+      "GameID": 97,
+      "Comment": "Rookie sensation Ricther with a rare rare miss that only the experienced can understand.",
+      "Filepath": "img/gifs/S04/S04-ID97-02.gif"
+    },
+    {
+      "GameID": 97,
+      "ScoredBy": 2,
+      "AssistedBy": 15,
+      "Comment": "Richter starts the play patiently in the corner back to the point, across to Chaos who one times a shot top side to give the Degenerates the 1-0 lead.",
+      "Filepath": "img/gifs/S04/S04-ID97-01.gif"
+    },
+    {
+      "GameID": 97,
+      "Comment": "With Trinity down by a goal and a dozen seconds remaining rookie Brockness' pressure almost results in a game tying goal but the post is in the way. ",
+      "Filepath": "img/gifs/S04/S04-ID97-04.gif"
+    },
+    {
+      "GameID": 98,
+      "Comment": "Early on in this second game between these two opportunity for a Trinity lead is denied on this gif worthy play. Game scoreless.",
+      "Filepath": "img/gifs/S04/S04-ID98-01.gif"
+    },
+    {
+      "GameID": 98,
+      "Comment": "With less than 30 seconds left in the half Trinity Nuclear Test again come ever so close to opening the scoreline here but the half will end 0-0.",
+      "Filepath": "img/gifs/S04/S04-ID98-02.gif"
+    },
+    {
+      "GameID": 98,
+      "Comment": "A meaningless gif yet worthy of pointing out a nice move by Tickenest to move the ball up.",
+      "Filepath": "img/gifs/S04/S04-ID98-03.gif"
+    },
+    {
+      "GameID": 98,
+      "Comment": "In this scoreless game Trefizoh makes the save on a dangerous shot from Chaos.",
+      "Filepath": "img/gifs/S04/S04-ID98-04.gif"
     },
     {
       "GameID": 98,
@@ -15532,30 +15552,21 @@
     },
     {
       "GameID": 98,
-      "Comment": "In this scoreless game Trefizoh makes the save on a dangerous shot from Chaos.",
-      "Filepath": "img/gifs/S04/S04-ID98-04.gif"
-    },
-    {
-      "GameID": 98,
       "ScoredBy": 26,
       "AssistedBy": 2,
       "Comment": "With 6 seconds remaining in a scoreless game Ricther takes the shot which takes a slight deflection which catches the keeper in the wrong direction. 1-0 Degeneration for their sixth straith win! ",
       "Filepath": "img/gifs/S04/S04-ID98-07.gif"
     },
     {
-      "GameID": 98,
-      "Comment": "With less than 30 seconds left in the half Trinity Nuclear Test again come ever so close to opening the scoreline here but the half will end 0-0.",
-      "Filepath": "img/gifs/S04/S04-ID98-02.gif"
+      "GameID": 99,
+      "Comment": "Hax Degeneration again just can't quite thwart this .Hax squad. Tickenest walking in close but Skills with a huge save. Hax take this opener 2-1.",
+      "Filepath": "img/gifs/S04/S04-ID99-09.gif"
     },
     {
-      "GameID": 98,
-      "Comment": "Early on in this second game between these two opportunity for a Trinity lead is denied on this gif worthy play. Game scoreless.",
-      "Filepath": "img/gifs/S04/S04-ID98-01.gif"
-    },
-    {
-      "GameID": 98,
-      "Comment": "A meaningless gif yet worthy of pointing out a nice move by Tickenest to move the ball up.",
-      "Filepath": "img/gifs/S04/S04-ID98-03.gif"
+      "GameID": 99,
+      "ScoredBy": 12,
+      "Comment": "Shockingly .Hax take the lead again here with one of the leagues best forecheckers in Skills who presses the ball back into the net. 2-1 .Hax lead. ",
+      "Filepath": "img/gifs/S04/S04-ID99-08.gif"
     },
     {
       "GameID": 99,
@@ -15570,19 +15581,8 @@
     },
     {
       "GameID": 99,
-      "ScoredBy": 12,
-      "Comment": "Shockingly .Hax take the lead again here with one of the leagues best forecheckers in Skills who presses the ball back into the net. 2-1 .Hax lead. ",
-      "Filepath": "img/gifs/S04/S04-ID99-08.gif"
-    },
-    {
-      "GameID": 99,
       "Comment": "With the first half winding down Richter will test Kidswasted from in close but Kids has the angle covered.",
       "Filepath": "img/gifs/S04/S04-ID99-05.gif"
-    },
-    {
-      "GameID": 99,
-      "Comment": "Hax Degeneration again just can't quite thwart this .Hax squad. Tickenest walking in close but Skills with a huge save. Hax take this opener 2-1.",
-      "Filepath": "img/gifs/S04/S04-ID99-09.gif"
     },
     {
       "GameID": 99,
@@ -15656,21 +15656,14 @@
     },
     {
       "GameID": 101,
-      "OwnGoal": 12,
-      "Comment": "Corbett will tuck the ball into the corner as this game's final seconds tick down. This game will end 4-2 for the Nighthax.",
-      "Filepath": "img/gifs/S04/S04-ID101-08.gif"
-    },
-    {
-      "GameID": 101,
       "Comment": "Ellis with the save here which preserves the Nighthax's lead.",
       "Filepath": "img/gifs/S04/S04-ID101-07.gif"
     },
     {
       "GameID": 101,
-      "ScoredBy": 3,
-      "AssistedBy": 21,
-      "Comment": "Corbett pauses at the half line recoginizing a potential break and potential becomes reality as Jer set Corbett on a empty net break where he will put the Nighthax up 3-2.",
-      "Filepath": "img/gifs/S04/S04-ID101-06.gif"
+      "OwnGoal": 12,
+      "Comment": "Corbett will tuck the ball into the corner as this game's final seconds tick down. This game will end 4-2 for the Nighthax.",
+      "Filepath": "img/gifs/S04/S04-ID101-08.gif"
     },
     {
       "GameID": 101,
@@ -15683,8 +15676,8 @@
       "GameID": 101,
       "ScoredBy": 3,
       "AssistedBy": 21,
-      "Comment": "Corbs is open after Jer barely sneaks through the pass. Nighthax open up the scoring in this first game of two.",
-      "Filepath": "img/gifs/S04/S04-ID101-01.gif"
+      "Comment": "Corbett pauses at the half line recoginizing a potential break and potential becomes reality as Jer set Corbett on a empty net break where he will put the Nighthax up 3-2.",
+      "Filepath": "img/gifs/S04/S04-ID101-06.gif"
     },
     {
       "GameID": 101,
@@ -15699,6 +15692,13 @@
     },
     {
       "GameID": 101,
+      "ScoredBy": 3,
+      "AssistedBy": 21,
+      "Comment": "Corbs is open after Jer barely sneaks through the pass. Nighthax open up the scoring in this first game of two.",
+      "Filepath": "img/gifs/S04/S04-ID101-01.gif"
+    },
+    {
+      "GameID": 101,
       "ScoredBy": 14,
       "AssistedBy": 12,
       "Comment": "Skills and Drizz working the corner when all of a sudden Drizz finds himself with a golden opportunity to score which he does. 2-1 .Hax lead.",
@@ -15706,8 +15706,8 @@
     },
     {
       "GameID": 102,
-      "Comment": "Corbett sends Jer in on a 1v1 vs Kidswasted who will make the save on a play that could have seen the scoreline uneven.",
-      "Filepath": "img/gifs/S04/S04-ID102-07.gif"
+      "Comment": "Ellis sends the shot wide and this game will end up having .Hax come from behind 3-1 to win 4-3. ",
+      "Filepath": "img/gifs/S04/S04-ID102-11.gif"
     },
     {
       "GameID": 102,
@@ -15718,8 +15718,8 @@
     },
     {
       "GameID": 102,
-      "Comment": "Ellis sends the shot wide and this game will end up having .Hax come from behind 3-1 to win 4-3. ",
-      "Filepath": "img/gifs/S04/S04-ID102-11.gif"
+      "Comment": "Shortly after this tiebreaker still remains after this chance.",
+      "Filepath": "img/gifs/S04/S04-ID102-09.gif"
     },
     {
       "GameID": 102,
@@ -15728,21 +15728,20 @@
     },
     {
       "GameID": 102,
-      "ScoredBy": 12,
-      "AssistedBy": 14,
-      "Comment": "The pressure cooking team doing what they do creating havoc to which Skills will suddenly tie this game up. Down by 2 now the Hax are tied up 3-3!",
-      "Filepath": "img/gifs/S04/S04-ID102-06.gif"
-    },
-    {
-      "GameID": 102,
-      "Comment": "Shortly after this tiebreaker still remains after this chance.",
-      "Filepath": "img/gifs/S04/S04-ID102-09.gif"
+      "Comment": "Corbett sends Jer in on a 1v1 vs Kidswasted who will make the save on a play that could have seen the scoreline uneven.",
+      "Filepath": "img/gifs/S04/S04-ID102-07.gif"
     },
     {
       "GameID": 102,
       "ScoredBy": 6,
       "Comment": "Huge save by Kidswasted however Ellis will increase the Nighthax's lead 3-1 to end the half.",
       "Filepath": "img/gifs/S04/S04-ID102-04.gif"
+    },
+    {
+      "GameID": 102,
+      "OwnGoal": 3,
+      "Comment": "Kidswasted gets a little surprise on the pass attempt as the defender punts the interception towards his own goal and now .Hax are within a goal.",
+      "Filepath": "img/gifs/S04/S04-ID102-05.gif"
     },
     {
       "GameID": 102,
@@ -15764,9 +15763,10 @@
     },
     {
       "GameID": 102,
-      "OwnGoal": 3,
-      "Comment": "Kidswasted gets a little surprise on the pass attempt as the defender punts the interception towards his own goal and now .Hax are within a goal.",
-      "Filepath": "img/gifs/S04/S04-ID102-05.gif"
+      "ScoredBy": 12,
+      "AssistedBy": 14,
+      "Comment": "The pressure cooking team doing what they do creating havoc to which Skills will suddenly tie this game up. Down by 2 now the Hax are tied up 3-3!",
+      "Filepath": "img/gifs/S04/S04-ID102-06.gif"
     },
     {
       "GameID": 103,
@@ -15774,6 +15774,11 @@
       "AssistedBy": 12,
       "Comment": "39 seconds into this ovetime that never saw the ball in .Hax's zone they get their 2nd OT win of the season off of Drizz's 4th of the game. 6-5 Dot Hax win.",
       "Filepath": "img/gifs/S04/S04-ID103-12.gif"
+    },
+    {
+      "GameID": 103,
+      "Comment": "After a furious start to this second half the goals slowed down after 5 quick ones. Kidswasted almost ends the game in the dying seconds. OT coming up.",
+      "Filepath": "img/gifs/S04/S04-ID103-11.gif"
     },
     {
       "GameID": 103,
@@ -15804,8 +15809,9 @@
     },
     {
       "GameID": 103,
-      "Comment": "After a furious start to this second half the goals slowed down after 5 quick ones. Kidswasted almost ends the game in the dying seconds. OT coming up.",
-      "Filepath": "img/gifs/S04/S04-ID103-11.gif"
+      "ScoredBy": 12,
+      "Comment": "Skills undexpectedly rushes from an odd angle which catches Raph off guard which leads to a fumble where Skills recovers and evens the scoreline at 3-3. ",
+      "Filepath": "img/gifs/S04/S04-ID103-06.gif"
     },
     {
       "GameID": 103,
@@ -15841,17 +15847,6 @@
       "Filepath": "img/gifs/S04/S04-ID103-01.gif"
     },
     {
-      "GameID": 103,
-      "ScoredBy": 12,
-      "Comment": "Skills undexpectedly rushes from an odd angle which catches Raph off guard which leads to a fumble where Skills recovers and evens the scoreline at 3-3. ",
-      "Filepath": "img/gifs/S04/S04-ID103-06.gif"
-    },
-    {
-      "GameID": 104,
-      "Comment": "A nice attempt to equalize late in the game but the shot just goes wide and .Hax will take this game 3-2.",
-      "Filepath": "img/gifs/S04/S04-ID104-10.gif"
-    },
-    {
       "GameID": 104,
       "ScoredBy": 14,
       "AssistedBy": 12,
@@ -15875,6 +15870,11 @@
       "GameID": 104,
       "Comment": "Drizz walks in and almost gives the Hax the lead but there's no crack in the Foundation. Game still tied.",
       "Filepath": "img/gifs/S04/S04-ID104-06.gif"
+    },
+    {
+      "GameID": 104,
+      "Comment": "A nice attempt to equalize late in the game but the shot just goes wide and .Hax will take this game 3-2.",
+      "Filepath": "img/gifs/S04/S04-ID104-10.gif"
     },
     {
       "GameID": 104,
@@ -15922,13 +15922,13 @@
     },
     {
       "GameID": 105,
-      "Comment": "Scribe with a huge save to keep this game scoreline the same still early in the 2nd half.",
-      "Filepath": "img/gifs/S04/S04-ID105-06.gif"
+      "Comment": "Kidswasted has moved up in this game and almost get's the game leading goal. So close.",
+      "Filepath": "img/gifs/S04/S04-ID105-07.gif"
     },
     {
       "GameID": 105,
-      "Comment": "Kidswasted has moved up in this game and almost get's the game leading goal. So close.",
-      "Filepath": "img/gifs/S04/S04-ID105-07.gif"
+      "Comment": "Scribe with a huge save to keep this game scoreline the same still early in the 2nd half.",
+      "Filepath": "img/gifs/S04/S04-ID105-06.gif"
     },
     {
       "GameID": 105,
@@ -15936,6 +15936,17 @@
       "AssistedBy": 25,
       "Comment": "Trinity are making .Hax's pursuit for first overall very challenging. All the Nuclear Test subjects are in on this play and are radiating fusion after Tref puts them up 2-1.",
       "Filepath": "img/gifs/S04/S04-ID105-04.gif"
+    },
+    {
+      "GameID": 105,
+      "OwnGoal": 9,
+      "Comment": "Kidswasted eager for his first goal of the season has the right idea only the wrong side on this one. Game is tied 1-1.",
+      "Filepath": "img/gifs/S04/S04-ID105-03.gif"
+    },
+    {
+      "GameID": 105,
+      "Comment": "Brockness misses out on an assist as he feeds a nice through pass in which Trefizoh grazes the inside of the post and stays out.",
+      "Filepath": "img/gifs/S04/S04-ID105-02.gif"
     },
     {
       "GameID": 105,
@@ -15951,15 +15962,10 @@
       "Filepath": "img/gifs/S04/S04-ID105-05.gif"
     },
     {
-      "GameID": 105,
-      "OwnGoal": 9,
-      "Comment": "Kidswasted eager for his first goal of the season has the right idea only the wrong side on this one. Game is tied 1-1.",
-      "Filepath": "img/gifs/S04/S04-ID105-03.gif"
-    },
-    {
-      "GameID": 105,
-      "Comment": "Brockness misses out on an assist as he feeds a nice through pass in which Trefizoh grazes the inside of the post and stays out.",
-      "Filepath": "img/gifs/S04/S04-ID105-02.gif"
+      "GameID": 106,
+      "ScoredBy": 25,
+      "Comment": "Brock will get his hat trick goal chasing down the defender and owning the play to tie this game up 3-3. Trinity are being real pests to this .Hax club.",
+      "Filepath": "img/gifs/S04/S04-ID106-09.gif"
     },
     {
       "GameID": 106,
@@ -15970,56 +15976,14 @@
     },
     {
       "GameID": 106,
-      "ScoredBy": 9,
-      "Comment": "Kidswasted with 25 seconds remaining in the season will get himself a goal! Gonna need another gif for this one to show in fact it did cross the line….",
-      "Filepath": "img/gifs/S04/S04-ID106-11.gif"
-    },
-    {
-      "GameID": 106,
-      "ScoredBy": 25,
-      "Comment": "Brock will get his hat trick goal chasing down the defender and owning the play to tie this game up 3-3. Trinity are being real pests to this .Hax club.",
-      "Filepath": "img/gifs/S04/S04-ID106-09.gif"
-    },
-    {
-      "GameID": 106,
-      "ScoredBy": 25,
-      "AssistedBy": 22,
-      "Comment": "Tref hits the post from far down. Scribe collects and makes a slap pass towards Brock who does indeed deflect the shot towards goal and Trinity are now down 3-2.",
-      "Filepath": "img/gifs/S04/S04-ID106-08.gif"
-    },
-    {
-      "GameID": 106,
-      "Comment": "Somehow this ball stays out.",
-      "Filepath": "img/gifs/S04/S04-ID106-07.gif"
-    },
-    {
-      "GameID": 106,
       "Comment": "VAR shows this ball clearly crosses the line. Hax have their 5th game of the season headed for extra time.",
       "Filepath": "img/gifs/S04/S04-ID106-12.gif"
     },
     {
       "GameID": 106,
-      "ScoredBy": 14,
-      "Comment": "All Drizzle stripping the ball away and just beating away in the corner and pressuring the keeper making him pay. Hax now up 2-1.",
-      "Filepath": "img/gifs/S04/S04-ID106-05.gif"
-    },
-    {
-      "GameID": 106,
-      "ScoredBy": 12,
-      "AssistedBy": 14,
-      "Comment": "Trinity all up in the play and get caught as Drizz feeds Skills upfield who makes it look easy. Down 1-0 .Hax find themselves up 3-1.",
-      "Filepath": "img/gifs/S04/S04-ID106-06.gif"
-    },
-    {
-      "GameID": 106,
-      "Comment": ".Hax with a nice set play but can't finish it off.",
-      "Filepath": "img/gifs/S04/S04-ID106-01.gif"
-    },
-    {
-      "GameID": 106,
-      "ScoredBy": 25,
-      "Comment": "Trinity applying pressure that keeps building until Brock puts it home. 1-0 Trininty to open the 2nd game of the set.",
-      "Filepath": "img/gifs/S04/S04-ID106-02.gif"
+      "ScoredBy": 9,
+      "Comment": "Kidswasted with 25 seconds remaining in the season will get himself a goal! Gonna need another gif for this one to show in fact it did cross the line….",
+      "Filepath": "img/gifs/S04/S04-ID106-11.gif"
     },
     {
       "GameID": 106,
@@ -16030,10 +15994,28 @@
     },
     {
       "GameID": 106,
+      "ScoredBy": 25,
+      "AssistedBy": 22,
+      "Comment": "Tref hits the post from far down. Scribe collects and makes a slap pass towards Brock who does indeed deflect the shot towards goal and Trinity are now down 3-2.",
+      "Filepath": "img/gifs/S04/S04-ID106-08.gif"
+    },
+    {
+      "GameID": 106,
+      "Comment": ".Hax with a nice set play but can't finish it off.",
+      "Filepath": "img/gifs/S04/S04-ID106-01.gif"
+    },
+    {
+      "GameID": 106,
+      "ScoredBy": 12,
+      "AssistedBy": 14,
+      "Comment": "Trinity all up in the play and get caught as Drizz feeds Skills upfield who makes it look easy. Down 1-0 .Hax find themselves up 3-1.",
+      "Filepath": "img/gifs/S04/S04-ID106-06.gif"
+    },
+    {
+      "GameID": 106,
       "ScoredBy": 14,
-      "AssistedBy": 12,
-      "Comment": "The leagues leading pair in scoring do it again. Skills pulls position setting up a light tap in from the cross.  1-1 now.",
-      "Filepath": "img/gifs/S04/S04-ID106-03.gif"
+      "Comment": "All Drizzle stripping the ball away and just beating away in the corner and pressuring the keeper making him pay. Hax now up 2-1.",
+      "Filepath": "img/gifs/S04/S04-ID106-05.gif"
     },
     {
       "GameID": 106,
@@ -16041,21 +16023,33 @@
       "Filepath": "img/gifs/S04/S04-ID106-04.gif"
     },
     {
+      "GameID": 106,
+      "ScoredBy": 14,
+      "AssistedBy": 12,
+      "Comment": "The leagues leading pair in scoring do it again. Skills pulls position setting up a light tap in from the cross.  1-1 now.",
+      "Filepath": "img/gifs/S04/S04-ID106-03.gif"
+    },
+    {
+      "GameID": 106,
+      "ScoredBy": 25,
+      "Comment": "Trinity applying pressure that keeps building until Brock puts it home. 1-0 Trininty to open the 2nd game of the set.",
+      "Filepath": "img/gifs/S04/S04-ID106-02.gif"
+    },
+    {
+      "GameID": 106,
+      "Comment": "Somehow this ball stays out.",
+      "Filepath": "img/gifs/S04/S04-ID106-07.gif"
+    },
+    {
       "GameID": 107,
       "ScoredBy": 26,
-      "AssistedBy": 2,
-      "Comment": "S04 Playoffs begin and 8 seconds in Chaos will intercept and bump the ball onto Richter's right foot who picks the lowside off the post and in. 1-0 Degeneration Hax.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-01.gif"
+      "Comment": "Richter get's his second of the game off of some Nighthax miscommunication leading to an open shot splitting the gap between the defenders. 3-0 now.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-06.gif"
     },
     {
       "GameID": 107,
-      "Comment": "20 seconds later Nighthax are lucky to not be down by 2 early on if not for a nice save by keeper Corbett.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-02.gif"
-    },
-    {
-      "GameID": 107,
-      "Comment": "Later on in the first half Nighthax come close to equalizing but Tickenest with a monster save keeps the lead in tact.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-04.gif"
+      "Comment": "Jer once again runs some offensive interference leaving a clean path towards goal but the ball grazes the outside of the post.Final score 3-1 Degeneration Hax.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-08.gif"
     },
     {
       "GameID": 107,
@@ -16066,25 +16060,31 @@
     },
     {
       "GameID": 107,
-      "ScoredBy": 26,
-      "Comment": "Richter get's his second of the game off of some Nighthax miscommunication leading to an open shot splitting the gap between the defenders. 3-0 now.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-06.gif"
-    },
-    {
-      "GameID": 107,
       "ScoredBy": 6,
       "Comment": "Ellis get's some help from both the double bounce as well as some minor interference from Jer as he prevents anyone from stopping Nighthax's one and only goal of the game. 3-1.",
       "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-07.gif"
     },
     {
       "GameID": 107,
-      "Comment": "Jer once again runs some offensive interference leaving a clean path towards goal but the ball grazes the outside of the post.Final score 3-1 Degeneration Hax.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-08.gif"
+      "Comment": "and still early on Ricther looking for his second of the game will shoot one wide on the far side.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-03.gif"
     },
     {
       "GameID": 107,
-      "Comment": "and still early on Ricther looking for his second of the game will shoot one wide on the far side.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-03.gif"
+      "Comment": "20 seconds later Nighthax are lucky to not be down by 2 early on if not for a nice save by keeper Corbett.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-02.gif"
+    },
+    {
+      "GameID": 107,
+      "ScoredBy": 26,
+      "AssistedBy": 2,
+      "Comment": "S04 Playoffs begin and 8 seconds in Chaos will intercept and bump the ball onto Richter's right foot who picks the lowside off the post and in. 1-0 Degeneration Hax.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-01.gif"
+    },
+    {
+      "GameID": 107,
+      "Comment": "Later on in the first half Nighthax come close to equalizing but Tickenest with a monster save keeps the lead in tact.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID107-04.gif"
     },
     {
       "GameID": 108,
@@ -16108,14 +16108,14 @@
     },
     {
       "GameID": 108,
-      "Comment": "Tickenest showing off some skills and dancing around the Nighthawks to almost get his teams 5th of the game but that will come next gif…",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID108-06.gif"
-    },
-    {
-      "GameID": 108,
       "ScoredBy": 15,
       "Comment": "Defender Tick decides to make a run down the wing and takes a shot that goes off of the keepers head and right back to Tick who collects his own rebound to make this game 4-1.",
       "Filepath": "img/gifs/S04/S04Playoffs/S04-ID108-05.gif"
+    },
+    {
+      "GameID": 108,
+      "Comment": "Tickenest showing off some skills and dancing around the Nighthawks to almost get his teams 5th of the game but that will come next gif…",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID108-06.gif"
     },
     {
       "GameID": 108,
@@ -16145,9 +16145,16 @@
     },
     {
       "GameID": 109,
+      "ScoredBy": 12,
+      "Comment": "Skills get's on the scoreboard with another clearance attempt disruption. Hax lead 5-3.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-08.gif"
+    },
+    {
+      "GameID": 109,
       "ScoredBy": 14,
-      "Comment": "Foundational delerium has set and Drizzle will fade out of this gif with his 6th of the game. Make the final 7-3 .Hax over The Hax Foundation.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-12.gif"
+      "AssistedBy": 12,
+      "Comment": "Skills again sets up Drizz for his 5th of the game. Hax up 6-3.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-11.gif"
     },
     {
       "GameID": 109,
@@ -16156,14 +16163,14 @@
     },
     {
       "GameID": 109,
-      "Comment": "Classic Kingraph blast on a nice setup from Segathon however Kidswasted makes a great save!",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-09.gif"
+      "ScoredBy": 14,
+      "Comment": "Foundational delerium has set and Drizzle will fade out of this gif with his 6th of the game. Make the final 7-3 .Hax over The Hax Foundation.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-12.gif"
     },
     {
       "GameID": 109,
-      "ScoredBy": 12,
-      "Comment": "Skills get's on the scoreboard with another clearance attempt disruption. Hax lead 5-3.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-08.gif"
+      "Comment": "Classic Kingraph blast on a nice setup from Segathon however Kidswasted makes a great save!",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-09.gif"
     },
     {
       "GameID": 109,
@@ -16175,8 +16182,8 @@
       "GameID": 109,
       "ScoredBy": 14,
       "AssistedBy": 12,
-      "Comment": "Skills again sets up Drizz for his 5th of the game. Hax up 6-3.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-11.gif"
+      "Comment": "Skills one times the turnover onto a wide open Drizz who perfectly corals the pass and again puts .Hax up in the game. 2-1.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-03.gif"
     },
     {
       "GameID": 109,
@@ -16190,13 +16197,6 @@
       "AssistedBy": 9,
       "Comment": "Perfect pass and what a play by Drizzle who get's his hat trick in less than a minute and a half! 3-1 .Hax now.",
       "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-04.gif"
-    },
-    {
-      "GameID": 109,
-      "ScoredBy": 14,
-      "AssistedBy": 12,
-      "Comment": "Skills one times the turnover onto a wide open Drizz who perfectly corals the pass and again puts .Hax up in the game. 2-1.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID109-03.gif"
     },
     {
       "GameID": 109,
@@ -16253,15 +16253,15 @@
     },
     {
       "GameID": 110,
-      "ScoredBy": 24,
-      "Comment": "Not long after Segathon get's his first ever playoff goal and Coach raph shouts \"BOOM\". Plan in action! Game tied 1-1.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID110-04.gif"
-    },
-    {
-      "GameID": 110,
       "ScoredBy": 9,
       "Comment": "Kidswasted gets on the series scoreboard just crossing the goaline before keeper Segathon can make the clearance. Hax up 2-1.",
       "Filepath": "img/gifs/S04/S04Playoffs/S04-ID110-05.gif"
+    },
+    {
+      "GameID": 110,
+      "ScoredBy": 24,
+      "Comment": "Not long after Segathon get's his first ever playoff goal and Coach raph shouts \"BOOM\". Plan in action! Game tied 1-1.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID110-04.gif"
     },
     {
       "GameID": 110,
@@ -16287,8 +16287,21 @@
     },
     {
       "GameID": 111,
-      "Comment": ".Hax and Skills are robbed of a goal by Segathon who makes a goaline stand. This game will end 2-0 Hax Foundation who also take this thrilling series 3-2.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-06.gif"
+      "ScoredBy": 10,
+      "AssistedBy": 1,
+      "Comment": "Carrying over momentum from game 2 of the series The Hax Foundation open the scoring on a classic wall deke from Kingraph. 1-0 Foundation.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-01.gif"
+    },
+    {
+      "GameID": 111,
+      "ScoredBy": 1,
+      "Comment": "Segathon and AngryJay pressuring the D where in the corner Jay takes a bank shot off of the defender and all of a sudden this series has taken a turn. 2-0 Hax Foundation lead.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-02.gif"
+    },
+    {
+      "GameID": 111,
+      "Comment": ".Hax with an opportunity in one of the leagues top scorers can't get the shot past the keeper.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-03.gif"
     },
     {
       "GameID": 111,
@@ -16302,21 +16315,8 @@
     },
     {
       "GameID": 111,
-      "ScoredBy": 1,
-      "Comment": "Segathon and AngryJay pressuring the D where in the corner Jay takes a bank shot off of the defender and all of a sudden this series has taken a turn. 2-0 Hax Foundation lead.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-02.gif"
-    },
-    {
-      "GameID": 111,
-      "ScoredBy": 10,
-      "AssistedBy": 1,
-      "Comment": "Carrying over momentum from game 2 of the series The Hax Foundation open the scoring on a classic wall deke from Kingraph. 1-0 Foundation.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-01.gif"
-    },
-    {
-      "GameID": 111,
-      "Comment": ".Hax with an opportunity in one of the leagues top scorers can't get the shot past the keeper.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-03.gif"
+      "Comment": ".Hax and Skills are robbed of a goal by Segathon who makes a goaline stand. This game will end 2-0 Hax Foundation who also take this thrilling series 3-2.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID111-06.gif"
     },
     {
       "GameID": 112,
@@ -16343,13 +16343,6 @@
     },
     {
       "GameID": 112,
-      "ScoredBy": 26,
-      "AssistedBy": 15,
-      "Comment": "Richter capitalizes out in front on the loose ball from a shot by Tick. Degeneration Hax with a crucial goal to cut the deficit by 1. 3-2 they now trail.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-06.gif"
-    },
-    {
-      "GameID": 112,
       "ScoredBy": 15,
       "AssistedBy": 26,
       "Comment": "While being an expert on defense Tick very much knows offense and has caught many off mark as displayed here. He will tie this game up at 3-3.",
@@ -16358,15 +16351,22 @@
     {
       "GameID": 112,
       "ScoredBy": 24,
-      "Comment": "Segathon scores in Hax94 fashion capping his 2nd of the game while putting the Foundation up 2-1.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-04.gif"
+      "AssistedBy": 1,
+      "Comment": "AngryJay patiently holds and advances into the zone when a play develops into a beauty by Segathon tying this game up at 1-1.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-03.gif"
+    },
+    {
+      "GameID": 112,
+      "ScoredBy": 1,
+      "AssistedBy": 10,
+      "Comment": "Good offensive possession and control becomes to hot to handle for the D and AngryJay puts the Foundation up 3-1 to end the half.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-05.gif"
     },
     {
       "GameID": 112,
       "ScoredBy": 24,
-      "AssistedBy": 1,
-      "Comment": "AngryJay patiently holds and advances into the zone when a play develops into a beauty by Segathon tying this game up at 1-1.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-03.gif"
+      "Comment": "Segathon scores in Hax94 fashion capping his 2nd of the game while putting the Foundation up 2-1.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-04.gif"
     },
     {
       "GameID": 112,
@@ -16382,17 +16382,10 @@
     },
     {
       "GameID": 112,
-      "ScoredBy": 1,
-      "AssistedBy": 10,
-      "Comment": "Good offensive possession and control becomes to hot to handle for the D and AngryJay puts the Foundation up 3-1 to end the half.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-05.gif"
-    },
-    {
-      "GameID": 113,
-      "ScoredBy": 24,
-      "AssistedBy": 10,
-      "Comment": "Kingraph backs the ball towards Segathon who rings a shot grazing the inside of the post and in giving the Foundation there first lead in a long while. 4-3 now for the Foundation.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-08.gif"
+      "ScoredBy": 26,
+      "AssistedBy": 15,
+      "Comment": "Richter capitalizes out in front on the loose ball from a shot by Tick. Degeneration Hax with a crucial goal to cut the deficit by 1. 3-2 they now trail.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID112-06.gif"
     },
     {
       "GameID": 113,
@@ -16416,6 +16409,20 @@
     },
     {
       "GameID": 113,
+      "ScoredBy": 24,
+      "AssistedBy": 10,
+      "Comment": "Kingraph backs the ball towards Segathon who rings a shot grazing the inside of the post and in giving the Foundation there first lead in a long while. 4-3 now for the Foundation.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-08.gif"
+    },
+    {
+      "GameID": 113,
+      "ScoredBy": 15,
+      "AssistedBy": 26,
+      "Comment": "Tickenest again puts his squad up by a goal work done by Richter. Degeneration Hax again take the lead 3-2.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-06.gif"
+    },
+    {
+      "GameID": 113,
       "OwnGoal": 26,
       "Comment": "Segathon wants revenge pressuring up a classic 'beef bomb' (inside 95 joke) dish. This ties things up again in a tight game 3-3.",
       "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-07.gif"
@@ -16425,12 +16432,6 @@
       "ScoredBy": 26,
       "Comment": "Richter plugs in the pressure cooker and cooks up a dish of Segathon on this play. Degeneration Hax up here in game two 2-1.",
       "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-04.gif"
-    },
-    {
-      "GameID": 113,
-      "ScoredBy": 10,
-      "Comment": "Kingraph gets on the series scoreboard and makes it look easy which is not always the case. This game is all tied up at 2-2 now.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-05.gif"
     },
     {
       "GameID": 113,
@@ -16451,10 +16452,9 @@
     },
     {
       "GameID": 113,
-      "ScoredBy": 15,
-      "AssistedBy": 26,
-      "Comment": "Tickenest again puts his squad up by a goal work done by Richter. Degeneration Hax again take the lead 3-2.",
-      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-06.gif"
+      "ScoredBy": 10,
+      "Comment": "Kingraph gets on the series scoreboard and makes it look easy which is not always the case. This game is all tied up at 2-2 now.",
+      "Filepath": "img/gifs/S04/S04Playoffs/S04-ID113-05.gif"
     },
     {
       "GameID": 114,
@@ -16504,13 +16504,6 @@
     },
     {
       "GameID": 115,
-      "ScoredBy": 12,
-      "AssistedBy": 28,
-      "Comment": "Mr T EX with patience holds until he finds the perfect centering option where Skills will pick the top side for his hat-trick goal. 4-1",
-      "Filepath": "img/gifs/S05/S05-ID115-06.gif"
-    },
-    {
-      "GameID": 115,
       "Comment": "A gif worthy attempt by Scribethonenest. Pressure being applied but perhaps a few more games in and this would have been a goal…GG",
       "Filepath": "img/gifs/S05/S05-ID115-08.gif"
     },
@@ -16531,8 +16524,9 @@
     {
       "GameID": 115,
       "ScoredBy": 12,
-      "Comment": "Skills will open league scoring in this very first game of season 5. Short side he will beat the keeper. 1-0 TES-la",
-      "Filepath": "img/gifs/S05/S05-ID115-01.gif"
+      "AssistedBy": 28,
+      "Comment": "Mr T EX with patience holds until he finds the perfect centering option where Skills will pick the top side for his hat-trick goal. 4-1",
+      "Filepath": "img/gifs/S05/S05-ID115-06.gif"
     },
     {
       "GameID": 115,
@@ -16544,6 +16538,12 @@
       "ScoredBy": 28,
       "Comment": "Recently signed rookie Mr T EX gets his first league goal in his first game. Demonstrating grit during a center field skirmish he will capitalize from afar. 2-0 TES-la now lead.",
       "Filepath": "img/gifs/S05/S05-ID115-02.gif"
+    },
+    {
+      "GameID": 115,
+      "ScoredBy": 12,
+      "Comment": "Skills will open league scoring in this very first game of season 5. Short side he will beat the keeper. 1-0 TES-la",
+      "Filepath": "img/gifs/S05/S05-ID115-01.gif"
     },
     {
       "GameID": 115,
@@ -16641,10 +16641,8 @@
     },
     {
       "GameID": 117,
-      "ScoredBy": 22,
-      "AssistedBy": 24,
-      "Comment": "USHAX in there season 5 debut will hand the ball to the offence who quickly turn the play around. Scribe will put Sribethonenest up 1-0 from half field.",
-      "Filepath": "img/gifs/S05/S05-ID117-01.gif"
+      "Comment": "Again Tennessee in a dangerous spot and gets the shot away. Keeper Tick again with another big save.",
+      "Filepath": "img/gifs/S05/S05-ID117-04.gif"
     },
     {
       "GameID": 117,
@@ -16652,11 +16650,6 @@
       "AssistedBy": 24,
       "Comment": "Segathon and Scribe clogging up the middle. Scribe breaks out via wall bounce to self which opens up a shooting lane and this ball barely squeaks in. Nice shot! 2-1 Scribethonenest",
       "Filepath": "img/gifs/S05/S05-ID117-05.gif"
-    },
-    {
-      "GameID": 117,
-      "Comment": "Again Tennessee in a dangerous spot and gets the shot away. Keeper Tick again with another big save.",
-      "Filepath": "img/gifs/S05/S05-ID117-04.gif"
     },
     {
       "GameID": 117,
@@ -16672,15 +16665,15 @@
     },
     {
       "GameID": 117,
-      "Comment": "Down 2-1 at the half Chaos calls the shots. Corbett has been moved up to forward and this strategy is about to pay off.",
-      "Filepath": "img/gifs/S05/S05-ID117-06.gif"
+      "ScoredBy": 22,
+      "AssistedBy": 24,
+      "Comment": "USHAX in there season 5 debut will hand the ball to the offence who quickly turn the play around. Scribe will put Sribethonenest up 1-0 from half field.",
+      "Filepath": "img/gifs/S05/S05-ID117-01.gif"
     },
     {
-      "GameID": 118,
-      "ScoredBy": 2,
-      "AssistedBy": 13,
-      "Comment": "Trefizoh with another cross field pass that is just drilled home by Chaos. USHAX lead 2-0",
-      "Filepath": "img/gifs/S05/S05-ID118-06.gif"
+      "GameID": 117,
+      "Comment": "Down 2-1 at the half Chaos calls the shots. Corbett has been moved up to forward and this strategy is about to pay off.",
+      "Filepath": "img/gifs/S05/S05-ID117-06.gif"
     },
     {
       "GameID": 118,
@@ -16696,8 +16689,25 @@
     },
     {
       "GameID": 118,
+      "ScoredBy": 2,
+      "AssistedBy": 13,
+      "Comment": "Trefizoh with another cross field pass that is just drilled home by Chaos. USHAX lead 2-0",
+      "Filepath": "img/gifs/S05/S05-ID118-06.gif"
+    },
+    {
+      "GameID": 118,
       "Comment": "This game is all about saves and misses. Again the crowd was on their feet thinking a goal was about to occur.",
       "Filepath": "img/gifs/S05/S05-ID118-05.gif"
+    },
+    {
+      "GameID": 118,
+      "Comment": "Chaos maneuvers perfectly behind the ball for an outstanding goaline save!",
+      "Filepath": "img/gifs/S05/S05-ID118-04.gif"
+    },
+    {
+      "GameID": 118,
+      "Comment": "Segathon in close fires a doozie but Chaos is in position to make the stop",
+      "Filepath": "img/gifs/S05/S05-ID118-02.gif"
     },
     {
       "GameID": 118,
@@ -16712,14 +16722,9 @@
       "Filepath": "img/gifs/S05/S05-ID118-03.gif"
     },
     {
-      "GameID": 118,
-      "Comment": "Segathon in close fires a doozie but Chaos is in position to make the stop",
-      "Filepath": "img/gifs/S05/S05-ID118-02.gif"
-    },
-    {
-      "GameID": 118,
-      "Comment": "Chaos maneuvers perfectly behind the ball for an outstanding goaline save!",
-      "Filepath": "img/gifs/S05/S05-ID118-04.gif"
+      "GameID": 119,
+      "Comment": "Tesla come close to avoiding a shutout here but come up short. Phoenhax take the series opener 4-0",
+      "Filepath": "img/gifs/S05/S05-ID119-08.gif"
     },
     {
       "GameID": 119,
@@ -16741,11 +16746,6 @@
       "AssistedBy": 26,
       "Comment": "Phoenhax go up by two on a nice tip in by Jer. 2-0 now",
       "Filepath": "img/gifs/S05/S05-ID119-05.gif"
-    },
-    {
-      "GameID": 119,
-      "Comment": "Tesla come close to avoiding a shutout here but come up short. Phoenhax take the series opener 4-0",
-      "Filepath": "img/gifs/S05/S05-ID119-08.gif"
     },
     {
       "GameID": 119,
@@ -16776,6 +16776,13 @@
     },
     {
       "GameID": 120,
+      "ScoredBy": 21,
+      "AssistedBy": 26,
+      "Comment": "Phoenhax at 2:13 of OT finally break this games goaless drought of over 6 minutes of play. Make the final 5-4 Phoenhax!",
+      "Filepath": "img/gifs/S05/S05-ID120-22.gif"
+    },
+    {
+      "GameID": 120,
       "Comment": "Everyone is feeling the pressure and Jer with 4 goals in the game can't quite finish the score here",
       "Filepath": "img/gifs/S05/S05-ID120-21.gif"
     },
@@ -16791,10 +16798,8 @@
     },
     {
       "GameID": 120,
-      "ScoredBy": 21,
-      "AssistedBy": 26,
-      "Comment": "Phoenhax at 2:13 of OT finally break this games goaless drought of over 6 minutes of play. Make the final 5-4 Phoenhax!",
-      "Filepath": "img/gifs/S05/S05-ID120-22.gif"
+      "Comment": "In the dying seconds of this game Heinze makes 2 more massive saves which will see this game head to overtime",
+      "Filepath": "img/gifs/S05/S05-ID120-18.gif"
     },
     {
       "GameID": 120,
@@ -16823,8 +16828,10 @@
     },
     {
       "GameID": 120,
-      "Comment": "In the dying seconds of this game Heinze makes 2 more massive saves which will see this game head to overtime",
-      "Filepath": "img/gifs/S05/S05-ID120-18.gif"
+      "ScoredBy": 28,
+      "AssistedBy": 12,
+      "Comment": "After being shut down in game one Tesla come out with a 1-0 lead 11 seconds in. Nice play",
+      "Filepath": "img/gifs/S05/S05-ID120-01.gif"
     },
     {
       "GameID": 120,
@@ -16833,36 +16840,14 @@
     },
     {
       "GameID": 120,
-      "ScoredBy": 28,
-      "AssistedBy": 12,
-      "Comment": "After being shut down in game one Tesla come out with a 1-0 lead 11 seconds in. Nice play",
-      "Filepath": "img/gifs/S05/S05-ID120-01.gif"
+      "Comment": "Skills almost gives Tesla the lead to end the half but shoots just wide. 8 goals between the clubs will end the half tied 4-4",
+      "Filepath": "img/gifs/S05/S05-ID120-09.gif"
     },
     {
       "GameID": 120,
-      "ScoredBy": 21,
-      "AssistedBy": 26,
-      "Comment": "Phoenhax take the lead one minute into the game on another break out where Jer scores with nice accuracy",
-      "Filepath": "img/gifs/S05/S05-ID120-03.gif"
-    },
-    {
-      "GameID": 120,
-      "ScoredBy": 6,
-      "Comment": "Phoenhax applying pressure before this. Ellis double bounces Tesla back into a tie game. 2-2",
-      "Filepath": "img/gifs/S05/S05-ID120-04.gif"
-    },
-    {
-      "GameID": 120,
-      "ScoredBy": 6,
-      "Comment": "Ellis applying pressure on the defence, strips the ball and gives Tesla the 3-2 lead. We have a battle here folks",
-      "Filepath": "img/gifs/S05/S05-ID120-05.gif"
-    },
-    {
-      "GameID": 120,
-      "ScoredBy": 21,
-      "AssistedBy": 26,
-      "Comment": "A mere 12 seconds after going down a goal Phoenhax come storming back to tie this game up at 1-1",
-      "Filepath": "img/gifs/S05/S05-ID120-02.gif"
+      "ScoredBy": 12,
+      "Comment": "Skills always dangerous in the corner and is determined to tie up this game in which he does. 4-4",
+      "Filepath": "img/gifs/S05/S05-ID120-08.gif"
     },
     {
       "GameID": 120,
@@ -16873,17 +16858,6 @@
     },
     {
       "GameID": 120,
-      "ScoredBy": 12,
-      "Comment": "Skills always dangerous in the corner and is determined to tie up this game in which he does. 4-4",
-      "Filepath": "img/gifs/S05/S05-ID120-08.gif"
-    },
-    {
-      "GameID": 120,
-      "Comment": "Skills almost gives Tesla the lead to end the half but shoots just wide. 8 goals between the clubs will end the half tied 4-4",
-      "Filepath": "img/gifs/S05/S05-ID120-09.gif"
-    },
-    {
-      "GameID": 120,
       "ScoredBy": 21,
       "AssistedBy": 26,
       "Comment": "Right off of the following draw we again have a tie game. Jer gets his hat-trick goal. 3-3",
@@ -16891,20 +16865,34 @@
     },
     {
       "GameID": 120,
+      "ScoredBy": 6,
+      "Comment": "Ellis applying pressure on the defence, strips the ball and gives Tesla the 3-2 lead. We have a battle here folks",
+      "Filepath": "img/gifs/S05/S05-ID120-05.gif"
+    },
+    {
+      "GameID": 120,
+      "ScoredBy": 6,
+      "Comment": "Phoenhax applying pressure before this. Ellis double bounces Tesla back into a tie game. 2-2",
+      "Filepath": "img/gifs/S05/S05-ID120-04.gif"
+    },
+    {
+      "GameID": 120,
+      "ScoredBy": 21,
+      "AssistedBy": 26,
+      "Comment": "Phoenhax take the lead one minute into the game on another break out where Jer scores with nice accuracy",
+      "Filepath": "img/gifs/S05/S05-ID120-03.gif"
+    },
+    {
+      "GameID": 120,
+      "ScoredBy": 21,
+      "AssistedBy": 26,
+      "Comment": "A mere 12 seconds after going down a goal Phoenhax come storming back to tie this game up at 1-1",
+      "Filepath": "img/gifs/S05/S05-ID120-02.gif"
+    },
+    {
+      "GameID": 120,
       "Comment": "A scary moment for Tesla but Ellis corrects his own giveaway",
       "Filepath": "img/gifs/S05/S05-ID120-11.gif"
-    },
-    {
-      "GameID": 121,
-      "Comment": "Looking for his 4th of the game Richter breaks away on a one on one but this time is denied by keeper Chaos",
-      "Filepath": "img/gifs/S05/S05-ID121-08.gif"
-    },
-    {
-      "GameID": 121,
-      "ScoredBy": 21,
-      "AssistedBy": 8,
-      "Comment": "On the following kick off Heinze get's the ball and picks his pass up to Jer who from just across center will put this game to rest at 5-2 Phoenhax over USHAX",
-      "Filepath": "img/gifs/S05/S05-ID121-13.gif"
     },
     {
       "GameID": 121,
@@ -16930,9 +16918,21 @@
     },
     {
       "GameID": 121,
+      "Comment": "Looking for his 4th of the game Richter breaks away on a one on one but this time is denied by keeper Chaos",
+      "Filepath": "img/gifs/S05/S05-ID121-08.gif"
+    },
+    {
+      "GameID": 121,
       "ScoredBy": 26,
       "Comment": "Ricther get's a natural hat-trick late in the half. Again off of a pass interception. A few bounces and the ball is in the back of the net. 4-0 Phoenhax",
       "Filepath": "img/gifs/S05/S05-ID121-07.gif"
+    },
+    {
+      "GameID": 121,
+      "ScoredBy": 21,
+      "AssistedBy": 8,
+      "Comment": "On the following kick off Heinze get's the ball and picks his pass up to Jer who from just across center will put this game to rest at 5-2 Phoenhax over USHAX",
+      "Filepath": "img/gifs/S05/S05-ID121-13.gif"
     },
     {
       "GameID": 121,
@@ -16970,14 +16970,22 @@
     },
     {
       "GameID": 122,
-      "ScoredBy": 3,
-      "Comment": "Corbett will break Trefizoh's 4 goal streak of the game but keep's USHAX's alive. 7-1 USHAX",
-      "Filepath": "img/gifs/S05/S05-ID122-10.gif"
+      "ScoredBy": 13,
+      "AssistedBy": 3,
+      "Comment": "Netting his 6th goal of the game with less than one second remaining will bring an end to this thrashing. The final is USHAX 9 -1 over Phoenhax Coyotes",
+      "Filepath": "img/gifs/S05/S05-ID122-12.gif"
     },
     {
       "GameID": 122,
-      "Comment": "Corbett in close slightly hesitates allowing Heinze to come up with a big save",
-      "Filepath": "img/gifs/S05/S05-ID122-09.gif"
+      "ScoredBy": 13,
+      "Comment": "With his 5th goal of the game Trefizoh is loving every second of this. 8-1 USHAX",
+      "Filepath": "img/gifs/S05/S05-ID122-11.gif"
+    },
+    {
+      "GameID": 122,
+      "ScoredBy": 3,
+      "Comment": "Corbett will break Trefizoh's 4 goal streak of the game but keep's USHAX's alive. 7-1 USHAX",
+      "Filepath": "img/gifs/S05/S05-ID122-10.gif"
     },
     {
       "GameID": 122,
@@ -16995,21 +17003,27 @@
     },
     {
       "GameID": 122,
-      "ScoredBy": 13,
-      "Comment": "With a sharp angle Tennessee hits the wall where it will take a bounce off of a retreating Jer who inadvertantly knocks it in. Tennessee puts USHAX up 4-1",
-      "Filepath": "img/gifs/S05/S05-ID122-06.gif"
+      "Comment": "Corbett in close slightly hesitates allowing Heinze to come up with a big save",
+      "Filepath": "img/gifs/S05/S05-ID122-09.gif"
     },
     {
       "GameID": 122,
-      "ScoredBy": 26,
-      "Comment": "Coming off there 5-2 victory in game one Richter get's the game tying goal and Phoenhax's only goal of this game. This game is about to take steep turn",
-      "Filepath": "img/gifs/S05/S05-ID122-03.gif"
+      "ScoredBy": 13,
+      "AssistedBy": 3,
+      "Comment": "Treffy puts the all American side up 3-1 off of a race condition at center in which Corbett prevailed. 3-1 USHAX",
+      "Filepath": "img/gifs/S05/S05-ID122-05.gif"
     },
     {
       "GameID": 122,
       "ScoredBy": 2,
       "Comment": "In all of Hax94 Leagues goals this is the most unexplainable goal? Trefizoh however seemed to predict something know one else saw coming…",
       "Filepath": "img/gifs/S05/S05-ID122-04.gif"
+    },
+    {
+      "GameID": 122,
+      "ScoredBy": 26,
+      "Comment": "Coming off there 5-2 victory in game one Richter get's the game tying goal and Phoenhax's only goal of this game. This game is about to take steep turn",
+      "Filepath": "img/gifs/S05/S05-ID122-03.gif"
     },
     {
       "GameID": 122,
@@ -17025,22 +17039,148 @@
     {
       "GameID": 122,
       "ScoredBy": 13,
-      "Comment": "With his 5th goal of the game Trefizoh is loving every second of this. 8-1 USHAX",
-      "Filepath": "img/gifs/S05/S05-ID122-11.gif"
+      "Comment": "With a sharp angle Tennessee hits the wall where it will take a bounce off of a retreating Jer who inadvertantly knocks it in. Tennessee puts USHAX up 4-1",
+      "Filepath": "img/gifs/S05/S05-ID122-06.gif"
     },
     {
-      "GameID": 122,
-      "ScoredBy": 13,
-      "AssistedBy": 3,
-      "Comment": "Treffy puts the American side up 3-1 off of a race condition at center in which Corbett prevailed. 3-1 USHAX",
-      "Filepath": "img/gifs/S05/S05-ID122-05.gif"
+      "GameID": 123,
+      "ScoredBy": 12,
+      "Comment": "10 seconds in game two of the series Skills intercepts the defensive cross and shoots top side and scores. 1-0 TES-la finds themselves in the lead",
+      "Filepath": "img/gifs/S05/S05-ID124-01.gif"
     },
     {
-      "GameID": 122,
+      "GameID": 123,
+      "Comment": "Trefizoh finds himself all alone out front but Skills is covering and there to make a big stop",
+      "Filepath": "img/gifs/S05/S05-ID124-02.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Ellis almost double bounces TES-la into a two goal lead but the ball just lacks enough momentum and Corbett makes the clear",
+      "Filepath": "img/gifs/S05/S05-ID124-03.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 2,
+      "Comment": "Chaos gets credit firing the ball where it will bounce around and inadvertantly touch the defenders. We have a tie game 1-1",
+      "Filepath": "img/gifs/S05/S05-ID124-04.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "And seconds later and only 6 seconds remaining Skills wrings the shot off of the top post. Going into the half the game is tied 1-1",
+      "Filepath": "img/gifs/S05/S05-ID124-07.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "In the other end now with 10 seconds remaining TES-la just can't quite take the lead",
+      "Filepath": "img/gifs/S05/S05-ID124-06.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 28,
+      "AssistedBy": 12,
+      "Comment": "Straight where TES-la ended the first half with chances they immediately will find themselves the go ahead goal with Mr T EX getting his 3rd goal of the season. 2-1 TES-la in front",
+      "Filepath": "img/gifs/S05/S05-ID124-08.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 3,
+      "AssistedBy": 2,
+      "Comment": "Chaos looks right head faking two defenders and quickly goes left down to Corbett who picks the slimmest of openings one could find. What a beauty! Game tied 2-2",
+      "Filepath": "img/gifs/S05/S05-ID124-09.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 3,
+      "AssistedBy": 13,
+      "Comment": "With 15 seconds remaining in this opening game USHAX will add insurance. Your final will be 5-2 USHAX defeat TES-la",
+      "Filepath": "img/gifs/S05/S05-ID123-13.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Skills stands tall on the goal line and makes the save off of a hard shot by Corbett",
+      "Filepath": "img/gifs/S05/S05-ID124-05.gif"
+    },
+    {
+      "GameID": 123,
       "ScoredBy": 13,
       "AssistedBy": 3,
-      "Comment": "Netting his 6th goal of the game with less than one second remaining will bring an end to this thrashing. The final is USHAX 9 -1 over Phoenhax Coyotes",
-      "Filepath": "img/gifs/S05/S05-ID122-12.gif"
+      "Comment": "Tennessee get's his second hat-trick in as many games and this is a big relief for USHAX as pressure was being applied from TES-la. 4-2 USHAX",
+      "Filepath": "img/gifs/S05/S05-ID123-12.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 3,
+      "AssistedBy": 13,
+      "Comment": "USHAX break out on a two on one and Corbett will get the game winning goal here banking the shot off of keeper Ellis. 3-2 USHAX take there first lead",
+      "Filepath": "img/gifs/S05/S05-ID124-10.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Down by a goal Ellis blasts a shot from in close but Chaos comes up with a huge save to preserve his teams lead",
+      "Filepath": "img/gifs/S05/S05-ID123-10.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 12,
+      "Comment": "Seconds after TES-la are right back in this. Skills rushes in and catches a bounce that ends up back of the net. 3-2 TES-la down",
+      "Filepath": "img/gifs/S05/S05-ID123-09.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 3,
+      "AssistedBy": 2,
+      "Comment": "Quarterback Chaos spots a wide open Corbett down wing who walks in and takes a harmless looking shot but it somehow sneaks right below Mr T EX. USHAX go up 3-1",
+      "Filepath": "img/gifs/S05/S05-ID123-08.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Off of the previous highlight Skills crosses perfectly but somehow Ellis fans on a golden opportunity",
+      "Filepath": "img/gifs/S05/S05-ID123-07.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Chaos starts a play that ends up with a shot on their own goal. Corbett gets back in time",
+      "Filepath": "img/gifs/S05/S05-ID123-06.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "In the dying seconds of the half USHAX utilize a break out play and TES-la find themselves very lucky only down a goal",
+      "Filepath": "img/gifs/S05/S05-ID123-05.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Chaos steps aside from two defenders which opens up a passing lane. Ellis cuts the angle and makes the stop on a otherwise dangerous play",
+      "Filepath": "img/gifs/S05/S05-ID123-04.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 13,
+      "Comment": "A small scrum develops and out of it a lose ball makes its way towards the TES-la goal where Trefizoh scoops up another lead for USHAX 2-1",
+      "Filepath": "img/gifs/S05/S05-ID123-03.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 12,
+      "AssistedBy": 6,
+      "Comment": "Shortly after Ellis will spot Skills up high and a quick one two TES-la even things up at 1-1",
+      "Filepath": "img/gifs/S05/S05-ID123-02.gif"
+    },
+    {
+      "GameID": 123,
+      "ScoredBy": 13,
+      "AssistedBy": 3,
+      "Comment": "Tref and Corbett, two elite nhl 94 players are making shockwaves around the league connecting on all levels. USHAX take the lead 1-0 in this first game of the series vs TES-la",
+      "Filepath": "img/gifs/S05/S05-ID123-01.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "Skills tops the ball up to Ellis who is allowed to walk in with a shot but Corbett and Chaos both are in the way and escape this scenario",
+      "Filepath": "img/gifs/S05/S05-ID123-11.gif"
+    },
+    {
+      "GameID": 123,
+      "Comment": "In the last minute of regulation Ellis will step into a half court blast where the shot contacts the outside of the post. USHAX will win the game 3-2",
+      "Filepath": "img/gifs/S05/S05-ID124-11.gif"
     }
   ]
 }
