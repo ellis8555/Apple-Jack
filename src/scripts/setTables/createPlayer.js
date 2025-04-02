@@ -4,7 +4,6 @@ import seasonCount from "../var_lib/season/seasonCount";
 import playersMAP from "../var_lib/maps/players/playersMAP";
 import gameTypeMAP from "../var_lib/maps/gameType/gameTypeMAP"
 import { playerStatsFields, allTimeStatsArray, allTimeStatsMAPS, groupedAllTimePlayerStats, perSeasonCats, perSeasonCatMAPS } from "../../constants/consts/supportVars";
-import { CSS_LOGO_DIMENSIONS } from "../../constants/consts/vars";
 
 // IndividualPlayerStats is the class each players' object creation
 // allPLayersStats (object) is the container holding each players' object
@@ -34,13 +33,11 @@ const gameResultsLength = GameResults.length;
 const seasonCountLength = seasonCount.length;
 
 // instantiating the class and all related objects
-
 IndividualPlayerStats.setPerSeasonAllTimeContainers(seasonCountLength);
-
 for (let i = 1; i <= playersMAP.size; i++) {
   IndividualPlayerStats.allPlayersStats[playersMAP.get(i)] =
-    new IndividualPlayerStats(playersMAP.get(i));
-
+  new IndividualPlayerStats(playersMAP.get(i));
+  
   IndividualPlayerStats.allPlayersStats[
     playersMAP.get(i)
   ].setPlayersAllTimeStats(
@@ -404,7 +401,6 @@ for (let i = 1; i <= playersMAP.size; i++){
   }
   }
 }
-
 // EXPORTS
 
 export default IndividualPlayerStats;
