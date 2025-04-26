@@ -56,7 +56,6 @@ export const  playerStatsFields = [
   "Kicks",
   "Passes",
   "ShotsOnGoal",
-  "Saves",
   "OwnGoals",
 ];
   export const  groupedAllTimePlayerStats = [
@@ -138,7 +137,6 @@ export const PLAYERS_TABLE = [
   "Passes",
   "ShotsOnGoal",
   "Shooting%",
-  "Saves",
   "OwnGoals",
 ];
 // set fields for players table within the single game boxscore page
@@ -151,6 +149,5 @@ export const SINGLE_GAME_PLAYERS_TABLE = [
   "Passes",
   "ShotsOnGoal",
   "Shooting%",
-  "Saves",
   "OwnGoals",
 ];
