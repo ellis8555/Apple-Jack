@@ -53,10 +53,10 @@ class TeamStats {
     }
   
     static setPerSeasonAllTimeContainers() {
-      seasonCount.forEach((item) => {
-        this["groupTeamsSeason" + item + "CombinedStats"] = [];
-        this["groupTeamsSeason" + item + "SeasonStats"] = [];
-        this["groupTeamsSeason" + item + "PlayoffStats"] = [];
+      seasonCount.forEach((seasonNumber) => {
+        this["groupTeamsSeason" + seasonNumber + "CombinedStats"] = [];
+        this["groupTeamsSeason" + seasonNumber + "SeasonStats"] = [];
+        this["groupTeamsSeason" + seasonNumber + "PlayoffStats"] = [];
       });
     }
   
