@@ -35,6 +35,8 @@ import setShotsFor from "./helpers/setShotsFor";
 import setShotsAgainst from "./helpers/setShotsAgainst";
 import setSavePercentage from "./helpers/setSavePercentage";
 import setShotDifferential from "./helpers/setShotDifferential";
+import setShotsForAverage from "./helpers/setShotsForAverage";
+import setShotsAgainstAverage from "./helpers/setShotsAgainstAverage";
 
 function setTeamsIndividualSeasonsStatsMAPS(
     inputArray,
@@ -121,6 +123,10 @@ function setTeamsIndividualSeasonsStatsMAPS(
         setShotsAgainst.call(this, argsForStatMethods)
         // this seasons shots differential
         setShotDifferential.call(this, argsForStatMethods)
+        // this seasons shots for average
+        setShotsForAverage.call(this, argsForStatMethods)
+        // this seasons shots for average
+        setShotsAgainstAverage.call(this, argsForStatMethods)
         // this season save percentage
         setSavePercentage.call(this, argsForStatMethods)
         // this seasons Home Possession For
