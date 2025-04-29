@@ -1,0 +1,10 @@
+add the new table header in ./constants/consts/supportVars.js
+name this column the same that the stat will be named in the teams stat maps that map to stats.
+create the method that will write to each teams stat maps.
+create the new method in ./scripts/classFiles/teams/helpers/teams/helpers
+// notes from previously created stats methods
+'this[writeToMAP]' is the reference to that teams map of stats.
+console log this[writeToMAP] to see what stats there are and how to use these stats to produce other stats
+
+Lastly import the newly created method into setTeamsIndividualSeasonsStatsMAPS.js
+the path is src\scripts\classFiles\teams\helpers\teams\setTeamsIndividualSeasonsStatsMAPS.js
