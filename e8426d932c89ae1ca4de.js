@@ -225,6 +225,7 @@ const fullTable = [
   "GAA",
   "SOG",
   "SA",
+  "SD",
   "SV%",
   "PFA",
   "PAA",
@@ -247,6 +248,7 @@ const fullTableNoTies = [
   "GAA",
   "SOG",
   "SA",
+  "SD",
   "SV%",
   "PFA",
   "PAA",
@@ -1528,6 +1530,25 @@ function setSavePercentage({
 
 /***/ }),
 
+/***/ 5694:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function setShotDifferential({writeToMAP}){
+
+    this[writeToMAP].set(
+        "SD",
+        +this[writeToMAP].get("SOG") - +this[writeToMAP].get("SA")
+      );
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setShotDifferential);
+
+/***/ }),
+
 /***/ 7579:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1860,19 +1881,21 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _helpers_setGoalDifferential__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(8589);
 /* harmony import */ var _helpers_setGoalsForAverage__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(5373);
 /* harmony import */ var _helpers_setGoalsAgainstAverage__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(6417);
-/* harmony import */ var _helpers_setHomePossessionFor__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(1779);
-/* harmony import */ var _helpers_setAwayPossessionFor__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(7408);
-/* harmony import */ var _helpers_setHomePossessionAgainst__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(9395);
-/* harmony import */ var _helpers_setAwayPossessionAgainst__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(5252);
-/* harmony import */ var _helpers_setPossessionFor__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(4038);
-/* harmony import */ var _helpers_setPossessionAgainst__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(8226);
-/* harmony import */ var _helpers_setPossessionForAverage__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(3055);
-/* harmony import */ var _helpers_setPossessionAgainstAverage__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(9763);
+/* harmony import */ var _helpers_setHomePossessionFor__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(1779);
+/* harmony import */ var _helpers_setAwayPossessionFor__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(7408);
+/* harmony import */ var _helpers_setHomePossessionAgainst__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(9395);
+/* harmony import */ var _helpers_setAwayPossessionAgainst__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(5252);
+/* harmony import */ var _helpers_setPossessionFor__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(4038);
+/* harmony import */ var _helpers_setPossessionAgainst__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(8226);
+/* harmony import */ var _helpers_setPossessionForAverage__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(3055);
+/* harmony import */ var _helpers_setPossessionAgainstAverage__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(9763);
 /* harmony import */ var _helpers_setShotsFor__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(3707);
 /* harmony import */ var _helpers_setShotsAgainst__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(7579);
-/* harmony import */ var _helpers_setSavePercentage__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(8502);
+/* harmony import */ var _helpers_setSavePercentage__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(8502);
+/* harmony import */ var _helpers_setShotDifferential__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(5694);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__]);
 ([_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -1993,24 +2016,26 @@ function setTeamsIndividualSeasonsStatsMAPS(
         _helpers_setShotsFor__WEBPACK_IMPORTED_MODULE_25__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons shots against
         _helpers_setShotsAgainst__WEBPACK_IMPORTED_MODULE_26__/* ["default"] */ .A.call(this, argsForStatMethods)
+        // this seasons shots differential
+        _helpers_setShotDifferential__WEBPACK_IMPORTED_MODULE_27__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this season save percentage
-        _helpers_setSavePercentage__WEBPACK_IMPORTED_MODULE_27__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setSavePercentage__WEBPACK_IMPORTED_MODULE_28__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons Home Possession For
-        _helpers_setHomePossessionFor__WEBPACK_IMPORTED_MODULE_28__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setHomePossessionFor__WEBPACK_IMPORTED_MODULE_29__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons Away Possession For
-        _helpers_setAwayPossessionFor__WEBPACK_IMPORTED_MODULE_29__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setAwayPossessionFor__WEBPACK_IMPORTED_MODULE_30__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons Home Possession Against
-        _helpers_setHomePossessionAgainst__WEBPACK_IMPORTED_MODULE_30__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setHomePossessionAgainst__WEBPACK_IMPORTED_MODULE_31__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons Away Possession Against
-        _helpers_setAwayPossessionAgainst__WEBPACK_IMPORTED_MODULE_31__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setAwayPossessionAgainst__WEBPACK_IMPORTED_MODULE_32__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons Possession For
-        _helpers_setPossessionFor__WEBPACK_IMPORTED_MODULE_32__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setPossessionFor__WEBPACK_IMPORTED_MODULE_33__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons Possession Against
-        _helpers_setPossessionAgainst__WEBPACK_IMPORTED_MODULE_33__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setPossessionAgainst__WEBPACK_IMPORTED_MODULE_34__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons possession For Average
-        _helpers_setPossessionForAverage__WEBPACK_IMPORTED_MODULE_34__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setPossessionForAverage__WEBPACK_IMPORTED_MODULE_35__/* ["default"] */ .A.call(this, argsForStatMethods)
         // this seasons possession Against Average
-        _helpers_setPossessionAgainstAverage__WEBPACK_IMPORTED_MODULE_35__/* ["default"] */ .A.call(this, argsForStatMethods)
+        _helpers_setPossessionAgainstAverage__WEBPACK_IMPORTED_MODULE_36__/* ["default"] */ .A.call(this, argsForStatMethods)
       }
     }
 }
@@ -9170,4 +9195,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=e12bf0e6376910f431f7.js.map
+//# sourceMappingURL=e8426d932c89ae1ca4de.js.map
