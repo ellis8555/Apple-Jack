@@ -31,6 +31,8 @@ import setPossessionFor from "./helpers/setPossessionFor";
 import setPossessionAgainst from "./helpers/setPossessionAgainst";
 import setPossessionForAverage from "./helpers/setPossessionForAverage";
 import setPossessionAgainstAverage from "./helpers/setPossessionAgainstAverage";
+import setShotsFor from "./helpers/setShotsFor";
+import setShotsAgainst from "./helpers/setShotsAgainst";
 
 function setTeamsIndividualSeasonsStatsMAPS(
     inputArray,
@@ -85,7 +87,6 @@ function setTeamsIndividualSeasonsStatsMAPS(
           // season WITH ties
           setLosses.call(this, {seasonNumber, writeToMAP}, true)
         }
-
         // this seasons Points
         if (!SEASONS_WITH_TIE_GAMES.includes(seasonNumber)) {
           // season withOUT ties
@@ -109,9 +110,13 @@ function setTeamsIndividualSeasonsStatsMAPS(
         // this seasons Goal Differential
         setGoalDifferential.call(this, argsForStatMethods)
         // this seasons Goals For Average
-          setGoalsForAverage.call(this, argsForStatMethods)
-          // this seasons Goals Against Average
-          setGoalsAgainstAverage.call(this, argsForStatMethods)
+        setGoalsForAverage.call(this, argsForStatMethods)
+        // this seasons Goals Against Average
+        setGoalsAgainstAverage.call(this, argsForStatMethods)
+        // this seasons shots on goal
+        setShotsFor.call(this, argsForStatMethods)
+        // this seasons shots against
+        setShotsAgainst.call(this, argsForStatMethods)
         // this seasons Home Possession For
         setHomePossessionFor.call(this, argsForStatMethods)
         // this seasons Away Possession For
