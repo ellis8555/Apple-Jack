@@ -5,7 +5,7 @@ function setSavePercentage({
     if(seasonNumber){
       //check if any away games were even played
         if (
-            this[writeToMAP].get(`GP`).length > 0
+            this[writeToMAP].get(`GP`) > 0
           ) {
             const shotsAgainst = this[writeToMAP]
               .get(`SA`)

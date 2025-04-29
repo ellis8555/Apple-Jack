@@ -5,7 +5,7 @@ function setShotsFor({
     if(seasonNumber){
       //check if any away games were even played
         if (
-            this[writeToMAP].get(`season${seasonNumber}AwayGames`).length != 0
+            this[writeToMAP].get(`GP`) > 0
           ) {
             const homeShots = this[writeToMAP]
               .get(`season${seasonNumber}HomeGames`)
