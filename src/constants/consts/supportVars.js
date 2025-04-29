@@ -100,9 +100,10 @@ export const fullTable = [
   "GD",
   "GFA",
   "GAA",
-  "PF",
+  "SOG",
+  "SA",
+  "SV%",
   "PFA",
-  "PA",
   "PAA",
 ];
 
@@ -121,9 +122,10 @@ export const fullTableNoTies = [
   "GD",
   "GFA",
   "GAA",
-  "PF",
+  "SOG",
+  "SA",
+  "SV%",
   "PFA",
-  "PA",
   "PAA",
 ];
 // set fields for players tables within side menu bar
