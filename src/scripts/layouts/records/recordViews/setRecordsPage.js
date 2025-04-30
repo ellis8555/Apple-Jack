@@ -6,7 +6,7 @@ import createRecordsLayout from "./createRecordsLayout.js";
 export default function setRecordsPage() {
   clearTablesDiv();
   clearScoreboardDiv();
-  getTablesDiv();
+  const tablesDiv = getTablesDiv();
 
   // create records containing div
   let recordsContainer = document.createElement("div");
