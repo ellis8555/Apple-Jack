@@ -16,7 +16,8 @@ import currentSeason from "../../var_lib/season/currentSeason";
   // home option 
   const homeSidebar = document.querySelector("#home");
   homeSidebar.addEventListener("click", () => {
-    setHomeTable(5);
+    playoffTree(5)
+    // setHomeTable(5);
     setTimeout(() => {
       closeSidebar()
     }, 50)
