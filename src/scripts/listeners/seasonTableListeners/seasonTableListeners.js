@@ -12,6 +12,22 @@ document
       closeSidebar();
     }, 50);
 });
+document
+  .getElementById("s05PlayoffTree")
+  .addEventListener("click", () => {
+    playoffTree(5)
+    setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s05CombinedTable")
+  .addEventListener("click", () => {
+    setSeasonsFullTable(5, "Combined", "Combined")
+    setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
 // season 04 standings tables
 document
   .getElementById("s04RegularSeason")

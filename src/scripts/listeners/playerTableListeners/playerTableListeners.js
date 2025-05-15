@@ -37,6 +37,22 @@ document
       closeSidebar()
     })
   }, 50)
+  document
+  .getElementById("s05PlayerPlayoffTable")
+  .addEventListener("click", () => {
+    setPlayersFullTable(5, "Playoff", "Playoffs");
+        setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
+document
+  .getElementById("s05PlayerCombinedTable")
+  .addEventListener("click", () => {
+    setPlayersFullTable(5, "Combined", "Combined");
+        setTimeout(() => {
+      closeSidebar();
+    }, 50);
+});
 // season 04 players tables
 document
   .getElementById("s04PlayerSeasonTable")
