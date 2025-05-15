@@ -7,7 +7,7 @@ import sortGroupedStats from "../../misc/sorting/sort";
 import bestOfSeries from "./componenets/bestOfSeries";
 import setMainNavbar from "../navbar/setMainNavbar";
 import setHeaderBanner from "../setHeaderBanner";
-import { CHAMPIONS_LIST, IN_BETWEEN_SEASONS } from "../../../constants/consts/vars";
+import { CHAMPIONS_LIST, IN_BETWEEN_SEASONS, CURRENT_SEASON_PLAYOFF_TEAMS_COUNT } from "../../../constants/consts/vars";
 import createElement from "../../misc/createElement";
 import seriesContainer from "./componenets/seriesContainer";
 import COLORS from "../../../constants/consts/colors";
@@ -36,7 +36,7 @@ function playoffTree(seasonNumber){
     const secondRoundGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === 2)
     const firstAndSecondRoundGames = [...firstRoundGames, ...secondRoundGames]
     // use to determine which round numbers are which series. example semi's or final's
-    const countOfTeamsInPlayoffs = new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size;
+    const countOfTeamsInPlayoffs = new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size || CURRENT_SEASON_PLAYOFF_TEAMS_COUNT
     let finalsRoundNumber;
     let semisRoundNumber;
     let playoffTreeClass
@@ -57,7 +57,6 @@ function playoffTree(seasonNumber){
             playoffTreeClass = "playoffTreeFiveTeams"
         break;
     }
-    
     const key = `groupTeamsSeason${seasonNumber}SeasonStats`
     const seasonsFinalStandings = TeamStats[key]
     const sortedFinalStandings = sortGroupedStats(seasonsFinalStandings, "Points")
