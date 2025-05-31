@@ -3046,7 +3046,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
                     seriesWinner = null
                 }
             } else {
-                teamName.innerHTML = "vs <br> <br> TBD";
+                teamName.innerHTML = "TBD <br> <br> vs";
                 teamGameOne.append(teamName)
             }
             seriesFrag.append(teamGameOne)
@@ -9297,4 +9297,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=2432d87c1ecb239193e3.js.map
+//# sourceMappingURL=ed95b4ad03f519f75a73.js.map
