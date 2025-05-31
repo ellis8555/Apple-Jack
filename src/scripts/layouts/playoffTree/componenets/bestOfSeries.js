@@ -69,7 +69,7 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
                     seriesWinner = null
                 }
             } else {
-                teamName.innerHTML = "vs <br> <br> TBD";
+                teamName.innerHTML = "TBD <br> <br> vs";
                 teamGameOne.append(teamName)
             }
             seriesFrag.append(teamGameOne)
