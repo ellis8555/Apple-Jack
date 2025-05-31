@@ -3500,7 +3500,7 @@ function playoffTree(seasonNumber){
     const secondRoundGames = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7.filter(game => game.SeasonNumber === seasonNumber && game.Round === 2)
     const firstAndSecondRoundGames = [...firstRoundGames, ...secondRoundGames]
     // use to determine which round numbers are which series. example semi's or final's
-    const countOfTeamsInPlayoffs = new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size || _constants_consts_vars__WEBPACK_IMPORTED_MODULE_5__/* .CURRENT_SEASON_PLAYOFF_TEAMS_COUNT */ .t$
+    const countOfTeamsInPlayoffs = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_5__/* .CURRENT_SEASON_PLAYOFF_TEAMS_COUNT */ .t$ || new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size
     let finalsRoundNumber;
     let semisRoundNumber;
     let playoffTreeClass
@@ -9297,4 +9297,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=083ea8a68ad13ee7b44c.js.map
+//# sourceMappingURL=2432d87c1ecb239193e3.js.map
