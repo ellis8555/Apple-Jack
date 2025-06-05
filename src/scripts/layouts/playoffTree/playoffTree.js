@@ -230,8 +230,14 @@ function playoffTree(seasonNumber){
         if(seriesOneWinner && seriesTwoWinner){
             finalSeries.append(finaSeriesStatusContainer)
         }
-        finalSeries.append(finalSeriesTeam1Results.seriesFrag)
-        finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+        // correctly order higher standing team in final series in playoff tree
+        if(seriesOneWinnerInFinalStandings < seriesTwoWinnerInFinalStandings){
+            finalSeries.append(finalSeriesTeam1Results.seriesFrag)
+            finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+        } else {
+            finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+            finalSeries.append(finalSeriesTeam1Results.seriesFrag)
+        }
         finalsDivInnerContainer.append(finalSeries)
         finalsContainer.append(finalsDivInnerContainer)
         // append each series to playoffs grid layout
