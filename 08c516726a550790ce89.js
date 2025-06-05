@@ -3694,8 +3694,14 @@ function playoffTree(seasonNumber){
         if(seriesOneWinner && seriesTwoWinner){
             finalSeries.append(finaSeriesStatusContainer)
         }
-        finalSeries.append(finalSeriesTeam1Results.seriesFrag)
-        finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+        // correctly order higher standing team in final series in playoff tree
+        if(seriesOneWinnerInFinalStandings < seriesTwoWinnerInFinalStandings){
+            finalSeries.append(finalSeriesTeam1Results.seriesFrag)
+            finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+        } else {
+            finalSeries.append(finalSeriesTeam2Results.seriesFrag)
+            finalSeries.append(finalSeriesTeam1Results.seriesFrag)
+        }
         finalsDivInnerContainer.append(finalSeries)
         finalsContainer.append(finalsDivInnerContainer)
         // append each series to playoffs grid layout
@@ -9297,4 +9303,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=ed95b4ad03f519f75a73.js.map
+//# sourceMappingURL=08c516726a550790ce89.js.map
