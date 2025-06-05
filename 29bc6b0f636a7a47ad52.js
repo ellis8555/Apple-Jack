@@ -303,10 +303,9 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   eB: () => (/* binding */ TEAMS_LENGTH),
 /* harmony export */   gB: () => (/* binding */ CHAMPIONS_LIST),
 /* harmony export */   og: () => (/* binding */ PLAYERS_LENGTH),
-/* harmony export */   p1: () => (/* binding */ SEASONS_WITH_TIE_GAMES),
-/* harmony export */   t$: () => (/* binding */ CURRENT_SEASON_PLAYOFF_TEAMS_COUNT)
+/* harmony export */   p1: () => (/* binding */ SEASONS_WITH_TIE_GAMES)
 /* harmony export */ });
-/* unused harmony exports DEFENDING_CHAMPS_LOGO, TEAM_PLAYERS_LENGTH, GAME_PLAYER_STATS_LENGTH */
+/* unused harmony exports DEFENDING_CHAMPS_LOGO, CURRENT_SEASON_PLAYOFF_TEAMS_COUNT, TEAM_PLAYERS_LENGTH, GAME_PLAYER_STATS_LENGTH */
 /* harmony import */ var _masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4781);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_masterHaxData__WEBPACK_IMPORTED_MODULE_0__]);
 _masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
@@ -3500,7 +3499,7 @@ function playoffTree(seasonNumber){
     const secondRoundGames = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7.filter(game => game.SeasonNumber === seasonNumber && game.Round === 2)
     const firstAndSecondRoundGames = [...firstRoundGames, ...secondRoundGames]
     // use to determine which round numbers are which series. example semi's or final's
-    const countOfTeamsInPlayoffs = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_5__/* .CURRENT_SEASON_PLAYOFF_TEAMS_COUNT */ .t$ || new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size
+    const countOfTeamsInPlayoffs = new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size
     let finalsRoundNumber;
     let semisRoundNumber;
     let playoffTreeClass
@@ -9303,4 +9302,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=08c516726a550790ce89.js.map
+//# sourceMappingURL=29bc6b0f636a7a47ad52.js.map
