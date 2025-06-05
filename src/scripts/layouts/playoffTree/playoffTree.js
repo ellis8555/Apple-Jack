@@ -36,7 +36,7 @@ function playoffTree(seasonNumber){
     const secondRoundGames = GameResults.filter(game => game.SeasonNumber === seasonNumber && game.Round === 2)
     const firstAndSecondRoundGames = [...firstRoundGames, ...secondRoundGames]
     // use to determine which round numbers are which series. example semi's or final's
-    const countOfTeamsInPlayoffs = CURRENT_SEASON_PLAYOFF_TEAMS_COUNT || new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size
+    const countOfTeamsInPlayoffs = new Set(firstAndSecondRoundGames.flatMap(game => [game.TeamOne, game.TeamTwo])).size
     let finalsRoundNumber;
     let semisRoundNumber;
     let playoffTreeClass
