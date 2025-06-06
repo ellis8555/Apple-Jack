@@ -311,10 +311,10 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_mas
 _masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
-const DEFENDING_CHAMPS = "Degeneration Hax";
+const DEFENDING_CHAMPS = "Scribeathonenest";
 const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg";
-const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax"];
-const IN_BETWEEN_SEASONS = false;
+const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"];
+const IN_BETWEEN_SEASONS = true;
 const CURRENT_SEASON_PLAYOFF_TEAMS_COUNT = 4
 const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
@@ -9302,4 +9302,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=29bc6b0f636a7a47ad52.js.map
+//# sourceMappingURL=738eaa2dd02cb067b90c.js.map
