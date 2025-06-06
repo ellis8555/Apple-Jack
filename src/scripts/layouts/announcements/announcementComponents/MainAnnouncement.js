@@ -1,14 +1,23 @@
+async function getMessageData(){
+  const getMainContent = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/announcements.json")
+  const mainContent = await getMainContent.json()
+  const flattenedMainContent = mainContent.mainContent
+  return flattenedMainContent
+}
+
+const { message, messageBackgroundColor, fontColor } = await getMessageData()
+
 function MainAnnouncement(){
       // Create the first inner div
   const containerElem = document.createElement('div');
   containerElem.style.margin = 'auto';
   containerElem.style.width = '90%';
-  containerElem.style.backgroundColor = '#004953';
-  containerElem.style.color = '#ffffff';
+  containerElem.style.backgroundColor = messageBackgroundColor
+  containerElem.style.color = fontColor;
 
   const headingElem = document.createElement('h5');
   const bold = document.createElement('b')
-  bold.textContent = "Season 5 has concluded! Scribethonenest are this seasons champions! Lowest season standings finish to ever win the much coveted prize, The Hax94 Cup!";
+  bold.textContent = message;
   headingElem.append(bold)
 
   containerElem.append(headingElem);
