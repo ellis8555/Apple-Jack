@@ -23,7 +23,7 @@ export default function setHeaderBanner(teamName, seasonNumber) {
   insertionDiv.append(teamsCssLogo)
   const cssLogoNode = teamsCssLogo.firstElementChild;
   cssLogoNode.style.height = "6rem";
-  cssLogoNode.style.width = "6rem";
+  cssLogoNode.style.width = "8rem";
   const cssLogoTextNode = cssLogoNode.firstElementChild.firstElementChild
   cssLogoTextNode.style.fontSize = `clamp(${HC_FONT.setHeaderBanner})`;
   header.prepend(insertionDiv)
