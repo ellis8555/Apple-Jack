@@ -26,7 +26,7 @@ module.exports = {
             templateParameters: {
                 headerImage: "./img/haxball-big-min.png",
                 championsLogo: "./img/teamLogos/S04/degenerationHaxHomeS04.svg",
-                championsTeamName: "Degeneration Hax"
+                championsTeamName: "Scribethonenest"
             },
             filename: "index.html",
             favicon: path.resolve(__dirname, "./img/favicon/haxFav.png")
