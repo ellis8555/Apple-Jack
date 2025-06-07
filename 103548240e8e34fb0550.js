@@ -4489,7 +4489,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_con
 function setHeaderBanner(teamName, seasonNumber) {
   const previousBannerIcon = document.getElementById("headerIcon");
   if(previousBannerIcon){
-    previousBannerIcon.innerHTML = "";
+    previousBannerIcon.remove()
   }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
@@ -4523,7 +4523,6 @@ function setHeaderBanner(teamName, seasonNumber) {
       imgElement.src = teamLogo
       imgElement.alt = teamName
       imgElement.style.height = "9rem"
-      imgElement.style.width = "7rem"
       imgElement.style.objectFit = "contain"
       imgElement.style.display = "block"
 
@@ -4542,7 +4541,6 @@ function setHeaderBanner(teamName, seasonNumber) {
     } else {
       trophy.classList.remove("fa-trophy");
     }
-
 }
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
@@ -9442,4 +9440,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=69f8c398a8d8b8fa05da.js.map
+//# sourceMappingURL=103548240e8e34fb0550.js.map
