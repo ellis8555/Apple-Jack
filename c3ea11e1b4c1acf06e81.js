@@ -5,6 +5,7 @@
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./championsBanner.png": 7002,
 	"./favicon/haxFav.png": 6375,
 	"./favicon/haxFav.svg": 7576,
 	"./haxball-big-min.png": 1058,
@@ -2231,6 +2232,135 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 6989:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _announcementComponents_MainAnnouncement__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4334);
+/* harmony import */ var _announcementComponents_Message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(617);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_announcementComponents_MainAnnouncement__WEBPACK_IMPORTED_MODULE_0__]);
+_announcementComponents_MainAnnouncement__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+function AnnouncementsPageLayout(){
+    const containerElem = document.createElement('div');
+    containerElem.classList.add("w3-content", "w3-margin", "w3-padding", "w3-round-large", "w3-display-container", "w3-margin-top", "w3-card-4", "w3-text-black")
+
+    containerElem.append((0,_announcementComponents_MainAnnouncement__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)())
+    containerElem.append((0,_announcementComponents_Message__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)())
+    return containerElem;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AnnouncementsPageLayout);
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 4334:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+async function getMessageData(){
+  const getMainContent = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/announcements.json")
+  const mainContent = await getMainContent.json()
+  const flattenedMainContent = mainContent.mainContent
+  return flattenedMainContent
+}
+
+const { message, messageBackgroundColor, fontColor } = await getMessageData()
+
+function MainAnnouncement(){
+      // Create the first inner div
+  const containerElem = document.createElement('div');
+  containerElem.style.margin = 'auto';
+  containerElem.style.width = '90%';
+  containerElem.style.backgroundColor = messageBackgroundColor
+  containerElem.style.color = fontColor;
+
+  const headingElem = document.createElement('h5');
+  const bold = document.createElement('b')
+  bold.textContent = message;
+  headingElem.append(bold)
+
+  containerElem.append(headingElem);
+  return containerElem
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainAnnouncement);
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } }, 1);
+
+/***/ }),
+
+/***/ 617:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function Message(){
+    const message = document.createElement('p');
+    message.innerHTML = `Hax94 is a league that began as a tournament between players from the classic title EA NHL 94. <br> NHL 94 league website can be found at <a href="http://www.nhl94.com" style="color:red">here</a>. <br><br> There are also a few players from the NHL 95 community as well.  
+    `
+    return message;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Message);
+
+/***/ }),
+
+/***/ 2558:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _sidebar_closeSidebar_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7546);
+/* harmony import */ var _scoreboard_clearScoreboardDiv_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6638);
+/* harmony import */ var _tables_getTablesDiv_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4589);
+/* harmony import */ var _AnnouncementsPageLayout_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6989);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_AnnouncementsPageLayout_js__WEBPACK_IMPORTED_MODULE_0__]);
+_AnnouncementsPageLayout_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+function setAnnouncements() {
+  (0,_scoreboard_clearScoreboardDiv_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)();
+  
+  // Get the display area where you want to add content
+  let displayArea = (0,_tables_getTablesDiv_js__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)();
+
+  // Clear any existing content in the display area
+  displayArea.innerHTML = '';
+
+displayArea.append((0,_AnnouncementsPageLayout_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)())
+
+  // Close the sidebar
+  ;(0,_sidebar_closeSidebar_js__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (setAnnouncements);
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
 /***/ 4708:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -4372,7 +4502,7 @@ function setHeaderBanner(teamName, seasonNumber) {
   insertionDiv.append(teamsCssLogo)
   const cssLogoNode = teamsCssLogo.firstElementChild;
   cssLogoNode.style.height = "6rem";
-  cssLogoNode.style.width = "6rem";
+  cssLogoNode.style.width = "8rem";
   const cssLogoTextNode = cssLogoNode.firstElementChild.firstElementChild
   cssLogoTextNode.style.fontSize = `clamp(${_constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__/* .HC_FONT */ .WY.setHeaderBanner})`;
   header.prepend(insertionDiv)
@@ -5767,12 +5897,12 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _menubarListeners_menubarListeners__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5466);
 /* harmony import */ var _listeners_seasonTableListeners_seasonTableListeners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9152);
 /* harmony import */ var _listeners_playerTableListeners_playerTableListeners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8056);
-/* harmony import */ var _pageListeners_announcementsListener__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3292);
+/* harmony import */ var _pageListeners_announcementsListener__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8362);
 /* harmony import */ var _pageListeners_leagueRecordsListener__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2511);
 /* harmony import */ var _layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6732);
 /* harmony import */ var _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(7255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_0__, _misc_documentResize__WEBPACK_IMPORTED_MODULE_1__, _menubarListeners_menubarListeners__WEBPACK_IMPORTED_MODULE_2__, _listeners_seasonTableListeners_seasonTableListeners__WEBPACK_IMPORTED_MODULE_3__, _listeners_playerTableListeners_playerTableListeners__WEBPACK_IMPORTED_MODULE_4__, _pageListeners_leagueRecordsListener__WEBPACK_IMPORTED_MODULE_6__, _layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_7__, _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_8__]);
-([_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_0__, _misc_documentResize__WEBPACK_IMPORTED_MODULE_1__, _menubarListeners_menubarListeners__WEBPACK_IMPORTED_MODULE_2__, _listeners_seasonTableListeners_seasonTableListeners__WEBPACK_IMPORTED_MODULE_3__, _listeners_playerTableListeners_playerTableListeners__WEBPACK_IMPORTED_MODULE_4__, _pageListeners_leagueRecordsListener__WEBPACK_IMPORTED_MODULE_6__, _layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_7__, _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_8__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_0__, _misc_documentResize__WEBPACK_IMPORTED_MODULE_1__, _menubarListeners_menubarListeners__WEBPACK_IMPORTED_MODULE_2__, _listeners_seasonTableListeners_seasonTableListeners__WEBPACK_IMPORTED_MODULE_3__, _listeners_playerTableListeners_playerTableListeners__WEBPACK_IMPORTED_MODULE_4__, _pageListeners_announcementsListener__WEBPACK_IMPORTED_MODULE_5__, _pageListeners_leagueRecordsListener__WEBPACK_IMPORTED_MODULE_6__, _layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_7__, _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_8__]);
+([_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_0__, _misc_documentResize__WEBPACK_IMPORTED_MODULE_1__, _menubarListeners_menubarListeners__WEBPACK_IMPORTED_MODULE_2__, _listeners_seasonTableListeners_seasonTableListeners__WEBPACK_IMPORTED_MODULE_3__, _listeners_playerTableListeners_playerTableListeners__WEBPACK_IMPORTED_MODULE_4__, _pageListeners_announcementsListener__WEBPACK_IMPORTED_MODULE_5__, _pageListeners_leagueRecordsListener__WEBPACK_IMPORTED_MODULE_6__, _layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_7__, _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_8__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
@@ -5874,83 +6004,15 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 3292:
-/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+/***/ 8362:
+/***/ ((module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
-
-// EXTERNAL MODULE: ./src/scripts/sidebar/closeSidebar.js
-var closeSidebar = __webpack_require__(7546);
-// EXTERNAL MODULE: ./src/scripts/scoreboard/clearScoreboardDiv.js
-var clearScoreboardDiv = __webpack_require__(6638);
-// EXTERNAL MODULE: ./src/scripts/tables/getTablesDiv.js
-var getTablesDiv = __webpack_require__(4589);
-;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/MainAnnouncement.js
-function MainAnnouncement(){
-      // Create the first inner div
-  const containerElem = document.createElement('div');
-  containerElem.style.margin = 'auto';
-  containerElem.style.width = '90%';
-  containerElem.style.backgroundColor = '#004953';
-  containerElem.style.color = '#ffffff';
-
-  const headingElem = document.createElement('h5');
-  const bold = document.createElement('b')
-  bold.textContent = "Season 5 has concluded! Scribethonenest are this seasons champions! Lowest season standings finish to ever win the much coveted prize, The Hax94 Cup!";
-  headingElem.append(bold)
-
-  containerElem.append(headingElem);
-  return containerElem
-}
-
-/* harmony default export */ const announcementComponents_MainAnnouncement = (MainAnnouncement);
-;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/announcementComponents/Message.js
-function Message(){
-    const message = document.createElement('p');
-    message.innerHTML = `Hax94 is a league that began as a tournament between players from the classic title EA NHL 94. <br> NHL 94 league website can be found at <a href="http://www.nhl94.com" style="color:red">here</a>. <br><br> There are also a few players from the NHL 95 community as well.  
-    `
-    return message;
-}
-
-/* harmony default export */ const announcementComponents_Message = (Message);
-;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/AnnouncementsPageLayout.js
-
-
-
-function AnnouncementsPageLayout(){
-    const containerElem = document.createElement('div');
-    containerElem.classList.add("w3-content", "w3-margin", "w3-padding", "w3-round-large", "w3-display-container", "w3-margin-top", "w3-card-4", "w3-text-black")
-
-    containerElem.append(announcementComponents_MainAnnouncement())
-    containerElem.append(announcementComponents_Message())
-    return containerElem;
-}
-
-/* harmony default export */ const announcements_AnnouncementsPageLayout = (AnnouncementsPageLayout);
-;// CONCATENATED MODULE: ./src/scripts/layouts/announcements/setAnnouncements.js
-
-
-
-
-
-function setAnnouncements() {
-  (0,clearScoreboardDiv/* default */.A)();
-  
-  // Get the display area where you want to add content
-  let displayArea = (0,getTablesDiv/* default */.A)();
-
-  // Clear any existing content in the display area
-  displayArea.innerHTML = '';
-
-displayArea.append(announcements_AnnouncementsPageLayout())
-
-  // Close the sidebar
-  ;(0,closeSidebar/* default */.A)();
-}
-
-/* harmony default export */ const announcements_setAnnouncements = (setAnnouncements);
-
-;// CONCATENATED MODULE: ./src/scripts/listeners/pageListeners/announcementsListener.js
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony import */ var _layouts_announcements_setAnnouncements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2558);
+/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7546);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_layouts_announcements_setAnnouncements__WEBPACK_IMPORTED_MODULE_0__]);
+_layouts_announcements_setAnnouncements__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
@@ -5958,9 +6020,11 @@ displayArea.append(announcements_AnnouncementsPageLayout())
   document
   .getElementById("announcements")
   .addEventListener("click", () => {
-    announcements_setAnnouncements()
-    setTimeout(() => (0,closeSidebar/* default */.A)(), 50)
+    (0,_layouts_announcements_setAnnouncements__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)()
+    setTimeout(() => (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(), 50)
   });
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
 
 /***/ }),
 
@@ -8809,6 +8873,14 @@ module.exports = __webpack_require__.p + "../../../../../../../img/teamLogos/S02
 
 /***/ }),
 
+/***/ 7002:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/championsBanner.png";
+
+/***/ }),
+
 /***/ 6375:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9302,4 +9374,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/trinityNuclearTestHo
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=6bc93bc44410f5c725b5.js.map
+//# sourceMappingURL=c3ea11e1b4c1acf06e81.js.map
