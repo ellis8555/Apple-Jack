@@ -1,5 +1,6 @@
 import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
 import setTeamLogoCss from "./navbar/helpers/setTeamLogoCss";
+import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP";
 import { HC_FONT } from "../../constants/consts/vars";
 
 export default function setHeaderBanner(teamName, seasonNumber) {
@@ -7,8 +8,18 @@ export default function setHeaderBanner(teamName, seasonNumber) {
   if(previousBannerIcon){
     previousBannerIcon.remove()
   }
+
+  // set banners background color to alpah black except for teams who's primary color is black
+  const getTeamsColor = eachTeamObjectMAP.get(teamName).MainColor
+  let teamsColor
+  if(getTeamsColor !== "000000"){
+    teamsColor = "0,0,0,.5"
+  } else {
+    teamsColor = "255,255,255,.5"
+  }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
+  header.style.backgroundColor = `rgba(${teamsColor})`
   const insertionDiv = document.createElement("div");
   insertionDiv.style.display = "flex";
   insertionDiv.style.justifyContent = "center"
