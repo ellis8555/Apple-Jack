@@ -5,7 +5,7 @@ import { HC_FONT } from "../../constants/consts/vars";
 export default function setHeaderBanner(teamName, seasonNumber) {
   const previousBannerIcon = document.getElementById("headerIcon");
   if(previousBannerIcon){
-    previousBannerIcon.innerHTML = "";
+    previousBannerIcon.remove()
   }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
@@ -39,7 +39,6 @@ export default function setHeaderBanner(teamName, seasonNumber) {
       imgElement.src = teamLogo
       imgElement.alt = teamName
       imgElement.style.height = "9rem"
-      imgElement.style.width = "7rem"
       imgElement.style.objectFit = "contain"
       imgElement.style.display = "block"
 
@@ -58,5 +57,4 @@ export default function setHeaderBanner(teamName, seasonNumber) {
     } else {
       trophy.classList.remove("fa-trophy");
     }
-
 }
