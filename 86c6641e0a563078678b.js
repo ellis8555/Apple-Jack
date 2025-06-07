@@ -4480,8 +4480,10 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(241);
 /* harmony import */ var _navbar_helpers_setTeamLogoCss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3895);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__, _navbar_helpers_setTeamLogoCss__WEBPACK_IMPORTED_MODULE_1__]);
-([_constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__, _navbar_helpers_setTeamLogoCss__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7987);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__, _navbar_helpers_setTeamLogoCss__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__]);
+([_constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__, _navbar_helpers_setTeamLogoCss__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -4491,8 +4493,18 @@ function setHeaderBanner(teamName, seasonNumber) {
   if(previousBannerIcon){
     previousBannerIcon.remove()
   }
+
+  // set banners background color to alpah black except for teams who's primary color is black
+  const getTeamsColor = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(teamName).MainColor
+  let teamsColor
+  if(getTeamsColor !== "000000"){
+    teamsColor = "0,0,0,.5"
+  } else {
+    teamsColor = "255,255,255,.5"
+  }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
+  header.style.backgroundColor = `rgba(${teamsColor})`
   const insertionDiv = document.createElement("div");
   insertionDiv.style.display = "flex";
   insertionDiv.style.justifyContent = "center"
@@ -9440,4 +9452,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=103548240e8e34fb0550.js.map
+//# sourceMappingURL=86c6641e0a563078678b.js.map
