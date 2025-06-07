@@ -1,6 +1,7 @@
 @media screen and (max-width: 1200px) {
   #championsCard {
     position: relative;
+    right: 0em
   }
 
   table {

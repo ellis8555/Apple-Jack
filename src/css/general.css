@@ -41,7 +41,7 @@ img[src*="-big-"] {
 #championsCard {
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 1rem;
 }
 
 #tablesDiv {
