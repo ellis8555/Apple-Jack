@@ -62,10 +62,20 @@ export default function setHeaderBanner(teamName, seasonNumber) {
     const headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;
     // add champions name here to display trophy icon when champion team selected
-    let trophy = document.querySelector("i");
+    let trophyDiv = document.getElementById("trophyDiv");
     if (teamName == DEFENDING_CHAMPS) {
-      trophy.classList.add("fa-trophy");
+      const iElement = document.querySelector("i")
+      if(!iElement){
+        const addIElement=  document.createElement("i")
+        addIElement.classList.add("fa", "fa-trophy", "trophy")
+        trophyDiv.append(addIElement)
+      } else {
+        iElement.classList.add("fa", "fa-trophy", "trophy")
+      }
     } else {
-      trophy.classList.remove("fa-trophy");
+      const isIElement = document.querySelector("i")
+      if(isIElement){
+        isIElement.remove()
+      }
     }
 }
