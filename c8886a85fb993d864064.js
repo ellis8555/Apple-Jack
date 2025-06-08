@@ -4498,9 +4498,9 @@ function setHeaderBanner(teamName, seasonNumber) {
   const getTeamsColor = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(teamName).MainColor
   let teamsColor
   if(getTeamsColor !== "000000"){
-    teamsColor = "0,0,0,.5"
+    teamsColor = "0,0,0,.6"
   } else {
-    teamsColor = "255,255,255,.5"
+    teamsColor = "255,255,255,.1"
   }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
@@ -9452,4 +9452,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=86c6641e0a563078678b.js.map
+//# sourceMappingURL=c8886a85fb993d864064.js.map
