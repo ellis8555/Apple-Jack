@@ -4500,7 +4500,7 @@ function setHeaderBanner(teamName, seasonNumber) {
   if(getTeamsColor !== "000000"){
     teamsColor = "0,0,0,.6"
   } else {
-    teamsColor = "255,255,255,.1"
+    teamsColor = "255,255,255,.2"
   }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
@@ -9452,4 +9452,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=c8886a85fb993d864064.js.map
+//# sourceMappingURL=a7b969fd4bf88d69592b.js.map
