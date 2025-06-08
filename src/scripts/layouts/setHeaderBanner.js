@@ -15,7 +15,7 @@ export default function setHeaderBanner(teamName, seasonNumber) {
   if(getTeamsColor !== "000000"){
     teamsColor = "0,0,0,.6"
   } else {
-    teamsColor = "255,255,255,.1"
+    teamsColor = "255,255,255,.2"
   }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
