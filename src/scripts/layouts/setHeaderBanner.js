@@ -13,9 +13,9 @@ export default function setHeaderBanner(teamName, seasonNumber) {
   const getTeamsColor = eachTeamObjectMAP.get(teamName).MainColor
   let teamsColor
   if(getTeamsColor !== "000000"){
-    teamsColor = "0,0,0,.5"
+    teamsColor = "0,0,0,.6"
   } else {
-    teamsColor = "255,255,255,.5"
+    teamsColor = "255,255,255,.1"
   }
   // note this is not the champions banner
   let header = document.getElementById("headerTeamName");
