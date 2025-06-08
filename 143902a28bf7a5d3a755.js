@@ -4547,11 +4547,21 @@ function setHeaderBanner(teamName, seasonNumber) {
     const headerChildren = header.childNodes;
     headerChildren[headerChildren.length-1].textContent = teamName;
     // add champions name here to display trophy icon when champion team selected
-    let trophy = document.querySelector("i");
+    let trophyDiv = document.getElementById("trophyDiv");
     if (teamName == _constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__/* .DEFENDING_CHAMPS */ .Ut) {
-      trophy.classList.add("fa-trophy");
+      const iElement = document.querySelector("i")
+      if(!iElement){
+        const addIElement=  document.createElement("i")
+        addIElement.classList.add("fa", "fa-trophy", "trophy")
+        trophyDiv.append(addIElement)
+      } else {
+        iElement.classList.add("fa", "fa-trophy", "trophy")
+      }
     } else {
-      trophy.classList.remove("fa-trophy");
+      const isIElement = document.querySelector("i")
+      if(isIElement){
+        isIElement.remove()
+      }
     }
 }
 __webpack_async_result__();
@@ -9452,4 +9462,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=a7b969fd4bf88d69592b.js.map
+//# sourceMappingURL=143902a28bf7a5d3a755.js.map
