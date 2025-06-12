@@ -1,6 +1,7 @@
 import setPlayersFullTable from "../../tables/setPlayersFullTable";
 import setPlayersAllTimeTable from "../../tables/setPlayersAllTimeTable";
 import closeSidebar from "../../sidebar/closeSidebar";
+import seasonCount from "../../var_lib/season/seasonCount";
 
 // Players tables
 // all time player stats
@@ -29,127 +30,29 @@ document
     }, 50);
 });
 // season 05 players tables
-document  
-  .getElementById("s05PlayerSeasonTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(5)
-    setTimeout(() => {
-      closeSidebar()
-    })
-  }, 50)
+for(let i = seasonCount.length; i>0; i--){
   document
-  .getElementById("s05PlayerPlayoffTable")
+  .getElementById(`s0${i}PlayerSeasonTable`)
   .addEventListener("click", () => {
-    setPlayersFullTable(5, "Playoff", "Playoffs");
-        setTimeout(() => {
+    setPlayersFullTable(i)
+    setTimeout(() => {
       closeSidebar();
     }, 50);
 });
 document
-  .getElementById("s05PlayerCombinedTable")
+  .getElementById(`s0${i}PlayerPlayoffTable`)
   .addEventListener("click", () => {
-    setPlayersFullTable(5, "Combined", "Combined");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-// season 04 players tables
-document
-  .getElementById("s04PlayerSeasonTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(4);
-        setTimeout(() => {
+    setPlayersFullTable(i, "Playoffs", "Playoffs")
+    setTimeout(() => {
       closeSidebar();
     }, 50);
 });
 document
-  .getElementById("s04PlayerPlayoffTable")
+  .getElementById(`s0${i}PlayerCombinedTable`)
   .addEventListener("click", () => {
-    setPlayersFullTable(4, "Playoff", "Playoffs");
-        setTimeout(() => {
+    setPlayersFullTable(i, "Combined", "Combined")
+    setTimeout(() => {
       closeSidebar();
     }, 50);
 });
-document
-  .getElementById("s04PlayerCombinedTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(4, "Combined", "Combined");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-// season 03 player tables
-document
-  .getElementById("s03PlayerSeasonTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(3);
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-document
-  .getElementById("s03PlayerPlayoffTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(3, "Playoff", "Playoffs");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-document
-  .getElementById("s03PlayerCombinedTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(3, "Combined", "Combined");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-// season 02 player tables
-document
-  .getElementById("s02PlayerSeasonTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(2);
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-document
-  .getElementById("s02PlayerPlayoffTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(2, "Playoff", "Playoffs");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-document
-  .getElementById("s02PlayerCombinedTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(2, "Combined", "Combined");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-// season 03 player tables
-document
-  .getElementById("s01PlayerSeasonTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(1);
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-document
-  .getElementById("s01PlayerPlayoffTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(1, "Playoff", "Playoffs");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
-document
-  .getElementById("s01PlayerCombinedTable")
-  .addEventListener("click", () => {
-    setPlayersFullTable(1, "Combined", "Combined");
-        setTimeout(() => {
-      closeSidebar();
-    }, 50);
-});
+}
