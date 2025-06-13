@@ -243,6 +243,8 @@ const fullTable = [
 const homePageFieldsNoTies = ["Team", "GP", "Wins", "Losses", "OTL", "Points"];
 const fullTableNoTies = [
   "Team",
+  // the following blank is column for team logos
+  "",
   "GP",
   "Wins",
   "OTW",
@@ -7895,14 +7897,18 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (/* binding */ createTable)
 /* harmony export */ });
-/* harmony import */ var _misc_sorting_sort__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9664);
-/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7546);
-/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6638);
-/* harmony import */ var _getTablesDiv__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4589);
+/* harmony import */ var _misc_sorting_sort__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9664);
+/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7546);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6638);
+/* harmony import */ var _getTablesDiv__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4589);
 /* harmony import */ var _misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1561);
 /* harmony import */ var _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3266);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__]);
-([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7987);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__]);
+([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
 
 
 
@@ -7920,7 +7926,7 @@ function createTable(
     fieldsArrayName,
     ...fieldsArray
   ) {
-    (0,_misc_sorting_sort__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(dataSource, sortBy);
+    (0,_misc_sorting_sort__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(dataSource, sortBy);
     let tableHeaders = fieldsArray[0];
     let fieldsLength = fieldsArray[0].length; // named array of fields previously made
     let isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
@@ -7986,12 +7992,34 @@ function createTable(
         if (tableHeaders[j] === sortBy) {
           tableDataElem.classList.add(color);
         }
-    
+
         // check if wins need to be adjusted for OTW and set the content accordingly
         if (isOTW && tableHeaders[j] === "Wins") {
           tableDataElem.textContent = item.get(tableHeaders[j]) - item.get("OTW");
         } else {
           tableDataElem.textContent = item.get(tableHeaders[j]);
+        }
+
+        // this is column for team logos which table header is blank    
+        if(seasonNumber >= 5){
+        if(tableHeaders[j] === ""){
+          // seasons where teams now have ai generated team logos
+          const seasonNumberAsNumber = parseInt(seasonNumber)
+          const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+          const teamLogo = document.createElement('img')
+          teamLogo.alt = 'img'
+          teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+          tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get('Team')).MainColor
+          if(window.innerWidth > _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
+            teamLogo.style.height = '2.25rem'
+            teamLogo.style.width = '2.25rem'
+            tableDataElem.style.borderLeft = "1px solid white"
+          } else {
+            teamLogo.style.height = '1.75rem'
+            teamLogo.style.width = '1.75rem'
+          }
+            tableDataElem.append(teamLogo)
+          }
         }
     
         // append the cell to the row
@@ -8002,11 +8030,11 @@ function createTable(
       tableStats.append(tableRowElem);
     });
   
-    (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
-    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+    (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)();
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)();
   
     // display table on web page
-    const tablesDiv = (0,_getTablesDiv__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(); // import function
+    const tablesDiv = (0,_getTablesDiv__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)(); // import function
     // clear tablesDiv before appending new data
     tablesDiv.innerHTML = tableStats.outerHTML
   
@@ -9386,4 +9414,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=e2f008965ed84409606b.js.map
+//# sourceMappingURL=16ef1e57d615b05e52da.js.map
