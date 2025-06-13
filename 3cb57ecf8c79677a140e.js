@@ -6274,7 +6274,7 @@ for(let i = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default
 document
   .getElementById(`s0${i}PlayerPlayoffTable`)
   .addEventListener("click", () => {
-    (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Playoffs", "Playoffs")
+    (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Playoff", "Playoffs")
     setTimeout(() => {
       ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
     }, 50);
@@ -9307,4 +9307,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=9e41ad0e1b280380b36a.js.map
+//# sourceMappingURL=3cb57ecf8c79677a140e.js.map
