@@ -2418,6 +2418,10 @@ function getTeamsGameResults(e) {
       ][0];
     const gamesLength = teamsGames.length;
 
+      // seasons where teams now have ai generated team logos
+      const seasonNumberAsNumber = parseInt(seasonNum)
+      const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNum}` : `S0${seasonNum}`
+
       const gameResultsFrag = document.createDocumentFragment();
 
       const backButtonContainer = document.createElement('div');
@@ -2435,7 +2439,11 @@ function getTeamsGameResults(e) {
 
       if(gamesLength > 0){
         for (let i = 0; i < gamesLength; i++) {
-          const gameContainer = document.createElement('div');
+
+              // get home and away team names
+        const homeTeamName = `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`
+        const awayTeamName = `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`
+        const gameContainer = document.createElement('div');
         gameContainer.style.display = 'flex';
         gameContainer.style.justifyContent = 'center';
 
@@ -2443,13 +2451,22 @@ function getTeamsGameResults(e) {
         gameResultsDiv.className = 'w3-container w3-margin gameResults';
         gameContainer.appendChild(gameResultsDiv);
 
-        // Home Team Logo
+        // Home Team Logo    
         const homeTeamLogo = document.createElement('div');
         homeTeamLogo.className = 'homeTeamLogo w3-card w3-blue';
-        const homeTeamLogoHTML = team == `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`
-            ? _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(team, seasonNum, "Home")
-            : _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(`${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`, seasonNum, "Home");
-        homeTeamLogo.innerHTML = homeTeamLogoHTML;
+        if(seasonNum >= 5){
+          const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamName}.png`
+          const homeTeamLogoImg = document.createElement('img');
+          homeTeamLogoImg.src = homeTeamLogoPath
+          homeTeamLogoImg.style.height = "3.25rem"
+          homeTeamLogoImg.style.width = "3.25rem"
+          homeTeamLogo.append(homeTeamLogoImg)
+        } else {
+          const homeTeamLogoHTML = team == `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`
+              ? _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(team, seasonNum, "Home")
+              : _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(`${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`, seasonNum, "Home");
+              homeTeamLogo.innerHTML = homeTeamLogoHTML;
+        }
         gameResultsDiv.appendChild(homeTeamLogo);
 
         // Home Team Name
@@ -2477,10 +2494,19 @@ function getTeamsGameResults(e) {
         // Away Team Logo
         const awayTeamLogo = document.createElement('div');
         awayTeamLogo.className = 'awayTeamLogo w3-card w3-blue';
-        const awayTeamLogoHTML = team == `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`
-            ? _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(team, seasonNum, "Away")
-            : _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(`${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`, seasonNum, "Away");
-        awayTeamLogo.innerHTML = awayTeamLogoHTML;
+        if(seasonNum >= 5) {
+          const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamName}.png`
+          const awayTeamLogoImg = document.createElement('img');
+          awayTeamLogoImg.src = awayTeamLogoPath
+          awayTeamLogoImg.style.height = "3.25rem"
+          awayTeamLogoImg.style.width = "3.25rem"
+          awayTeamLogo.append(awayTeamLogoImg)
+        } else {
+          const awayTeamLogoHTML = team == `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`
+              ? _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(team, seasonNum, "Away")
+              : _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A.getTeamsGamesResults(`${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`, seasonNum, "Away");
+          awayTeamLogo.innerHTML = awayTeamLogoHTML;
+        }
         gameResultsDiv.appendChild(awayTeamLogo);
 
         // Away Team Score
@@ -9281,4 +9307,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=2d9de7d64c4228f9d2f1.js.map
+//# sourceMappingURL=9e41ad0e1b280380b36a.js.map
