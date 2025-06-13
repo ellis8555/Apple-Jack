@@ -309,19 +309,20 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   eB: () => (/* binding */ TEAMS_LENGTH),
 /* harmony export */   gB: () => (/* binding */ CHAMPIONS_LIST),
 /* harmony export */   og: () => (/* binding */ PLAYERS_LENGTH),
-/* harmony export */   p1: () => (/* binding */ SEASONS_WITH_TIE_GAMES)
+/* harmony export */   p1: () => (/* binding */ SEASONS_WITH_TIE_GAMES),
+/* harmony export */   qb: () => (/* binding */ IS_PLAYOFFS)
 /* harmony export */ });
-/* unused harmony exports DEFENDING_CHAMPS_LOGO, CURRENT_SEASON_PLAYOFF_TEAMS_COUNT, TEAM_PLAYERS_LENGTH, GAME_PLAYER_STATS_LENGTH */
+/* unused harmony exports DEFENDING_CHAMPS_LOGO, TEAM_PLAYERS_LENGTH, GAME_PLAYER_STATS_LENGTH */
 /* harmony import */ var _masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4781);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_masterHaxData__WEBPACK_IMPORTED_MODULE_0__]);
 _masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
-const DEFENDING_CHAMPS = "Scribeathonenest";
-const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg";
-const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"];
+const DEFENDING_CHAMPS = "Scribeathonenest"
+const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg"
+const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"]
+const IS_PLAYOFFS = true
 const IN_BETWEEN_SEASONS = true;
-const CURRENT_SEASON_PLAYOFF_TEAMS_COUNT = 4
 const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 const TEAMS_LENGTH = _masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.length;
@@ -414,10 +415,11 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6732);
 /* harmony import */ var _scripts_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3916);
 /* harmony import */ var _scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1946);
-/* harmony import */ var _scripts_loadImages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(937);
-/* harmony import */ var _scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7255);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scripts_listeners_listeners__WEBPACK_IMPORTED_MODULE_0__, _scripts_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_1__, _scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__, _scripts_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_3__, _scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__, _scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__]);
-([_scripts_listeners_listeners__WEBPACK_IMPORTED_MODULE_0__, _scripts_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_1__, _scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__, _scripts_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_3__, _scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__, _scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _scripts_listeners_tablesDivObserver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8539);
+/* harmony import */ var _scripts_loadImages__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(937);
+/* harmony import */ var _scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7255);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scripts_listeners_listeners__WEBPACK_IMPORTED_MODULE_0__, _scripts_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_1__, _scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__, _scripts_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_3__, _scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__, _scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__]);
+([_scripts_listeners_listeners__WEBPACK_IMPORTED_MODULE_0__, _scripts_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_1__, _scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__, _scripts_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_3__, _scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__, _scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 // css files
 
 
@@ -427,6 +429,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
 
 
 // js files
+
 
 
 
@@ -443,8 +446,8 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
     ///////////////////
     // during playoffs
     ///////////////////
-    (0,_scripts_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(5, "Playoff", "Playoffs")
-    ;(0,_scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(_scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)
+    // setSeasonsFullTable(5, "Playoff", "Playoffs")
+    (0,_scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(_scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)
     // Set listeners on table headers
     ;(0,_scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
 __webpack_async_result__();
@@ -5999,7 +6002,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_tab
   // add link to haxball logo 
   const headerLogo = document.querySelector("img[alt*='Haxball']");
   // setHomeTable or playoffs depending on if playoffs are currently ongoing
-  if(_constants_consts_vars__WEBPACK_IMPORTED_MODULE_9__/* .IN_BETWEEN_SEASONS */ .Mx){
+  if(_constants_consts_vars__WEBPACK_IMPORTED_MODULE_9__/* .IN_BETWEEN_SEASONS */ .Mx || _constants_consts_vars__WEBPACK_IMPORTED_MODULE_9__/* .IS_PLAYOFFS */ .qb){
     headerLogo.addEventListener("click", () => {(0,_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)(_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A)});
   } else {
     headerLogo.addEventListener("click", () => {(0,_tables_setHomeTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)()});
@@ -6226,23 +6229,27 @@ __webpack_async_result__();
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 /* harmony import */ var _tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1024);
 /* harmony import */ var _tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5101);
-/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7546);
+/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7546);
 /* harmony import */ var _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1859);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__, _tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__]);
-([_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__, _tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__, _tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__]);
+([_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__, _tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
 
+
+
+const latestSeason = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.at(-1)
 
 // Players tables
 // all time player stats
 document
   .getElementById("allTimePlayerPointsTable")
   .addEventListener("click", () => {
-    (0,_tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(0, "", "Stats");
+    ;(0,_tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(0, "", "Stats");
     setTimeout(() => {
-      (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+      (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
     }, 50);
 });
 document
@@ -6250,7 +6257,7 @@ document
   .addEventListener("click", () => {
     (0,_tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(0, "Season", "Season Stats");
         setTimeout(() => {
-      (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+      (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
     }, 50);
 });
 document
@@ -6258,9 +6265,10 @@ document
   .addEventListener("click", () => {
     (0,_tables_setPlayersAllTimeTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(0, "Playoff", "Playoff Stats");
         setTimeout(() => {
-      (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+      (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
     }, 50);
 });
+
 // season 05 players tables
 for(let i = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.length; i>0; i--){
   document
@@ -6268,25 +6276,45 @@ for(let i = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default
   .addEventListener("click", () => {
     (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i)
     setTimeout(() => {
-      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
     }, 50);
 });
-document
-  .getElementById(`s0${i}PlayerPlayoffTable`)
-  .addEventListener("click", () => {
-    (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Playoff", "Playoffs")
-    setTimeout(() => {
-      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
-    }, 50);
-});
-document
-  .getElementById(`s0${i}PlayerCombinedTable`)
-  .addEventListener("click", () => {
-    (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Combined", "Combined")
-    setTimeout(() => {
-      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
-    }, 50);
-});
+if(!latestSeason){
+  document
+    .getElementById(`s0${i}PlayerPlayoffTable`)
+    .addEventListener("click", () => {
+      (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Playoff", "Playoffs")
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+  document
+    .getElementById(`s0${i}PlayerCombinedTable`)
+    .addEventListener("click", () => {
+      (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Combined", "Combined")
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+}
+if(latestSeason && _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .IN_BETWEEN_SEASONS */ .Mx && _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .IS_PLAYOFFS */ .qb){
+    document
+    .getElementById(`s0${i}PlayerPlayoffTable`)
+    .addEventListener("click", () => {
+      (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Playoff", "Playoffs")
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+  document
+    .getElementById(`s0${i}PlayerCombinedTable`)
+    .addEventListener("click", () => {
+      (0,_tables_setPlayersFullTable__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i, "Combined", "Combined")
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+}
 }
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
@@ -6299,15 +6327,19 @@ __webpack_async_result__();
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 /* harmony import */ var _layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6732);
-/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7546);
+/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7546);
 /* harmony import */ var _tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3916);
 /* harmony import */ var _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1859);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__, _tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__]);
-([_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__, _tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__, _tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__]);
+([_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__, _tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
 
+
+
+const latestSeason = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.at(-1)
 
 for(let i = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.length; i>0; i--){
   document
@@ -6315,29 +6347,76 @@ for(let i = _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_2__/* ["default
   .addEventListener("click", () => {
     (0,_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(i)
     setTimeout(() => {
-      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
+      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
     }, 50);
 });
-document
-  .getElementById(`s0${i}PlayoffTree`)
-  .addEventListener("click", () => {
-    (0,_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i)
-    setTimeout(() => {
-      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
-    }, 50);
-});
-document
-  .getElementById(`s0${i}CombinedTable`)
-  .addEventListener("click", () => {
-    (0,_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(i, "Combined", "Combined")
-    setTimeout(() => {
-      ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)();
-    }, 50);
-});
+if(!latestSeason){
+  document
+    .getElementById(`s0${i}PlayoffTree`)
+    .addEventListener("click", () => {
+      (0,_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i)
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+  document
+    .getElementById(`s0${i}CombinedTable`)
+    .addEventListener("click", () => {
+      (0,_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(i, "Combined", "Combined")
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+}
+if(latestSeason && _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .IN_BETWEEN_SEASONS */ .Mx && _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .IS_PLAYOFFS */ .qb){
+  document
+    .getElementById(`s0${i}PlayoffTree`)
+    .addEventListener("click", () => {
+      (0,_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(i)
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+  document
+    .getElementById(`s0${i}CombinedTable`)
+    .addEventListener("click", () => {
+      (0,_tables_setSeasonsFullTable__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(i, "Combined", "Combined")
+      setTimeout(() => {
+        ;(0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+      }, 50);
+  });
+}
 }
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 8539:
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony import */ var _tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4589);
+
+
+const tablesDiv = (0,_tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)()
+
+const observer = new MutationObserver((mutations) => {
+    const isTableDisplayed = tablesDiv.firstElementChild?.tagName === 'TABLE' ? true : false
+    if(isTableDisplayed){
+        tablesDiv.style.justifyContent = 'start'
+        const getTeamsTable = document.querySelector('#tablesDiv > table')
+        getTeamsTable.style.margin = 'auto'
+    } else {
+        tablesDiv.style.justifyContent = 'center'
+    }
+})
+
+
+observer.observe(tablesDiv, {
+    childList: true
+})
 
 /***/ }),
 
@@ -6876,8 +6955,8 @@ _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_
 
 
 function setTeamsTableBgColor() {
-  let teamRow = document.querySelectorAll("td[data-field-name='Team']");
-  teamRow.forEach((item) => {
+  const teamColumn = document.querySelectorAll("td[data-field-name='Team']");
+  teamColumn.forEach((item) => {
     item.style.backgroundColor = `#${
       _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(item.textContent).MainColor
     }`;
@@ -9307,4 +9386,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=3cb57ecf8c79677a140e.js.map
+//# sourceMappingURL=e2f008965ed84409606b.js.map
