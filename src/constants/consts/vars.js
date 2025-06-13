@@ -1,10 +1,10 @@
 import { Teams, Players, GameType, TeamPlayers, GameResults, GamePlayerStats } from "../masterHaxData";
 
-export const DEFENDING_CHAMPS = "Scribeathonenest";
-export const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg";
-export const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"];
+export const DEFENDING_CHAMPS = "Scribeathonenest"
+export const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg"
+export const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"]
+export const IS_PLAYOFFS = true
 export const IN_BETWEEN_SEASONS = true;
-export const CURRENT_SEASON_PLAYOFF_TEAMS_COUNT = 4
 export const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 export const TEAMS_LENGTH = Teams.length;
