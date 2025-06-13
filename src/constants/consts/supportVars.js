@@ -114,6 +114,8 @@ export const fullTable = [
 export const homePageFieldsNoTies = ["Team", "GP", "Wins", "Losses", "OTL", "Points"];
 export const fullTableNoTies = [
   "Team",
+  // the following blank is column for team logos
+  "",
   "GP",
   "Wins",
   "OTW",
