@@ -42,7 +42,7 @@ for(let i = seasonCount.length; i>0; i--){
 document
   .getElementById(`s0${i}PlayerPlayoffTable`)
   .addEventListener("click", () => {
-    setPlayersFullTable(i, "Playoffs", "Playoffs")
+    setPlayersFullTable(i, "Playoff", "Playoffs")
     setTimeout(() => {
       closeSidebar();
     }, 50);
