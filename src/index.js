@@ -12,6 +12,7 @@ import setHomeTable from "./scripts/tables/setHomeTable"
 import playoffTree from "./scripts/layouts/playoffTree/playoffTree"
 import setSeasonsFullTable from "./scripts/tables/setSeasonsFullTable"
 import setTableListeners from "./scripts/listeners/listenerHelpers/setTableListeners"
+import "./scripts/listeners/tablesDivObserver"
 
 // img files all imported using script
 import images from "./scripts/loadImages";
@@ -23,7 +24,7 @@ import currentSeason from "./scripts/var_lib/season/currentSeason"
     ///////////////////
     // during playoffs
     ///////////////////
-    setSeasonsFullTable(5, "Playoff", "Playoffs")
+    // setSeasonsFullTable(5, "Playoff", "Playoffs")
     playoffTree(currentSeason)
     // Set listeners on table headers
     setTableListeners();
