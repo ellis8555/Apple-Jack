@@ -4,6 +4,8 @@ import clearScoreboardDiv from "../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "./getTablesDiv";
 import setPlayersTableBgColor from "../misc/playerTableBgColor";
 import setTeamsTableBgColor from "../misc/setTeamsTableBgColor";
+import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP"
+import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
 
 export default function createTable(
     seasonNumber,
@@ -81,12 +83,34 @@ export default function createTable(
         if (tableHeaders[j] === sortBy) {
           tableDataElem.classList.add(color);
         }
-    
+
         // check if wins need to be adjusted for OTW and set the content accordingly
         if (isOTW && tableHeaders[j] === "Wins") {
           tableDataElem.textContent = item.get(tableHeaders[j]) - item.get("OTW");
         } else {
           tableDataElem.textContent = item.get(tableHeaders[j]);
+        }
+
+        // this is column for team logos which table header is blank    
+        if(seasonNumber >= 5){
+        if(tableHeaders[j] === ""){
+          // seasons where teams now have ai generated team logos
+          const seasonNumberAsNumber = parseInt(seasonNumber)
+          const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+          const teamLogo = document.createElement('img')
+          teamLogo.alt = 'img'
+          teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+          tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(item.get('Team')).MainColor
+          if(window.innerWidth > TABLE_BREAK_POINT){
+            teamLogo.style.height = '2.25rem'
+            teamLogo.style.width = '2.25rem'
+            tableDataElem.style.borderLeft = "1px solid white"
+          } else {
+            teamLogo.style.height = '1.75rem'
+            teamLogo.style.width = '1.75rem'
+          }
+            tableDataElem.append(teamLogo)
+          }
         }
     
         // append the cell to the row
