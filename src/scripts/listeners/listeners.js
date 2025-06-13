@@ -14,12 +14,12 @@ import "./pageListeners/announcementsListener"
 import "./pageListeners/leagueRecordsListener"
 import playoffTree from "../layouts/playoffTree/playoffTree";
 import currentSeason from "../var_lib/season/currentSeason";
-import { IN_BETWEEN_SEASONS } from "../../constants/consts/vars";
+import { IN_BETWEEN_SEASONS, IS_PLAYOFFS } from "../../constants/consts/vars";
 
   // add link to haxball logo 
   const headerLogo = document.querySelector("img[alt*='Haxball']");
   // setHomeTable or playoffs depending on if playoffs are currently ongoing
-  if(IN_BETWEEN_SEASONS){
+  if(IN_BETWEEN_SEASONS || IS_PLAYOFFS){
     headerLogo.addEventListener("click", () => {playoffTree(currentSeason)});
   } else {
     headerLogo.addEventListener("click", () => {setHomeTable()});
