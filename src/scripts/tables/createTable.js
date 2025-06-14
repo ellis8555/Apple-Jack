@@ -93,6 +93,7 @@ export default function createTable(
 
         // this is column for team logos which table header is blank    
         if(seasonNumber >= 5){
+        // add team logo column for larger screens in it's own column
         if(tableHeaders[j] === ""){
           // seasons where teams now have ai generated team logos
           const seasonNumberAsNumber = parseInt(seasonNumber)
@@ -101,15 +102,29 @@ export default function createTable(
           teamLogo.alt = 'img'
           teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
           tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(item.get('Team')).MainColor
-          if(window.innerWidth > TABLE_BREAK_POINT){
+          if(window.innerWidth >= TABLE_BREAK_POINT){
             teamLogo.style.height = '2.25rem'
             teamLogo.style.width = '2.25rem'
             tableDataElem.style.borderLeft = "1px solid white"
-          } else {
-            teamLogo.style.height = '1.75rem'
-            teamLogo.style.width = '1.75rem'
           }
             tableDataElem.append(teamLogo)
+          }
+          // add team logo to right of team name on smaller screens where table is vertical in display
+          if(tableHeaders[j] === 'Team'){
+            if((window.innerWidth < TABLE_BREAK_POINT)){
+              const seasonNumberAsNumber = parseInt(seasonNumber)
+              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+              const teamLogo = document.createElement('img')
+              teamLogo.alt = 'img'
+              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+              teamLogo.style.height = '1.75rem'
+              teamLogo.style.width = '1.75rem'
+              // teamLogo.style.transform = "translateY(-.65rem)"
+              tableDataElem.style.display = 'flex'
+              tableDataElem.style.justifyContent = "space-between"
+              teamLogo.style.transform = "translateY(-.65rem)"
+              tableDataElem.append(teamLogo)
+            }
           }
         }
     
