@@ -9,6 +9,19 @@
     width: 60%;
   }
 
+  table td:first-child img {
+    display: none;
+  }
+
+  table td:nth-child(2){
+    border-left: 1px solid white
+  }
+
+  table td:nth-child(2) img{
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
   .gifContainer  > img {
     width: 75%;
   }

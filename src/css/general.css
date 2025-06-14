@@ -93,6 +93,19 @@ table tr:nth-child(even) {
   background-color: #f0f0f0;
 }
 
+  table td:first-child img {
+    display: none;
+  }
+
+  table td:nth-child(2){
+    border-left: 1px solid white
+  }
+
+  table td:nth-child(2) img{
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
 table td,
 table th {
   padding: 8px 8px;

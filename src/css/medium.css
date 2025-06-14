@@ -24,14 +24,28 @@
 
   table td {
     display: block;
-    height: 20px;
+    height: fit-content;
     text-align: right;
     font-size: 13px;
     cursor: pointer;
   }
 
+  table th:first-child,
+  table td:first-child {
+    padding-left: 8px;
+  }
+
+  table td:first-child {
+    height: 2.75rem;
+    padding-top: 1.25rem;
+  }
+
+  table td:first-child > img {
+    display: inline-block;
+  }
+
   table td:nth-child(2){
-    height:fit-content;
+    display: none;
   }
 
   table td:nth-child(odd) {

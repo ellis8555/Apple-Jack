@@ -20,7 +20,7 @@
 
   table td {
     display: block;
-    height: 20px;
+    height: fit-content;
     text-align: right;
     font-size: 13px;
     cursor: pointer;
