@@ -43,6 +43,8 @@
 
   table td:first-child > img {
     display: inline-block;
+    height: 1.75rem;
+    width: 1.75rem
   }
 
   table tbody td[data-data-source^="TeamStats"]:nth-child(2),
