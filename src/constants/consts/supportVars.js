@@ -139,6 +139,7 @@ export const fullTableNoTies = [
 // set fields for players tables within side menu bar
 export const PLAYERS_TABLE = [
   "Name",
+  "",
   "GP",
   "Goals",
   "Assists",
