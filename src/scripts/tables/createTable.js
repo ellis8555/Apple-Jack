@@ -8,6 +8,7 @@ import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP"
 import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
 import { Teams, TeamPlayers } from "../../constants/masterHaxData";
 import playersNumMAP from "../var_lib/maps/players/playersNumMAP"
+import currentSeason from "../var_lib/season/currentSeason";
 
 export default function createTable(
     seasonNumber,
@@ -152,7 +153,6 @@ export default function createTable(
               teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
-              // teamLogo.style.transform = "translateY(-.65rem)"
               tableDataElem.style.display = 'flex'
               tableDataElem.style.justifyContent = "space-between"
               teamLogo.style.transform = "translateY(-.65rem)"
@@ -160,7 +160,63 @@ export default function createTable(
             }
           }
         }
-    
+
+        // add team logo to players all time stats table on larger screens
+        if(tableHeaders[j] === "" && seasonNumber == 0){
+          if(isPlayerTable){
+            // allows 0 which refers to all time player stats
+            const playersTeamIDArray = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber == currentSeason).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))
+            if(playersTeamIDArray.length > 0){   
+                const teamLogo = document.createElement('img')
+                teamLogo.alt = 'img'
+                const playersTeamID = playersTeamIDArray[0].TeamID            
+                const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+                // seasons where teams now have ai generated team logos              
+                const seasonNumberFolderName = currentSeason>9 ? `S${currentSeason}` : `S0${currentSeason}`
+                teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+                tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
+                // // finally add styles image element
+                if(window.innerWidth >= TABLE_BREAK_POINT){
+                  teamLogo.style.height = '2.25rem'
+                  teamLogo.style.width = '2.25rem'
+                  tableDataElem.style.borderLeft = "1px solid white"
+                }
+                tableDataElem.append(teamLogo)
+              }
+            }
+        }
+
+        // add team logo to players all time stats table on smaller screens with vertical tables
+          if(tableHeaders[j] === "Name" && seasonNumber == 0){
+          if(isPlayerTable){
+            // allows 0 which refers to all time player stats
+            const playersTeamIDArray = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber == currentSeason).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))
+            if(playersTeamIDArray.length > 0){   
+                const teamLogo = document.createElement('img')
+                teamLogo.alt = 'img'
+                const playersTeamID = playersTeamIDArray[0].TeamID            
+                const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+                // seasons where teams now have ai generated team logos              
+                const seasonNumberFolderName = currentSeason>9 ? `S${currentSeason}` : `S0${currentSeason}`
+                teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+                tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
+                // // finally add styles image element
+                if(window.innerWidth < TABLE_BREAK_POINT){
+                  teamLogo.style.height = '2.25rem'
+                  teamLogo.style.width = '2.25rem'
+                  tableDataElem.style.borderLeft = "1px solid white"
+                  teamLogo.style.height = '1.75rem'
+                  teamLogo.style.width = '1.75rem'
+                  tableDataElem.style.display = 'flex'
+                  tableDataElem.style.justifyContent = "space-between"
+                  teamLogo.style.transform = "translateY(-.65rem)"
+                }
+                tableDataElem.append(teamLogo)
+              }
+            }
+        }
+
+
         // append the cell to the row
         tableRowElem.append(tableDataElem);
       }
