@@ -6,6 +6,8 @@ import setPlayersTableBgColor from "../misc/playerTableBgColor";
 import setTeamsTableBgColor from "../misc/setTeamsTableBgColor";
 import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP"
 import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
+import { Teams, TeamPlayers } from "../../constants/masterHaxData";
+import playersNumMAP from "../var_lib/maps/players/playersNumMAP"
 
 export default function createTable(
     seasonNumber,
@@ -18,16 +20,16 @@ export default function createTable(
     ...fieldsArray
   ) {
     sortGroupedStats(dataSource, sortBy);
-    let tableHeaders = fieldsArray[0];
-    let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-    let isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
+    const tableHeaders = fieldsArray[0];
+    const fieldsLength = fieldsArray[0].length; // named array of fields previously made
+    const isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
     let screenedDataSource;
     // check if dataSource is a teams table
-    let isTeamTable = dataSourceName.includes("TeamStats");
+    const isTeamTable = dataSourceName.includes("TeamStats");
     // check if dataSource is a player table
-    let isPlayerTable = dataSourceName.includes("Individual");
+    const isPlayerTable = dataSourceName.includes("Individual");
     // check if dataSource is team Playoff table
-    let isPlayoffTable = dataSourceName.includes("Playoff");
+    const isPlayoffTable = dataSourceName.includes("Playoff");
     if ((isTeamTable || isPlayerTable) && isPlayoffTable) {
       screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
     } else {
@@ -90,24 +92,36 @@ export default function createTable(
         } else {
           tableDataElem.textContent = item.get(tableHeaders[j]);
         }
-
-        // this is column for team logos which table header is blank    
+        // this is column for team logos which table header is blank  
+        // 0 refers to all time player stats  
         if(seasonNumber >= 5){
         // add team logo column for larger screens in it's own column
         if(tableHeaders[j] === ""){
-          // seasons where teams now have ai generated team logos
           const seasonNumberAsNumber = parseInt(seasonNumber)
           const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
           const teamLogo = document.createElement('img')
           teamLogo.alt = 'img'
-          teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
-          tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(item.get('Team')).MainColor
+          if(isTeamTable){
+            // seasons where teams now have ai generated team logos
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+            tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(item.get('Team')).MainColor
+            tableDataElem.append(teamLogo)
+          }
+          if(isPlayerTable){
+            // allows 0 which refers to all time player stats
+              const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+              const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+              // seasons where teams now have ai generated team logos
+              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
+              tableDataElem.append(teamLogo)
+          }
+          // finally add styles image element
           if(window.innerWidth >= TABLE_BREAK_POINT){
             teamLogo.style.height = '2.25rem'
             teamLogo.style.width = '2.25rem'
             tableDataElem.style.borderLeft = "1px solid white"
           }
-            tableDataElem.append(teamLogo)
           }
           // add team logo to right of team name on smaller screens where table is vertical in display
           if(tableHeaders[j] === 'Team'){
@@ -117,6 +131,25 @@ export default function createTable(
               const teamLogo = document.createElement('img')
               teamLogo.alt = 'img'
               teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+              teamLogo.style.height = '1.75rem'
+              teamLogo.style.width = '1.75rem'
+              // teamLogo.style.transform = "translateY(-.65rem)"
+              tableDataElem.style.display = 'flex'
+              tableDataElem.style.justifyContent = "space-between"
+              teamLogo.style.transform = "translateY(-.65rem)"
+              tableDataElem.append(teamLogo)
+            }
+          }
+          // add team logo to right of players name on smaller screens where table is vertical in display
+          if(tableHeaders[j] === 'Name'){
+            if((window.innerWidth < TABLE_BREAK_POINT)){
+              const seasonNumberAsNumber = parseInt(seasonNumber)
+              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+              const teamLogo = document.createElement('img')
+              teamLogo.alt = 'img'
+              const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+              const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
               // teamLogo.style.transform = "translateY(-.65rem)"
