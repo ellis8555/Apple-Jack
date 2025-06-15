@@ -45,7 +45,9 @@
     display: inline-block;
   }
 
-  table tbody td[data-data-source^="TeamStats"]:nth-child(2){
+  table tbody td[data-data-source^="TeamStats"]:nth-child(2),
+  table tbody td[data-data-source^="Individual"]:nth-child(2)
+  {
     display: none;
   }
 
