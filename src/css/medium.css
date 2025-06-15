@@ -38,6 +38,7 @@
   table td:first-child {
     height: 2.75rem;
     padding-top: 1.25rem;
+    font-weight: bold;
   }
 
   table td:first-child > img {
@@ -68,6 +69,11 @@
     float: left;
     text-transform: uppercase;
     font-weight: bold;
+  }
+
+  table td:first-child::before{
+    font-weight: 500;
+    color: white
   }
 
   tbody {
