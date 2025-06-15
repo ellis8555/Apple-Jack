@@ -268,6 +268,7 @@ const fullTableNoTies = [
 // set fields for players tables within side menu bar
 const PLAYERS_TABLE = [
   "Name",
+  "",
   "GP",
   "Goals",
   "Assists",
@@ -7897,16 +7898,20 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (/* binding */ createTable)
 /* harmony export */ });
-/* harmony import */ var _misc_sorting_sort__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9664);
-/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7546);
-/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6638);
-/* harmony import */ var _getTablesDiv__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4589);
+/* harmony import */ var _misc_sorting_sort__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9664);
+/* harmony import */ var _sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7546);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6638);
+/* harmony import */ var _getTablesDiv__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(4589);
 /* harmony import */ var _misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1561);
 /* harmony import */ var _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3266);
 /* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7987);
 /* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(241);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__]);
-([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4781);
+/* harmony import */ var _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9096);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__, _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__]);
+([_misc_playerTableBgColor__WEBPACK_IMPORTED_MODULE_0__, _misc_setTeamsTableBgColor__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__, _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
 
 
 
@@ -7926,17 +7931,17 @@ function createTable(
     fieldsArrayName,
     ...fieldsArray
   ) {
-    (0,_misc_sorting_sort__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(dataSource, sortBy);
-    let tableHeaders = fieldsArray[0];
-    let fieldsLength = fieldsArray[0].length; // named array of fields previously made
-    let isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
+    (0,_misc_sorting_sort__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)(dataSource, sortBy);
+    const tableHeaders = fieldsArray[0];
+    const fieldsLength = fieldsArray[0].length; // named array of fields previously made
+    const isOTW = tableHeaders.includes("OTW"); // checks for if any given season has tie games or extra time
     let screenedDataSource;
     // check if dataSource is a teams table
-    let isTeamTable = dataSourceName.includes("TeamStats");
+    const isTeamTable = dataSourceName.includes("TeamStats");
     // check if dataSource is a player table
-    let isPlayerTable = dataSourceName.includes("Individual");
+    const isPlayerTable = dataSourceName.includes("Individual");
     // check if dataSource is team Playoff table
-    let isPlayoffTable = dataSourceName.includes("Playoff");
+    const isPlayoffTable = dataSourceName.includes("Playoff");
     if ((isTeamTable || isPlayerTable) && isPlayoffTable) {
       screenedDataSource = dataSource.filter((item) => item.get("GP") > 0);
     } else {
@@ -7999,24 +8004,36 @@ function createTable(
         } else {
           tableDataElem.textContent = item.get(tableHeaders[j]);
         }
-
-        // this is column for team logos which table header is blank    
+        // this is column for team logos which table header is blank  
+        // 0 refers to all time player stats  
         if(seasonNumber >= 5){
         // add team logo column for larger screens in it's own column
         if(tableHeaders[j] === ""){
-          // seasons where teams now have ai generated team logos
           const seasonNumberAsNumber = parseInt(seasonNumber)
           const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
           const teamLogo = document.createElement('img')
           teamLogo.alt = 'img'
-          teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
-          tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get('Team')).MainColor
+          if(isTeamTable){
+            // seasons where teams now have ai generated team logos
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+            tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get('Team')).MainColor
+            tableDataElem.append(teamLogo)
+          }
+          if(isPlayerTable){
+            // allows 0 which refers to all time player stats
+              const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+              const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+              // seasons where teams now have ai generated team logos
+              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
+              tableDataElem.append(teamLogo)
+          }
+          // finally add styles image element
           if(window.innerWidth >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
             teamLogo.style.height = '2.25rem'
             teamLogo.style.width = '2.25rem'
             tableDataElem.style.borderLeft = "1px solid white"
           }
-            tableDataElem.append(teamLogo)
           }
           // add team logo to right of team name on smaller screens where table is vertical in display
           if(tableHeaders[j] === 'Team'){
@@ -8026,6 +8043,25 @@ function createTable(
               const teamLogo = document.createElement('img')
               teamLogo.alt = 'img'
               teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+              teamLogo.style.height = '1.75rem'
+              teamLogo.style.width = '1.75rem'
+              // teamLogo.style.transform = "translateY(-.65rem)"
+              tableDataElem.style.display = 'flex'
+              tableDataElem.style.justifyContent = "space-between"
+              teamLogo.style.transform = "translateY(-.65rem)"
+              tableDataElem.append(teamLogo)
+            }
+          }
+          // add team logo to right of players name on smaller screens where table is vertical in display
+          if(tableHeaders[j] === 'Name'){
+            if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
+              const seasonNumberAsNumber = parseInt(seasonNumber)
+              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+              const teamLogo = document.createElement('img')
+              teamLogo.alt = 'img'
+              const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+              const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
               // teamLogo.style.transform = "translateY(-.65rem)"
@@ -8045,11 +8081,11 @@ function createTable(
       tableStats.append(tableRowElem);
     });
   
-    (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)();
-    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)();
+    (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)();
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A)();
   
     // display table on web page
-    const tablesDiv = (0,_getTablesDiv__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)(); // import function
+    const tablesDiv = (0,_getTablesDiv__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .A)(); // import function
     // clear tablesDiv before appending new data
     tablesDiv.innerHTML = tableStats.outerHTML
   
@@ -9429,4 +9465,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=dc4f6c31200539f5fa4f.js.map
+//# sourceMappingURL=14210b76d0eaa6c9ed15.js.map
