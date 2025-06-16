@@ -37,6 +37,8 @@ function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinal
         const teamGameOne = createElement("div", teamOneOrTwo)
         // team one name
         const teamName = createElement("div", "teamData")
+        teamName.style.display = 'flex'
+        teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
         teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
         // team one game one score
