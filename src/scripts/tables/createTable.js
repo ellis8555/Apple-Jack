@@ -202,8 +202,6 @@ export default function createTable(
                 tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth < TABLE_BREAK_POINT){
-                  teamLogo.style.height = '2.25rem'
-                  teamLogo.style.width = '2.25rem'
                   tableDataElem.style.borderLeft = "1px solid white"
                   teamLogo.style.height = '1.75rem'
                   teamLogo.style.width = '1.75rem'
