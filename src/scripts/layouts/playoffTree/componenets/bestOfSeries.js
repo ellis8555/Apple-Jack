@@ -2,8 +2,9 @@ import teamsColorMAP from "../../../var_lib/maps/teams/teamsColorMAP";
 import teamsNumMAP from "../../../var_lib/maps/teams/teamsNumMAP";
 import createElement from "../../../misc/createElement";
 import bestOfSeriesGameResult from "./bestOfSeriesGameResult";
+import { TEAM_LOGO_SIZE } from "../../../../constants/consts/vars";
 
-function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
+function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
     // check if is finals series
     if(isFinals){
             const seriesFrag = document.createDocumentFragment()
@@ -11,12 +12,28 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             const teamGameOne = createElement("div", teamOneOrTwo)
             // team one name
             const teamName = createElement("div", "teamData")
+            teamName.style.display = 'flex'
+            teamName.style.justifyContent = 'space-between'
+            teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
             let seriesWinner;
             let wins = 0;
             // checks if finals are set either no teams or one team
             if(team){
-                teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
-                teamName.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
+                // create team name text/rank div
+                const teamNameText = createElement('div')
+                teamNameText.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
+                teamName.append(teamNameText)
+                // create teams logo if logo exists
+                if(seasonNumber >= 5){
+                    const seasonNumberAsNumber = parseInt(seasonNumber)
+                    const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+                    const teamLogo = document.createElement('img')
+                    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+                    teamLogo.alt = 'img'
+                    teamLogo.style.height = TEAM_LOGO_SIZE
+                    teamLogo.style.width = TEAM_LOGO_SIZE
+                    teamName.append(teamLogo)
+                }
                 teamGameOne.append(teamName)
                 if(playoffGamesArray.length > 0){                    
                     // team one game one score
@@ -91,10 +108,27 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         const seriesFrag = document.createDocumentFragment()
         
         const teamGameOne = createElement("div", teamOneOrTwo)
-        // team one name
+        // team one name container
         const teamName = createElement("div", "teamData")
+        teamName.style.display = 'flex'
+        teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
-        teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+        // team one name and rank
+        const teamNameText = createElement('div')
+        teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
+        teamName.append(teamNameText)
+        if(seasonNumber >= 5){
+            // team one team logo
+            const seasonNumberAsNumber = parseInt(seasonNumber)
+            const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            const teamLogo = document.createElement('img')
+            teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+            teamLogo.alt = 'img'
+            teamLogo.style.height = TEAM_LOGO_SIZE
+            teamLogo.style.width = TEAM_LOGO_SIZE
+            teamName.append(teamLogo)
+        }
+
         // team one game one score
         const teamGameOneScore = createElement("div", "teamData")
         const teamsNum = teamsNumMAP.get(team.get("Team"))
@@ -158,10 +192,27 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
             const seriesFrag = document.createDocumentFragment()
         
             const teamGameOne = createElement("div", teamOneOrTwo)
-                // team one name
+            // team one name container
             const teamName = createElement("div", "teamData")
+            teamName.style.display = 'flex'
+            teamName.style.justifyContent = 'space-between'
             teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
-            teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+            // team name text div
+            const teamNameText = createElement('div')
+            teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
+            teamName.append(teamNameText)
+            // append team logo if logo exists
+            if(seasonNumber >= 5){
+                // team one team logo
+                const seasonNumberAsNumber = parseInt(seasonNumber)
+                const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+                const teamLogo = document.createElement('img')
+                teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+                teamLogo.alt = 'img'
+                teamLogo.style.height = TEAM_LOGO_SIZE
+                teamLogo.style.width = TEAM_LOGO_SIZE
+                teamName.append(teamLogo)
+            }
             // team one game one score
             const teamGameOneScore = createElement("div", "teamData")
             teamGameOneScore.textContent = "-";
