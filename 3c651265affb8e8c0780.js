@@ -8115,8 +8115,6 @@ function createTable(
                 tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
-                  teamLogo.style.height = '2.25rem'
-                  teamLogo.style.width = '2.25rem'
                   tableDataElem.style.borderLeft = "1px solid white"
                   teamLogo.style.height = '1.75rem'
                   teamLogo.style.width = '1.75rem'
@@ -9522,4 +9520,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=f868266141cb5991a643.js.map
+//# sourceMappingURL=3c651265affb8e8c0780.js.map
