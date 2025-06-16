@@ -14,12 +14,34 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
     // append the back button
     containerElem.append(backButtonElem)
 
-    // create the css logos
-    const homeLogoHTML = createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home") 
-    const awayLogoHTML = createTeamCssLogo.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away")
-
-    const homeTeamLogo = parser.parseFromString(homeLogoHTML, 'text/html').body.firstChild;
-    const awayTeamLogo = parser.parseFromString(awayLogoHTML, 'text/html').body.firstChild;
+    // get teams logos depending on season number and if team logos existed or are css generated
+    let homeTeamLogo
+    let awayTeamLogo
+    if(thisSeasonNumber < 5){
+        // create the css logos for earlier seasons when there were no logos created
+        const homeLogoHTML = createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home") 
+        const awayLogoHTML = createTeamCssLogo.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away")
+    
+        homeTeamLogo = parser.parseFromString(homeLogoHTML, 'text/html').body.firstChild;
+        awayTeamLogo = parser.parseFromString(awayLogoHTML, 'text/html').body.firstChild;
+    } else {
+        // later seasons when team logos have been created
+        // get home teams logo
+        const seasonNumberAsNumber = parseInt(thisSeasonNumber)
+        const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${thisSeasonNumber}` : `S0${thisSeasonNumber}`
+        homeTeamLogo = document.createElement('img')
+        homeTeamLogo.alt = 'img'
+        homeTeamLogo.style.height = '6.25rem'
+        homeTeamLogo.style.width = '8.25rem'
+        homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeam}.png`
+        
+        // get away teams logo
+        awayTeamLogo = document.createElement('img')
+        awayTeamLogo.alt = 'img'
+        awayTeamLogo.style.height = '6.25rem'
+        awayTeamLogo.style.width = '8.25rem'
+        awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeam}.png`
+    }
 
     // create div to hold both logos
     // home team
