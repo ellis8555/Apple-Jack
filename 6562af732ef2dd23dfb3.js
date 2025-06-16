@@ -311,6 +311,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   Z5: () => (/* binding */ GAME_RESULTS_LENGTH),
 /* harmony export */   eB: () => (/* binding */ TEAMS_LENGTH),
 /* harmony export */   gB: () => (/* binding */ CHAMPIONS_LIST),
+/* harmony export */   iv: () => (/* binding */ TEAM_LOGO_SIZE),
 /* harmony export */   og: () => (/* binding */ PLAYERS_LENGTH),
 /* harmony export */   p1: () => (/* binding */ SEASONS_WITH_TIE_GAMES),
 /* harmony export */   qb: () => (/* binding */ IS_PLAYOFFS)
@@ -343,6 +344,8 @@ const GAME_RESULTS_LENGTH = _masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameR
 const GAME_PLAYER_STATS_LENGTH = _masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.length;
 // screen resizing break points
 const TABLE_BREAK_POINT = 992;
+// team logo size in playoff brackets
+const TEAM_LOGO_SIZE = '1.75rem'
 // HC font size on team logos via css
 const HC_FONT = {
     "getTeamsGamesResults": '.5rem, 1rem, 1.75rem',
@@ -3137,49 +3140,67 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6957);
 /* harmony import */ var _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1708);
-/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3004);
-/* harmony import */ var _bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3736);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__]);
-([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3004);
+/* harmony import */ var _bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3736);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__]);
+([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
 
 
-function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
+
+function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
     // check if is finals series
     if(isFinals){
             const seriesFrag = document.createDocumentFragment()
 
-            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", teamOneOrTwo)
+            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", teamOneOrTwo)
             // team one name
-            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            teamName.style.display = 'flex'
+            teamName.style.justifyContent = 'space-between'
+            teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
             let seriesWinner;
             let wins = 0;
             // checks if finals are set either no teams or one team
             if(team){
-                teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
-                teamName.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
+                // create team name text/rank div
+                const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
+                teamNameText.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
+                teamName.append(teamNameText)
+                // create teams logo if logo exists
+                if(seasonNumber >= 5){
+                    const seasonNumberAsNumber = parseInt(seasonNumber)
+                    const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+                    const teamLogo = document.createElement('img')
+                    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+                    teamLogo.alt = 'img'
+                    teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+                    teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+                    teamName.append(teamLogo)
+                }
                 teamGameOne.append(teamName)
                 if(playoffGamesArray.length > 0){                    
                     // team one game one score
-                    const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+                    const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
                     const teamsNum = _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
                     const gameOneScore = playoffGamesArray[0].TeamOne == teamsNum ? playoffGamesArray[0].TeamOneScore : playoffGamesArray[0].TeamTwoScore
                     teamGameOneScore.textContent = gameOneScore;
                     let isTeamOneInGameResult = playoffGamesArray[0].TeamOne == teamsNum ? true : false;
                     // wins counts to determine if this team wins the series
                     let resultBgColor;
-                    const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 0, resultBgColor, wins)
+                    const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 0, resultBgColor, wins)
                     wins = gameOneResult.wins;
                     resultBgColor = gameOneResult.resultBgColor
                     teamGameOneScore.style.backgroundColor = resultBgColor;
                     // team one game two score
-                    const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+                    const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
                     const gameTwoScore = (playoffGamesArray[1].TeamOne == teamsNum) ? playoffGamesArray[1].TeamOneScore : playoffGamesArray[1].TeamTwoScore
                     teamGameTwoScore.textContent = gameTwoScore
                     isTeamOneInGameResult = playoffGamesArray[1].TeamOne == teamsNum ? true : false;
-                    const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 1, resultBgColor, wins)
+                    const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 1, resultBgColor, wins)
                     wins = gameTwoResult.wins;
                     resultBgColor = gameTwoResult.resultBgColor
                     teamGameTwoScore.style.backgroundColor = resultBgColor;
@@ -3189,18 +3210,18 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
                     const wasThirdGamePlayed = playoffGamesArray.length;
                     if(wasThirdGamePlayed > 2){
                         // team one game three score
-                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
                         const gameThreeScore = (playoffGamesArray[2].TeamOne == teamsNum) ? playoffGamesArray[2].TeamOneScore : playoffGamesArray[2].TeamTwoScore
                         teamGameThreeScore.textContent = gameThreeScore
                         isTeamOneInGameResult = playoffGamesArray[2].TeamOne == teamsNum ? true : false;
-                        const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 2, resultBgColor, wins)
+                        const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 2, resultBgColor, wins)
                         wins = gameThreeResult.wins;
                         resultBgColor = gameThreeResult.resultBgColor
                         teamGameThreeScore.style.backgroundColor = resultBgColor;
                         teamGameOne.append(teamGameThreeScore)
                     } else {
                         // team one game three score
-                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
                         teamGameThreeScore.textContent = "-"
                         teamGameOne.append(teamGameThreeScore)
                     }
@@ -3233,13 +3254,30 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
     if(filteredPlayoffGamesArray.length > 0){
         const seriesFrag = document.createDocumentFragment()
         
-        const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", teamOneOrTwo)
-        // team one name
-        const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+        const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", teamOneOrTwo)
+        // team one name container
+        const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+        teamName.style.display = 'flex'
+        teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
-        teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+        // team one name and rank
+        const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
+        teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
+        teamName.append(teamNameText)
+        if(seasonNumber >= 5){
+            // team one team logo
+            const seasonNumberAsNumber = parseInt(seasonNumber)
+            const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            const teamLogo = document.createElement('img')
+            teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+            teamLogo.alt = 'img'
+            teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+            teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+            teamName.append(teamLogo)
+        }
+
         // team one game one score
-        const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+        const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
         const teamsNum = _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
         const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
         teamGameOneScore.textContent = gameOneScore;
@@ -3247,16 +3285,16 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         // wins counts to determine if this team wins the series
         let wins = 0;
         let resultBgColor;
-        const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
+        const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
         wins = gameOneResult.wins;
         resultBgColor = gameOneResult.resultBgColor
         teamGameOneScore.style.backgroundColor = resultBgColor;
         // team one game two score
-        const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+        const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
         const gameTwoScore = (filteredPlayoffGamesArray[1].TeamOne == teamsNum) ? filteredPlayoffGamesArray[1].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
         teamGameTwoScore.textContent = gameTwoScore
         isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
-        const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 1, resultBgColor, wins)
+        const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 1, resultBgColor, wins)
         wins = gameTwoResult.wins;
         resultBgColor = gameTwoResult.resultBgColor
         teamGameTwoScore.style.backgroundColor = resultBgColor;
@@ -3268,18 +3306,18 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
         const wasThirdGamePlayed = filteredPlayoffGamesArray.length;
         if(wasThirdGamePlayed > 2){
             // team one game three score
-            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
             const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[2].TeamTwoScore
             teamGameThreeScore.textContent = gameThreeScore
             isTeamOneInGameResult = filteredPlayoffGamesArray[2].TeamOne == teamsNum ? true : false;
-            const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 2, resultBgColor, wins)
+            const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 2, resultBgColor, wins)
             wins = gameThreeResult.wins;
             resultBgColor = gameThreeResult.resultBgColor
             teamGameThreeScore.style.backgroundColor = resultBgColor;
             teamGameOne.append(teamGameThreeScore)
         } else {
             // team one game three score
-            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         }
@@ -3300,23 +3338,40 @@ function bestOfSeries(team, playoffGamesArray, teamOneOrTwo, teamsStanding, isFi
     } else {
             const seriesFrag = document.createDocumentFragment()
         
-            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", teamOneOrTwo)
-                // team one name
-            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", teamOneOrTwo)
+            // team one name container
+            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            teamName.style.display = 'flex'
+            teamName.style.justifyContent = 'space-between'
             teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
-            teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+            // team name text div
+            const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
+            teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
+            teamName.append(teamNameText)
+            // append team logo if logo exists
+            if(seasonNumber >= 5){
+                // team one team logo
+                const seasonNumberAsNumber = parseInt(seasonNumber)
+                const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+                const teamLogo = document.createElement('img')
+                teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+                teamLogo.alt = 'img'
+                teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+                teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+                teamName.append(teamLogo)
+            }
             // team one game one score
-            const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
             teamGameOneScore.textContent = "-";
             // team one game two score
-            const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
             teamGameTwoScore.textContent = "-"
             
             teamGameOne.append(teamName)
             teamGameOne.append(teamGameOneScore)
             teamGameOne.append(teamGameTwoScore)
             // team one game three score
-            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         
@@ -3445,7 +3500,7 @@ _bestOfSeries__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.the
 
 
 
-function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum}){
+function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum, seasonNumber}){
     // flex container for alignments
     const semiDivContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", `semi${seriesNum}Container`)
     // flex container for alignments
@@ -3453,9 +3508,9 @@ function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray
     // flex containers that contain the series data
     const series = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", "series")
     // team one flex container
-    const seriesTeam1Results = (0,_bestOfSeries__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(teamOne, gamesArray, "team1", teamOneRank)
+    const seriesTeam1Results = (0,_bestOfSeries__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(seasonNumber, teamOne, gamesArray, "team1", teamOneRank)
     // team two flex container
-    const seriesTeam2Results = (0,_bestOfSeries__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(teamTwo, gamesArray, "team2", teamTwoRank)
+    const seriesTeam2Results = (0,_bestOfSeries__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(seasonNumber, teamTwo, gamesArray, "team2", teamTwoRank)
     // append state of series such as series winner or tied at 0-0
     const seriesWinner = seriesTeam1Results.seriesWinner ?? seriesTeam2Results.seriesWinner;
     const seriesLosersWins = Math.min(seriesTeam1Results.wins, seriesTeam2Results.wins)
@@ -3539,6 +3594,8 @@ function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinal
         const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", teamOneOrTwo)
         // team one name
         const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+        teamName.style.display = 'flex'
+        teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
         teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
         // team one game one score
@@ -3737,6 +3794,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: firstRoundGames,
             seriesNum: 2,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -3758,9 +3816,9 @@ function playoffTree(seasonNumber){
         const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
         const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
         // team one flex container
-        const finalSeriesTeam1Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
+        const finalSeriesTeam1Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(seasonNumber, sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
         // team two flex container
-        const finalSeriesTeam2Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
+        const finalSeriesTeam2Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(seasonNumber, sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
         // append state of series such as series winner or tied at 0-0
         const seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
         const seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
@@ -3807,6 +3865,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 4,
             gamesArray: firstRoundGames,
             seriesNum: 1,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -3823,6 +3882,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: firstRoundGames,
             seriesNum: 2,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -3844,9 +3904,9 @@ function playoffTree(seasonNumber){
         const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
         const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
         // team one flex container
-        const finalSeriesTeam1Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
+        const finalSeriesTeam1Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(seasonNumber, sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
         // team two flex container
-        const finalSeriesTeam2Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
+        const finalSeriesTeam2Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(seasonNumber, sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
         // append state of series such as series winner or tied at 0-0
         const seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
         const seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
@@ -3907,6 +3967,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 5,
             gamesArray: firstRoundGames,
             seriesNum: 1,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -3923,6 +3984,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 4,
             gamesArray: firstRoundGames,
             seriesNum: 2,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -3987,9 +4049,9 @@ function playoffTree(seasonNumber){
         const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
         const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
         // team one flex container
-        const finalSeriesTeam1Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
+        const finalSeriesTeam1Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(seasonNumber, sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
         // team two flex container
-        const finalSeriesTeam2Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
+        const finalSeriesTeam2Results = (0,_componenets_bestOfSeries__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(seasonNumber, sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
         // append state of series such as series winner or tied at 0-0
         const seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
         const seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
@@ -9542,4 +9604,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=f9813bfe4ea0e6189e99.js.map
+//# sourceMappingURL=6562af732ef2dd23dfb3.js.map
