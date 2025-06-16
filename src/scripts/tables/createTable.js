@@ -126,38 +126,38 @@ export default function createTable(
           }
           // add team logo to right of team name on smaller screens where table is vertical in display
           if(tableHeaders[j] === 'Team'){
+            const seasonNumberAsNumber = parseInt(seasonNumber)
+            const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            const teamLogo = document.createElement('img')
+            teamLogo.alt = 'img'
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
             if((window.innerWidth < TABLE_BREAK_POINT)){
-              const seasonNumberAsNumber = parseInt(seasonNumber)
-              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-              const teamLogo = document.createElement('img')
-              teamLogo.alt = 'img'
-              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
               // teamLogo.style.transform = "translateY(-.65rem)"
               tableDataElem.style.display = 'flex'
               tableDataElem.style.justifyContent = "space-between"
               teamLogo.style.transform = "translateY(-.65rem)"
-              tableDataElem.append(teamLogo)
             }
+            tableDataElem.append(teamLogo)
           }
           // add team logo to right of players name on smaller screens where table is vertical in display
           if(tableHeaders[j] === 'Name'){
+            const seasonNumberAsNumber = parseInt(seasonNumber)
+            const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            const teamLogo = document.createElement('img')
+            teamLogo.alt = 'img'
+            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+            const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
             if((window.innerWidth < TABLE_BREAK_POINT)){
-              const seasonNumberAsNumber = parseInt(seasonNumber)
-              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-              const teamLogo = document.createElement('img')
-              teamLogo.alt = 'img'
-              const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
-              const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
-              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
               tableDataElem.style.display = 'flex'
               tableDataElem.style.justifyContent = "space-between"
               teamLogo.style.transform = "translateY(-.65rem)"
-              tableDataElem.append(teamLogo)
             }
+            tableDataElem.append(teamLogo)
           }
         }
 
