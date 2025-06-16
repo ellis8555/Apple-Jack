@@ -8039,38 +8039,38 @@ function createTable(
           }
           // add team logo to right of team name on smaller screens where table is vertical in display
           if(tableHeaders[j] === 'Team'){
+            const seasonNumberAsNumber = parseInt(seasonNumber)
+            const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            const teamLogo = document.createElement('img')
+            teamLogo.alt = 'img'
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
             if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
-              const seasonNumberAsNumber = parseInt(seasonNumber)
-              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-              const teamLogo = document.createElement('img')
-              teamLogo.alt = 'img'
-              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
               // teamLogo.style.transform = "translateY(-.65rem)"
               tableDataElem.style.display = 'flex'
               tableDataElem.style.justifyContent = "space-between"
               teamLogo.style.transform = "translateY(-.65rem)"
-              tableDataElem.append(teamLogo)
             }
+            tableDataElem.append(teamLogo)
           }
           // add team logo to right of players name on smaller screens where table is vertical in display
           if(tableHeaders[j] === 'Name'){
+            const seasonNumberAsNumber = parseInt(seasonNumber)
+            const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            const teamLogo = document.createElement('img')
+            teamLogo.alt = 'img'
+            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+            const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
             if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
-              const seasonNumberAsNumber = parseInt(seasonNumber)
-              const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-              const teamLogo = document.createElement('img')
-              teamLogo.alt = 'img'
-              const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
-              const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
-              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
               tableDataElem.style.display = 'flex'
               tableDataElem.style.justifyContent = "space-between"
               teamLogo.style.transform = "translateY(-.65rem)"
-              tableDataElem.append(teamLogo)
             }
+            tableDataElem.append(teamLogo)
           }
         }
 
@@ -9520,4 +9520,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=3c651265affb8e8c0780.js.map
+//# sourceMappingURL=3e64862ad826d735ab77.js.map
