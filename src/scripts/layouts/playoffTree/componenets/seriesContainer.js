@@ -1,7 +1,7 @@
 import bestOfSeries from "./bestOfSeries";
 import createElement from "../../../misc/createElement";
 
-function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum}){
+function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum, seasonNumber}){
     // flex container for alignments
     const semiDivContainer = createElement("div", `semi${seriesNum}Container`)
     // flex container for alignments
@@ -9,9 +9,9 @@ function seriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray
     // flex containers that contain the series data
     const series = createElement("div", "series")
     // team one flex container
-    const seriesTeam1Results = bestOfSeries(teamOne, gamesArray, "team1", teamOneRank)
+    const seriesTeam1Results = bestOfSeries(seasonNumber, teamOne, gamesArray, "team1", teamOneRank)
     // team two flex container
-    const seriesTeam2Results = bestOfSeries(teamTwo, gamesArray, "team2", teamTwoRank)
+    const seriesTeam2Results = bestOfSeries(seasonNumber, teamTwo, gamesArray, "team2", teamTwoRank)
     // append state of series such as series winner or tied at 0-0
     const seriesWinner = seriesTeam1Results.seriesWinner ?? seriesTeam2Results.seriesWinner;
     const seriesLosersWins = Math.min(seriesTeam1Results.wins, seriesTeam2Results.wins)

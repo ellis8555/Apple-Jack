@@ -177,6 +177,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 4,
             gamesArray: firstRoundGames,
             seriesNum: 1,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -193,6 +194,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: firstRoundGames,
             seriesNum: 2,
+            seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -214,9 +216,9 @@ function playoffTree(seasonNumber){
         const seriesOneWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesOneWinner)
         const seriesTwoWinnerInFinalStandings = sortedFinalStandings.findIndex(team => team.get("Team") === seriesTwoWinner)
         // team one flex container
-        const finalSeriesTeam1Results = bestOfSeries(sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
+        const finalSeriesTeam1Results = bestOfSeries(seasonNumber, sortedFinalStandings[seriesOneWinnerInFinalStandings], finalPlayoffGames, "team1", seriesOneWinnerInFinalStandings, true);
         // team two flex container
-        const finalSeriesTeam2Results = bestOfSeries(sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
+        const finalSeriesTeam2Results = bestOfSeries(seasonNumber, sortedFinalStandings[seriesTwoWinnerInFinalStandings], finalPlayoffGames, "team2", seriesTwoWinnerInFinalStandings, true);
         // append state of series such as series winner or tied at 0-0
         const seriesWinner = finalSeriesTeam1Results.seriesWinner ?? finalSeriesTeam2Results.seriesWinner;
         const seriesLosersWins = Math.min(finalSeriesTeam1Results.wins, finalSeriesTeam2Results.wins)
