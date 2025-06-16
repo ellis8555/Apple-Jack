@@ -22,6 +22,8 @@ export const GAME_RESULTS_LENGTH = GameResults.length;
 export const GAME_PLAYER_STATS_LENGTH = GamePlayerStats.length;
 // screen resizing break points
 export const TABLE_BREAK_POINT = 992;
+// team logo size in playoff brackets
+export const TEAM_LOGO_SIZE = '1.75rem'
 // HC font size on team logos via css
 export const HC_FONT = {
     "getTeamsGamesResults": '.5rem, 1rem, 1.75rem',
