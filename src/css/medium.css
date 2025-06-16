@@ -39,12 +39,15 @@
     height: 2.75rem;
     padding-top: 1.25rem;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
   }
 
   table td:first-child > img {
     display: inline-block;
     height: 1.75rem;
-    width: 1.75rem
+    width: 1.75rem;
+    transform: translateY(-.65rem)
   }
 
   table tbody td[data-data-source^="TeamStats"]:nth-child(2),
