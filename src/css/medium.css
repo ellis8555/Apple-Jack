@@ -83,6 +83,18 @@
     color: white
   }
 
+  /* team page players page stats. remove column that would contain team logo */
+
+  #teamPlayerSeasonTable td:nth-child(2){
+    display: none
+  }
+  #teamPlayerPlayoffTable td:nth-child(2){
+    display: none
+  }
+  #teamPlayerCombinedTable td:nth-child(2){
+    display: none
+  }
+
   tbody {
     line-height: 0.3 !important;
   }
