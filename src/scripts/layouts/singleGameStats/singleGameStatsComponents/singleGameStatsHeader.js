@@ -1,6 +1,7 @@
 import backButton from "../../../misc/backButton";
 import createTeamCssLogo from "../../../misc/createTeamCssLogo";
 import { SEASON_WITH_TEAM_LOGOS_START } from "../../../../constants/consts/vars";
+import eachTeamObjectMAP from "../../../var_lib/maps/teams/eachTeamObjectMAP";
 
 function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesHomeTeam, thisGamesAwayTeam}){
     const containerElem = document.createElement('div')
@@ -34,26 +35,16 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
         homeTeamLogo.alt = 'img'
         homeTeamLogo.style.height = '6.25rem'
         homeTeamLogo.style.width = '8.25rem'
-        if(thisGamesHomeTeam === ".Hax"){
-            thisGamesHomeTeam = "dotHax"
-        }
-        homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeam}.png`
-        if(thisGamesHomeTeam === "dotHax"){
-            thisGamesHomeTeam = "Hax"
-        }
+        const thisGamesHomeTeamLogo = eachTeamObjectMAP.get(thisGamesHomeTeam)[`${seasonNumberFolderName}HomeFilePath`]
+        homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeamLogo}.png`
         
         // get away teams logo
         awayTeamLogo = document.createElement('img')
         awayTeamLogo.alt = 'img'
         awayTeamLogo.style.height = '6.25rem'
         awayTeamLogo.style.width = '8.25rem'
-        if(thisGamesAwayTeam === ".Hax"){
-            thisGamesAwayTeam = "dotHax"
-        }
-        awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeam}.png`
-        if(thisGamesAwayTeam === "dotHax"){
-            thisGamesAwayTeam = ".Hax"
-        }
+        const thisGamesAwayTeamLogo = eachTeamObjectMAP.get(thisGamesAwayTeam)[`${seasonNumberFolderName}HomeFilePath`]
+        awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeamLogo}.png`
     }
 
     // create div to hold both logos

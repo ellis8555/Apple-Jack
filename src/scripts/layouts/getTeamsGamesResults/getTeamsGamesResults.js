@@ -14,6 +14,7 @@ import { Gifs } from "../../../constants/masterHaxData";
 import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "../../tables/getTablesDiv";
 import { SEASON_WITH_TEAM_LOGOS_START } from "../../../constants/consts/vars";
+import eachTeamObjectMAP from "../../var_lib/maps/teams/eachTeamObjectMAP";
 
 export default function getTeamsGameResults(e) {
     const team = e.target.dataset.teamName;
@@ -63,13 +64,8 @@ export default function getTeamsGameResults(e) {
         const homeTeamLogo = document.createElement('div');
         homeTeamLogo.className = 'homeTeamLogo w3-card w3-blue';
         if(seasonNum >= SEASON_WITH_TEAM_LOGOS_START){
-          if(homeTeamName === ".Hax"){
-            homeTeamName = "dotHax"
-          }
-          const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamName}.png`
-          if(homeTeamName === "dotHax"){
-            homeTeamName = ".Hax"
-          }
+          const homeTeamsLogoName = eachTeamObjectMAP.get(homeTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+          const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamsLogoName}.png`
           const homeTeamLogoImg = document.createElement('img');
           homeTeamLogoImg.src = homeTeamLogoPath
           homeTeamLogoImg.style.height = "3.25rem"
@@ -109,13 +105,8 @@ export default function getTeamsGameResults(e) {
         const awayTeamLogo = document.createElement('div');
         awayTeamLogo.className = 'awayTeamLogo w3-card w3-blue';
         if(seasonNum >= SEASON_WITH_TEAM_LOGOS_START) {
-          if(awayTeamName === ".Hax"){
-            awayTeamName = "dotHax"
-          }
-          const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamName}.png`
-          if(awayTeamName === ".Hax"){
-            awayTeamName = "dotHax"
-          }
+          const awayTeamsLogoName = eachTeamObjectMAP.get(awayTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+          const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamsLogoName}.png`
           const awayTeamLogoImg = document.createElement('img');
           awayTeamLogoImg.src = awayTeamLogoPath
           awayTeamLogoImg.style.height = "3.25rem"
