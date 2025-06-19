@@ -1,7 +1,7 @@
 import { DEFENDING_CHAMPS } from "../../constants/consts/vars";
 import setTeamLogoCss from "./navbar/helpers/setTeamLogoCss";
 import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP";
-import { HC_FONT } from "../../constants/consts/vars";
+import { HC_FONT, SEASON_WITH_TEAM_LOGOS_START } from "../../constants/consts/vars";
 
 export default function setHeaderBanner(teamName, seasonNumber) {
   const previousBannerIcon = document.getElementById("headerIcon");
@@ -28,7 +28,7 @@ export default function setHeaderBanner(teamName, seasonNumber) {
 
   const seasonNumberAsNumber = parseInt(seasonNumber)
   // checks for seasons when teams did not have custom team logos and only css logos
-    if(seasonNumberAsNumber < 5){
+    if(seasonNumberAsNumber < SEASON_WITH_TEAM_LOGOS_START){
       // get teams css logo
       const teamsCssLogo = setTeamLogoCss(insertionDiv, seasonNumber, undefined, teamName);
       const grabLogo = teamsCssLogo.firstElementChild.firstElementChild
@@ -44,7 +44,14 @@ export default function setHeaderBanner(teamName, seasonNumber) {
     } else {
       // seasons where teams now have ai generated team logos
       const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+      if(teamName === ".Hax"){
+        teamName = "dotHax"
+      }
       const teamLogo = `../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
+
+      if(teamName === "dotHax"){
+        teamName = ".Hax"
+      }
 
       const imgElement = document.createElement('img')
       imgElement.src = teamLogo

@@ -5,7 +5,7 @@ import getTablesDiv from "./getTablesDiv";
 import setPlayersTableBgColor from "../misc/playerTableBgColor";
 import setTeamsTableBgColor from "../misc/setTeamsTableBgColor";
 import eachTeamObjectMAP from "../var_lib/maps/teams/eachTeamObjectMAP"
-import { TABLE_BREAK_POINT } from "../../constants/consts/vars";
+import { TABLE_BREAK_POINT, SEASON_WITH_TEAM_LOGOS_START } from "../../constants/consts/vars";
 import { Teams, TeamPlayers } from "../../constants/masterHaxData";
 import playersNumMAP from "../var_lib/maps/players/playersNumMAP"
 import currentSeason from "../var_lib/season/currentSeason";
@@ -95,7 +95,7 @@ export default function createTable(
         }
         // this is column for team logos which table header is blank  
         // 0 refers to all time player stats  
-        if(seasonNumber >= 5){
+        if(seasonNumber >= SEASON_WITH_TEAM_LOGOS_START){
         // add team logo column for larger screens in it's own column
         if(tableHeaders[j] === ""){
           const seasonNumberAsNumber = parseInt(seasonNumber)
@@ -103,17 +103,27 @@ export default function createTable(
           const teamLogo = document.createElement('img')
           teamLogo.alt = 'img'
           if(isTeamTable){
+            let teamName = item.get('Team')
+            if(teamName === ".Hax"){
+              teamName = "dotHax"
+            }
             // seasons where teams now have ai generated team logos
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
             tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(item.get('Team')).MainColor
             tableDataElem.append(teamLogo)
           }
           if(isPlayerTable){
             // allows 0 which refers to all time player stats
-              const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
-              const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= SEASON_WITH_TEAM_LOGOS_START).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+            let playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+            if(playersTeamName === ".Hax"){
+              playersTeamName = "dotHax"
+            }
               // seasons where teams now have ai generated team logos
               teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              if(playersTeamName === "dotHax"){
+                playersTeamName = ".Hax"
+              }
               tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
               tableDataElem.append(teamLogo)
           }
@@ -128,9 +138,13 @@ export default function createTable(
           if(tableHeaders[j] === 'Team'){
             const seasonNumberAsNumber = parseInt(seasonNumber)
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            let teamName = item.get('Team')
+            if(teamName === ".Hax"){
+              teamName = "dotHax"
+            }
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
             if((window.innerWidth < TABLE_BREAK_POINT)){
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
@@ -147,8 +161,11 @@ export default function createTable(
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
-            const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= SEASON_WITH_TEAM_LOGOS_START).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+            let playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+            if(playersTeamName === ".Hax"){
+              playersTeamName = "dotHax"
+            }
             teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
             if((window.innerWidth < TABLE_BREAK_POINT)){
               teamLogo.style.height = '1.75rem'
@@ -170,10 +187,16 @@ export default function createTable(
                 const teamLogo = document.createElement('img')
                 teamLogo.alt = 'img'
                 const playersTeamID = playersTeamIDArray[0].TeamID            
-                const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+                let playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+                if(playersTeamName === ".Hax"){
+                  playersTeamName = "dotHax"
+                }
                 // seasons where teams now have ai generated team logos              
                 const seasonNumberFolderName = currentSeason>9 ? `S${currentSeason}` : `S0${currentSeason}`
                 teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              if(playersTeamName === "dotHax"){
+                playersTeamName = ".Hax"
+              }
                 tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth >= TABLE_BREAK_POINT){
@@ -195,10 +218,16 @@ export default function createTable(
                 const teamLogo = document.createElement('img')
                 teamLogo.alt = 'img'
                 const playersTeamID = playersTeamIDArray[0].TeamID            
-                const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+                let playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+                if(playersTeamName === ".Hax"){
+                  playersTeamName = "dotHax"
+                }
                 // seasons where teams now have ai generated team logos              
                 const seasonNumberFolderName = currentSeason>9 ? `S${currentSeason}` : `S0${currentSeason}`
                 teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              if(playersTeamName === "dotHax"){
+                playersTeamName = ".Hax"
+              }
                 tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth < TABLE_BREAK_POINT){

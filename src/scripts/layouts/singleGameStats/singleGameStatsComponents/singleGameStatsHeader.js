@@ -1,5 +1,6 @@
 import backButton from "../../../misc/backButton";
 import createTeamCssLogo from "../../../misc/createTeamCssLogo";
+import { SEASON_WITH_TEAM_LOGOS_START } from "../../../../constants/consts/vars";
 
 function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesHomeTeam, thisGamesAwayTeam}){
     const containerElem = document.createElement('div')
@@ -17,7 +18,7 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
     // get teams logos depending on season number and if team logos existed or are css generated
     let homeTeamLogo
     let awayTeamLogo
-    if(thisSeasonNumber < 5){
+    if(thisSeasonNumber < SEASON_WITH_TEAM_LOGOS_START){
         // create the css logos for earlier seasons when there were no logos created
         const homeLogoHTML = createTeamCssLogo.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home") 
         const awayLogoHTML = createTeamCssLogo.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away")
@@ -33,14 +34,26 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
         homeTeamLogo.alt = 'img'
         homeTeamLogo.style.height = '6.25rem'
         homeTeamLogo.style.width = '8.25rem'
+        if(thisGamesHomeTeam === ".Hax"){
+            thisGamesHomeTeam = "dotHax"
+        }
         homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeam}.png`
+        if(thisGamesHomeTeam === "dotHax"){
+            thisGamesHomeTeam = "Hax"
+        }
         
         // get away teams logo
         awayTeamLogo = document.createElement('img')
         awayTeamLogo.alt = 'img'
         awayTeamLogo.style.height = '6.25rem'
         awayTeamLogo.style.width = '8.25rem'
+        if(thisGamesAwayTeam === ".Hax"){
+            thisGamesAwayTeam = "dotHax"
+        }
         awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeam}.png`
+        if(thisGamesAwayTeam === "dotHax"){
+            thisGamesAwayTeam = ".Hax"
+        }
     }
 
     // create div to hold both logos

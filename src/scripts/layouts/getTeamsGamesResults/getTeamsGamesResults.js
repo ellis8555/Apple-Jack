@@ -13,6 +13,7 @@ import getGameResultText from "./helpers/getGameResultText"
 import { Gifs } from "../../../constants/masterHaxData";
 import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "../../tables/getTablesDiv";
+import { SEASON_WITH_TEAM_LOGOS_START } from "../../../constants/consts/vars";
 
 export default function getTeamsGameResults(e) {
     const team = e.target.dataset.teamName;
@@ -48,8 +49,8 @@ export default function getTeamsGameResults(e) {
         for (let i = 0; i < gamesLength; i++) {
 
               // get home and away team names
-        const homeTeamName = `${teamsMAP.get(+teamsGames[i].TeamOne)}`
-        const awayTeamName = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`
+        let homeTeamName = `${teamsMAP.get(+teamsGames[i].TeamOne)}`
+        let awayTeamName = `${teamsMAP.get(+teamsGames[i].TeamTwo)}`
         const gameContainer = document.createElement('div');
         gameContainer.style.display = 'flex';
         gameContainer.style.justifyContent = 'center';
@@ -61,8 +62,14 @@ export default function getTeamsGameResults(e) {
         // Home Team Logo    
         const homeTeamLogo = document.createElement('div');
         homeTeamLogo.className = 'homeTeamLogo w3-card w3-blue';
-        if(seasonNum >= 5){
+        if(seasonNum >= SEASON_WITH_TEAM_LOGOS_START){
+          if(homeTeamName === ".Hax"){
+            homeTeamName = "dotHax"
+          }
           const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamName}.png`
+          if(homeTeamName === "dotHax"){
+            homeTeamName = ".Hax"
+          }
           const homeTeamLogoImg = document.createElement('img');
           homeTeamLogoImg.src = homeTeamLogoPath
           homeTeamLogoImg.style.height = "3.25rem"
@@ -101,8 +108,14 @@ export default function getTeamsGameResults(e) {
         // Away Team Logo
         const awayTeamLogo = document.createElement('div');
         awayTeamLogo.className = 'awayTeamLogo w3-card w3-blue';
-        if(seasonNum >= 5) {
+        if(seasonNum >= SEASON_WITH_TEAM_LOGOS_START) {
+          if(awayTeamName === ".Hax"){
+            awayTeamName = "dotHax"
+          }
           const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamName}.png`
+          if(awayTeamName === ".Hax"){
+            awayTeamName = "dotHax"
+          }
           const awayTeamLogoImg = document.createElement('img');
           awayTeamLogoImg.src = awayTeamLogoPath
           awayTeamLogoImg.style.height = "3.25rem"
