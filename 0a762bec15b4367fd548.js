@@ -8154,18 +8154,15 @@ function createTable(
           const teamLogo = document.createElement('img')
           teamLogo.alt = 'img'
           if(isTeamTable){
-            let teamName = item.get('Team')
-            if(teamName === ".Hax"){
-              teamName = "dotHax"
-            }
             // seasons where teams now have ai generated team logos
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
+            const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get('Team'))[`${seasonNumberFolderName}HomeFilePath`]
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
             tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get('Team')).MainColor
             tableDataElem.append(teamLogo)
           }
           if(isPlayerTable){
             // allows 0 which refers to all time player stats
-            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber == seasonNumber).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
             let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
             if(playersTeamName === ".Hax"){
               playersTeamName = "dotHax"
@@ -8212,7 +8209,7 @@ function createTable(
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= seasonNumber).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
             let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
             if(playersTeamName === ".Hax"){
               playersTeamName = "dotHax"
@@ -9727,4 +9724,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=ef61e2fa374b6c732109.js.map
+//# sourceMappingURL=0a762bec15b4367fd548.js.map
