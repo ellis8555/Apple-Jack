@@ -5,6 +5,7 @@ export const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.s
 export const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"]
 export const IS_PLAYOFFS = true
 export const IN_BETWEEN_SEASONS = true;
+export const SEASON_WITH_TEAM_LOGOS_START = 4
 export const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 export const TEAMS_LENGTH = Teams.length;
