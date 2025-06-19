@@ -111,7 +111,7 @@ export default function createTable(
           }
           if(isPlayerTable){
             // allows 0 which refers to all time player stats
-            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= SEASON_WITH_TEAM_LOGOS_START).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber == seasonNumber).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
             let playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
             if(playersTeamName === ".Hax"){
               playersTeamName = "dotHax"
@@ -158,7 +158,7 @@ export default function createTable(
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= SEASON_WITH_TEAM_LOGOS_START).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= seasonNumber).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
             let playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
             if(playersTeamName === ".Hax"){
               playersTeamName = "dotHax"
