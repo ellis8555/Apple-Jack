@@ -3192,11 +3192,15 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
                 teamNameText.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
                 teamName.append(teamNameText)
                 // create teams logo if logo exists
-                if(seasonNumber >= 5){
+                if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
                     const seasonNumberAsNumber = parseInt(seasonNumber)
                     const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
                     const teamLogo = document.createElement('img')
-                    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+                    let teamsName = team.get("Team")
+                    if(teamsName === ".Hax"){
+                        teamsName = "dotHax"
+                    }
+                    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsName}.png`
                     teamLogo.alt = 'img'
                     teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
                     teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
@@ -3285,12 +3289,16 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
         const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
         teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
         teamName.append(teamNameText)
-        if(seasonNumber >= 5){
+        if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
             // team one team logo
             const seasonNumberAsNumber = parseInt(seasonNumber)
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
-            teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+            let teamsName = team.get("Team") 
+            if(teamsName === ".Hax"){
+                teamsName = "dotHax"
+            }
+            teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsName}.png`
             teamLogo.alt = 'img'
             teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
             teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
@@ -3375,7 +3383,11 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
                 const seasonNumberAsNumber = parseInt(seasonNumber)
                 const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
                 const teamLogo = document.createElement('img')
-                teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${team.get("Team")}.png`
+                let teamsName = team.get("Team") 
+                if(teamsName === ".Hax"){
+                    teamsName = "dotHax"
+                }
+                teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsName}.png`
                 teamLogo.alt = 'img'
                 teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
                 teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
@@ -9715,4 +9727,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=5a93530cc26d5b93e609.js.map
+//# sourceMappingURL=ef61e2fa374b6c732109.js.map
