@@ -103,12 +103,9 @@ export default function createTable(
           const teamLogo = document.createElement('img')
           teamLogo.alt = 'img'
           if(isTeamTable){
-            let teamName = item.get('Team')
-            if(teamName === ".Hax"){
-              teamName = "dotHax"
-            }
             // seasons where teams now have ai generated team logos
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
+            const teamsLogoName = eachTeamObjectMAP.get(item.get('Team'))[`${seasonNumberFolderName}HomeFilePath`]
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
             tableDataElem.style.backgroundColor = "#" + eachTeamObjectMAP.get(item.get('Team')).MainColor
             tableDataElem.append(teamLogo)
           }
