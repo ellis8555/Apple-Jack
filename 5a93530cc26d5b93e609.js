@@ -53,8 +53,13 @@ var map = {
 	"./teamLogos/S03/spaceballsTheHcHomeS03.svg": 6363,
 	"./teamLogos/S03/ultraticklenippleAwayS03.svg": 8786,
 	"./teamLogos/S03/ultraticklenippleHomeS03.svg": 8511,
+	"./teamLogos/S04/Degeneration Hax.png": 3668,
+	"./teamLogos/S04/Nighthax.png": 9757,
+	"./teamLogos/S04/The Hax Foundation.png": 3661,
+	"./teamLogos/S04/Trinity Nuclear Test.png": 4373,
 	"./teamLogos/S04/degenerationHaxAwayS04.svg": 6000,
 	"./teamLogos/S04/degenerationHaxHomeS04.svg": 893,
+	"./teamLogos/S04/dotHax.png": 9288,
 	"./teamLogos/S04/nighthaxAwayS04.svg": 9899,
 	"./teamLogos/S04/nighthaxHomeS04.svg": 7766,
 	"./teamLogos/S04/theHaxFoundationAwayS04.svg": 501,
@@ -305,6 +310,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   Mx: () => (/* binding */ IN_BETWEEN_SEASONS),
 /* harmony export */   O$: () => (/* binding */ CSS_LOGO_DIMENSIONS),
 /* harmony export */   QC: () => (/* binding */ TABLE_BREAK_POINT),
+/* harmony export */   RR: () => (/* binding */ SEASON_WITH_TEAM_LOGOS_START),
 /* harmony export */   Ut: () => (/* binding */ DEFENDING_CHAMPS),
 /* harmony export */   VY: () => (/* binding */ TEAM_NAMES_ARRAY),
 /* harmony export */   WY: () => (/* binding */ HC_FONT),
@@ -327,6 +333,7 @@ const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg"
 const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"]
 const IS_PLAYOFFS = true
 const IN_BETWEEN_SEASONS = true;
+const SEASON_WITH_TEAM_LOGOS_START = 4
 const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 const TEAMS_LENGTH = _masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.length;
@@ -2386,7 +2393,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4010);
 /* harmony import */ var _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4174);
 /* harmony import */ var _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2300);
-/* harmony import */ var _tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(8170);
+/* harmony import */ var _tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(8170);
 /* harmony import */ var _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6957);
 /* harmony import */ var _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7692);
 /* harmony import */ var _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9100);
@@ -2396,10 +2403,12 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1378);
 /* harmony import */ var _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(3927);
 /* harmony import */ var _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(4781);
-/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(6638);
-/* harmony import */ var _tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(4589);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__]);
-([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(6638);
+/* harmony import */ var _tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(4589);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__]);
+([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -2450,8 +2459,8 @@ function getTeamsGameResults(e) {
         for (let i = 0; i < gamesLength; i++) {
 
               // get home and away team names
-        const homeTeamName = `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`
-        const awayTeamName = `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`
+        let homeTeamName = `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamOne)}`
+        let awayTeamName = `${_var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(+teamsGames[i].TeamTwo)}`
         const gameContainer = document.createElement('div');
         gameContainer.style.display = 'flex';
         gameContainer.style.justifyContent = 'center';
@@ -2463,8 +2472,14 @@ function getTeamsGameResults(e) {
         // Home Team Logo    
         const homeTeamLogo = document.createElement('div');
         homeTeamLogo.className = 'homeTeamLogo w3-card w3-blue';
-        if(seasonNum >= 5){
+        if(seasonNum >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
+          if(homeTeamName === ".Hax"){
+            homeTeamName = "dotHax"
+          }
           const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamName}.png`
+          if(homeTeamName === "dotHax"){
+            homeTeamName = ".Hax"
+          }
           const homeTeamLogoImg = document.createElement('img');
           homeTeamLogoImg.src = homeTeamLogoPath
           homeTeamLogoImg.style.height = "3.25rem"
@@ -2503,8 +2518,14 @@ function getTeamsGameResults(e) {
         // Away Team Logo
         const awayTeamLogo = document.createElement('div');
         awayTeamLogo.className = 'awayTeamLogo w3-card w3-blue';
-        if(seasonNum >= 5) {
+        if(seasonNum >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR) {
+          if(awayTeamName === ".Hax"){
+            awayTeamName = "dotHax"
+          }
           const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamName}.png`
+          if(awayTeamName === ".Hax"){
+            awayTeamName = "dotHax"
+          }
           const awayTeamLogoImg = document.createElement('img');
           awayTeamLogoImg.src = awayTeamLogoPath
           awayTeamLogoImg.style.height = "3.25rem"
@@ -2566,8 +2587,8 @@ function getTeamsGameResults(e) {
     document.body.style.backgroundColor = `#${_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.get(team)}`;
   
     // display data in correct div and clear previous data
-    (0,_tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .A)();
-    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A)()
+    (0,_tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A)();
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A)()
     const scores = document.getElementById("scoreboardDiv");
     scores.append(gameResultsFrag)
     // listener for the back button back to teams layout Page
@@ -2582,7 +2603,7 @@ function getTeamsGameResults(e) {
   
     gameHighlightDivs.forEach((item) => item.addEventListener("click", (e) => {
       // scroll window back up before loading gifs
-        const tablesDiv = (0,_tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A)();
+        const tablesDiv = (0,_tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_15__/* ["default"] */ .A)();
         tablesDiv.scrollIntoView({
           behavior: 'smooth',
           block: "center"
@@ -4607,7 +4628,7 @@ function setHeaderBanner(teamName, seasonNumber) {
 
   const seasonNumberAsNumber = parseInt(seasonNumber)
   // checks for seasons when teams did not have custom team logos and only css logos
-    if(seasonNumberAsNumber < 5){
+    if(seasonNumberAsNumber < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_0__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
       // get teams css logo
       const teamsCssLogo = (0,_navbar_helpers_setTeamLogoCss__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(insertionDiv, seasonNumber, undefined, teamName);
       const grabLogo = teamsCssLogo.firstElementChild.firstElementChild
@@ -4623,7 +4644,14 @@ function setHeaderBanner(teamName, seasonNumber) {
     } else {
       // seasons where teams now have ai generated team logos
       const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+      if(teamName === ".Hax"){
+        teamName = "dotHax"
+      }
       const teamLogo = `../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
+
+      if(teamName === "dotHax"){
+        teamName = ".Hax"
+      }
 
       const imgElement = document.createElement('img')
       imgElement.src = teamLogo
@@ -5085,8 +5113,10 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var _misc_backButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8397);
 /* harmony import */ var _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7995);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__]);
-([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__]);
+([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -5106,7 +5136,7 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
     // get teams logos depending on season number and if team logos existed or are css generated
     let homeTeamLogo
     let awayTeamLogo
-    if(thisSeasonNumber < 5){
+    if(thisSeasonNumber < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
         // create the css logos for earlier seasons when there were no logos created
         const homeLogoHTML = _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.singleGameStats(thisGamesHomeTeam, thisSeasonNumber, "Home") 
         const awayLogoHTML = _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.singleGameStats(thisGamesAwayTeam, thisSeasonNumber, "Away")
@@ -5122,14 +5152,26 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
         homeTeamLogo.alt = 'img'
         homeTeamLogo.style.height = '6.25rem'
         homeTeamLogo.style.width = '8.25rem'
+        if(thisGamesHomeTeam === ".Hax"){
+            thisGamesHomeTeam = "dotHax"
+        }
         homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeam}.png`
+        if(thisGamesHomeTeam === "dotHax"){
+            thisGamesHomeTeam = "Hax"
+        }
         
         // get away teams logo
         awayTeamLogo = document.createElement('img')
         awayTeamLogo.alt = 'img'
         awayTeamLogo.style.height = '6.25rem'
         awayTeamLogo.style.width = '8.25rem'
+        if(thisGamesAwayTeam === ".Hax"){
+            thisGamesAwayTeam = "dotHax"
+        }
         awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeam}.png`
+        if(thisGamesAwayTeam === "dotHax"){
+            thisGamesAwayTeam = ".Hax"
+        }
     }
 
     // create div to hold both logos
@@ -8092,7 +8134,7 @@ function createTable(
         }
         // this is column for team logos which table header is blank  
         // 0 refers to all time player stats  
-        if(seasonNumber >= 5){
+        if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
         // add team logo column for larger screens in it's own column
         if(tableHeaders[j] === ""){
           const seasonNumberAsNumber = parseInt(seasonNumber)
@@ -8100,17 +8142,27 @@ function createTable(
           const teamLogo = document.createElement('img')
           teamLogo.alt = 'img'
           if(isTeamTable){
+            let teamName = item.get('Team')
+            if(teamName === ".Hax"){
+              teamName = "dotHax"
+            }
             // seasons where teams now have ai generated team logos
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
             tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get('Team')).MainColor
             tableDataElem.append(teamLogo)
           }
           if(isPlayerTable){
             // allows 0 which refers to all time player stats
-              const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
-              const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+            let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            if(playersTeamName === ".Hax"){
+              playersTeamName = "dotHax"
+            }
               // seasons where teams now have ai generated team logos
               teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              if(playersTeamName === "dotHax"){
+                playersTeamName = ".Hax"
+              }
               tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
               tableDataElem.append(teamLogo)
           }
@@ -8125,9 +8177,13 @@ function createTable(
           if(tableHeaders[j] === 'Team'){
             const seasonNumberAsNumber = parseInt(seasonNumber)
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+            let teamName = item.get('Team')
+            if(teamName === ".Hax"){
+              teamName = "dotHax"
+            }
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${item.get('Team')}.png`
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
             if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
@@ -8144,8 +8200,11 @@ function createTable(
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= 5).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
-            const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
+            let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            if(playersTeamName === ".Hax"){
+              playersTeamName = "dotHax"
+            }
             teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
             if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
               teamLogo.style.height = '1.75rem'
@@ -8167,10 +8226,16 @@ function createTable(
                 const teamLogo = document.createElement('img')
                 teamLogo.alt = 'img'
                 const playersTeamID = playersTeamIDArray[0].TeamID            
-                const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+                let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+                if(playersTeamName === ".Hax"){
+                  playersTeamName = "dotHax"
+                }
                 // seasons where teams now have ai generated team logos              
                 const seasonNumberFolderName = _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A>9 ? `S${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}` : `S0${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}`
                 teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              if(playersTeamName === "dotHax"){
+                playersTeamName = ".Hax"
+              }
                 tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
@@ -8192,10 +8257,16 @@ function createTable(
                 const teamLogo = document.createElement('img')
                 teamLogo.alt = 'img'
                 const playersTeamID = playersTeamIDArray[0].TeamID            
-                const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+                let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+                if(playersTeamName === ".Hax"){
+                  playersTeamName = "dotHax"
+                }
                 // seasons where teams now have ai generated team logos              
                 const seasonNumberFolderName = _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A>9 ? `S${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}` : `S0${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}`
                 teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+              if(playersTeamName === "dotHax"){
+                playersTeamName = ".Hax"
+              }
                 tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
@@ -9343,6 +9414,38 @@ module.exports = __webpack_require__.p + "img/teamLogos/S03/ultraticklenippleHom
 
 /***/ }),
 
+/***/ 3668:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S04/Degeneration Hax.png";
+
+/***/ }),
+
+/***/ 9757:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S04/Nighthax.png";
+
+/***/ }),
+
+/***/ 3661:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S04/The Hax Foundation.png";
+
+/***/ }),
+
+/***/ 4373:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S04/Trinity Nuclear Test.png";
+
+/***/ }),
+
 /***/ 6000:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9356,6 +9459,14 @@ module.exports = __webpack_require__.p + "img/teamLogos/S04/degenerationHaxAwayS
 
 "use strict";
 module.exports = __webpack_require__.p + "img/teamLogos/S04/degenerationHaxHomeS04.svg";
+
+/***/ }),
+
+/***/ 9288:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S04/dotHax.png";
 
 /***/ }),
 
@@ -9604,4 +9715,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=6562af732ef2dd23dfb3.js.map
+//# sourceMappingURL=5a93530cc26d5b93e609.js.map
