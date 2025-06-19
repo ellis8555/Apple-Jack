@@ -2393,7 +2393,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4010);
 /* harmony import */ var _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4174);
 /* harmony import */ var _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2300);
-/* harmony import */ var _tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(8170);
+/* harmony import */ var _tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(8170);
 /* harmony import */ var _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6957);
 /* harmony import */ var _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7692);
 /* harmony import */ var _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9100);
@@ -2403,11 +2403,13 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1378);
 /* harmony import */ var _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(3927);
 /* harmony import */ var _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(4781);
-/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(6638);
-/* harmony import */ var _tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(4589);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(6638);
+/* harmony import */ var _tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(4589);
 /* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(241);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__]);
-([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(7987);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__]);
+([_classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsMAP__WEBPACK_IMPORTED_MODULE_1__, _setHeaderBanner__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__, _teamsPageLayout_setTeamsPageLayout__WEBPACK_IMPORTED_MODULE_4__, _gifs_setGifs__WEBPACK_IMPORTED_MODULE_5__, _singleGameStats_singleGameStats__WEBPACK_IMPORTED_MODULE_6__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_7__, _misc_backButton__WEBPACK_IMPORTED_MODULE_8__, _helpers_getGameResultClass__WEBPACK_IMPORTED_MODULE_9__, _helpers_getGameResultText__WEBPACK_IMPORTED_MODULE_10__, _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -2473,13 +2475,8 @@ function getTeamsGameResults(e) {
         const homeTeamLogo = document.createElement('div');
         homeTeamLogo.className = 'homeTeamLogo w3-card w3-blue';
         if(seasonNum >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
-          if(homeTeamName === ".Hax"){
-            homeTeamName = "dotHax"
-          }
-          const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamName}.png`
-          if(homeTeamName === "dotHax"){
-            homeTeamName = ".Hax"
-          }
+          const homeTeamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(homeTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+          const homeTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${homeTeamsLogoName}.png`
           const homeTeamLogoImg = document.createElement('img');
           homeTeamLogoImg.src = homeTeamLogoPath
           homeTeamLogoImg.style.height = "3.25rem"
@@ -2519,13 +2516,8 @@ function getTeamsGameResults(e) {
         const awayTeamLogo = document.createElement('div');
         awayTeamLogo.className = 'awayTeamLogo w3-card w3-blue';
         if(seasonNum >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_12__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR) {
-          if(awayTeamName === ".Hax"){
-            awayTeamName = "dotHax"
-          }
-          const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamName}.png`
-          if(awayTeamName === ".Hax"){
-            awayTeamName = "dotHax"
-          }
+          const awayTeamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(awayTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+          const awayTeamLogoPath = `../../../../img/teamLogos/${seasonNumberFolderName}/${awayTeamsLogoName}.png`
           const awayTeamLogoImg = document.createElement('img');
           awayTeamLogoImg.src = awayTeamLogoPath
           awayTeamLogoImg.style.height = "3.25rem"
@@ -2587,8 +2579,8 @@ function getTeamsGameResults(e) {
     document.body.style.backgroundColor = `#${_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.get(team)}`;
   
     // display data in correct div and clear previous data
-    (0,_tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A)();
-    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A)()
+    (0,_tables_clearTablesDiv__WEBPACK_IMPORTED_MODULE_14__/* ["default"] */ .A)();
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_15__/* ["default"] */ .A)()
     const scores = document.getElementById("scoreboardDiv");
     scores.append(gameResultsFrag)
     // listener for the back button back to teams layout Page
@@ -2603,7 +2595,7 @@ function getTeamsGameResults(e) {
   
     gameHighlightDivs.forEach((item) => item.addEventListener("click", (e) => {
       // scroll window back up before loading gifs
-        const tablesDiv = (0,_tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_15__/* ["default"] */ .A)();
+        const tablesDiv = (0,_tables_getTablesDiv__WEBPACK_IMPORTED_MODULE_16__/* ["default"] */ .A)();
         tablesDiv.scrollIntoView({
           behavior: 'smooth',
           block: "center"
@@ -3161,11 +3153,13 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6957);
 /* harmony import */ var _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1708);
-/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3004);
-/* harmony import */ var _bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3736);
-/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(241);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__]);
-([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7987);
+/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3004);
+/* harmony import */ var _bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3736);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__]);
+([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -3177,9 +3171,9 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
     if(isFinals){
             const seriesFrag = document.createDocumentFragment()
 
-            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", teamOneOrTwo)
+            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", teamOneOrTwo)
             // team one name
-            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamName.style.display = 'flex'
             teamName.style.justifyContent = 'space-between'
             teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
@@ -3188,44 +3182,41 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
             // checks if finals are set either no teams or one team
             if(team){
                 // create team name text/rank div
-                const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
+                const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)('div')
                 teamNameText.textContent = `(${teamsStanding + 1}) ` + team.get("Team")
                 teamName.append(teamNameText)
                 // create teams logo if logo exists
-                if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
+                if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
                     const seasonNumberAsNumber = parseInt(seasonNumber)
                     const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
                     const teamLogo = document.createElement('img')
-                    let teamsName = team.get("Team")
-                    if(teamsName === ".Hax"){
-                        teamsName = "dotHax"
-                    }
-                    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsName}.png`
+                    const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(team.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
+                    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
                     teamLogo.alt = 'img'
-                    teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
-                    teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+                    teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
+                    teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
                     teamName.append(teamLogo)
                 }
                 teamGameOne.append(teamName)
                 if(playoffGamesArray.length > 0){                    
                     // team one game one score
-                    const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+                    const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
                     const teamsNum = _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
                     const gameOneScore = playoffGamesArray[0].TeamOne == teamsNum ? playoffGamesArray[0].TeamOneScore : playoffGamesArray[0].TeamTwoScore
                     teamGameOneScore.textContent = gameOneScore;
                     let isTeamOneInGameResult = playoffGamesArray[0].TeamOne == teamsNum ? true : false;
                     // wins counts to determine if this team wins the series
                     let resultBgColor;
-                    const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 0, resultBgColor, wins)
+                    const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 0, resultBgColor, wins)
                     wins = gameOneResult.wins;
                     resultBgColor = gameOneResult.resultBgColor
                     teamGameOneScore.style.backgroundColor = resultBgColor;
                     // team one game two score
-                    const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+                    const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
                     const gameTwoScore = (playoffGamesArray[1].TeamOne == teamsNum) ? playoffGamesArray[1].TeamOneScore : playoffGamesArray[1].TeamTwoScore
                     teamGameTwoScore.textContent = gameTwoScore
                     isTeamOneInGameResult = playoffGamesArray[1].TeamOne == teamsNum ? true : false;
-                    const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 1, resultBgColor, wins)
+                    const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 1, resultBgColor, wins)
                     wins = gameTwoResult.wins;
                     resultBgColor = gameTwoResult.resultBgColor
                     teamGameTwoScore.style.backgroundColor = resultBgColor;
@@ -3235,18 +3226,18 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
                     const wasThirdGamePlayed = playoffGamesArray.length;
                     if(wasThirdGamePlayed > 2){
                         // team one game three score
-                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
                         const gameThreeScore = (playoffGamesArray[2].TeamOne == teamsNum) ? playoffGamesArray[2].TeamOneScore : playoffGamesArray[2].TeamTwoScore
                         teamGameThreeScore.textContent = gameThreeScore
                         isTeamOneInGameResult = playoffGamesArray[2].TeamOne == teamsNum ? true : false;
-                        const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 2, resultBgColor, wins)
+                        const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, playoffGamesArray, 2, resultBgColor, wins)
                         wins = gameThreeResult.wins;
                         resultBgColor = gameThreeResult.resultBgColor
                         teamGameThreeScore.style.backgroundColor = resultBgColor;
                         teamGameOne.append(teamGameThreeScore)
                     } else {
                         // team one game three score
-                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+                        const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
                         teamGameThreeScore.textContent = "-"
                         teamGameOne.append(teamGameThreeScore)
                     }
@@ -3279,34 +3270,31 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
     if(filteredPlayoffGamesArray.length > 0){
         const seriesFrag = document.createDocumentFragment()
         
-        const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", teamOneOrTwo)
+        const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", teamOneOrTwo)
         // team one name container
-        const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+        const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
         teamName.style.display = 'flex'
         teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
         // team one name and rank
-        const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
+        const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)('div')
         teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
         teamName.append(teamNameText)
-        if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
+        if(seasonNumber >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .SEASON_WITH_TEAM_LOGOS_START */ .RR){
             // team one team logo
             const seasonNumberAsNumber = parseInt(seasonNumber)
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
-            let teamsName = team.get("Team") 
-            if(teamsName === ".Hax"){
-                teamsName = "dotHax"
-            }
-            teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsName}.png`
+            const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(team.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
+            teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
             teamLogo.alt = 'img'
-            teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
-            teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+            teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
+            teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
             teamName.append(teamLogo)
         }
 
         // team one game one score
-        const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+        const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
         const teamsNum = _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
         const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
         teamGameOneScore.textContent = gameOneScore;
@@ -3314,16 +3302,16 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
         // wins counts to determine if this team wins the series
         let wins = 0;
         let resultBgColor;
-        const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
+        const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
         wins = gameOneResult.wins;
         resultBgColor = gameOneResult.resultBgColor
         teamGameOneScore.style.backgroundColor = resultBgColor;
         // team one game two score
-        const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+        const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
         const gameTwoScore = (filteredPlayoffGamesArray[1].TeamOne == teamsNum) ? filteredPlayoffGamesArray[1].TeamOneScore : filteredPlayoffGamesArray[1].TeamTwoScore
         teamGameTwoScore.textContent = gameTwoScore
         isTeamOneInGameResult = filteredPlayoffGamesArray[1].TeamOne == teamsNum ? true : false;
-        const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 1, resultBgColor, wins)
+        const gameTwoResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 1, resultBgColor, wins)
         wins = gameTwoResult.wins;
         resultBgColor = gameTwoResult.resultBgColor
         teamGameTwoScore.style.backgroundColor = resultBgColor;
@@ -3335,18 +3323,18 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
         const wasThirdGamePlayed = filteredPlayoffGamesArray.length;
         if(wasThirdGamePlayed > 2){
             // team one game three score
-            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             const gameThreeScore = (filteredPlayoffGamesArray[2].TeamOne == teamsNum) ? filteredPlayoffGamesArray[2].TeamOneScore : filteredPlayoffGamesArray[2].TeamTwoScore
             teamGameThreeScore.textContent = gameThreeScore
             isTeamOneInGameResult = filteredPlayoffGamesArray[2].TeamOne == teamsNum ? true : false;
-            const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 2, resultBgColor, wins)
+            const gameThreeResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 2, resultBgColor, wins)
             wins = gameThreeResult.wins;
             resultBgColor = gameThreeResult.resultBgColor
             teamGameThreeScore.style.backgroundColor = resultBgColor;
             teamGameOne.append(teamGameThreeScore)
         } else {
             // team one game three score
-            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         }
@@ -3367,14 +3355,14 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
     } else {
             const seriesFrag = document.createDocumentFragment()
         
-            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", teamOneOrTwo)
+            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", teamOneOrTwo)
             // team one name container
-            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamName.style.display = 'flex'
             teamName.style.justifyContent = 'space-between'
             teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
             // team name text div
-            const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)('div')
+            const teamNameText = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)('div')
             teamNameText.textContent = `(${teamsStanding}) ` + team.get("Team")
             teamName.append(teamNameText)
             // append team logo if logo exists
@@ -3384,27 +3372,25 @@ function bestOfSeries(seasonNumber, team, playoffGamesArray, teamOneOrTwo, teams
                 const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
                 const teamLogo = document.createElement('img')
                 let teamsName = team.get("Team") 
-                if(teamsName === ".Hax"){
-                    teamsName = "dotHax"
-                }
-                teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsName}.png`
+                const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(team.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
+                teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
                 teamLogo.alt = 'img'
-                teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
-                teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+                teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
+                teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
                 teamName.append(teamLogo)
             }
             // team one game one score
-            const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamGameOneScore.textContent = "-";
             // team one game two score
-            const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamGameTwoScore.textContent = "-"
             
             teamGameOne.append(teamName)
             teamGameOne.append(teamGameOneScore)
             teamGameOne.append(teamGameTwoScore)
             // team one game three score
-            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
+            const teamGameThreeScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamGameThreeScore.textContent = "-"
             teamGameOne.append(teamGameThreeScore)
         
@@ -5126,8 +5112,10 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _misc_backButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8397);
 /* harmony import */ var _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7995);
 /* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(241);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__]);
-([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7987);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_3__]);
+([_misc_backButton__WEBPACK_IMPORTED_MODULE_0__, _misc_createTeamCssLogo__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -5164,26 +5152,16 @@ function singleGameStatsHeader({teamName, thisSeasonNumber, gameType, thisGamesH
         homeTeamLogo.alt = 'img'
         homeTeamLogo.style.height = '6.25rem'
         homeTeamLogo.style.width = '8.25rem'
-        if(thisGamesHomeTeam === ".Hax"){
-            thisGamesHomeTeam = "dotHax"
-        }
-        homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeam}.png`
-        if(thisGamesHomeTeam === "dotHax"){
-            thisGamesHomeTeam = "Hax"
-        }
+        const thisGamesHomeTeamLogo = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.get(thisGamesHomeTeam)[`${seasonNumberFolderName}HomeFilePath`]
+        homeTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesHomeTeamLogo}.png`
         
         // get away teams logo
         awayTeamLogo = document.createElement('img')
         awayTeamLogo.alt = 'img'
         awayTeamLogo.style.height = '6.25rem'
         awayTeamLogo.style.width = '8.25rem'
-        if(thisGamesAwayTeam === ".Hax"){
-            thisGamesAwayTeam = "dotHax"
-        }
-        awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeam}.png`
-        if(thisGamesAwayTeam === "dotHax"){
-            thisGamesAwayTeam = ".Hax"
-        }
+        const thisGamesAwayTeamLogo = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.get(thisGamesAwayTeam)[`${seasonNumberFolderName}HomeFilePath`]
+        awayTeamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${thisGamesAwayTeamLogo}.png`
     }
 
     // create div to hold both logos
@@ -8163,15 +8141,10 @@ function createTable(
           if(isPlayerTable){
             // allows 0 which refers to all time player stats
             const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber == seasonNumber).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
-            let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
-            if(playersTeamName === ".Hax"){
-              playersTeamName = "dotHax"
-            }
+            const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName)[`${seasonNumberFolderName}HomeFilePath`]
               // seasons where teams now have ai generated team logos
-              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
-              if(playersTeamName === "dotHax"){
-                playersTeamName = ".Hax"
-              }
+              teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
               tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
               tableDataElem.append(teamLogo)
           }
@@ -8186,10 +8159,7 @@ function createTable(
           if(tableHeaders[j] === 'Team'){
             const seasonNumberAsNumber = parseInt(seasonNumber)
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-            let teamName = item.get('Team')
-            if(teamName === ".Hax"){
-              teamName = "dotHax"
-            }
+            const teamName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(item.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
             teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
@@ -8210,11 +8180,9 @@ function createTable(
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
             const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber >= seasonNumber).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
-            let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
-            if(playersTeamName === ".Hax"){
-              playersTeamName = "dotHax"
-            }
-            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
+            const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
+            const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+            teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
             if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
               teamLogo.style.height = '1.75rem'
               teamLogo.style.width = '1.75rem'
@@ -8235,16 +8203,11 @@ function createTable(
                 const teamLogo = document.createElement('img')
                 teamLogo.alt = 'img'
                 const playersTeamID = playersTeamIDArray[0].TeamID            
-                let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
-                if(playersTeamName === ".Hax"){
-                  playersTeamName = "dotHax"
-                }
-                // seasons where teams now have ai generated team logos              
+                const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
                 const seasonNumberFolderName = _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A>9 ? `S${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}` : `S0${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}`
-                teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
-              if(playersTeamName === "dotHax"){
-                playersTeamName = ".Hax"
-              }
+                const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+                // seasons where teams now have ai generated team logos              
+                teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
                 tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth >= _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
@@ -8266,16 +8229,11 @@ function createTable(
                 const teamLogo = document.createElement('img')
                 teamLogo.alt = 'img'
                 const playersTeamID = playersTeamIDArray[0].TeamID            
-                let playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
-                if(playersTeamName === ".Hax"){
-                  playersTeamName = "dotHax"
-                }
-                // seasons where teams now have ai generated team logos              
+                const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
                 const seasonNumberFolderName = _var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A>9 ? `S${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}` : `S0${_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A}`
-                teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${playersTeamName}.png`
-              if(playersTeamName === "dotHax"){
-                playersTeamName = ".Hax"
-              }
+                const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName)[`${seasonNumberFolderName}HomeFilePath`]
+                // seasons where teams now have ai generated team logos              
+                teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
                 tableDataElem.style.backgroundColor = "#" + _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName).MainColor
                 // // finally add styles image element
                 if(window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC){
@@ -9724,4 +9682,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=0a762bec15b4367fd548.js.map
+//# sourceMappingURL=63f4dfa159db50b3062b.js.map
