@@ -11,12 +11,17 @@ var map = {
 	"./haxball-big-min.png": 1058,
 	"./haxball-big-min.svg": 5805,
 	"./original-logo.svg": 4636,
+	"./teamLogos/S01/CEGUnited.png": 9829,
+	"./teamLogos/S01/HaxualChocolate.png": 2804,
+	"./teamLogos/S01/Mooney.png": 2486,
 	"./teamLogos/S01/Mooney3rdS01.svg": 6740,
 	"./teamLogos/S01/MooneyAwayS01.svg": 8711,
 	"./teamLogos/S01/MooneyHomeS01.svg": 6970,
+	"./teamLogos/S01/SAD.png": 8255,
 	"./teamLogos/S01/cegAlternate.png": 7296,
 	"./teamLogos/S01/cegAwayS01.svg": 9249,
 	"./teamLogos/S01/cegHomeS01.svg": 4884,
+	"./teamLogos/S01/dotHax.png": 7271,
 	"./teamLogos/S01/haxHomeS01.svg": 9028,
 	"./teamLogos/S01/haxualChocolateAwayS01.svg": 7709,
 	"./teamLogos/S01/haxualChocolateHomeS01.svg": 976,
@@ -234,6 +239,7 @@ const allTimeStatsArray = [
 const homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 const fullTable = [
   "Team",
+  "",
   "GP",
   "Wins",
   "Losses",
@@ -343,7 +349,7 @@ const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg"
 const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"]
 const IS_PLAYOFFS = true
 const IN_BETWEEN_SEASONS = true;
-const SEASON_WITH_TEAM_LOGOS_START = 2
+const SEASON_WITH_TEAM_LOGOS_START = 1
 const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 const TEAMS_LENGTH = _masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.length;
@@ -9171,6 +9177,30 @@ module.exports = __webpack_require__.p + "img/original-logo.svg";
 
 /***/ }),
 
+/***/ 9829:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S01/CEGUnited.png";
+
+/***/ }),
+
+/***/ 2804:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S01/HaxualChocolate.png";
+
+/***/ }),
+
+/***/ 2486:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S01/Mooney.png";
+
+/***/ }),
+
 /***/ 6740:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9195,6 +9225,14 @@ module.exports = __webpack_require__.p + "img/teamLogos/S01/MooneyHomeS01.svg";
 
 /***/ }),
 
+/***/ 8255:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S01/SAD.png";
+
+/***/ }),
+
 /***/ 7296:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9216,6 +9254,14 @@ module.exports = __webpack_require__.p + "img/teamLogos/S01/cegAwayS01.svg";
 
 "use strict";
 module.exports = __webpack_require__.p + "img/teamLogos/S01/cegHomeS01.svg";
+
+/***/ }),
+
+/***/ 7271:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S01/dotHax.png";
 
 /***/ }),
 
@@ -9800,4 +9846,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=6cf6fc46421e63ef8181.js.map
+//# sourceMappingURL=2b9b7ee62cb0269958e7.js.map
