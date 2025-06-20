@@ -150,8 +150,9 @@ export default function createTable(
             const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
             const teamLogo = document.createElement('img')
             teamLogo.alt = 'img'
-            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber >= seasonNumber).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
+            const playersTeamID = TeamPlayers.filter((seasonNum) => seasonNum.SeasonNumber == seasonNumber).filter((player) => player.PlayerID === playersNumMAP.get(item.get('Name')))[0].TeamID
             const playersTeamName = Teams.find((team) => team.TeamID === playersTeamID).TeamName
+            console.log(playersTeamName)
             const teamsLogoName = eachTeamObjectMAP.get(playersTeamName)[`${seasonNumberFolderName}HomeFilePath`]
             teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
             if((window.innerWidth < TABLE_BREAK_POINT)){
