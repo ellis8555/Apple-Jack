@@ -90,6 +90,7 @@ export const allTimeStatsArray = [
 export const homePageFields = ["Team", "GP", "Wins", "Losses", "Draws", "Points"];
 export const fullTable = [
   "Team",
+  "",
   "GP",
   "Wins",
   "Losses",
