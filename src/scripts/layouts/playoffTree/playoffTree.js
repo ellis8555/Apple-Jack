@@ -97,7 +97,7 @@ function playoffTree(seasonNumber){
         const {
             byeContainer,
             seriesTeam1Results: firstSeriesTeam1Results
-        } = seriesBye(sortedFinalStandings[0])
+        } = seriesBye(sortedFinalStandings[0], seasonNumber)
 
                         //// semi final 2v3 ////
         const seriesTwoContainerArgs = {
