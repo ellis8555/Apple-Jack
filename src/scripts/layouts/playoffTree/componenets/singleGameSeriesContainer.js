@@ -2,8 +2,10 @@ import bestOfSeriesGameResult from "./bestOfSeriesGameResult";
 import createElement from "../../../misc/createElement";
 import teamsNumMAP from "../../../var_lib/maps/teams/teamsNumMAP";
 import teamsColorMAP from "../../../var_lib/maps/teams/teamsColorMAP";
+import eachTeamObjectMAP from "../../../var_lib/maps/teams/eachTeamObjectMAP";
+import { TEAM_LOGO_SIZE } from "../../../../constants/consts/vars";
 
-function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum}){
+function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum, seasonNumber}){
     // flex container for alignments
     const semiDivContainer = createElement("div", `secondRoundDiv${seriesNum}Container`)
     // flex container for alignments
@@ -11,9 +13,9 @@ function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, 
     // flex containers that contain the series data
     const series = createElement("div", "series")
     // team one flex container
-    const seriesTeam1Results = singleGameSeries(teamOne, gamesArray, "team1", teamOneRank)
+    const seriesTeam1Results = singleGameSeries(teamOne, gamesArray, "team1", teamOneRank, seasonNumber)
     // team two flex container
-    const seriesTeam2Results = singleGameSeries(teamTwo, gamesArray, "team2", teamTwoRank)
+    const seriesTeam2Results = singleGameSeries(teamTwo, gamesArray, "team2", teamTwoRank, seasonNumber)
 
     // append each teams row of results
     series.append(seriesTeam1Results.seriesFrag)
@@ -28,7 +30,7 @@ function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, 
     }
 }
 
-function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
+function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, seasonNumber, isFinals = false){
     const filteredPlayoffGamesArray = [gamesArray]
     // if the series has been played
     if(filteredPlayoffGamesArray.length > 0){
@@ -41,6 +43,17 @@ function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinal
         teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + teamsColorMAP.get(team.get("Team"))
         teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+        // team one logo
+         const seasonNumberAsNumber = parseInt(seasonNumber)
+        const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+        const teamLogo = document.createElement('img')
+        const teamsLogoName = eachTeamObjectMAP.get(team.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
+        teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
+        teamLogo.alt = 'img'
+        teamLogo.style.height = TEAM_LOGO_SIZE
+        teamLogo.style.width = TEAM_LOGO_SIZE
+        teamName.append(teamLogo)
+        
         // team one game one score
         const teamGameOneScore = createElement("div", "teamData")
         const teamsNum = teamsNumMAP.get(team.get("Team"))

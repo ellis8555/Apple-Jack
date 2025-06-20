@@ -270,7 +270,7 @@ function playoffTree(seasonNumber){
         const {
             byeContainer,
             seriesTeam1Results: firstSeriesTeam1Results
-        } = seriesBye(sortedFinalStandings[1])
+        } = seriesBye(sortedFinalStandings[1], seasonNumber)
 
         //// first round 2v5 ////
         const seriesOneContainerArgs = {
@@ -315,6 +315,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: roundRobinPlayoffGames[0],
             seriesNum: 1,
+            seasonNumber: seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -329,6 +330,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: roundRobinPlayoffGames[1],
             seriesNum: 2,
+            seasonNumber: seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -343,6 +345,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 2,
             gamesArray: roundRobinPlayoffGames[2],
             seriesNum: 3,
+            seasonNumber, seasonNumber
         }
         // returns dom container for a single series
         const {
