@@ -41,16 +41,22 @@ var map = {
 	"./teamLogos/S02/haxelRoseHomeS02.svg": 9156,
 	"./teamLogos/S02/haxualChocolateAwayS02.svg": 4539,
 	"./teamLogos/S02/haxualChocolateHomeS02.svg": 870,
+	"./teamLogos/S03/Hacks.png": 2391,
+	"./teamLogos/S03/HaxHogans.png": 7916,
+	"./teamLogos/S03/HaxualChocolate.png": 9558,
 	"./teamLogos/S03/hacksAwayS03.svg": 7418,
 	"./teamLogos/S03/hacksHomeS03.svg": 9031,
 	"./teamLogos/S03/haxHogansAwayS03.svg": 3623,
 	"./teamLogos/S03/haxHogansHomeS03.svg": 186,
 	"./teamLogos/S03/haxualChocolateAwayS03.svg": 4261,
 	"./teamLogos/S03/haxualChocolateHomeS03.svg": 4552,
+	"./teamLogos/S03/orangeRicky.png": 3313,
 	"./teamLogos/S03/orangeRickyAwayS03.svg": 2856,
 	"./teamLogos/S03/orangeRickyHomeS03.svg": 1677,
+	"./teamLogos/S03/spaceballsTheHC.png": 2971,
 	"./teamLogos/S03/spaceballsTheHcAwayS03.svg": 6062,
 	"./teamLogos/S03/spaceballsTheHcHomeS03.svg": 6363,
+	"./teamLogos/S03/ultraticklenipple.png": 2159,
 	"./teamLogos/S03/ultraticklenippleAwayS03.svg": 8786,
 	"./teamLogos/S03/ultraticklenippleHomeS03.svg": 8511,
 	"./teamLogos/S04/Degeneration Hax.png": 3668,
@@ -333,7 +339,7 @@ const DEFENDING_CHAMPS_LOGO = "img/teamLogos/S04/degenerationHaxHomeS04.svg"
 const CHAMPIONS_LIST = ["Haxual Chocolate", "Mooney", "Haxual Chocolate", "Degeneration Hax", "Scribeathonenest"]
 const IS_PLAYOFFS = true
 const IN_BETWEEN_SEASONS = true;
-const SEASON_WITH_TEAM_LOGOS_START = 4
+const SEASON_WITH_TEAM_LOGOS_START = 3
 const SEASONS_WITH_TIE_GAMES = [1];
 // count of how many teams there are
 const TEAMS_LENGTH = _masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.length;
@@ -4642,14 +4648,8 @@ function setHeaderBanner(teamName, seasonNumber) {
     } else {
       // seasons where teams now have ai generated team logos
       const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-      if(teamName === ".Hax"){
-        teamName = "dotHax"
-      }
-      const teamLogo = `../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
-
-      if(teamName === "dotHax"){
-        teamName = ".Hax"
-      }
+      const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(teamName)[`${seasonNumberFolderName}HomeFilePath`]
+      const teamLogo = `../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
 
       const imgElement = document.createElement('img')
       imgElement.src = teamLogo
@@ -9285,6 +9285,30 @@ module.exports = __webpack_require__.p + "img/teamLogos/S02/haxualChocolateHomeS
 
 /***/ }),
 
+/***/ 2391:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S03/Hacks.png";
+
+/***/ }),
+
+/***/ 7916:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S03/HaxHogans.png";
+
+/***/ }),
+
+/***/ 9558:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S03/HaxualChocolate.png";
+
+/***/ }),
+
 /***/ 7418:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9333,6 +9357,14 @@ module.exports = __webpack_require__.p + "img/teamLogos/S03/haxualChocolateHomeS
 
 /***/ }),
 
+/***/ 3313:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S03/orangeRicky.png";
+
+/***/ }),
+
 /***/ 2856:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9349,6 +9381,14 @@ module.exports = __webpack_require__.p + "img/teamLogos/S03/orangeRickyHomeS03.s
 
 /***/ }),
 
+/***/ 2971:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S03/spaceballsTheHC.png";
+
+/***/ }),
+
 /***/ 6062:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9362,6 +9402,14 @@ module.exports = __webpack_require__.p + "img/teamLogos/S03/spaceballsTheHcAwayS
 
 "use strict";
 module.exports = __webpack_require__.p + "img/teamLogos/S03/spaceballsTheHcHomeS03.svg";
+
+/***/ }),
+
+/***/ 2159:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/teamLogos/S03/ultraticklenipple.png";
 
 /***/ }),
 
@@ -9682,4 +9730,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=63f4dfa159db50b3062b.js.map
+//# sourceMappingURL=a50dc6ffa62e7f1ca471.js.map
