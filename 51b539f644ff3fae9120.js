@@ -3463,26 +3463,43 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3004);
+/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3004);
 /* harmony import */ var _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6957);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__]);
-_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7987);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__]);
+([_var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_1__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
-function seriesBye(team){
+
+
+function seriesBye(team, seasonNumber){
     // flex container for alignments
-    const byeContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", `byeContainer`)
+    const byeContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", `byeContainer`)
     // flex container for alignments
-    const byeInnerContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", `semi1`)
+    const byeInnerContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", `semi1`)
     // flex containers that contain the series data
-    const series = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", "series")
+    const series = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "series")
     // teams name
-    const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", "teamData")
+    const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData")
     teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
+    teamName.style.display = "flex"
+    teamName.style.justifyContent = "space-between"
     teamName.textContent = `(1) ` + team.get("Team")
+    // add teams logo
+    const seasonNumberAsNumber = parseInt(seasonNumber)
+    const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+    const teamLogo = document.createElement('img')
+    const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
+    teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
+    teamLogo.alt = 'img'
+    teamLogo.style.marginLeft = "1rem"
+    teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+    teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_2__/* .TEAM_LOGO_SIZE */ .iv
+    teamName.append(teamLogo)
     // bye message
-    const byeMessage = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)("div", "teamData");
+    const byeMessage = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)("div", "teamData");
     byeMessage.textContent = "(Bye)"
     // team one flex container
     const seriesTeam1Results = {
@@ -3572,28 +3589,32 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3736);
-/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3004);
+/* harmony import */ var _bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3736);
+/* harmony import */ var _misc_createElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3004);
 /* harmony import */ var _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1708);
 /* harmony import */ var _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6957);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__]);
-([_var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7987);
+/* harmony import */ var _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(241);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__]);
+([_var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__, _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__, _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
 
 
-function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum}){
+
+
+function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, gamesArray, seriesNum, seasonNumber}){
     // flex container for alignments
-    const semiDivContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", `secondRoundDiv${seriesNum}Container`)
+    const semiDivContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", `secondRoundDiv${seriesNum}Container`)
     // flex container for alignments
-    const semiInnerContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", `semi${seriesNum}`)
+    const semiInnerContainer = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", `semi${seriesNum}`)
     // flex containers that contain the series data
-    const series = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "series")
+    const series = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "series")
     // team one flex container
-    const seriesTeam1Results = singleGameSeries(teamOne, gamesArray, "team1", teamOneRank)
+    const seriesTeam1Results = singleGameSeries(teamOne, gamesArray, "team1", teamOneRank, seasonNumber)
     // team two flex container
-    const seriesTeam2Results = singleGameSeries(teamTwo, gamesArray, "team2", teamTwoRank)
+    const seriesTeam2Results = singleGameSeries(teamTwo, gamesArray, "team2", teamTwoRank, seasonNumber)
 
     // append each teams row of results
     series.append(seriesTeam1Results.seriesFrag)
@@ -3608,21 +3629,32 @@ function singleGameSeriesContainer({teamOne, teamOneRank, teamTwo, teamTwoRank, 
     }
 }
 
-function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinals = false){
+function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, seasonNumber, isFinals = false){
     const filteredPlayoffGamesArray = [gamesArray]
     // if the series has been played
     if(filteredPlayoffGamesArray.length > 0){
         const seriesFrag = document.createDocumentFragment()
         
-        const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", teamOneOrTwo)
+        const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", teamOneOrTwo)
         // team one name
-        const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+        const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
         teamName.style.display = 'flex'
         teamName.style.justifyContent = 'space-between'
         teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
         teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
+        // team one logo
+         const seasonNumberAsNumber = parseInt(seasonNumber)
+        const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
+        const teamLogo = document.createElement('img')
+        const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(team.get("Team"))[`${seasonNumberFolderName}HomeFilePath`]
+        teamLogo.src = `../../../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
+        teamLogo.alt = 'img'
+        teamLogo.style.height = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
+        teamLogo.style.width = _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TEAM_LOGO_SIZE */ .iv
+        teamName.append(teamLogo)
+        
         // team one game one score
-        const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+        const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
         const teamsNum = _var_lib_maps_teams_teamsNumMAP__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.get(team.get("Team"))
         const gameOneScore = filteredPlayoffGamesArray[0].TeamOne == teamsNum ? filteredPlayoffGamesArray[0].TeamOneScore : filteredPlayoffGamesArray[0].TeamTwoScore
         teamGameOneScore.textContent = gameOneScore;
@@ -3630,7 +3662,7 @@ function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinal
         // wins counts to determine if this team wins the series
         let wins = 0;
         let resultBgColor;
-        const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
+        const gameOneResult = (0,_bestOfSeriesGameResult__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)(isTeamOneInGameResult, filteredPlayoffGamesArray, 0, resultBgColor, wins)
         wins = gameOneResult.wins;
         resultBgColor = gameOneResult.resultBgColor
         if(filteredPlayoffGamesArray[0].ExtraTime === "Yes"){
@@ -3656,16 +3688,16 @@ function singleGameSeries(team, gamesArray, teamOneOrTwo, teamsStanding, isFinal
     } else {
             const seriesFrag = document.createDocumentFragment()
         
-            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", teamOneOrTwo)
+            const teamGameOne = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", teamOneOrTwo)
                 // team one name
-            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamName = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamName.style.backgroundColor = "#" + _var_lib_maps_teams_teamsColorMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(team.get("Team"))
             teamName.textContent = `(${teamsStanding}) ` + team.get("Team")
             // team one game one score
-            const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameOneScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamGameOneScore.textContent = "-";
             // team one game two score
-            const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)("div", "teamData")
+            const teamGameTwoScore = (0,_misc_createElement__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)("div", "teamData")
             teamGameTwoScore.textContent = "-"
             
             teamGameOne.append(teamName)
@@ -3980,7 +4012,7 @@ function playoffTree(seasonNumber){
         const {
             byeContainer,
             seriesTeam1Results: firstSeriesTeam1Results
-        } = (0,_componenets_seriesBye__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A)(sortedFinalStandings[1])
+        } = (0,_componenets_seriesBye__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .A)(sortedFinalStandings[1], seasonNumber)
 
         //// first round 2v5 ////
         const seriesOneContainerArgs = {
@@ -4025,6 +4057,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: roundRobinPlayoffGames[0],
             seriesNum: 1,
+            seasonNumber: seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -4039,6 +4072,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 3,
             gamesArray: roundRobinPlayoffGames[1],
             seriesNum: 2,
+            seasonNumber: seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -4053,6 +4087,7 @@ function playoffTree(seasonNumber){
             teamTwoRank: 2,
             gamesArray: roundRobinPlayoffGames[2],
             seriesNum: 3,
+            seasonNumber, seasonNumber
         }
         // returns dom container for a single series
         const {
@@ -9729,4 +9764,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=ba7b9bdc04642ee5050a.js.map
+//# sourceMappingURL=51b539f644ff3fae9120.js.map
