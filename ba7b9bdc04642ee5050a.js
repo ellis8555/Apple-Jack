@@ -3133,12 +3133,10 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_var
     // increase css logo sizes on seasons team counts that require multiple navbar rows
     if (teamsThisSeason > 5 && screenWidth < 600) {
       const mobileNavlogoContainers = document.querySelectorAll(".navLogoContainer");
-      mobileNavlogoContainers.forEach((row, index) => {
-        if(index !== 0){
+      mobileNavlogoContainers.forEach(row => {
           const eachCssLogo = row.firstElementChild;
           eachCssLogo.style.width = "3.25rem";
           eachCssLogo.style.height = "3.25rem";
-        }
       });
     }
 
@@ -9731,4 +9729,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=dca90778ef4464fcf238.js.map
+//# sourceMappingURL=ba7b9bdc04642ee5050a.js.map
