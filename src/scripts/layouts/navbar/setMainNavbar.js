@@ -51,12 +51,10 @@ import setTeamLogoCss from "./helpers/setTeamLogoCss"
     // increase css logo sizes on seasons team counts that require multiple navbar rows
     if (teamsThisSeason > 5 && screenWidth < 600) {
       const mobileNavlogoContainers = document.querySelectorAll(".navLogoContainer");
-      mobileNavlogoContainers.forEach((row, index) => {
-        if(index !== 0){
+      mobileNavlogoContainers.forEach(row => {
           const eachCssLogo = row.firstElementChild;
           eachCssLogo.style.width = "3.25rem";
           eachCssLogo.style.height = "3.25rem";
-        }
       });
     }
 
