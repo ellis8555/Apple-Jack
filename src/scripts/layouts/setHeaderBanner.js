@@ -44,14 +44,8 @@ export default function setHeaderBanner(teamName, seasonNumber) {
     } else {
       // seasons where teams now have ai generated team logos
       const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNumber}` : `S0${seasonNumber}`
-      if(teamName === ".Hax"){
-        teamName = "dotHax"
-      }
-      const teamLogo = `../../img/teamLogos/${seasonNumberFolderName}/${teamName}.png`
-
-      if(teamName === "dotHax"){
-        teamName = ".Hax"
-      }
+      const teamsLogoName = eachTeamObjectMAP.get(teamName)[`${seasonNumberFolderName}HomeFilePath`]
+      const teamLogo = `../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
 
       const imgElement = document.createElement('img')
       imgElement.src = teamLogo
