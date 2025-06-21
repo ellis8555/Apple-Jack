@@ -28,3 +28,7 @@ import currentSeason from "./scripts/var_lib/season/currentSeason"
     playoffTree(currentSeason)
     // Set listeners on table headers
     setTableListeners();
+    // service worker for caching
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+}
