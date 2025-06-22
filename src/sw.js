@@ -1,44 +1,65 @@
-self.addEventListener('install', (ev) => {
-    ev.waitUntil(
-        self.skipWaiting()
-    )
+self.addEventListener('install', ev => {
+    ev.waitUntil(skipWaiting())
 })
 
 self.addEventListener('fetch', (ev) => {
+    const req = ev.request;
+    const url = req.url;
+
+    if (url.endsWith('.js')) {
         ev.respondWith(
-            caches.match(ev.request).then(cacheRes => {
-                if(cacheRes) return cacheRes
-                return fetch(ev.request).then(fetchResponse => {
-                    if(ev.request.url.endsWith('.js')){
+            caches.open('javascripts').then((cache) => {
+                // 1. First, check if a cached version exists
+                return cache.match(req).then((cachedResponse) => {
+                    // If cached, return it immediately
+                    if (cachedResponse) return cachedResponse;
+
+                    // 2. If not cached, fetch fresh from network
+                    return fetch(req).then((fetchResponse) => {
+                        if (!fetchResponse.ok) throw new Error('Bad response');
+
+                        // 3. Clone response before caching
                         const responseClone = fetchResponse.clone();
-                        return caches.open('javascripts').then(cache => {
-                            // First delete any old JS files
-                            return cache.keys().then(keys => {
-                                const jsFiles = keys.filter(key => 
-                                    key.url.endsWith('.js') && 
-                                    key.url !== ev.request.url  // Don't delete current file
-                                );
-                                
-                                // Delete all old JS files
-                                return Promise.all(
-                                    jsFiles.map(oldFile => cache.delete(oldFile))
-                                ).then(() => {
-                                    // Now cache the new file
-                                    return cache.put(ev.request, responseClone);
-                                });
-                            }).then(() => fetchResponse);
-                        });
-                }  else if(ev.request.url.endsWith('.png')){
-                            const responseClone = fetchResponse.clone()
-                            return caches.open('logoImages').then(cache => {
-                                return cache.put(ev.request, responseClone).then(() => {
-                                    return fetchResponse
-                                })
-                            })
-                        }
-                        return fetchResponse
-                    })
-                
+
+                        // 4. Delete ALL previously cached .js files (but keep current request)
+                        return cache.keys().then((keys) => {
+                            return Promise.all(
+                                keys.filter(key => key != req).map((key) => cache.delete(key))
+                            ).then(() => {
+                                // 5. Cache the new JS file
+                                return cache.put(req, responseClone);
+                            });
+                        }).then(() => fetchResponse);
+                    }).catch((err) => {
+                        console.error('Fetch failed:', err);
+                        return fetch(req); // Fallback to network
+                    });
+                });
+            })
+        );
+    } else if(url.endsWith('.png')) {
+        ev.respondWith(
+            caches.open('pngFiles').then(cache => {
+                // 1. First, check if a cached version exists
+                return cache.match(req).then(cachedResponse => {
+                // If cached, return it immediately
+                if (cachedResponse) return cachedResponse;
+                // 2. If not cached, fetch fresh from network
+                return fetch(req).then(fetchedResponse => {
+                    const responseClone = fetchedResponse.clone()
+                // 3 cache the png file
+                    cache.put(req, responseClone)
+                    return fetchedResponse
+                }).catch((err) => {
+                        console.error('Fetch failed:', err);
+                        return fetch(req); // Fallback to network
+                    });
+                })
             })
         )
-})
+    } 
+    else {
+        // Non-JS files: normal fetch
+        ev.respondWith(fetch(req));
+    }
+});
