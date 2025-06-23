@@ -479,6 +479,10 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
     (0,_scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(_scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)
     // Set listeners on table headers
     ;(0,_scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+    // service worker for caching
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+}
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
@@ -9846,4 +9850,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=2b9b7ee62cb0269958e7.js.map
+//# sourceMappingURL=5f7209b39eeb62cb4c32.js.map
