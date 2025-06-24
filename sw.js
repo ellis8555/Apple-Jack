@@ -12,7 +12,7 @@ self.addEventListener('message', ev => {
 })
 
 self.addEventListener('activate', event => {
-    event.waitUntil(self.clients.claim());
+    event.waitUntil(clients.claim());
 });
 
 self.addEventListener('fetch', (ev) => {
