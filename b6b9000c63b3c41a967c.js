@@ -479,12 +479,37 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
     (0,_scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(_scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)
     // Set listeners on table headers
     ;(0,_scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
-    // service worker for caching
+    // service worker for caching begin checking local storage first
+    const getLastModifedJson = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/haxLastModified.json")
+    const response = await getLastModifedJson.json()
+    const lastModified = response['lastModified']
+    let isHaxDataUpdated
+    let getLastModifiedHaxData = localStorage.getItem("haxDataLastModified")
+    if(getLastModifiedHaxData == null){
+        localStorage.setItem("haxDataLastModified", lastModified)
+        isHaxDataUpdated = false
+    } else {
+        isHaxDataUpdated = lastModified === getLastModifiedHaxData ? true : false
+        if(!isHaxDataUpdated){
+            localStorage.setItem("haxDataLastModified", lastModified)
+        }
+    }
+
     if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
+    (async () => {
+        const registration = await navigator.serviceWorker.register('./sw.js')
+
+        if(registration.active){
+            registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+        } else {
+            navigator.serviceWorker.ready.then(swReg => {
+                swReg.active?.postMessage({ type: "LAST_MODIFIED", payload: isHaxDataUpdated });
+            });
+        }
+    })()
 }
 __webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+} catch(e) { __webpack_async_result__(e); } }, 1);
 
 /***/ }),
 
@@ -9850,4 +9875,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=5f7209b39eeb62cb4c32.js.map
+//# sourceMappingURL=b6b9000c63b3c41a967c.js.map
