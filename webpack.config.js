@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const copyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -34,6 +35,14 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
 
+        }),
+        new copyWebpackPlugin({
+            patterns: [
+                {
+                    from : path.resolve(__dirname, "src/sw.js"),
+                    to: "sw.js"
+                }
+            ]
         })
     ],
     optimization: {
