@@ -33,7 +33,7 @@ module.exports = {
             favicon: path.resolve(__dirname, "./img/favicon/haxFav.png")
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "[contenthash].css",
 
         }),
         new copyWebpackPlugin({
