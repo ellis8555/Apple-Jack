@@ -496,17 +496,15 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
     }
 
     if ('serviceWorker' in navigator) {
-    (async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js')
-
-        if(registration.active){
-            registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-        } else {
-            navigator.serviceWorker.ready.then(swReg => {
-                swReg.active?.postMessage({ type: "LAST_MODIFIED", payload: isHaxDataUpdated });
-            });
-        }
-    })()
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+            if(registration.active){
+                registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+            } else {
+                navigator.serviceWorker.ready.then(registration => {
+                    registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+                })
+            }
+    })
 }
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
@@ -9875,4 +9873,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=b6b9000c63b3c41a967c.js.map
+//# sourceMappingURL=6ae5579c5e6e9acf98f0.js.map
