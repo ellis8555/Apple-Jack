@@ -31,7 +31,7 @@ setTableListeners();
 // service worker for caching begin checking local storage first
 const useServiceWorker = true
 if(useServiceWorker){
-    const getLastModifedJson = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/haxLastModified.json")
+    const getLastModifedJson = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/haxLastModified.json", {cache: 'no-store'})
     const response = await getLastModifedJson.json()
     const lastModified = response['lastModified']
     let isHaxDataUpdated
