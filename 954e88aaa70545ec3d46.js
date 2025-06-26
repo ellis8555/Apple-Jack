@@ -468,43 +468,46 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
 // img files all imported using script
 
 
-    //////////////////////////////////////////////////
-    // Set homepage standings table for current season
-    //////////////////////////////////////////////////
-    // setHomeTable();
-    ///////////////////
-    // during playoffs
-    ///////////////////
-    // setSeasonsFullTable(5, "Playoff", "Playoffs")
-    (0,_scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(_scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)
-    // Set listeners on table headers
-    ;(0,_scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
-    // service worker for caching begin checking local storage first
+//////////////////////////////////////////////////
+// Set homepage standings table for current season
+//////////////////////////////////////////////////
+// setHomeTable();
+///////////////////
+// during playoffs
+///////////////////
+// setSeasonsFullTable(5, "Playoff", "Playoffs")
+(0,_scripts_layouts_playoffTree_playoffTree__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)(_scripts_var_lib_season_currentSeason__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .A)
+// Set listeners on table headers
+;(0,_scripts_listeners_listenerHelpers_setTableListeners__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)();
+// service worker for caching begin checking local storage first
+const useServiceWorker = true
+if(useServiceWorker){
     const getLastModifedJson = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/haxLastModified.json")
     const response = await getLastModifedJson.json()
     const lastModified = response['lastModified']
     let isHaxDataUpdated
     let getLastModifiedHaxData = localStorage.getItem("haxDataLastModified")
     if(getLastModifiedHaxData == null){
-        localStorage.setItem("haxDataLastModified", lastModified)
-        isHaxDataUpdated = false
-    } else {
-        isHaxDataUpdated = lastModified === getLastModifiedHaxData ? true : false
-        if(!isHaxDataUpdated){
             localStorage.setItem("haxDataLastModified", lastModified)
-        }
-    }
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').then(registration => {
-            if(registration.active){
-                registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-            } else {
-                navigator.serviceWorker.ready.then(registration => {
-                    registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-                })
+            isHaxDataUpdated = false
+        } else {
+            isHaxDataUpdated = lastModified === getLastModifiedHaxData ? true : false
+            if(!isHaxDataUpdated){
+                localStorage.setItem("haxDataLastModified", lastModified)
             }
-    })
+        }
+    
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(registration => {
+                if(registration.active){
+                    registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+                } else {
+                    navigator.serviceWorker.ready.then(registration => {
+                        registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+                    })
+                }
+            })
+        }
 }
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
@@ -2479,8 +2482,12 @@ function getTeamsGameResults(e) {
       _classFiles_teams_teamStats__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.allTeamStats[team][
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
-    const gamesLength = teamsGames.length;
 
+      const firstRoundGamesCount = teamsGames.filter(game => game.Round === 1).length
+      const secondRoundGamesCount = teamsGames.filter(game => game.Round === 2).length
+      const thirdRoundGamesCount = teamsGames.filter(game => game.Round === 3).length
+      
+      const gamesLength = teamsGames.length;
       // seasons where teams now have ai generated team logos
       const seasonNumberAsNumber = parseInt(seasonNum)
       const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNum}` : `S0${seasonNum}`
@@ -2500,6 +2507,37 @@ function getTeamsGameResults(e) {
       scoresSeasonInfo.textContent = `S0${seasonNum} ${gameType}`;
       gameResultsFrag.append(scoresSeasonInfo)
 
+      // hr line for first round of playoffs
+      if(gameType === 'Playoff' && gamesLength > 0 && firstRoundGamesCount > 0){
+
+        // add round line hr
+        const roundOneLine = document.createElement('hr')
+        roundOneLine.style.border = "none"
+        roundOneLine.style.height = "1px"
+        roundOneLine.style.backgroundColor = "black"
+        gameResultsFrag.append(roundOneLine)
+
+        // add first round text
+        const firstRoundText = document.createElement("h5")
+        firstRoundText.innerText = "First Round"
+        gameResultsFrag.append(firstRoundText)
+      }
+
+      // add hr for teams who've had a first round bye
+      if(gameType === 'Playoff' && gamesLength > 0 && firstRoundGamesCount === 0 && secondRoundGamesCount > 0){
+        // add round line hr
+        const roundOneByeLine = document.createElement('hr')
+        roundOneByeLine.style.border = "none"
+        roundOneByeLine.style.height = "1px"
+        roundOneByeLine.style.backgroundColor = "black"
+        gameResultsFrag.append(roundOneByeLine)
+
+        // add first round text
+        const firstRoundByeText = document.createElement("h5")
+        firstRoundByeText.innerText = "First Round Bye"
+        gameResultsFrag.append(firstRoundByeText)
+      }
+
       if(gamesLength > 0){
         for (let i = 0; i < gamesLength; i++) {
 
@@ -2513,6 +2551,41 @@ function getTeamsGameResults(e) {
         const gameResultsDiv = document.createElement('div');
         gameResultsDiv.className = 'w3-container w3-margin gameResults';
         gameContainer.appendChild(gameResultsDiv);
+
+        // add hr between first and second round
+        if(i === firstRoundGamesCount && secondRoundGamesCount > 0){
+
+        // add round line hr
+        const secondLine = document.createElement('hr')
+        secondLine.style.border = "none"
+        secondLine.style.height = "1px"
+        secondLine.style.backgroundColor = "black"
+        gameResultsFrag.append(secondLine)
+
+        // add first round text
+        const secondRoundText = document.createElement("h5")
+        if(thirdRoundGamesCount === 0 && +seasonNum !== 3){
+          secondRoundText.innerText = "Championship Round"
+        } else {
+          secondRoundText.innerText = "2nd Round Robin"
+        }
+        gameResultsFrag.append(secondRoundText)
+        }
+
+        // hr line for playoffs that have 3 rounds
+        const firstTwoRoundsGamesTotal = firstRoundGamesCount + secondRoundGamesCount
+        if(i === firstTwoRoundsGamesTotal && thirdRoundGamesCount > 0){
+          // add round line hr
+          const thirdLine = document.createElement('hr')
+          thirdLine.style.border = "none"
+          thirdLine.style.height = "1px"
+          thirdLine.style.backgroundColor = "black"
+          gameResultsFrag.append(thirdLine)
+
+          const thirdRoundText = document.createElement("h5")
+          thirdRoundText.textContent = "Championship Round"
+          gameResultsFrag.append(thirdRoundText)
+        }
 
         // Home Team Logo    
         const homeTeamLogo = document.createElement('div');
@@ -9873,4 +9946,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=6ae5579c5e6e9acf98f0.js.map
+//# sourceMappingURL=954e88aaa70545ec3d46.js.map
