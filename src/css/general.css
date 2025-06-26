@@ -245,6 +245,11 @@ table td:first-child {
   width: 50%;
 }
 
+#scoreboardDiv > hr {
+  width: 47.5%;
+  margin: 2rem auto;
+}
+
 .homeTeamLogo,
 .homeTeam,
 .awayTeamLogo,

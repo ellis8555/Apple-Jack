@@ -107,6 +107,11 @@
     width: 75%;
   }
 
+#scoreboardDiv > hr {
+  width: 72.5%;
+  margin: auto
+}
+
   .gameHighlights {
     background-color: rgb(21, 87, 83);
     color: white;
