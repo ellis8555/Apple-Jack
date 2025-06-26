@@ -19,7 +19,7 @@ self.addEventListener('fetch', (ev) => {
     const req = ev.request;
     const url = req.url;
 
-    if (url.endsWith('haxData.js')) {
+    if (url.endsWith('.js')) {
             ev.respondWith(
                 caches.open('javascripts').then((cache) => {
                     // 1. First, check if a cached version exists
