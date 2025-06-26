@@ -45,15 +45,13 @@ import currentSeason from "./scripts/var_lib/season/currentSeason"
     }
 
     if ('serviceWorker' in navigator) {
-    (async () => {
-        const registration = await navigator.serviceWorker.register('./sw.js')
-
-        if(registration.active){
-            registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-        } else {
-            navigator.serviceWorker.ready.then(swReg => {
-                swReg.active?.postMessage({ type: "LAST_MODIFIED", payload: isHaxDataUpdated });
-            });
-        }
-    })()
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+            if(registration.active){
+                registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+            } else {
+                navigator.serviceWorker.ready.then(registration => {
+                    registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+                })
+            }
+    })
 }

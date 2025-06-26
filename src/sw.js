@@ -131,16 +131,17 @@ self.addEventListener('fetch', (ev) => {
                 })
             );
         }
-    } else if(url.endsWith(".css")) {
+    } else if(url.startsWith("main") && url.endsWith(".css")) {
         ev.respondWith(
             caches.open('cssFiles').then((cache) => {
+
                 // 1. First, check if a cached version exists
                 return cache.match(req).then((cachedResponse) => {
                     // If cached, return it immediately
                     if (cachedResponse) return cachedResponse;
-
                     // 2. If not cached, fetch fresh from network
                     return fetch(req).then((fetchResponse) => {
+                        
                         if (!fetchResponse.ok) throw new Error('Bad response');
 
                         // 3. Clone response before caching
