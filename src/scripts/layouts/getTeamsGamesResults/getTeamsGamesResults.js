@@ -25,8 +25,12 @@ export default function getTeamsGameResults(e) {
       TeamStats.allTeamStats[team][
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
-    const gamesLength = teamsGames.length;
 
+      const firstRoundGamesCount = teamsGames.filter(game => game.Round === 1).length
+      const secondRoundGamesCount = teamsGames.filter(game => game.Round === 2).length
+      const thirdRoundGamesCount = teamsGames.filter(game => game.Round === 3).length
+      
+      const gamesLength = teamsGames.length;
       // seasons where teams now have ai generated team logos
       const seasonNumberAsNumber = parseInt(seasonNum)
       const seasonNumberFolderName = seasonNumberAsNumber>9 ? `S${seasonNum}` : `S0${seasonNum}`
@@ -46,6 +50,37 @@ export default function getTeamsGameResults(e) {
       scoresSeasonInfo.textContent = `S0${seasonNum} ${gameType}`;
       gameResultsFrag.append(scoresSeasonInfo)
 
+      // hr line for first round of playoffs
+      if(gameType === 'Playoff' && gamesLength > 0 && firstRoundGamesCount > 0){
+
+        // add round line hr
+        const roundOneLine = document.createElement('hr')
+        roundOneLine.style.border = "none"
+        roundOneLine.style.height = "1px"
+        roundOneLine.style.backgroundColor = "black"
+        gameResultsFrag.append(roundOneLine)
+
+        // add first round text
+        const firstRoundText = document.createElement("h5")
+        firstRoundText.innerText = "First Round"
+        gameResultsFrag.append(firstRoundText)
+      }
+
+      // add hr for teams who've had a first round bye
+      if(gameType === 'Playoff' && gamesLength > 0 && firstRoundGamesCount === 0 && secondRoundGamesCount > 0){
+        // add round line hr
+        const roundOneByeLine = document.createElement('hr')
+        roundOneByeLine.style.border = "none"
+        roundOneByeLine.style.height = "1px"
+        roundOneByeLine.style.backgroundColor = "black"
+        gameResultsFrag.append(roundOneByeLine)
+
+        // add first round text
+        const firstRoundByeText = document.createElement("h5")
+        firstRoundByeText.innerText = "First Round Bye"
+        gameResultsFrag.append(firstRoundByeText)
+      }
+
       if(gamesLength > 0){
         for (let i = 0; i < gamesLength; i++) {
 
@@ -59,6 +94,41 @@ export default function getTeamsGameResults(e) {
         const gameResultsDiv = document.createElement('div');
         gameResultsDiv.className = 'w3-container w3-margin gameResults';
         gameContainer.appendChild(gameResultsDiv);
+
+        // add hr between first and second round
+        if(i === firstRoundGamesCount && secondRoundGamesCount > 0){
+
+        // add round line hr
+        const secondLine = document.createElement('hr')
+        secondLine.style.border = "none"
+        secondLine.style.height = "1px"
+        secondLine.style.backgroundColor = "black"
+        gameResultsFrag.append(secondLine)
+
+        // add first round text
+        const secondRoundText = document.createElement("h5")
+        if(thirdRoundGamesCount === 0 && +seasonNum !== 3){
+          secondRoundText.innerText = "Championship Round"
+        } else {
+          secondRoundText.innerText = "2nd Round Robin"
+        }
+        gameResultsFrag.append(secondRoundText)
+        }
+
+        // hr line for playoffs that have 3 rounds
+        const firstTwoRoundsGamesTotal = firstRoundGamesCount + secondRoundGamesCount
+        if(i === firstTwoRoundsGamesTotal && thirdRoundGamesCount > 0){
+          // add round line hr
+          const thirdLine = document.createElement('hr')
+          thirdLine.style.border = "none"
+          thirdLine.style.height = "1px"
+          thirdLine.style.backgroundColor = "black"
+          gameResultsFrag.append(thirdLine)
+
+          const thirdRoundText = document.createElement("h5")
+          thirdRoundText.textContent = "Championship Round"
+          gameResultsFrag.append(thirdRoundText)
+        }
 
         // Home Team Logo    
         const homeTeamLogo = document.createElement('div');
