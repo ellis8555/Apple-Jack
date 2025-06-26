@@ -131,7 +131,7 @@ self.addEventListener('fetch', (ev) => {
                 })
             );
         }
-    } else if(url.startsWith("main") && url.endsWith(".css")) {
+    } else if(url.includes("main") && url.endsWith(".css")) {
         ev.respondWith(
             caches.open('cssFiles').then((cache) => {
 
