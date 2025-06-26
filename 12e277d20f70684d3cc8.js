@@ -482,7 +482,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_scr
 // service worker for caching begin checking local storage first
 const useServiceWorker = true
 if(useServiceWorker){
-    const getLastModifedJson = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/haxLastModified.json")
+    const getLastModifedJson = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/haxLastModified.json", {cache: 'no-store'})
     const response = await getLastModifedJson.json()
     const lastModified = response['lastModified']
     let isHaxDataUpdated
@@ -9946,4 +9946,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=954e88aaa70545ec3d46.js.map
+//# sourceMappingURL=12e277d20f70684d3cc8.js.map
