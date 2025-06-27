@@ -74,28 +74,18 @@ self.addEventListener('fetch', (ev) => {
                 // there is new updated data so do a fetch and cache
         if(isHaxDataUpdated){
             ev.respondWith(
-                // 1. get or create cache
-                caches.open('haxData').then((cache) => {
-                    // 2. perform fetch
-                        return fetch(req).then((fetchResponse) => {
-                            if (!fetchResponse.ok) throw new Error('Bad response');
+                caches.open('haxData').then(cache => {
+                    return fetch(req).then(fetchResponse => {
+                        if (!fetchResponse.ok) throw new Error('Bad response');
 
-                            // 3. Clone response before caching
-                            const responseClone = fetchResponse.clone();
+                        const responseClone = fetchResponse.clone();
 
-                            // 4. Delete ALL previously cached .js files (but keep current request)
-                            return cache.keys().then((keys) => {
-                                return Promise.all(
-                                    keys.filter(key => key.url != req.url).map((key) => cache.delete(key))
-                                ).then(() => {
-                                    // 5. Cache the new JS file
-                                    return cache.put(req, responseClone);
-                                });
-                            }).then(() => fetchResponse);
-                        }).catch((err) => {
-                            console.error('Fetch failed:', err);
-                            return fetch(req); // Fallback to network
-                        });
+                        // Overwrite existing file in cache
+                        return cache.put(req, responseClone).then(() => fetchResponse);
+                    }).catch(err => {
+                        console.error('Fetch failed:', err);
+                        return fetch(req); // fallback
+                    });
                 })
             );
         // check to see if data is in the cache
@@ -109,20 +99,12 @@ self.addEventListener('fetch', (ev) => {
 
                         // 2. If not cached, fetch fresh from network
                         return fetch(req).then((fetchResponse) => {
-                            if (!fetchResponse.ok) throw new Error('Bad response');
+                        if (!fetchResponse.ok) throw new Error('Bad response');
 
-                            // 3. Clone response before caching
-                            const responseClone = fetchResponse.clone();
+                        const responseClone = fetchResponse.clone();
 
-                            // 4. Delete ALL previously cached .js files (but keep current request)
-                            return cache.keys().then((keys) => {
-                                return Promise.all(
-                                    keys.filter(key => key.url != req.url).map((key) => cache.delete(key))
-                                ).then(() => {
-                                    // 5. Cache the new JS file
-                                    return cache.put(req, responseClone);
-                                });
-                            }).then(() => fetchResponse);
+                        // Overwrite existing file in cache
+                        return cache.put(req, responseClone).then(() => fetchResponse);
                         }).catch((err) => {
                             console.error('Fetch failed:', err);
                             return fetch(req); // Fallback to network
