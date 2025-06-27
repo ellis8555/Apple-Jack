@@ -2602,7 +2602,7 @@ function getTeamsGameResults(e) {
         const secondRoundText = document.createElement("h5")
         if(thirdRoundGamesCount === 0 && +seasonNum !== 3){
           secondRoundText.innerText = "Championship Round"
-                  // add series winner message
+        // add series winner message
         const championshipRoundGames = teamsGames.filter(game => game.Round === 2)
         // get this teams ID
         const teamsID = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(team).TeamID
@@ -2638,8 +2638,71 @@ function getTeamsGameResults(e) {
         gameResultsFrag.append(secondRoundText)
         gameResultsFrag.append(championshipRoundResultsText)
       } else {
+        // for round robin style plyaoff round
         secondRoundText.innerText = "2nd Round Robin"
         gameResultsFrag.append(secondRoundText)
+
+        // determine which teams advance after the round robin
+        // add series winner message
+        const roundRobinGames = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_11__/* .GameResults */ .t7.filter(game => game.SeasonNumber === 3).filter(game => game.Round === 2)
+        const setListOfTeams = new Set()
+        roundRobinGames.forEach(game => setListOfTeams.add(game.TeamOne))
+        roundRobinGames.forEach(game => setListOfTeams.add(game.TeamTwo))
+        const arrayListOfTeams = Array.from(setListOfTeams)
+
+        const teamsObjectCollection = {}
+
+        arrayListOfTeams.forEach(teamId => teamsObjectCollection[teamId] = 0)
+        // loop through each team in the round robin
+        for(let i=0; i<arrayListOfTeams.length; i++){
+          // for round robin game check for current team
+          for(let j=0; j<roundRobinGames.length; j++){
+            let points = 0
+            const teamId = arrayListOfTeams[i]
+            // wins checks
+            if(roundRobinGames[j].TeamOne === teamId && roundRobinGames[j].TeamOneScore > roundRobinGames[j].TeamTwoScore){
+              if(roundRobinGames[j].ExtraTime !== "Yes"){
+                points += 3
+              } else {
+                points += 2
+              }
+            }
+            if(roundRobinGames[j].TeamTwo === teamId && roundRobinGames[j].TeamTwoScore > roundRobinGames[j].TeamOneScore){
+              if(roundRobinGames[j].ExtraTime !== "Yes"){
+                points += 3
+              } else {
+                points += 2
+              }
+            }
+            // ot loss checks
+            if(roundRobinGames[j].TeamOne === teamId && roundRobinGames[j].TeamOneScore < roundRobinGames[j].TeamTwoScore){
+              if(roundRobinGames[j].ExtraTime === "Yes"){
+                points += 1
+              }
+            }
+            if(roundRobinGames[j].TeamTwo === teamId && roundRobinGames[j].TeamTwoScore < roundRobinGames[j].TeamOneScore){
+              if(roundRobinGames[j].ExtraTime === "Yes"){
+                points += 1
+              }
+            }
+            teamsObjectCollection[teamId] = teamsObjectCollection[teamId] + points
+          }
+        }
+
+        const [bottomTeam] = Object.entries(teamsObjectCollection).sort((a,b) => a[1]-b[1])
+
+        // get this teams ID
+        const teamsID = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(team).TeamID
+        
+        let roundsText
+        const roundRobinResultsText = document.createElement("h6")
+        roundRobinResultsText.innerText = roundRobinResultsText
+        if(teamsID === +bottomTeam[0]){
+          roundsText = `${team} fails to advance with ${teamsObjectCollection[teamsID]} pts`
+        } else {
+          roundsText = `${team} advances with ${teamsObjectCollection[teamsID]} pts`
+        }
+        gameResultsFrag.append(roundsText)
       }
     }
 
@@ -10052,4 +10115,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=4e793843bc006c5c1af8.js.map
+//# sourceMappingURL=d6e42bf3ff369207990c.js.map
