@@ -40,21 +40,21 @@ if(useServiceWorker){
             localStorage.setItem("haxDataLastModified", lastModified)
             isHaxDataUpdated = false
         } else {
-            isHaxDataUpdated = lastModified === getLastModifiedHaxData ? true : false
+            isHaxDataUpdated = lastModified === getLastModifiedHaxData
             if(!isHaxDataUpdated){
                 localStorage.setItem("haxDataLastModified", lastModified)
             }
         }
     
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js').then(registration => {
-                if(registration.active){
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+            if(registration.active){
+                registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+            } else {
+                navigator.serviceWorker.ready.then(registration => {
                     registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-                } else {
-                    navigator.serviceWorker.ready.then(registration => {
-                        registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-                    })
-                }
-            })
-        }
+                })
+            }
+        })
+    }
 }
