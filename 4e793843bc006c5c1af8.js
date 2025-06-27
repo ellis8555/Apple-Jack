@@ -2521,6 +2521,42 @@ function getTeamsGameResults(e) {
         const firstRoundText = document.createElement("h5")
         firstRoundText.innerText = "First Round"
         gameResultsFrag.append(firstRoundText)
+
+        // add series winner message
+        const firstRoundGames = teamsGames.filter(game => game.Round === 1)
+        // get this teams ID
+        const teamsID = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(team).TeamID
+        // variables that will collect wins/losses for this team
+        let winsThisSeries = 0
+        let lossesThisSeries = 0
+        firstRoundGames.forEach(game => {
+          if(game.TeamOne === teamsID){
+            if(game.TeamOneScore > game.TeamTwoScore){
+              winsThisSeries++
+            } else {
+              lossesThisSeries++
+            }
+          }
+          if(game.TeamTwo === teamsID){
+            if(game.TeamTwoScore > game.TeamOneScore){
+              winsThisSeries++
+            } else {
+              lossesThisSeries++
+            }
+          }
+        })
+
+        let seriesResultsText
+        if(winsThisSeries > lossesThisSeries){
+          seriesResultsText = `${team} wins the series ${winsThisSeries} - ${lossesThisSeries}`
+        } else {
+          seriesResultsText = `${team} lose the series ${lossesThisSeries} - ${winsThisSeries}`
+        }
+
+        const firstRoundResultsText = document.createElement("h6")
+        firstRoundResultsText.innerText = seriesResultsText
+        gameResultsFrag.append(firstRoundResultsText)
+
       }
 
       // add hr for teams who've had a first round bye
@@ -2566,11 +2602,46 @@ function getTeamsGameResults(e) {
         const secondRoundText = document.createElement("h5")
         if(thirdRoundGamesCount === 0 && +seasonNum !== 3){
           secondRoundText.innerText = "Championship Round"
+                  // add series winner message
+        const championshipRoundGames = teamsGames.filter(game => game.Round === 2)
+        // get this teams ID
+        const teamsID = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(team).TeamID
+        // variables that will collect wins/losses for this team
+        let winsThisSeries = 0
+        let lossesThisSeries = 0
+        championshipRoundGames.forEach(game => {
+          if(game.TeamOne === teamsID){
+            if(game.TeamOneScore > game.TeamTwoScore){
+              winsThisSeries++
+            } else {
+              lossesThisSeries++
+            }
+          }
+          if(game.TeamTwo === teamsID){
+            if(game.TeamTwoScore > game.TeamOneScore){
+              winsThisSeries++
+            } else {
+              lossesThisSeries++
+            }
+          }
+        })
+
+        let seriesResultsText
+        if(winsThisSeries > lossesThisSeries){
+          seriesResultsText = `${team} wins the championship series ${winsThisSeries} - ${lossesThisSeries}`
         } else {
-          secondRoundText.innerText = "2nd Round Robin"
+          seriesResultsText = `${team} lose the championship series ${lossesThisSeries} - ${winsThisSeries}`
         }
+
+        let championshipRoundResultsText = document.createElement("h6")
+        championshipRoundResultsText.innerText = seriesResultsText
         gameResultsFrag.append(secondRoundText)
-        }
+        gameResultsFrag.append(championshipRoundResultsText)
+      } else {
+        secondRoundText.innerText = "2nd Round Robin"
+        gameResultsFrag.append(secondRoundText)
+      }
+    }
 
         // hr line for playoffs that have 3 rounds
         const firstTwoRoundsGamesTotal = firstRoundGamesCount + secondRoundGamesCount
@@ -2585,6 +2656,41 @@ function getTeamsGameResults(e) {
           const thirdRoundText = document.createElement("h5")
           thirdRoundText.textContent = "Championship Round"
           gameResultsFrag.append(thirdRoundText)
+
+                  // add series winner message
+        const championshipRoundGames = teamsGames.filter(game => game.Round === 3)
+        // get this teams ID
+        const teamsID = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .A.get(team).TeamID
+        // variables that will collect wins/losses for this team
+        let winsThisSeries = 0
+        let lossesThisSeries = 0
+        championshipRoundGames.forEach(game => {
+          if(game.TeamOne === teamsID){
+            if(game.TeamOneScore > game.TeamTwoScore){
+              winsThisSeries++
+            } else {
+              lossesThisSeries++
+            }
+          }
+          if(game.TeamTwo === teamsID){
+            if(game.TeamTwoScore > game.TeamOneScore){
+              winsThisSeries++
+            } else {
+              lossesThisSeries++
+            }
+          }
+        })
+
+        let seriesResultsText
+        if(winsThisSeries > lossesThisSeries){
+          seriesResultsText = `${team} wins the championship series ${winsThisSeries} - ${lossesThisSeries}`
+        } else {
+          seriesResultsText = `${team} lose the championship series ${lossesThisSeries} - ${winsThisSeries}`
+        }
+
+        const championshipRoundResultsText = document.createElement("h6")
+        championshipRoundResultsText.innerText = seriesResultsText
+        gameResultsFrag.append(championshipRoundResultsText)
         }
 
         // Home Team Logo    
@@ -9946,4 +10052,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=1c75ae658e549270e4ea.js.map
+//# sourceMappingURL=4e793843bc006c5c1af8.js.map
