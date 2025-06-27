@@ -491,23 +491,23 @@ if(useServiceWorker){
             localStorage.setItem("haxDataLastModified", lastModified)
             isHaxDataUpdated = false
         } else {
-            isHaxDataUpdated = lastModified === getLastModifiedHaxData ? true : false
+            isHaxDataUpdated = lastModified === getLastModifiedHaxData
             if(!isHaxDataUpdated){
                 localStorage.setItem("haxDataLastModified", lastModified)
             }
         }
     
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js').then(registration => {
-                if(registration.active){
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(registration => {
+            if(registration.active){
+                registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
+            } else {
+                navigator.serviceWorker.ready.then(registration => {
                     registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-                } else {
-                    navigator.serviceWorker.ready.then(registration => {
-                        registration.active.postMessage({type: "LAST_MODIFIED", payload: isHaxDataUpdated})
-                    })
-                }
-            })
-        }
+                })
+            }
+        })
+    }
 }
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
@@ -9946,4 +9946,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=12e277d20f70684d3cc8.js.map
+//# sourceMappingURL=1c75ae658e549270e4ea.js.map
