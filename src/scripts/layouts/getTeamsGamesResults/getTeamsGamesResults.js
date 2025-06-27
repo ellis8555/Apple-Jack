@@ -10,7 +10,7 @@ import createTeamCssLogo from "../../misc/createTeamCssLogo";
 import backButton from "../../misc/backButton";
 import getGameResultClass from "./helpers/getGameResultClass"
 import getGameResultText from "./helpers/getGameResultText"
-import { Gifs } from "../../../constants/masterHaxData";
+import { Gifs, GameResults } from "../../../constants/masterHaxData";
 import clearScoreboardDiv from "../../scoreboard/clearScoreboardDiv";
 import getTablesDiv from "../../tables/getTablesDiv";
 import { SEASON_WITH_TEAM_LOGOS_START } from "../../../constants/consts/vars";
@@ -145,7 +145,7 @@ export default function getTeamsGameResults(e) {
         const secondRoundText = document.createElement("h5")
         if(thirdRoundGamesCount === 0 && +seasonNum !== 3){
           secondRoundText.innerText = "Championship Round"
-                  // add series winner message
+        // add series winner message
         const championshipRoundGames = teamsGames.filter(game => game.Round === 2)
         // get this teams ID
         const teamsID = eachTeamObjectMAP.get(team).TeamID
@@ -181,8 +181,71 @@ export default function getTeamsGameResults(e) {
         gameResultsFrag.append(secondRoundText)
         gameResultsFrag.append(championshipRoundResultsText)
       } else {
+        // for round robin style plyaoff round
         secondRoundText.innerText = "2nd Round Robin"
         gameResultsFrag.append(secondRoundText)
+
+        // determine which teams advance after the round robin
+        // add series winner message
+        const roundRobinGames = GameResults.filter(game => game.SeasonNumber === 3).filter(game => game.Round === 2)
+        const setListOfTeams = new Set()
+        roundRobinGames.forEach(game => setListOfTeams.add(game.TeamOne))
+        roundRobinGames.forEach(game => setListOfTeams.add(game.TeamTwo))
+        const arrayListOfTeams = Array.from(setListOfTeams)
+
+        const teamsObjectCollection = {}
+
+        arrayListOfTeams.forEach(teamId => teamsObjectCollection[teamId] = 0)
+        // loop through each team in the round robin
+        for(let i=0; i<arrayListOfTeams.length; i++){
+          // for round robin game check for current team
+          for(let j=0; j<roundRobinGames.length; j++){
+            let points = 0
+            const teamId = arrayListOfTeams[i]
+            // wins checks
+            if(roundRobinGames[j].TeamOne === teamId && roundRobinGames[j].TeamOneScore > roundRobinGames[j].TeamTwoScore){
+              if(roundRobinGames[j].ExtraTime !== "Yes"){
+                points += 3
+              } else {
+                points += 2
+              }
+            }
+            if(roundRobinGames[j].TeamTwo === teamId && roundRobinGames[j].TeamTwoScore > roundRobinGames[j].TeamOneScore){
+              if(roundRobinGames[j].ExtraTime !== "Yes"){
+                points += 3
+              } else {
+                points += 2
+              }
+            }
+            // ot loss checks
+            if(roundRobinGames[j].TeamOne === teamId && roundRobinGames[j].TeamOneScore < roundRobinGames[j].TeamTwoScore){
+              if(roundRobinGames[j].ExtraTime === "Yes"){
+                points += 1
+              }
+            }
+            if(roundRobinGames[j].TeamTwo === teamId && roundRobinGames[j].TeamTwoScore < roundRobinGames[j].TeamOneScore){
+              if(roundRobinGames[j].ExtraTime === "Yes"){
+                points += 1
+              }
+            }
+            teamsObjectCollection[teamId] = teamsObjectCollection[teamId] + points
+          }
+        }
+
+        const [bottomTeam] = Object.entries(teamsObjectCollection).sort((a,b) => a[1]-b[1])
+
+        // get this teams ID
+        const teamsID = eachTeamObjectMAP.get(team).TeamID
+        
+        let roundsText
+        const roundRobinResultsText = document.createElement("h6")
+        roundRobinResultsText.innerText = roundRobinResultsText
+        if(teamsID === +bottomTeam[0]){
+          roundsText = `${team} fails to advance with ${teamsObjectCollection[teamsID]} pts`
+        } else {
+          roundsText = `${team} advances with ${teamsObjectCollection[teamsID]} pts`
+        }
+        gameResultsFrag.append(roundsText)
       }
     }
 
