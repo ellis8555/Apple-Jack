@@ -26,9 +26,14 @@ export default function getTeamsGameResults(e) {
         "teamsSeason" + seasonNum + gameType + "Stats"
       ][0];
 
-      const firstRoundGamesCount = teamsGames.filter(game => game.Round === 1).length
-      const secondRoundGamesCount = teamsGames.filter(game => game.Round === 2).length
-      const thirdRoundGamesCount = teamsGames.filter(game => game.Round === 3).length
+      let firstRoundGamesCount = 0
+      let secondRoundGamesCount = 0
+      let thirdRoundGamesCount = 0
+      if(gameType === "Playoff"){
+        firstRoundGamesCount = teamsGames.filter(game => game.Round === 1).length
+        secondRoundGamesCount = teamsGames.filter(game => game.Round === 2).length
+        thirdRoundGamesCount = teamsGames.filter(game => game.Round === 3).length
+      }
       
       const gamesLength = teamsGames.length;
       // seasons where teams now have ai generated team logos
@@ -118,7 +123,15 @@ export default function getTeamsGameResults(e) {
       }
 
       if(gamesLength > 0){
+
+        
         for (let i = 0; i < gamesLength; i++) {
+          
+        if(gameType === "Season"){
+          const gameNumber = document.createElement('h6');
+          gameNumber.textContent = `Game ${i+1}`;
+          gameResultsFrag.append(gameNumber)
+        }
 
               // get home and away team names
         let homeTeamName = `${teamsMAP.get(+teamsGames[i].TeamOne)}`
