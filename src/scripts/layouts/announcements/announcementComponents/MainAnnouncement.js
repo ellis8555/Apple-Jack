@@ -1,5 +1,5 @@
 async function getMessageData(){
-  const getMainContent = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/announcements.json")
+  const getMainContent = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/announcements.json", {cache: "no-store"})
   const mainContent = await getMainContent.json()
   const flattenedMainContent = mainContent.mainContent
   return flattenedMainContent
