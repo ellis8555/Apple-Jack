@@ -10,6 +10,7 @@ var map = {
 	"./favicon/haxFav.svg": 7576,
 	"./haxball-big-min.png": 1058,
 	"./haxball-big-min.svg": 5805,
+	"./nhl94.com.png": 7564,
 	"./original-logo.svg": 4636,
 	"./teamLogos/S01/CEGUnited.png": 9829,
 	"./teamLogos/S01/HaxualChocolate.png": 2804,
@@ -2338,7 +2339,7 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 async function getMessageData(){
-  const getMainContent = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/announcements.json")
+  const getMainContent = await fetch("https://hax94-league.s3.us-east-2.amazonaws.com/json/announcements.json", {cache: "no-store"})
   const mainContent = await getMainContent.json()
   const flattenedMainContent = mainContent.mainContent
   return flattenedMainContent
@@ -2378,7 +2379,7 @@ __webpack_async_result__();
 /* harmony export */ });
 function Message(){
     const message = document.createElement('p');
-    message.innerHTML = `Hax94 is a league that began as a tournament between players from the classic title EA NHL 94. <br> NHL 94 league website can be found at <a href="http://www.nhl94.com" style="color:red">here</a>. <br><br> There are also a few players from the NHL 95 community as well.  
+    message.innerHTML = `Hax94 is a league that began as a tournament between players from the classic title EA NHL 94. <br> The NHL 94 community website can be found at <br><a href="http://www.nhl94.com"><img style="max-width:100%;height:auto;" src="../../../../../img/nhl94.com.png" alt="NHL94.com"/> </a> <br><br> There are also a few players from the NHL 95 community as well.  
     `
     return message;
 }
@@ -9438,6 +9439,14 @@ module.exports = __webpack_require__.p + "img/haxball-big-min.png";
 
 /***/ }),
 
+/***/ 7564:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "img/nhl94.com.png";
+
+/***/ }),
+
 /***/ 4636:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10115,4 +10124,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=d6e42bf3ff369207990c.js.map
+//# sourceMappingURL=e5d563dc5e03039bf9bd.js.map
