@@ -71,11 +71,11 @@ self.addEventListener('fetch', (ev) => {
             })
         )
     } else if (url.endsWith('haxData.json')){
-                // there is new updated data so do a fetch and cache
+        // there is new updated data so do a fetch and cache
         if(isHaxDataUpdated){
             ev.respondWith(
                 caches.open('haxData').then(cache => {
-                    return fetch(req).then(fetchResponse => {
+                    return fetch(req, {cache: "no-store"}).then(fetchResponse => {
                         if (!fetchResponse.ok) throw new Error('Bad response');
 
                         const responseClone = fetchResponse.clone();
@@ -98,7 +98,7 @@ self.addEventListener('fetch', (ev) => {
                         if (cachedResponse) return cachedResponse;
 
                         // 2. If not cached, fetch fresh from network
-                        return fetch(req).then((fetchResponse) => {
+                        return fetch(req, {cache: "no-store"}).then((fetchResponse) => {
                         if (!fetchResponse.ok) throw new Error('Bad response');
 
                         const responseClone = fetchResponse.clone();
