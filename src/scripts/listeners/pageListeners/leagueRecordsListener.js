@@ -9,4 +9,5 @@ document
     setTimeout(() => {
       closeSidebar()
     }, 50)
+    leagueTeamRecords.setListenersOnFormSelects()
   });
