@@ -4488,6 +4488,26 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 4536:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function getSelectValues() {
+    const getRecordsFormSelects = document.querySelectorAll('select')
+    const formSelectValues = {}
+    getRecordsFormSelects.forEach(select => {
+        formSelectValues[select.id] = select.value
+    })
+    return formSelectValues
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getSelectValues);
+
+/***/ }),
+
 /***/ 3120:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -4567,6 +4587,45 @@ function getTeamsPlayers(teamNumber, seasonNumber) {
   return getPlayers;
 }
 
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 2276:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _getSelectValues__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4536);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6638);
+/* harmony import */ var _scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6749);
+/* harmony import */ var _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4781);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__]);
+_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+
+
+
+function showSelectedRecords(){
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)()
+    const scoreboardDiv = (0,_scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)()
+    const selectedValues = (0,_getSelectValues__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)()
+
+    const template = document.createElement('template')
+    template.innerHTML = `
+        <p>Records page under construction</p>
+    `
+
+    const clonedNode = template.content.cloneNode(true)
+    scoreboardDiv.append(clonedNode)
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showSelectedRecords);
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
@@ -4654,42 +4713,110 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */   A: () => (/* binding */ createRecordsLayout)
 /* harmony export */ });
 /* harmony import */ var _teamRecords_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8715);
+/* harmony import */ var _recordViewHtmlTemplates_recordsForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6251);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_teamRecords_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__]);
 _teamRecords_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
 
 
 function createRecordsLayout() {
   // create records nav that will contain allTime/season/playoffs buttons
   let recordsNav = document.createElement("div");
   recordsNav.classList = "recordsNav w3-panel w3-round";
+  const recordsForm = (0,_recordViewHtmlTemplates_recordsForm_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)()
+  recordsNav.append(recordsForm); 
 
-  // create season button
-  let recordsSeasonButton = document.createElement("div");
-  recordsSeasonButton.classList = "w3-round w3-card";
-  recordsSeasonButton.setAttribute("data-seasonMode", "Season");
-  recordsSeasonButton.innerHTML = "Season";
-  recordsNav.append(recordsSeasonButton);
-  recordsSeasonButton.addEventListener("click", _teamRecords_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A);
-  // create playoffs button
-  let recordsPlayoffsButton = document.createElement("div");
-  recordsPlayoffsButton.classList = "w3-round w3-card";
-  recordsPlayoffsButton.setAttribute("data-seasonMode", "Playoff");
-  recordsPlayoffsButton.innerHTML = "Playoff";
-  recordsNav.append(recordsPlayoffsButton);
-  recordsPlayoffsButton.addEventListener("click", _teamRecords_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A);
-  // create all time button
-  let recordsAllTimeButton = document.createElement("div");
-  recordsAllTimeButton.classList = "w3-round w3-card";
-  recordsAllTimeButton.setAttribute("data-seasonMode", "AllTime");
-  recordsAllTimeButton.innerHTML = "All Time";
-  recordsNav.append(recordsAllTimeButton);
-  recordsAllTimeButton.addEventListener("click", _teamRecords_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A);
+  // // create season button
+  // let recordsSeasonButton = document.createElement("div");
+  // recordsSeasonButton.classList = "w3-round w3-card";
+  // recordsSeasonButton.setAttribute("data-seasonMode", "Season");
+  // recordsSeasonButton.innerHTML = "Season";
+  // recordsNav.append(recordsSeasonButton);
+  // // create playoffs button
+  // let recordsPlayoffsButton = document.createElement("div");
+  // recordsPlayoffsButton.classList = "w3-round w3-card";
+  // recordsPlayoffsButton.setAttribute("data-seasonMode", "Playoff");
+  // recordsPlayoffsButton.innerHTML = "Playoff";
+  // recordsNav.append(recordsPlayoffsButton);
+  // // create all time button
+  // let recordsAllTimeButton = document.createElement("div");
+  // recordsAllTimeButton.classList = "w3-round w3-card";
+  // recordsAllTimeButton.setAttribute("data-seasonMode", "AllTime");
+  // recordsAllTimeButton.innerHTML = "All Time";
+  // recordsNav.append(recordsAllTimeButton); 
 
   return recordsNav;
 }
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 6251:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ createRecordsForm)
+/* harmony export */ });
+const modeSelectTemplate = document.createElement('template');
+modeSelectTemplate.innerHTML = `
+  <form id="leagueRecordsForm">
+    <div>
+      <label for="type">Type</label>
+      <select name="type" id="type">
+        <option value="team">Team</option>
+        <option value="player">Player</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="mode">Mode</label>
+      <select name="mode" id="mode">
+        <option value="all">All</option>
+        <option value="season">Season</option>
+        <option value="playoff">Playoffs</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="seasonNumber">Season Number</label>
+      <select name="seasonNumberSelect" id="seasonNumber">
+        <option value="all">All</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="category">Category</label>
+      <select name="categorySelect" id="category">
+        <option value="goals">G</option>
+        <option value="assists">A</option>
+        <option value="points">PTS</option>
+        <option value="gamesPlayed">GP</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="per">Per</label>
+      <select name="per" id="per">
+        <option value="singleGame">Game</option>
+        <option value="singleSeason">Season</option>
+      </select>
+    </div>
+  </form>
+
+`;
+
+function createRecordsForm() {
+  return modeSelectTemplate.content.cloneNode(true);
+}
 
 /***/ }),
 
@@ -4896,8 +5023,10 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var _teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8715);
 /* harmony import */ var _recordViews_setRecordsPage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6779);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__, _recordViews_setRecordsPage_js__WEBPACK_IMPORTED_MODULE_1__]);
-([_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__, _recordViews_setRecordsPage_js__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _genericRecordFunctions_showSelectedRecords_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2276);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__, _recordViews_setRecordsPage_js__WEBPACK_IMPORTED_MODULE_1__, _genericRecordFunctions_showSelectedRecords_js__WEBPACK_IMPORTED_MODULE_2__]);
+([_teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__, _recordViews_setRecordsPage_js__WEBPACK_IMPORTED_MODULE_1__, _genericRecordFunctions_showSelectedRecords_js__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -4906,6 +5035,12 @@ const leagueTeamRecords = {
   setRecordsPageNav: _recordViews_setRecordsPage_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A,
   // teamGoalsScord.js
   teamGoals: _teamGoalsScored_teamGoalsScored_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A,
+  setListenersOnFormSelects: function(){
+    const getRecordsFormSelects = document.querySelectorAll('select')
+    getRecordsFormSelects.forEach(select => {
+        select.addEventListener('change', _genericRecordFunctions_showSelectedRecords_js__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)
+    })
+  }
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (leagueTeamRecords);
@@ -6661,6 +6796,7 @@ document
     setTimeout(() => {
       (0,_sidebar_closeSidebar__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)()
     }, 50)
+    _layouts_records_teamRecords_teamRecordsExports__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A.setListenersOnFormSelects()
   });
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
@@ -10137,4 +10273,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=35d35c397e3fdd4f8c0a.js.map
+//# sourceMappingURL=dc2449cbdcb61b0db7f5.js.map
