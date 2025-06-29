@@ -490,16 +490,30 @@ table td:first-child {
   width: 75%;
 }
 
+#leagueRecordsForm{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+}
+
+#leagueRecordsForm > select{
+  padding: 0 .25rem;
+  border-radius: 5px;
+}
+
+select:focus {
+  outline: none;
+}
+
 .recordsNav {
-  display:flex;
+  display:block;
   justify-content: space-between;
 }
 
 .recordsNav div {
-  background-color: rgb(21,87,83);
-  padding: 1em;
-  font-size: 1.25em;
-  cursor: pointer;
+  display: flex;
+  gap: .5rem
 }
 
 .singleRecordContainer {

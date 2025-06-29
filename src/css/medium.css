@@ -127,4 +127,15 @@
     grid-area: gameStats;
     margin: 5px 0px;
   }
+
+  #leagueRecordsForm, #leagueRecordsForm > div {
+  flex-direction: column;
+  }
+
+  #leagueRecordsForm select {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+  }
+
 }
