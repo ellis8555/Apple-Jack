@@ -4600,29 +4600,135 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _getSelectValues__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4536);
-/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6638);
-/* harmony import */ var _scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6749);
+/* harmony import */ var _getSelectValues__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4536);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6638);
+/* harmony import */ var _scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6749);
 /* harmony import */ var _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4781);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__]);
-_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(74);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__]);
+([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
 
 
 function showSelectedRecords(){
-    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)()
-    const scoreboardDiv = (0,_scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)()
-    const selectedValues = (0,_getSelectValues__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)()
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)()
+    const scoreboardDiv = (0,_scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)()
+    const {type, mode, seasonNumber, category, per} = (0,_getSelectValues__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)()
 
-    const template = document.createElement('template')
-    template.innerHTML = `
-        <p>Records page under construction</p>
-    `
+    const recordStat = getStat({type, mode, seasonNumber, category, per})
+
+    let template
+    if(recordStat){
+        let recordHTML = ""
+        recordStat.forEach(record => {
+            recordHTML += `Player: ${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)} | ${category === "Goals" ? "Goals: " + record.Goals : category === "Assists" ?  "Assists: "+record.Assists: ""}`
+            recordHTML += "<br>"
+        })
+        template = document.createElement('template')
+        template.innerHTML = recordHTML
+    } else {
+        template = document.createElement('template')
+        template.innerHTML = `
+            <p>Stat currently unavailable</p>
+        `
+    }
 
     const clonedNode = template.content.cloneNode(true)
     scoreboardDiv.append(clonedNode)
+
+}
+
+// function that returns the stat and based on either team or player type record
+function getStat({type, mode, seasonNumber, category, per}){
+    if(type === "player"){
+        return getPlayerRecord({mode, seasonNumber, category, per})
+    } else {
+        return getTeamRecord({mode, seasonNumber, category, per})
+    }
+}
+
+// player type records
+function getPlayerRecord({mode, seasonNumber, category, per}){
+    let filteredStats
+    const gamesList = getGameIdsBySeason(mode, +seasonNumber)
+    const extractedGameIds = extractGameIds(gamesList)
+    filteredStats = getPlayersGameObjects({category, per}, extractedGameIds)
+
+    return filteredStats
+}
+
+// team type records
+function getTeamRecord({mode, seasonNumber, category, per}){
+
+}
+
+// filter games list based on season number
+function getGameIdsBySeason(mode, seasonNumber = "all"){
+    let seasonFiltered
+    if(!isNaN(seasonNumber)){
+        seasonFiltered = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7.filter(game => game.SeasonNumber === seasonNumber)
+    } else {
+        seasonFiltered = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7
+    }
+
+    // filter out games by mode
+    let filteredByMode
+    switch(mode){
+        case "all":
+            filteredByMode = seasonFiltered
+        break;
+        case "season":
+            filteredByMode = seasonFiltered.filter(game => game.Round === 0)
+        break;
+        case "playoff":
+            filteredByMode = seasonFiltered.filter(game => game.Round !== 0)
+        break;
+        default:
+            filteredByMode = seasonFiltered
+    }
+
+    return filteredByMode
+}
+
+
+// collect game id's into an array
+function extractGameIds(gamesList){
+    return gamesList.map(game => game.GameID)
+}
+
+// get player requested stat by category
+function getPlayersGameObjects({category, per}, gameIdsArray){
+    const getPlayersGameDataByGamesId = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.filter(playersGame => {
+        if(gameIdsArray.includes(playersGame.GameID)){
+            return playersGame
+        }
+    })
+
+    let recordStat
+    if(per === "game"){
+       recordStat =  getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
+    }
+
+    if(per === "season"){
+        recordStat =  null
+    }
+
+    return recordStat
+}
+
+// extract requested game stat
+function getRequestedGameStat({category},dataArray, isSingleGame){
+    let recordStat
+    if(isSingleGame){
+        recordStat = dataArray.sort((a,b) => b[category] - a[category])
+    } else {
+        recordStat = null
+    }
+
+    return recordStat
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showSelectedRecords);
@@ -4763,12 +4869,15 @@ __webpack_async_result__();
 /* harmony export */ });
 const modeSelectTemplate = document.createElement('template');
 modeSelectTemplate.innerHTML = `
+  <p style="color:black;background-color: yellow;">Work in progress</p>
+  <p style="background-color: green;">Currently only player goals and assists </p>
+  <p style="background-color: green;">Select Type: Player </p>
   <form id="leagueRecordsForm">
     <div>
       <label for="type">Type</label>
       <select name="type" id="type">
-        <option value="team">Team</option>
-        <option value="player">Player</option>
+      <option value="team">Team</option>
+      <option value="player">Player</option>
       </select>
     </div>
 
@@ -4796,18 +4905,15 @@ modeSelectTemplate.innerHTML = `
     <div>
       <label for="category">Category</label>
       <select name="categorySelect" id="category">
-        <option value="goals">G</option>
-        <option value="assists">A</option>
-        <option value="points">PTS</option>
-        <option value="gamesPlayed">GP</option>
+        <option value="Goals">G</option>
+        <option value="Assists">A</option>
       </select>
     </div>
 
     <div>
       <label for="per">Per</label>
       <select name="per" id="per">
-        <option value="singleGame">Game</option>
-        <option value="singleSeason">Season</option>
+        <option value="game">Game</option>
       </select>
     </div>
   </form>
@@ -10273,4 +10379,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=dc2449cbdcb61b0db7f5.js.map
+//# sourceMappingURL=b55639d83ed1dbf2e911.js.map
