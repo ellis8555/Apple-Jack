@@ -4624,6 +4624,7 @@ function showSelectedRecords(){
     if(recordStat){
         let recordHTML = `
             <table id="recordsTable">
+                <caption>Records table captions to be worked on</caption>
                 <thead>
                     <th>Player</th>
                     <th>${category}</th>
@@ -10394,4 +10395,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=698004316d779fa7ff31.js.map
+//# sourceMappingURL=6efb0d8a58347fb6b348.js.map
