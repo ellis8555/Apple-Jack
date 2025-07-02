@@ -4622,11 +4622,26 @@ function showSelectedRecords(){
 
     let template
     if(recordStat){
-        let recordHTML = ""
-        recordStat.forEach(record => {
-            recordHTML += `Player: ${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)} | ${category === "Goals" ? "Goals: " + record.Goals : category === "Assists" ?  "Assists: "+record.Assists: ""}`
-            recordHTML += "<br>"
+        let recordHTML = `
+            <table id="recordsTable">
+                <thead>
+                    <th>Player</th>
+                    <th>${category}</th>
+                </thead>
+                <tbody>
+        `
+        recordStat.forEach(record => {  
+            recordHTML += `
+                            <tr>
+                                <td>${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)}</td>
+                                <td>${category === "Goals" ? record.Goals : category === "Assists" ?  record.Assists: ""}</td>
+                            </tr>`
         })
+        recordHTML += `
+                </tbody>
+                </thead>
+            </table>
+        `
         template = document.createElement('template')
         template.innerHTML = recordHTML
     } else {
@@ -10379,4 +10394,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=b55639d83ed1dbf2e911.js.map
+//# sourceMappingURL=698004316d779fa7ff31.js.map
