@@ -15,6 +15,7 @@ function showSelectedRecords(){
     if(recordStat){
         let recordHTML = `
             <table id="recordsTable">
+                <caption>Records table captions to be worked on</caption>
                 <thead>
                     <th>Player</th>
                     <th>${category}</th>
