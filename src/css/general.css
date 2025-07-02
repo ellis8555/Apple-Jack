@@ -120,6 +120,7 @@ table td:first-child {
 
 table#recordsTable {
   margin: auto;
+  font-size: 1rem;
     & th {
       background-color: #2196f3;
       color: white;
@@ -128,10 +129,10 @@ table#recordsTable {
       cursor:default
     }
     & tr:nth-child(odd){
-      background-color: grey;
+      background-color: white;
     }
     & tr:nth-child(even){
-      background-color: darkgrey;
+      background-color: lightgrey;
     }
 }
 

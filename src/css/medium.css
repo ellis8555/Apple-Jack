@@ -92,6 +92,7 @@ table#recordsTable {
 
 table#recordsTable thead {
   display: table-header-group;
+  background-color: #2196f3
 }
 
 table#recordsTable tbody {
@@ -109,10 +110,16 @@ table#recordsTable td,
 table#recordsTable th {
   display: table-cell;
   background: none;
-  text-align: left;
+  text-align: center;
   padding: 0.5rem;
   font-size: 1rem;
+  color: black;
   border-bottom: 1px solid #ccc;
+}
+
+table#recordsTable th {
+  background-color: #2196f3;
+  color: white
 }
 
 table#recordsTable td::before {
