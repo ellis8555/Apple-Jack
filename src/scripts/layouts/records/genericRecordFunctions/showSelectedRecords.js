@@ -13,11 +13,26 @@ function showSelectedRecords(){
 
     let template
     if(recordStat){
-        let recordHTML = ""
-        recordStat.forEach(record => {
-            recordHTML += `Player: ${playersMAP.get(record.PlayerID)} | ${category === "Goals" ? "Goals: " + record.Goals : category === "Assists" ?  "Assists: "+record.Assists: ""}`
-            recordHTML += "<br>"
+        let recordHTML = `
+            <table id="recordsTable">
+                <thead>
+                    <th>Player</th>
+                    <th>${category}</th>
+                </thead>
+                <tbody>
+        `
+        recordStat.forEach(record => {  
+            recordHTML += `
+                            <tr>
+                                <td>${playersMAP.get(record.PlayerID)}</td>
+                                <td>${category === "Goals" ? record.Goals : category === "Assists" ?  record.Assists: ""}</td>
+                            </tr>`
         })
+        recordHTML += `
+                </tbody>
+                </thead>
+            </table>
+        `
         template = document.createElement('template')
         template.innerHTML = recordHTML
     } else {
