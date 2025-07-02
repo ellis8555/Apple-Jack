@@ -83,6 +83,62 @@
     color: white
   }
 
+/* Make #recordsTable look and behave like a normal table */
+table#recordsTable {
+  width: 78%;
+  border-collapse: collapse;
+  box-shadow: none;
+}
+
+table#recordsTable thead {
+  display: table-header-group;
+}
+
+table#recordsTable tbody {
+  display: table-row-group;
+}
+
+table#recordsTable tr {
+  display: table-row;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+table#recordsTable td,
+table#recordsTable th {
+  display: table-cell;
+  background: none;
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+table#recordsTable td::before {
+  content: none !important;
+}
+
+table#recordsTable td:first-child {
+  display: table-cell;
+  font-weight: normal;
+  justify-content: unset;
+  background: unset;
+  color: unset;
+  padding-left: 0.5rem;
+  padding-top: 0;
+}
+
+table#recordsTable td:first-child > img {
+  transform: none;
+}
+
+table#recordsTable td:nth-child(odd),
+table#recordsTable td:nth-child(even) {
+  background: none;
+}
+
+
   /* team page players page stats. remove column that would contain team logo */
 
   #teamPlayerSeasonTable td:nth-child(2){

@@ -118,6 +118,24 @@ table td:first-child {
   padding-left: 16px;
 }
 
+table#recordsTable {
+  margin: auto;
+    & th {
+      background-color: #2196f3;
+      color: white;
+    }
+    & th:hover {
+      cursor:default
+    }
+    & tr:nth-child(odd){
+      background-color: grey;
+    }
+    & tr:nth-child(even){
+      background-color: darkgrey;
+    }
+}
+
+
 /*navbar*/
 #teamsNavbar > section {
   padding-top: 1rem;

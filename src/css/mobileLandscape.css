@@ -45,6 +45,10 @@
     line-height: 0.3 !important;
   }
 
+  table#recordsTable {
+  width: 100%;
+}
+
   /* CLASSES FOR TEAM PAGE LAYOUT */
 
   .teamsLayout {
