@@ -164,7 +164,7 @@ function createTableCaption({type, mode, seasonNumber, category, per}){
             return `Season ${seasonNumber} record for ${category.toLowerCase()} in either season or playoff ${per}`
         }
         if(mode === "season" && seasonNumber !== "all"){
-            return `Season ${seasonNumber} record for ${category.toLowerCase()} in either in a season ${per}`
+            return `Season ${seasonNumber} record for ${category.toLowerCase()} in a season ${per}`
         }
         if(mode === "playoff" && seasonNumber !== "all"){
             return `Season ${seasonNumber} record for ${category.toLowerCase()} in a playoff ${per}`
