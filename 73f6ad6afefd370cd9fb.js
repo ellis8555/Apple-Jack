@@ -4613,6 +4613,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_con
 
 
 
+
 function showSelectedRecords(){
     (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)()
     const scoreboardDiv = (0,_scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)()
@@ -4629,14 +4630,22 @@ function showSelectedRecords(){
                 <thead>
                     <th>Player</th>
                     <th>${category}</th>
+                    <th>Vs</th>
+                    ${seasonNumber === "all" ? "<th>Season</th>" : ""}
                 </thead>
                 <tbody>
-        `
-        recordStat.forEach(record => {  
+            `
+        recordStat.forEach(record => {         
+            const gamesRecord = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7.find(game => game.GameID === record.GameID)
+            const getOpponenentsTeamID = gamesRecord.TeamOne === record.TeamID ? gamesRecord.TeamTwo : gamesRecord.TeamOne
+            const getOpponenentsTeamObject = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.find(team => team.TeamID === getOpponenentsTeamID) 
+            const getOpponentsTeamName = getOpponenentsTeamObject["TeamName"]
             recordHTML += `
                             <tr>
                                 <td>${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)}</td>
                                 <td>${category === "Goals" ? record.Goals : category === "Assists" ?  record.Assists: ""}</td>
+                                <td>${getOpponentsTeamName}</td>
+                                ${seasonNumber === "all" ? "<td>"+ gamesRecord.SeasonNumber + "</td>" : ""}
                             </tr>`
         })
         recordHTML += `
@@ -4726,11 +4735,11 @@ function getPlayersGameObjects({category, per}, gameIdsArray){
 
     let recordStat
     if(per === "game"){
-       recordStat =  getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
+       recordStat = getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
     }
 
     if(per === "season"){
-        recordStat =  null
+        recordStat = null
     }
 
     return recordStat
@@ -10422,4 +10431,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=2272184082e3f5184aa4.js.map
+//# sourceMappingURL=73f6ad6afefd370cd9fb.js.map
