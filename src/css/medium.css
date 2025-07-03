@@ -114,7 +114,6 @@ table#recordsTable th {
   padding: 0.5rem;
   font-size: 1rem;
   color: black;
-  border-bottom: 1px solid #ccc;
 }
 
 table#recordsTable th {
@@ -133,7 +132,6 @@ table#recordsTable td:first-child {
   background: unset;
   color: unset;
   padding-left: 0.5rem;
-  padding-top: 0;
 }
 
 table#recordsTable td:first-child > img {
@@ -160,6 +158,10 @@ table#recordsTable td:nth-child(even) {
 
   tbody {
     line-height: 0.3 !important;
+  }
+
+  table#recordsTable > tbody {
+    line-height: 1.3 !important;
   }
 
   .gameResults {
