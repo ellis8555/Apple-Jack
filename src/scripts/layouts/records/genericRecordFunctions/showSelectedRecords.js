@@ -1,8 +1,9 @@
 import getSelectValues from "./getSelectValues";
 import clearScoreboardDiv from "../../../scoreboard/clearScoreboardDiv";
 import getScoreboardDiv from "../../../scoreboard/getScoreboardDiv"
-import { TeamPlayers, GameResults, GamePlayerStats } from "../../../../constants/masterHaxData";
+import { GameResults, GamePlayerStats } from "../../../../constants/masterHaxData";
 import playersMAP from "../../../var_lib/maps/players/playersMAP";
+import { Teams } from "../../../../constants/masterHaxData";
 
 function showSelectedRecords(){
     clearScoreboardDiv()
@@ -20,14 +21,22 @@ function showSelectedRecords(){
                 <thead>
                     <th>Player</th>
                     <th>${category}</th>
+                    <th>Vs</th>
+                    ${seasonNumber === "all" ? "<th>Season</th>" : ""}
                 </thead>
                 <tbody>
-        `
-        recordStat.forEach(record => {  
+            `
+        recordStat.forEach(record => {         
+            const gamesRecord = GameResults.find(game => game.GameID === record.GameID)
+            const getOpponenentsTeamID = gamesRecord.TeamOne === record.TeamID ? gamesRecord.TeamTwo : gamesRecord.TeamOne
+            const getOpponenentsTeamObject = Teams.find(team => team.TeamID === getOpponenentsTeamID) 
+            const getOpponentsTeamName = getOpponenentsTeamObject["TeamName"]
             recordHTML += `
                             <tr>
                                 <td>${playersMAP.get(record.PlayerID)}</td>
                                 <td>${category === "Goals" ? record.Goals : category === "Assists" ?  record.Assists: ""}</td>
+                                <td>${getOpponentsTeamName}</td>
+                                ${seasonNumber === "all" ? "<td>"+ gamesRecord.SeasonNumber + "</td>" : ""}
                             </tr>`
         })
         recordHTML += `
@@ -117,11 +126,11 @@ function getPlayersGameObjects({category, per}, gameIdsArray){
 
     let recordStat
     if(per === "game"){
-       recordStat =  getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
+       recordStat = getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
     }
 
     if(per === "season"){
-        recordStat =  null
+        recordStat = null
     }
 
     return recordStat
