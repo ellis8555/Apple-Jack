@@ -4773,7 +4773,7 @@ function createTableCaption({type, mode, seasonNumber, category, per}){
             return `Season ${seasonNumber} record for ${category.toLowerCase()} in either season or playoff ${per}`
         }
         if(mode === "season" && seasonNumber !== "all"){
-            return `Season ${seasonNumber} record for ${category.toLowerCase()} in either in a season ${per}`
+            return `Season ${seasonNumber} record for ${category.toLowerCase()} in a season ${per}`
         }
         if(mode === "playoff" && seasonNumber !== "all"){
             return `Season ${seasonNumber} record for ${category.toLowerCase()} in a playoff ${per}`
@@ -10431,4 +10431,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=73f6ad6afefd370cd9fb.js.map
+//# sourceMappingURL=36af4c93b17452422c67.js.map
