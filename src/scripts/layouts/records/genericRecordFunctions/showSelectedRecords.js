@@ -13,9 +13,10 @@ function showSelectedRecords(){
 
     let template
     if(recordStat){
+        const tableCaption = createTableCaption({type, mode, seasonNumber, category, per})
         let recordHTML = `
             <table id="recordsTable">
-                <caption>Records table captions to be worked on</caption>
+                <caption>${tableCaption}</caption>
                 <thead>
                     <th>Player</th>
                     <th>${category}</th>
@@ -136,6 +137,32 @@ function getRequestedGameStat({category},dataArray, isSingleGame){
     }
 
     return recordStat
+}
+
+// function create table caption
+function createTableCaption({type, mode, seasonNumber, category, per}){
+    if(type === "player"){
+        if(mode === "all" && seasonNumber === "all"){
+            return `All time record for ${category.toLowerCase()} in a ${per}`
+        }
+        if(mode === "season" && seasonNumber === "all"){
+            return `All time season game record for ${category.toLowerCase()} in a ${per}`
+        }
+        if(mode === "playoff" && seasonNumber === "all"){
+            return `All time playoff game record for ${category.toLowerCase()} in a ${per}`
+        }
+        if(mode === "all" && seasonNumber !== "all"){
+            return `Season ${seasonNumber} record for ${category.toLowerCase()} in either season or playoff ${per}`
+        }
+        if(mode === "season" && seasonNumber !== "all"){
+            return `Season ${seasonNumber} record for ${category.toLowerCase()} in either in a season ${per}`
+        }
+        if(mode === "playoff" && seasonNumber !== "all"){
+            return `Season ${seasonNumber} record for ${category.toLowerCase()} in a playoff ${per}`
+        }
+    }
+
+    return "If you see this a table caption scenario has been missed"
 }
 
 export default showSelectedRecords
