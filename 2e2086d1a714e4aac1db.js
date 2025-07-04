@@ -4620,7 +4620,6 @@ function showSelectedRecords(){
     const {type, mode, seasonNumber, category, per} = (0,_getSelectValues__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)()
 
     const recordStat = getStat({type, mode, seasonNumber, category, per})
-
     let template
     if(recordStat){
         const tableCaption = createTableCaption({type, mode, seasonNumber, category, per})
@@ -4629,9 +4628,9 @@ function showSelectedRecords(){
                 <caption>${tableCaption}</caption>
                 <thead>
                     <th>Player</th>
-                    <th>${category}</th>
-                    <th>Vs</th>
                     ${seasonNumber === "all" ? "<th>Season</th>" : ""}
+                    <th>Vs</th>
+                    <th>${category}</th>
                 </thead>
                 <tbody>
             `
@@ -4643,9 +4642,9 @@ function showSelectedRecords(){
             recordHTML += `
                             <tr>
                                 <td>${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)}</td>
-                                <td>${category === "Goals" ? record.Goals : category === "Assists" ?  record.Assists: ""}</td>
-                                <td>${getOpponentsTeamName}</td>
                                 ${seasonNumber === "all" ? "<td>"+ gamesRecord.SeasonNumber + "</td>" : ""}
+                                <td>${getOpponentsTeamName}</td>
+                                <td>${record[category]}</td>
                             </tr>`
         })
         recordHTML += `
@@ -4679,6 +4678,26 @@ function getStat({type, mode, seasonNumber, category, per}){
 // player type records
 function getPlayerRecord({mode, seasonNumber, category, per}){
     let filteredStats
+
+    // stats that require some forumla from the base stats
+    if(category === "Points"){
+        const tempAllTimePointsDetails = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.map(game => {
+            return [game.PlayerID, game.GameID, game.Goals + game.Assists]
+        }).sort((a, b) => b[2] - a[2]).splice(0, 5)
+
+         const tempArrayOfPlayerStats = []
+
+         tempAllTimePointsDetails.forEach(gameDetails => {
+                _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.find(game => {
+                if(game.PlayerID === gameDetails[0] && game.GameID === gameDetails[1]){
+                    game.Points = gameDetails[2]
+                    tempArrayOfPlayerStats.push(game)
+                }
+            })
+            filteredStats = tempArrayOfPlayerStats
+         })
+         return filteredStats
+    }
     const gamesList = getGameIdsBySeason(mode, +seasonNumber)
     const extractedGameIds = extractGameIds(gamesList)
     filteredStats = getPlayersGameObjects({category, per}, extractedGameIds)
@@ -10431,4 +10450,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=36af4c93b17452422c67.js.map
+//# sourceMappingURL=2e2086d1a714e4aac1db.js.map
