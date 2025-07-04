@@ -11,7 +11,6 @@ function showSelectedRecords(){
     const {type, mode, seasonNumber, category, per} = getSelectValues()
 
     const recordStat = getStat({type, mode, seasonNumber, category, per})
-
     let template
     if(recordStat){
         const tableCaption = createTableCaption({type, mode, seasonNumber, category, per})
@@ -20,9 +19,9 @@ function showSelectedRecords(){
                 <caption>${tableCaption}</caption>
                 <thead>
                     <th>Player</th>
-                    <th>${category}</th>
-                    <th>Vs</th>
                     ${seasonNumber === "all" ? "<th>Season</th>" : ""}
+                    <th>Vs</th>
+                    <th>${category}</th>
                 </thead>
                 <tbody>
             `
@@ -34,9 +33,9 @@ function showSelectedRecords(){
             recordHTML += `
                             <tr>
                                 <td>${playersMAP.get(record.PlayerID)}</td>
-                                <td>${category === "Goals" ? record.Goals : category === "Assists" ?  record.Assists: ""}</td>
-                                <td>${getOpponentsTeamName}</td>
                                 ${seasonNumber === "all" ? "<td>"+ gamesRecord.SeasonNumber + "</td>" : ""}
+                                <td>${getOpponentsTeamName}</td>
+                                <td>${record[category]}</td>
                             </tr>`
         })
         recordHTML += `
@@ -70,6 +69,26 @@ function getStat({type, mode, seasonNumber, category, per}){
 // player type records
 function getPlayerRecord({mode, seasonNumber, category, per}){
     let filteredStats
+
+    // stats that require some forumla from the base stats
+    if(category === "Points"){
+        const tempAllTimePointsDetails = GamePlayerStats.map(game => {
+            return [game.PlayerID, game.GameID, game.Goals + game.Assists]
+        }).sort((a, b) => b[2] - a[2]).splice(0, 5)
+
+         const tempArrayOfPlayerStats = []
+
+         tempAllTimePointsDetails.forEach(gameDetails => {
+                GamePlayerStats.find(game => {
+                if(game.PlayerID === gameDetails[0] && game.GameID === gameDetails[1]){
+                    game.Points = gameDetails[2]
+                    tempArrayOfPlayerStats.push(game)
+                }
+            })
+            filteredStats = tempArrayOfPlayerStats
+         })
+         return filteredStats
+    }
     const gamesList = getGameIdsBySeason(mode, +seasonNumber)
     const extractedGameIds = extractGameIds(gamesList)
     filteredStats = getPlayersGameObjects({category, per}, extractedGameIds)
