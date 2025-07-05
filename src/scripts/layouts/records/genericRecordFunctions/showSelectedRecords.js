@@ -72,9 +72,12 @@ function getPlayerRecord({mode, seasonNumber, category, per}){
 
     // stats that require some forumla from the base stats
     if(category === "Points"){
-        const tempAllTimePointsDetails = GamePlayerStats.map(game => {
+        const gamesList = getGameIdsBySeason(mode, +seasonNumber)
+        const extractedGameIds = extractGameIds(gamesList)
+        const getArrayOfPlayersGames = getPlayersGameObjects({category, per}, extractedGameIds)
+        const tempAllTimePointsDetails = getArrayOfPlayersGames.map(game => {
             return [game.PlayerID, game.GameID, game.Goals + game.Assists]
-        }).sort((a, b) => b[2] - a[2]).splice(0, 5)
+        }).sort((a, b) => b[2] - a[2]).slice(0, 5)
 
          const tempArrayOfPlayerStats = []
 
@@ -85,13 +88,12 @@ function getPlayerRecord({mode, seasonNumber, category, per}){
                     tempArrayOfPlayerStats.push(game)
                 }
             })
-            filteredStats = tempArrayOfPlayerStats
          })
-         return filteredStats
+         return tempArrayOfPlayerStats
     }
     const gamesList = getGameIdsBySeason(mode, +seasonNumber)
     const extractedGameIds = extractGameIds(gamesList)
-    filteredStats = getPlayersGameObjects({category, per}, extractedGameIds)
+    filteredStats = getPlayersGameObjects({category, per}, extractedGameIds).slice(0,5)
 
     return filteredStats
 }
@@ -142,10 +144,9 @@ function getPlayersGameObjects({category, per}, gameIdsArray){
             return playersGame
         }
     })
-
     let recordStat
     if(per === "game"){
-       recordStat = getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
+       recordStat = getRequestedGameStat({category}, getPlayersGameDataByGamesId, true)
     }
 
     if(per === "season"){
