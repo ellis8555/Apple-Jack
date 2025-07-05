@@ -4681,9 +4681,12 @@ function getPlayerRecord({mode, seasonNumber, category, per}){
 
     // stats that require some forumla from the base stats
     if(category === "Points"){
-        const tempAllTimePointsDetails = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.map(game => {
+        const gamesList = getGameIdsBySeason(mode, +seasonNumber)
+        const extractedGameIds = extractGameIds(gamesList)
+        const getArrayOfPlayersGames = getPlayersGameObjects({category, per}, extractedGameIds)
+        const tempAllTimePointsDetails = getArrayOfPlayersGames.map(game => {
             return [game.PlayerID, game.GameID, game.Goals + game.Assists]
-        }).sort((a, b) => b[2] - a[2]).splice(0, 5)
+        }).sort((a, b) => b[2] - a[2]).slice(0, 5)
 
          const tempArrayOfPlayerStats = []
 
@@ -4694,13 +4697,12 @@ function getPlayerRecord({mode, seasonNumber, category, per}){
                     tempArrayOfPlayerStats.push(game)
                 }
             })
-            filteredStats = tempArrayOfPlayerStats
          })
-         return filteredStats
+         return tempArrayOfPlayerStats
     }
     const gamesList = getGameIdsBySeason(mode, +seasonNumber)
     const extractedGameIds = extractGameIds(gamesList)
-    filteredStats = getPlayersGameObjects({category, per}, extractedGameIds)
+    filteredStats = getPlayersGameObjects({category, per}, extractedGameIds).slice(0,5)
 
     return filteredStats
 }
@@ -4751,10 +4753,9 @@ function getPlayersGameObjects({category, per}, gameIdsArray){
             return playersGame
         }
     })
-
     let recordStat
     if(per === "game"){
-       recordStat = getRequestedGameStat({category}, getPlayersGameDataByGamesId, true).slice(0, 5)
+       recordStat = getRequestedGameStat({category}, getPlayersGameDataByGamesId, true)
     }
 
     if(per === "season"){
@@ -4941,14 +4942,13 @@ __webpack_async_result__();
 const modeSelectTemplate = document.createElement('template');
 modeSelectTemplate.innerHTML = `
   <p style="color:black;background-color: yellow;">Work in progress</p>
-  <p style="background-color: green;">Currently only player goals and assists </p>
-  <p style="background-color: green;">Select Type: Player </p>
+  <p style="background-color: green;">Currently single game stats for a player</p>
   <form id="leagueRecordsForm">
     <div>
       <label for="type">Type</label>
       <select name="type" id="type">
-      <option value="team">Team</option>
       <option value="player">Player</option>
+      <option value="team" disabled>Team</option>
       </select>
     </div>
 
@@ -4978,6 +4978,10 @@ modeSelectTemplate.innerHTML = `
       <select name="categorySelect" id="category">
         <option value="Goals">G</option>
         <option value="Assists">A</option>
+        <option value="Points">Pts</option>
+        <option value="Kicks">Kicks</option>
+        <option value="Passes">Passes</option>
+        <option value="OwnGoals">Own Goals</option>
       </select>
     </div>
 
@@ -4985,6 +4989,7 @@ modeSelectTemplate.innerHTML = `
       <label for="per">Per</label>
       <select name="per" id="per">
         <option value="game">Game</option>
+        <option value="season" disabled>Season</option>
       </select>
     </div>
   </form>
@@ -10450,4 +10455,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=2e2086d1a714e4aac1db.js.map
+//# sourceMappingURL=15db6c53f32a88f7ad6f.js.map
