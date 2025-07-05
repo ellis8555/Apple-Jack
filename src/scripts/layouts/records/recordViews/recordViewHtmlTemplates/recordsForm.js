@@ -1,14 +1,13 @@
 const modeSelectTemplate = document.createElement('template');
 modeSelectTemplate.innerHTML = `
   <p style="color:black;background-color: yellow;">Work in progress</p>
-  <p style="background-color: green;">Currently only player goals and assists </p>
-  <p style="background-color: green;">Select Type: Player </p>
+  <p style="background-color: green;">Currently single game stats for a player</p>
   <form id="leagueRecordsForm">
     <div>
       <label for="type">Type</label>
       <select name="type" id="type">
-      <option value="team">Team</option>
       <option value="player">Player</option>
+      <option value="team" disabled>Team</option>
       </select>
     </div>
 
@@ -38,6 +37,10 @@ modeSelectTemplate.innerHTML = `
       <select name="categorySelect" id="category">
         <option value="Goals">G</option>
         <option value="Assists">A</option>
+        <option value="Points">Pts</option>
+        <option value="Kicks">Kicks</option>
+        <option value="Passes">Passes</option>
+        <option value="OwnGoals">Own Goals</option>
       </select>
     </div>
 
@@ -45,6 +48,7 @@ modeSelectTemplate.innerHTML = `
       <label for="per">Per</label>
       <select name="per" id="per">
         <option value="game">Game</option>
+        <option value="season" disabled>Season</option>
       </select>
     </div>
   </form>
