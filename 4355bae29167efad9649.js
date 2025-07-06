@@ -4600,13 +4600,17 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _getSelectValues__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4536);
-/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6638);
-/* harmony import */ var _scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6749);
+/* harmony import */ var _getSelectValues__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4536);
+/* harmony import */ var _scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6638);
+/* harmony import */ var _scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6749);
 /* harmony import */ var _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4781);
 /* harmony import */ var _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(74);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__]);
-([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3547);
+/* harmony import */ var _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1859);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__, _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__]);
+([_constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__, _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__, _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__, _var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
 
 
 
@@ -4615,11 +4619,12 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_con
 
 
 function showSelectedRecords(){
-    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A)()
-    const scoreboardDiv = (0,_scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A)()
-    const {type, mode, seasonNumber, category, per} = (0,_getSelectValues__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)()
+    (0,_scoreboard_clearScoreboardDiv__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .A)()
+    const scoreboardDiv = (0,_scoreboard_getScoreboardDiv__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A)()
+    const {type, mode, seasonNumber, category, per} = (0,_getSelectValues__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .A)()
 
     const recordStat = getStat({type, mode, seasonNumber, category, per})
+
     let template
     if(recordStat){
         const tableCaption = createTableCaption({type, mode, seasonNumber, category, per})
@@ -4628,25 +4633,38 @@ function showSelectedRecords(){
                 <caption>${tableCaption}</caption>
                 <thead>
                     <th>Player</th>
-                    ${seasonNumber === "all" ? "<th>Season</th>" : ""}
-                    <th>Vs</th>
+                    <th>Season</th>
+                    ${per === "season" ? "" : "<th>Vs</th>"}
                     <th>${category}</th>
                 </thead>
                 <tbody>
             `
-        recordStat.forEach(record => {         
-            const gamesRecord = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7.find(game => game.GameID === record.GameID)
-            const getOpponenentsTeamID = gamesRecord.TeamOne === record.TeamID ? gamesRecord.TeamTwo : gamesRecord.TeamOne
-            const getOpponenentsTeamObject = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.find(team => team.TeamID === getOpponenentsTeamID) 
-            const getOpponentsTeamName = getOpponenentsTeamObject["TeamName"]
+        if(per === "game"){
+            recordStat.forEach(record => {         
+                const gamesRecord = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GameResults */ .t7.find(game => game.GameID === record.GameID)
+                const getOpponenentsTeamID = gamesRecord.TeamOne === record.TeamID ? gamesRecord.TeamTwo : gamesRecord.TeamOne
+                const getOpponenentsTeamObject = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .Teams */ .P9.find(team => team.TeamID === getOpponenentsTeamID) 
+                const getOpponentsTeamName = getOpponenentsTeamObject["TeamName"]
+                recordHTML += `
+                                <tr>
+                                    <td>${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)}</td>
+                                    ${"<td>"+ gamesRecord.SeasonNumber + "</td>"}
+                                    <td>${getOpponentsTeamName}</td>
+                                    <td>${record[category]}</td>
+                                </tr>`
+            })
+        }
+        if(per === "season"){
+            recordStat.forEach(record => {    
+            const [name, seasonNum, recordCount] = record    
             recordHTML += `
                             <tr>
-                                <td>${_var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A.get(record.PlayerID)}</td>
-                                ${seasonNumber === "all" ? "<td>"+ gamesRecord.SeasonNumber + "</td>" : ""}
-                                <td>${getOpponentsTeamName}</td>
-                                <td>${record[category]}</td>
+                                <td>${name}</td>
+                                <td>${seasonNum}</td>
+                                <td>${recordCount}</td>
                             </tr>`
-        })
+            })
+        }
         recordHTML += `
                 </tbody>
                 </thead>
@@ -4666,6 +4684,11 @@ function showSelectedRecords(){
 
 }
 
+///////////////////
+//helper functions
+///////////////////
+    let filteredStats
+
 // function that returns the stat and based on either team or player type record
 function getStat({type, mode, seasonNumber, category, per}){
     if(type === "player"){
@@ -4675,41 +4698,110 @@ function getStat({type, mode, seasonNumber, category, per}){
     }
 }
 
-// player type records
-function getPlayerRecord({mode, seasonNumber, category, per}){
-    let filteredStats
+//////////////////////
+// team type records
+//////////////////////
 
-    // stats that require some forumla from the base stats
-    if(category === "Points"){
+function getTeamRecord({mode, seasonNumber, category, per}){
+
+}
+
+//////////////////////
+// player type records
+//////////////////////
+
+function getPlayerRecord({mode, seasonNumber, category, per}){
+
+
+    if(per === "game"){
+        // stats that require some forumla from the base stats
+        if(category === "Points"){
+            const gamesList = getGameIdsBySeason(mode, +seasonNumber)
+            const extractedGameIds = extractGameIds(gamesList)
+            const getArrayOfPlayersGames = getPlayersGameObjects({category, per}, extractedGameIds)
+            const tempAllTimePointsDetails = getArrayOfPlayersGames.map(game => {
+                return [game.PlayerID, game.GameID, game.Goals + game.Assists]
+            }).sort((a, b) => b[2] - a[2]).slice(0, 5)
+    
+             const tempArrayOfPlayerStats = []
+    
+             tempAllTimePointsDetails.forEach(gameDetails => {
+                    _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.find(game => {
+                    if(game.PlayerID === gameDetails[0] && game.GameID === gameDetails[1]){
+                        game.Points = gameDetails[2]
+                        tempArrayOfPlayerStats.push(game)
+                    }
+                })
+             })
+             return tempArrayOfPlayerStats
+        }
+        // stats that are a simple filter
         const gamesList = getGameIdsBySeason(mode, +seasonNumber)
         const extractedGameIds = extractGameIds(gamesList)
-        const getArrayOfPlayersGames = getPlayersGameObjects({category, per}, extractedGameIds)
-        const tempAllTimePointsDetails = getArrayOfPlayersGames.map(game => {
-            return [game.PlayerID, game.GameID, game.Goals + game.Assists]
-        }).sort((a, b) => b[2] - a[2]).slice(0, 5)
-
-         const tempArrayOfPlayerStats = []
-
-         tempAllTimePointsDetails.forEach(gameDetails => {
-                _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_0__/* .GamePlayerStats */ .$J.find(game => {
-                if(game.PlayerID === gameDetails[0] && game.GameID === gameDetails[1]){
-                    game.Points = gameDetails[2]
-                    tempArrayOfPlayerStats.push(game)
-                }
-            })
-         })
-         return tempArrayOfPlayerStats
+        filteredStats = getPlayersGameObjects({category, per}, extractedGameIds).slice(0,5)
     }
-    const gamesList = getGameIdsBySeason(mode, +seasonNumber)
-    const extractedGameIds = extractGameIds(gamesList)
-    filteredStats = getPlayersGameObjects({category, per}, extractedGameIds).slice(0,5)
+
+    if(per === "season"){
+        // stats that are a simple filter
+        filteredStats = extractSeasonMAPS({mode, category})
+    }
 
     return filteredStats
 }
 
-// team type records
-function getTeamRecord({mode, seasonNumber, category, per}){
-
+function extractSeasonMAPS({mode, category}){
+    // array to hold top MAP stats
+    const playersArray = []
+    // filter out MAPS by mode
+    switch(mode){
+        case "all":
+            for(let player of _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A){
+                for(let i=1; i<=_var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.length; i++){
+                    const mapName = `playersSeason${i}CombinedStatsMAP`
+                    const statMAP = _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A["allPlayersStats"][player[1]][mapName]
+                    if(statMAP){
+                        playersArray.push([player[1], i, statMAP.get(category)])
+                    }
+                }
+            }
+        break;
+        case "season":
+            for(let player of _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A){
+                for(let i=1; i<=_var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.length; i++){
+                    const mapName = `playersSeason${i}SeasonStatsMAP`
+                    const statMAP = _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A["allPlayersStats"][player[1]][mapName]
+                    if(statMAP){
+                        playersArray.push([player[1], i, statMAP.get(category)])
+                    }
+                }
+            }
+        break;
+        case "playoff":
+            for(let player of _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A){
+                for(let i=1; i<=_var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.length; i++){
+                    const mapName = `playersSeason${i}PlayoffStatsMAP`
+                    const statMAP = _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A["allPlayersStats"][player[1]][mapName]
+                    if(statMAP){
+                        playersArray.push([player[1], i, statMAP.get(category)])
+                    }
+                }
+            }
+        break;
+        default:
+            for(let player of _var_lib_maps_players_playersMAP__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A){
+                for(let i=1; i<=_var_lib_season_seasonCount__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .A.length; i++){
+                    const mapName = `playersSeason${i}CombinedStatsMAP`
+                    const statMAP = _classFiles_players_individualPlayerStats__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A["allPlayersStats"][player[1]][mapName]
+                    if(statMAP){
+                        playersArray.push([player[1], i, statMAP.get(category)])
+                    }
+                }
+            }           
+    }   
+    
+    playersArray.sort((a, b) => b[2] - a[2])
+    const recordsArray = playersArray.slice(0,5)
+    return recordsArray
 }
 
 // filter games list based on season number
@@ -4780,23 +4872,45 @@ function getRequestedGameStat({category},dataArray, isSingleGame){
 // function create table caption
 function createTableCaption({type, mode, seasonNumber, category, per}){
     if(type === "player"){
-        if(mode === "all" && seasonNumber === "all"){
-            return `All time record for ${category.toLowerCase()} in a ${per}`
+        if(per === "game"){
+            if(mode === "all" && seasonNumber === "all"){
+                return `All time record for ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "season" && seasonNumber === "all"){
+                return `All time season game record for ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "playoff" && seasonNumber === "all"){
+                return `All time playoff game record for ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "all" && seasonNumber !== "all"){
+                return `Season ${seasonNumber} record for ${category.toLowerCase()} in either season or playoff ${per}`
+            }
+            if(mode === "season" && seasonNumber !== "all"){
+                return `Season ${seasonNumber} record for ${category.toLowerCase()} in a season ${per}`
+            }
+            if(mode === "playoff" && seasonNumber !== "all"){
+                return `Season ${seasonNumber} record for ${category.toLowerCase()} in a playoff ${per}`
+            }
         }
-        if(mode === "season" && seasonNumber === "all"){
-            return `All time season game record for ${category.toLowerCase()} in a ${per}`
-        }
-        if(mode === "playoff" && seasonNumber === "all"){
-            return `All time playoff game record for ${category.toLowerCase()} in a ${per}`
-        }
-        if(mode === "all" && seasonNumber !== "all"){
-            return `Season ${seasonNumber} record for ${category.toLowerCase()} in either season or playoff ${per}`
-        }
-        if(mode === "season" && seasonNumber !== "all"){
-            return `Season ${seasonNumber} record for ${category.toLowerCase()} in a season ${per}`
-        }
-        if(mode === "playoff" && seasonNumber !== "all"){
-            return `Season ${seasonNumber} record for ${category.toLowerCase()} in a playoff ${per}`
+        if(per === "season"){
+            if(mode === "all" && seasonNumber === "all"){
+                return `All time record for combined season and playoff ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "season" && seasonNumber === "all"){
+                return `All time season record for ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "playoff" && seasonNumber === "all"){
+                return `All time record for playoff ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "all" && seasonNumber !== "all"){
+                return `All time record for combined season and playoff ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "season" && seasonNumber !== "all"){
+                return `All time record for combined season and playoff ${category.toLowerCase()} in a ${per}`
+            }
+            if(mode === "playoff" && seasonNumber !== "all"){
+                return `All time record for combined season and playoff ${category.toLowerCase()} in a ${per}`
+            }
         }
     }
 
@@ -4942,7 +5056,7 @@ __webpack_async_result__();
 const modeSelectTemplate = document.createElement('template');
 modeSelectTemplate.innerHTML = `
   <p style="color:black;background-color: yellow;">Work in progress</p>
-  <p style="background-color: green;">Currently single game stats for a player</p>
+  <p style="background-color: green;">Player records for single game or season records</p>
   <form id="leagueRecordsForm">
     <div>
       <label for="type">Type</label>
@@ -4955,7 +5069,7 @@ modeSelectTemplate.innerHTML = `
     <div>
       <label for="mode">Mode</label>
       <select name="mode" id="mode">
-        <option value="all">All</option>
+        <option value="all">Combined</option>
         <option value="season">Season</option>
         <option value="playoff">Playoffs</option>
       </select>
@@ -4979,6 +5093,7 @@ modeSelectTemplate.innerHTML = `
         <option value="Goals">G</option>
         <option value="Assists">A</option>
         <option value="Points">Pts</option>
+        <option value="ShotsOnGoal">SOG</option>
         <option value="Kicks">Kicks</option>
         <option value="Passes">Passes</option>
         <option value="OwnGoals">Own Goals</option>
@@ -4989,7 +5104,7 @@ modeSelectTemplate.innerHTML = `
       <label for="per">Per</label>
       <select name="per" id="per">
         <option value="game">Game</option>
-        <option value="season" disabled>Season</option>
+        <option value="season">Season</option>
       </select>
     </div>
   </form>
@@ -8825,7 +8940,6 @@ function createTable(
             teamLogo.alt = 'img'
             const playersTeamID = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .TeamPlayers */ .QS.filter((seasonNum) => seasonNum.SeasonNumber == seasonNumber).filter((player) => player.PlayerID === _var_lib_maps_players_playersNumMAP__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .A.get(item.get('Name')))[0].TeamID
             const playersTeamName = _constants_masterHaxData__WEBPACK_IMPORTED_MODULE_4__/* .Teams */ .P9.find((team) => team.TeamID === playersTeamID).TeamName
-            console.log(playersTeamName)
             const teamsLogoName = _var_lib_maps_teams_eachTeamObjectMAP__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .A.get(playersTeamName)[`${seasonNumberFolderName}HomeFilePath`]
             teamLogo.src = `../../../img/teamLogos/${seasonNumberFolderName}/${teamsLogoName}.png`
             if((window.innerWidth < _constants_consts_vars__WEBPACK_IMPORTED_MODULE_3__/* .TABLE_BREAK_POINT */ .QC)){
@@ -10455,4 +10569,4 @@ module.exports = __webpack_require__.p + "img/teamLogos/S05/USHAX.png";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=15db6c53f32a88f7ad6f.js.map
+//# sourceMappingURL=4355bae29167efad9649.js.map
