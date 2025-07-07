@@ -114,6 +114,7 @@ table#recordsTable th {
   padding: 0.5rem;
   font-size: 1rem;
   color: black;
+  word-break: break-all;
 }
 
 table#recordsTable th {
